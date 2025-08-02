@@ -1,5 +1,5 @@
 """
-Hooks component for Claude Code hooks integration (future-ready)
+Hooks component for Gemini Code hooks integration (future-ready)
 """
 
 from typing import Dict, List, Tuple, Optional, Any
@@ -9,7 +9,7 @@ from ..base.component import Component
 
 
 class HooksComponent(Component):
-    """Claude Code hooks integration component"""
+    """Gemini Code hooks integration component"""
     
     def __init__(self, install_dir: Optional[Path] = None):
         """Initialize hooks component"""
@@ -29,7 +29,7 @@ class HooksComponent(Component):
         return {
             "name": "hooks",
             "version": "3.0.0",
-            "description": "Claude Code hooks integration (future-ready)",
+            "description": "Gemini Code hooks integration (future-ready)",
             "category": "integration"
         }
     def get_metadata_modifications(self) -> Dict[str, Any]:
@@ -63,7 +63,7 @@ class HooksComponent(Component):
 
     def _install(self, config: Dict[str, Any]) -> bool:
         """Install hooks component"""
-        self.logger.info("Installing SuperClaude hooks component...")
+        self.logger.info("Installing SuperGemini hooks component...")
 
         # This component is future-ready - hooks aren't implemented yet
         source_dir = self._get_source_dir()
@@ -78,9 +78,9 @@ class HooksComponent(Component):
 
             # Create placeholder file
             placeholder_content = '''"""
-SuperClaude Hooks - Future Implementation
+SuperGemini Hooks - Future Implementation
 
-This directory is reserved for Claude Code hooks integration.
+This directory is reserved for Gemini Code hooks integration.
 Hooks will provide lifecycle management and automation capabilities.
 
 Planned hooks:
@@ -90,7 +90,7 @@ Planned hooks:
 - context_accumulator: Manage context across operations
 - performance_monitor: Track and optimize performance
 
-For more information, see SuperClaude documentation.
+For more information, see SuperGemini documentation.
 """
 
 # Placeholder for future hooks implementation
@@ -188,7 +188,7 @@ pass
     def uninstall(self) -> bool:
         """Uninstall hooks component"""
         try:
-            self.logger.info("Uninstalling SuperClaude hooks component...")
+            self.logger.info("Uninstalling SuperGemini hooks component...")
             
             # Remove hook files and placeholder
             removed_count = 0
@@ -245,7 +245,7 @@ pass
     def update(self, config: Dict[str, Any]) -> bool:
         """Update hooks component"""
         try:
-            self.logger.info("Updating SuperClaude hooks component...")
+            self.logger.info("Updating SuperGemini hooks component...")
             
             # Check current version
             current_version = self.settings_manager.get_component_version("hooks")
@@ -328,10 +328,10 @@ pass
     
     def _get_source_dir(self) -> Path:
         """Get source directory for hook files"""
-        # Assume we're in SuperClaude/setup/components/hooks.py
-        # and hook files are in SuperClaude/SuperClaude/Hooks/
+        # Assume we're in SuperGemini/setup/components/hooks.py
+        # and hook files are in SuperGemini/SuperGemini/Hooks/
         project_root = Path(__file__).parent.parent.parent
-        return project_root / "SuperClaude" / "Hooks"
+        return project_root / "SuperGemini" / "Hooks"
     
     def get_size_estimate(self) -> int:
         """Get estimated installation size"""

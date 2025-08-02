@@ -1,5 +1,5 @@
 """
-SuperClaude Installation Operation Module
+SuperGemini Installation Operation Module
 Refactored from install.py for unified CLI hub
 """
 
@@ -35,15 +35,15 @@ def register_parser(subparsers, global_parser=None) -> argparse.ArgumentParser:
     
     parser = subparsers.add_parser(
         "install",
-        help="Install SuperClaude framework components",
-        description="Install SuperClaude Framework with various options and profiles",
+        help="Install SuperGemini framework components",
+        description="Install SuperGemini Framework with various options and profiles",
         epilog="""
 Examples:
-  SuperClaude install                          # Interactive installation
-  SuperClaude install --quick --dry-run        # Quick installation (dry-run)
-  SuperClaude install --profile developer      # Developer profile  
-  SuperClaude install --components core mcp    # Specific components
-  SuperClaude install --verbose --force        # Verbose with force mode
+  SuperGemini install                          # Interactive installation
+  SuperGemini install --quick --dry-run        # Quick installation (dry-run)
+  SuperGemini install --profile developer      # Developer profile  
+  SuperGemini install --components core mcp    # Specific components
+  SuperGemini install --verbose --force        # Verbose with force mode
         """,
         formatter_class=argparse.RawDescriptionHelpFormatter,
         parents=parents
@@ -94,6 +94,12 @@ Examples:
         help="Run system diagnostics and show installation help"
     )
     
+    parser.add_argument(
+        "--interactive",
+        action="store_true",
+        help="Interactive component selection"
+    )
+    
     return parser
 
 
@@ -121,7 +127,7 @@ def validate_system_requirements(validator: Validator, component_names: List[str
             
             # Provide additional guidance
             print(f"\n{Colors.CYAN}💡 Installation Help:{Colors.RESET}")
-            print("  Run 'SuperClaude install --diagnose' for detailed system diagnostics")
+            print("  Run 'SuperGemini install --diagnose' for detailed system diagnostics")
             print("  and step-by-step installation instructions.")
             
             return False
@@ -203,7 +209,7 @@ def interactive_component_selection(registry: ComponentRegistry, config_manager:
             "Custom Selection"
         ]
         
-        print(f"\n{Colors.CYAN}SuperClaude Installation Options:{Colors.RESET}")
+        print(f"\n{Colors.CYAN}SuperGemini Installation Options:{Colors.RESET}")
         menu = Menu("Select installation type:", preset_options)
         choice = menu.display()
         
@@ -282,7 +288,7 @@ def run_system_diagnostics(validator: Validator) -> None:
     """Run comprehensive system diagnostics"""
     logger = get_logger()
     
-    print(f"\n{Colors.CYAN}{Colors.BRIGHT}SuperClaude System Diagnostics{Colors.RESET}")
+    print(f"\n{Colors.CYAN}{Colors.BRIGHT}SuperGemini System Diagnostics{Colors.RESET}")
     print("=" * 50)
     
     # Run diagnostics
@@ -317,18 +323,18 @@ def run_system_diagnostics(validator: Validator) -> None:
     
     # Summary
     if all_passed:
-        print(f"\n{Colors.GREEN}✅ All system checks passed! Your system is ready for SuperClaude.{Colors.RESET}")
+        print(f"\n{Colors.GREEN}✅ All system checks passed! Your system is ready for SuperGemini.{Colors.RESET}")
     else:
         print(f"\n{Colors.YELLOW}⚠️  Some issues found. Please address the recommendations above.{Colors.RESET}")
     
     print(f"\n{Colors.BLUE}Next steps:{Colors.RESET}")
     if all_passed:
-        print("  1. Run 'SuperClaude install' to proceed with installation")
+        print("  1. Run 'SuperGemini install' to proceed with installation")
         print("  2. Choose your preferred installation mode (quick, minimal, or custom)")
     else:
         print("  1. Install missing dependencies using the commands above")
         print("  2. Restart your terminal after installing tools")
-        print("  3. Run 'SuperClaude install --diagnose' again to verify")
+        print("  3. Run 'SuperGemini install --diagnose' again to verify")
 
 
 def perform_installation(components: List[str], args: argparse.Namespace) -> bool:
@@ -439,8 +445,8 @@ def run(args: argparse.Namespace) -> int:
         # Display header
         if not args.quiet:
             display_header(
-                "SuperClaude Installation v3.0",
-                "Installing SuperClaude framework components"
+                "SuperGemini Installation v3.0",
+                "Installing SuperGemini framework components"
             )
         
         # Handle special modes
@@ -522,13 +528,13 @@ def run(args: argparse.Namespace) -> int:
         
         if success:
             if not args.quiet:
-                display_success("SuperClaude installation completed successfully!")
+                display_success("SuperGemini installation completed successfully!")
                 
                 if not args.dry_run:
                     print(f"\n{Colors.CYAN}Next steps:{Colors.RESET}")
-                    print(f"1. Restart your Claude Code session")
+                    print(f"1. Restart your Gemini Code session")
                     print(f"2. Framework files are now available in {args.install_dir}")
-                    print(f"3. Use SuperClaude commands and features in Claude Code")
+                    print(f"3. Use SuperGemini commands and features in Gemini Code")
                     
             return 0
         else:

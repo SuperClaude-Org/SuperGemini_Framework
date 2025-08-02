@@ -2,13 +2,13 @@
 
 ## 🔒 Reporting Security Vulnerabilities
 
-We take security seriously. If you discover a security vulnerability in SuperClaude Framework, please help us address it responsibly.
+We take security seriously. If you discover a security vulnerability in SuperGemini Framework, please help us address it responsibly.
 
 ### Responsible Disclosure
 
 **Please do NOT create public GitHub issues for security vulnerabilities.**
 
-Instead, email us directly at: `security@superclaude.dev` (or create a private GitHub Security Advisory)
+Instead, email us directly at: `security@supergemini.dev` (or create a private GitHub Security Advisory)
 
 ### What to Include
 
@@ -88,7 +88,7 @@ cat install.sh | less
 ./install.sh --dev
 
 # Check file permissions after installation
-ls -la ~/.claude/
+ls -la ~/.gemini/
 ```
 
 #### Configuration Security
@@ -105,8 +105,8 @@ ls -la ~/.claude/
 ```
 
 #### Regular Maintenance
-- **Update regularly**: Keep SuperClaude and dependencies current
-- **Review logs**: Check `~/.claude/` for suspicious activity
+- **Update regularly**: Keep SuperGemini and dependencies current
+- **Review logs**: Check `~/.gemini/` for suspicious activity
 - **Monitor permissions**: Ensure hooks have minimal required permissions
 - **Validate configurations**: Use provided schemas to validate settings
 
@@ -154,7 +154,7 @@ signal.alarm(10)  # 10-second timeout
 ## 🤝 Security Community
 
 ### Bug Bounty Program
-Currently, we don't have a formal bug bounty program, but we recognize security researchers who help improve SuperClaude's security:
+Currently, we don't have a formal bug bounty program, but we recognize security researchers who help improve SuperGemini's security:
 
 - **Public acknowledgment** in release notes and security advisories
 - **Early access** to new features and versions
@@ -170,7 +170,7 @@ Currently, we don't have a formal bug bounty program, but we recognize security 
 ## 📞 Contact Information
 
 ### Security Team
-- **Email**: `security@superclaude.dev`
+- **Email**: `security@supergemini.dev`
 - **PGP Key**: Available on request
 - **Response Time**: 48 hours maximum
 
@@ -185,7 +185,7 @@ For general security questions (not vulnerabilities):
 ### Security-Related Documentation
 - [Contributing Guidelines](CONTRIBUTING.md) - Secure development practices
 - [Installation Guide](README.md) - Secure installation procedures
-- [Configuration Reference](SuperClaude/Settings/settings.json) - Security settings
+- [Configuration Reference](SuperGemini/Settings/settings.json) - Security settings
 
 ### External Security Resources
 - [OWASP Top 10](https://owasp.org/www-project-top-ten/)
@@ -197,4 +197,4 @@ For general security questions (not vulnerabilities):
 **Last Updated**: July 2025  
 **Next Review**: October 2025
 
-Thank you for helping keep SuperClaude Framework secure! 🙏
+Thank you for helping keep SuperGemini Framework secure! 🙏

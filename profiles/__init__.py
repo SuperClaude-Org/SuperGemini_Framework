@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """
-SuperClaude Framework Management Hub
-Unified entry point for all SuperClaude operations
+SuperGemini Framework Management Hub
+Unified entry point for all SuperGemini operations
 
 Usage:
-    SuperClaude install [options]
-    SuperClaude update [options]
-    SuperClaude uninstall [options]
-    SuperClaude backup [options]
-    SuperClaude --help
+    SuperGemini install [options]
+    SuperGemini update [options]
+    SuperGemini uninstall [options]
+    SuperGemini backup [options]
+    SuperGemini --help
 """

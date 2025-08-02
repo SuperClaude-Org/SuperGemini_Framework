@@ -1,6 +1,6 @@
 """
-Settings management for SuperClaude installation system
-Handles settings.json migration to the new SuperClaude metadata json file
+Settings management for SuperGemini installation system
+Handles settings.json migration to the new SuperGemini metadata json file
 Allows for manipulation of these json files with deep merge and backup
 """
 
@@ -24,7 +24,7 @@ class SettingsManager:
         """
         self.install_dir = install_dir
         self.settings_file = install_dir / "settings.json"
-        self.metadata_file = install_dir / ".superclaude-metadata.json"
+        self.metadata_file = install_dir / ".supergemini-metadata.json"
         self.backup_dir = install_dir / "backups" / "settings"
         
     def load_settings(self) -> Dict[str, Any]:
@@ -67,7 +67,7 @@ class SettingsManager:
     
     def load_metadata(self) -> Dict[str, Any]:
         """
-        Load SuperClaude metadata from .superclaude-metadata.json
+        Load SuperGemini metadata from .supergemini-metadata.json
         
         Returns:
             Metadata dict (empty if file doesn't exist)
@@ -83,7 +83,7 @@ class SettingsManager:
     
     def save_metadata(self, metadata: Dict[str, Any]) -> None:
         """
-        Save SuperClaude metadata to .superclaude-metadata.json
+        Save SuperGemini metadata to .supergemini-metadata.json
         
         Args:
             metadata: Metadata dict to save
@@ -122,22 +122,22 @@ class SettingsManager:
         merged = self.merge_metadata(modifications)
         self.save_metadata(merged)
 
-    def migrate_superclaude_data(self) -> bool:
+    def migrate_supergemini_data(self) -> bool:
         """
-        Migrate SuperClaude-specific data from settings.json to metadata file
+        Migrate SuperGemini-specific data from settings.json to metadata file
         
         Returns:
             True if migration occurred, False if no data to migrate
         """
         settings = self.load_settings()
         
-        # SuperClaude-specific fields to migrate
-        superclaude_fields = ["components", "framework", "superclaude", "mcp"]
+        # SuperGemini-specific fields to migrate
+        supergemini_fields = ["components", "framework", "supergemini", "mcp"]
         data_to_migrate = {}
         fields_found = False
         
-        # Extract SuperClaude data
-        for field in superclaude_fields:
+        # Extract SuperGemini data
+        for field in supergemini_fields:
             if field in settings:
                 data_to_migrate[field] = settings[field]
                 fields_found = True
@@ -152,8 +152,8 @@ class SettingsManager:
         # Save to metadata file
         self.save_metadata(merged_metadata)
         
-        # Remove SuperClaude fields from settings
-        clean_settings = {k: v for k, v in settings.items() if k not in superclaude_fields}
+        # Remove SuperGemini fields from settings
+        clean_settings = {k: v for k, v in settings.items() if k not in supergemini_fields}
         
         # Save cleaned settings
         self.save_settings(clean_settings, create_backup=True)
@@ -333,7 +333,7 @@ class SettingsManager:
     
     def update_framework_version(self, version: str) -> None:
         """
-        Update SuperClaude framework version in metadata
+        Update SuperGemini framework version in metadata
         
         Args:
             version: Framework version string
@@ -349,7 +349,7 @@ class SettingsManager:
     
     def check_installation_exists(self) -> bool:
         """
-        Get SuperClaude framework version from metadata
+        Get SuperGemini framework version from metadata
         
         Returns:
             Version string or None if not set
@@ -358,7 +358,7 @@ class SettingsManager:
 
     def check_v2_installation_exists(self) -> bool:
         """
-        Get SuperClaude framework version from metadata
+        Get SuperGemini framework version from metadata
 
         Returns:
             Version string or None if not set

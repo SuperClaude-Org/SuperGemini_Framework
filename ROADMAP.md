@@ -1,17 +1,17 @@
-# SuperClaude Roadmap 🗺️
+# SuperGemini Roadmap 🗺️
 
 A realistic look at where we are and where we're headed. No marketing fluff, just honest development plans.
 
 ## Where We Are Now (v3.0 - July 2024) 📍
 
-SuperClaude v3 just came out of beta! 🎉 Here's the honest current state:
+SuperGemini v3 just came out of beta! 🎉 Here's the honest current state:
 
 ### ✅ What's Working Well
 - **Installation Suite** - Completely rewritten and much more reliable
-- **Core Framework** - 9 documentation files that guide Claude's behavior  
+- **Core Framework** - 9 documentation files that guide Gemini's behavior  
 - **15 Slash Commands** - Streamlined from 20+ to essential ones
 - **MCP Integration** - Context7, Sequential, Magic, Playwright (partially working)
-- **Unified CLI** - `SuperClaude.py` handles install/update/backup
+- **Unified CLI** - `SuperGemini.py` handles install/update/backup
 
 ### ⚠️ What Needs Work
 - **Bugs** - This is an initial release, expect rough edges
@@ -87,14 +87,14 @@ This is where things get more ambitious:
 These are bigger ideas that might happen if everything goes well:
 
 ### Multi-CLI Compatibility 🌐
-- **OpenClode CLI** - Port SuperClaude to a more universal CLI
-- **Beyond Claude Code** - Work with other AI coding assistants
+- **OpenClode CLI** - Port SuperGemini to a more universal CLI
+- **Beyond Gemini Code** - Work with other AI coding assistants
 - **Universal framework** - Common enhancement layer
 - **Tool agnostic** - Core concepts portable across platforms
 - **Ecosystem approach** - Not tied to single vendor
 
 ### Framework Evolution 🏷️
-- **SuperClaude rename** - Better reflects broader vision
+- **SuperGemini rename** - Better reflects broader vision
 - **Open source ecosystem** - Community-driven development
 - **Plugin architecture** - Easy extensibility for developers
 - **Cross-platform support** - Windows, macOS, Linux equally supported
@@ -155,9 +155,9 @@ We'll update this roadmap roughly every few months based on:
 
 ## Final Thoughts 💭
 
-SuperClaude started as a way to make Claude Code more useful for developers. We think we're on the right track with v3, but we're definitely not done yet.
+SuperGemini started as a way to make Gemini Code more useful for developers. We think we're on the right track with v3, but we're definitely not done yet.
 
-The most important thing is building something that actually helps people get their work done better. If you're using SuperClaude and it's making your development workflow smoother, that's awesome. If it's not, please tell us why.
+The most important thing is building something that actually helps people get their work done better. If you're using SuperGemini and it's making your development workflow smoother, that's awesome. If it's not, please tell us why.
 
 We're in this for the long haul, but we want to make sure we're building the right things. Your feedback is crucial for keeping us pointed in the right direction.
 

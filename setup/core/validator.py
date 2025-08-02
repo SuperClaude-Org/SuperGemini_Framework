@@ -1,5 +1,5 @@
 """
-System validation for SuperClaude installation requirements
+System validation for SuperGemini installation requirements
 """
 
 import subprocess
@@ -167,24 +167,24 @@ class Validator:
             self.validation_cache[cache_key] = result_tuple
             return result_tuple
     
-    def check_claude_cli(self, min_version: Optional[str] = None) -> Tuple[bool, str]:
+    def check_gemini_cli(self, min_version: Optional[str] = None) -> Tuple[bool, str]:
         """
-        Check Claude CLI installation and version
+        Check Gemini CLI installation and version
         
         Args:
-            min_version: Minimum required Claude CLI version (optional)
+            min_version: Minimum required Gemini CLI version (optional)
             
         Returns:
             Tuple of (success: bool, message: str)
         """
-        cache_key = f"claude_cli_{min_version}"
+        cache_key = f"gemini_cli_{min_version}"
         if cache_key in self.validation_cache:
             return self.validation_cache[cache_key]
         
         try:
-            # Check if claude is installed - use shell=True on Windows for better PATH resolution
+            # Check if gemini is installed - use shell=True on Windows for better PATH resolution
             result = subprocess.run(
-                ['claude', '--version'],
+                ['gemini', '--version'],
                 capture_output=True,
                 text=True,
                 timeout=10,
@@ -192,8 +192,8 @@ class Validator:
             )
             
             if result.returncode != 0:
-                help_msg = self.get_installation_help("claude_cli")
-                result_tuple = (False, f"Claude CLI not found in PATH{help_msg}")
+                help_msg = self.get_installation_help("gemini_cli")
+                result_tuple = (False, f"Gemini CLI not found in PATH{help_msg}")
                 self.validation_cache[cache_key] = result_tuple
                 return result_tuple
             
@@ -202,7 +202,7 @@ class Validator:
             version_match = re.search(r'(\d+\.\d+\.\d+)', version_output)
             
             if not version_match:
-                result_tuple = (True, "Claude CLI found (version format unknown)")
+                result_tuple = (True, "Gemini CLI found (version format unknown)")
                 self.validation_cache[cache_key] = result_tuple
                 return result_tuple
             
@@ -210,25 +210,25 @@ class Validator:
             
             # Check minimum version if specified
             if min_version and version.parse(current_version) < version.parse(min_version):
-                result_tuple = (False, f"Claude CLI {min_version}+ required, found {current_version}")
+                result_tuple = (False, f"Gemini CLI {min_version}+ required, found {current_version}")
                 self.validation_cache[cache_key] = result_tuple
                 return result_tuple
             
-            result_tuple = (True, f"Claude CLI {current_version} found")
+            result_tuple = (True, f"Gemini CLI {current_version} found")
             self.validation_cache[cache_key] = result_tuple
             return result_tuple
             
         except subprocess.TimeoutExpired:
-            result_tuple = (False, "Claude CLI version check timed out")
+            result_tuple = (False, "Gemini CLI version check timed out")
             self.validation_cache[cache_key] = result_tuple
             return result_tuple
         except FileNotFoundError:
-            help_msg = self.get_installation_help("claude_cli")
-            result_tuple = (False, f"Claude CLI not found in PATH{help_msg}")
+            help_msg = self.get_installation_help("gemini_cli")
+            result_tuple = (False, f"Gemini CLI not found in PATH{help_msg}")
             self.validation_cache[cache_key] = result_tuple
             return result_tuple
         except Exception as e:
-            result_tuple = (False, f"Could not check Claude CLI: {e}")
+            result_tuple = (False, f"Could not check Gemini CLI: {e}")
             self.validation_cache[cache_key] = result_tuple
             return result_tuple
     
@@ -496,11 +496,11 @@ class Validator:
         if node_success:
             info["node_message"] = node_msg
         
-        # Add Claude CLI info if available
-        claude_success, claude_msg = self.check_claude_cli()
-        info["claude_cli_available"] = claude_success
-        if claude_success:
-            info["claude_cli_message"] = claude_msg
+        # Add Gemini CLI info if available
+        gemini_success, gemini_msg = self.check_gemini_cli()
+        info["gemini_cli_available"] = gemini_success
+        if gemini_success:
+            info["gemini_cli_message"] = gemini_msg
         
         # Add disk space info
         try:
@@ -609,15 +609,15 @@ class Validator:
             diagnostics["issues"].append("Node.js not found or version issue")
             diagnostics["recommendations"].append(self.get_installation_help("node"))
         
-        # Check Claude CLI
-        claude_success, claude_msg = self.check_claude_cli()
-        diagnostics["checks"]["claude_cli"] = {
-            "status": "pass" if claude_success else "fail",
-            "message": claude_msg
+        # Check Gemini CLI
+        gemini_success, gemini_msg = self.check_gemini_cli()
+        diagnostics["checks"]["gemini_cli"] = {
+            "status": "pass" if gemini_success else "fail",
+            "message": gemini_msg
         }
-        if not claude_success:
-            diagnostics["issues"].append("Claude CLI not found")
-            diagnostics["recommendations"].append(self.get_installation_help("claude_cli"))
+        if not gemini_success:
+            diagnostics["issues"].append("Gemini CLI not found")
+            diagnostics["recommendations"].append(self.get_installation_help("gemini_cli"))
         
         # Check disk space
         disk_success, disk_msg = self.check_disk_space(Path.home())
@@ -643,7 +643,7 @@ class Validator:
             (["python3", "python"], "Python (python3 or python)"),
             (["node"], "Node.js"),
             (["npm"], "npm"),
-            (["claude"], "Claude CLI")
+            (["gemini"], "Gemini CLI")
         ]
         
         for tool_alternatives, display_name in tool_checks:

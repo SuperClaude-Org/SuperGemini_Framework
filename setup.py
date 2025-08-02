@@ -25,10 +25,10 @@ def get_long_description():
             return fh.read()
     except FileNotFoundError:
         logger.warning("README.md not found")
-        return "SuperClaude Framework Management Hub"
+        return "SuperGemini Framework Management Hub"
     except Exception as e:
         logger.error(f"Error reading README.md: {e}")
-        return "SuperClaude Framework Management Hub"
+        return "SuperGemini Framework Management Hub"
 
 def get_install_requires():
     """Get install requirements with proper dependency management."""
@@ -49,29 +49,28 @@ def get_install_requires():
 
 # Main setup configuration
 setuptools.setup(
-    name="SuperClaude",
+    name="SuperGemini",
     version=get_version(),
-    author="Mithun Gowda B, NomenAK",
-    author_email="contact@superclaude.dev",
-    description="SuperClaude Framework Management Hub",
+    author="hyunjaelim",
+    author_email="thecurrent.lim@gmail.com",
+    description="SuperGemini Framework Management Hub",
     long_description=get_long_description(),
     long_description_content_type="text/markdown",
-    url="https://github.com/SuperClaude-Org/SuperClaude_Framework",
+    url="https://github.com/SuperGemini-Org/SuperGemini_Framework",
     packages=setuptools.find_packages(),
     include_package_data=True,
     install_requires=get_install_requires(),
     entry_points={
         "console_scripts": [
-            "SuperClaude=SuperClaude.__main__:main",
-            "superclaude=SuperClaude.__main__:main",
+            "SuperGemini=SuperGemini.__main__:main",
+            "supergemini=SuperGemini.__main__:main",
         ],
     },
     python_requires=">=3.8",
     project_urls={
-        "GitHub": "https://github.com/SuperClaude-Org/SuperClaude_Framework",
-        "Mithun Gowda B": "https://github.com/mithun50",
-        "NomenAK": "https://github.com/NomenAK",
-        "Bug Tracker": "https://github.com/SuperClaude-Org/SuperClaude_Framework/issues",
+        "GitHub": "https://github.com/SuperGemini-Org/SuperGemini_Framework",
+        "Author": "https://github.com/hyunjaelim",
+        "Bug Tracker": "https://github.com/SuperGemini-Org/SuperGemini_Framework/issues",
     },
     classifiers=[
         "Programming Language :: Python :: 3",

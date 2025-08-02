@@ -1,5 +1,5 @@
 """
-Configuration management for SuperClaude installation system
+Configuration management for SuperGemini installation system
 """
 
 import json

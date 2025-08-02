@@ -1,17 +1,17 @@
-# SuperClaude Flags User Guide 🏁
+# SuperGemini Flags User Guide 🏁
 
 ## 🤖 Most Flags Activate Automatically - Don't Stress About It!
 
-**The honest truth**: You don't need to memorize these flags. SuperClaude usually tries to add helpful ones based on what you're doing! 
+**The honest truth**: You don't need to memorize these flags. SuperGemini usually tries to add helpful ones based on what you're doing! 
 
 **Here's what actually happens:**
 - You type `/analyze auth.js` 
-- SuperClaude detects it's security-related code
+- SuperGemini detects it's security-related code
 - **Usually adds** `--persona-security`, `--focus security`, `--validate`
 - You often get expert security analysis without managing any flags
 
 **When might you manually use flags?**
-- You want to **override** what SuperClaude picked (rare)
+- You want to **override** what SuperGemini picked (rare)
 - You're **curious** about specific aspects (`--focus performance`)
 - You want to **experiment** with different approaches
 
@@ -23,72 +23,53 @@
 
 ```bash
 # These work great with zero flag knowledge:
-/sc:analyze src/                    # Auto-picks the right analysis flags
-/sc:build                          # Auto-optimizes based on your project  
-/sc:improve messy-code.js          # Auto-activates quality and safety flags
-/sc:troubleshoot "weird error"     # Auto-activates debugging and analysis flags
+/sg:analyze src/                    # Auto-picks the right analysis flags
+/sg:build                          # Auto-optimizes based on your project  
+/sg:improve messy-code.js          # Auto-activates quality and safety flags
+/sg:troubleshoot "weird error"     # Auto-activates debugging and analysis flags
 ```
 
 **See? No flags needed.** Everything below is for when you get curious about what's happening behind the scenes.
 
 ---
 
-A practical guide to SuperClaude's flag system. Flags are like command-line options that change how SuperClaude behaves - think of them as superpowers for your commands.
+A practical guide to SuperGemini's flag system. Flags are like command-line options that change how SuperGemini behaves - think of them as superpowers for your commands.
 
 ## What Are Flags? 🤔
 
-**Flags are modifiers** that change how SuperClaude processes your requests. They come after commands and start with `--`.
+**Flags are modifiers** that change how SuperGemini processes your requests. They come after commands and start with `--`.
 
 **Basic syntax** (but you usually don't need to know this):
 ```bash
-/sc:command --flag-name
-/sc:command --flag-name value  
-/sc:analyze src/ --focus security --depth deep
+/sg:command --flag-name
+/sg:command --flag-name value  
+/sg:analyze src/ --focus security --depth deep
 ```
 
 **How flags actually work in practice**:
-1. **Auto-activation** - SuperClaude adds them based on context (this is the main way! 🎯)
+1. **Auto-activation** - SuperGemini adds them based on context (this is the main way! 🎯)
 2. **Manual override** - You can add them explicitly if you want different behavior
 
 **Why flags exist** (mostly automatic benefits):
 - Get better, more focused results
-- Auto-enable the right thinking depth
+- Auto-enable the right analysis depth
 - Connect to special capabilities when useful
 - Optimize for speed or detail based on your task
 - Direct attention to what you're actually working on
 
-**The key point**: SuperClaude handles flag selection intelligently so you don't have to think about it! 🧠
+**The key point**: SuperGemini handles flag selection intelligently so you don't have to think about it! 🧠
 
 ## Flag Categories 📂
 
 ### Planning & Analysis Flags 🧠
 
-These control how deeply SuperClaude thinks about your request.
+These control how deeply SuperGemini thinks about your request.
 
 #### `--plan`
 **What it does**: Shows execution plan before doing anything  
-**When to use**: When you want to see what SuperClaude will do first  
+**When to use**: When you want to see what SuperGemini will do first  
 **Example**: `/build --plan` - See build steps before running
 
-#### `--think`
-**What it does**: Multi-file analysis (~4K tokens)  
-**When to use**: Complex problems involving several files  
-**Auto-activates**: Import chains >5 files, cross-module calls >10 references  
-**Example**: `/analyze complex-system/ --think`
-
-#### `--think-hard` 
-**What it does**: Deep architectural analysis (~10K tokens)  
-**When to use**: System-wide problems, architectural decisions  
-**Auto-activates**: System refactoring, bottlenecks >3 modules  
-**Example**: `/improve legacy-system/ --think-hard`
-
-#### `--ultrathink`
-**What it does**: Maximum depth analysis (~32K tokens)  
-**When to use**: Critical system redesign, complex debugging  
-**Auto-activates**: Legacy modernization, critical vulnerabilities  
-**Example**: `/troubleshoot "entire auth system broken" --ultrathink`
-
-**💡 Tip**: Start with `--think`, only go deeper if needed. More thinking = slower but more thorough.
 
 ---
 
@@ -141,7 +122,7 @@ Enable specialized capabilities through MCP servers.
 #### `--seq` / `--sequential`
 **What it does**: Enables Sequential for complex multi-step analysis  
 **When to use**: Complex debugging, system design  
-**Auto-activates**: Complex debugging, `--think` flags  
+**Auto-activates**: Complex debugging, multi-step analysis  
 **Example**: `/troubleshoot "auth flow broken" --seq`
 
 #### `--magic`
@@ -209,7 +190,7 @@ For complex operations and workflows.
 
 ### Focus & Scope Flags 🎯
 
-Direct SuperClaude's attention to specific areas.
+Direct SuperGemini's attention to specific areas.
 
 #### `--scope [level]`
 **Options**: file, module, project, system  
@@ -234,38 +215,38 @@ Direct SuperClaude's attention to specific areas.
 
 ### Quick Analysis
 ```bash
-/sc:analyze src/ --focus quality          # Quick quality check
-/sc:analyze --uc --focus security         # Fast security scan
+/sg:analyze src/ --focus quality          # Quick quality check
+/sg:analyze --uc --focus security         # Fast security scan
 ```
 
 ### Deep Investigation  
 ```bash
-/sc:troubleshoot "bug" --think --seq      # Systematic debugging
-/sc:analyze --think-hard --focus architecture  # Architectural analysis
+/sg:troubleshoot "bug" --seq             # Systematic debugging
+/sg:analyze --seq --focus architecture    # Architectural analysis
 ```
 
 ### Large Project Work
 ```bash
-/sc:analyze monorepo/ --delegate auto --uc     # Efficient large analysis
-/sc:improve legacy/ --wave-mode auto --safe-mode  # Safe systematic improvement
+/sg:analyze monorepo/ --delegate auto --uc     # Efficient large analysis
+/sg:improve legacy/ --wave-mode auto --safe-mode  # Safe systematic improvement
 ```
 
 ### Learning & Documentation
 ```bash
-/sc:explain React hooks --c7 --verbose    # Detailed explanation with docs
-/sc:document api/ --persona-scribe        # Professional documentation
+/sg:explain React hooks --c7 --verbose    # Detailed explanation with docs
+/sg:document api/ --persona-scribe        # Professional documentation
 ```
 
 ### Performance-Focused
 ```bash
-/sc:analyze --focus performance --play     # Performance analysis with testing
-/sc:build --uc --no-mcp                   # Fast build without extra features
+/sg:analyze --focus performance --play     # Performance analysis with testing
+/sg:build --uc --no-mcp                   # Fast build without extra features
 ```
 
 ### Security-Focused
 ```bash
-/sc:analyze --focus security --think --validate  # Thorough security analysis
-/sc:scan --persona-security --safe-mode         # Conservative security scan
+/sg:analyze --focus security --seq --validate   # Thorough security analysis
+/sg:scan --persona-security --safe-mode         # Conservative security scan
 ```
 
 ## Practical Examples 💡
@@ -273,27 +254,27 @@ Direct SuperClaude's attention to specific areas.
 ### Before/After: Basic Analysis
 **Before** (basic):
 ```bash
-/sc:analyze auth.js
+/sg:analyze auth.js
 # → Simple file analysis
 ```
 
 **After** (with flags):
 ```bash
-/sc:analyze auth.js --focus security --think --c7
-# → Security-focused analysis with deep thinking and official docs
+/sg:analyze auth.js --focus security --seq --c7
+# → Security-focused analysis with systematic reasoning and official docs
 # → Much more thorough, finds security patterns, checks against best practices
 ```
 
 ### Before/After: Large Project
 **Before** (slow):
 ```bash
-/sc:analyze huge-monorepo/
+/sg:analyze huge-monorepo/
 # → Tries to analyze everything at once, may timeout or use too many tokens
 ```
 
 **After** (efficient):
 ```bash
-/sc:analyze huge-monorepo/ --delegate auto --uc --focus architecture
+/sg:analyze huge-monorepo/ --delegate auto --uc --focus architecture
 # → Delegates work to sub-agents, compresses output, focuses on architecture
 # → Faster, more focused, better results
 ```
@@ -301,39 +282,39 @@ Direct SuperClaude's attention to specific areas.
 ### Before/After: Improvement Work
 **Before** (risky):
 ```bash
-/sc:improve legacy-system/
+/sg:improve legacy-system/
 # → May make too many changes, could break things
 ```
 
 **After** (safe):
 ```bash
-/sc:improve legacy-system/ --safe-mode --loop --validate --preview
+/sg:improve legacy-system/ --safe-mode --loop --validate --preview
 # → Safe changes only, iterative approach, validates first, shows preview
 # → Much safer, progressive improvement
 ```
 
 ## Auto-Activation Examples 🤖
 
-SuperClaude usually adds flags based on context. Here's when it tries:
+SuperGemini usually adds flags based on context. Here's when it tries:
 
 ### Complexity-Based
 ```bash
-/sc:analyze huge-codebase/
+/sg:analyze huge-codebase/
 # Auto-adds: --delegate auto --uc
 # Why: >50 files detected, context management needed
 
-/sc:troubleshoot "complex system issue"  
-# Auto-adds: --think --seq
+/sg:troubleshoot "complex system issue"  
+# Auto-adds: --seq
 # Why: Multi-component problem detected
 ```
 
 ### Domain-Based
 ```bash
-/sc:build react-app/
+/sg:build react-app/
 # Auto-adds: --c7 --persona-frontend
 # Why: Frontend framework detected
 
-/sc:analyze --focus security
+/sg:analyze --focus security
 # Auto-adds: --persona-security --validate
 # Why: Security focus triggers security specialist
 ```
@@ -341,12 +322,12 @@ SuperClaude usually adds flags based on context. Here's when it tries:
 ### Performance-Based
 ```bash
 # When context usage >75%
-/sc:analyze large-project/
+/sg:analyze large-project/
 # Auto-adds: --uc
 # Why: Token optimization needed
 
 # When risk score >0.7
-/sc:improve production-code/
+/sg:improve production-code/
 # Auto-adds: --safe-mode --validate
 # Why: High-risk operation detected
 ```
@@ -357,51 +338,51 @@ SuperClaude usually adds flags based on context. Here's when it tries:
 
 **Comprehensive Code Review**:
 ```bash
-/sc:review codebase/ --persona-qa --think-hard --focus quality --validate --c7
-# → QA specialist + deep thinking + quality focus + validation + docs
+/sg:review codebase/ --persona-qa --seq --focus quality --validate --c7
+# → QA specialist + systematic analysis + quality focus + validation + docs
 ```
 
 **Legacy System Modernization**:
 ```bash
-/sc:improve legacy/ --wave-mode force --persona-architect --safe-mode --loop --c7
+/sg:improve legacy/ --wave-mode force --persona-architect --safe-mode --loop --c7
 # → Wave orchestration + architect perspective + safety + iteration + docs
 ```
 
 **Security Audit**:
 ```bash
-/sc:scan --persona-security --ultrathink --focus security --validate --seq
-# → Security specialist + maximum thinking + security focus + validation + systematic analysis
+/sg:scan --persona-security --seq --focus security --validate
+# → Security specialist + systematic analysis + security focus + validation
 ```
 
 ### Performance Optimization
 
 **For Speed**:
 ```bash
-/sc:analyze --no-mcp --uc --scope file
+/sg:analyze --no-mcp --uc --scope file
 # → Disable extra features, compress output, limit scope
 ```
 
 **For Thoroughness**:
 ```bash
-/sc:analyze --all-mcp --think-hard --delegate auto
-# → All capabilities, deep thinking, parallel processing
+/sg:analyze --all-mcp --seq --delegate auto
+# → All capabilities, systematic analysis, parallel processing
 ```
 
 ### Custom Workflows
 
 **Bug Investigation Workflow**:
 ```bash
-/sc:troubleshoot "specific error" --seq --think --validate
-/sc:analyze affected-files/ --focus quality --persona-analyzer  
-/sc:test --play --coverage
+/sg:troubleshoot "specific error" --seq --validate
+/sg:analyze affected-files/ --focus quality --persona-analyzer  
+/sg:test --play --coverage
 ```
 
 **Feature Development Workflow**:
 ```bash
-/sc:design new-feature --persona-architect --c7
-/sc:build --magic --persona-frontend --validate
-/sc:test --play --coverage
-/sc:document --persona-scribe --c7
+/sg:design new-feature --persona-architect --c7
+/sg:build --magic --persona-frontend --validate
+/sg:test --play --coverage
+/sg:document --persona-scribe --c7
 ```
 
 ## Quick Reference 📋
@@ -409,11 +390,10 @@ SuperClaude usually adds flags based on context. Here's when it tries:
 ### Most Useful Flags
 | Flag | Purpose | When to Use |
 |------|---------|-------------|
-| `--think` | Deeper analysis | Complex problems |
+| `--seq` | Systematic analysis | Complex problems |
 | `--uc` | Compress output | Large operations |
 | `--safe-mode` | Conservative execution | Important code |
 | `--c7` | Official docs | Framework work |
-| `--seq` | Systematic analysis | Debugging |
 | `--focus security` | Security focus | Security concerns |
 | `--delegate auto` | Parallel processing | Large codebases |
 | `--validate` | Check before action | Risky operations |
@@ -424,7 +404,7 @@ SuperClaude usually adds flags based on context. Here's when it tries:
 --safe-mode --validate --preview
 
 # Deep analysis  
---think --seq --c7
+--seq --c7
 
 # Large project
 --delegate auto --uc --focus
@@ -440,12 +420,12 @@ SuperClaude usually adds flags based on context. Here's when it tries:
 ```
 
 ### Auto-Activation Triggers
-- **--think**: Complex imports, cross-module calls
+- **--seq**: Complex debugging, multi-step analysis
 - **--uc**: Context >75%, large operations  
 - **--safe-mode**: Resource usage >85%, production
 - **--delegate**: >7 directories or >50 files
 - **--c7**: Framework imports, documentation requests
-- **--seq**: Debugging keywords, --think flags
+- **--seq**: Debugging keywords, multi-step analysis
 - **Personas**: Domain-specific keywords and patterns
 
 ## Troubleshooting Flag Issues 🚨
@@ -468,7 +448,7 @@ SuperClaude usually adds flags based on context. Here's when it tries:
 - Use `--answer-only` for simple questions
 
 **"Not thorough enough"**
-- Add `--think` or `--think-hard`
+- Add `--seq` for systematic analysis
 - Enable relevant MCP servers: `--seq`, `--c7`
 - Use appropriate persona: `--persona-analyzer`
 
@@ -487,16 +467,15 @@ SuperClaude usually adds flags based on context. Here's when it tries:
 **Precedence order**:
 1. Safety flags (`--safe-mode`) beat optimization
 2. Explicit flags beat auto-activation
-3. Thinking depth: `--ultrathink` > `--think-hard` > `--think`
 4. Scope: system > project > module > file
 
 ## Tips for Effective Flag Usage 💡
 
 ### Starting Out (The Honest Truth)
 1. **Just ignore flags at first** - Auto-activation handles most cases pretty well
-2. **Watch what gets auto-activated** - You'll learn by seeing what SuperClaude picks
+2. **Watch what gets auto-activated** - You'll learn by seeing what SuperGemini picks
 3. **Use `--help` when curious** - Many commands show what flags are available
-4. **Trust the automation** - SuperClaude usually picks reasonable defaults
+4. **Trust the automation** - SuperGemini usually picks reasonable defaults
 
 ### Getting Advanced (If You Want To)
 1. **Experiment with overrides** - Try `--persona-security` on non-security code for different perspectives
@@ -506,7 +485,7 @@ SuperClaude usually adds flags based on context. Here's when it tries:
 
 ### Performance Tips (For Power Users)
 - **For speed**: `--uc --no-mcp --scope file`
-- **For thoroughness**: `--think-hard --all-mcp --delegate auto`
+- **For thoroughness**: `--seq --all-mcp --delegate auto`
 - **For safety**: `--safe-mode --validate --preview`
 - **For learning**: `--verbose --c7 --persona-mentor`
 
@@ -521,7 +500,7 @@ SuperClaude usually adds flags based on context. Here's when it tries:
 - **Learning happens naturally** through use, not through studying guides 😊
 
 **Don't feel overwhelmed** 🧘‍♂️:
-- SuperClaude tries to work well without flag knowledge
+- SuperGemini tries to work well without flag knowledge
 - The detailed info above is for curiosity, not necessity
 - Auto-activation keeps getting smarter based on usage patterns
 - You're not missing out by not memorizing flags
@@ -536,8 +515,8 @@ SuperClaude usually adds flags based on context. Here's when it tries:
 - Use basic commands: `/analyze`, `/build`, `/improve`
 - Let auto-activation handle the complexity
 - Add manual flags only when you want to experiment
-- Trust that SuperClaude knows what it's doing
+- Trust that SuperGemini knows what it's doing
 
 ---
 
-*Remember: Behind all this apparent complexity, SuperClaude is actually simple to use. Just start typing commands! 🚀*
+*Remember: Behind all this apparent complexity, SuperGemini is actually simple to use. Just start typing commands! 🚀*

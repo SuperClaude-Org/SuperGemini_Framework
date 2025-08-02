@@ -1,25 +1,26 @@
 """
-Commands component for SuperClaude slash command definitions
+Commands component for SuperGemini slash command definitions
 """
 
 from typing import Dict, List, Tuple, Optional, Any
 from pathlib import Path
+import re
 
 from ..base.component import Component
 
 class CommandsComponent(Component):
-    """SuperClaude slash commands component"""
+    """SuperGemini slash commands component"""
     
     def __init__(self, install_dir: Optional[Path] = None):
         """Initialize commands component"""
-        super().__init__(install_dir, Path("commands/sc"))
+        super().__init__(install_dir, Path("commands/sg"))
     
     def get_metadata(self) -> Dict[str, str]:
         """Get component metadata"""
         return {
             "name": "commands",
             "version": "3.0.0",
-            "description": "SuperClaude slash command definitions",
+            "description": "SuperGemini slash command definitions",
             "category": "commands"
         }
     
@@ -42,7 +43,7 @@ class CommandsComponent(Component):
     
     def _install(self, config: Dict[str, Any]) -> bool:
         """Install commands component"""
-        self.logger.info("Installing SuperClaude command definitions...")
+        self.logger.info("Installing SuperGemini command definitions...")
 
         # Check for and migrate existing commands from old location
         self._migrate_existing_commands()
@@ -50,6 +51,9 @@ class CommandsComponent(Component):
         return super()._install(config);
 
     def _post_install(self):
+        # Convert MD files to TOML for Gemini CLI compatibility
+        self._convert_md_to_toml()
+        
         # Update metadata
         try:
             metadata_mods = self.get_metadata_modifications()
@@ -72,10 +76,10 @@ class CommandsComponent(Component):
     def uninstall(self) -> bool:
         """Uninstall commands component"""
         try:
-            self.logger.info("Uninstalling SuperClaude commands component...")
+            self.logger.info("Uninstalling SuperGemini commands component...")
             
-            # Remove command files from sc subdirectory
-            commands_dir = self.install_dir / "commands" / "sc"
+            # Remove command files from sg subdirectory
+            commands_dir = self.install_dir / "commands" / "sg"
             removed_count = 0
             
             for filename in self.component_files:
@@ -104,7 +108,7 @@ class CommandsComponent(Component):
             
             removed_count += old_removed_count
             
-            # Remove sc subdirectory if empty
+            # Remove sg subdirectory if empty
             try:
                 if commands_dir.exists():
                     remaining_files = list(commands_dir.iterdir())
@@ -149,7 +153,7 @@ class CommandsComponent(Component):
     def update(self, config: Dict[str, Any]) -> bool:
         """Update commands component"""
         try:
-            self.logger.info("Updating SuperClaude commands component...")
+            self.logger.info("Updating SuperGemini commands component...")
             
             # Check current version
             current_version = self.settings_manager.get_component_version("commands")
@@ -162,7 +166,7 @@ class CommandsComponent(Component):
             self.logger.info(f"Updating commands component from {current_version} to {target_version}")
             
             # Create backup of existing command files
-            commands_dir = self.install_dir / "commands" / "sc"
+            commands_dir = self.install_dir / "commands" / "sg"
             backup_files = []
             
             if commands_dir.exists():
@@ -208,9 +212,9 @@ class CommandsComponent(Component):
         errors = []
         
         # Check if sc commands directory exists
-        commands_dir = self.install_dir / "commands" / "sc"
+        commands_dir = self.install_dir / "commands" / "sg"
         if not commands_dir.exists():
-            errors.append("SC commands directory not found")
+            errors.append("SG commands directory not found")
             return False, errors
         
         # Check if all command files exist
@@ -235,10 +239,10 @@ class CommandsComponent(Component):
     
     def _get_source_dir(self) -> Path:
         """Get source directory for command files"""
-        # Assume we're in SuperClaude/setup/components/commands.py
-        # and command files are in SuperClaude/SuperClaude/Commands/
+        # Assume we're in SuperGemini/setup/components/commands.py
+        # and command files are in SuperGemini/SuperGemini/Commands/
         project_root = Path(__file__).parent.parent.parent
-        return project_root / "SuperClaude" / "Commands"
+        return project_root / "SuperGemini" / "Commands"
     
     def get_size_estimate(self) -> int:
         """Get estimated installation size"""
@@ -263,15 +267,15 @@ class CommandsComponent(Component):
             "files_installed": len(self.component_files),
             "command_files": self.component_files,
             "estimated_size": self.get_size_estimate(),
-            "install_directory": str(self.install_dir / "commands" / "sc"),
+            "install_directory": str(self.install_dir / "commands" / "sg"),
             "dependencies": self.get_dependencies()
         }
     
     def _migrate_existing_commands(self) -> None:
-        """Migrate existing commands from old location to new sc subdirectory"""
+        """Migrate existing commands from old location to new sg subdirectory"""
         try:
             old_commands_dir = self.install_dir / "commands"
-            new_commands_dir = self.install_dir / "commands" / "sc"
+            new_commands_dir = self.install_dir / "commands" / "sg"
             
             # Check if old commands exist in root commands directory
             migrated_count = 0
@@ -284,7 +288,7 @@ class CommandsComponent(Component):
                         commands_to_migrate.append(filename)
             
             if commands_to_migrate:
-                self.logger.info(f"Found {len(commands_to_migrate)} existing commands to migrate to sc/ subdirectory")
+                self.logger.info(f"Found {len(commands_to_migrate)} existing commands to migrate to sg/ subdirectory")
                 
                 # Ensure new directory exists
                 if not self.file_manager.ensure_directory(new_commands_dir):
@@ -302,17 +306,17 @@ class CommandsComponent(Component):
                             # Remove old file
                             if self.file_manager.remove_file(old_file_path):
                                 migrated_count += 1
-                                self.logger.debug(f"Migrated {filename} to sc/ subdirectory")
+                                self.logger.debug(f"Migrated {filename} to sg/ subdirectory")
                             else:
                                 self.logger.warning(f"Could not remove old {filename}")
                         else:
-                            self.logger.warning(f"Could not copy {filename} to sc/ subdirectory")
+                            self.logger.warning(f"Could not copy {filename} to sg/ subdirectory")
                     except Exception as e:
                         self.logger.warning(f"Error migrating {filename}: {e}")
                 
                 if migrated_count > 0:
-                    self.logger.success(f"Successfully migrated {migrated_count} commands to /sc: namespace")
-                    self.logger.info("Commands are now available as /sc:analyze, /sc:build, etc.")
+                    self.logger.success(f"Successfully migrated {migrated_count} commands to /sg: namespace")
+                    self.logger.info("Commands are now available as /sg:analyze, /sg:build, etc.")
                     
                     # Try to remove old commands directory if empty
                     try:
@@ -327,3 +331,61 @@ class CommandsComponent(Component):
                         
         except Exception as e:
             self.logger.warning(f"Error during command migration: {e}")
+    
+    def _convert_md_to_toml(self) -> None:
+        """Convert MD command files to TOML format for Gemini CLI compatibility"""
+        try:
+            commands_dir = self.install_dir / "commands" / "sg"
+            if not commands_dir.exists():
+                self.logger.warning("Commands directory not found for TOML conversion")
+                return
+            
+            converted_count = 0
+            
+            for md_file in commands_dir.glob("*.md"):
+                try:
+                    # Read MD content
+                    content = md_file.read_text(encoding='utf-8')
+                    
+                    # Extract front matter
+                    description = ""
+                    main_content = content
+                    
+                    front_matter_match = re.match(r'^---\n(.*?)\n---\n', content, re.DOTALL)
+                    if front_matter_match:
+                        front_matter = front_matter_match.group(1)
+                        main_content = content[front_matter_match.end():]
+                        
+                        # Extract description
+                        desc_match = re.search(r'description:\s*"([^"]+)"', front_matter)
+                        if desc_match:
+                            description = desc_match.group(1)
+                    
+                    # Clean up content - remove Gemini Code specific sections
+                    main_content = re.sub(r'## Gemini Code Integration.*', '', main_content, flags=re.DOTALL)
+                    
+                    # Build TOML content
+                    prompt = f"SuperGemini {main_content.strip()}"
+                    
+                    toml_content = f'''prompt = """{prompt}"""
+
+description = "{description}"'''
+                    
+                    # Write TOML file
+                    toml_file = md_file.with_suffix('.toml')
+                    toml_file.write_text(toml_content, encoding='utf-8')
+                    
+                    # Remove MD file
+                    md_file.unlink()
+                    
+                    converted_count += 1
+                    self.logger.debug(f"Converted {md_file.name} to TOML format")
+                    
+                except Exception as e:
+                    self.logger.warning(f"Failed to convert {md_file.name}: {e}")
+            
+            if converted_count > 0:
+                self.logger.info(f"Converted {converted_count} command files to TOML format for Gemini CLI")
+                
+        except Exception as e:
+            self.logger.warning(f"Error during MD to TOML conversion: {e}")

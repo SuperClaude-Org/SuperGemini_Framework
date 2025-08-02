@@ -1,24 +1,24 @@
-# Contributing to SuperClaude Framework
+# Contributing to SuperGemini Framework
 
 Thanks for your interest in contributing! 🙏
 
-SuperClaude is a community-driven project that enhances Claude Code through modular hooks and intelligent orchestration. Every contribution helps make the framework more useful for developers.
+SuperGemini is a community-driven project that enhances Gemini Code through modular hooks and intelligent orchestration. Every contribution helps make the framework more useful for developers.
 
 ## 🚀 Quick Start
 
 ### Prerequisites
 - Python 3.12+ (standard library only)
 - Node.js 18+ (for MCP servers)
-- Claude Code installed and authenticated
+- Gemini Code installed and authenticated
 
 ### Development Setup
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/SuperClaude.git
-cd SuperClaude
+git clone https://github.com/your-username/SuperGemini.git
+cd SuperGemini
 
-# Install SuperClaude
+# Install SuperGemini
 ./install.sh --standard
 
 # Run tests
@@ -31,7 +31,7 @@ python Tests/comprehensive_test.py
 - Use GitHub Issues with the "bug" label
 - Include system info (OS, Python/Node versions)
 - Provide minimal reproduction steps
-- Include relevant hook logs from `~/.claude/`
+- Include relevant hook logs from `~/.gemini/`
 
 ### 💡 Feature Requests
 - Check existing issues and roadmap first
@@ -55,8 +55,8 @@ python Tests/comprehensive_test.py
 
 ### Core Components
 ```
-SuperClaude/
-├── SuperClaude/
+SuperGemini/
+├── SuperGemini/
 │   ├── Hooks/          # 15 Python hooks (main extension points)
 │   ├── Commands/       # 14 slash commands
 │   ├── Core/          # Framework documentation
@@ -85,7 +85,7 @@ python Tests/task_management_test.py
 python Tests/performance_test_suite.py
 
 # Hook integration tests
-python SuperClaude/Hooks/test_orchestration_integration.py
+python SuperGemini/Hooks/test_orchestration_integration.py
 ```
 
 ### Writing Tests
@@ -101,7 +101,7 @@ python SuperClaude/Hooks/test_orchestration_integration.py
 #!/usr/bin/env python3
 """
 Brief description of hook purpose.
-Part of SuperClaude Framework v3.0
+Part of SuperGemini Framework v3.0
 """
 
 import json
@@ -188,7 +188,7 @@ git checkout -b feature/your-feature-name
 - Help others learn and improve
 
 ### Stay Focused
-- Keep discussions relevant to SuperClaude's goals
+- Keep discussions relevant to SuperGemini's goals
 - Avoid scope creep in feature requests
 - Consider if changes fit the modular philosophy
 
@@ -207,13 +207,13 @@ git checkout -b feature/your-feature-name
 ### Common Questions
 
 **Q: How do I debug hook execution?**
-A: Check logs in `~/.claude/` and use verbose logging for detailed output.
+A: Check logs in `~/.gemini/` and use verbose logging for detailed output.
 
 **Q: Can I add new MCP servers?**
 A: Yes! Follow the pattern in `settings.json` and add integration hooks.
 
 **Q: How do I test changes without affecting my global setup?**
-A: Use a separate test environment or backup your `~/.claude` directory before testing.
+A: Use a separate test environment or backup your `~/.gemini` directory before testing.
 
 ## 📄 License
 
@@ -221,4 +221,4 @@ By contributing, you agree that your contributions will be licensed under the MI
 
 ## 🙏 Acknowledgments
 
-Thanks to all contributors who help make SuperClaude better for the development community!
+Thanks to all contributors who help make SuperGemini better for the development community!

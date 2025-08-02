@@ -3,14 +3,14 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "SuperClaude"
+name = "SuperGemini"
 dynamic = ["version"]
-description = "SuperClaude Framework Management Hub"
+description = "SuperGemini Framework Management Hub"
 readme = "README.md"
 license = {text = "MIT"}
 authors = [
-    {name = "Mithun Gowda B", email = "contact@superclaude.dev"},
-    {name = "NomenAK", email = "contact@superclaude.dev"},
+    {name = "Mithun Gowda B", email = "contact@supergemini.dev"},
+    {name = "NomenAK", email = "contact@supergemini.dev"},
 ]
 requires-python = ">=3.8"
 dependencies = [
@@ -30,26 +30,26 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/SuperClaude-Org/SuperClaude_Framework"
-Repository = "https://github.com/SuperClaude-Org/SuperClaude_Framework"
-"Bug Tracker" = "https://github.com/SuperClaude-Org/SuperClaude_Framework/issues"
-"GitHub" = "https://github.com/SuperClaude-Org/SuperClaude_Framework"
+Homepage = "https://github.com/SuperGemini-Org/SuperGemini_Framework"
+Repository = "https://github.com/SuperGemini-Org/SuperGemini_Framework"
+"Bug Tracker" = "https://github.com/SuperGemini-Org/SuperGemini_Framework/issues"
+"GitHub" = "https://github.com/SuperGemini-Org/SuperGemini_Framework"
 "Mithun Gowda B" = "https://github.com/mithun50"
 "NomenAK" = "https://github.com/NomenAK"
 
 [project.scripts]
-SuperClaude = "SuperClaude.__main__:main"
+SuperGemini = "SuperGemini.__main__:main"
 
 [tool.hatch.version]
 path = "VERSION"
 pattern = "(?P<version>.*)"
 
 [tool.hatch.build.targets.wheel]
-packages = ["SuperClaude"]
+packages = ["SuperGemini"]
 
 [tool.hatch.build.targets.sdist]
 include = [
-    "SuperClaude/",
+    "SuperGemini/",
     "config/",
     "profiles/",
     "setup/",

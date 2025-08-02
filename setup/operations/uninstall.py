@@ -1,5 +1,5 @@
 """
-SuperClaude Uninstall Operation Module
+SuperGemini Uninstall Operation Module
 Refactored from uninstall.py for unified CLI hub
 """
 
@@ -34,14 +34,14 @@ def register_parser(subparsers, global_parser=None) -> argparse.ArgumentParser:
     
     parser = subparsers.add_parser(
         "uninstall",
-        help="Remove SuperClaude framework installation",
-        description="Uninstall SuperClaude Framework components",
+        help="Remove SuperGemini framework installation",
+        description="Uninstall SuperGemini Framework components",
         epilog="""
 Examples:
-  SuperClaude uninstall                    # Interactive uninstall
-  SuperClaude uninstall --components core  # Remove specific components
-  SuperClaude uninstall --complete --force # Complete removal (forced)
-  SuperClaude uninstall --keep-backups     # Keep backup files
+  SuperGemini uninstall                    # Interactive uninstall
+  SuperGemini uninstall --components core  # Remove specific components
+  SuperGemini uninstall --complete --force # Complete removal (forced)
+  SuperGemini uninstall --keep-backups     # Keep backup files
         """,
         formatter_class=argparse.RawDescriptionHelpFormatter,
         parents=parents
@@ -135,7 +135,7 @@ def display_uninstall_info(info: Dict[str, Any]) -> None:
     print("=" * 50)
     
     if not info["exists"]:
-        print(f"{Colors.YELLOW}No SuperClaude installation found{Colors.RESET}")
+        print(f"{Colors.YELLOW}No SuperGemini installation found{Colors.RESET}")
         return
     
     print(f"{Colors.BLUE}Installation Directory:{Colors.RESET} {info['install_dir']}")
@@ -242,7 +242,7 @@ def display_uninstall_plan(components: List[str], args: argparse.Namespace, info
         print(f"{Colors.GREEN}Will preserve:{Colors.RESET} {', '.join(preserved)}")
     
     if args.complete:
-        print(f"{Colors.RED}WARNING: Complete uninstall will remove all SuperClaude files{Colors.RESET}")
+        print(f"{Colors.RED}WARNING: Complete uninstall will remove all SuperGemini files{Colors.RESET}")
     
     print()
 
@@ -421,8 +421,8 @@ def run(args: argparse.Namespace) -> int:
         # Display header
         if not args.quiet:
             display_header(
-                "SuperClaude Uninstall v3.0",
-                "Removing SuperClaude framework components"
+                "SuperGemini Uninstall v3.0",
+                "Removing SuperGemini framework components"
             )
         
         # Get installation information
@@ -432,9 +432,9 @@ def run(args: argparse.Namespace) -> int:
         if not args.quiet:
             display_uninstall_info(info)
         
-        # Check if SuperClaude is installed
+        # Check if SuperGemini is installed
         if not info["exists"]:
-            logger.warning(f"No SuperClaude installation found in {args.install_dir}")
+            logger.warning(f"No SuperGemini installation found in {args.install_dir}")
             return 0
         
         # Get components to uninstall
@@ -453,7 +453,7 @@ def run(args: argparse.Namespace) -> int:
         # Confirmation
         if not args.no_confirm and not args.yes:
             if args.complete:
-                warning_msg = "This will completely remove SuperClaude. Continue?"
+                warning_msg = "This will completely remove SuperGemini. Continue?"
             else:
                 warning_msg = f"This will remove {len(components)} component(s). Continue?"
             
@@ -470,13 +470,13 @@ def run(args: argparse.Namespace) -> int:
         
         if success:
             if not args.quiet:
-                display_success("SuperClaude uninstall completed successfully!")
+                display_success("SuperGemini uninstall completed successfully!")
                 
                 if not args.dry_run:
                     print(f"\n{Colors.CYAN}Uninstall complete:{Colors.RESET}")
-                    print(f"SuperClaude has been removed from {args.install_dir}")
+                    print(f"SuperGemini has been removed from {args.install_dir}")
                     if not args.complete:
-                        print(f"You can reinstall anytime using 'SuperClaude install'")
+                        print(f"You can reinstall anytime using 'SuperGemini install'")
                     
             return 0
         else:

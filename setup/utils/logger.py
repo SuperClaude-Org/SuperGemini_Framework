@@ -1,5 +1,5 @@
 """
-Logging system for SuperClaude installation suite
+Logging system for SuperGemini installation suite
 """
 
 import logging
@@ -24,18 +24,18 @@ class LogLevel(Enum):
 class Logger:
     """Enhanced logger with console and file output"""
     
-    def __init__(self, name: str = "superclaude", log_dir: Optional[Path] = None, console_level: LogLevel = LogLevel.INFO, file_level: LogLevel = LogLevel.DEBUG):
+    def __init__(self, name: str = "supergemini", log_dir: Optional[Path] = None, console_level: LogLevel = LogLevel.INFO, file_level: LogLevel = LogLevel.DEBUG):
         """
         Initialize logger
         
         Args:
             name: Logger name
-            log_dir: Directory for log files (defaults to ~/.claude/logs)
+            log_dir: Directory for log files (defaults to ~/.gemini/logs)
             console_level: Minimum level for console output
             file_level: Minimum level for file output
         """
         self.name = name
-        self.log_dir = log_dir or (Path.home() / ".claude" / "logs")
+        self.log_dir = log_dir or (Path.home() / ".gemini" / "logs")
         self.console_level = console_level
         self.file_level = file_level
         self.session_start = datetime.now()
@@ -282,7 +282,7 @@ class Logger:
 _global_logger: Optional[Logger] = None
 
 
-def get_logger(name: str = "superclaude") -> Logger:
+def get_logger(name: str = "supergemini") -> Logger:
     """Get or create global logger instance"""
     global _global_logger
     
@@ -292,7 +292,7 @@ def get_logger(name: str = "superclaude") -> Logger:
     return _global_logger
 
 
-def setup_logging(name: str = "superclaude", log_dir: Optional[Path] = None, console_level: LogLevel = LogLevel.INFO, file_level: LogLevel = LogLevel.DEBUG) -> Logger:
+def setup_logging(name: str = "supergemini", log_dir: Optional[Path] = None, console_level: LogLevel = LogLevel.INFO, file_level: LogLevel = LogLevel.DEBUG) -> Logger:
     """Setup logging with specified configuration"""
     global _global_logger
     _global_logger = Logger(name, log_dir, console_level, file_level)
