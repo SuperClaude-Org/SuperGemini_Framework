@@ -89,7 +89,7 @@ Configuration files are stored in `~/.gemini/`:
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please check our [issues](https://github.com/SuperGemini-Org/SuperGemini_Framework/issues) page.
+Contributions are welcome! Please check our [issues](https://github.com/SuperClaude-Org/SuperGemini_Framework/issues) page.
 
 ## 📄 License
 
@@ -103,5 +103,5 @@ MIT License - see [LICENSE](LICENSE) file for details.
 ## 🔗 Links
 
 - [PyPI Package](https://pypi.org/project/SuperGemini/)
-- [GitHub Repository](https://github.com/SuperGemini-Org/SuperGemini_Framework)
-- [Issue Tracker](https://github.com/SuperGemini-Org/SuperGemini_Framework/issues)
+- [GitHub Repository](https://github.com/SuperClaude-Org/SuperGemini_Framework)
+- [Issue Tracker](https://github.com/SuperGemini-Org/SuperClaude_Framework/issues)
