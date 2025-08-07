@@ -217,13 +217,13 @@ def main() -> int:
 
         # Handle --version flag
         if hasattr(args, 'version') and args.version:
-            print("SuperGemini v3.1.3")
+            print("SuperGemini v3.1.4")
             return 0
 
         # No operation provided? Show help manually unless in quiet mode
         if not hasattr(args, 'operation') or not args.operation:
             if not args.quiet:
-                display_header("SuperGemini Framework v3.1.3", "Unified CLI for all operations")
+                display_header("SuperGemini Framework v3.1.4", "Unified CLI for all operations")
                 print(f"{Colors.CYAN}Available operations:{Colors.RESET}")
                 for op, desc in get_operation_modules().items():
                     print(f"  {op:<12} {desc}")

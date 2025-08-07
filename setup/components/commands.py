@@ -43,7 +43,7 @@ class CommandsComponent(Component):
         """Get component metadata"""
         return {
             "name": "commands",
-            "version": "3.1.3",
+            "version": "3.1.4",
             "description": "SuperGemini slash command definitions",
             "category": "commands"
         }
@@ -53,14 +53,14 @@ class CommandsComponent(Component):
         return {
             "components": {
                 "commands": {
-                    "version": "3.1.3",
+                    "version": "3.1.4",
                     "installed": True,
                     "files_count": len(self.component_files)
                 }
             },
             "commands": {
                 "enabled": True,
-                "version": "3.1.3",
+                "version": "3.1.4",
                 "auto_update": False
             }
         }
@@ -86,7 +86,7 @@ class CommandsComponent(Component):
 
             # Add component registration to metadata
             self.settings_manager.add_component_registration("commands", {
-                "version": "3.1.3",
+                "version": "3.1.4",
                 "category": "commands",
                 "files_count": len(self.component_files)
             })
