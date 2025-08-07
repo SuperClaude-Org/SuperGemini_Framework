@@ -650,16 +650,40 @@ class Validator:
             tool_found = False
             for tool in tool_alternatives:
                 try:
+                    # Use different command based on platform
+                    if sys.platform == "win32":
+                        # On Windows, use where command
+                        cmd = ["where", tool]
+                    else:
+                        # On Unix-like systems, use which
+                        cmd = ["which", tool]
+                    
                     result = subprocess.run(
-                        ["which" if sys.platform != "win32" else "where", tool],
+                        cmd,
                         capture_output=True,
                         text=True,
                         timeout=5,
-                        shell=(sys.platform == "win32")
+                        shell=False  # Don't use shell for security
                     )
                     if result.returncode == 0:
                         tool_found = True
                         break
+                except (subprocess.TimeoutExpired, FileNotFoundError):
+                    # Try with shell=True as fallback on Windows
+                    if sys.platform == "win32":
+                        try:
+                            result = subprocess.run(
+                                f"where {tool}",
+                                capture_output=True,
+                                text=True,
+                                timeout=5,
+                                shell=True
+                            )
+                            if result.returncode == 0:
+                                tool_found = True
+                                break
+                        except Exception:
+                            continue
                 except Exception:
                     continue
             

@@ -14,12 +14,36 @@ class CommandsComponent(Component):
     def __init__(self, install_dir: Optional[Path] = None):
         """Initialize commands component"""
         super().__init__(install_dir, Path("commands/sg"))
+        # Explicitly set component files for commands
+        self.component_files = self._get_command_files()
+    
+    def _get_command_files(self) -> List[str]:
+        """Get list of command files to install"""
+        return [
+            "analyze.md",
+            "build.md",
+            "cleanup.md",
+            "design.md",
+            "document.md",
+            "estimate.md",
+            "explain.md",
+            "git.md",
+            "implement.md",
+            "improve.md",
+            "index.md",
+            "load.md",
+            "spawn.md",
+            "task.md",
+            "test.md",
+            "troubleshoot.md",
+            "workflow.md"
+        ]
     
     def get_metadata(self) -> Dict[str, str]:
         """Get component metadata"""
         return {
             "name": "commands",
-            "version": "3.0.0",
+            "version": "3.1.3",
             "description": "SuperGemini slash command definitions",
             "category": "commands"
         }
@@ -29,14 +53,14 @@ class CommandsComponent(Component):
         return {
             "components": {
                 "commands": {
-                    "version": "3.0.0",
+                    "version": "3.1.3",
                     "installed": True,
                     "files_count": len(self.component_files)
                 }
             },
             "commands": {
                 "enabled": True,
-                "version": "3.0.0",
+                "version": "3.1.3",
                 "auto_update": False
             }
         }
@@ -62,7 +86,7 @@ class CommandsComponent(Component):
 
             # Add component registration to metadata
             self.settings_manager.add_component_registration("commands", {
-                "version": "3.0.0",
+                "version": "3.1.3",
                 "category": "commands",
                 "files_count": len(self.component_files)
             })
@@ -239,10 +263,28 @@ class CommandsComponent(Component):
     
     def _get_source_dir(self) -> Path:
         """Get source directory for command files"""
-        # Assume we're in SuperGemini/setup/components/commands.py
-        # and command files are in SuperGemini/SuperGemini/Commands/
-        project_root = Path(__file__).parent.parent.parent
-        return project_root / "SuperGemini" / "Commands"
+        # Try multiple possible locations for command files
+        current_file = Path(__file__)
+        
+        # Option 1: Development mode - relative to this file
+        dev_path = current_file.parent.parent.parent / "SuperGemini" / "Commands"
+        if dev_path.exists():
+            return dev_path
+        
+        # Option 2: Installed package - look in site-packages
+        import site
+        for site_dir in site.getsitepackages():
+            installed_path = Path(site_dir) / "SuperGemini" / "Commands"
+            if installed_path.exists():
+                return installed_path
+        
+        # Option 3: Same directory as package
+        package_path = current_file.parent.parent.parent / "Commands"
+        if package_path.exists():
+            return package_path
+            
+        # Fallback to original path
+        return dev_path
     
     def get_size_estimate(self) -> int:
         """Get estimated installation size"""
@@ -349,6 +391,7 @@ class CommandsComponent(Component):
                     
                     # Extract front matter
                     description = ""
+                    allowed_tools = []
                     main_content = content
                     
                     front_matter_match = re.match(r'^---\n(.*?)\n---\n', content, re.DOTALL)
@@ -360,12 +403,41 @@ class CommandsComponent(Component):
                         desc_match = re.search(r'description:\s*"([^"]+)"', front_matter)
                         if desc_match:
                             description = desc_match.group(1)
+                        
+                        # Extract allowed tools
+                        tools_match = re.search(r'allowed-tools:\s*\[(.*?)\]', front_matter)
+                        if tools_match:
+                            tools_str = tools_match.group(1)
+                            allowed_tools = [tool.strip() for tool in tools_str.split(',')]
                     
                     # Clean up content - remove Gemini Code specific sections
                     main_content = re.sub(r'## Gemini Code Integration.*', '', main_content, flags=re.DOTALL)
                     
-                    # Build TOML content
-                    prompt = f"SuperGemini {main_content.strip()}"
+                    # Build enhanced prompt with flag handling
+                    command_name = md_file.stem
+                    
+                    # Add special handling for commands that should trigger MCP servers
+                    mcp_triggers = {
+                        "analyze": "If the user uses --seq flag, activate the sequential-thinking MCP server for complex analysis.",
+                        "build": "If the user uses --seq flag, activate the sequential-thinking MCP server for systematic building.",
+                        "troubleshoot": "If the user uses --seq flag, activate the sequential-thinking MCP server for root cause analysis."
+                    }
+                    
+                    mcp_instruction = mcp_triggers.get(command_name, "")
+                    
+                    prompt = f"""SuperGemini Framework Command: /sg:{command_name}
+
+{mcp_instruction}
+
+{main_content.strip()}
+
+When handling flags:
+- --seq: Activate sequential-thinking MCP server for systematic analysis
+- --c7: Activate context7 MCP server for documentation lookup
+- --magic: Activate magic MCP server for UI components
+- --verbose: Provide detailed output
+- --quiet: Minimize output
+"""
                     
                     toml_content = f'''prompt = """{prompt}"""
 
@@ -379,13 +451,13 @@ description = "{description}"'''
                     md_file.unlink()
                     
                     converted_count += 1
-                    self.logger.debug(f"Converted {md_file.name} to TOML format")
+                    self.logger.debug(f"Converted {md_file.name} to TOML format with enhanced flag handling")
                     
                 except Exception as e:
                     self.logger.warning(f"Failed to convert {md_file.name}: {e}")
             
             if converted_count > 0:
-                self.logger.info(f"Converted {converted_count} command files to TOML format for Gemini CLI")
+                self.logger.info(f"Converted {converted_count} command files to TOML format with MCP flag support")
                 
         except Exception as e:
             self.logger.warning(f"Error during MD to TOML conversion: {e}")

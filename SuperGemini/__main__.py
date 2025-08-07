@@ -18,17 +18,27 @@ import difflib
 from pathlib import Path
 from typing import Dict, Callable
 
-# Add the 'setup' directory to the Python import path (with deprecation-safe logic)
+# Add the 'setup' directory to the Python import path
+# Fix for installed package to find setup module correctly
+import os
 
-try:
-    # Python 3.9+ preferred modern way
-    from importlib.resources import files, as_file
-    with as_file(files("setup")) as resource:
-        setup_dir = str(resource)
-except (ImportError, ModuleNotFoundError, AttributeError):
-    # Fallback for Python < 3.9
-    from pkg_resources import resource_filename
-    setup_dir = resource_filename('setup', '')
+# First, try to find setup in the installed package location
+package_dir = Path(__file__).parent.parent  # SuperGemini package directory
+
+# Check if we're running from installed package or development
+if (package_dir / "setup").exists():
+    setup_dir = package_dir
+else:
+    # Fallback to site-packages location
+    import site
+    for site_dir in site.getsitepackages():
+        potential_setup = Path(site_dir) / "setup"
+        if potential_setup.exists():
+            setup_dir = Path(site_dir)
+            break
+    else:
+        # Last resort: assume setup is in the same directory as SuperGemini
+        setup_dir = package_dir
 
 # Add to sys.path
 sys.path.insert(0, str(setup_dir))
@@ -44,8 +54,11 @@ try:
     from setup import DEFAULT_INSTALL_DIR
 except ImportError:
     # Provide minimal fallback functions and constants if imports fail
+    from pathlib import Path
+    DEFAULT_INSTALL_DIR = Path.home() / ".gemini"
+    
     class Colors:
-        RED = YELLOW = GREEN = CYAN = RESET = ""
+        RED = YELLOW = GREEN = CYAN = RESET = BRIGHT = ""
 
     def display_error(msg): print(f"[ERROR] {msg}")
     def display_warning(msg): print(f"[WARN] {msg}")
@@ -97,7 +110,7 @@ Examples:
         parents=[global_parser]
     )
 
-    parser.add_argument("--version", action="version", version="SuperGemini v3.1.2")
+    parser.add_argument("--version", action="store_true", help="Show version and exit")
 
     subparsers = parser.add_subparsers(
         dest="operation",
@@ -202,10 +215,15 @@ def main() -> int:
         operations = register_operation_parsers(subparsers, global_parser)
         args = parser.parse_args()
 
+        # Handle --version flag
+        if hasattr(args, 'version') and args.version:
+            print("SuperGemini v3.1.3")
+            return 0
+
         # No operation provided? Show help manually unless in quiet mode
-        if not args.operation:
+        if not hasattr(args, 'operation') or not args.operation:
             if not args.quiet:
-                display_header("SuperGemini Framework v3.1.2", "Unified CLI for all operations")
+                display_header("SuperGemini Framework v3.1.3", "Unified CLI for all operations")
                 print(f"{Colors.CYAN}Available operations:{Colors.RESET}")
                 for op, desc in get_operation_modules().items():
                     print(f"  {op:<12} {desc}")

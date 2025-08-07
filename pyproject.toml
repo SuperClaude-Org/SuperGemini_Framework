@@ -45,7 +45,7 @@ path = "VERSION"
 pattern = "(?P<version>.*)"
 
 [tool.hatch.build.targets.wheel]
-packages = ["SuperGemini"]
+packages = ["SuperGemini", "setup", "config", "profiles"]
 
 [tool.hatch.build.targets.sdist]
 include = [

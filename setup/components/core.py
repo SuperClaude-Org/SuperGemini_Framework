@@ -215,10 +215,28 @@ class CoreComponent(Component):
     
     def _get_source_dir(self):
         """Get source directory for framework files"""
-        # Assume we're in SuperGemini/setup/components/core.py
-        # and framework files are in SuperGemini/SuperGemini/Core/
-        project_root = Path(__file__).parent.parent.parent
-        return project_root / "SuperGemini" / "Core"
+        # Try multiple possible locations for core files
+        current_file = Path(__file__)
+        
+        # Option 1: Development mode - relative to this file
+        dev_path = current_file.parent.parent.parent / "SuperGemini" / "Core"
+        if dev_path.exists():
+            return dev_path
+        
+        # Option 2: Installed package - look in site-packages
+        import site
+        for site_dir in site.getsitepackages():
+            installed_path = Path(site_dir) / "SuperGemini" / "Core"
+            if installed_path.exists():
+                return installed_path
+        
+        # Option 3: Same directory as package
+        package_path = current_file.parent.parent.parent / "Core"
+        if package_path.exists():
+            return package_path
+            
+        # Fallback to original path
+        return dev_path
     
     def get_size_estimate(self) -> int:
         """Get estimated installation size"""
