@@ -79,20 +79,7 @@ Flag system for Gemini Code SuperGemini framework with auto-activation and confl
 - Disable specific MCP server (e.g., --no-magic, --no-seq)
 - Server-specific fallback strategies, 10-30% faster per disabled server
 
-## Sub-Agent Delegation Flags
 
-**`--delegate [files|folders|auto]`**
-- Enable Task tool sub-agent delegation for parallel processing
-- **files**: Delegate individual file analysis to sub-agents
-- **folders**: Delegate directory-level analysis to sub-agents  
-- **auto**: Auto-detect delegation strategy based on scope and complexity
-- Auto-activates: >7 directories or >50 files
-- 40-70% time savings for suitable operations
-
-**`--concurrency [n]`**
-- Control max concurrent sub-agents and tasks (default: 7, range: 1-15)
-- Dynamic allocation based on resources and complexity
-- Prevents resource exhaustion in complex scenarios
 
 ## Wave Orchestration Flags
 
@@ -111,12 +98,7 @@ Flag system for Gemini Code SuperGemini framework with auto-activation and confl
 - **enterprise**: Large-scale orchestration for >100 files with >0.7 complexity
 - Auto-selects based on project characteristics and operation type
 
-**`--wave-delegation [files|folders|tasks]`**
-- Control how Wave system delegates work to Sub-Agent
-- **files**: Sub-Agent delegates individual file analysis across waves
-- **folders**: Sub-Agent delegates directory-level analysis across waves
-- **tasks**: Sub-Agent delegates by task type (security, performance, quality, architecture)
-- Integrates with `--delegate` flag for coordinated multi-phase execution
+
 
 ## Scope & Focus Flags
 
@@ -192,12 +174,12 @@ Flag system for Gemini Code SuperGemini framework with auto-activation and confl
 4. Scope: system > project > module > file
 5. Last specified persona takes precedence
 6. Wave mode: --wave-mode off > --wave-mode force > --wave-mode auto
-7. Sub-Agent delegation: explicit --delegate > auto-detection
+
 9. Loop mode: explicit --loop > auto-detection based on refinement keywords
 10. --uc auto-activation overrides verbose flags
 
 ### Context-Based Auto-Activation
 
 **Wave Auto-Activation**: complexity ≥0.7 AND files >20 AND operation_types >2
-**Sub-Agent Auto-Activation**: >7 directories OR >50 files OR complexity >0.8
+
 **Loop Auto-Activation**: polish, refine, enhance, improve keywords detected
