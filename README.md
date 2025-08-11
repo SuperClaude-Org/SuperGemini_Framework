@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![PyPI version](https://img.shields.io/pypi/v/SuperGemini.svg)](https://pypi.org/project/SuperGemini/)
-[![Version](https://img.shields.io/badge/version-3.1.4-blue.svg)](https://github.com/SuperClaude-Org/SuperGemini_Framework)
+[![Version](https://img.shields.io/badge/version-v4_beta-blue.svg)](https://github.com/SuperClaude-Org/SuperGemini_Framework)
 [![GitHub issues](https://img.shields.io/github/issues/SuperClaude-Org/SuperGemini_Framework)](https://github.com/SuperClaude-Org/SuperGemini_Framework/issues)
 
 A framework that extends Gemini CLI with specialized commands, personas, and MCP server integration.
