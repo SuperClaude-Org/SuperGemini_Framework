@@ -87,7 +87,7 @@ Flag system for Gemini Code SuperGemini framework with auto-activation and confl
 - Control wave orchestration activation
 - **auto**: Auto-activates based on complexity >0.8 AND file_count >20 AND operation_types >2
 - **force**: Override auto-detection and force wave mode for borderline cases
-- **off**: Disable wave mode, use Sub-Agent delegation instead
+- **off**: Disable wave mode for single-stage execution
 - 30-50% better results through compound intelligence and progressive enhancement
 
 **`--wave-strategy [progressive|systematic|adaptive|enterprise]`**

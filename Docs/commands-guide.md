@@ -52,7 +52,6 @@ A practical guide to all 16 SuperGemini slash commands. We'll be honest about wh
 | `/sg:cleanup` | Debt reduction | Refactoring experts | Removing dead code, organizing files |
 | `/sg:load` | Context understanding | Analysis experts | Project analysis, codebase understanding |
 | `/sg:estimate` | Smart estimation | Planning experts | Time/effort planning, complexity analysis |
-| `/sg:spawn` | Complex workflows | Orchestration system | Multi-step operations, workflow automation |
 | `/sg:task` | Project management | Planning system | Long-term feature planning, task tracking |
 | `/sg:workflow` | Implementation planning | Workflow system | Creating step-by-step workflows from PRDs |
 | `/sg:index` | Command navigation | Help system | Finding the right command for your task |
@@ -535,39 +534,6 @@ A practical guide to all 16 SuperGemini slash commands. We'll be honest about wh
 - Works best when you're specific about requirements
 
 ---
-
-### `/spawn` - Complex Operation Orchestration
-**What it does**: Coordinates complex, multi-step operations and workflows.
-
-**When to use it**:
-- Operations involving multiple tools/systems
-- Coordinating parallel workflows
-- Complex deployment processes
-- Multi-stage data processing
-
-**Basic syntax**:
-```bash
-/sg:spawn deploy-pipeline          # Orchestrate deployment
-/sg:spawn --parallel migrate-data  # Parallel data migration
-/sg:spawn setup-dev-environment    # Complex environment setup
-```
-
-**Useful flags**:
-- `--parallel` - Run operations in parallel when possible
-- `--sequential` - Force sequential execution
-- `--monitor` - Monitor operation progress
-
-**Real examples**:
-```bash
-/sg:spawn --parallel "test and deploy to staging"
-/sg:spawn setup-ci-cd --monitor
-/sg:spawn --sequential database-migration
-```
-
-**Gotchas**:
-- Most complex command - expect some rough edges
-- Better for well-defined workflows than ad-hoc operations
-- May need multiple iterations to get right
 
 ## Version Control Commands 🔄
 

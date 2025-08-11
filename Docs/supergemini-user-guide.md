@@ -221,7 +221,6 @@ Flags change how SuperGemini processes your requests. They're like command-line 
 - `--play` - Enable Playwright for testing
 
 **Advanced Orchestration** 🎭
-- `--delegate` - Enable sub-agent delegation for parallel processing
 - `--wave-mode` - Multi-stage execution with compound intelligence
 - `--loop` - Iterative improvement mode
 
@@ -349,14 +348,14 @@ SuperGemini operates in three distinct modes that optimize different aspects of 
 /sg:task status  # Check current project tasks
 ```
 
-**Layer 3: Complex Orchestration (/spawn command)**
+**Layer 3: Wave Orchestration**
 - **Scope**: Complex multi-domain operations
-- **Features**: Parallel/sequential coordination, tool management
-- **Usage**: Operations involving multiple tools/systems
+- **Features**: Multi-stage execution with progressive enhancement
+- **Usage**: System-wide improvements, comprehensive analysis
 
 ```bash
-/sg:spawn deploy-pipeline --parallel
-/sg:spawn setup-dev-environment --monitor
+/sg:analyze system/ --wave-mode force --wave-strategy systematic
+/sg:improve legacy-code/ --wave-mode auto
 ```
 
 **Layer 4: Iterative Enhancement (/loop command)**
@@ -491,7 +490,7 @@ When introspection mode is active, you'll see these markers:
 **Manual activation**:
 ```bash
 /sg:analyze huge-codebase/ --uc  # Ultra-compressed mode
-/sg:improve legacy-system/ --uc --delegate auto  # Efficient large operations
+/sg:improve legacy-system/ --uc --wave-mode auto  # Efficient large operations
 ```
 
 **Performance Goals** (still improving!):
@@ -654,7 +653,7 @@ The orchestrator tries to optimize for good performance through several strategi
 ```bash
 # Auto-activates when >7 directories or >50 files detected
 /sg:analyze monorepo/
-# → --delegate auto flag + parallel processing
+# → --wave-mode auto flag + systematic processing
 ```
 
 **Wave Orchestration**:
@@ -713,7 +712,7 @@ The orchestrator tries to optimize for good performance through several strategi
 - Resources: High token usage predicted
 
 **Usually coordinates**:
-- --delegate auto flag (parallel processing)
+- --wave-mode auto flag (multi-stage processing)
 - --uc flag (token optimization)
 - 🏗️ architect persona (system-level analysis)
 - Sequential MCP (structured analysis)
@@ -1098,15 +1097,15 @@ For working with enterprise-scale projects:
 
 ```bash
 # Efficient large-scale analysis
-/sg:analyze monorepo/ --delegate auto --uc --focus architecture
-# → Parallel processing + compression + architectural focus
+/sg:analyze monorepo/ --wave-mode auto --uc --focus architecture
+# → Wave orchestration + compression + architectural focus
 
 # Systematic improvements
 /sg:improve legacy-system/ --wave-mode auto --safe-mode
 # → Multi-stage improvements with safety checks
 
 # Comprehensive quality review
-/sg:analyze enterprise-app/ --delegate folders --focus quality
+/sg:analyze enterprise-app/ --wave-strategy systematic --focus quality
 # → Distributed quality analysis
 ```
 
@@ -1136,7 +1135,7 @@ For projects spanning multiple technical domains:
 
 ```bash
 # Coordinate across domains
-/sg:analyze fullstack-app/ --all-mcp --delegate auto
+/sg:analyze fullstack-app/ --all-mcp --wave-mode auto
 # → All MCP servers + parallel processing
 
 # Domain-specific improvements
@@ -1157,10 +1156,10 @@ For projects spanning multiple technical domains:
 /sg:analyze single-component.js --focus quality
 
 # Expand as needed
-/sg:analyze entire-module/ --focus quality --delegate files
+/sg:analyze entire-module/ --focus quality --wave-strategy progressive
 
 # Scale to full system
-/sg:analyze whole-project/ --delegate auto --uc
+/sg:analyze whole-project/ --wave-mode auto --uc
 ```
 
 #### Use Progressive Enhancement
@@ -1172,7 +1171,7 @@ For projects spanning multiple technical domains:
 /sg:build project/ --think --c7
 
 # Full orchestration
-/sg:build project/ --wave-mode auto --all-mcp --delegate auto
+/sg:build project/ --wave-mode auto --all-mcp --wave-mode auto
 ```
 
 #### Combine Complementary Personas
@@ -1210,7 +1209,7 @@ For projects spanning multiple technical domains:
 # → Disable extra features, compress output, limit scope
 
 # Use delegation for large tasks
-/sg:improve huge-codebase/ --delegate auto --concurrency 5
+/sg:improve huge-codebase/ --wave-mode auto --concurrency 5
 # → Parallel processing with controlled concurrency
 ```
 
@@ -1253,7 +1252,7 @@ Try different combinations to find what works best:
 /sg:improve critical-code/ --safe-mode --validate --preview
 
 # For efficiency: compressed output with parallel processing
-/sg:analyze big-project/ --uc --delegate auto --concurrency 3
+/sg:analyze big-project/ --uc --wave-mode auto --concurrency 3
 ```
 
 Remember: SuperGemini learns from successful patterns, so the more you use effective combinations, the better it gets at auto-activating the right approach for your needs.
@@ -1375,7 +1374,7 @@ Flags work together to create powerful combinations:
 # → Compressed output + native tools + limited scope
 
 # Efficient parallel processing
-/sg:improve monorepo/ --delegate auto --uc --concurrency 5
+/sg:improve monorepo/ --wave-mode auto --uc --concurrency 5
 # → Parallel processing + compression + controlled resource usage
 ```
 
@@ -1474,18 +1473,18 @@ For complex multi-stage operations:
 4. **Validation Wave**: 🧪 qa + Playwright verify improvements
 5. **Optimization Wave**: ⚡ performance + metrics optimize results
 
-#### Sub-Agent Delegation
-For parallel processing:
+#### Large-Scale Analysis
+For complex projects:
 
 ```bash
-/sg:analyze large-monorepo/ --delegate folders
+/sg:analyze large-monorepo/ --wave-mode --systematic-waves
 ```
 
-**Delegation coordination**:
-- **Main Agent**: Orchestrates and synthesizes results
-- **Sub-Agents**: Specialized analysis of individual folders
-- **Coordination**: Results combined with domain expertise
-- **MCP Integration**: Shared across all agents
+**Wave coordination**:
+- **Analysis**: Systematic assessment of project structure
+- **Processing**: Wave-based execution for better results
+- **Integration**: MCP servers coordinate analysis
+- **Results**: Comprehensive insights with domain expertise
 
 #### Adaptive Intelligence
 SuperGemini adapts coordination based on context:
@@ -1499,7 +1498,7 @@ SuperGemini adapts coordination based on context:
 **Complexity-Based Scaling**:
 - Simple tasks → Direct execution
 - Moderate complexity → Persona + MCP coordination
-- High complexity → Wave orchestration + delegation
+- High complexity → Wave orchestration with systematic approach
 
 ### Coordination Troubleshooting 🔧
 
@@ -1552,7 +1551,7 @@ SuperGemini adapts coordination based on context:
 - System-level: Multiple personas + full MCP coordination
 
 #### Monitor Resource Usage
-- Large operations → Use `--uc` and `--delegate`
+- Large operations → Use `--uc` and `--wave-mode`
 - Simple tasks → Use `--no-mcp` and `--answer-only`
 - Critical operations → Use `--safe-mode` and `--validate`
 
@@ -1896,7 +1895,7 @@ Based on real-world usage patterns and successful workflows, here are practical 
 /sg:build --help
 
 # Not here - complex orchestration
-/sg:improve entire-codebase/ --wave-mode force --all-mcp --delegate auto
+/sg:improve entire-codebase/ --wave-mode force --all-mcp --wave-mode auto
 ```
 
 **Why**: Understanding basic behavior before adding complexity prevents confusion and helps you learn the framework gradually.
@@ -1973,7 +1972,7 @@ Based on real-world usage patterns and successful workflows, here are practical 
 /sg:analyze small-file.js --ultrathink --all-mcp  # Overkill for simple tasks
 
 # ✅ Sensible combinations
-/sg:analyze large-system/ --think --delegate auto  # Appropriate for complexity
+/sg:analyze large-system/ --think --wave-mode auto  # Appropriate for complexity
 /sg:analyze simple-utility.js --answer-only       # Appropriate for simplicity
 ```
 
@@ -2086,7 +2085,7 @@ Based on real-world usage patterns and successful workflows, here are practical 
 /sg:analyze --scope project --focus architecture
 
 # System-level only when necessary
-/sg:analyze --scope system --delegate auto --uc
+/sg:analyze --scope system --wave-mode auto --uc
 ```
 
 **Why**: Matching scope to problem prevents both under-analysis and resource waste.
@@ -2096,7 +2095,7 @@ Based on real-world usage patterns and successful workflows, here are practical 
 #### Manage Context and Token Usage
 ```bash
 # For large operations, use compression
-/sg:analyze huge-codebase/ --uc --delegate auto
+/sg:analyze huge-codebase/ --uc --wave-mode auto
 
 # For repeated analysis, cache results
 /sg:load project-context/  # Cache project understanding
@@ -2108,19 +2107,19 @@ Based on real-world usage patterns and successful workflows, here are practical 
 
 **Why**: Token efficiency keeps operations fast and prevents context overflow in large projects.
 
-#### Use Delegation for Large Projects
+#### Use Wave Mode for Large Projects
 ```bash
-# Automatically delegate when appropriate
-/sg:analyze monorepo/ --delegate auto
+# Automatically activate wave mode for complexity
+/sg:analyze monorepo/ --wave-mode auto
 
-# Manual delegation for specific needs
-/sg:analyze large-project/ --delegate folders --concurrency 3
+# Force wave mode for systematic analysis
+/sg:analyze large-project/ --wave-mode force --wave-strategy systematic
 
-# Skip delegation for small projects
-/sg:analyze small-app/ --no-delegate
+# Disable wave mode for simple projects
+/sg:analyze small-app/ --wave-mode off
 ```
 
-**Why**: Delegation provides significant speedup (40-70%) for large-scale operations while maintaining quality.
+**Why**: Wave orchestration provides better results (30-50%) for large-scale operations through multi-stage processing.
 
 #### Optimize Command Sequences
 ```bash
@@ -2338,7 +2337,7 @@ When SuperGemini doesn't work as expected, here's how to diagnose and fix common
 /sg:analyze large-project/ --uc --no-mcp --scope module
 
 # Use delegation for large operations
-/sg:analyze huge-codebase/ --delegate auto --concurrency 3
+/sg:analyze huge-codebase/ --wave-mode auto --concurrency 3
 
 # Reduce scope
 /sg:analyze specific-component.js  # Instead of entire project
@@ -2351,7 +2350,7 @@ When SuperGemini doesn't work as expected, here's how to diagnose and fix common
 1. Reduce scope (`--scope file` vs `--scope project`)
 2. Use compression (`--uc`)
 3. Disable MCP servers (`--no-mcp`)
-4. Use delegation (`--delegate auto`)
+4. Use wave mode (`--wave-mode auto`)
 5. Use answer-only mode (`--answer-only`)
 
 #### Commands Producing Too Much Output
@@ -2548,7 +2547,7 @@ When SuperGemini doesn't work as expected, here's how to diagnose and fix common
 /sg:analyze --scope file specific-file.js
 
 # Use delegation
-/sg:analyze large-codebase/ --delegate auto --uc
+/sg:analyze large-codebase/ --wave-mode auto --uc
 
 # Disable expensive features
 /sg:analyze code/ --no-mcp --answer-only
@@ -2561,7 +2560,7 @@ When SuperGemini doesn't work as expected, here's how to diagnose and fix common
 **Solutions**:
 ```bash
 # Reduce concurrency
-/sg:analyze large-project/ --delegate auto --concurrency 1
+/sg:analyze large-project/ --wave-mode auto --concurrency 1
 
 # Use safe mode
 /sg:improve large-system/ --safe-mode  # More conservative resource usage
@@ -2708,7 +2707,7 @@ When reporting problems, include:
 | MCP not working | Force activation or disable | `--all-mcp` or `--no-mcp` |
 | Inconsistent results | Use explicit flags | `--persona-x --think --c7` |
 | Context issues | Load project context | `/load --deep` |
-| Token limits | Enable compression + delegation | `--uc --delegate auto` |
+| Token limits | Enable compression + wave mode | `--uc --wave-mode auto` |
 
 Remember: When in doubt, start simple and add complexity gradually. Use `--introspect` to understand what SuperGemini is thinking, and don't hesitate to override auto-activation when you need specific behavior.
 

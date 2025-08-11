@@ -133,8 +133,6 @@ performance-profile: "optimization"
 
 **Iterative Operations** - Use `--loop` flag with improvement commands for iterative refinement
 
-**`/spawn [mode] [flags]`** - Task orchestration | Auto-Persona: Analyzer, Architect, DevOps | MCP: All servers
-
 ## Command Execution Matrix
 
 ### Performance Profiles
@@ -152,7 +150,7 @@ complex: "Resource-intensive with comprehensive analysis"
 - **Testing**: test
 - **Documentation**: document
 - **Version-Control**: git
-- **Meta**: index, load, spawn
+- **Meta**: index, load
 
 ### Wave-Enabled Commands
 7 commands: `/analyze`, `/build`, `/design`, `/implement`, `/improve`, `/task`, `/workflow`

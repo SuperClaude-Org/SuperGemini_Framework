@@ -203,8 +203,8 @@ wave-strategies:
 | "security audit" | complex | security | security persona, --seq, --validate | 95% |
 | "write documentation" | moderate | documentation | scribe persona, --persona-scribe=en, Context7 | 95% |
 | "improve iteratively" | moderate | iterative | intelligent persona, --seq, loop creation | 90% |
-| "analyze large codebase" | complex | any | --delegate --parallel-dirs, domain specialists | 95% |
-| "comprehensive audit" | complex | multi | --multi-agent --parallel-focus, specialized agents | 95% |
+| "analyze large codebase" | complex | any | --wave-mode --systematic-waves | 95% |
+| "comprehensive audit" | complex | multi | --wave-mode --wave-validation | 95% |
 | "improve large system" | complex | any | --wave-mode --adaptive-waves | 90% |
 | "security audit enterprise" | complex | security | --wave-mode --wave-validation | 95% |
 | "modernize legacy system" | complex | legacy | --wave-mode --enterprise-waves --wave-checkpoint | 92% |
@@ -215,31 +215,22 @@ wave-strategies:
 #### Tool Selection Logic
 
 **Base Tool Selection**:
-- **Search**: Grep (specific patterns) or Agent (open-ended)
+- **Search**: Grep (specific patterns) or Sequential (complex analysis)
 - **Understanding**: Sequential (complexity >0.7) or Read (simple)  
 - **Documentation**: Context7
 - **UI**: Magic
 - **Testing**: Playwright
 
-**Delegation & Wave Evaluation**:
-- **Delegation Score >0.6**: Add Task tool, auto-enable delegation flags based on scope
+**Wave Evaluation**:
 - **Wave Score >0.7**: Add Sequential for coordination, auto-enable wave strategies based on requirements
 
 **Auto-Flag Assignment**:
-- Directory count >7 → `--delegate --parallel-dirs`
-- Focus areas >2 → `--multi-agent --parallel-focus`  
 - High complexity + critical quality → `--wave-mode --wave-validation`
 - Multiple operation types → `--wave-mode --adaptive-waves`
 
-#### Task Delegation Intelligence
+#### Wave Intelligence
 
-**Sub-Agent Delegation Decision Matrix**:
-
-**Delegation Scoring Factors**:
-- **Complexity >0.6**: +0.3 score
-- **Parallelizable Operations**: +0.4 (scaled by opportunities/5, max 1.0)
-- **High Token Requirements >15K**: +0.2 score  
-- **Multi-domain Operations >2**: +0.1 per domain
+**Wave Decision Matrix**:
 
 **Wave Opportunity Scoring**:
 - **High Complexity >0.8**: +0.4 score
@@ -251,10 +242,8 @@ wave-strategies:
 
 **Strategy Recommendations**:
 - **Wave Score >0.7**: Use wave strategies
-- **Directories >7**: `parallel_dirs`
-- **Focus Areas >2**: `parallel_focus`  
-- **High Complexity**: `adaptive_delegation`
-- **Default**: `single_agent`
+- **High Complexity**: `adaptive_waves`
+- **Default**: `single_wave`
 
 **Wave Strategy Selection**:
 - **Security Focus**: `wave_validation`
@@ -264,62 +253,27 @@ wave-strategies:
 - **Enterprise Scale**: `enterprise_waves`
 - **Default**: `systematic_waves`
 
-**Auto-Delegation Triggers**:
-```yaml
-directory_threshold:
-  condition: directory_count > 7
-  action: auto_enable --delegate --parallel-dirs
-  confidence: 95%
-
-file_threshold:
-  condition: file_count > 50 AND complexity > 0.6
-  action: auto_enable --delegate --sub-agents [calculated]
-  confidence: 90%
-
-multi_domain:
-  condition: domains.length > 3
-  action: auto_enable --delegate --parallel-focus
-  confidence: 85%
-
-complex_analysis:
-  condition: complexity > 0.8 AND scope = comprehensive
-  action: auto_enable --delegate --focus-agents
-  confidence: 90%
-
-token_optimization:
-  condition: estimated_tokens > 20000
-  action: auto_enable --delegate --aggregate-results
-  confidence: 80%
-```
-
-**Wave Auto-Delegation Triggers**:
+**Wave Auto-Activation Triggers**:
 - Complex improvement: complexity > 0.8 AND files > 20 AND operation_types > 2 → --wave-count 5 (95%)
 - Multi-domain analysis: domains > 3 AND tokens > 15K → --adaptive-waves (90%)
 - Critical operations: production_deploy OR security_audit → --wave-validation (95%)
 - Enterprise scale: files > 100 AND complexity > 0.7 AND domains > 2 → --enterprise-waves (85%)
 - Large refactoring: large_scope AND structural_changes AND complexity > 0.8 → --systematic-waves --wave-validation (93%)
 
-**Delegation Routing Table**:
+**Wave Routing Table**:
 
-| Operation | Complexity | Auto-Delegates | Performance Gain |
+| Operation | Complexity | Auto-Activates | Performance Gain |
 |-----------|------------|----------------|------------------|
-| `/load monorepo/` | moderate | --delegate --parallel-dirs | 65% |
-| `/analyze --comprehensive` | high | --multi-agent --parallel-focus | 70% |
+| `/load monorepo/` | moderate | --wave-mode --systematic-waves | 65% |
+| `/analyze --comprehensive` | high | --wave-mode --wave-validation | 70% |
 | Comprehensive system improvement | high | --wave-mode --progressive-waves | 80% |
 | Enterprise security audit | high | --wave-mode --wave-validation | 85% |
 | Large-scale refactoring | high | --wave-mode --systematic-waves | 75% |
 
-**Sub-Agent Specialization Matrix**:
-- **Quality**: qa persona, complexity/maintainability focus, Read/Grep/Sequential tools
-- **Security**: security persona, vulnerabilities/compliance focus, Grep/Sequential/Context7 tools
-- **Performance**: performance persona, bottlenecks/optimization focus, Read/Sequential/Playwright tools
-- **Architecture**: architect persona, patterns/structure focus, Read/Sequential/Context7 tools
-- **API**: backend persona, endpoints/contracts focus, Grep/Context7/Sequential tools
-
 **Wave-Specific Specialization Matrix**:
 - **Review**: analyzer persona, current_state/quality_assessment focus, Read/Grep/Sequential tools
 - **Planning**: architect persona, strategy/design focus, Sequential/Context7/Write tools
-- **Implementation**: intelligent persona, code_modification/feature_creation focus, Edit/MultiEdit/Task tools
+- **Implementation**: intelligent persona, code_modification/feature_creation focus, Edit/MultiEdit tools
 - **Validation**: qa persona, testing/validation focus, Sequential/Playwright/Context7 tools
 - **Optimization**: performance persona, performance_tuning/resource_optimization focus, Read/Sequential/Grep tools
 
@@ -360,7 +314,7 @@ token_optimization:
 - Security concerns → --persona-security + --focus security + --validate
 - UI/UX tasks → --persona-frontend + --magic + --c7
 - Complex debugging → --seq + --persona-analyzer
-- Large codebase → --uc when context >75% + --delegate auto
+- Large codebase → --uc when context >75%
 - Testing operations → --persona-qa + --play + --validate
 - DevOps operations → --persona-devops + --safe-mode + --validate
 - Refactoring → --persona-refactorer + --wave-strategy systematic + --validate
@@ -370,15 +324,10 @@ token_optimization:
 - Complex multi-domain → --wave-mode auto when complexity >0.8 AND files >20 AND types >2
 - Enterprise scale → --wave-strategy enterprise when files >100 AND complexity >0.7 AND domains >2
 - Critical operations → Wave validation enabled by default for production deployments
-- Legacy modernization → --wave-strategy enterprise --wave-delegation tasks
-- Performance optimization → --wave-strategy progressive --wave-delegation files
-- Large refactoring → --wave-strategy systematic --wave-delegation folders
+- Legacy modernization → --wave-strategy enterprise
+- Performance optimization → --wave-strategy progressive
+- Large refactoring → --wave-strategy systematic
 
-**Sub-Agent Auto-Activation**:
-- File analysis → --delegate files when >50 files detected
-- Directory analysis → --delegate folders when >7 directories detected
-- Mixed scope → --delegate auto for complex project structures
-- High concurrency → --concurrency auto-adjusted based on system resources
 
 **Loop Auto-Activation**:
 - Quality improvement → --loop for polish, refine, enhance, improve keywords
@@ -392,8 +341,7 @@ token_optimization:
 4. Scope: system > project > module > file
 5. Last specified persona takes precedence
 6. Wave mode: --wave-mode off > --wave-mode force > --wave-mode auto
-8. Sub-Agent delegation: explicit --delegate > auto-detection
-9. Loop mode: explicit --loop > auto-detection based on refinement keywords
+8. Loop mode: explicit --loop > auto-detection based on refinement keywords
 10. --uc auto-activation overrides verbose flags
 
 ### Confidence Scoring
@@ -447,8 +395,6 @@ Resource management, operation batching, and intelligent optimization for sub-10
 - **Tool Coordination**: Parallel operations when no dependencies
 - **Context Sharing**: Reuse analysis results across related routing decisions
 - **Cache Strategy**: Store successful routing patterns for session reuse
-- **Task Delegation**: Intelligent sub-agent spawning for parallel processing
-- **Resource Distribution**: Dynamic token allocation across sub-agents
 
 **Resource Allocation**:
 - **Detection Engine**: 1-2K tokens for pattern analysis

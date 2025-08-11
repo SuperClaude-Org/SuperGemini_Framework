@@ -156,16 +156,6 @@ Enable specialized capabilities through MCP servers.
 
 For complex operations and workflows.
 
-#### `--delegate [files|folders|auto]`
-**What it does**: Enables sub-agent delegation for parallel processing  
-**When to use**: Large codebases, complex analysis  
-**Auto-activates**: >7 directories or >50 files  
-**Options**:
-- `files` - Delegate individual file analysis
-- `folders` - Delegate directory-level analysis  
-- `auto` - Smart delegation strategy
-
-**Example**: `/analyze monorepo/ --delegate auto`
 
 #### `--wave-mode [auto|force|off]`
 **What it does**: Multi-stage execution with compound intelligence  
@@ -182,9 +172,9 @@ For complex operations and workflows.
 #### `--concurrency [n]`
 **What it does**: Control max concurrent sub-agents (1-15)  
 **When to use**: Controlling resource usage  
-**Example**: `/analyze --delegate auto --concurrency 3`
+**Example**: `/analyze --wave-mode auto --concurrency 3`
 
-**💡 Tip**: These are powerful but complex. Start with `--delegate auto` for big projects, `--loop` for improvements.
+**💡 Tip**: These are powerful but complex. Start with `--wave-mode auto` for big projects, `--loop` for improvements.
 
 ---
 
@@ -227,7 +217,7 @@ Direct SuperGemini's attention to specific areas.
 
 ### Large Project Work
 ```bash
-/sg:analyze monorepo/ --delegate auto --uc     # Efficient large analysis
+/sg:analyze monorepo/ --wave-mode auto --uc     # Efficient large analysis
 /sg:improve legacy/ --wave-mode auto --safe-mode  # Safe systematic improvement
 ```
 
@@ -274,7 +264,7 @@ Direct SuperGemini's attention to specific areas.
 
 **After** (efficient):
 ```bash
-/sg:analyze huge-monorepo/ --delegate auto --uc --focus architecture
+/sg:analyze huge-monorepo/ --wave-mode auto --uc --focus architecture
 # → Delegates work to sub-agents, compresses output, focuses on architecture
 # → Faster, more focused, better results
 ```
@@ -300,7 +290,7 @@ SuperGemini usually adds flags based on context. Here's when it tries:
 ### Complexity-Based
 ```bash
 /sg:analyze huge-codebase/
-# Auto-adds: --delegate auto --uc
+# Auto-adds: --wave-mode auto --uc
 # Why: >50 files detected, context management needed
 
 /sg:troubleshoot "complex system issue"  
@@ -364,7 +354,7 @@ SuperGemini usually adds flags based on context. Here's when it tries:
 
 **For Thoroughness**:
 ```bash
-/sg:analyze --all-mcp --seq --delegate auto
+/sg:analyze --all-mcp --seq --wave-mode auto
 # → All capabilities, systematic analysis, parallel processing
 ```
 
@@ -395,7 +385,7 @@ SuperGemini usually adds flags based on context. Here's when it tries:
 | `--safe-mode` | Conservative execution | Important code |
 | `--c7` | Official docs | Framework work |
 | `--focus security` | Security focus | Security concerns |
-| `--delegate auto` | Parallel processing | Large codebases |
+| `--wave-mode auto` | Parallel processing | Large codebases |
 | `--validate` | Check before action | Risky operations |
 
 ### Flag Combinations That Work Well
@@ -407,7 +397,7 @@ SuperGemini usually adds flags based on context. Here's when it tries:
 --seq --c7
 
 # Large project
---delegate auto --uc --focus
+--wave-mode auto --uc --focus
 
 # Learning
 --verbose --c7 --persona-mentor
@@ -423,7 +413,7 @@ SuperGemini usually adds flags based on context. Here's when it tries:
 - **--seq**: Complex debugging, multi-step analysis
 - **--uc**: Context >75%, large operations  
 - **--safe-mode**: Resource usage >85%, production
-- **--delegate**: >7 directories or >50 files
+- **--wave-mode**: >7 directories or >50 files
 - **--c7**: Framework imports, documentation requests
 - **--seq**: Debugging keywords, multi-step analysis
 - **Personas**: Domain-specific keywords and patterns
@@ -485,7 +475,7 @@ SuperGemini usually adds flags based on context. Here's when it tries:
 
 ### Performance Tips (For Power Users)
 - **For speed**: `--uc --no-mcp --scope file`
-- **For thoroughness**: `--seq --all-mcp --delegate auto`
+- **For thoroughness**: `--seq --all-mcp --wave-mode auto`
 - **For safety**: `--safe-mode --validate --preview`
 - **For learning**: `--verbose --c7 --persona-mentor`
 

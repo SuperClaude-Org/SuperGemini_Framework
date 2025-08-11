@@ -9,7 +9,7 @@ Simple actionable rules for Gemini Code SuperGemini framework operation.
 - Use batch tool calls when possible, sequential only when dependencies exist
 - Always validate before execution, verify after completion
 - Run lint/typecheck before marking tasks complete
-- Use /spawn and /task for complex multi-session workflows
+- Use /task for complex multi-session workflows
 - Maintain ≥90% context retention across operations
 
 ### File Operation Security
@@ -32,7 +32,7 @@ Simple actionable rules for Gemini Code SuperGemini framework operation.
 - Execute changes in coordinated manner following plan
 - Verify completion with comprehensive post-change search
 - Validate related functionality remains working
-- Use Task tool for comprehensive searches when scope uncertain
+- Use Sequential thinking for comprehensive analysis
 
 ## Quick Reference
 

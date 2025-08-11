@@ -1,5 +1,5 @@
 ---
-allowed-tools: [Read, Glob, Grep, TodoWrite, Task, mcp__sequential-thinking__sequentialthinking]
+allowed-tools: [Read, Glob, Grep, TodoWrite, mcp__sequential-thinking__sequentialthinking]
 description: "Execute complex tasks with intelligent workflow management and cross-session persistence"
 wave-enabled: true
 complexity-threshold: 0.7
@@ -15,7 +15,7 @@ Execute complex tasks with intelligent workflow management, cross-session persis
 
 ## Usage
 ```
-/sg:task [action] [target] [--strategy systematic|agile|enterprise] [--persist] [--hierarchy] [--delegate]
+/sg:task [action] [target] [--strategy systematic|agile|enterprise] [--persist] [--hierarchy]
 ```
 
 ## Actions
@@ -24,7 +24,6 @@ Execute complex tasks with intelligent workflow management, cross-session persis
 - `status` - View task status across sessions
 - `analytics` - Task performance and analytics dashboard
 - `optimize` - Optimize task execution strategies
-- `delegate` - Delegate tasks across multiple agents
 - `validate` - Validate task completion with evidence
 
 ## Arguments
@@ -32,7 +31,6 @@ Execute complex tasks with intelligent workflow management, cross-session persis
 - `--strategy` - Execution strategy (systematic, agile, enterprise)
 - `--persist` - Enable cross-session task persistence
 - `--hierarchy` - Create hierarchical task breakdown
-- `--delegate` - Enable multi-agent task delegation
 - `--wave-mode` - Enable wave-based execution
 - `--validate` - Enforce quality gates and validation
 - `--mcp-routing` - Enable intelligent MCP server routing
@@ -127,9 +125,9 @@ Execute complex tasks with intelligent workflow management, cross-session persis
 /sg:task create "Implement user authentication system" --hierarchy --persist --strategy systematic
 ```
 
-### Execute with Multi-Agent Delegation
+### Execute with Wave Mode
 ```
-/sg:task execute AUTH-001 --delegate --wave-mode --validate
+/sg:task execute AUTH-001 --wave-mode --validate
 ```
 
 ### Analytics and Optimization

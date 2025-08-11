@@ -5,6 +5,31 @@ All notable changes to SuperGemini will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.0.0-beta] - 2025-08-11
+
+### Changed - Gemini Framework Adaptation
+- **BREAKING**: Removed Task agent and sub-agent delegation features (not supported by Gemini)
+- **BREAKING**: Removed `/spawn` command (agent orchestration not available)
+- Modified wave orchestration to work without delegation dependencies
+- Updated all documentation to reflect Gemini-compatible features only
+- Replaced `--delegate` flags with appropriate wave mode alternatives
+- Updated examples and guides to use wave strategies instead of delegation
+
+### Removed
+- Task agent integration from all commands
+- Sub-agent delegation flags and functionality
+- `/spawn` command and related orchestration features
+- Delegation routing logic from ORCHESTRATOR.md
+- Agent-specific references from FLAGS.md, RULES.md, and COMMANDS.md
+
+### Maintained
+- Wave orchestration system (multi-stage execution)
+- All 11 personas (work independently)
+- MCP server integrations (Context7, Sequential, Magic, Playwright)
+- TodoWrite for session-level task management
+- Sequential thinking for complex analysis
+- All other commands except `/spawn`
+
 ## [3.1.4] - 2025-08-07
 
 ### Fixed
