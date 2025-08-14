@@ -60,10 +60,10 @@ MCP (Model Context Protocol) server integration and orchestration system for Gem
 8. Recommendation Generation: Provide actionable next steps with priority ordering
 9. Validation: Check reasoning for logical consistency
 
-**Integration with Thinking Modes**:
-- `--think`: Module-level analysis with context awareness
-- `--think-hard`: System-wide analysis with architectural focus
-- `--ultrathink`: Critical system analysis with comprehensive coverage
+**Integration Modes**:
+- Complex debugging scenarios requiring systematic investigation
+- System design questions needing structured analysis
+- Multi-step problems requiring decomposition and analysis
 
 **Use Cases**:
 - Root cause analysis for complex bugs

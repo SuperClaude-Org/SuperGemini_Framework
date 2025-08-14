@@ -206,7 +206,7 @@ Flags change how SuperGemini processes your requests. They're like command-line 
 **Key Flag Categories:**
 
 **Planning & Analysis** 🧠
-- `--think` / `--think-hard` / `--ultrathink` - Control thinking depth
+- `--seq` - Enable systematic analysis for complex problems
 - `--plan` - Show execution plan before running
 
 **Efficiency & Control** ⚡
@@ -270,7 +270,7 @@ MCP (Model Context Protocol) servers provide specialized capabilities beyond Gem
 
 **Sequential** 🧠
 - **Purpose**: Complex multi-step analysis and systematic thinking
-- **When it activates**: Debugging, system design, `--think` flags
+- **When it activates**: Debugging, system design, `--seq` flags
 - **What it provides**: Structured problem-solving, hypothesis testing
 - **Example**: `/troubleshoot "auth randomly fails" --seq`
 
@@ -579,11 +579,11 @@ The routing system uses dynamic decision trees to map detected patterns to optim
 
 | Request Pattern | Usually Auto-Activates | How Often | Why |
 |----------------|----------------|------------|-----|
-| "analyze architecture" | 🏗️ architect + --ultrathink + Sequential | Most times | Complex system analysis |
+| "analyze architecture" | 🏗️ architect + Sequential | Most times | Complex system analysis |
 | "create UI component" | 🎨 frontend + Magic + --uc | Pretty often | Frontend domain with generation |
-| "security audit" | 🛡️ security + --ultrathink + Sequential | Most times | Security expertise needed |
-| "debug complex issue" | 🔍 analyzer + --think + Sequential | Often | Investigation methodology |
-| "improve performance" | ⚡ performance + --think-hard + Playwright | Pretty often | Performance expertise + testing |
+| "security audit" | 🛡️ security + Sequential | Most times | Security expertise needed |
+| "debug complex issue" | 🔍 analyzer + Sequential | Often | Investigation methodology |
+| "improve performance" | ⚡ performance + Playwright | Pretty often | Performance expertise + testing |
 
 #### Intelligent Coordination
 
@@ -679,7 +679,7 @@ The orchestrator tries to optimize for good performance through several strategi
 - 🛡️ security persona (threat modeling perspective)
 - Sequential MCP (systematic analysis)
 - --validate flag (pre-operation safety check)
-- --think flag (complex security patterns)
+- Sequential analysis for complex security patterns
 
 **Quality Gates**: All 8 steps with emphasis on security validation
 
@@ -697,7 +697,7 @@ The orchestrator tries to optimize for good performance through several strategi
 - ⚡ performance persona (primary)
 - 🎨 frontend persona (secondary, if UI detected)
 - Playwright MCP (performance testing)
-- --think-hard flag (complex optimization)
+- Sequential analysis for complex optimization
 
 **Quality Gates**: Performance-focused validation with benchmarking
 
@@ -1024,7 +1024,7 @@ For systematic debugging:
 
 ```bash
 # 1. Problem investigation
-/sg:troubleshoot "login randomly fails" --think
+/sg:troubleshoot "login randomly fails" --seq
 # → 🔍 analyzer persona + Sequential MCP for methodology
 
 # 2. Root cause analysis
@@ -1114,7 +1114,7 @@ For updating old codebases:
 
 ```bash
 # Assessment phase
-/sg:analyze legacy/ --persona-architect --ultrathink
+/sg:analyze legacy/ --persona-architect --seq
 # → Deep architectural analysis
 
 # Planning phase  
@@ -1168,7 +1168,7 @@ For projects spanning multiple technical domains:
 /sg:build project/
 
 # Add intelligence
-/sg:build project/ --think --c7
+/sg:build project/ --seq --c7
 
 # Full orchestration
 /sg:build project/ --wave-mode auto --all-mcp --wave-mode auto
@@ -1291,7 +1291,7 @@ SuperGemini automatically coordinates components based on context. Here's how it
 - **Persona**: 🛡️ security auto-activates (security focus)
 - **MCP**: Sequential provides systematic analysis
 - **Flags**: `--validate` auto-activates (high-risk operation)
-- **Flags**: `--think` auto-activates (complex security patterns)
+- **Flags**: Sequential analysis for complex security patterns
 
 **Result**: Comprehensive security analysis with threat modeling, vulnerability detection, and compliance checking.
 
@@ -1306,7 +1306,7 @@ SuperGemini automatically coordinates components based on context. Here's how it
 - **Persona**: 🔍 analyzer provides investigation methodology
 - **MCP**: Sequential structures the debugging process
 - **MCP**: Playwright provides performance testing
-- **Flags**: `--think` auto-activates (complex debugging)
+- **Flags**: Sequential analysis for complex debugging
 
 **Result**: Systematic performance investigation with metrics, bottleneck identification, and optimization recommendations.
 
@@ -1385,7 +1385,7 @@ Flags work together to create powerful combinations:
 # → Educational approach + detailed explanations + official docs
 
 # Deep understanding with transparency
-/sg:analyze mysterious-code/ --persona-analyzer --think-hard --introspect  
+/sg:analyze mysterious-code/ --persona-analyzer --seq-hard --introspect  
 # → Investigation methodology + deep analysis + thinking transparency
 ```
 
@@ -1415,7 +1415,7 @@ MCP servers often work together automatically:
 
 #### Complex Problem Solving
 ```bash
-/sg:troubleshoot "complex multi-service issue" --ultrathink
+/sg:troubleshoot "complex multi-service issue" --seq
 ```
 **MCP coordination**:
 - Sequential: Structures systematic investigation
@@ -1513,7 +1513,7 @@ SuperGemini adapts coordination based on context:
 # → Override with explicit persona choice
 
 # Not enough analysis depth
-/sg:troubleshoot complex-issue --ultrathink --all-mcp
+/sg:troubleshoot complex-issue --seq --all-mcp
 # → Force maximum capabilities
 ```
 
@@ -1521,9 +1521,9 @@ SuperGemini adapts coordination based on context:
 ```bash
 # Start simple, add complexity as needed
 /sg:analyze code.js                    # Basic analysis
-/sg:analyze code.js --think            # Add thinking
-/sg:analyze code.js --think --c7       # Add documentation
-/sg:analyze code.js --think --c7 --seq # Add systematic analysis
+/sg:analyze code.js --seq            # Add thinking
+/sg:analyze code.js --seq --c7       # Add documentation
+/sg:analyze code.js --seq --c7 --seq # Add systematic analysis
 ```
 
 #### Understanding Coordination Decisions
@@ -1635,11 +1635,11 @@ Real-world scenarios showing SuperGemini in action. These examples demonstrate h
 
 #### Step 2: Root Cause Investigation  
 ```bash
-/sg:troubleshoot "JWT token exposure in logs" --think --seq
+/sg:troubleshoot "JWT token exposure in logs" --seq --seq
 ```
 **What happens**:
 - 🔍 analyzer persona provides investigation methodology
-- `--think` flag enables deep analysis
+- `--seq` flag enables deep analysis
 - Sequential MCP structures the debugging process
 - Traces data flow and identifies exposure points
 
@@ -1683,7 +1683,7 @@ Real-world scenarios showing SuperGemini in action. These examples demonstrate h
 - ⚡ performance persona activates (performance expertise)
 - Playwright MCP provides performance metrics and testing
 - Context7 MCP brings in React performance best practices
-- `--think-hard` auto-activates (complex performance analysis)
+- `--seq-hard` auto-activates (complex performance analysis)
 
 **Output**: Performance bottleneck identification with metrics and prioritized optimization opportunities.
 
@@ -1743,11 +1743,11 @@ Real-world scenarios showing SuperGemini in action. These examples demonstrate h
 
 #### Step 1: Legacy Assessment
 ```bash
-/sg:analyze legacy-app/ --persona-architect --ultrathink
+/sg:analyze legacy-app/ --persona-architect --seq
 ```
 **Auto-coordination**:
 - 🏗️ architect persona provides structural analysis
-- `--ultrathink` enables maximum analysis depth
+- `--seq` enables maximum analysis depth
 - Context7 MCP compares against current React patterns
 - Sequential MCP provides systematic modernization assessment
 
@@ -1869,7 +1869,7 @@ Most complex workflows follow this pattern with appropriate personas and tools f
 Complex problems benefit from multiple perspectives (security + performance, architecture + frontend, etc.).
 
 #### Progressive Enhancement
-Starting simple and adding complexity as needed (`--think` → `--think-hard` → `--ultrathink`).
+Starting simple and using Sequential analysis when needed.
 
 #### Safety-First Approach
 Critical operations automatically include validation and safety checks (`--safe-mode`, `--validate`).
@@ -1935,13 +1935,13 @@ Based on real-world usage patterns and successful workflows, here are practical 
 /sg:analyze complex-system/
 
 # Add thinking if needed
-/sg:analyze complex-system/ --think
+/sg:analyze complex-system/ --seq
 
 # Add documentation if external libraries involved
-/sg:analyze complex-system/ --think --c7
+/sg:analyze complex-system/ --seq --c7
 
 # Full analysis for critical systems
-/sg:analyze complex-system/ --think-hard --c7 --seq --validate
+/sg:analyze complex-system/ --seq-hard --c7 --seq --validate
 ```
 
 **Why**: Incremental complexity helps you understand what each flag adds and avoids over-engineering simple problems.
@@ -1952,7 +1952,7 @@ Based on real-world usage patterns and successful workflows, here are practical 
 /sg:improve --preview → /improve --safe-mode → /test --coverage
 
 # Deep investigation workflow  
-/sg:troubleshoot issue --think --seq → /analyze affected-code/ --focus quality
+/sg:troubleshoot issue --seq --seq → /analyze affected-code/ --focus quality
 
 # Learning and documentation workflow
 /sg:explain concept --persona-mentor --verbose --c7
@@ -1969,10 +1969,10 @@ Based on real-world usage patterns and successful workflows, here are practical 
 /sg:analyze code/ --no-mcp --c7  # --no-mcp overrides --c7
 
 # ❌ Counterproductive combinations
-/sg:analyze small-file.js --ultrathink --all-mcp  # Overkill for simple tasks
+/sg:analyze small-file.js --seq --all-mcp  # Overkill for simple tasks
 
 # ✅ Sensible combinations
-/sg:analyze large-system/ --think --wave-mode auto  # Appropriate for complexity
+/sg:analyze large-system/ --seq --wave-mode auto  # Appropriate for complexity
 /sg:analyze simple-utility.js --answer-only       # Appropriate for simplicity
 ```
 
@@ -2031,7 +2031,7 @@ Based on real-world usage patterns and successful workflows, here are practical 
 /sg:analyze simple-script.js --no-mcp
 
 # Comprehensive analysis for complex problems
-/sg:analyze complex-system/ --all-mcp --think-hard
+/sg:analyze complex-system/ --all-mcp --seq-hard
 
 # Balanced approach for most work
 /sg:analyze typical-component/ --c7  # Just documentation lookup
@@ -2047,13 +2047,13 @@ Based on real-world usage patterns and successful workflows, here are practical 
 /sg:analyze component.js
 
 # Level 2: Add thinking if complex
-/sg:analyze component.js --think
+/sg:analyze component.js --seq
 
 # Level 3: Add documentation for frameworks
-/sg:analyze component.js --think --c7
+/sg:analyze component.js --seq --c7
 
 # Level 4: Full analysis for critical code
-/sg:analyze component.js --think-hard --c7 --seq --validate
+/sg:analyze component.js --seq-hard --c7 --seq --validate
 ```
 
 **Why**: Start with what you need and add complexity only when necessary. Prevents over-engineering and saves time.
@@ -2219,7 +2219,7 @@ Based on real-world usage patterns and successful workflows, here are practical 
 /sg:test api --type security --play
 
 # Create your own efficient combinations
-/sg:analyze code/ --think --c7 --safe-mode  # Your personal "thorough analysis"
+/sg:analyze code/ --seq --c7 --safe-mode  # Your personal "thorough analysis"
 ```
 
 **Why**: Developing your own proven patterns increases productivity and ensures consistent quality.
@@ -2229,7 +2229,7 @@ Based on real-world usage patterns and successful workflows, here are practical 
 #### Don't Over-Engineer Simple Tasks
 ```bash
 # ❌ Overkill for simple tasks
-/sg:analyze simple-utility.js --ultrathink --all-mcp --wave-mode force
+/sg:analyze simple-utility.js --seq --all-mcp --wave-mode force
 
 # ✅ Appropriate for simple tasks  
 /sg:analyze simple-utility.js --focus quality
@@ -2259,7 +2259,7 @@ Based on real-world usage patterns and successful workflows, here are practical 
 /sg:command --random-flags-that-look-important
 
 # ✅ Understand what each flag does
-/sg:command --think  # Because I need deeper analysis
+/sg:command --seq  # Because I need deeper analysis
 /sg:command --c7     # Because I'm working with external libraries
 ```
 
@@ -2293,7 +2293,7 @@ When SuperGemini doesn't work as expected, here's how to diagnose and fix common
 # → Shows decision-making process
 
 # Try with explicit control
-/sg:analyze code.js --persona-analyzer --think --seq
+/sg:analyze code.js --persona-analyzer --seq --seq
 # → Override auto-activation
 ```
 
@@ -2307,8 +2307,8 @@ When SuperGemini doesn't work as expected, here's how to diagnose and fix common
 
 # Start simple and add complexity
 /sg:analyze code.js                    # Basic
-/sg:analyze code.js --think            # Add depth
-/sg:analyze code.js --think --c7       # Add documentation
+/sg:analyze code.js --seq            # Add depth
+/sg:analyze code.js --seq --c7       # Add documentation
 ```
 
 **Common Causes**:
@@ -2386,7 +2386,7 @@ When SuperGemini doesn't work as expected, here's how to diagnose and fix common
 /sg:command --uc --verbose       # --uc overrides --verbose
 
 # ✅ These work together
-/sg:command --think --c7 --seq   # Complementary capabilities
+/sg:command --seq --c7 --seq   # Complementary capabilities
 /sg:command --safe-mode --validate --preview  # Layered safety
 ```
 
@@ -2426,7 +2426,7 @@ When SuperGemini doesn't work as expected, here's how to diagnose and fix common
 **Auto-Activation Debugging**:
 ```bash
 # See why certain flags activated
-/sg:troubleshoot "why did --think-hard activate?" --introspect
+/sg:troubleshoot "why did --seq-hard activate?" --introspect
 ```
 
 ### Persona Issues 🎭
@@ -2643,7 +2643,7 @@ When SuperGemini doesn't work as expected, here's how to diagnose and fix common
 /sg:command args --introspect
 
 # Use explicit flags for consistency
-/sg:analyze code/ --persona-analyzer --think --c7  # Explicit configuration
+/sg:analyze code/ --persona-analyzer --seq --c7  # Explicit configuration
 ```
 
 **Solutions**:
@@ -2652,7 +2652,7 @@ When SuperGemini doesn't work as expected, here's how to diagnose and fix common
 /sg:improve code/ --focus performance --persona-performance --safe-mode
 
 # Use consistent flag patterns
-/sg:analyze --think --c7     # Your standard thorough analysis
+/sg:analyze --seq --c7     # Your standard thorough analysis
 /sg:improve --safe-mode      # Your standard safe improvement
 ```
 
@@ -2683,7 +2683,7 @@ When SuperGemini doesn't work as expected, here's how to diagnose and fix common
 #### Reporting Issues
 
 When reporting problems, include:
-- **Exact command used**: `/analyze code/ --think --c7`
+- **Exact command used**: `/analyze code/ --seq --c7`
 - **Expected behavior**: "Should provide security analysis"
 - **Actual behavior**: "Only provided basic code review"
 - **Context**: "Working on Node.js authentication system"
@@ -2705,7 +2705,7 @@ When reporting problems, include:
 | Too much output | Use compression | `--uc` |
 | Risky changes | Use safety features | `--safe-mode --preview` |
 | MCP not working | Force activation or disable | `--all-mcp` or `--no-mcp` |
-| Inconsistent results | Use explicit flags | `--persona-x --think --c7` |
+| Inconsistent results | Use explicit flags | `--persona-x --seq --c7` |
 | Context issues | Load project context | `/load --deep` |
 | Token limits | Enable compression + wave mode | `--uc --wave-mode auto` |
 
