@@ -77,7 +77,7 @@ If you need Magic MCP functionality and want to test compatibility:
 - Check Gemini CLI logs for specific error messages
 - Verify API key is set correctly
 - Move Magic back to `_disabledMcpServers` section
-- File issue at [SuperGemini GitHub](https://github.com/SuperClaude-Org/SuperGemini_Framework/issues)
+- File issue at [SuperGemini GitHub](https://github.com/SuperGemini-Org/SuperGemini_Framework/issues)
 
 ## Future Updates
 

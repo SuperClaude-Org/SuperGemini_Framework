@@ -2,8 +2,8 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![PyPI version](https://img.shields.io/pypi/v/SuperGemini.svg)](https://pypi.org/project/SuperGemini/)
-[![Version](https://img.shields.io/badge/version-v4_beta-blue.svg)](https://github.com/SuperClaude-Org/SuperGemini_Framework)
-[![GitHub issues](https://img.shields.io/github/issues/SuperClaude-Org/SuperGemini_Framework)](https://github.com/SuperClaude-Org/SuperGemini_Framework/issues)
+[![Version](https://img.shields.io/badge/version-v4_beta-blue.svg)](https://github.com/SuperGemini-Org/SuperGemini_Framework)
+[![GitHub issues](https://img.shields.io/github/issues/SuperGemini-Org/SuperGemini_Framework)](https://github.com/SuperGemini-Org/SuperGemini_Framework/issues)
 
 A framework that extends Gemini CLI with specialized commands, personas, and MCP server integration.
 
@@ -89,7 +89,7 @@ Configuration files are stored in `~/.gemini/`:
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please check our [issues](https://github.com/SuperClaude-Org/SuperGemini_Framework/issues) page.
+Contributions are welcome! Please check our [issues](https://github.com/SuperGemini-Org/SuperGemini_Framework/issues) page.
 
 ## 📄 License
 
@@ -103,5 +103,5 @@ MIT License - see [LICENSE](LICENSE) file for details.
 ## 🔗 Links
 
 - [PyPI Package](https://pypi.org/project/SuperGemini/)
-- [GitHub Repository](https://github.com/SuperClaude-Org/SuperGemini_Framework)
-- [Issue Tracker](https://github.com/SuperClaude-Org/SuperClaude_Framework/issues)
+- [GitHub Repository](https://github.com/SuperGemini-Org/SuperGemini_Framework)
+- [Issue Tracker](https://github.com/SuperGemini-Org/SuperClaude_Framework/issues)
