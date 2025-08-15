@@ -3,13 +3,13 @@ requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "SuperClaude"
-version = "4.0.0b1"
+name = "SuperGemini"
+version = "4.0.0-beta.1"
 authors = [
     {name = "Mithun Gowda B", email = "contact@superclaude.dev"},
     {name = "NomenAK"}
 ]
-description = "SuperClaude Framework Management Hub - AI-enhanced development framework for Claude Code"
+description = "SuperGemini Framework Management Hub - AI-enhanced development framework for Gemini single-agent architecture"
 readme = "README.md"
 license = {text = "MIT"}
 requires-python = ">=3.8"
