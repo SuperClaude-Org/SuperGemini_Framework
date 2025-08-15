@@ -9,7 +9,7 @@ Simple actionable rules for Gemini CLI SuperGemini framework operation.
 - Use batch tool calls when possible, sequential only when dependencies exist
 - Always validate before execution, verify after completion
 - Run lint/typecheck before marking tasks complete
-- Use /spawn and /task for complex multi-session workflows
+- Use /loop for iterative improvement workflows
 - Maintain ≥90% context retention across operations
 
 ### File Operation Security
@@ -97,8 +97,8 @@ Simple actionable rules for Gemini CLI SuperGemini framework operation.
 
 ### Auto-Triggers
 - Wave mode: complexity ≥0.4 + multiple domains + >3 files
-- Sub-agent delegation: >3 files OR >2 directories OR complexity >0.4
-- Gemini CLI agents: automatic delegation based on task context  
+- Wave orchestration: >3 files OR >2 directories OR complexity >0.4
+- Gemini agent modes: automatic mode selection based on task context  
 - MCP servers: task type + performance requirements
 - Quality gates: all operations apply 8-step validation
 - Parallel suggestions: Multi-file operations with performance estimates

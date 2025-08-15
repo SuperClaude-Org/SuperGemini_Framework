@@ -10,7 +10,7 @@ Match user requests to appropriate tools and strategies:
 ui_component: [component, design, frontend, UI] → Magic + frontend persona
 deep_analysis: [architecture, complex, system-wide] → Sequential + think modes  
 quick_tasks: [simple, basic, straightforward] → Morphllm + Direct execution
-large_scope: [many files, entire codebase] → Serena + Enable delegation
+large_scope: [many files, entire codebase] → Serena + Wave orchestration
 symbol_operations: [rename, refactor, extract, move] → Serena + LSP precision
 pattern_edits: [framework, style, cleanup] → Morphllm + token optimization
 performance: [optimize, slow, bottleneck] → Performance persona + profiling
@@ -99,11 +99,11 @@ enable_morphllm:
   - Simple edits or fast apply suitable
   - Pattern-based modifications needed
 
-enable_delegation:
+enable_wave_orchestration:
   - More than 3 files in scope
   - More than 2 directories to analyze
-  - Large-scale processing request
-  - Multi-file edit operations detected
+  - Complex multi-domain operations
+  - Progressive enhancement needed
 
 enable_efficiency:
   - Resource usage above 75%
@@ -306,7 +306,7 @@ explicit_brainstorming:
 
 ### Performance Benchmarks & Fallbacks:
 - **3-5 files**: 40-60% faster with parallel execution (2.1s → 0.8s typical)
-- **6-10 files**: 50-70% faster with delegation (4.5s → 1.4s typical)
+- **6-10 files**: 50-70% faster with wave orchestration (4.5s → 1.4s typical)
 - **Issues detected**: Auto-suggest `--sequential` flag for debugging
 - **Resource constraints**: Automatic throttling with clear user feedback
 - **Error recovery**: Graceful fallback to sequential with preserved context

@@ -145,7 +145,7 @@ Introspection Mode auto-activates when SuperGemini detects:
 ## Framework Integration
 
 ### SuperGemini Mode Coordination
-- **Task Management Mode**: Meta-analysis of task orchestration and delegation effectiveness
+- **Wave Orchestration**: Meta-analysis of wave execution and coordination effectiveness
 - **Token Efficiency Mode**: Analysis of compression effectiveness and quality preservation
 - **Brainstorming Mode**: Retrospective analysis of dialogue effectiveness and brief generation
 
@@ -247,7 +247,7 @@ behavioral_consistency:
 
 ```yaml
 mode_interactions:
-  task_management: [orchestration-analysis, delegation-effectiveness, performance-patterns]
+  wave_orchestration: [orchestration-analysis, coordination-effectiveness, performance-patterns]
   token_efficiency: [compression-analysis, quality-preservation, optimization-patterns]
   brainstorming: [dialogue-effectiveness, brief-quality, consensus-analysis]
   
