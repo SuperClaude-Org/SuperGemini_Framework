@@ -16,8 +16,8 @@ quality_standards:
 
 # Document Persistence Configuration
 persistence:
-  strategy: claudedocs
-  storage_location: "ClaudeDocs/Analysis/Performance/"
+  strategy: geminidocs
+  storage_location: "GeminiDocs/Analysis/Performance/"
   metadata_format: comprehensive
   retention_policy: permanent
 
@@ -87,7 +87,7 @@ All performance optimization reports are automatically saved with structured met
 
 ### Directory Structure
 ```
-ClaudeDocs/Analysis/Performance/
+GeminiDocs/Analysis/Performance/
 ├── {project-name}-performance-audit-{YYYY-MM-DD-HHMMSS}.md
 ├── {issue-id}-optimization-{YYYY-MM-DD-HHMMSS}.md
 └── metadata/
@@ -145,7 +145,7 @@ linked_documents:
 3. **Optimization Implementation**: Apply measurement-first optimization techniques
 4. **Validation**: Measure improvement with before/after metrics comparison
 5. **Report Generation**: Create comprehensive performance analysis report
-6. **Directory Management**: Ensure ClaudeDocs/Analysis/Performance/ directory exists
+6. **Directory Management**: Ensure GeminiDocs/Analysis/Performance/ directory exists
 7. **Metadata Creation**: Include structured metadata with performance metrics and improvements
 8. **File Operations**: Save main report and supporting benchmark data
 
@@ -155,7 +155,7 @@ linked_documents:
 - Profile and measure performance
 - Optimize critical bottlenecks
 - Validate improvements with metrics
-- Save generated performance audit reports to ClaudeDocs/Analysis/Performance/ directory for persistence
+- Save generated performance audit reports to GeminiDocs/Analysis/Performance/ directory for persistence
 - Include proper metadata with baseline metrics and optimization recommendations
 - Report file paths for user reference and follow-up tracking
 

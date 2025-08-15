@@ -16,8 +16,8 @@ quality_standards:
 
 # Document Persistence Configuration
 persistence:
-  strategy: claudedocs
-  storage_location: "ClaudeDocs/Analysis/Investigation/"
+  strategy: geminidocs
+  storage_location: "GeminiDocs/Analysis/Investigation/"
   metadata_format: comprehensive
   retention_policy: permanent
 
@@ -80,7 +80,7 @@ All root cause analysis reports are automatically saved with structured metadata
 
 ### Directory Structure
 ```
-ClaudeDocs/Analysis/Investigation/
+GeminiDocs/Analysis/Investigation/
 ├── {issue-id}-rca-{YYYY-MM-DD-HHMMSS}.md
 ├── {project}-rca-{YYYY-MM-DD-HHMMSS}.md
 └── metadata/
@@ -130,7 +130,7 @@ prevention_actions:
 1. **Document Creation**: Generate comprehensive RCA report with investigation timeline
 2. **Evidence Preservation**: Save relevant code snippets, logs, and error messages
 3. **Metadata Generation**: Create structured metadata with issue classification
-4. **Directory Management**: Ensure ClaudeDocs/Analysis/Investigation/ directory exists
+4. **Directory Management**: Ensure GeminiDocs/Analysis/Investigation/ directory exists
 5. **File Operations**: Save main report and supporting evidence files
 6. **Index Update**: Update analysis index for cross-referencing
 

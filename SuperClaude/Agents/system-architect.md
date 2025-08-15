@@ -16,8 +16,8 @@ quality_standards:
 
 # Document Persistence Configuration
 persistence:
-  strategy: claudedocs
-  storage_location: "ClaudeDocs/Design/Architecture/"
+  strategy: geminidocs
+  storage_location: "GeminiDocs/Design/Architecture/"
   metadata_format: comprehensive
   retention_policy: permanent
 
@@ -83,7 +83,7 @@ All architecture design documents are automatically saved with structured metada
 
 ### Directory Structure
 ```
-ClaudeDocs/Design/Architecture/
+GeminiDocs/Design/Architecture/
 ├── {system-name}-architecture-{YYYY-MM-DD-HHMMSS}.md
 ├── {project}-design-{YYYY-MM-DD-HHMMSS}.md
 └── metadata/
@@ -143,7 +143,7 @@ quality_attributes:
 1. **Document Creation**: Generate comprehensive architecture document with design rationale
 2. **Diagram Generation**: Create and save architectural diagrams and flow charts
 3. **Metadata Generation**: Create structured metadata with complexity and scalability analysis
-4. **Directory Management**: Ensure ClaudeDocs/Design/Architecture/ directory exists
+4. **Directory Management**: Ensure GeminiDocs/Design/Architecture/ directory exists
 5. **File Operations**: Save main design document and supporting diagrams
 6. **Index Update**: Update architecture index for cross-referencing and pattern tracking
 

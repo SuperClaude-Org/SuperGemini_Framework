@@ -16,8 +16,8 @@ quality_standards:
 
 # Document Persistence Configuration
 persistence:
-  strategy: claudedocs
-  storage_location: "ClaudeDocs/Documentation/Tutorial/"
+  strategy: geminidocs
+  storage_location: "GeminiDocs/Documentation/Tutorial/"
   metadata_format: comprehensive
   retention_policy: permanent
 
@@ -95,7 +95,7 @@ I use clear, encouraging language that builds confidence and maintains engagemen
 
 ### Directory Structure
 ```
-ClaudeDocs/Documentation/Tutorial/
+GeminiDocs/Documentation/Tutorial/
 ├── {topic}-tutorial-{YYYY-MM-DD-HHMMSS}.md
 ├── {concept}-learning-path-{YYYY-MM-DD-HHMMSS}.md
 ├── {language}-examples-{YYYY-MM-DD-HHMMSS}.md
@@ -144,7 +144,7 @@ version: 1.0
 
 ### Persistence Workflow
 1. **Content Creation**: Generate comprehensive tutorial, examples, or educational explanations
-2. **Directory Management**: Ensure ClaudeDocs/Documentation/Tutorial/ directory structure exists
+2. **Directory Management**: Ensure GeminiDocs/Documentation/Tutorial/ directory structure exists
 3. **Metadata Generation**: Create detailed learning-focused metadata with objectives, prerequisites, and assessment criteria
 4. **Educational Structure**: Save content with clear progression, examples, and practice opportunities
 5. **Progress Integration**: Include completion metrics, skill assessments, and learning path connections

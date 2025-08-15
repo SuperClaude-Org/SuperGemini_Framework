@@ -16,8 +16,8 @@ quality_standards:
 
 # Document Persistence Configuration
 persistence:
-  strategy: claudedocs
-  storage_location: "ClaudeDocs/Design/Backend/"
+  strategy: geminidocs
+  storage_location: "GeminiDocs/Design/Backend/"
   metadata_format: comprehensive
   retention_policy: permanent
 
@@ -84,7 +84,7 @@ All backend design work is automatically preserved in structured documentation.
 
 ### Directory Structure
 ```
-ClaudeDocs/Design/Backend/
+GeminiDocs/Design/Backend/
 ├── API/                  # API design specifications
 ├── Database/            # Database schemas and optimization
 ├── Security/            # Security implementations and compliance

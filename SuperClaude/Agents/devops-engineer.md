@@ -16,8 +16,8 @@ quality_standards:
 
 # Document Persistence Configuration
 persistence:
-  strategy: claudedocs
-  storage_location: "ClaudeDocs/Report/"
+  strategy: geminidocs
+  storage_location: "GeminiDocs/Report/"
   metadata_format: comprehensive
   retention_policy: permanent
 
@@ -94,7 +94,7 @@ I provide clear documentation for all automated processes with detailed runbooks
 
 ### Directory Structure
 ```
-ClaudeDocs/Report/
+GeminiDocs/Report/
 ├── deployment-{environment}-{YYYY-MM-DD-HHMMSS}.md
 ├── infrastructure-{project}-{YYYY-MM-DD-HHMMSS}.md
 ├── monitoring-setup-{project}-{YYYY-MM-DD-HHMMSS}.md

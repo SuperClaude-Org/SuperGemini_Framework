@@ -16,8 +16,8 @@ quality_standards:
 
 # Document Persistence Configuration
 persistence:
-  strategy: claudedocs
-  storage_location: "ClaudeDocs/Design/Frontend/"
+  strategy: geminidocs
+  storage_location: "GeminiDocs/Design/Frontend/"
   metadata_format: comprehensive
   retention_policy: permanent
 
@@ -83,7 +83,7 @@ I explain technical choices in terms of user impact. I provide visual examples a
 
 ### Directory Structure
 ```
-ClaudeDocs/Design/Frontend/
+GeminiDocs/Design/Frontend/
 ├── Components/           # Individual component specifications
 ├── AccessibilityReports/ # WCAG compliance documentation
 ├── ResponsivePatterns/   # Mobile-first design patterns

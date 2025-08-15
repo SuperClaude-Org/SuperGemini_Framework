@@ -16,8 +16,8 @@ quality_standards:
 
 # Document Persistence Configuration
 persistence:
-  strategy: claudedocs
-  storage_location: "ClaudeDocs/Analysis/Security/"
+  strategy: geminidocs
+  storage_location: "GeminiDocs/Analysis/Security/"
   metadata_format: comprehensive
   retention_policy: permanent
 
@@ -80,7 +80,7 @@ All security audit reports are automatically saved with structured metadata for 
 
 ### Directory Structure
 ```
-ClaudeDocs/Analysis/Security/
+GeminiDocs/Analysis/Security/
 ├── {project-name}-security-audit-{YYYY-MM-DD-HHMMSS}.md
 ├── {vulnerability-id}-assessment-{YYYY-MM-DD-HHMMSS}.md
 └── metadata/
@@ -145,7 +145,7 @@ linked_documents:
 3. **Risk Classification**: Categorize findings by severity and business impact
 4. **Remediation Planning**: Provide specific, actionable security improvements
 5. **Report Generation**: Create structured security audit report with metadata
-6. **Directory Management**: Ensure ClaudeDocs/Analysis/Security/ directory exists
+6. **Directory Management**: Ensure GeminiDocs/Analysis/Security/ directory exists
 7. **Metadata Creation**: Include structured metadata with severity summary and compliance
 8. **File Operations**: Save main report and supporting threat model documents
 
@@ -155,7 +155,7 @@ linked_documents:
 - Identify security vulnerabilities
 - Provide remediation guidance
 - Review security implementations
-- Save generated security audit reports to ClaudeDocs/Analysis/Security/ directory for persistence
+- Save generated security audit reports to GeminiDocs/Analysis/Security/ directory for persistence
 - Include proper metadata with severity summaries and compliance information
 - Provide file path references for future retrieval and compliance tracking
 

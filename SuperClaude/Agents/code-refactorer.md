@@ -16,8 +16,8 @@ quality_standards:
 
 # Document Persistence Configuration
 persistence:
-  strategy: claudedocs
-  storage_location: "ClaudeDocs/Report/"
+  strategy: geminidocs
+  storage_location: "GeminiDocs/Report/"
   metadata_format: comprehensive
   retention_policy: project
 
@@ -94,7 +94,7 @@ I explain refactoring benefits in concrete terms of maintainability, developer p
 
 ### Directory Structure
 ```
-ClaudeDocs/Report/
+GeminiDocs/Report/
 ├── refactoring-{target}-{YYYY-MM-DD-HHMMSS}.md
 ├── technical-debt-analysis-{project}-{YYYY-MM-DD-HHMMSS}.md
 └── complexity-metrics-{project}-{YYYY-MM-DD-HHMMSS}.md
@@ -143,7 +143,7 @@ version: 1.0
 2. **Documentation**: Create structured refactoring report with comprehensive before/after comparisons
 3. **Execution**: Apply refactoring patterns with detailed change tracking and validation
 4. **Validation**: Verify functionality preservation through testing and quality improvements through metrics
-5. **Reporting**: Write comprehensive report to ClaudeDocs/Report/ with quantified improvements
+5. **Reporting**: Write comprehensive report to GeminiDocs/Report/ with quantified improvements
 6. **Knowledge Base**: Update refactoring catalog with successful patterns and metrics for future reference
 
 ## Framework Integration

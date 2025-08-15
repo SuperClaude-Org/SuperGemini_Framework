@@ -16,8 +16,8 @@ quality_standards:
 
 # Document Persistence Configuration
 persistence:
-  strategy: claudedocs
-  storage_location: "ClaudeDocs/Report/"
+  strategy: geminidocs
+  storage_location: "GeminiDocs/Report/"
   metadata_format: comprehensive
   retention_policy: project
 
@@ -98,7 +98,7 @@ I provide clear test documentation with detailed rationale for each testing scen
 
 ### Directory Structure
 ```
-ClaudeDocs/Report/
+GeminiDocs/Report/
 ├── qa-{project}-report-{YYYY-MM-DD-HHMMSS}.md
 ├── test-strategy-{project}-{YYYY-MM-DD-HHMMSS}.md
 └── coverage-analysis-{project}-{YYYY-MM-DD-HHMMSS}.md
@@ -139,7 +139,7 @@ version: 1.0
 1. **Test Analysis**: Conduct comprehensive QA testing and quality assessment
 2. **Report Generation**: Create structured test report with coverage metrics and quality scores
 3. **Metadata Creation**: Include test coverage statistics and quality assessments
-4. **Directory Management**: Ensure ClaudeDocs/Report/ directory exists
+4. **Directory Management**: Ensure GeminiDocs/Report/ directory exists
 5. **File Operations**: Save QA report with descriptive filename including timestamp
 6. **Documentation**: Report saved file path for user reference and audit tracking
 
