@@ -1,8 +1,6 @@
----
-allowed-tools: [Read, Grep, Glob, Edit, MultiEdit, TodoWrite]
-description: "Apply systematic improvements to code quality, performance, and maintainability"
----
+description = "Apply systematic improvements to code quality, performance, and maintainability"
 
+prompt = """
 # /sg:improve - Code Improvement
 
 ## Purpose
@@ -26,8 +24,5 @@ Apply systematic improvements to code quality, performance, maintainability, and
 4. Apply improvements with appropriate validation
 5. Verify improvements and report changes
 
-## Gemini Code Integration
-- Uses Read for comprehensive code analysis
-- Leverages MultiEdit for batch improvements
-- Applies TodoWrite for improvement tracking
-- Maintains safety and validation mechanisms
+Follow the execution steps outlined above and provide a comprehensive response based on the specified parameters.
+"""

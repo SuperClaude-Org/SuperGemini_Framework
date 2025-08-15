@@ -13,7 +13,7 @@ uv add SuperGemini
 
 **Option B: From Source**
 ```bash
-git clone https://github.com/SuperGemini-Org/SuperGemini_Framework.git
+git clone https://github.com/SuperClaude-Org/SuperGemini_Framework.git
 cd SuperGemini_Framework
 uv sync
 ```
@@ -116,11 +116,11 @@ SuperGemini works on **Windows**, **macOS**, and **Linux**. Here's what you need
 
 **Required:**
 - **Python 3.8 or newer** - The framework is written in Python
-- **Gemini CLI** - SuperGemini enhances Gemini Code, so you need it installed first
+- **Node.js 16+** - Required for Gemini CLI and MCP servers
+- **Gemini CLI** - Install with `npm install -g @google/gemini-cli`
 
-**Optional (but recommended):**
-- **Node.js 16+** - Only needed if you want MCP server integration
-- **Git** - Helpful for development workflows
+**Optional:**
+- **Git** - Helpful for development workflows and installing from source
 
 ### Quick Check 🔍
 
@@ -131,7 +131,7 @@ Before installing, let's make sure you have the basics:
 python --version
 
 # Check if Gemini CLI is installed
-gemini --version
+npm list -g @google/gemini-cli
 
 # Check Node.js (optional, for MCP servers)
 node --version
@@ -169,7 +169,7 @@ SuperGemini install --quick
 , `python -m SuperGemini commands` or also `python SuperGemini commands`**
 
 **What you just got:**
-- ✅ All 16 smart commands that auto-activate experts
+- ✅ All 14 smart commands that auto-activate experts
 - ✅ 11 specialist personas that know when to help
 - ✅ Intelligent routing that figures out complexity for you
 - ✅ About 2 minutes of your time and ~50MB disk space
@@ -241,11 +241,7 @@ brew install python
 winget install python
 ```
 
-**Missing Gemini CLI?**
-- Visit https://gemini.ai/code for installation instructions
-- SuperGemini enhances Gemini Code, so you need it first
-
-**Missing Node.js? (Optional)**
+**Missing Node.js? (Required for Gemini CLI)**
 ```bash
 # Linux (Ubuntu/Debian)
 sudo apt update && sudo apt install nodejs npm
@@ -257,6 +253,15 @@ brew install node
 # Download from https://nodejs.org/
 #or open command prompt or powershell
 winget install nodejs
+```
+
+**Installing Gemini CLI:**
+```bash
+# After Node.js is installed, install Gemini CLI globally
+npm install -g @google/gemini-cli
+
+# Verify installation
+npm list -g @google/gemini-cli
 ```
 
 ### Getting SuperGemini 📥
@@ -336,8 +341,8 @@ ls ~/.gemini/
 
 **Test with Gemini Code:**
 1. Open Gemini Code
-2. Try typing `/help` - you should see SuperGemini commands
-3. Try `/analyze --help` - should show command options
+2. Try typing `/sg:index` - shows available SuperGemini commands
+3. Try `/sg:analyze --help` - should show command options
 
 ### What Got Installed 📂
 
@@ -355,11 +360,12 @@ SuperGemini installs to `~/.gemini/` by default. Here's what you'll find:
 ├── MODES.md                # Operational modes
 ├── ORCHESTRATOR.md         # Intelligent routing
 ├── settings.json           # Configuration file
-└── commands/               # Individual command definitions
-    ├── analyze.md
-    ├── build.md
-    ├── improve.md
-    └── ... (13 more)
+└── commands/               # Command definitions
+    └── sg/                 # SuperGemini commands
+        ├── analyze.toml
+        ├── build.toml
+        ├── improve.toml
+        └── ... (11 more TOML files)
 ```
 
 **What each file does:**
@@ -516,7 +522,7 @@ SuperGemini install --quick --dry-run
 ### Still Having Issues? 🤔
 
 **Check our troubleshooting resources:**
-- GitHub Issues: https://github.com/SuperGemini-Org/SuperGemini_Framework/issues
+- GitHub Issues: https://github.com/SuperClaude-Org/SuperGemini_Framework/issues
 - Look for existing issues similar to yours
 - Create a new issue if you can't find a solution
 

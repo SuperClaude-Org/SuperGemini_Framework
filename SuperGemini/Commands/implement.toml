@@ -1,0 +1,32 @@
+description = "Feature and code implementation with intelligent persona activation and MCP integration"
+
+prompt = """
+# /sg:implement - Feature Implementation
+
+## Purpose
+Implement features, components, and code functionality with intelligent expert activation and comprehensive development support.
+
+## Usage
+```
+/sg:implement [feature-description] [--type component|api|service|feature] [--framework react|vue|express|etc] [--safe]
+```
+
+## Arguments
+- `feature-description` - Description of what to implement
+- `--type` - Implementation type (component, api, service, feature, module)
+- `--framework` - Target framework or technology stack
+- `--safe` - Use conservative implementation approach
+- `--iterative` - Enable iterative development with validation steps
+- `--with-tests` - Include test implementation
+- `--documentation` - Generate documentation alongside implementation
+
+## Execution
+1. Analyze implementation requirements and detect technology context
+2. Auto-activate relevant personas (frontend, backend, security, etc.)
+3. Coordinate with MCP servers (Magic for UI, Context7 for patterns, Sequential for complex logic)
+4. Generate implementation code with best practices
+5. Apply security and quality validation
+6. Provide testing recommendations and next steps
+
+Follow the execution steps outlined above and provide a comprehensive response based on the specified parameters.
+"""

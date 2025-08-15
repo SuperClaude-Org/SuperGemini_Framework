@@ -1,8 +1,6 @@
----
-allowed-tools: [Read, Grep, Glob, Bash, TodoWrite]
-description: "Diagnose and resolve issues in code, builds, or system behavior"
----
+description = "Diagnose and resolve issues in code, builds, or system behavior"
 
+prompt = """
 # /sg:troubleshoot - Issue Diagnosis and Resolution
 
 ## Purpose
@@ -26,8 +24,5 @@ Systematically diagnose and resolve issues in code, builds, deployments, or syst
 4. Propose and validate solution approaches
 5. Apply fixes and verify resolution
 
-## Gemini Code Integration
-- Uses Read for error log analysis
-- Leverages Bash for runtime diagnostics
-- Applies Grep for pattern-based issue detection
-- Maintains structured troubleshooting documentation
+Follow the execution steps outlined above and provide a comprehensive response based on the specified parameters.
+"""

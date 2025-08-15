@@ -4,7 +4,6 @@ Commands component for SuperGemini slash command definitions
 
 from typing import Dict, List, Tuple, Optional, Any
 from pathlib import Path
-import re
 
 from ..base.component import Component
 
@@ -18,32 +17,29 @@ class CommandsComponent(Component):
         self.component_files = self._get_command_files()
     
     def _get_command_files(self) -> List[str]:
-        """Get list of command files to install"""
+        """Get list of command files to install (.toml format for Commands)"""
         return [
-            "analyze.md",
-            "build.md",
-            "cleanup.md",
-            "design.md",
-            "document.md",
-            "estimate.md",
-            "explain.md",
-            "git.md",
-            "implement.md",
-            "improve.md",
-            "index.md",
-            "load.md",
-            "spawn.md",
-            "task.md",
-            "test.md",
-            "troubleshoot.md",
-            "workflow.md"
+            "analyze.toml",
+            "build.toml", 
+            "cleanup.toml",
+            "design.toml",
+            "document.toml",
+            "estimate.toml",
+            "explain.toml",
+            "git.toml",
+            "implement.toml",
+            "improve.toml",
+            "index.toml",
+            "load.toml",
+            "test.toml",
+            "troubleshoot.toml"
         ]
     
     def get_metadata(self) -> Dict[str, str]:
         """Get component metadata"""
         return {
             "name": "commands",
-            "version": "3.1.4",
+            "version": "3.2.0",
             "description": "SuperGemini slash command definitions",
             "category": "commands"
         }
@@ -53,14 +49,14 @@ class CommandsComponent(Component):
         return {
             "components": {
                 "commands": {
-                    "version": "3.1.4",
+                    "version": "3.2.0",
                     "installed": True,
                     "files_count": len(self.component_files)
                 }
             },
             "commands": {
                 "enabled": True,
-                "version": "3.1.4",
+                "version": "3.2.0",
                 "auto_update": False
             }
         }
@@ -72,12 +68,9 @@ class CommandsComponent(Component):
         # Check for and migrate existing commands from old location
         self._migrate_existing_commands()
 
-        return super()._install(config);
+        return super()._install(config)
 
     def _post_install(self):
-        # Convert MD files to TOML for Gemini CLI compatibility
-        self._convert_md_to_toml()
-        
         # Update metadata
         try:
             metadata_mods = self.get_metadata_modifications()
@@ -86,7 +79,7 @@ class CommandsComponent(Component):
 
             # Add component registration to metadata
             self.settings_manager.add_component_registration("commands", {
-                "version": "3.1.4",
+                "version": "3.2.0",
                 "category": "commands",
                 "files_count": len(self.component_files)
             })
@@ -241,7 +234,7 @@ class CommandsComponent(Component):
             errors.append("SG commands directory not found")
             return False, errors
         
-        # Check if all command files exist
+        # Check if all command files exist (.toml format)
         for filename in self.component_files:
             file_path = commands_dir / filename
             if not file_path.exists():
@@ -374,90 +367,3 @@ class CommandsComponent(Component):
         except Exception as e:
             self.logger.warning(f"Error during command migration: {e}")
     
-    def _convert_md_to_toml(self) -> None:
-        """Convert MD command files to TOML format for Gemini CLI compatibility"""
-        try:
-            commands_dir = self.install_dir / "commands" / "sg"
-            if not commands_dir.exists():
-                self.logger.warning("Commands directory not found for TOML conversion")
-                return
-            
-            converted_count = 0
-            
-            for md_file in commands_dir.glob("*.md"):
-                try:
-                    # Read MD content
-                    content = md_file.read_text(encoding='utf-8')
-                    
-                    # Extract front matter
-                    description = ""
-                    allowed_tools = []
-                    main_content = content
-                    
-                    front_matter_match = re.match(r'^---\n(.*?)\n---\n', content, re.DOTALL)
-                    if front_matter_match:
-                        front_matter = front_matter_match.group(1)
-                        main_content = content[front_matter_match.end():]
-                        
-                        # Extract description
-                        desc_match = re.search(r'description:\s*"([^"]+)"', front_matter)
-                        if desc_match:
-                            description = desc_match.group(1)
-                        
-                        # Extract allowed tools
-                        tools_match = re.search(r'allowed-tools:\s*\[(.*?)\]', front_matter)
-                        if tools_match:
-                            tools_str = tools_match.group(1)
-                            allowed_tools = [tool.strip() for tool in tools_str.split(',')]
-                    
-                    # Clean up content - remove Gemini Code specific sections
-                    main_content = re.sub(r'## Gemini Code Integration.*', '', main_content, flags=re.DOTALL)
-                    
-                    # Build enhanced prompt with flag handling
-                    command_name = md_file.stem
-                    
-                    # Add special handling for commands that should trigger MCP servers
-                    mcp_triggers = {
-                        "analyze": "If the user uses --seq flag, activate the sequential-thinking MCP server for complex analysis.",
-                        "build": "If the user uses --seq flag, activate the sequential-thinking MCP server for systematic building.",
-                        "troubleshoot": "If the user uses --seq flag, activate the sequential-thinking MCP server for root cause analysis."
-                    }
-                    
-                    mcp_instruction = mcp_triggers.get(command_name, "")
-                    
-                    prompt = f"""SuperGemini Framework Command: /sg:{command_name}
-
-{mcp_instruction}
-
-{main_content.strip()}
-
-When handling flags:
-- --seq: Activate sequential-thinking MCP server for systematic analysis
-- --c7: Activate context7 MCP server for documentation lookup
-- --magic: Activate magic MCP server for UI components
-- --verbose: Provide detailed output
-- --quiet: Minimize output
-"""
-                    
-                    toml_content = f'''prompt = """{prompt}"""
-
-description = "{description}"'''
-                    
-                    # Write TOML file
-                    toml_file = md_file.with_suffix('.toml')
-                    toml_file.write_text(toml_content, encoding='utf-8')
-                    
-                    # Remove MD file
-                    md_file.unlink()
-                    
-                    converted_count += 1
-                    self.logger.debug(f"Converted {md_file.name} to TOML format with enhanced flag handling")
-                    
-                except Exception as e:
-                    self.logger.warning(f"Failed to convert {md_file.name}: {e}")
-            
-            if converted_count > 0:
-                self.logger.info(f"Converted {converted_count} command files to TOML format with MCP flag support")
-                
-        except Exception as e:
-            self.logger.warning(f"Error during MD to TOML conversion: {e}")

@@ -1,8 +1,6 @@
----
-allowed-tools: [Read, Grep, Glob, Bash, Edit, MultiEdit]
-description: "Clean up code, remove dead code, and optimize project structure"
----
+description = "Clean up code, remove dead code, and optimize project structure"
 
+prompt = """
 # /sg:cleanup - Code and Project Cleanup
 
 ## Purpose
@@ -27,8 +25,5 @@ Systematically clean up code, remove dead code, optimize imports, and improve pr
 4. Execute cleanup operations with appropriate safety measures
 5. Validate changes and report cleanup results
 
-## Gemini Code Integration
-- Uses Glob for systematic file discovery
-- Leverages Grep for dead code detection
-- Applies MultiEdit for batch cleanup operations
-- Maintains backup and rollback capabilities
+Follow the execution steps outlined above and provide a comprehensive response based on the specified parameters.
+"""

@@ -1,8 +1,6 @@
----
-allowed-tools: [Read, Grep, Glob, Bash]
-description: "Provide clear explanations of code, concepts, or system behavior"
----
+description = "Provide clear explanations of code, concepts, or system behavior"
 
+prompt = """
 # /sg:explain - Code and Concept Explanation
 
 ## Purpose
@@ -26,8 +24,5 @@ Deliver clear, comprehensive explanations of code functionality, concepts, or sy
 4. Provide relevant examples and use cases
 5. Present clear, accessible explanation with proper formatting
 
-## Gemini Code Integration
-- Uses Read for comprehensive code analysis
-- Leverages Grep for pattern identification
-- Applies Bash for runtime behavior analysis
-- Maintains clear, educational communication style
+Follow the execution steps outlined above and provide a comprehensive response based on the specified parameters.
+"""

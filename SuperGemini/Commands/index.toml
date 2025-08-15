@@ -1,8 +1,6 @@
----
-allowed-tools: [Read, Grep, Glob, Bash, Write]
-description: "Generate comprehensive project documentation and knowledge base"
----
+description = "Generate comprehensive project documentation and knowledge base"
 
+prompt = """
 # /sg:index - Project Documentation
 
 ## Purpose
@@ -26,8 +24,5 @@ Create and maintain comprehensive project documentation, indexes, and knowledge 
 4. Create navigation structure and cross-references
 5. Output formatted documentation with proper organization
 
-## Gemini Code Integration
-- Uses Glob for systematic file discovery
-- Leverages Grep for extracting documentation patterns
-- Applies Write for creating structured documentation
-- Maintains consistency with project conventions
+Follow the execution steps outlined above and provide a comprehensive response based on the specified parameters.
+"""

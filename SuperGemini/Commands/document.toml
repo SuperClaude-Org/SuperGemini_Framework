@@ -1,8 +1,6 @@
----
-allowed-tools: [Read, Grep, Glob, Write, Edit]
-description: "Create focused documentation for specific components or features"
----
+description = "Create focused documentation for specific components or features"
 
+prompt = """
 # /sg:document - Focused Documentation
 
 ## Purpose
@@ -26,8 +24,5 @@ Generate precise, focused documentation for specific components, functions, or f
 4. Apply consistent formatting and structure
 5. Integrate with existing documentation ecosystem
 
-## Gemini Code Integration
-- Uses Read for deep component analysis
-- Leverages Edit for inline documentation updates
-- Applies Write for external documentation creation
-- Maintains documentation standards and conventions
+Follow the execution steps outlined above and provide a comprehensive response based on the specified parameters.
+"""

@@ -1,8 +1,6 @@
----
-allowed-tools: [Bash, Read, Glob, TodoWrite, Edit]
-description: "Git operations with intelligent commit messages and branch management"
----
+description = "Git operations with intelligent commit messages and branch management"
 
+prompt = """
 # /sg:git - Git Operations
 
 ## Purpose
@@ -27,8 +25,5 @@ Execute Git operations with intelligent commit messages, branch management, and 
 4. Handle merge conflicts and branch management
 5. Provide clear feedback and next steps
 
-## Gemini Code Integration
-- Uses Bash for Git command execution
-- Leverages Read for repository analysis
-- Applies TodoWrite for operation tracking
-- Maintains Git best practices and conventions
+Follow the execution steps outlined above and provide a comprehensive response based on the specified parameters.
+"""

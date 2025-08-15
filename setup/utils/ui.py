@@ -192,6 +192,9 @@ class Menu:
         while True:
             try:
                 user_input = input("> ").strip().lower()
+            except EOFError:
+                print(f"\n{Colors.RED}[✗] EOF when reading a line - using default selection{Colors.RESET}")
+                return [] if self.multi_select else -1
                 
                 if self.multi_select:
                     if user_input == 'all':

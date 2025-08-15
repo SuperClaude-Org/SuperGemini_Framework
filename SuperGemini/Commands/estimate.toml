@@ -1,8 +1,6 @@
----
-allowed-tools: [Read, Grep, Glob, Bash]
-description: "Provide development estimates for tasks, features, or projects"
----
+description = "Provide development estimates for tasks, features, or projects"
 
+prompt = """
 # /sg:estimate - Development Estimation
 
 ## Purpose
@@ -26,8 +24,5 @@ Generate accurate development estimates for tasks, features, or projects based o
 4. Generate estimates with confidence intervals
 5. Present detailed breakdown with risk factors
 
-## Gemini Code Integration
-- Uses Read for requirement analysis
-- Leverages Glob for codebase complexity assessment
-- Applies Grep for pattern-based estimation
-- Maintains structured estimation documentation
+Follow the execution steps outlined above and provide a comprehensive response based on the specified parameters.
+"""

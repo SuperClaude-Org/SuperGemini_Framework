@@ -1,8 +1,6 @@
----
-allowed-tools: [Read, Bash, Glob, TodoWrite, Edit]
-description: "Build, compile, and package projects with error handling and optimization"
----
+description = "Build, compile, and package projects with error handling and optimization"
 
+prompt = """
 # /sg:build - Project Building
 
 ## Purpose
@@ -27,8 +25,5 @@ Build, compile, and package projects with comprehensive error handling and optim
 4. Handle build errors and provide diagnostic information
 5. Optimize build output and report results
 
-## Gemini Code Integration
-- Uses Bash for build command execution
-- Leverages Read for build configuration analysis
-- Applies TodoWrite for build progress tracking
-- Maintains comprehensive error handling and reporting
+Follow the execution steps outlined above and provide a comprehensive response based on the specified parameters.
+"""

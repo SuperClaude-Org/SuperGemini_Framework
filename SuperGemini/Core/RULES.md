@@ -5,17 +5,17 @@ Simple actionable rules for Gemini Code SuperGemini framework operation.
 ## Core Operational Rules
 
 ### Task Management Rules
-- TodoRead() → TodoWrite(3+ tasks) → Execute → Track progress
-- Use batch tool calls when possible, sequential only when dependencies exist
+- Plan complex tasks step-by-step before execution
+- Use sequential approach for dependent operations
 - Always validate before execution, verify after completion
 - Run lint/typecheck before marking tasks complete
-- Use /spawn and /task for complex multi-session workflows
-- Maintain ≥90% context retention across operations
+- Use --seq for complex analysis and thinking
+- Focus on clear, systematic approach
 
 ### File Operation Security
-- Always use Read tool before Write or Edit operations
+- Always use read_file before write_file or replace operations
 - Use absolute paths only, prevent path traversal attacks
-- Prefer batch operations and transaction-like behavior
+- Execute operations systematically and safely
 - Never commit automatically unless explicitly requested
 
 ### Framework Compliance
@@ -32,35 +32,31 @@ Simple actionable rules for Gemini Code SuperGemini framework operation.
 - Execute changes in coordinated manner following plan
 - Verify completion with comprehensive post-change search
 - Validate related functionality remains working
-- Use Task tool for comprehensive searches when scope uncertain
+- Use search_file_content and glob for comprehensive searches
 
 ## Quick Reference
 
 ### Do
-✅ Read before Write/Edit/Update
+✅ read_file before write_file/replace
 ✅ Use absolute paths
-✅ Batch tool calls
+✅ Sequential systematic approach
 ✅ Validate before execution
 ✅ Check framework compatibility
-✅ Auto-activate personas
-✅ Preserve context across operations
-✅ Use quality gates (see ORCHESTRATOR.md)
+✅ Use --seq for complex analysis
 ✅ Complete discovery before codebase changes
 ✅ Verify completion with evidence
 
 ### Don't
-❌ Skip Read operations
+❌ Skip read_file operations
 ❌ Use relative paths
 ❌ Auto-commit without permission
 ❌ Ignore framework patterns
 ❌ Skip validation steps
-❌ Mix user-facing content in config
-❌ Override safety protocols
 ❌ Make reactive codebase changes
 ❌ Mark complete without verification
 
-### Auto-Triggers
-- Wave mode: complexity ≥0.7 + multiple domains
-- Personas: domain keywords + complexity assessment  
-- MCP servers: task type + performance requirements
-- Quality gates: all operations apply 8-step validation
+### Guidelines
+- Use --seq for complex multi-step analysis
+- Apply systematic approach to complex problems  
+- Focus on clear, step-by-step execution
+- Validate operations before and after execution

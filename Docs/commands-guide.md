@@ -2,7 +2,7 @@
 
 ## 💡 Don't Overthink It - SuperGemini Tries to Help
 
-**The truth about these 17 commands**: You don't need to memorize them. Just start with `/sg:analyze` or `/sg:implement` and see what happens! 
+**The truth about these 14 commands**: You don't need to memorize them. Just start with `/sg:analyze` or `/sg:implement` and see what happens! 
 
 **Here's how it usually works:**
 - Type `/` in Gemini Code → See available commands
@@ -20,7 +20,6 @@
 ```bash
 /sg:index                    # See what's available
 /sg:analyze src/            # Tries to analyze your code smartly 
-/sg:workflow feature-100-prd.md  # Creates step-by-step implementation workflow from PRD
 /sg:implement user-auth     # Creates features and components (replaces v2 /build)
 /sg:build                   # Attempts intelligent project building
 /sg:improve messy-file.js   # Tries to clean up code 
@@ -31,7 +30,7 @@
 
 ---
 
-A practical guide to all 16 SuperGemini slash commands. We'll be honest about what works well and what's still rough around the edges.
+A practical guide to all 14 SuperGemini slash commands. We'll be honest about what works well and what's still rough around the edges.
 
 ## Quick Reference 📋
 
@@ -52,42 +51,11 @@ A practical guide to all 16 SuperGemini slash commands. We'll be honest about wh
 | `/sg:cleanup` | Debt reduction | Refactoring experts | Removing dead code, organizing files |
 | `/sg:load` | Context understanding | Analysis experts | Project analysis, codebase understanding |
 | `/sg:estimate` | Smart estimation | Planning experts | Time/effort planning, complexity analysis |
-| `/sg:spawn` | Complex workflows | Orchestration system | Multi-step operations, workflow automation |
-| `/sg:task` | Project management | Planning system | Long-term feature planning, task tracking |
-| `/sg:workflow` | Implementation planning | Workflow system | Creating step-by-step workflows from PRDs |
 | `/sg:index` | Command navigation | Help system | Finding the right command for your task |
 
 **Pro tip**: Just try the ones that sound useful. SuperGemini usually tries to activate helpful experts and tools for each situation! 🎯
 
 ## Development Commands 🔨
-
-### `/workflow` - Implementation Workflow Generator 🗺️
-**What it does**: Analyzes PRDs and feature requirements to create comprehensive step-by-step implementation workflows.
-
-**The helpful part**: Takes your PRD and breaks it down into a structured implementation plan with expert guidance, dependency mapping, and task orchestration! 🎯
-
-**When to use it**:
-- Starting a new feature from a PRD or specification
-- Need a clear implementation roadmap
-- Want expert guidance on implementation strategy
-- Planning complex features with multiple dependencies
-
-**The magic**: Auto-activates appropriate expert personas (architect, security, frontend, backend) and MCP servers (Context7 for patterns, Sequential for complex analysis) based on your feature requirements.
-
-**Examples**:
-```bash
-/sg:workflow docs/feature-100-prd.md --strategy systematic --c7 --sequential
-/sg:workflow "user authentication system" --persona security --output detailed
-/sg:workflow payment-api --strategy mvp --risks --dependencies
-```
-
-**What you get**:
-- **Roadmap Format**: Phase-based implementation plan with timelines
-- **Tasks Format**: Organized epics, stories, and actionable tasks  
-- **Detailed Format**: Step-by-step instructions with time estimates
-- **Risk Assessment**: Potential issues and mitigation strategies
-- **Dependency Mapping**: Internal and external dependencies
-- **Expert Guidance**: Domain-specific best practices and patterns
 
 ### `/implement` - Feature Implementation
 **What it does**: Implements features, components, and functionality with intelligent expert activation.
@@ -500,74 +468,6 @@ A practical guide to all 16 SuperGemini slash commands. We'll be honest about wh
 
 ---
 
-### `/task` - Long-term Project Management
-**What it does**: Manages complex, multi-session development tasks and features.
-
-**When to use it**:
-- Planning features that take days/weeks
-- Breaking down large projects
-- Tracking progress across sessions
-- Coordinating team work
-
-**Basic syntax**:
-```bash
-/sg:task create "implement user dashboard"  # Create new task
-/sg:task status                            # Check task status
-/sg:task breakdown "payment integration"    # Break down into subtasks
-```
-
-**Useful flags**:
-- `create` - Create new long-term task
-- `status` - Check current task status
-- `breakdown` - Break large task into smaller ones
-- `--priority high|medium|low` - Set task priority
-
-**Real examples**:
-```bash
-/sg:task create "migrate from REST to GraphQL" --priority high
-/sg:task breakdown "e-commerce checkout flow"
-/sg:task status
-```
-
-**Gotchas**:
-- Still experimental - doesn't always persist across sessions reliably 😅
-- Better for planning than actual project management
-- Works best when you're specific about requirements
-
----
-
-### `/spawn` - Complex Operation Orchestration
-**What it does**: Coordinates complex, multi-step operations and workflows.
-
-**When to use it**:
-- Operations involving multiple tools/systems
-- Coordinating parallel workflows
-- Complex deployment processes
-- Multi-stage data processing
-
-**Basic syntax**:
-```bash
-/sg:spawn deploy-pipeline          # Orchestrate deployment
-/sg:spawn --parallel migrate-data  # Parallel data migration
-/sg:spawn setup-dev-environment    # Complex environment setup
-```
-
-**Useful flags**:
-- `--parallel` - Run operations in parallel when possible
-- `--sequential` - Force sequential execution
-- `--monitor` - Monitor operation progress
-
-**Real examples**:
-```bash
-/sg:spawn --parallel "test and deploy to staging"
-/sg:spawn setup-ci-cd --monitor
-/sg:spawn --sequential database-migration
-```
-
-**Gotchas**:
-- Most complex command - expect some rough edges
-- Better for well-defined workflows than ad-hoc operations
-- May need multiple iterations to get right
 
 ## Version Control Commands 🔄
 

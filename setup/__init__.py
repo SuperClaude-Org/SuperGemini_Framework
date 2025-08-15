@@ -3,7 +3,7 @@ SuperGemini Installation Suite
 Pure Python installation system for SuperGemini framework
 """
 
-__version__ = "3.0.0"
+__version__ = "3.2.0"
 __author__ = "SuperGemini Team"
 
 from pathlib import Path
