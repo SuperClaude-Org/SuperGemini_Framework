@@ -1,22 +1,8 @@
-# Logs
-logs/
-*.log
-error.log
-
-# System files
-.DS_Store
-Thumbs.db
-
-# Dependencies
-node_modules/
-venv/
-env/
-
 # Python
 __pycache__/
-*.pyc
-*.pyo
-*.pyd
+*.py[cod]
+*$py.class
+*.so
 .Python
 build/
 develop-eggs/
@@ -30,35 +16,122 @@ parts/
 sdist/
 var/
 wheels/
+pip-wheel-metadata/
+share/python-wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+MANIFEST
 
-# IDE
+# PyInstaller
+*.manifest
+*.spec
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Virtual environments
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+
+# IDEs and editors
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
+*.sublime-project
+*.sublime-workspace
+
+# OS specific
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Node.js (if any frontend components)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# pipenv
+Pipfile.lock
+
+# Poetry
+poetry.lock
 
 # Claude Code
 .claude/
 
+# SuperClaude specific
+.serena/
+.superclaude/
+*.backup
+*.bak
+
 # Project specific
 Tests/
 ClaudeDocs/
-.serena/
+temp/
+tmp/
+.cache/
+
+# Build artifacts
+*.tar.gz
+*.zip
+*.dmg
+*.pkg
+*.deb
+*.rpm
+
+# Documentation builds
+docs/_build/
+site/
 
 # Temporary files
 *.tmp
 *.temp
-.cache/
-.pytest_cache/
-.coverage
+.temp/
 
-# OS specific
-*.DS_Store
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Desktop.ini
+# Security
+.env
+.env.local
+.env.*.local
+secrets/
+private/
+*.key
+*.pem
+*.p12
+*.pfx

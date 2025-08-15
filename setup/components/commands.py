@@ -5,7 +5,7 @@ Commands component for SuperClaude slash command definitions
 from typing import Dict, List, Tuple, Optional, Any
 from pathlib import Path
 
-from ..base.component import Component
+from ..core.base import Component
 
 class CommandsComponent(Component):
     """SuperClaude slash commands component"""
@@ -49,7 +49,7 @@ class CommandsComponent(Component):
 
         return super()._install(config);
 
-    def _post_install(self):
+    def _post_install(self) -> bool:
         # Update metadata
         try:
             metadata_mods = self.get_metadata_modifications()

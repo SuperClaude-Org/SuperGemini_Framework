@@ -533,10 +533,10 @@ class Validator:
             Installation commands dict
         """
         try:
-            from ..managers.config_manager import ConfigManager
-            from .. import PROJECT_ROOT
+            from ..services.config import ConfigService
+            from .. import DATA_DIR
             
-            config_manager = ConfigManager(PROJECT_ROOT / "config")
+            config_manager = ConfigService(DATA_DIR)
             requirements = config_manager.load_requirements()
             return requirements.get("installation_commands", {})
         except Exception:

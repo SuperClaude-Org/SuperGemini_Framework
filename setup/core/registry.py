@@ -6,7 +6,7 @@ import importlib
 import inspect
 from typing import Dict, List, Set, Optional, Type
 from pathlib import Path
-from ..base.component import Component
+from .base import Component
 
 
 class ComponentRegistry:

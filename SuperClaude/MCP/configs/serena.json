@@ -1,0 +1,13 @@
+{
+  "serena": {
+    "command": "uv",
+    "args": [
+      "run",
+      "serena",
+      "start-mcp-server",
+      "--context",
+      "ide-assistant"
+    ],
+    "cwd": "$HOME/.claude/serena"
+  }
+}

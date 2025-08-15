@@ -11,8 +11,7 @@ from pathlib import Path
 # Core paths
 SETUP_DIR = Path(__file__).parent
 PROJECT_ROOT = SETUP_DIR.parent
-CONFIG_DIR = PROJECT_ROOT / "config"
-PROFILES_DIR = PROJECT_ROOT / "profiles"
+DATA_DIR = SETUP_DIR / "data"
 
 # Installation target
 DEFAULT_INSTALL_DIR = Path.home() / ".claude"

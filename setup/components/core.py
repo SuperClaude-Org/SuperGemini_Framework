@@ -6,7 +6,8 @@ from typing import Dict, List, Tuple, Optional, Any
 from pathlib import Path
 import shutil
 
-from ..base.component import Component
+from ..core.base import Component
+from ..services.claude_md import CLAUDEMdService
 
 class CoreComponent(Component):
     """Core SuperClaude framework files component"""
@@ -48,7 +49,7 @@ class CoreComponent(Component):
 
         return super()._install(config);
 
-    def _post_install(self):
+    def _post_install(self) -> bool:
         # Create or update metadata
         try:
             metadata_mods = self.get_metadata_modifications()
@@ -72,11 +73,20 @@ class CoreComponent(Component):
             return False
 
         # Create additional directories for other components
-        additional_dirs = ["commands", "hooks", "backups", "logs"]
+        additional_dirs = ["commands", "backups", "logs"]
         for dirname in additional_dirs:
             dir_path = self.install_dir / dirname
             if not self.file_manager.ensure_directory(dir_path):
                 self.logger.warning(f"Could not create directory: {dir_path}")
+        
+        # Update CLAUDE.md with core framework imports
+        try:
+            manager = CLAUDEMdService(self.install_dir)
+            manager.add_imports(self.component_files, category="Core Framework")
+            self.logger.info("Updated CLAUDE.md with core framework imports")
+        except Exception as e:
+            self.logger.warning(f"Failed to update CLAUDE.md with core framework imports: {e}")
+            # Don't fail the whole installation for this
 
         return True
 

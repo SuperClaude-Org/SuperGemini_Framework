@@ -180,60 +180,31 @@ SuperClaude install --quick
 
 **Nervous about what it will do?** See first with:
 ```bash
-SuperClaude install --quick --dry-run
+SuperClaude install --dry-run
 ```
 
 ## Installation Options 🎯
 
-We have three installation profiles to choose from:
-
-### 🎯 Minimal Installation
-```bash
-SuperClaude install --minimal
-```
-- **What**: Just the core framework files
-- **Time**: ~1 minute
-- **Space**: ~20MB  
-- **Good for**: Testing, basic enhancement, minimal setups
-- **Includes**: Core behavior documentation that guides Claude
-
-### 🚀 Quick Installation (Recommended)
-```bash
-SuperClaude install --quick
-```
-- **What**: Core framework + 16 slash commands
-- **Time**: ~2 minutes
-- **Space**: ~50MB
-- **Good for**: Most users, general development
-- **Includes**: Everything in minimal + specialized commands like `/analyze`, `/build`, `/improve`
-
-### 🪶 SuperClaude-Lite Installation (V4 Beta)
-```bash
-SuperClaude install --lite
-```
-- **What**: Streamlined version with core features only
-- **Time**: ~1 minute
-- **Space**: ~25MB
-- **Good for**: Resource-constrained environments, basic enhancement
-- **Includes**: Essential framework features without advanced orchestration
-
-### 🔧 Developer Installation  
-```bash
-SuperClaude install --profile developer
-```
-- **What**: Everything including MCP server integration + Hooks system
-- **Time**: ~5 minutes
-- **Space**: ~100MB
-- **Good for**: Power users, contributors, advanced workflows
-- **Includes**: Everything + Context7, Sequential, Magic, Playwright, Morphllm, Serena servers + Python hooks
-
-### 🎛️ Interactive Installation
+### 🎛️ Interactive Two-Stage Installation (Default)
 ```bash
 SuperClaude install
 ```
-- Lets you pick and choose components
-- Shows detailed descriptions of what each component does
-- Good if you want control over what gets installed
+- **Stage 1**: Select MCP servers (Context7, Sequential, Magic, Playwright, etc.)
+- **Stage 2**: Choose framework components (Core, Commands, Agents, Modes)
+- **Time**: ~3-5 minutes depending on selections
+- **Space**: ~50-100MB depending on selections
+- **Good for**: All users - gives you full control over what gets installed
+- **Interactive**: Shows detailed descriptions and lets you pick exactly what you want
+
+### 🎯 Component-Specific Installation
+```bash
+SuperClaude install --components core commands modes
+```
+- **What**: Install only specific components you need
+- **Time**: Variable based on selection
+- **Space**: Variable based on selection
+- **Good for**: Users who know exactly what they want
+- **Available components**: core, commands, agents, modes, mcp, mcp_docs
 
 ## Step-by-Step Installation 📋
 
@@ -303,17 +274,17 @@ The installer is pretty smart and will guide you through the process:
 # See all available options
 SuperClaude install --help
 
-# Quick installation (recommended)
-SuperClaude install --quick
+# Interactive installation (recommended)
+SuperClaude install
 
 # Want to see what would happen first?
-SuperClaude install --quick --dry-run
+SuperClaude install --dry-run
 
 # Install everything
-SuperClaude install --profile developer
+SuperClaude install --components core commands agents modes mcp mcp_docs
 
 # Quiet installation (minimal output)
-SuperClaude install --quick --quiet
+SuperClaude install --quiet
 
 # Force installation (skip confirmations)
 python3 SuperClaude.py install --quick --force
@@ -328,8 +299,8 @@ Here's what happens when you install:
 3. **Core Files** - Copies framework documentation files
 4. **Commands** - Installs slash command definitions (if selected)
 5. **MCP Servers** - Downloads and configures MCP servers (if selected)
-6. **Hooks System** - Installs Python hooks for framework coordination (developer profile)
-7. **Configuration** - Sets up `settings.json` with your preferences
+6. **Configuration** - Sets up framework settings and CLAUDE.md imports
+7. **Settings** - Sets up `settings.json` with your preferences
 8. **Validation** - Tests that everything works
 
 The installer shows progress and will tell you if anything goes wrong.
@@ -378,7 +349,7 @@ SuperClaude V4 Beta installs to `~/.claude/` by default. Here's what you'll find
 ```
 ~/.claude/
 ├── [above files]           # Core framework files
-└── hooks/                  # Python hooks system (developer profile)
+└── backups/                # Installation backups
     ├── framework_coordinator/
     ├── session_lifecycle/
     ├── performance_monitor/
@@ -619,13 +590,10 @@ If you're planning to contribute or modify SuperClaude:
 
 ```bash
 # Developer installation with all components
-SuperClaude install --profile developer
+SuperClaude install --components core commands agents modes mcp mcp_docs
 
-# Install in development mode (symlinks instead of copies)
-SuperClaude install --profile developer --dev-mode
-
-# Install with git hooks for development
-SuperClaude install --profile developer --dev-hooks
+# Install in development mode
+SuperClaude install --dev-mode
 ```
 
 ## What's Next? 🚀

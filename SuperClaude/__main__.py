@@ -142,7 +142,7 @@ def get_operation_modules() -> Dict[str, str]:
 def load_operation_module(name: str):
     """Try to dynamically import an operation module"""
     try:
-        return __import__(f"setup.operations.{name}", fromlist=[name])
+        return __import__(f"setup.cli.commands.{name}", fromlist=[name])
     except ImportError as e:
         logger = get_logger()
         if logger:
