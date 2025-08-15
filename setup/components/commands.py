@@ -270,14 +270,14 @@ class CommandsComponent(Component):
         current_file = Path(__file__)
         
         # Option 1: Development mode - relative to this file
-        dev_path = current_file.parent.parent.parent / "SuperClaude" / "Commands"
+        dev_path = current_file.parent.parent.parent / "SuperGemini" / "Commands"
         if dev_path.exists():
             return dev_path
         
         # Option 2: Installed package - look in site-packages
         import site
         for site_dir in site.getsitepackages():
-            installed_path = Path(site_dir) / "SuperClaude" / "Commands"
+            installed_path = Path(site_dir) / "SuperGemini" / "Commands"
             if installed_path.exists():
                 return installed_path
         
