@@ -291,7 +291,7 @@ Agents are like having a team of specialists available on demand. Each brings di
 - 🎯 **brainstorm-PRD** - Requirements analysis and PRD generation *(NEW!)*
 - 🔮 **workflow-agent** - Advanced workflow orchestration *(NEW!)*
 
-Agents usually auto-activate based on request patterns but you can override with `--agent-[name]` flags. Each has different priorities (e.g., security agent prioritizes security over speed). V4 Beta improves agent handoff and coordination patterns.
+Analysis modes usually auto-activate based on request patterns. Each mode has different priorities (e.g., security focus prioritizes security over speed). V4 Beta improves analysis coordination patterns.
 
 ### MCP Servers: External Capabilities 🔧
 
