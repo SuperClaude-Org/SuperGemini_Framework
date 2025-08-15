@@ -188,17 +188,6 @@ Enable specialized capabilities through MCP servers.
 
 For complex operations and workflows.
 
-#### `--delegate [files|folders|auto]`
-**What it does**: Enables sub-agent delegation for parallel processing  
-**When to use**: Large codebases, complex analysis  
-**Auto-activates**: >7 directories or >50 files  
-**Options**:
-- `files` - Delegate individual file analysis
-- `folders` - Delegate directory-level analysis  
-- `auto` - Smart delegation strategy
-
-**Example**: `/analyze monorepo/ --delegate auto`
-
 #### `--wave-mode [auto|force|off]`
 **What it does**: Multi-stage execution with compound intelligence  
 **When to use**: Complex improvements, systematic analysis  
@@ -221,12 +210,7 @@ For complex operations and workflows.
 **When to use**: Want control over iterative process  
 **Example**: `/improve --loop --interactive`
 
-#### `--concurrency [n]`
-**What it does**: Control max concurrent sub-agents (1-15)  
-**When to use**: Controlling resource usage  
-**Example**: `/analyze --delegate auto --concurrency 3`
-
-**💡 Tip**: These are powerful but complex. Start with `--delegate auto` for big projects, `--loop` for improvements.
+**💡 Tip**: These are powerful but useful. Start with `--loop` for improvements.
 
 ---
 
@@ -294,7 +278,7 @@ Direct SuperGemini's attention to specific areas.
 
 ### Large Project Work
 ```bash
-/sg:analyze monorepo/ --delegate auto --uc     # Efficient large analysis
+/sg:analyze monorepo/ --uc     # Efficient large analysis
 /sg:improve legacy/ --wave-mode auto --safe-mode  # Safe systematic improvement
 ```
 
@@ -341,8 +325,8 @@ Direct SuperGemini's attention to specific areas.
 
 **After** (efficient):
 ```bash
-/sg:analyze huge-monorepo/ --delegate auto --uc --focus architecture
-# → Delegates work to sub-agents, compresses output, focuses on architecture
+/sg:analyze huge-monorepo/ --uc --focus architecture
+# → Compresses output, focuses on architecture
 # → Faster, more focused, better results
 ```
 
@@ -367,7 +351,7 @@ SuperGemini usually adds flags based on context. Here's when it tries:
 ### Complexity-Based
 ```bash
 /sg:analyze huge-codebase/
-# Auto-adds: --delegate auto --uc
+# Auto-adds: --uc
 # Why: >50 files detected, context management needed
 
 /sg:troubleshoot "complex system issue"  
@@ -431,8 +415,8 @@ SuperGemini usually adds flags based on context. Here's when it tries:
 
 **For Thoroughness**:
 ```bash
-/sg:analyze --all-mcp --systematic --delegate auto
-# → All capabilities, deep thinking, parallel processing
+/sg:analyze --all-mcp --systematic
+# → All capabilities, systematic analysis
 ```
 
 ### Custom Workflows
@@ -463,7 +447,7 @@ SuperGemini usually adds flags based on context. Here's when it tries:
 | `--c7` | Official docs | Framework work |
 | `--seq` | Systematic analysis | Debugging |
 | `--focus security` | Security focus | Security concerns |
-| `--delegate auto` | Parallel processing | Large codebases |
+
 | `--validate` | Check before action | Risky operations |
 | `--brainstorm` | Requirements discovery | Ambiguous projects |
 | `--serena` | Semantic analysis | Symbol operations |
@@ -477,7 +461,7 @@ SuperGemini usually adds flags based on context. Here's when it tries:
 --seq --seq --c7
 
 # Large project
---delegate auto --uc --focus
+--uc --focus
 
 # Learning
 --verbose --c7 --agent code-educator
@@ -496,7 +480,7 @@ SuperGemini usually adds flags based on context. Here's when it tries:
 - **--seq**: Complex imports, cross-module calls
 - **--uc**: Context >75%, large operations  
 - **--safe-mode**: Resource usage >85%, production
-- **--delegate**: >7 directories or >50 files
+
 - **--c7**: Framework imports, documentation requests
 - **--seq**: Debugging keywords, --seq flags
 - **--serena**: Symbol operations, memory commands
@@ -561,7 +545,7 @@ SuperGemini usually adds flags based on context. Here's when it tries:
 
 ### Performance Tips (For Power Users)
 - **For speed**: `--uc --no-mcp --scope file`
-- **For thoroughness**: `--systematic --all-mcp --delegate auto`
+- **For thoroughness**: `--systematic --all-mcp`
 - **For safety**: `--safe-mode --validate --preview`
 - **For learning**: `--verbose --c7 --agent code-educator`
 - **For project discovery**: `--brainstorm --max-rounds 15 --prd`

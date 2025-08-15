@@ -7,7 +7,7 @@ complexity: advanced
 scope: framework
 activation:
   automatic: true
-  manual-flags: ["--delegate", "--wave-mode", "--loop", "--concurrency", "--wave-strategy", "--wave-delegation", "--iterations", "--interactive"]
+  manual-flags: ["--wave-mode", "--loop", "--wave-strategy", "--iterations", "--interactive"]
   confidence-threshold: 0.8
   detection-patterns: ["multi-step operations", "build/implement/create keywords", "system/feature/comprehensive scope"]
 framework-integration:
@@ -73,20 +73,6 @@ performance-targets:
 - **completed** ✅: Successfully finished with quality validation and evidence
 
 ## Related Flags
-
-### Sub-Agent Delegation Flags
-**`--delegate [files|folders|auto]`**
-- Enable Task tool sub-agent delegation for parallel processing optimization
-- **files**: Delegate individual file analysis to sub-agents with granular control
-- **folders**: Delegate directory-level analysis to sub-agents with hierarchical organization
-- **auto**: Auto-detect delegation strategy based on scope and complexity analysis
-- Auto-activates: >2 directories or >3 files with complexity assessment
-- 40-70% time savings for suitable operations with proven efficiency metrics
-
-**`--concurrency [n]`**
-- Control max concurrent sub-agents and tasks (default: 7, range: 1-15)
-- Dynamic allocation based on resources and complexity with intelligent load balancing
-- Prevents resource exhaustion in complex scenarios with proactive monitoring
 
 ### Wave Orchestration Flags
 **`--wave-mode [auto|force|off]`**
@@ -232,7 +218,6 @@ performance_analytics:
 ### Cross-System Coordination
 - **TodoWrite Integration**: Task completion triggers checkpoint evaluation and state transitions
 - **Command Orchestration**: Multi-command coordination with /task, /spawn, /loop integration
-- **Agent Delegation**: Sophisticated sub-agent coordination with performance optimization
 - **Wave Systems**: Advanced wave orchestration with compound intelligence coordination
 
 ### Quality Gates Integration

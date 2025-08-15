@@ -108,7 +108,7 @@ The command automatically activates relevant personas based on detected context:
 ## Advanced Features
 
 ### Task Integration
-- **Complex Operations**: Use Task tool for multi-step implementation workflows
+- **Complex Operations**: Handle multi-step implementation workflows systematically
 - **Parallel Processing**: Coordinate independent implementation work streams
 - **Progress Tracking**: TodoWrite integration for implementation status management
 

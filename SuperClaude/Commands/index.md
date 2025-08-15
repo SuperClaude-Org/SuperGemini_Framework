@@ -101,7 +101,7 @@ The command automatically activates relevant personas based on documentation sco
 ## Advanced Features
 
 ### Task Integration
-- **Complex Operations**: Use Task tool for multi-step documentation workflows
+- **Complex Operations**: Handle multi-step documentation workflows systematically
 - **Parallel Processing**: Coordinate independent documentation work streams
 - **Progress Tracking**: TodoWrite integration for documentation completeness management
 

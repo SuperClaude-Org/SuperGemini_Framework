@@ -34,7 +34,6 @@ Analyze Product Requirements Documents (PRDs) and feature specifications to gene
 - `prd-file|feature-description` - Path to PRD file or direct feature description for comprehensive workflow analysis
 - `--strategy` - Workflow strategy selection with specialized orchestration approaches
 - `--depth` - Analysis depth and thoroughness level for workflow generation
-- `--parallel` - Enable parallel workflow processing with multi-agent coordination
 - `--validate` - Comprehensive validation and workflow completeness quality gates
 - `--mcp-routing` - Intelligent MCP server routing for specialized workflow analysis
 - `--wave-mode` - Enable wave-based execution with progressive workflow enhancement

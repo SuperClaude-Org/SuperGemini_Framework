@@ -101,7 +101,7 @@ The command automatically activates relevant personas based on explanation scope
 ## Advanced Features
 
 ### Task Integration
-- **Complex Operations**: Use Task tool for multi-step explanation workflows
+- **Complex Operations**: Handle multi-step explanation workflows systematically
 - **Parallel Processing**: Coordinate independent explanation work streams
 - **Progress Tracking**: TodoWrite integration for explanation completeness management
 

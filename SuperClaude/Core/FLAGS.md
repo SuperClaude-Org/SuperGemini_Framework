@@ -21,11 +21,7 @@ Quick reference for flags that modify how I approach tasks. **Remember: These gu
 --answer-only   # Skip automation, just respond directly
 ```
 
-### Delegation & Parallelism
-```yaml
---delegate [auto|files|folders]  # Split work across agents (auto-detects best approach)
---concurrency [n]                # Control parallel operations (default: 7)
-```
+
 
 ### MCP Servers
 ```yaml
@@ -58,9 +54,7 @@ mcp_server_activation:
   ui_components → Magic
   browser_testing → Playwright
 
-parallel_work:
-  many_files (>50) → --delegate auto
-  many_dirs (>7) → --delegate folders
+
 
 mcp_servers:
   ui_components → Magic
@@ -91,7 +85,7 @@ Quick examples of flag combinations:
 "analyze this architecture" → Sequential server (auto)
 "build a login form" → Magic server (auto)
 "fix this bug" → Sequential + focused analysis
-"process entire codebase" → --delegate auto
+"process entire codebase" → systematic processing
 "just explain this" → --answer-only
 "make this code better" → --loop (auto)
 ```

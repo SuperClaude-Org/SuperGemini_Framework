@@ -32,7 +32,7 @@ Simple actionable rules for Gemini CLI SuperGemini framework operation.
 - Execute changes in coordinated manner following plan
 - Verify completion with comprehensive post-change search
 - Validate related functionality remains working
-- Use Task tool for comprehensive searches when scope uncertain
+- Use systematic approach for comprehensive searches when scope uncertain
 
 ### Knowledge Management Rules
 - **Check Serena memories first**: Search for relevant previous work before starting new operations

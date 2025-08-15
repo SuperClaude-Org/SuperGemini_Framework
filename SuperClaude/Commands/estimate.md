@@ -101,7 +101,7 @@ The command automatically activates relevant personas based on estimation scope:
 ## Advanced Features
 
 ### Task Integration
-- **Complex Operations**: Use Task tool for multi-step estimation workflows
+- **Complex Operations**: Handle multi-step estimation workflows systematically
 - **Parallel Processing**: Coordinate independent estimation work streams
 - **Progress Tracking**: TodoWrite integration for estimation status management
 

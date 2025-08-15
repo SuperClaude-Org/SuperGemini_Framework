@@ -34,7 +34,6 @@ Transform ambiguous ideas into concrete specifications through sophisticated bra
 - `topic/idea` - Initial concept, project idea, or problem statement to explore through interactive dialogue
 - `--strategy` - Brainstorming strategy selection with specialized orchestration approaches
 - `--depth` - Discovery depth and analysis thoroughness level
-- `--parallel` - Enable parallel exploration paths with multi-agent coordination
 - `--validate` - Comprehensive validation and brief completeness quality gates
 - `--mcp-routing` - Intelligent MCP server routing for specialized analysis
 - `--wave-mode` - Enable wave-based execution with progressive dialogue enhancement
@@ -368,7 +367,7 @@ brief_generation:
 
 ### Task Tool Integration
 - Use for managing complex multi-phase brainstorming
-- Delegate deep analysis to specialized sub-agents
+- Perform deep systematic analysis
 - Coordinate parallel exploration paths
 - Example: `Task("analyze-competitors", "Research similar solutions")`
 

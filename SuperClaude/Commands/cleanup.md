@@ -101,7 +101,7 @@ The command automatically activates relevant personas based on cleanup scope:
 ## Advanced Features
 
 ### Task Integration
-- **Complex Operations**: Use Task tool for multi-step cleanup workflows
+- **Complex Operations**: Handle multi-step cleanup workflows systematically
 - **Parallel Processing**: Coordinate independent cleanup work streams safely
 - **Progress Tracking**: TodoWrite integration for cleanup status management
 

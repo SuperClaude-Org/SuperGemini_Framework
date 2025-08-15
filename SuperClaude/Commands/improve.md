@@ -101,7 +101,7 @@ The command automatically activates relevant personas based on improvement type:
 ## Advanced Features
 
 ### Task Integration
-- **Complex Operations**: Use Task tool for multi-step improvement workflows
+- **Complex Operations**: Handle multi-step improvement workflows systematically
 - **Parallel Processing**: Coordinate independent improvement work streams
 - **Progress Tracking**: TodoWrite integration for improvement status management
 

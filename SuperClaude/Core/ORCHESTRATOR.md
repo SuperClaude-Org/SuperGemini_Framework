@@ -102,7 +102,7 @@ enable_morphllm:
 enable_delegation:
   - More than 3 files in scope
   - More than 2 directories to analyze
-  - Explicit parallel processing request
+  - Large-scale processing request
   - Multi-file edit operations detected
 
 enable_efficiency:
@@ -270,7 +270,7 @@ mode_command_recovery:
 
 ### Parallel Execution Examples:
 ```
-"Edit these 4 components" → Auto-suggest --delegate files (est. 1.2s savings)
+"Edit these 4 components" → Systematic component editing
 "Update imports in src/ files" → Parallel processing detected (3+ files)  
 "Analyze auth system" → Multiple files detected → Wave coordination suggested
 "Format the codebase" → Batch parallel operations (60% faster execution)

@@ -35,14 +35,12 @@ Execute complex tasks with intelligent workflow management, cross-session persis
 - `target` - Task description, project scope, or existing task ID for comprehensive management
 - `--strategy` - Task execution strategy selection with specialized orchestration approaches
 - `--depth` - Task analysis depth and thoroughness level
-- `--parallel` - Enable parallel task processing with multi-agent coordination
 - `--validate` - Comprehensive validation and task completion quality gates
 - `--mcp-routing` - Intelligent MCP server routing for specialized task analysis
 - `--wave-mode` - Enable wave-based execution with progressive task enhancement
 - `--cross-session` - Enable cross-session persistence and task continuity
 - `--persist` - Enable cross-session task persistence
 - `--hierarchy` - Create hierarchical task breakdown
-- `--delegate` - Enable multi-agent task delegation
 
 ## Actions
 - `create` - Create new project-level task hierarchy with advanced orchestration
@@ -169,7 +167,7 @@ Execute complex tasks with intelligent workflow management, cross-session persis
 
 ### Execute with Multi-Agent Delegation
 ```
-/sg:task execute AUTH-001 --delegate --wave-mode --validate
+/sg:task execute AUTH-001 --wave-mode --validate
 ```
 
 ### Analytics and Optimization
