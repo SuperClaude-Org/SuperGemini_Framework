@@ -275,14 +275,14 @@ A practical guide to all 21 SuperGemini V4 Beta slash commands. We'll be honest 
 
 **Useful flags**:
 - `--logs <file>` - Include log file analysis
-- `--systematic` - Use structured debugging approach
+- `--seq` - Use structured debugging approach
 - `--focus network|database|frontend` - Focus area
 
 **Real examples**:
 ```bash
 /sg:troubleshoot "API returning 500" --logs server.log
 /sg:troubleshoot --focus database "slow queries"
-/sg:troubleshoot "build failing" --systematic
+/sg:troubleshoot "build failing" --seq
 ```
 
 **Gotchas**:

@@ -79,8 +79,7 @@ hybrid_approach:
 
 **Thinking Modes**: 
 - Works with all thinking flags for complex edit planning
-- `--seq`: Analyzes edit impact across modules with Sequential analysis
-- `--systematic`: Plans systematic refactoring with structured approach
+- `--seq`: Analyzes edit impact across modules and plans systematic refactoring with Sequential analysis
 - `--deep`: Coordinates large-scale transformations with comprehensive analysis
 
 **Other MCP Servers**: 

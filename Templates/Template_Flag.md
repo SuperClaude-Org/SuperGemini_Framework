@@ -113,7 +113,7 @@ This template provides a standardized format for documenting flags in the SuperG
 - Use lowercase with hyphens: `--flag-name`
 - Be descriptive but concise
 - Consider aliases for common variations
-- Examples: `--systematic`, `--safe-mode`, `--wave-mode`
+- Examples: `--seq`, `--safe-mode`, `--wave-mode`
 
 ### 2. Select Category
 Choose from these standard categories:

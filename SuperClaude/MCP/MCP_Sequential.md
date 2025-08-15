@@ -49,8 +49,7 @@ Multi-step problem solving, architectural analysis, systematic debugging
 **Commands**: `analyze`, `troubleshoot`, `explain`, `improve`, `estimate`, `task`, `document`, `design`, `git`, `test`
 
 **Thinking Modes**: 
-- `--seq`: Enable Sequential analysis for complex multi-step problems
-- `--systematic`: Systematic analysis with structured approach
+- `--seq`: Enable Sequential analysis for complex multi-step problems and systematic analysis with structured approach
 - `--deep`: Comprehensive analysis with extensive coverage
 
 **Other MCP Servers**: 

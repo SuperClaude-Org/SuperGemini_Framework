@@ -7,7 +7,7 @@
 **Here's what actually happens:**
 - You type `/analyze auth.js` 
 - SuperGemini detects it's security-related code
-- **Usually activates** security-auditor agent, `--focus security`, `--validate`
+- **Usually activates** `--focus security`, `--validate`
 - You often get expert security analysis without managing any flags
 
 **When might you manually use flags?**
@@ -23,11 +23,11 @@
 
 ```bash
 # These work great with zero flag knowledge:
-/sg:analyze src/                    # Auto-activates appropriate expert agents
+/sg:analyze src/                    # Auto-activates appropriate analysis modes
 /sg:build                          # Auto-optimizes based on your project  
-/sg:improve messy-code.js          # Auto-activates quality agents and safety flags
-/sg:troubleshoot "weird error"     # Auto-activates root-cause-analyzer and debugging flags
-/sg:brainstorm "my app idea"       # Auto-activates brainstorm-PRD agent for requirements
+/sg:improve messy-code.js          # Auto-activates quality analysis and safety flags
+/sg:troubleshoot "weird error"     # Auto-activates systematic analysis and debugging flags
+/sg:brainstorm "my app idea"       # Auto-activates requirements discovery mode
 ```
 
 **See? No flags needed.** Everything below is for when you get curious about what's happening behind the scenes.
@@ -241,12 +241,7 @@ Direct SuperGemini's attention to specific areas.
 **What it does**: Focuses analysis on specific domain  
 **Example**: `/analyze --focus security --scope project`
 
-#### Agent Flags
-**Available agents**: system-architect, frontend-specialist, backend-engineer, root-cause-analyzer, security-auditor, code-educator, code-refactorer, performance-optimizer, qa-specialist, devops-engineer, technical-writer, python-ultimate-expert, brainstorm-PRD  
-**What they do**: Activates specialized domain expert agents (V4 Beta enhancement)  
-**Example**: `/analyze --agent security-auditor` - Security-focused analysis with expert agent
-
-**💡 Tip**: `--focus` is great for targeted analysis. Expert agents auto-activate but manual control helps.
+**💡 Tip**: `--focus` is great for targeted analysis.
 
 ---
 
@@ -273,7 +268,7 @@ Direct SuperGemini's attention to specific areas.
 ### Learning & Documentation
 ```bash
 /sg:explain React hooks --c7 --verbose    # Detailed explanation with docs
-/sg:document api/ --persona-scribe        # Professional documentation
+/sg:document api/ --focus documentation   # Professional documentation
 ```
 
 ### Performance-Focused
@@ -285,7 +280,7 @@ Direct SuperGemini's attention to specific areas.
 ### Security-Focused
 ```bash
 /sg:analyze --focus security --seq --validate  # Thorough security analysis
-/sg:scan --persona-security --safe-mode         # Conservative security scan
+/sg:scan --focus security --safe-mode           # Conservative security scan
 ```
 
 ## Practical Examples 💡
@@ -350,12 +345,12 @@ SuperGemini usually adds flags based on context. Here's when it tries:
 ### Domain-Based
 ```bash
 /sg:build react-app/
-# Auto-activates: frontend-specialist agent + --c7
+# Auto-activates: --c7 + frontend focus
 # Why: Frontend framework detected
 
 /sg:analyze --focus security
-# Auto-activates: security-auditor agent + --validate
-# Why: Security focus triggers security specialist
+# Auto-activates: --validate + security analysis
+# Why: Security focus triggers security mode
 ```
 
 ### Performance-Based
@@ -377,20 +372,20 @@ SuperGemini usually adds flags based on context. Here's when it tries:
 
 **Comprehensive Code Review**:
 ```bash
-/sg:review codebase/ --agent qa-specialist --seq --focus quality --validate --c7
-# → QA specialist agent + deep thinking + quality focus + validation + docs
+/sg:review codebase/ --seq --focus quality --validate --c7
+# → Deep thinking + quality focus + validation + docs
 ```
 
 **Legacy System Modernization**:
 ```bash
-/sg:improve legacy/ --wave-mode force --agent system-architect --safe-mode --loop --c7
-# → Wave orchestration + architect agent + safety + iteration + docs
+/sg:improve legacy/ --wave-mode force --safe-mode --loop --c7
+# → Wave orchestration + safety + iteration + docs
 ```
 
 **Security Audit**:
 ```bash
-/sg:scan --agent security-auditor --seq --focus security --validate
-# → Security auditor agent + sequential analysis + security focus + validation
+/sg:scan --seq --focus security --validate
+# → Sequential analysis + security focus + validation
 ```
 
 ### Performance Optimization
@@ -412,16 +407,16 @@ SuperGemini usually adds flags based on context. Here's when it tries:
 **Bug Investigation Workflow**:
 ```bash
 /sg:troubleshoot "specific error" --seq --seq --validate
-/sg:analyze affected-files/ --focus quality --agent root-cause-analyzer  
+/sg:analyze affected-files/ --focus quality --seq
 /sg:test --play --coverage
 ```
 
 **Feature Development Workflow**:
 ```bash
-/sg:design new-feature --agent system-architect --c7
-/sg:build --magic --agent frontend-specialist --validate
+/sg:design new-feature --focus architecture --c7
+/sg:build --magic --validate
 /sg:test --play --coverage
-/sg:document --agent technical-writer --c7
+/sg:document --focus documentation --c7
 ```
 
 ## Quick Reference 📋
@@ -452,13 +447,13 @@ SuperGemini usually adds flags based on context. Here's when it tries:
 --uc --focus
 
 # Learning
---verbose --c7 --agent code-educator
+--verbose --c7
 
 # Security work
---agent security-auditor --focus security --validate
+--focus security --validate --seq
 
 # Performance work
---agent performance-optimizer --focus performance --play
+--focus performance --play
 
 # Requirements discovery
 --brainstorm --max-rounds 10 --prd
@@ -473,14 +468,14 @@ SuperGemini usually adds flags based on context. Here's when it tries:
 - **--seq**: Debugging keywords, --seq flags
 - **--serena**: Symbol operations, memory commands
 - **--brainstorm**: Exploration keywords, ambiguous requests
-- **Expert Agents**: Domain-specific keywords and patterns
+- **Focus Modes**: Domain-specific keywords and patterns
 
 ## Troubleshooting Flag Issues 🚨
 
 ### Common Problems
 
 **"Flags don't seem to work"**
-- Check spelling (common typos: `--ultracompresed`, `--agent fronted-specialist`)
+- Check spelling (common typos: `--ultracompresed`, `--focus sercurity`)
 - Some flags need values: `--scope project`, `--focus security`
 - Flag conflicts: `--no-mcp` overrides `--c7`, `--seq`, `--serena`, etc.
 
@@ -497,7 +492,7 @@ SuperGemini usually adds flags based on context. Here's when it tries:
 **"Not thorough enough"**
 - Add `--seq` for complex analysis
 - Enable relevant MCP servers: `--seq`, `--c7`
-- Use appropriate agent: `--agent root-cause-analyzer`
+- Use systematic analysis: `--seq --focus debugging`
 
 **"Changes too risky"**
 - Always use `--safe-mode` for important code
@@ -509,7 +504,7 @@ SuperGemini usually adds flags based on context. Here's when it tries:
 **These override others**:
 - `--no-mcp` overrides all MCP flags (`--c7`, `--seq`, `--serena`, etc.)
 - `--safe-mode` overrides optimization flags
-- Last agent flag wins: `--agent frontend-specialist --agent backend-engineer` → backend-engineer
+- Later focus flags win: `--focus frontend --focus backend` → backend
 
 **Precedence order**:
 1. Safety flags (`--safe-mode`) beat optimization
@@ -526,7 +521,7 @@ SuperGemini usually adds flags based on context. Here's when it tries:
 4. **Trust the automation** - SuperGemini usually picks reasonable defaults
 
 ### Getting Advanced (If You Want To)
-1. **Experiment with overrides** - Try `--agent security-auditor` on non-security code for different perspectives
+1. **Experiment with overrides** - Try `--focus security` on non-security code for different perspectives
 2. **Learn the useful combos** - `--safe-mode --validate` for important stuff, `--brainstorm --prd` for new projects
 3. **Understand the performance trade-offs** - Fast (`--uc --no-mcp`) vs thorough (`--seq --all-mcp`)
 4. **Use flags for learning** - `--verbose` when you want to understand what's happening
@@ -535,7 +530,7 @@ SuperGemini usually adds flags based on context. Here's when it tries:
 - **For speed**: `--uc --no-mcp --scope file`
 - **For thoroughness**: `--seq --all-mcp`
 - **For safety**: `--safe-mode --validate --preview`
-- **For learning**: `--verbose --c7 --agent code-educator`
+- **For learning**: `--verbose --c7`
 - **For project discovery**: `--brainstorm --max-rounds 15 --prd`
 
 ---

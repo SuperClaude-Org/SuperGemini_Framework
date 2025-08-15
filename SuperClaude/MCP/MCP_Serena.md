@@ -60,8 +60,7 @@ Powerful coding agent toolkit providing semantic retrieval, intelligent editing 
 
 **Thinking Modes**: 
 - Works with all thinking flags for semantic analysis
-- `--seq`: Symbol-level context analysis with Sequential coordination
-- `--systematic`: Project-wide semantic understanding with structured approach
+- `--seq`: Symbol-level context analysis and project-wide semantic understanding with Sequential coordination
 - `--deep`: Complex architectural semantic analysis with comprehensive coverage
 
 **Other MCP Servers**: 
