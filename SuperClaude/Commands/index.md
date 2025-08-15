@@ -19,14 +19,14 @@ mcp-integration:
 performance-profile: standard
 ---
 
-# /sc:index - Project Documentation
+# /sg:index - Project Documentation
 
 ## Purpose
 Create and maintain comprehensive project documentation, indexes, and knowledge bases with intelligent organization and cross-referencing capabilities. This command serves as the primary documentation generation engine, providing systematic documentation workflows, knowledge organization patterns, and automated maintenance with comprehensive project understanding.
 
 ## Usage
 ```
-/sc:index [target] [--type docs|api|structure|readme] [--format md|json|yaml] [--interactive]
+/sg:index [target] [--type docs|api|structure|readme] [--format md|json|yaml] [--interactive]
 ```
 
 ## Arguments
@@ -133,25 +133,25 @@ The command automatically activates relevant personas based on documentation sco
 
 ### Project Structure Documentation
 ```
-/sc:index project-root --type structure --format md --cross-reference
+/sg:index project-root --type structure --format md --cross-reference
 # Comprehensive project structure documentation with navigation
 ```
 
 ### API Documentation Generation
 ```
-/sc:index src/api --type api --format json --validate --update
+/sg:index src/api --type api --format json --validate --update
 # API documentation with validation and existing documentation updates
 ```
 
 ### Knowledge Base Creation
 ```
-/sc:index entire-project --type knowledge-base --interactive --templates
+/sg:index entire-project --type knowledge-base --interactive --templates
 # Interactive knowledge base generation with project templates
 ```
 
 ### README Generation
 ```
-/sc:index . --type readme --format md --c7 --cross-reference
+/sg:index . --type readme --format md --c7 --cross-reference
 # README generation with Context7 framework patterns and cross-references
 ```
 
@@ -177,12 +177,12 @@ The command automatically activates relevant personas based on documentation sco
 ## Integration Patterns
 
 ### Command Coordination
-- **Preparation Commands**: Often follows /sc:analyze or /sc:explain for documentation preparation
-- **Follow-up Commands**: Commonly followed by /sc:validate, /sc:improve, or knowledge management workflows
-- **Parallel Commands**: Can run alongside /sc:explain for comprehensive knowledge transfer
+- **Preparation Commands**: Often follows /sg:analyze or /sg:explain for documentation preparation
+- **Follow-up Commands**: Commonly followed by /sg:validate, /sg:improve, or knowledge management workflows
+- **Parallel Commands**: Can run alongside /sg:explain for comprehensive knowledge transfer
 
 ### Framework Integration
-- **SuperClaude Ecosystem**: Integrates with quality gates and validation cycles
+- **SuperGemini Ecosystem**: Integrates with quality gates and validation cycles
 - **Quality Gates**: Participates in documentation completeness and quality verification
 - **Session Management**: Maintains documentation context across session boundaries
 

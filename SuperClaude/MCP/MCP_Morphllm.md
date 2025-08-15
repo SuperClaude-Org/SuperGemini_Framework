@@ -54,7 +54,7 @@ Intelligent file editing engine with Fast Apply capability for accurate, context
 
 **Commands**: `edit`, `refactor`, `improve`, `fix`, `cleanup`, `implement`, `build`, `design`
 
-**SuperClaude Pattern Integration**:
+**SuperGemini Pattern Integration**:
 ```yaml
 # When to use Morphllm vs Serena
 morphllm_preferred:
@@ -79,9 +79,9 @@ hybrid_approach:
 
 **Thinking Modes**: 
 - Works with all thinking flags for complex edit planning
-- `--think`: Analyzes edit impact across modules
-- `--think-hard`: Plans systematic refactoring
-- `--ultrathink`: Coordinates large-scale transformations
+- `--seq`: Analyzes edit impact across modules with Sequential analysis
+- `--systematic`: Plans systematic refactoring with structured approach
+- `--deep`: Coordinates large-scale transformations with comprehensive analysis
 
 **Other MCP Servers**: 
 - Sequential: Complex edit planning and dependency analysis

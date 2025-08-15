@@ -19,14 +19,14 @@ mcp-integration:
 performance-profile: standard
 ---
 
-# /sc:implement - Feature Implementation
+# /sg:implement - Feature Implementation
 
 ## Purpose
 Implement features, components, and code functionality with intelligent expert activation and comprehensive development support. This command serves as the primary implementation engine in development workflows, providing automated persona activation, MCP server coordination, and best practices enforcement throughout the implementation process.
 
 ## Usage
 ```
-/sc:implement [feature-description] [--type component|api|service|feature] [--framework react|vue|express|etc] [--safe] [--interactive]
+/sg:implement [feature-description] [--type component|api|service|feature] [--framework react|vue|express|etc] [--safe] [--interactive]
 ```
 
 ## Arguments
@@ -140,32 +140,32 @@ The command automatically activates relevant personas based on detected context:
 
 ### Basic Component Implementation
 ```
-/sc:implement user profile component --type component --framework react
+/sg:implement user profile component --type component --framework react
 # React component with persona activation and Magic integration
 ```
 
 ### API Service Implementation
 ```
-/sc:implement user authentication API --type api --safe --with-tests
+/sg:implement user authentication API --type api --safe --with-tests
 # Backend API with security persona and comprehensive validation
 ```
 
 ### Full Feature Implementation
 ```
-/sc:implement payment processing system --type feature --iterative --documentation
+/sg:implement payment processing system --type feature --iterative --documentation
 # Complex feature with multi-persona coordination and iterative development
 ```
 
 ### Framework-Specific Implementation
 ```
-/sc:implement dashboard widget --type component --framework vue --c7
+/sg:implement dashboard widget --type component --framework vue --c7
 # Vue component leveraging Context7 for Vue-specific patterns
 ```
 
 ## Error Handling & Recovery
 
 ### Graceful Degradation
-- **MCP Server Unavailable**: Falls back to native Claude Code capabilities with reduced automation
+- **MCP Server Unavailable**: Falls back to native Gemini CLI capabilities with reduced automation
 - **Persona Activation Failure**: Continues with general development guidance and best practices
 - **Tool Access Issues**: Uses alternative tools and provides manual implementation guidance
 
@@ -184,12 +184,12 @@ The command automatically activates relevant personas based on detected context:
 ## Integration Patterns
 
 ### Command Coordination
-- **Preparation Commands**: Often follows /sc:design or /sc:analyze for implementation planning
-- **Follow-up Commands**: Commonly followed by /sc:test, /sc:improve, or /sc:document
-- **Parallel Commands**: Can run alongside /sc:estimate for development planning
+- **Preparation Commands**: Often follows /sg:design or /sg:analyze for implementation planning
+- **Follow-up Commands**: Commonly followed by /sg:test, /sg:improve, or /sg:document
+- **Parallel Commands**: Can run alongside /sg:estimate for development planning
 
 ### Framework Integration
-- **SuperClaude Ecosystem**: Integrates with quality gates and validation cycles
+- **SuperGemini Ecosystem**: Integrates with quality gates and validation cycles
 - **Quality Gates**: Participates in the 8-step validation process
 - **Session Management**: Maintains implementation context across session boundaries
 

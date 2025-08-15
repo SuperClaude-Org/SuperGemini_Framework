@@ -36,7 +36,7 @@ performance-targets:
 
 ## Purpose
 
-Behavioral framework mode that provides intelligent token optimization through adaptive compression strategies, symbol systems, and evidence-based validation. Modifies Claude Code's operational approach to achieve 30-50% token reduction while maintaining ≥95% information preservation and seamless framework integration.
+Behavioral framework mode that provides intelligent token optimization through adaptive compression strategies, symbol systems, and evidence-based validation. Modifies Gemini CLI's operational approach to achieve 30-50% token reduction while maintaining ≥95% information preservation and seamless framework integration.
 
 **Core Problems Solved**:
 - Resource constraint management during large-scale operations
@@ -48,7 +48,7 @@ Behavioral framework mode that provides intelligent token optimization through a
 - Evidence-based efficiency with measurable outcomes
 - Adaptive intelligence based on task complexity and persona domains
 - Progressive enhancement through 5-level compression strategy
-- Seamless integration with SuperClaude's quality gates and orchestration
+- Seamless integration with SuperGemini's quality gates and orchestration
 
 ## Core Framework
 
@@ -77,7 +77,7 @@ Behavioral framework mode that provides intelligent token optimization through a
 - **MCP Integration**: Coordinated caching and optimization across server calls
 
 ### 5. Selective Compression Framework
-- **Framework Exclusion**: Complete exclusion of SuperClaude framework directories and components
+- **Framework Exclusion**: Complete exclusion of SuperGemini framework directories and components
 - **Session Data Optimization**: Apply compression only to session operational data and working artifacts
 - **User Content Preservation**: Maintain full fidelity for project files, user documentation, configurations, outputs
 - **Path-Based Protection**: Automatic exclusion of framework paths with minimal scope compression
@@ -85,7 +85,7 @@ Behavioral framework mode that provides intelligent token optimization through a
 ## Activation Patterns
 
 ### Automatic Activation
-Token Efficiency Mode auto-activates when SuperClaude detects:
+Token Efficiency Mode auto-activates when SuperGemini detects:
 
 1. **Resource Constraint Indicators**: Context usage >75%, memory pressure, large-scale operations
 2. **Performance Optimization Needs**: Complex analysis workflows, multi-server coordination, extended sessions
@@ -96,7 +96,7 @@ Token Efficiency Mode auto-activates when SuperClaude detects:
 ### Manual Activation
 - **Primary Flag**: `--uc` or `--ultracompressed`
 - **Context**: When users explicitly request 30-50% token reduction with symbol systems
-- **Integration**: Works with all SuperClaude commands and MCP servers for optimization
+- **Integration**: Works with all SuperGemini commands and MCP servers for optimization
 - **Fallback Control**: `--no-uc` disables automatic activation when full verbosity needed
 
 ## Token Optimization Framework
@@ -191,15 +191,15 @@ Token Efficiency Mode auto-activates when SuperClaude detects:
 - **MCP Integration**: Coordinated caching and optimization across server calls
 
 ### Selective Compression Techniques
-- **Path-Based Exclusion**: Complete exclusion of SuperClaude framework directories
+- **Path-Based Exclusion**: Complete exclusion of SuperGemini framework directories
 - **Session Data Optimization**: Compression applied only to session operational data
-- **Framework Protection**: Zero compression for all SuperClaude components and configurations
+- **Framework Protection**: Zero compression for all SuperGemini components and configurations
 - **User Content Protection**: Zero compression for project code, user docs, configurations, custom content
 - **Minimal Scope Compression**: Limited to session metadata, checkpoints, cache, and working artifacts
 
 ## Framework Integration
 
-### SuperClaude Mode Coordination
+### SuperGemini Mode Coordination
 - **Wave Coordination**: Real-time token monitoring with <100ms decisions during wave orchestration
 - **Persona Intelligence**: Domain-specific compression strategies (architect: clarity-focused, performance: efficiency-focused)
 - **Performance Monitoring**: Integration with performance targets and resource management thresholds
@@ -217,7 +217,7 @@ Token Efficiency Mode auto-activates when SuperClaude detects:
 - **Evidence Tracking**: Compression effectiveness metrics and continuous improvement
 
 ### Command Integration
-- **All Commands**: Universal optimization layer applied across SuperClaude command execution
+- **All Commands**: Universal optimization layer applied across SuperGemini command execution
 - **Resource-Intensive Operations**: Automatic activation during large-scale file processing
 - **Analysis Commands**: Balanced compression maintaining analysis depth and clarity
 
@@ -226,7 +226,7 @@ Token Efficiency Mode auto-activates when SuperClaude detects:
 ### Optimized Communication Patterns
 1. **Symbol-Enhanced Clarity**: Use symbol systems to convey complex relationships efficiently
 2. **Context-Aware Compression**: Adapt compression level based on user expertise and domain familiarity
-3. **Quality-Preserved Efficiency**: Maintain SuperClaude's communication standards while optimizing token usage
+3. **Quality-Preserved Efficiency**: Maintain SuperGemini's communication standards while optimizing token usage
 4. **Evidence-Based Feedback**: Provide compression metrics and effectiveness indicators when relevant
 
 ### Resource Management Communication
@@ -261,10 +261,10 @@ token_efficiency_mode:
     enabled: true
     content_classification:
       framework_exclusions:
-        - "/SuperClaude/SuperClaude/"  # Complete SuperClaude framework
+        - "/SuperGemini/SuperGemini/"  # Complete SuperGemini framework
         - "~/.claude/"                 # User Claude configuration
         - ".claude/"                   # Local Claude configuration
-        - "SuperClaude/*"              # All SuperClaude directories
+        - "SuperGemini/*"              # All SuperGemini directories
       compressible_content_patterns:
         - "session_metadata"           # Session operational data only
         - "checkpoint_data"            # Session checkpoints
@@ -321,7 +321,7 @@ token_efficiency_mode:
 
 ## Integration Ecosystem
 
-### SuperClaude Framework Compliance
+### SuperGemini Framework Compliance
 
 ```yaml
 framework_integration:

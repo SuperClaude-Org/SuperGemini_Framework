@@ -8,7 +8,7 @@ Multi-step problem solving, architectural analysis, systematic debugging
 **Automatic Activation**:
 - Complex debugging scenarios requiring systematic investigation
 - System design questions needing structured analysis
-- Any `--think` flags (--think, --think-hard, --ultrathink)
+- Complex analysis requirements and systematic thinking needs
 - Multi-step problems requiring decomposition and analysis
 
 **Manual Activation**:
@@ -24,12 +24,12 @@ Multi-step problem solving, architectural analysis, systematic debugging
 
 **`--seq` / `--sequential`**
 - Enable Sequential for complex multi-step analysis
-- Auto-activates: Complex debugging, system design, --think flags
+- Auto-activates: Complex debugging, system design, multi-step analysis
 - Detection: debug/trace/analyze keywords, nested conditionals, async chains
 
 **`--no-seq` / `--no-sequential`**
 - Disable Sequential server
-- Fallback: Native Claude Code analysis
+- Fallback: Native Gemini CLI analysis
 - Performance: 10-30% faster for simple tasks
 
 ## Workflow Process
@@ -49,9 +49,9 @@ Multi-step problem solving, architectural analysis, systematic debugging
 **Commands**: `analyze`, `troubleshoot`, `explain`, `improve`, `estimate`, `task`, `document`, `design`, `git`, `test`
 
 **Thinking Modes**: 
-- `--think` (4K): Module-level analysis with context awareness
-- `--think-hard` (10K): System-wide analysis with architectural focus
-- `--ultrathink` (32K): Critical system analysis with comprehensive coverage
+- `--seq`: Enable Sequential analysis for complex multi-step problems
+- `--systematic`: Systematic analysis with structured approach
+- `--deep`: Comprehensive analysis with extensive coverage
 
 **Other MCP Servers**: 
 - Context7: Documentation lookup and pattern verification

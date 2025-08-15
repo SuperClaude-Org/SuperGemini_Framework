@@ -24,14 +24,14 @@ performance-targets:
   memory-operations: <200ms
 ---
 
-# /sc:reflect - Task Reflection and Validation
+# /sg:reflect - Task Reflection and Validation
 
 ## Purpose
 Perform comprehensive task reflection and validation using Serena MCP reflection tools, bridging traditional TodoWrite patterns with Serena's analysis capabilities for enhanced task management with session lifecycle integration and cross-session persistence capabilities.
 
 ## Usage
 ```
-/sc:reflect [--type task|session|completion] [--analyze] [--update-session] [--validate] [--performance] [--metadata] [--cleanup]
+/sg:reflect [--type task|session|completion] [--analyze] [--update-session] [--validate] [--performance] [--metadata] [--cleanup]
 ```
 
 ## Arguments
@@ -59,7 +59,7 @@ Perform comprehensive task reflection and validation using Serena MCP reflection
 - Execute appropriate Serena MCP operations for session management
 - Call `think_about_collected_information` to analyze session work with selective compression
 - **Content Classification for Reflection Operations**:
-  - **SuperClaude Framework** (Complete exclusion): All framework directories and components
+  - **SuperGemini Framework** (Complete exclusion): All framework directories and components
   - **Session Data** (Apply compression): Reflection metadata, analysis results, insights only
   - **User Project Content** (Preserve fidelity): Project files, user documentation, configurations
 - Evaluate completeness of information gathering with optimized memory operations
@@ -191,31 +191,31 @@ traditional_pattern:
 
 enhanced_pattern:
   - TodoRead() → Get current state
-  - /sc:reflect --type task → Validate approach
+  - /sg:reflect --type task → Validate approach
   - Work on tasks with Serena guidance
-  - /sc:reflect --type completion → Validate completion
+  - /sg:reflect --type completion → Validate completion
   - TodoWrite() → Update with reflection insights
 ```
 
 ### With Session Lifecycle
 ```yaml
-# Integration with /sc:load and /sc:save
+# Integration with /sg:load and /sg:save
 session_integration:
-  - /sc:load → Initialize session
-  - Work with periodic /sc:reflect --type task
-  - /sc:reflect --type session → Mid-session analysis
-  - /sc:reflect --type completion → Pre-save validation
-  - /sc:save → Persist with reflection insights
+  - /sg:load → Initialize session
+  - Work with periodic /sg:reflect --type task
+  - /sg:reflect --type session → Mid-session analysis
+  - /sg:reflect --type completion → Pre-save validation
+  - /sg:save → Persist with reflection insights
 ```
 
 ### With Automatic Checkpoints
 ```yaml
 # Checkpoint integration
 checkpoint_triggers:
-  - High priority task completion → /sc:reflect --type completion
-  - 30-minute intervals → /sc:reflect --type session
-  - Before risk operations → /sc:reflect --type task
-  - Error recovery → /sc:reflect --analyze
+  - High priority task completion → /sg:reflect --type completion
+  - 30-minute intervals → /sg:reflect --type session
+  - Before risk operations → /sg:reflect --type task
+  - Error recovery → /sg:reflect --analyze
 ```
 
 ## Performance Requirements
@@ -293,8 +293,8 @@ checkpoint_triggers:
 
 ## Integration Ecosystem
 
-### SuperClaude Framework Integration
-- **Command Coordination**: Integration with other SuperClaude commands for session support
+### SuperGemini Framework Integration
+- **Command Coordination**: Integration with other SuperGemini commands for session support
 - **Quality Gates**: Integration with validation cycles and quality assurance
 - **Mode Coordination**: Support for different operational modes and contexts
 - **Workflow Integration**: Seamless integration with complex workflow operations
@@ -323,43 +323,43 @@ checkpoint_triggers:
 
 ### Basic Task Reflection
 ```
-/sc:reflect --type task
+/sg:reflect --type task
 # Validates current task approach and progress
 ```
 
 ### Session Checkpoint
 ```
-/sc:reflect --type session --metadata
+/sg:reflect --type session --metadata
 # Create comprehensive session analysis with metadata
 ```
 
 ### Session Recovery
 ```
-/sc:reflect --type completion --validate
+/sg:reflect --type completion --validate
 # Completion validation with integrity checks
 ```
 
 ### Performance Monitoring
 ```
-/sc:reflect --performance --validate
+/sg:reflect --performance --validate
 # Session operation with performance monitoring
 ```
 
 ### Comprehensive Session Analysis
 ```
-/sc:reflect --type session --analyze --update-session
+/sg:reflect --type session --analyze --update-session
 # Deep session analysis with metadata update
 ```
 
 ### Pre-Completion Validation
 ```
-/sc:reflect --type completion
+/sg:reflect --type completion
 # Validates readiness to mark tasks complete
 ```
 
 ### Checkpoint-Triggered Reflection
 ```
-/sc:reflect --type session --checkpoint
+/sg:reflect --type session --checkpoint
 # Session reflection with automatic checkpoint creation
 ```
 

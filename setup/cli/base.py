@@ -1,34 +1,46 @@
 """
-SuperClaude CLI Base Module
+SuperGemini Operations Module
 
-Base class for all CLI operations providing common functionality
+This module contains all SuperGemini management operations that can be
+executed through the unified CLI hub (SuperGemini).
+
+Each operation module should implement:
+- register_parser(subparsers): Register CLI arguments for the operation
+- run(args): Execute the operation with parsed arguments
+
+Available operations:
+- install: Install SuperGemini framework components
+- update: Update existing SuperGemini installation
+- uninstall: Remove SuperGemini framework installation  
+- backup: Backup and restore SuperGemini installations
 """
 
 __version__ = "3.0.0"
+__all__ = ["install", "update", "uninstall", "backup"]
 
 
-def get_command_info():
-    """Get information about available commands"""
+def get_operation_info():
+    """Get information about available operations"""
     return {
         "install": {
             "name": "install",
-            "description": "Install SuperClaude framework components",
-            "module": "setup.cli.commands.install"
+            "description": "Install SuperGemini framework components",
+            "module": "setup.operations.install"
         },
         "update": {
             "name": "update", 
-            "description": "Update existing SuperClaude installation",
-            "module": "setup.cli.commands.update"
+            "description": "Update existing SuperGemini installation",
+            "module": "setup.operations.update"
         },
         "uninstall": {
             "name": "uninstall",
-            "description": "Remove SuperClaude framework installation", 
-            "module": "setup.cli.commands.uninstall"
+            "description": "Remove SuperGemini framework installation", 
+            "module": "setup.operations.uninstall"
         },
         "backup": {
             "name": "backup",
-            "description": "Backup and restore SuperClaude installations",
-            "module": "setup.cli.commands.backup"
+            "description": "Backup and restore SuperGemini installations",
+            "module": "setup.operations.backup"
         }
     }
 

@@ -74,7 +74,7 @@
 # Mode Template Guide
 
 ## Overview
-This template provides a standardized format for documenting Modes in the SuperClaude framework. Modes define HOW Claude operates, as opposed to Agents which define WHO Claude becomes.
+This template provides a standardized format for documenting Modes in the SuperGemini framework. Modes define HOW Claude operates, as opposed to Agents which define WHO Claude becomes.
 
 ## Key Differences: Modes vs Agents
 - **Modes**: Operational behaviors, interaction patterns, processing methods
@@ -135,4 +135,4 @@ Choose based on mode type:
 
 ## Location
 All Mode documentation files should be placed in:
-`SuperClaude/Modes/`
+`SuperGemini/Modes/`

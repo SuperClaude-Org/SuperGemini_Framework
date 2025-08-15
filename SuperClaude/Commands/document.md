@@ -15,14 +15,14 @@ mcp-integration:
   wave-enabled: false
 ---
 
-# /sc:document - Focused Documentation Generation
+# /sg:document - Focused Documentation Generation
 
 ## Purpose
 Generate precise, well-structured documentation for specific components, functions, APIs, or features with appropriate formatting, comprehensive coverage, and integration with existing documentation ecosystems.
 
 ## Usage
 ```
-/sc:document [target] [--type inline|external|api|guide] [--style brief|detailed] [--template standard|custom]
+/sg:document [target] [--type inline|external|api|guide] [--style brief|detailed] [--template standard|custom]
 ```
 
 ## Arguments
@@ -38,7 +38,7 @@ Generate precise, well-structured documentation for specific components, functio
 4. Apply consistent formatting, structure, and organizational patterns following documentation standards
 5. Integrate generated documentation with existing project documentation and ensure cross-reference consistency
 
-## Claude Code Integration
+## Gemini CLI Integration
 - **Tool Usage**: Read for component analysis, Write for documentation creation, Grep for reference extraction
 - **File Operations**: Reads source code and existing docs, writes documentation files with proper formatting
 - **Analysis Approach**: Code structure analysis with API extraction and usage pattern identification
@@ -53,14 +53,14 @@ Generate precise, well-structured documentation for specific components, functio
 
 ### Basic Usage
 ```
-/sc:document src/auth/login.js --type inline
+/sg:document src/auth/login.js --type inline
 # Generates inline code comments for login function
 # Adds JSDoc comments with parameter and return descriptions
 ```
 
 ### Advanced Usage
 ```
-/sc:document src/api --type api --style detailed --template standard
+/sg:document src/api --type api --style detailed --template standard
 # Creates comprehensive API documentation for entire API module
 # Generates detailed external documentation with examples and usage guidelines
 ```
@@ -72,7 +72,7 @@ Generate precise, well-structured documentation for specific components, functio
 - **Resource Constraints**: Optimizes documentation generation for large codebases with progress feedback
 
 ## Integration Points
-- **SuperClaude Framework**: Coordinates with analyze for code understanding and design for specification documentation
+- **SuperGemini Framework**: Coordinates with analyze for code understanding and design for specification documentation
 - **Other Commands**: Follows development workflows and integrates with build for documentation publishing
 - **File System**: Reads project source code and existing documentation, writes formatted docs to appropriate locations
 

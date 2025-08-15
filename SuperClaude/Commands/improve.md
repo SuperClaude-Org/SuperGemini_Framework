@@ -19,14 +19,14 @@ mcp-integration:
 performance-profile: standard
 ---
 
-# /sc:improve - Code Improvement
+# /sg:improve - Code Improvement
 
 ## Purpose
 Apply systematic improvements to code quality, performance, maintainability, and best practices through intelligent analysis and targeted refactoring. This command serves as the primary quality enhancement engine, providing automated assessment workflows, quality metrics analysis, and systematic improvement application with safety validation.
 
 ## Usage
 ```
-/sc:improve [target] [--type quality|performance|maintainability|style] [--safe] [--interactive]
+/sg:improve [target] [--type quality|performance|maintainability|style] [--safe] [--interactive]
 ```
 
 ## Arguments
@@ -133,25 +133,25 @@ The command automatically activates relevant personas based on improvement type:
 
 ### Quality Improvement
 ```
-/sc:improve src/ --type quality --safe --metrics
+/sg:improve src/ --type quality --safe --metrics
 # Safe quality improvements with detailed metrics tracking
 ```
 
 ### Performance Optimization
 ```
-/sc:improve backend/api --type performance --iterative --validate
+/sg:improve backend/api --type performance --iterative --validate
 # Performance improvements with iterative validation
 ```
 
 ### Style and Maintainability
 ```
-/sc:improve entire-project --type maintainability --preview
+/sg:improve entire-project --type maintainability --preview
 # Project-wide maintainability improvements with preview
 ```
 
 ### Security Hardening
 ```
-/sc:improve auth-module --type security --interactive --validate
+/sg:improve auth-module --type security --interactive --validate
 # Security improvements with interactive validation
 ```
 
@@ -177,12 +177,12 @@ The command automatically activates relevant personas based on improvement type:
 ## Integration Patterns
 
 ### Command Coordination
-- **Preparation Commands**: Often follows /sc:analyze or /sc:estimate for improvement planning
-- **Follow-up Commands**: Commonly followed by /sc:test, /sc:validate, or /sc:document
-- **Parallel Commands**: Can run alongside /sc:cleanup for comprehensive codebase enhancement
+- **Preparation Commands**: Often follows /sg:analyze or /sg:estimate for improvement planning
+- **Follow-up Commands**: Commonly followed by /sg:test, /sg:validate, or /sg:document
+- **Parallel Commands**: Can run alongside /sg:cleanup for comprehensive codebase enhancement
 
 ### Framework Integration
-- **SuperClaude Ecosystem**: Integrates with quality gates and validation cycles
+- **SuperGemini Ecosystem**: Integrates with quality gates and validation cycles
 - **Quality Gates**: Participates in the 8-step validation process for improvement verification
 - **Session Management**: Maintains improvement context across session boundaries
 

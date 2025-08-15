@@ -1,8 +1,8 @@
-# SuperClaude Personas User Guide 🎭
+# SuperGemini Personas User Guide 🎭
 
 ## 🎭 Personas Auto-Activate - No Need to Choose!
 
-**The simple truth**: You don't need to pick personas or memorize what they do. SuperClaude usually tries to bring in helpful experts for each situation! 
+**The simple truth**: You don't need to pick personas or memorize what they do. SuperGemini usually tries to bring in helpful experts for each situation! 
 
 **Here's what actually happens:**
 - You type `/analyze auth.js` → Security expert usually jumps in 🛡️
@@ -20,24 +20,24 @@
 
 ```bash
 # These automatically activate the right experts:
-/sc:analyze payment-system/         # → Security + backend experts auto-activate
-/sc:build react-app/               # → Frontend specialist takes over  
-/sc:improve slow-queries.sql       # → Performance optimizer jumps in
-/sc:troubleshoot "auth failing"    # → Debug specialist + security expert coordinate
+/sg:analyze payment-system/         # → Security + backend experts auto-activate
+/sg:build react-app/               # → Frontend specialist takes over  
+/sg:improve slow-queries.sql       # → Performance optimizer jumps in
+/sg:troubleshoot "auth failing"    # → Debug specialist + security expert coordinate
 ```
 
-**See the pattern?** You focus on what you want to do, SuperClaude figures out who should help. Everything below is for when you get curious about who's on the team.
+**See the pattern?** You focus on what you want to do, SuperGemini figures out who should help. Everything below is for when you get curious about who's on the team.
 
 ---
 
-Think of SuperClaude personas as having a team of specialists on demand. Each persona brings different expertise, priorities, and perspectives to help you with specific types of work.
+Think of SuperGemini personas as having a team of specialists on demand. Each persona brings different expertise, priorities, and perspectives to help you with specific types of work.
 
 ## What Are Personas? 🤔
 
-**Personas are AI specialists** that try to adapt SuperClaude's behavior for different types of work. Instead of generic responses, you often get expert-level help from relevant specialists.
+**Personas are AI specialists** that try to adapt SuperGemini's behavior for different types of work. Instead of generic responses, you often get expert-level help from relevant specialists.
 
 **How they actually work in practice:**
-- **Auto-activation** - SuperClaude usually tries to pick helpful experts (most of the time this works pretty well!)
+- **Auto-activation** - SuperGemini usually tries to pick helpful experts (most of the time this works pretty well!)
 - **Smart detection** - Recognizes security work, frontend tasks, performance issues, etc.
 - **Seamless switching** - Different experts jump in as needed within the same conversation
 - **Team coordination** - Multiple experts often coordinate on complex tasks
@@ -51,7 +51,7 @@ Think of SuperClaude personas as having a team of specialists on demand. Each pe
 
 **The neat part**: You just work on your stuff, and helpful experts usually show up when needed. 🎯
 
-## The SuperClaude Team 👥
+## The SuperGemini Team 👥
 
 ### Technical Specialists 🔧
 
@@ -74,9 +74,9 @@ Think of SuperClaude personas as having a team of specialists on demand. Each pe
 
 **Example workflows**:
 ```bash
-/sc:design microservices-migration --persona-architect
-/sc:analyze --focus architecture large-system/
-/sc:estimate "redesign auth system" --persona-architect
+/sg:design microservices-migration --persona-architect
+/sg:analyze --focus architecture large-system/
+/sg:estimate "redesign auth system" --persona-architect
 ```
 
 **What they prioritize**:
@@ -111,9 +111,9 @@ Think of SuperClaude personas as having a team of specialists on demand. Each pe
 
 **Example workflows**:
 ```bash
-/sc:build dashboard --persona-frontend
-/sc:improve --focus accessibility components/
-/sc:analyze --persona-frontend --focus performance
+/sg:build dashboard --persona-frontend
+/sg:improve --focus accessibility components/
+/sg:analyze --persona-frontend --focus performance
 ```
 
 **What they prioritize**:
@@ -149,9 +149,9 @@ Think of SuperClaude personas as having a team of specialists on demand. Each pe
 
 **Example workflows**:
 ```bash
-/sc:design user-api --persona-backend
-/sc:analyze --focus security api/
-/sc:improve --persona-backend database-layer/
+/sg:design user-api --persona-backend
+/sg:analyze --focus security api/
+/sg:improve --persona-backend database-layer/
 ```
 
 **What they prioritize**:
@@ -187,9 +187,9 @@ Think of SuperClaude personas as having a team of specialists on demand. Each pe
 
 **Example workflows**:
 ```bash
-/sc:scan --persona-security --focus security
-/sc:analyze auth-system/ --persona-security
-/sc:improve --focus security --persona-security
+/sg:scan --persona-security --focus security
+/sg:analyze auth-system/ --persona-security
+/sg:improve --focus security --persona-security
 ```
 
 **What they prioritize**:
@@ -225,9 +225,9 @@ Think of SuperClaude personas as having a team of specialists on demand. Each pe
 
 **Example workflows**:
 ```bash
-/sc:analyze --focus performance --persona-performance
-/sc:improve --type performance slow-endpoints/
-/sc:test --benchmark --persona-performance
+/sg:analyze --focus performance --persona-performance
+/sg:improve --type performance slow-endpoints/
+/sg:test --benchmark --persona-performance
 ```
 
 **What they prioritize**:
@@ -263,9 +263,9 @@ Think of SuperClaude personas as having a team of specialists on demand. Each pe
 
 **Example workflows**:
 ```bash
-/sc:troubleshoot "auth randomly fails" --persona-analyzer
-/sc:analyze --persona-analyzer mysterious-bug/
-/sc:explain --detailed "why is this slow" --persona-analyzer
+/sg:troubleshoot "auth randomly fails" --persona-analyzer
+/sg:analyze --persona-analyzer mysterious-bug/
+/sg:explain --detailed "why is this slow" --persona-analyzer
 ```
 
 **What they prioritize**:
@@ -301,9 +301,9 @@ Think of SuperClaude personas as having a team of specialists on demand. Each pe
 
 **Example workflows**:
 ```bash
-/sc:test --persona-qa comprehensive-suite
-/sc:analyze --focus quality --persona-qa
-/sc:review --persona-qa critical-features/
+/sg:test --persona-qa comprehensive-suite
+/sg:analyze --focus quality --persona-qa
+/sg:review --persona-qa critical-features/
 ```
 
 **What they prioritize**:
@@ -339,9 +339,9 @@ Think of SuperClaude personas as having a team of specialists on demand. Each pe
 
 **Example workflows**:
 ```bash
-/sc:improve --type quality --persona-refactorer
-/sc:cleanup legacy-module/ --persona-refactorer
-/sc:analyze --focus maintainability --persona-refactorer
+/sg:improve --type quality --persona-refactorer
+/sg:cleanup legacy-module/ --persona-refactorer
+/sg:analyze --focus maintainability --persona-refactorer
 ```
 
 **What they prioritize**:
@@ -377,9 +377,9 @@ Think of SuperClaude personas as having a team of specialists on demand. Each pe
 
 **Example workflows**:
 ```bash
-/sc:deploy production --persona-devops
-/sc:analyze infrastructure/ --persona-devops
-/sc:improve deployment-pipeline --persona-devops
+/sg:deploy production --persona-devops
+/sg:analyze infrastructure/ --persona-devops
+/sg:improve deployment-pipeline --persona-devops
 ```
 
 **What they prioritize**:
@@ -415,9 +415,9 @@ Think of SuperClaude personas as having a team of specialists on demand. Each pe
 
 **Example workflows**:
 ```bash
-/sc:explain React hooks --persona-mentor
-/sc:document --type guide --persona-mentor
-/sc:analyze complex-algorithm.js --persona-mentor
+/sg:explain React hooks --persona-mentor
+/sg:document --type guide --persona-mentor
+/sg:analyze complex-algorithm.js --persona-mentor
 ```
 
 **What they prioritize**:
@@ -451,9 +451,9 @@ Think of SuperClaude personas as having a team of specialists on demand. Each pe
 
 **Example workflows**:
 ```bash
-/sc:document api/ --persona-scribe
-/sc:git commit --persona-scribe
-/sc:explain --persona-scribe=es complex-feature
+/sg:document api/ --persona-scribe
+/sg:git commit --persona-scribe
+/sg:explain --persona-scribe=es complex-feature
 ```
 
 **What they prioritize**:
@@ -510,31 +510,31 @@ Personas often work together automatically. Here are common collaboration patter
 
 ### Design & Implementation
 ```bash
-/sc:design user-dashboard
+/sg:design user-dashboard
 # Auto-activates: 🏗️ architect (system design) + 🎨 frontend (UI design)
 ```
 
 ### Security Review
 ```bash
-/sc:analyze --focus security api/
+/sg:analyze --focus security api/
 # Auto-activates: 🛡️ security (primary) + ⚙️ backend (API expertise)
 ```
 
 ### Performance Optimization
 ```bash
-/sc:improve --focus performance slow-app/
+/sg:improve --focus performance slow-app/
 # Auto-activates: ⚡ performance (primary) + 🎨 frontend (if UI) or ⚙️ backend (if API)
 ```
 
 ### Quality Improvement
 ```bash
-/sc:improve --focus quality legacy-code/
+/sg:improve --focus quality legacy-code/
 # Auto-activates: 🔄 refactorer (primary) + 🧪 qa (testing) + 🏗️ architect (design)
 ```
 
 ### Documentation & Learning
 ```bash
-/sc:document complex-feature --type guide
+/sg:document complex-feature --type guide
 # Auto-activates: ✍️ scribe (writing) + 👨‍🏫 mentor (educational approach)
 ```
 
@@ -544,13 +544,13 @@ Personas often work together automatically. Here are common collaboration patter
 
 **Before** (generic):
 ```bash
-/sc:analyze auth.js
+/sg:analyze auth.js
 # → Basic analysis, generic advice
 ```
 
 **After** (security persona):
 ```bash
-/sc:analyze auth.js --persona-security
+/sg:analyze auth.js --persona-security
 # → Security-focused analysis
 # → Threat modeling perspective
 # → OWASP compliance checking
@@ -561,7 +561,7 @@ Personas often work together automatically. Here are common collaboration patter
 
 **Frontend work detection**:
 ```bash
-/sc:build react-components/
+/sg:build react-components/
 # Auto-activates: 🎨 frontend
 # → UI-focused build optimization
 # → Accessibility checking
@@ -571,7 +571,7 @@ Personas often work together automatically. Here are common collaboration patter
 
 **Complex debugging**:
 ```bash
-/sc:troubleshoot "payment processing randomly fails"
+/sg:troubleshoot "payment processing randomly fails"
 # Auto-activates: 🔍 analyzer
 # → Systematic investigation approach
 # → Evidence collection methodology
@@ -583,7 +583,7 @@ Personas often work together automatically. Here are common collaboration patter
 
 **Force security perspective**:
 ```bash
-/sc:analyze react-app/ --persona-security
+/sg:analyze react-app/ --persona-security
 # Even though it's frontend code, analyze from security perspective
 # → XSS vulnerability checking
 # → Authentication flow analysis
@@ -592,7 +592,7 @@ Personas often work together automatically. Here are common collaboration patter
 
 **Get architectural advice on small changes**:
 ```bash
-/sc:improve small-utility.js --persona-architect
+/sg:improve small-utility.js --persona-architect
 # Apply architectural thinking to small code
 # → Design pattern opportunities
 # → Future extensibility
@@ -611,30 +611,30 @@ Personas often work together automatically. Here are common collaboration patter
 **How to override**:
 ```bash
 # Explicit persona selection
-/sc:analyze frontend-code/ --persona-security  # Security view of frontend
-/sc:improve backend-api/ --persona-performance # Performance view of backend
+/sg:analyze frontend-code/ --persona-security  # Security view of frontend
+/sg:improve backend-api/ --persona-performance # Performance view of backend
 
 # Multiple persona flags (last one wins)
-/sc:analyze --persona-frontend --persona-security # Uses security persona
+/sg:analyze --persona-frontend --persona-security # Uses security persona
 ```
 
 ### Persona-Specific Flags and Settings
 
 **Security persona + validation**:
 ```bash
-/sc:analyze --persona-security --focus security --validate
+/sg:analyze --persona-security --focus security --validate
 # → Maximum security focus with validation
 ```
 
 **Performance persona + benchmarking**:
 ```bash
-/sc:test --persona-performance --benchmark --focus performance
+/sg:test --persona-performance --benchmark --focus performance
 # → Performance-focused testing with metrics
 ```
 
 **Mentor persona + detailed explanations**:
 ```bash
-/sc:explain complex-concept --persona-mentor --verbose
+/sg:explain complex-concept --persona-mentor --verbose
 # → Educational explanation with full detail
 ```
 
@@ -643,12 +643,12 @@ Personas often work together automatically. Here are common collaboration patter
 **When you need multiple perspectives**:
 ```bash
 # Sequential analysis with different personas
-/sc:analyze --persona-security api/auth.js
-/sc:analyze --persona-performance api/auth.js  
-/sc:analyze --persona-refactorer api/auth.js
+/sg:analyze --persona-security api/auth.js
+/sg:analyze --persona-performance api/auth.js  
+/sg:analyze --persona-refactorer api/auth.js
 
-# Or let SuperClaude coordinate automatically
-/sc:analyze --focus quality api/auth.js
+# Or let SuperGemini coordinate automatically
+/sg:analyze --focus quality api/auth.js
 # Auto-coordinates: security + performance + refactorer insights
 ```
 
@@ -657,56 +657,56 @@ Personas often work together automatically. Here are common collaboration patter
 ### 🏗️ Architect Workflows
 ```bash
 # System design
-/sc:design microservices-architecture --persona-architect
-/sc:estimate "migrate monolith to microservices" --persona-architect
+/sg:design microservices-architecture --persona-architect
+/sg:estimate "migrate monolith to microservices" --persona-architect
 
 # Architecture review
-/sc:analyze --focus architecture --persona-architect large-system/
-/sc:review --persona-architect critical-components/
+/sg:analyze --focus architecture --persona-architect large-system/
+/sg:review --persona-architect critical-components/
 ```
 
 ### 🎨 Frontend Workflows
 ```bash
 # Component development
-/sc:build dashboard-components/ --persona-frontend
-/sc:improve --focus accessibility --persona-frontend ui/
+/sg:build dashboard-components/ --persona-frontend
+/sg:improve --focus accessibility --persona-frontend ui/
 
 # Performance optimization
-/sc:analyze --focus performance --persona-frontend bundle/
-/sc:test --persona-frontend --focus performance
+/sg:analyze --focus performance --persona-frontend bundle/
+/sg:test --persona-frontend --focus performance
 ```
 
 ### ⚙️ Backend Workflows
 ```bash
 # API development
-/sc:design rest-api --persona-backend
-/sc:build api-endpoints/ --persona-backend
+/sg:design rest-api --persona-backend
+/sg:build api-endpoints/ --persona-backend
 
 # Reliability improvements
-/sc:improve --focus reliability --persona-backend services/
-/sc:analyze --persona-backend --focus security api/
+/sg:improve --focus reliability --persona-backend services/
+/sg:analyze --persona-backend --focus security api/
 ```
 
 ### 🛡️ Security Workflows
 ```bash
 # Security assessment
-/sc:scan --persona-security --focus security entire-app/
-/sc:analyze --persona-security auth-flow/
+/sg:scan --persona-security --focus security entire-app/
+/sg:analyze --persona-security auth-flow/
 
 # Vulnerability fixing
-/sc:improve --focus security --persona-security vulnerable-code/
-/sc:review --persona-security --focus security critical-paths/
+/sg:improve --focus security --persona-security vulnerable-code/
+/sg:review --persona-security --focus security critical-paths/
 ```
 
 ### 🔍 Analyzer Workflows
 ```bash
 # Bug investigation
-/sc:troubleshoot "intermittent failures" --persona-analyzer
-/sc:analyze --persona-analyzer --focus debugging problem-area/
+/sg:troubleshoot "intermittent failures" --persona-analyzer
+/sg:analyze --persona-analyzer --focus debugging problem-area/
 
 # System understanding
-/sc:explain --persona-analyzer complex-system/
-/sc:load --persona-analyzer unfamiliar-codebase/
+/sg:explain --persona-analyzer complex-system/
+/sg:load --persona-analyzer unfamiliar-codebase/
 ```
 
 ## Quick Reference 📋
@@ -790,7 +790,7 @@ Personas often work together automatically. Here are common collaboration patter
 **"Want multiple perspectives"**
 - Run same command with different personas manually
 - Use broader focus flags: `--focus quality` (activates multiple personas)
-- Let SuperClaude coordinate automatically with complex requests
+- Let SuperGemini coordinate automatically with complex requests
 
 **"Persona is too focused"**
 - Try a different persona that's more general
@@ -808,14 +808,14 @@ Personas often work together automatically. Here are common collaboration patter
 **How to override effectively**:
 ```bash
 # Force specific perspective
-/sc:analyze frontend-code/ --persona-security  # Security view of frontend
+/sg:analyze frontend-code/ --persona-security  # Security view of frontend
 
 # Combine multiple perspectives
-/sc:analyze api/ --persona-security
-/sc:analyze api/ --persona-performance  # Run separately for different views
+/sg:analyze api/ --persona-security
+/sg:analyze api/ --persona-performance  # Run separately for different views
 
 # Use general analysis
-/sc:analyze --no-persona  # Disable persona auto-activation
+/sg:analyze --no-persona  # Disable persona auto-activation
 ```
 
 ## Tips for Effective Persona Usage 💡
@@ -824,7 +824,7 @@ Personas often work together automatically. Here are common collaboration patter
 1. **Just ignore personas completely at first** - Auto-activation handles everything
 2. **Use basic commands normally** - `/analyze`, `/build`, `/improve` work great without persona knowledge
 3. **Notice what happens** - You'll see different types of expertise emerge naturally
-4. **Trust the automation** - SuperClaude usually picks better experts than manual selection
+4. **Trust the automation** - SuperGemini usually picks better experts than manual selection
 
 ### Getting Advanced (If You Want To)
 1. **Experiment with manual override** - Try `--persona-security` on frontend code for different perspectives
@@ -850,7 +850,7 @@ Personas often work together automatically. Here are common collaboration patter
 
 **Don't feel overwhelmed by the team** 🧘‍♂️:
 - You don't need to know what each persona does
-- SuperClaude usually handles expert selection reasonably well
+- SuperGemini usually handles expert selection reasonably well
 - The detailed descriptions above are for curiosity, not necessity
 - You're not missing anything by letting auto-activation work
 
@@ -868,4 +868,4 @@ Personas often work together automatically. Here are common collaboration patter
 
 ---
 
-*Behind all this apparent complexity of having 11 specialists, SuperClaude tries to be simple to use. Just start coding and helpful experts usually show up when needed! 🚀*
+*Behind all this apparent complexity of having 11 specialists, SuperGemini tries to be simple to use. Just start coding and helpful experts usually show up when needed! 🚀*

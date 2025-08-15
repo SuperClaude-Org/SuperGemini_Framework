@@ -1,10 +1,10 @@
-# SuperClaude Agents Guide 🤖
+# SuperGemini Agents Guide 🤖
 
 ## Overview
 
-SuperClaude V4 Beta features 13 specialized domain expert agents that automatically activate based on your task context. These intelligent agents replace the previous persona system with more advanced, focused capabilities that provide expert-level assistance across all aspects of software development.
+SuperGemini V4 Beta features 13 specialized domain expert agents that automatically activate based on your task context. These intelligent agents replace the previous persona system with more advanced, focused capabilities that provide expert-level assistance across all aspects of software development.
 
-**The simple truth**: You don't need to pick agents or memorize what they do. SuperClaude automatically brings in the right experts for each situation!
+**The simple truth**: You don't need to pick agents or memorize what they do. SuperGemini automatically brings in the right experts for each situation!
 
 **Here's what actually happens:**
 - You type `/analyze auth.js` → Security auditor automatically jumps in 🛡️
@@ -18,18 +18,18 @@ SuperClaude V4 Beta features 13 specialized domain expert agents that automatica
 
 ```bash
 # These automatically activate the right experts:
-/sc:analyze payment-system/         # → Security + backend experts auto-activate
-/sc:build react-app/               # → Frontend specialist takes over  
-/sc:improve slow-queries.sql       # → Performance optimizer jumps in
-/sc:troubleshoot "auth failing"    # → Root cause analyzer + security expert coordinate
-/sc:brainstorm "task manager app"  # → Brainstorm-PRD agent guides discovery
+/sg:analyze payment-system/         # → Security + backend experts auto-activate
+/sg:build react-app/               # → Frontend specialist takes over  
+/sg:improve slow-queries.sql       # → Performance optimizer jumps in
+/sg:troubleshoot "auth failing"    # → Root cause analyzer + security expert coordinate
+/sg:brainstorm "task manager app"  # → Brainstorm-PRD agent guides discovery
 ```
 
-**See the pattern?** You focus on what you want to do, SuperClaude figures out who should help.
+**See the pattern?** You focus on what you want to do, SuperGemini figures out who should help.
 
 ---
 
-## The SuperClaude Agent Team 👥
+## The SuperGemini Agent Team 👥
 
 ### Core Development Agents 🔧
 
@@ -50,9 +50,9 @@ SuperClaude V4 Beta features 13 specialized domain expert agents that automatica
 
 **Example use cases**:
 ```bash
-/sc:build python-api --focus security     # → Production-ready FastAPI with security
-/sc:improve legacy-python/ --focus quality # → Refactor to SOLID principles
-/sc:test python-service/ --comprehensive   # → Full test suite with coverage
+/sg:build python-api --focus security     # → Production-ready FastAPI with security
+/sg:improve legacy-python/ --focus quality # → Refactor to SOLID principles
+/sg:test python-service/ --comprehensive   # → Full test suite with coverage
 ```
 
 **Integration with MCP servers**:
@@ -84,9 +84,9 @@ SuperClaude V4 Beta features 13 specialized domain expert agents that automatica
 
 **Example use cases**:
 ```bash
-/sc:design user-management-api        # → Reliable API with proper auth
-/sc:optimize database-queries/        # → Performance tuning and indexing
-/sc:implement payment-processing      # → Secure, reliable payment system
+/sg:design user-management-api        # → Reliable API with proper auth
+/sg:optimize database-queries/        # → Performance tuning and indexing
+/sg:implement payment-processing      # → Secure, reliable payment system
 ```
 
 **Integration with MCP servers**:
@@ -118,9 +118,9 @@ SuperClaude V4 Beta features 13 specialized domain expert agents that automatica
 
 **Example use cases**:
 ```bash
-/sc:build dashboard-components/       # → Accessible React components
-/sc:improve --focus accessibility ui/ # → WCAG compliance and optimization
-/sc:optimize bundle-performance       # → Core Web Vitals improvement
+/sg:build dashboard-components/       # → Accessible React components
+/sg:improve --focus accessibility ui/ # → WCAG compliance and optimization
+/sg:optimize bundle-performance       # → Core Web Vitals improvement
 ```
 
 **Integration with MCP servers**:
@@ -152,9 +152,9 @@ SuperClaude V4 Beta features 13 specialized domain expert agents that automatica
 
 **Example use cases**:
 ```bash
-/sc:deploy production-app             # → Zero-downtime deployment pipeline
-/sc:build monitoring-stack           # → Comprehensive observability setup
-/sc:secure infrastructure/           # → Security hardening and compliance
+/sg:deploy production-app             # → Zero-downtime deployment pipeline
+/sg:build monitoring-stack           # → Comprehensive observability setup
+/sg:secure infrastructure/           # → Security hardening and compliance
 ```
 
 **Integration with MCP servers**:
@@ -186,9 +186,9 @@ SuperClaude V4 Beta features 13 specialized domain expert agents that automatica
 
 **Example use cases**:
 ```bash
-/sc:scan --focus security auth-system/ # → Comprehensive security audit
-/sc:analyze payment-flow --security     # → Threat modeling and risk assessment
-/sc:improve --fix vulnerabilities api/  # → Security hardening and fixes
+/sg:scan --focus security auth-system/ # → Comprehensive security audit
+/sg:analyze payment-flow --security     # → Threat modeling and risk assessment
+/sg:improve --fix vulnerabilities api/  # → Security hardening and fixes
 ```
 
 **Integration with MCP servers**:
@@ -220,9 +220,9 @@ SuperClaude V4 Beta features 13 specialized domain expert agents that automatica
 
 **Example use cases**:
 ```bash
-/sc:analyze --focus performance slow-api/ # → Bottleneck identification and fixes
-/sc:optimize database-queries/            # → Query performance tuning
-/sc:benchmark application-performance     # → Load testing and capacity planning
+/sg:analyze --focus performance slow-api/ # → Bottleneck identification and fixes
+/sg:optimize database-queries/            # → Query performance tuning
+/sg:benchmark application-performance     # → Load testing and capacity planning
 ```
 
 **Integration with MCP servers**:
@@ -254,9 +254,9 @@ SuperClaude V4 Beta features 13 specialized domain expert agents that automatica
 
 **Example use cases**:
 ```bash
-/sc:troubleshoot "payment processing fails randomly" # → Systematic investigation
-/sc:analyze mysterious-bug/                          # → Evidence-based debugging
-/sc:investigate system-outage-logs/                  # → Root cause analysis
+/sg:troubleshoot "payment processing fails randomly" # → Systematic investigation
+/sg:analyze mysterious-bug/                          # → Evidence-based debugging
+/sg:investigate system-outage-logs/                  # → Root cause analysis
 ```
 
 **Integration with MCP servers**:
@@ -288,9 +288,9 @@ SuperClaude V4 Beta features 13 specialized domain expert agents that automatica
 
 **Example use cases**:
 ```bash
-/sc:test --comprehensive user-service/     # → Full testing strategy and implementation
-/sc:validate --quality critical-features/  # → Quality gate implementation
-/sc:analyze --focus testing legacy-code/   # → Testing strategy for existing code
+/sg:test --comprehensive user-service/     # → Full testing strategy and implementation
+/sg:validate --quality critical-features/  # → Quality gate implementation
+/sg:analyze --focus testing legacy-code/   # → Testing strategy for existing code
 ```
 
 **Integration with MCP servers**:
@@ -322,9 +322,9 @@ SuperClaude V4 Beta features 13 specialized domain expert agents that automatica
 
 **Example use cases**:
 ```bash
-/sc:design microservices-architecture     # → System architecture and service design
-/sc:analyze --focus architecture system/  # → Architectural review and improvement
-/sc:plan scalability-improvements         # → Scaling strategy and implementation
+/sg:design microservices-architecture     # → System architecture and service design
+/sg:analyze --focus architecture system/  # → Architectural review and improvement
+/sg:plan scalability-improvements         # → Scaling strategy and implementation
 ```
 
 **Integration with MCP servers**:
@@ -356,9 +356,9 @@ SuperClaude V4 Beta features 13 specialized domain expert agents that automatica
 
 **Example use cases**:
 ```bash
-/sc:improve --focus quality legacy-module/  # → Comprehensive code quality improvement
-/sc:refactor --safe complex-functions/      # → Safe refactoring with test coverage
-/sc:cleanup --technical-debt codebase/      # → Systematic technical debt reduction
+/sg:improve --focus quality legacy-module/  # → Comprehensive code quality improvement
+/sg:refactor --safe complex-functions/      # → Safe refactoring with test coverage
+/sg:cleanup --technical-debt codebase/      # → Systematic technical debt reduction
 ```
 
 **Integration with MCP servers**:
@@ -390,9 +390,9 @@ SuperClaude V4 Beta features 13 specialized domain expert agents that automatica
 
 **Example use cases**:
 ```bash
-/sc:document api-endpoints/               # → Comprehensive API documentation
-/sc:write user-guide --audience beginner  # → User-friendly tutorial and guides
-/sc:improve --docs project-documentation/ # → Documentation quality enhancement
+/sg:document api-endpoints/               # → Comprehensive API documentation
+/sg:write user-guide --audience beginner  # → User-friendly tutorial and guides
+/sg:improve --docs project-documentation/ # → Documentation quality enhancement
 ```
 
 **Integration with MCP servers**:
@@ -424,9 +424,9 @@ SuperClaude V4 Beta features 13 specialized domain expert agents that automatica
 
 **Example use cases**:
 ```bash
-/sc:explain complex-algorithm --educational    # → Step-by-step learning guide
-/sc:teach react-patterns --beginner           # → Progressive React tutorial
-/sc:mentor junior-developer --focus testing   # → Personalized learning guidance
+/sg:explain complex-algorithm --educational    # → Step-by-step learning guide
+/sg:teach react-patterns --beginner           # → Progressive React tutorial
+/sg:mentor junior-developer --focus testing   # → Personalized learning guidance
 ```
 
 **Integration with MCP servers**:
@@ -443,7 +443,7 @@ SuperClaude V4 Beta features 13 specialized domain expert agents that automatica
 - Ambiguous project requests ("I want to build something that...")
 - Exploration keywords: brainstorm, explore, discuss, figure out, not sure
 - PRD creation and requirements discovery needs
-- `/sc:brainstorm` command usage
+- `/sg:brainstorm` command usage
 
 **Specialized capabilities**:
 - **Requirements Discovery**: Socratic questioning, stakeholder analysis
@@ -459,10 +459,10 @@ SuperClaude V4 Beta features 13 specialized domain expert agents that automatica
 
 **Integration workflow**:
 ```bash
-/sc:brainstorm "task management app"  # → Interactive discovery session
+/sg:brainstorm "task management app"  # → Interactive discovery session
 # → Automatic handoff to brainstorm-PRD agent
 # → PRD generation with structured requirements
-# → Ready for /sc:workflow implementation
+# → Ready for /sg:workflow implementation
 ```
 
 **Integration with MCP servers**:
@@ -480,19 +480,19 @@ Agents often work together automatically. Here are common collaboration patterns
 
 #### **Multi-Domain Projects**
 ```bash
-/sc:build full-stack-app/
+/sg:build full-stack-app/
 # Auto-coordinates: backend-engineer + frontend-specialist + system-architect
 ```
 
 #### **Security-Focused Development**
 ```bash
-/sc:analyze --focus security payment-system/
+/sg:analyze --focus security payment-system/
 # Auto-coordinates: security-auditor + backend-engineer + performance-optimizer
 ```
 
 #### **Quality Improvement**
 ```bash
-/sc:improve --focus quality legacy-codebase/
+/sg:improve --focus quality legacy-codebase/
 # Auto-coordinates: code-refactorer + qa-specialist + system-architect
 ```
 
@@ -509,15 +509,15 @@ Each agent leverages specific MCP servers for enhanced capabilities:
 
 ### Integration with Commands and Modes
 
-Agents seamlessly integrate with SuperClaude's command system:
+Agents seamlessly integrate with SuperGemini's command system:
 
 ```bash
 # Commands automatically select appropriate agents
-/sc:analyze → root-cause-analyzer or system-architect (context-dependent)
-/sc:build → frontend-specialist, backend-engineer, or python-ultimate-expert
-/sc:test → qa-specialist with domain-specific coordination
-/sc:brainstorm → brainstorm-PRD for requirements discovery
-/sc:document → technical-writer with audience-appropriate formatting
+/sg:analyze → root-cause-analyzer or system-architect (context-dependent)
+/sg:build → frontend-specialist, backend-engineer, or python-ultimate-expert
+/sg:test → qa-specialist with domain-specific coordination
+/sg:brainstorm → brainstorm-PRD for requirements discovery
+/sg:document → technical-writer with audience-appropriate formatting
 ```
 
 **Mode Integration**:
@@ -550,25 +550,25 @@ Agents seamlessly integrate with SuperClaude's command system:
 **Full-Stack Development**:
 ```bash
 # Automatically coordinates backend + frontend + architecture
-/sc:build modern-web-app/
+/sg:build modern-web-app/
 ```
 
 **Security & Performance Review**:
 ```bash
 # Coordinates security + performance + quality analysis
-/sc:analyze --comprehensive production-system/
+/sg:analyze --comprehensive production-system/
 ```
 
 **Learning & Development**:
 ```bash
 # Coordinates educator + technical writer + domain expert
-/sc:explain complex-system --educational
+/sg:explain complex-system --educational
 ```
 
 **Project Discovery to Implementation**:
 ```bash
 # Brainstorm → PRD → Architecture → Implementation
-/sc:brainstorm "e-commerce platform"
+/sg:brainstorm "e-commerce platform"
 # → Automatic handoff through agent coordination
 ```
 
@@ -576,7 +576,7 @@ Agents seamlessly integrate with SuperClaude's command system:
 
 ### Getting Started (The Simple Way)
 1. **Just use normal commands** - Agents auto-activate based on your needs
-2. **Trust the automation** - SuperClaude usually picks better experts than manual selection
+2. **Trust the automation** - SuperGemini usually picks better experts than manual selection
 3. **Focus on your work** - Not on managing which agent helps you
 4. **Let coordination happen** - Multiple agents work together automatically
 
@@ -590,22 +590,22 @@ Agents seamlessly integrate with SuperClaude's command system:
 
 **For New Projects**:
 ```bash
-/sc:brainstorm "your project idea"  # → Requirements discovery
+/sg:brainstorm "your project idea"  # → Requirements discovery
 # → Automatic PRD generation and handoff
 # → Ready for implementation workflow
 ```
 
 **For Existing Code**:
 ```bash
-/sc:analyze existing-system/        # → Appropriate domain expert auto-selected
-/sc:improve --focus quality code/   # → Quality-focused agent coordination
-/sc:secure legacy-application/      # → Security-focused analysis and hardening
+/sg:analyze existing-system/        # → Appropriate domain expert auto-selected
+/sg:improve --focus quality code/   # → Quality-focused agent coordination
+/sg:secure legacy-application/      # → Security-focused analysis and hardening
 ```
 
 **For Learning**:
 ```bash
-/sc:explain complex-concept --educational  # → Code educator with domain expert
-/sc:document api/ --audience beginner     # → Technical writer with appropriate level
+/sg:explain complex-concept --educational  # → Code educator with domain expert
+/sg:document api/ --audience beginner     # → Technical writer with appropriate level
 ```
 
 ---
@@ -620,7 +620,7 @@ Agents seamlessly integrate with SuperClaude's command system:
 
 **Don't feel overwhelmed by the team** 🧘‍♂️:
 - You don't need to know what each agent does
-- SuperClaude handles expert selection intelligently
+- SuperGemini handles expert selection intelligently
 - The detailed descriptions above are for curiosity, not necessity
 - Focus on your work - the right experts will show up when needed
 
@@ -638,4 +638,4 @@ Agents seamlessly integrate with SuperClaude's command system:
 
 ---
 
-*Behind this sophisticated team of 13 specialists, SuperClaude remains simple to use. Just start coding and the right experts show up when needed! 🚀*
+*Behind this sophisticated team of 13 specialists, SuperGemini remains simple to use. Just start coding and the right experts show up when needed! 🚀*

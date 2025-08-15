@@ -1,5 +1,5 @@
 """
-Core component for SuperClaude framework files installation
+Core component for SuperGemini framework files installation
 """
 
 from typing import Dict, List, Tuple, Optional, Any
@@ -10,7 +10,7 @@ from ..core.base import Component
 from ..services.claude_md import CLAUDEMdService
 
 class CoreComponent(Component):
-    """Core SuperClaude framework files component"""
+    """Core SuperGemini framework files component"""
     
     def __init__(self, install_dir: Optional[Path] = None):
         """Initialize core component"""
@@ -21,16 +21,16 @@ class CoreComponent(Component):
         return {
             "name": "core",
             "version": "3.0.0",
-            "description": "SuperClaude framework documentation and core files",
+            "description": "SuperGemini framework documentation and core files",
             "category": "core"
         }
     
     def get_metadata_modifications(self) -> Dict[str, Any]:
-        """Get metadata modifications for SuperClaude"""
+        """Get metadata modifications for SuperGemini"""
         return {
             "framework": {
                 "version": "3.0.0",
-                "name": "SuperClaude",
+                "name": "SuperGemini",
                 "description": "AI-enhanced development framework for Claude Code",
                 "installation_type": "global",
                 "components": ["core"]
@@ -45,7 +45,7 @@ class CoreComponent(Component):
     
     def _install(self, config: Dict[str, Any]) -> bool:
         """Install core component"""
-        self.logger.info("Installing SuperClaude core framework files...")
+        self.logger.info("Installing SuperGemini core framework files...")
 
         return super()._install(config);
 
@@ -65,9 +65,9 @@ class CoreComponent(Component):
 
             self.logger.info("Updated metadata with core component registration")
             
-            # Migrate any existing SuperClaude data from settings.json
+            # Migrate any existing SuperGemini data from settings.json
             if self.settings_manager.migrate_superclaude_data():
-                self.logger.info("Migrated existing SuperClaude data from settings.json")
+                self.logger.info("Migrated existing SuperGemini data from settings.json")
         except Exception as e:
             self.logger.error(f"Failed to update metadata: {e}")
             return False
@@ -94,7 +94,7 @@ class CoreComponent(Component):
     def uninstall(self) -> bool:
         """Uninstall core component"""
         try:
-            self.logger.info("Uninstalling SuperClaude core component...")
+            self.logger.info("Uninstalling SuperGemini core component...")
             
             # Remove framework files
             removed_count = 0
@@ -135,7 +135,7 @@ class CoreComponent(Component):
     def update(self, config: Dict[str, Any]) -> bool:
         """Update core component"""
         try:
-            self.logger.info("Updating SuperClaude core component...")
+            self.logger.info("Updating SuperGemini core component...")
             
             # Check current version
             current_version = self.settings_manager.get_component_version("core")
@@ -225,10 +225,10 @@ class CoreComponent(Component):
     
     def _get_source_dir(self):
         """Get source directory for framework files"""
-        # Assume we're in SuperClaude/setup/components/core.py
-        # and framework files are in SuperClaude/SuperClaude/Core/
+        # Assume we're in SuperGemini/setup/components/core.py
+        # and framework files are in SuperGemini/SuperGemini/Core/
         project_root = Path(__file__).parent.parent.parent
-        return project_root / "SuperClaude" / "Core"
+        return project_root / "SuperGemini" / "Core"
     
     def get_size_estimate(self) -> int:
         """Get estimated installation size"""

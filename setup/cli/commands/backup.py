@@ -1,5 +1,5 @@
 """
-SuperClaude Backup Operation Module
+SuperGemini Backup Operation Module
 Refactored from backup.py for unified CLI hub
 """
 
@@ -12,13 +12,13 @@ from datetime import datetime
 from typing import List, Optional, Dict, Any, Tuple
 import argparse
 
-from ...services.settings import SettingsService
-from ...utils.ui import (
+from ..managers.settings_manager import SettingsManager
+from ..utils.ui import (
     display_header, display_info, display_success, display_error, 
     display_warning, Menu, confirm, ProgressBar, Colors, format_size
 )
-from ...utils.logger import get_logger
-from ... import DEFAULT_INSTALL_DIR
+from ..utils.logger import get_logger
+from .. import DEFAULT_INSTALL_DIR
 from . import OperationBase
 
 
@@ -35,16 +35,16 @@ def register_parser(subparsers, global_parser=None) -> argparse.ArgumentParser:
     
     parser = subparsers.add_parser(
         "backup",
-        help="Backup and restore SuperClaude installations",
-        description="Create, list, restore, and manage SuperClaude installation backups",
+        help="Backup and restore SuperGemini installations",
+        description="Create, list, restore, and manage SuperGemini installation backups",
         epilog="""
 Examples:
-  SuperClaude backup --create               # Create new backup
-  SuperClaude backup --list --verbose       # List available backups (verbose)
-  SuperClaude backup --restore              # Interactive restore
-  SuperClaude backup --restore backup.tar.gz  # Restore specific backup
-  SuperClaude backup --info backup.tar.gz   # Show backup information
-  SuperClaude backup --cleanup --force      # Clean up old backups (forced)
+  SuperGemini backup --create               # Create new backup
+  SuperGemini backup --list --verbose       # List available backups (verbose)
+  SuperGemini backup --restore              # Interactive restore
+  SuperGemini backup --restore backup.tar.gz  # Restore specific backup
+  SuperGemini backup --info backup.tar.gz   # Show backup information
+  SuperGemini backup --cleanup --force      # Clean up old backups (forced)
         """,
         formatter_class=argparse.RawDescriptionHelpFormatter,
         parents=parents
@@ -137,8 +137,8 @@ def get_backup_directory(args: argparse.Namespace) -> Path:
 
 
 def check_installation_exists(install_dir: Path) -> bool:
-    """Check if SuperClaude installation (v2 included) exists"""
-    settings_manager = SettingsService(install_dir)
+    """Check if SuperGemini installation (v2 included) exists"""
+    settings_manager = SettingsManager(install_dir)
 
     return settings_manager.check_installation_exists() or settings_manager.check_v2_installation_exists()
 
@@ -243,7 +243,7 @@ def create_backup_metadata(install_dir: Path) -> Dict[str, Any]:
     
     try:
         # Get installed components from metadata
-        settings_manager = SettingsService(install_dir)
+        settings_manager = SettingsManager(install_dir)
         framework_config = settings_manager.get_metadata_setting("framework")
         
         if framework_config:
@@ -267,7 +267,7 @@ def create_backup(args: argparse.Namespace) -> bool:
     try:
         # Check if installation exists
         if not check_installation_exists(args.install_dir):
-            logger.error(f"No SuperClaude installation found in {args.install_dir}")
+            logger.error(f"No SuperGemini installation found in {args.install_dir}")
             return False
         
         # Setup backup directory
@@ -309,18 +309,13 @@ def create_backup(args: argparse.Namespace) -> bool:
                 tar.add(temp_file.name, arcname="backup_metadata.json")
                 Path(temp_file.name).unlink()  # Clean up temp file
             
-            # Add installation directory contents (excluding backups and local dirs)
+            # Add installation directory contents
             files_added = 0
             for item in args.install_dir.rglob("*"):
                 if item.is_file() and item != backup_file:
                     try:
                         # Create relative path for archive
                         rel_path = item.relative_to(args.install_dir)
-                        
-                        # Skip files in excluded directories
-                        if rel_path.parts and rel_path.parts[0] in ["backups", "local"]:
-                            continue
-                            
                         tar.add(item, arcname=str(rel_path))
                         files_added += 1
                         
@@ -514,8 +509,8 @@ def run(args: argparse.Namespace) -> int:
         # Display header
         if not args.quiet:
             display_header(
-                "SuperClaude Backup v3.0",
-                "Backup and restore SuperClaude installations"
+                "SuperGemini Backup v3.0",
+                "Backup and restore SuperGemini installations"
             )
         
         backup_dir = get_backup_directory(args)

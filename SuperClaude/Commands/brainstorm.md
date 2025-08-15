@@ -20,14 +20,14 @@ performance-profile: complex
 personas: [architect, analyzer, project-manager]
 ---
 
-# /sc:brainstorm - Interactive Requirements Discovery
+# /sg:brainstorm - Interactive Requirements Discovery
 
 ## Purpose
 Transform ambiguous ideas into concrete specifications through sophisticated brainstorming orchestration featuring Socratic dialogue framework, systematic exploration phases, intelligent brief generation, automated agent handoff protocols, and cross-session persistence capabilities for comprehensive requirements discovery.
 
 ## Usage
 ```
-/sc:brainstorm [topic/idea] [--strategy systematic|agile|enterprise] [--depth shallow|normal|deep] [--parallel] [--validate] [--mcp-routing]
+/sg:brainstorm [topic/idea] [--strategy systematic|agile|enterprise] [--depth shallow|normal|deep] [--parallel] [--validate] [--mcp-routing]
 ```
 
 ## Arguments
@@ -272,7 +272,7 @@ The brainstorm command integrates with MODE_Brainstorming for behavioral configu
 
 ```yaml
 mode_command_integration:
-  primary_implementation: "/sc:brainstorm"
+  primary_implementation: "/sg:brainstorm"
   parameter_mapping:
     # MODE YAML Setting → Command Parameter
     max_rounds: "--max-rounds"           # Default: 15
@@ -284,7 +284,7 @@ mode_command_integration:
   coordination_workflow:
     - mode_detection          # MODE evaluates request context
     - parameter_inheritance   # YAML settings → command parameters
-    - command_invocation     # /sc:brainstorm executed
+    - command_invocation     # /sg:brainstorm executed
     - behavioral_enforcement # MODE patterns applied
     - quality_validation     # Framework compliance checked
 ```
@@ -299,7 +299,7 @@ mode_command_integration:
 
 **Seamless Plan-to-Brief Workflow** - Automatically transforms planning discussions into structured briefs.
 
-When SuperClaude detects requirement-related content in Plan Mode:
+When SuperGemini detects requirement-related content in Plan Mode:
 
 1. **Trigger Detection**: Keywords (implement, build, create, design, develop, feature) or explicit content (requirements, specifications, user stories)
 2. **Content Transformation**: Automatically parses plan content into structured brief format
@@ -343,8 +343,8 @@ brief_generation:
 
 ## Integration Ecosystem
 
-### SuperClaude Framework Integration
-- **Command Coordination**: Orchestrate other SuperClaude commands for comprehensive requirement workflows
+### SuperGemini Framework Integration
+- **Command Coordination**: Orchestrate other SuperGemini commands for comprehensive requirement workflows
 - **Session Management**: Deep integration with session lifecycle and persistence for brainstorming continuity
 - **Quality Framework**: Integration with comprehensive quality assurance systems for requirement validation
 - **Knowledge Management**: Coordinate with knowledge capture and retrieval systems for requirement insights
@@ -356,14 +356,14 @@ brief_generation:
 - **Documentation Systems**: Coordinate with documentation generation and maintenance for requirement persistence
 
 ### Workflow Command Integration
-- **Natural Pipeline**: Brainstorm outputs (PRD/Brief) serve as primary input for `/sc:workflow`
+- **Natural Pipeline**: Brainstorm outputs (PRD/Brief) serve as primary input for `/sg:workflow`
 - **Seamless Handoff**: Use `--prd` flag to automatically generate PRD for workflow planning
 - **Context Preservation**: Session history and decisions flow from brainstorm to workflow
 - **Example Flow**:
   ```bash
-  /sc:brainstorm "new feature idea" --prd
+  /sg:brainstorm "new feature idea" --prd
   # Generates: ClaudeDocs/PRD/feature-prd.md
-  /sc:workflow ClaudeDocs/PRD/feature-prd.md --all-mcp
+  /sg:workflow ClaudeDocs/PRD/feature-prd.md --all-mcp
   ```
 
 ### Task Tool Integration
@@ -492,51 +492,51 @@ auto_handoff: true
 
 ### Comprehensive Project Analysis
 ```
-/sc:brainstorm "enterprise project management system" --strategy systematic --depth deep --validate --mcp-routing
+/sg:brainstorm "enterprise project management system" --strategy systematic --depth deep --validate --mcp-routing
 # Comprehensive analysis with full orchestration capabilities
 ```
 
 ### Agile Multi-Sprint Coordination
 ```
-/sc:brainstorm "feature backlog refinement" --strategy agile --parallel --cross-session
+/sg:brainstorm "feature backlog refinement" --strategy agile --parallel --cross-session
 # Agile coordination with cross-session persistence
 ```
 
 ### Enterprise-Scale Operation
 ```
-/sc:brainstorm "digital transformation initiative" --strategy enterprise --wave-mode --all-personas
+/sg:brainstorm "digital transformation initiative" --strategy enterprise --wave-mode --all-personas
 # Enterprise-scale coordination with full persona orchestration
 ```
 
 ### Complex Integration Project
 ```
-/sc:brainstorm "microservices integration platform" --depth deep --parallel --validate --sequential
+/sg:brainstorm "microservices integration platform" --depth deep --parallel --validate --sequential
 # Complex integration with sequential thinking and validation
 ```
 
 ### Basic Brainstorming
 ```
-/sc:brainstorm "task management app for developers"
+/sg:brainstorm "task management app for developers"
 ```
 
 ### Deep Technical Exploration
 ```
-/sc:brainstorm "distributed caching system" --depth deep --focus technical --prd
+/sg:brainstorm "distributed caching system" --depth deep --focus technical --prd
 ```
 
 ### Business-Focused Discovery
 ```
-/sc:brainstorm "SaaS pricing optimization tool" --focus business --max-rounds 20
+/sg:brainstorm "SaaS pricing optimization tool" --focus business --max-rounds 20
 ```
 
 ### Brief-Only Generation
 ```
-/sc:brainstorm "mobile health tracking app" --brief-only
+/sg:brainstorm "mobile health tracking app" --brief-only
 ```
 
 ### Resume Previous Session
 ```
-/sc:brainstorm --resume session_brainstorm_abc123
+/sg:brainstorm --resume session_brainstorm_abc123
 ```
 
 ## Error Handling

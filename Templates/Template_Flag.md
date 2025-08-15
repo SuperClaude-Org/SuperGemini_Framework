@@ -54,9 +54,9 @@ token_impact: [low|medium|high|variable]
 ## Integration Points
 
 ### Compatible Commands
-- `/sc:[command1]` - [How the flag enhances this command]
-- `/sc:[command2]` - [How the flag enhances this command]
-- `/sc:[command3]` - [How the flag enhances this command]
+- `/sg:[command1]` - [How the flag enhances this command]
+- `/sg:[command2]` - [How the flag enhances this command]
+- `/sg:[command3]` - [How the flag enhances this command]
 
 ### MCP Servers
 - **[Server Name]**: [How this flag interacts with the server]
@@ -105,7 +105,7 @@ claude "[specific request example]" --[flag-name]
 # Flag Template Usage Guide
 
 ## Overview
-This template provides a standardized format for documenting flags in the SuperClaude framework. Each flag should have its own section in FLAGS.md following this structure.
+This template provides a standardized format for documenting flags in the SuperGemini framework. Each flag should have its own section in FLAGS.md following this structure.
 
 ## Creating a New Flag
 
@@ -113,7 +113,7 @@ This template provides a standardized format for documenting flags in the SuperC
 - Use lowercase with hyphens: `--flag-name`
 - Be descriptive but concise
 - Consider aliases for common variations
-- Examples: `--think-hard`, `--safe-mode`, `--wave-mode`
+- Examples: `--systematic`, `--safe-mode`, `--wave-mode`
 
 ### 2. Select Category
 Choose from these standard categories:
@@ -232,7 +232,7 @@ overrides: most other flags
 
 | Category | Purpose | Common Patterns |
 |----------|---------|-----------------|
-| Planning & Analysis | Deep thinking modes | --think, --analyze |
+| Planning & Analysis | Deep analysis modes | --seq, --analyze |
 | Efficiency | Token optimization | --uc, --compress |
 | MCP Control | Server management | --seq, --no-mcp |
 | Delegation | Task distribution | --delegate, --concurrency |
@@ -255,14 +255,14 @@ When adding a new flag to FLAGS.md:
 
 - Document which version introduced the flag
 - Note any breaking changes in behavior
-- Specify minimum Claude Code version required
+- Specify minimum Gemini CLI version required
 - List deprecated flags this replaces (if any)
 
 ## Examples of Well-Documented Flags
 
 ### Example 1: Thinking Flag
 ```markdown
-**`--think`**
+**`--seq`**
 - Multi-file analysis (~4K tokens)
 - Enables Sequential MCP for structured problem-solving
 - Auto-activates: Import chains >5 files, cross-module calls >10 references
@@ -290,4 +290,4 @@ When adding a new flag to FLAGS.md:
 
 ---
 
-This template ensures consistent, comprehensive documentation for all SuperClaude flags, making them easy to understand, implement, and maintain.
+This template ensures consistent, comprehensive documentation for all SuperGemini flags, making them easy to understand, implement, and maintain.

@@ -1,16 +1,16 @@
-# SuperClaude Commands Guide 🛠️
+# SuperGemini Commands Guide 🛠️
 
-## 💡 Don't Overthink It - SuperClaude Tries to Help
+## 💡 Don't Overthink It - SuperGemini Tries to Help
 
-**The truth about these 21 commands**: You don't need to memorize them. Just start with `/sc:analyze` or `/sc:implement` and see what happens! 
+**The truth about these 21 commands**: You don't need to memorize them. Just start with `/sg:analyze` or `/sg:implement` and see what happens! 
 
 **Here's how it usually works:**
-- Type `/` in Claude Code → See available commands
-- Use basic ones like `/sc:analyze`, `/sc:build`, `/sc:improve` 
-- **SuperClaude tries to pick helpful tools and experts** for each situation
+- Type `/` in Gemini CLI → See available commands
+- Use basic ones like `/sg:analyze`, `/sg:build`, `/sg:improve` 
+- **SuperGemini tries to pick helpful tools and experts** for each situation
 - More commands become useful as you get comfortable
 
-**Auto-activation is pretty neat** 🪄 - SuperClaude attempts to detect what you're trying to do and activate relevant specialists (security expert, performance optimizer, etc.) without you managing it. Usually works well! 😊
+**Auto-activation is pretty neat** 🪄 - SuperGemini attempts to detect what you're trying to do and activate relevant specialists (security expert, performance optimizer, etc.) without you managing it. Usually works well! 😊
 
 ---
 
@@ -18,22 +18,22 @@
 
 **Start here** (no reading required):
 ```bash
-/sc:index                    # See what's available
-/sc:analyze src/            # Tries to analyze your code smartly 
-/sc:brainstorm "app idea"   # Interactive help for exploring ideas
-/sc:workflow feature-100-prd.md  # Creates step-by-step implementation workflow from PRD
-/sc:implement user-auth     # Creates features and components (replaces v2 /build)
-/sc:build                   # Attempts intelligent project building
-/sc:improve messy-file.js   # Tries to clean up code 
-/sc:troubleshoot "error"    # Attempts to help with problems
-/sc:save --checkpoint       # Save your work and progress
+/sg:index                    # See what's available
+/sg:analyze src/            # Tries to analyze your code smartly 
+/sg:brainstorm "app idea"   # Interactive help for exploring ideas
+/sg:workflow feature-100-prd.md  # Creates step-by-step implementation workflow from PRD
+/sg:implement user-auth     # Creates features and components (replaces v2 /build)
+/sg:build                   # Attempts intelligent project building
+/sg:improve messy-file.js   # Tries to clean up code 
+/sg:troubleshoot "error"    # Attempts to help with problems
+/sg:save --checkpoint       # Save your work and progress
 ```
 
 **That's honestly enough to get started.** Everything else below is here when you get curious about what other tools are available. 🛠️
 
 ---
 
-A practical guide to all 21 SuperClaude V4 Beta slash commands. We'll be honest about what works well and what's still rough around the edges.
+A practical guide to all 21 SuperGemini V4 Beta slash commands. We'll be honest about what works well and what's still rough around the edges.
 
 ## Quick Reference 📋
 
@@ -41,29 +41,29 @@ A practical guide to all 21 SuperClaude V4 Beta slash commands. We'll be honest 
 
 | Command | Purpose | Auto-Activates | Best For |
 |---------|---------|-----------------|----------|
-| `/sc:analyze` | Smart code analysis | Security/performance experts | Finding issues, understanding codebases |
-| `/sc:build` | Intelligent building | Frontend/backend specialists | Compilation, bundling, deployment prep |
-| `/sc:implement` | Feature implementation | Domain-specific experts | Creating features, components, APIs, services |
-| `/sc:improve` | Automatic code cleanup | Quality experts | Refactoring, optimization, quality fixes |
-| `/sc:troubleshoot` | Problem investigation | Debug specialists | Debugging, issue investigation |
-| `/sc:test` | Smart testing | QA experts | Running tests, coverage analysis |
-| `/sc:document` | Auto documentation | Writing specialists | README files, code comments, guides |
-| `/sc:git` | Enhanced git workflows | DevOps specialists | Smart commits, branch management |
-| `/sc:design` | System design help | Architecture experts | Architecture planning, API design |
-| `/sc:explain` | Learning assistant | Teaching specialists | Learning concepts, understanding code |
-| `/sc:cleanup` | Debt reduction | Refactoring experts | Removing dead code, organizing files |
-| `/sc:load` | Context understanding | Analysis experts | Project analysis, codebase understanding |
-| `/sc:estimate` | Smart estimation | Planning experts | Time/effort planning, complexity analysis |
-| `/sc:spawn` | Complex workflows | Orchestration system | Multi-step operations, workflow automation |
-| `/sc:task` | Project management | Planning system | Long-term feature planning, task tracking |
-| `/sc:workflow` | Implementation planning | Workflow system | Creating step-by-step workflows from PRDs |
-| `/sc:index` | Command navigation | Help system | Finding the right command for your task |
-| `/sc:brainstorm` | Interactive discovery | Socratic dialogue | Requirements gathering, idea exploration |
-| `/sc:reflect` | Task validation | Serena intelligence | Progress checking, completion validation |
-| `/sc:save` | Session persistence | Checkpoint system | Context saving, session management |
-| `/sc:select-tool` | Tool selection | Intelligence routing | Complex operation optimization |
+| `/sg:analyze` | Smart code analysis | Security/performance experts | Finding issues, understanding codebases |
+| `/sg:build` | Intelligent building | Frontend/backend specialists | Compilation, bundling, deployment prep |
+| `/sg:implement` | Feature implementation | Domain-specific experts | Creating features, components, APIs, services |
+| `/sg:improve` | Automatic code cleanup | Quality experts | Refactoring, optimization, quality fixes |
+| `/sg:troubleshoot` | Problem investigation | Debug specialists | Debugging, issue investigation |
+| `/sg:test` | Smart testing | QA experts | Running tests, coverage analysis |
+| `/sg:document` | Auto documentation | Writing specialists | README files, code comments, guides |
+| `/sg:git` | Enhanced git workflows | DevOps specialists | Smart commits, branch management |
+| `/sg:design` | System design help | Architecture experts | Architecture planning, API design |
+| `/sg:explain` | Learning assistant | Teaching specialists | Learning concepts, understanding code |
+| `/sg:cleanup` | Debt reduction | Refactoring experts | Removing dead code, organizing files |
+| `/sg:load` | Context understanding | Analysis experts | Project analysis, codebase understanding |
+| `/sg:estimate` | Smart estimation | Planning experts | Time/effort planning, complexity analysis |
+| `/sg:spawn` | Complex workflows | Orchestration system | Multi-step operations, workflow automation |
+| `/sg:task` | Project management | Planning system | Long-term feature planning, task tracking |
+| `/sg:workflow` | Implementation planning | Workflow system | Creating step-by-step workflows from PRDs |
+| `/sg:index` | Command navigation | Help system | Finding the right command for your task |
+| `/sg:brainstorm` | Interactive discovery | Socratic dialogue | Requirements gathering, idea exploration |
+| `/sg:reflect` | Task validation | Serena intelligence | Progress checking, completion validation |
+| `/sg:save` | Session persistence | Checkpoint system | Context saving, session management |
+| `/sg:select-tool` | Tool selection | Intelligence routing | Complex operation optimization |
 
-**Pro tip**: Just try the ones that sound useful. SuperClaude usually tries to activate helpful experts and tools for each situation! 🎯
+**Pro tip**: Just try the ones that sound useful. SuperGemini usually tries to activate helpful experts and tools for each situation! 🎯
 
 ## Development Commands 🔨
 
@@ -82,9 +82,9 @@ A practical guide to all 21 SuperClaude V4 Beta slash commands. We'll be honest 
 
 **Examples**:
 ```bash
-/sc:workflow docs/feature-100-prd.md --strategy systematic --c7 --sequential
-/sc:workflow "user authentication system" --persona security --output detailed
-/sc:workflow payment-api --strategy mvp --risks --dependencies
+/sg:workflow docs/feature-100-prd.md --strategy systematic --c7 --sequential
+/sg:workflow "user authentication system" --persona security --output detailed
+/sg:workflow payment-api --strategy mvp --risks --dependencies
 ```
 
 **What you get**:
@@ -98,7 +98,7 @@ A practical guide to all 21 SuperClaude V4 Beta slash commands. We'll be honest 
 ### `/implement` - Feature Implementation
 **What it does**: Implements features, components, and functionality with intelligent expert activation.
 
-**The helpful part**: SuperClaude auto-activates the right experts (frontend, backend, security) and tools based on what you're implementing! 🎯
+**The helpful part**: SuperGemini auto-activates the right experts (frontend, backend, security) and tools based on what you're implementing! 🎯
 
 **When to use it**:
 - Creating new features or components (replaces v2's `/build` functionality)
@@ -108,10 +108,10 @@ A practical guide to all 21 SuperClaude V4 Beta slash commands. We'll be honest 
 
 **Basic syntax**:
 ```bash
-/sc:implement user authentication system      # Implement complete feature
-/sc:implement --type component LoginForm      # Create specific component  
-/sc:implement --type api user-management      # Build API endpoints
-/sc:implement --framework react dashboard     # Framework-specific implementation
+/sg:implement user authentication system      # Implement complete feature
+/sg:implement --type component LoginForm      # Create specific component  
+/sg:implement --type api user-management      # Build API endpoints
+/sg:implement --framework react dashboard     # Framework-specific implementation
 ```
 
 **Useful flags**:
@@ -124,11 +124,11 @@ A practical guide to all 21 SuperClaude V4 Beta slash commands. We'll be honest 
 
 **Real examples**:
 ```bash
-/sc:implement user authentication --type feature --with-tests
-/sc:implement dashboard component --type component --framework react
-/sc:implement REST API for orders --type api --safe
-/sc:implement payment processing --type service --iterative
-/sc:implement search functionality --framework vue --documentation
+/sg:implement user authentication --type feature --with-tests
+/sg:implement dashboard component --type component --framework react
+/sg:implement REST API for orders --type api --safe
+/sg:implement payment processing --type service --iterative
+/sg:implement search functionality --framework vue --documentation
 ```
 
 **Auto-activation patterns**:
@@ -148,21 +148,21 @@ A practical guide to all 21 SuperClaude V4 Beta slash commands. We'll be honest 
 ### `/build` - Project Building
 **What it does**: Builds, compiles, and packages projects with smart error handling.
 
-**The easy way**: Just type `/sc:build` and SuperClaude tries to figure out your build system! 🎯
+**The easy way**: Just type `/sg:build` and SuperGemini tries to figure out your build system! 🎯
 
 **When to use it**:
-- You need to compile/bundle your project (just try `/sc:build`)
+- You need to compile/bundle your project (just try `/sg:build`)
 - Build process is failing and you want help debugging  
 - Setting up build optimization (it tries to detect what you need)
 - Preparing for deployment
 
 **Basic syntax**:
 ```bash
-/sc:build                          # Build current project
-/sc:build --type prod              # Production build
-/sc:build --clean                  # Clean build (remove old artifacts)
-/sc:build --optimize               # Enable optimizations
-/sc:build src/                     # Build specific directory
+/sg:build                          # Build current project
+/sg:build --type prod              # Production build
+/sg:build --clean                  # Clean build (remove old artifacts)
+/sg:build --optimize               # Enable optimizations
+/sg:build src/                     # Build specific directory
 ```
 
 **Useful flags**:
@@ -173,9 +173,9 @@ A practical guide to all 21 SuperClaude V4 Beta slash commands. We'll be honest 
 
 **Real examples**:
 ```bash
-/sc:build --type prod --optimize   # Production build with optimizations
-/sc:build --clean --verbose        # Clean build with detailed output
-/sc:build src/components           # Build just the components folder
+/sg:build --type prod --optimize   # Production build with optimizations
+/sg:build --clean --verbose        # Clean build with detailed output
+/sg:build src/components           # Build just the components folder
 ```
 
 **Gotchas**:
@@ -196,9 +196,9 @@ A practical guide to all 21 SuperClaude V4 Beta slash commands. We'll be honest 
 
 **Basic syntax**:
 ```bash
-/sc:design user-auth-system        # Design a user authentication system
-/sc:design --type api auth         # Design just the API part
-/sc:design --format spec payment   # Create formal specification
+/sg:design user-auth-system        # Design a user authentication system
+/sg:design --type api auth         # Design just the API part
+/sg:design --format spec payment   # Create formal specification
 ```
 
 **Useful flags**:
@@ -208,9 +208,9 @@ A practical guide to all 21 SuperClaude V4 Beta slash commands. We'll be honest 
 
 **Real examples**:
 ```bash
-/sc:design --type api user-management    # Design user management API
-/sc:design --format spec chat-system     # Create chat system specification
-/sc:design --type database ecommerce     # Design database schema
+/sg:design --type api user-management    # Design user management API
+/sg:design --format spec chat-system     # Create chat system specification
+/sg:design --type database ecommerce     # Design database schema
 ```
 
 **Gotchas**:
@@ -223,7 +223,7 @@ A practical guide to all 21 SuperClaude V4 Beta slash commands. We'll be honest 
 ### `/analyze` - Code Analysis  
 **What it does**: Comprehensive analysis of code quality, security, performance, and architecture.
 
-**The helpful part**: SuperClaude tries to detect what kind of analysis you need and usually picks relevant experts! 🔍
+**The helpful part**: SuperGemini tries to detect what kind of analysis you need and usually picks relevant experts! 🔍
 
 **When to use it**:
 - Understanding unfamiliar codebases (just point it at any folder)
@@ -233,9 +233,9 @@ A practical guide to all 21 SuperClaude V4 Beta slash commands. We'll be honest 
 
 **Basic syntax**:
 ```bash
-/sc:analyze src/                   # Analyze entire src directory
-/sc:analyze --focus security       # Focus on security issues
-/sc:analyze --depth deep app.js    # Deep analysis of specific file
+/sg:analyze src/                   # Analyze entire src directory
+/sg:analyze --focus security       # Focus on security issues
+/sg:analyze --depth deep app.js    # Deep analysis of specific file
 ```
 
 **Useful flags**:
@@ -245,9 +245,9 @@ A practical guide to all 21 SuperClaude V4 Beta slash commands. We'll be honest 
 
 **Real examples**:
 ```bash
-/sc:analyze --focus security --depth deep     # Deep security analysis
-/sc:analyze --focus performance src/api/      # Performance analysis of API
-/sc:analyze --format report .                 # Generate analysis report
+/sg:analyze --focus security --depth deep     # Deep security analysis
+/sg:analyze --focus performance src/api/      # Performance analysis of API
+/sg:analyze --format report .                 # Generate analysis report
 ```
 
 **Gotchas**:
@@ -268,9 +268,9 @@ A practical guide to all 21 SuperClaude V4 Beta slash commands. We'll be honest 
 
 **Basic syntax**:
 ```bash
-/sc:troubleshoot "login not working"     # Investigate login issue
-/sc:troubleshoot --logs error.log        # Analyze error logs
-/sc:troubleshoot performance             # Performance troubleshooting
+/sg:troubleshoot "login not working"     # Investigate login issue
+/sg:troubleshoot --logs error.log        # Analyze error logs
+/sg:troubleshoot performance             # Performance troubleshooting
 ```
 
 **Useful flags**:
@@ -280,9 +280,9 @@ A practical guide to all 21 SuperClaude V4 Beta slash commands. We'll be honest 
 
 **Real examples**:
 ```bash
-/sc:troubleshoot "API returning 500" --logs server.log
-/sc:troubleshoot --focus database "slow queries"
-/sc:troubleshoot "build failing" --systematic
+/sg:troubleshoot "API returning 500" --logs server.log
+/sg:troubleshoot --focus database "slow queries"
+/sg:troubleshoot "build failing" --systematic
 ```
 
 **Gotchas**:
@@ -303,9 +303,9 @@ A practical guide to all 21 SuperClaude V4 Beta slash commands. We'll be honest 
 
 **Basic syntax**:
 ```bash
-/sc:explain async/await               # Explain async/await concept
-/sc:explain --code src/utils.js       # Explain specific code file
-/sc:explain --beginner React hooks    # Beginner-friendly explanation
+/sg:explain async/await               # Explain async/await concept
+/sg:explain --code src/utils.js       # Explain specific code file
+/sg:explain --beginner React hooks    # Beginner-friendly explanation
 ```
 
 **Useful flags**:
@@ -316,9 +316,9 @@ A practical guide to all 21 SuperClaude V4 Beta slash commands. We'll be honest 
 
 **Real examples**:
 ```bash
-/sc:explain --beginner "what is REST API"
-/sc:explain --code src/auth.js --advanced
-/sc:explain --examples "React context patterns"
+/sg:explain --beginner "what is REST API"
+/sg:explain --code src/auth.js --advanced
+/sg:explain --examples "React context patterns"
 ```
 
 **Gotchas**:
@@ -339,9 +339,9 @@ A practical guide to all 21 SuperClaude V4 Beta slash commands. We'll be honest 
 
 **Basic syntax**:
 ```bash
-/sc:improve src/legacy/            # Improve legacy code
-/sc:improve --type performance     # Focus on performance
-/sc:improve --safe src/utils.js    # Safe, low-risk improvements only
+/sg:improve src/legacy/            # Improve legacy code
+/sg:improve --type performance     # Focus on performance
+/sg:improve --safe src/utils.js    # Safe, low-risk improvements only
 ```
 
 **Useful flags**:
@@ -351,9 +351,9 @@ A practical guide to all 21 SuperClaude V4 Beta slash commands. We'll be honest 
 
 **Real examples**:
 ```bash
-/sc:improve --type performance --safe src/api/
-/sc:improve --preview src/components/LegacyComponent.js
-/sc:improve --type style . --safe
+/sg:improve --type performance --safe src/api/
+/sg:improve --preview src/components/LegacyComponent.js
+/sg:improve --type style . --safe
 ```
 
 **Gotchas**:
@@ -374,9 +374,9 @@ A practical guide to all 21 SuperClaude V4 Beta slash commands. We'll be honest 
 
 **Basic syntax**:
 ```bash
-/sc:cleanup src/                   # Clean up src directory
-/sc:cleanup --dead-code            # Focus on dead code removal
-/sc:cleanup --imports package.js   # Clean up imports in specific file
+/sg:cleanup src/                   # Clean up src directory
+/sg:cleanup --dead-code            # Focus on dead code removal
+/sg:cleanup --imports package.js   # Clean up imports in specific file
 ```
 
 **Useful flags**:
@@ -387,9 +387,9 @@ A practical guide to all 21 SuperClaude V4 Beta slash commands. We'll be honest 
 
 **Real examples**:
 ```bash
-/sc:cleanup --dead-code --safe src/utils/
-/sc:cleanup --imports src/components/
-/sc:cleanup --files . --safe
+/sg:cleanup --dead-code --safe src/utils/
+/sg:cleanup --imports src/components/
+/sg:cleanup --files . --safe
 ```
 
 **Gotchas**:
@@ -410,10 +410,10 @@ A practical guide to all 21 SuperClaude V4 Beta slash commands. We'll be honest 
 
 **Basic syntax**:
 ```bash
-/sc:test                           # Run all tests
-/sc:test --type unit               # Run only unit tests
-/sc:test --coverage                # Generate coverage report
-/sc:test --watch src/              # Watch mode for development
+/sg:test                           # Run all tests
+/sg:test --type unit               # Run only unit tests
+/sg:test --coverage                # Generate coverage report
+/sg:test --watch src/              # Watch mode for development
 ```
 
 **Useful flags**:
@@ -424,9 +424,9 @@ A practical guide to all 21 SuperClaude V4 Beta slash commands. We'll be honest 
 
 **Real examples**:
 ```bash
-/sc:test --type unit --coverage
-/sc:test --watch src/components/
-/sc:test --type e2e --fix
+/sg:test --type unit --coverage
+/sg:test --watch src/components/
+/sg:test --type e2e --fix
 ```
 
 **Gotchas**:
@@ -447,9 +447,9 @@ A practical guide to all 21 SuperClaude V4 Beta slash commands. We'll be honest 
 
 **Basic syntax**:
 ```bash
-/sc:document src/api/auth.js       # Document authentication module
-/sc:document --type api            # API documentation
-/sc:document --style brief README  # Brief README file
+/sg:document src/api/auth.js       # Document authentication module
+/sg:document --type api            # API documentation
+/sg:document --style brief README  # Brief README file
 ```
 
 **Useful flags**:
@@ -459,9 +459,9 @@ A practical guide to all 21 SuperClaude V4 Beta slash commands. We'll be honest 
 
 **Real examples**:
 ```bash
-/sc:document --type api src/controllers/
-/sc:document --style detailed --type guide user-onboarding
-/sc:document --type inline src/utils/helpers.js
+/sg:document --type api src/controllers/
+/sg:document --style detailed --type guide user-onboarding
+/sg:document --type inline src/utils/helpers.js
 ```
 
 **Gotchas**:
@@ -482,9 +482,9 @@ A practical guide to all 21 SuperClaude V4 Beta slash commands. We'll be honest 
 
 **Basic syntax**:
 ```bash
-/sc:estimate "add user authentication"    # Estimate auth feature
-/sc:estimate --detailed shopping-cart     # Detailed breakdown
-/sc:estimate --complexity user-dashboard  # Complexity analysis
+/sg:estimate "add user authentication"    # Estimate auth feature
+/sg:estimate --detailed shopping-cart     # Detailed breakdown
+/sg:estimate --complexity user-dashboard  # Complexity analysis
 ```
 
 **Useful flags**:
@@ -494,9 +494,9 @@ A practical guide to all 21 SuperClaude V4 Beta slash commands. We'll be honest 
 
 **Real examples**:
 ```bash
-/sc:estimate --detailed "implement payment system"
-/sc:estimate --complexity --team-size 3 "migrate to microservices"
-/sc:estimate "add real-time chat" --detailed
+/sg:estimate --detailed "implement payment system"
+/sg:estimate --complexity --team-size 3 "migrate to microservices"
+/sg:estimate "add real-time chat" --detailed
 ```
 
 **Gotchas**:
@@ -517,9 +517,9 @@ A practical guide to all 21 SuperClaude V4 Beta slash commands. We'll be honest 
 
 **Basic syntax**:
 ```bash
-/sc:task create "implement user dashboard"  # Create new task
-/sc:task status                            # Check task status
-/sc:task breakdown "payment integration"    # Break down into subtasks
+/sg:task create "implement user dashboard"  # Create new task
+/sg:task status                            # Check task status
+/sg:task breakdown "payment integration"    # Break down into subtasks
 ```
 
 **Useful flags**:
@@ -530,9 +530,9 @@ A practical guide to all 21 SuperClaude V4 Beta slash commands. We'll be honest 
 
 **Real examples**:
 ```bash
-/sc:task create "migrate from REST to GraphQL" --priority high
-/sc:task breakdown "e-commerce checkout flow"
-/sc:task status
+/sg:task create "migrate from REST to GraphQL" --priority high
+/sg:task breakdown "e-commerce checkout flow"
+/sg:task status
 ```
 
 **Gotchas**:
@@ -553,9 +553,9 @@ A practical guide to all 21 SuperClaude V4 Beta slash commands. We'll be honest 
 
 **Basic syntax**:
 ```bash
-/sc:spawn deploy-pipeline          # Orchestrate deployment
-/sc:spawn --parallel migrate-data  # Parallel data migration
-/sc:spawn setup-dev-environment    # Complex environment setup
+/sg:spawn deploy-pipeline          # Orchestrate deployment
+/sg:spawn --parallel migrate-data  # Parallel data migration
+/sg:spawn setup-dev-environment    # Complex environment setup
 ```
 
 **Useful flags**:
@@ -565,9 +565,9 @@ A practical guide to all 21 SuperClaude V4 Beta slash commands. We'll be honest 
 
 **Real examples**:
 ```bash
-/sc:spawn --parallel "test and deploy to staging"
-/sc:spawn setup-ci-cd --monitor
-/sc:spawn --sequential database-migration
+/sg:spawn --parallel "test and deploy to staging"
+/sg:spawn setup-ci-cd --monitor
+/sg:spawn --sequential database-migration
 ```
 
 **Gotchas**:
@@ -588,9 +588,9 @@ A practical guide to all 21 SuperClaude V4 Beta slash commands. We'll be honest 
 
 **Basic syntax**:
 ```bash
-/sc:git commit                     # Smart commit with auto-generated message
-/sc:git --smart-commit add .       # Add and commit with smart message
-/sc:git branch feature/new-auth    # Create and switch to new branch
+/sg:git commit                     # Smart commit with auto-generated message
+/sg:git --smart-commit add .       # Add and commit with smart message
+/sg:git branch feature/new-auth    # Create and switch to new branch
 ```
 
 **Useful flags**:
@@ -600,9 +600,9 @@ A practical guide to all 21 SuperClaude V4 Beta slash commands. We'll be honest 
 
 **Real examples**:
 ```bash
-/sc:git --smart-commit "fixed login bug"
-/sc:git branch feature/user-dashboard --branch-strategy
-/sc:git merge develop --interactive
+/sg:git --smart-commit "fixed login bug"
+/sg:git branch feature/user-dashboard --branch-strategy
+/sg:git merge develop --interactive
 ```
 
 **Gotchas**:
@@ -622,9 +622,9 @@ A practical guide to all 21 SuperClaude V4 Beta slash commands. We'll be honest 
 
 **Basic syntax**:
 ```bash
-/sc:index                          # List all commands
-/sc:index testing                  # Find commands related to testing
-/sc:index --category analysis      # Commands in analysis category
+/sg:index                          # List all commands
+/sg:index testing                  # Find commands related to testing
+/sg:index --category analysis      # Commands in analysis category
 ```
 
 **Useful flags**:
@@ -633,9 +633,9 @@ A practical guide to all 21 SuperClaude V4 Beta slash commands. We'll be honest 
 
 **Real examples**:
 ```bash
-/sc:index --search "performance"
-/sc:index --category quality
-/sc:index git
+/sg:index --search "performance"
+/sg:index --category quality
+/sg:index git
 ```
 
 **Gotchas**:
@@ -655,9 +655,9 @@ A practical guide to all 21 SuperClaude V4 Beta slash commands. We'll be honest 
 
 **Basic syntax**:
 ```bash
-/sc:load                           # Load current project context
-/sc:load src/                      # Load specific directory context
-/sc:load --deep                    # Deep analysis of project structure
+/sg:load                           # Load current project context
+/sg:load src/                      # Load specific directory context
+/sg:load --deep                    # Deep analysis of project structure
 ```
 
 **Useful flags**:
@@ -667,9 +667,9 @@ A practical guide to all 21 SuperClaude V4 Beta slash commands. We'll be honest 
 
 **Real examples**:
 ```bash
-/sc:load --deep --summary
-/sc:load src/components/ --focus architecture
-/sc:load . --focus dependencies
+/sg:load --deep --summary
+/sg:load src/components/ --focus architecture
+/sg:load . --focus dependencies
 ```
 
 **Gotchas**:
@@ -690,9 +690,9 @@ A practical guide to all 21 SuperClaude V4 Beta slash commands. We'll be honest 
 
 **Basic syntax**:
 ```bash
-/sc:brainstorm "mobile app idea"        # Explore app concept
-/sc:brainstorm --depth deep startup     # Deep exploration of startup idea
-/sc:brainstorm --focus business ecom    # Business-focused e-commerce planning
+/sg:brainstorm "mobile app idea"        # Explore app concept
+/sg:brainstorm --depth deep startup     # Deep exploration of startup idea
+/sg:brainstorm --focus business ecom    # Business-focused e-commerce planning
 ```
 
 **Useful flags**:
@@ -702,9 +702,9 @@ A practical guide to all 21 SuperClaude V4 Beta slash commands. We'll be honest 
 
 **Real examples**:
 ```bash
-/sc:brainstorm "task management app" --prd
-/sc:brainstorm --depth deep --focus technical "real-time chat system"
-/sc:brainstorm "improve user onboarding" --focus user
+/sg:brainstorm "task management app" --prd
+/sg:brainstorm --depth deep --focus technical "real-time chat system"
+/sg:brainstorm "improve user onboarding" --focus user
 ```
 
 **Gotchas**:
@@ -725,9 +725,9 @@ A practical guide to all 21 SuperClaude V4 Beta slash commands. We'll be honest 
 
 **Basic syntax**:
 ```bash
-/sc:reflect --type task                 # Reflect on current task approach
-/sc:reflect --type completion          # Validate task completion
-/sc:reflect --type session            # Analyze session progress
+/sg:reflect --type task                 # Reflect on current task approach
+/sg:reflect --type completion          # Validate task completion
+/sg:reflect --type session            # Analyze session progress
 ```
 
 **Useful flags**:
@@ -737,9 +737,9 @@ A practical guide to all 21 SuperClaude V4 Beta slash commands. We'll be honest 
 
 **Real examples**:
 ```bash
-/sc:reflect --type completion "implemented user auth"
-/sc:reflect --analyze --type session
-/sc:reflect --type task --validate "refactoring approach"
+/sg:reflect --type completion "implemented user auth"
+/sg:reflect --analyze --type session
+/sg:reflect --type task --validate "refactoring approach"
 ```
 
 **Gotchas**:
@@ -760,9 +760,9 @@ A practical guide to all 21 SuperClaude V4 Beta slash commands. We'll be honest 
 
 **Basic syntax**:
 ```bash
-/sc:save                               # Basic session save
-/sc:save --checkpoint                  # Create checkpoint with analysis
-/sc:save --type summary               # Save with session summary
+/sg:save                               # Basic session save
+/sg:save --checkpoint                  # Create checkpoint with analysis
+/sg:save --type summary               # Save with session summary
 ```
 
 **Useful flags**:
@@ -772,9 +772,9 @@ A practical guide to all 21 SuperClaude V4 Beta slash commands. We'll be honest 
 
 **Real examples**:
 ```bash
-/sc:save --checkpoint "before major refactoring"
-/sc:save --type summary --analyze
-/sc:save "completed authentication implementation"
+/sg:save --checkpoint "before major refactoring"
+/sg:save --type summary --analyze
+/sg:save "completed authentication implementation"
 ```
 
 **Gotchas**:
@@ -795,9 +795,9 @@ A practical guide to all 21 SuperClaude V4 Beta slash commands. We'll be honest 
 
 **Basic syntax**:
 ```bash
-/sc:select-tool "large codebase refactoring"    # Get tool recommendations
-/sc:select-tool --analyze "performance audit"   # Analyze optimal approach
-/sc:select-tool --context react-app "UI testing" # Context-aware selection
+/sg:select-tool "large codebase refactoring"    # Get tool recommendations
+/sg:select-tool --analyze "performance audit"   # Analyze optimal approach
+/sg:select-tool --context react-app "UI testing" # Context-aware selection
 ```
 
 **Useful flags**:
@@ -807,9 +807,9 @@ A practical guide to all 21 SuperClaude V4 Beta slash commands. We'll be honest 
 
 **Real examples**:
 ```bash
-/sc:select-tool --analyze "migrate 100+ files to TypeScript"
-/sc:select-tool --context nodejs --efficiency "API performance testing"
-/sc:select-tool "cross-browser testing setup"
+/sg:select-tool --analyze "migrate 100+ files to TypeScript"
+/sg:select-tool --context nodejs --efficiency "API performance testing"
+/sg:select-tool "cross-browser testing setup"
 ```
 
 **Gotchas**:
@@ -822,74 +822,74 @@ A practical guide to all 21 SuperClaude V4 Beta slash commands. We'll be honest 
 ### Effective Flag Combinations
 ```bash
 # Safe improvement workflow
-/sc:improve --preview src/component.js    # See what would change
-/sc:improve --safe src/component.js       # Apply safe changes only
+/sg:improve --preview src/component.js    # See what would change
+/sg:improve --safe src/component.js       # Apply safe changes only
 
 # Comprehensive analysis
-/sc:analyze --focus security --depth deep
-/sc:test --coverage
-/sc:document --type api
+/sg:analyze --focus security --depth deep
+/sg:test --coverage
+/sg:document --type api
 
 # Smart git workflow
-/sc:git add .
-/sc:git --smart-commit --branch-strategy
+/sg:git add .
+/sg:git --smart-commit --branch-strategy
 
 # Project understanding workflow
-/sc:load --deep --summary
-/sc:analyze --focus architecture
-/sc:document --type guide
+/sg:load --deep --summary
+/sg:analyze --focus architecture
+/sg:document --type guide
 ```
 
 ### Common Workflows
 
 **New Project Discovery** (V4 Beta):
 ```bash
-/sc:brainstorm "project idea" --prd         # Explore and define requirements
-/sc:load --deep --summary                   # Understand existing codebase
-/sc:workflow requirements.md                # Create implementation plan
-/sc:save --checkpoint "project planning"    # Save planning insights
+/sg:brainstorm "project idea" --prd         # Explore and define requirements
+/sg:load --deep --summary                   # Understand existing codebase
+/sg:workflow requirements.md                # Create implementation plan
+/sg:save --checkpoint "project planning"    # Save planning insights
 ```
 
 **New Project Onboarding**:
 ```bash
-/sc:load --deep --summary
-/sc:analyze --focus architecture
-/sc:test --coverage
-/sc:document README
+/sg:load --deep --summary
+/sg:analyze --focus architecture
+/sg:test --coverage
+/sg:document README
 ```
 
 **Bug Investigation**:
 ```bash
-/sc:troubleshoot "specific error message" --logs
-/sc:analyze --focus security
-/sc:test --type unit affected-component
-/sc:reflect --type completion "bug analysis"
+/sg:troubleshoot "specific error message" --logs
+/sg:analyze --focus security
+/sg:test --type unit affected-component
+/sg:reflect --type completion "bug analysis"
 ```
 
 **Code Quality Improvement**:
 ```bash
-/sc:analyze --focus quality
-/sc:improve --preview src/
-/sc:cleanup --safe
-/sc:test --coverage
-/sc:reflect --type completion "quality improvements"
+/sg:analyze --focus quality
+/sg:improve --preview src/
+/sg:cleanup --safe
+/sg:test --coverage
+/sg:reflect --type completion "quality improvements"
 ```
 
 **Pre-deployment Checklist**:
 ```bash
-/sc:test --type all --coverage
-/sc:analyze --focus security
-/sc:build --type prod --optimize
-/sc:git --smart-commit
-/sc:save --checkpoint "pre-deployment validation"
+/sg:test --type all --coverage
+/sg:analyze --focus security
+/sg:build --type prod --optimize
+/sg:git --smart-commit
+/sg:save --checkpoint "pre-deployment validation"
 ```
 
 **Complex Task Planning** (V4 Beta):
 ```bash
-/sc:select-tool "migrate to microservices"  # Get approach recommendations
-/sc:reflect --type task "migration strategy" # Validate approach
-/sc:workflow migration-plan.md              # Create detailed workflow
-/sc:save "migration planning complete"      # Preserve insights
+/sg:select-tool "migrate to microservices"  # Get approach recommendations
+/sg:reflect --type task "migration strategy" # Validate approach
+/sg:workflow migration-plan.md              # Create detailed workflow
+/sg:save "migration planning complete"      # Preserve insights
 ```
 
 ### Troubleshooting Command Issues
@@ -921,7 +921,7 @@ A practical guide to all 21 SuperClaude V4 Beta slash commands. We'll be honest 
 **The real truth about these commands** 💯:
 - **Just try them** - You don't need to study this guide first
 - **Start with the basics** - `/analyze`, `/build`, `/improve` cover most needs
-- **Let auto-activation work** - SuperClaude usually picks helpful experts
+- **Let auto-activation work** - SuperGemini usually picks helpful experts
 - **Experiment freely** - Use `--preview` if you want to see what would happen first
 
 **Still rough around the edges:**
@@ -935,7 +935,7 @@ A practical guide to all 21 SuperClaude V4 Beta slash commands. We'll be honest 
 - Auto-activation keeps getting smarter
 
 **Don't stress about memorizing this** 🧘‍♂️
-- SuperClaude is designed to be discoverable through use
+- SuperGemini is designed to be discoverable through use
 - Type `/` to see available commands
 - Commands suggest what they can do when you use `--help`
 - The intelligent routing handles most of the complexity

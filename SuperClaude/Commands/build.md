@@ -15,14 +15,14 @@ mcp-integration:
   wave-enabled: true
 ---
 
-# /sc:build - Project Building and Packaging
+# /sg:build - Project Building and Packaging
 
 ## Purpose
 Execute comprehensive build workflows that compile, bundle, and package projects with intelligent error handling, build optimization, and deployment preparation across different build targets and environments.
 
 ## Usage
 ```
-/sc:build [target] [--type dev|prod|test] [--clean] [--optimize] [--verbose]
+/sg:build [target] [--type dev|prod|test] [--clean] [--optimize] [--verbose]
 ```
 
 ## Arguments
@@ -41,7 +41,7 @@ Execute comprehensive build workflows that compile, bundle, and package projects
 4. Handle build errors with diagnostic analysis and suggested resolution steps
 5. Optimize build artifacts, generate build reports, and prepare deployment packages
 
-## Claude Code Integration
+## Gemini CLI Integration
 - **Tool Usage**: Bash for build system execution, Read for configuration analysis, Grep for error parsing
 - **File Operations**: Reads build configs and package manifests, writes build logs and artifact reports
 - **Analysis Approach**: Configuration-driven build orchestration with dependency validation
@@ -56,14 +56,14 @@ Execute comprehensive build workflows that compile, bundle, and package projects
 
 ### Basic Usage
 ```
-/sc:build
+/sg:build
 # Builds entire project using default configuration
 # Generates standard build artifacts in output directory
 ```
 
 ### Advanced Usage
 ```
-/sc:build frontend --type prod --clean --optimize --verbose
+/sg:build frontend --type prod --clean --optimize --verbose
 # Clean production build of frontend module with optimizations
 # Displays detailed build progress and generates optimized artifacts
 ```
@@ -75,7 +75,7 @@ Execute comprehensive build workflows that compile, bundle, and package projects
 - **Resource Constraints**: Manages memory and disk space during compilation and bundling
 
 ## Integration Points
-- **SuperClaude Framework**: Coordinates with test command for build verification and analyze for quality checks
+- **SuperGemini Framework**: Coordinates with test command for build verification and analyze for quality checks
 - **Other Commands**: Precedes test and deployment workflows, integrates with git for build tagging
 - **File System**: Reads source code and configurations, writes build artifacts to designated output directories
 

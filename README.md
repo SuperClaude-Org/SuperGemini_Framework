@@ -1,27 +1,27 @@
-# SuperClaude v4 Beta 🚀
+# SuperGemini v4 Beta 🚀
 [![Website Preview](https://img.shields.io/badge/Visit-Website-blue?logo=google-chrome)](https://superclaude-org.github.io/SuperClaude_Website/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![PyPI version](https://img.shields.io/pypi/v/SuperClaude.svg)](https://pypi.org/project/SuperClaude/)
-[![Version](https://img.shields.io/badge/version-4.0.0--beta.1-blue.svg)](https://github.com/SuperClaude-Org/SuperClaude_Framework)
-[![GitHub issues](https://img.shields.io/github/issues/SuperClaude-Org/SuperClaude_Framework)](https://github.com/SuperClaude-Org/SuperClaude_Framework/issues)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/SuperClaude-Org/SuperClaude_Framework/blob/master/CONTRIBUTING.md)
-[![Contributors](https://img.shields.io/github/contributors/SuperClaude-Org/SuperClaude_Framework)](https://github.com/SuperClaude-Org/SuperClaude_Framework/graphs/contributors)
+[![PyPI version](https://img.shields.io/pypi/v/SuperGemini.svg)](https://pypi.org/project/SuperGemini/)
+[![Version](https://img.shields.io/badge/version-4.0.0--beta.1-blue.svg)](https://github.com/SuperClaude-Org/SuperGemini_Framework)
+[![GitHub issues](https://img.shields.io/github/issues/SuperClaude-Org/SuperGemini_Framework)](https://github.com/SuperClaude-Org/SuperGemini_Framework/issues)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/SuperClaude-Org/SuperGemini_Framework/blob/master/CONTRIBUTING.md)
+[![Contributors](https://img.shields.io/github/contributors/SuperClaude-Org/SuperGemini_Framework)](https://github.com/SuperClaude-Org/SuperGemini_Framework/graphs/contributors)
 [![Website](https://img.shields.io/website?url=https://superclaude-org.github.io/SuperClaude_Website/)](https://superclaude-org.github.io/SuperClaude_Website/)
 
-An intelligent framework that transforms Claude Code into a comprehensive development environment with specialized agents, behavioral modes, and advanced MCP integration.
+An intelligent framework that transforms Gemini CLI into a comprehensive development environment with specialized agents, behavioral modes, and advanced MCP integration.
 
 **📢 Status**: V4 Beta is here! Major architecture overhaul with new behavioral modes, session lifecycle, and comprehensive agent system.
 
-## What is SuperClaude V4? 🤔
+## What is SuperGemini V4? 🤔
 
-SuperClaude V4 represents a complete evolution of the development framework, now featuring:
+SuperGemini V4 represents a complete evolution of the development framework, now featuring:
 - 🛠️ **21 specialized commands** for comprehensive development workflows
 - 🤖 **13 specialized agents** with domain expertise and intelligent routing
 - 🧠 **4 Behavioral Modes** for different types of work (Brainstorming, Introspection, Task Management, Token Efficiency)
 - 🔧 **6 MCP servers** including the powerful new Morphllm and Serena agents
-- 💾 **Session Lifecycle** with persistent context via /sc:load and /sc:save
+- 💾 **Session Lifecycle** with persistent context via /sg:load and /sg:save
 - 🎣 **Hooks System** for extensibility and customization
-- ⚡ **SuperClaude-Lite** for lightweight usage
+- ⚡ **SuperGemini-Lite** for lightweight usage
 
 This is a complete rethink of how AI-assisted development should work - more intelligent, more capable, and more adaptable to your workflow! 🎯
 
@@ -33,12 +33,12 @@ This is a complete rethink of how AI-assisted development should work - more int
 - 13 specialized agents replacing the old persona system
 - Advanced MCP integration with Morphllm and Serena
 - Hooks system for extensibility (now implemented!)
-- SuperClaude-Lite for resource-constrained environments
+- SuperGemini-Lite for resource-constrained environments
 
 ✅ **What's Working Well:**
 - All 21 commands with enhanced capabilities
 - Full MCP server integration suite
-- Session lifecycle with /sc:load and /sc:save
+- Session lifecycle with /sg:load and /sg:save
 - Behavioral modes with automatic activation
 - Intelligent agent routing and coordination
 
@@ -52,12 +52,12 @@ This is a complete rethink of how AI-assisted development should work - more int
 ### 21 Specialized Commands 🛠️
 Enhanced command suite for comprehensive development workflows:
 
-**Development**: `/sc:implement`, `/sc:build`, `/sc:design`  
-**Analysis**: `/sc:analyze`, `/sc:troubleshoot`, `/sc:explain`  
-**Quality**: `/sc:improve`, `/sc:test`, `/sc:cleanup`  
-**Session**: `/sc:load`, `/sc:save`, `/sc:brainstorm`, `/sc:reflect`  
-**Workflow**: `/sc:task`, `/sc:spawn`, `/sc:workflow`, `/sc:select-tool`  
-**Others**: `/sc:document`, `/sc:git`, `/sc:estimate`, `/sc:index`
+**Development**: `/sg:implement`, `/sg:build`, `/sg:design`  
+**Analysis**: `/sg:analyze`, `/sg:troubleshoot`, `/sg:explain`  
+**Quality**: `/sg:improve`, `/sg:test`, `/sg:cleanup`  
+**Session**: `/sg:load`, `/sg:save`, `/sg:brainstorm`, `/sg:reflect`  
+**Workflow**: `/sg:task`, `/sg:spawn`, `/sg:workflow`, `/sg:select-tool`  
+**Others**: `/sg:document`, `/sg:git`, `/sg:estimate`, `/sg:index`
 
 ### 13 Specialized Agents 🤖
 AI specialists with deep domain expertise and intelligent coordination:
@@ -78,7 +78,7 @@ AI specialists with deep domain expertise and intelligent coordination:
 *These agents feature intelligent routing, context awareness, and collaborative problem-solving capabilities.*
 
 ### 4 Behavioral Modes 🧠
-Revolutionary behavioral system that adapts SuperClaude's approach:
+Revolutionary behavioral system that adapts SuperGemini's approach:
 
 #### Brainstorming Mode
 - **Purpose**: Interactive requirements discovery and ideation
@@ -111,8 +111,8 @@ Comprehensive external tool ecosystem:
 
 ### Session Lifecycle System 💾
 Persistent development context with intelligent management:
-- **`/sc:load`** - Initialize projects with full context restoration
-- **`/sc:save`** - Create checkpoints and preserve session state
+- **`/sg:load`** - Initialize projects with full context restoration
+- **`/sg:save`** - Create checkpoints and preserve session state
 - **Automatic Checkpoints** - Task completion, time-based, risk-based triggers
 - **Cross-Session Learning** - Accumulated insights and pattern recognition
 
@@ -123,53 +123,53 @@ Extensible architecture for customization:
 - **Quality Gates** - 8-step validation pipeline
 - **Session Lifecycle** - Event-driven session management
 
-### SuperClaude-Lite ⚡
+### SuperGemini-Lite ⚡
 Lightweight variant for resource-constrained environments:
 - Streamlined feature set
 - Reduced resource requirements
 - Core functionality preservation
-- Easy upgrade path to full SuperClaude
+- Easy upgrade path to full SuperGemini
 
 ## ⚠️ Upgrading from v3? Important!
 
-SuperClaude V4 is a major architectural upgrade. Clean installation recommended:
+SuperGemini V4 is a major architectural upgrade. Clean installation recommended:
 
 1. **Backup Important Data** - Save any custom configurations
 2. **Clean Previous Installation**:
    ```bash
-   python3 -m SuperClaude uninstall  # If available
-   rm -rf ~/.claude/SuperClaude/
+   python3 -m SuperGemini uninstall  # If available
+   rm -rf ~/.claude/SuperGemini/
    rm -rf ~/.claude/shared/
    ```
 3. **Install V4 Beta** - Follow installation instructions below
 
 ### 🔄 **Key Changes for v3 Users**
-- **New Commands**: `/sc:brainstorm`, `/sc:reflect`, `/sc:save`, `/sc:select-tool`
-- **Session Management**: Use `/sc:load` to initialize projects, `/sc:save` for persistence
+- **New Commands**: `/sg:brainstorm`, `/sg:reflect`, `/sg:save`, `/sg:select-tool`
+- **Session Management**: Use `/sg:load` to initialize projects, `/sg:save` for persistence
 - **Agent System**: Enhanced from personas to full agent coordination
 - **Behavioral Modes**: Automatic activation based on context and needs
 
 ## Installation 📦
 
-SuperClaude V4 Beta installation with enhanced capabilities:
+SuperGemini V4 Beta installation with enhanced capabilities:
 
 ### Step 1: Install the Package
 
 **Option A: From PyPI (Recommended)**
 ```bash
-uv add SuperClaude
+uv add SuperGemini
 ```
 
 **Option B: From Source**
 ```bash
-git clone https://github.com/SuperClaude-Org/SuperClaude_Framework.git
-cd SuperClaude_Framework
+git clone https://github.com/SuperClaude-Org/SuperGemini_Framework.git
+cd SuperGemini_Framework
 uv sync
 ```
 
 ### 🔧 UV / UVX Setup Guide
 
-SuperClaude V4 fully supports installation via [`uv`](https://github.com/astral-sh/uv) for optimal performance.
+SuperGemini V4 fully supports installation via [`uv`](https://github.com/astral-sh/uv) for optimal performance.
 
 ### 🌀 Install with `uv`
 
@@ -186,21 +186,21 @@ Once `uv` is available:
 ```bash
 uv venv
 source .venv/bin/activate
-uv pip install SuperClaude
+uv pip install SuperGemini
 ```
 
 ### ⚡ Install with `uvx` (Cross-platform CLI)
 
 ```bash
-uvx pip install SuperClaude
+uvx pip install SuperGemini
 ```
 
-### ✅ SuperClaude-Lite Installation
+### ✅ SuperGemini-Lite Installation
 
 For lightweight usage:
 
 ```bash
-python3 -m SuperClaude install --lite
+python3 -m SuperGemini install --lite
 ```
 
 ---
@@ -222,48 +222,48 @@ Enhanced installer with behavioral modes and session lifecycle:
 
 ```bash
 # V4 Beta setup (recommended for most users)
-python3 -m SuperClaude install
+python3 -m SuperGemini install
 
 # Interactive selection with V4 features
-python3 -m SuperClaude install --interactive
+python3 -m SuperGemini install --interactive
 
 # Minimal install (core framework only)
-python3 -m SuperClaude install --minimal
+python3 -m SuperGemini install --minimal
 
 # Full developer setup (all V4 features)
-python3 -m SuperClaude install --profile developer
+python3 -m SuperGemini install --profile developer
 
-# SuperClaude-Lite installation
-python3 -m SuperClaude install --lite
+# SuperGemini-Lite installation
+python3 -m SuperGemini install --lite
 
 # See all V4 options
-python3 -m SuperClaude install --help
+python3 -m SuperGemini install --help
 ```
 
 ### Simple bash Command Usage 
 ```bash
 # V4 Beta setup
-SuperClaude install
+SuperGemini install
 
 # Interactive V4 installation
-SuperClaude install --interactive
+SuperGemini install --interactive
 
 # Lightweight installation
-SuperClaude install --lite
+SuperGemini install --lite
 
 # Full V4 developer setup
-SuperClaude install --profile developer
+SuperGemini install --profile developer
 ```
 
 **That's it! 🎉** The V4 installer configures everything: behavioral modes, MCP servers, session lifecycle, and hooks system.
 
 ## How V4 Works 🔄
 
-SuperClaude V4 transforms Claude Code through intelligent architecture:
+SuperGemini V4 transforms Gemini CLI through intelligent architecture:
 
 1. **Behavioral Modes** - Adaptive behavior based on context and task requirements
 2. **Agent Coordination** - 13 specialized agents with intelligent routing and collaboration
-3. **Session Lifecycle** - Persistent context with /sc:load and /sc:save commands
+3. **Session Lifecycle** - Persistent context with /sg:load and /sg:save commands
 4. **MCP Integration** - 6 powerful servers for extended capabilities
 5. **Hooks System** - Extensible architecture for customization and monitoring
 6. **Quality Gates** - 8-step validation pipeline ensuring excellence
@@ -301,14 +301,14 @@ Most users can use defaults - V4 intelligently adapts to your workflow! 🎛️
 
 Comprehensive V4 guides and documentation:
 
-- 📚 [**V4 User Guide**](https://github.com/SuperClaude-Org/SuperClaude_Framework/blob/master/Docs/superclaude-user-guide.md) - Complete V4 overview and getting started
-- 🛠️ [**Commands Guide**](https://github.com/SuperClaude-Org/SuperClaude_Framework/blob/master/Docs/commands-guide.md) - All 21 commands with V4 enhancements
-- 🧠 [**Behavioral Modes Guide**](https://github.com/SuperClaude-Org/SuperClaude_Framework/blob/master/Docs/behavioral-modes-guide.md) - Understanding the 4 behavioral modes
-- 🤖 [**Agent System Guide**](https://github.com/SuperClaude-Org/SuperClaude_Framework/blob/master/Docs/agent-system-guide.md) - Working with 13 specialized agents
-- 💾 [**Session Lifecycle Guide**](https://github.com/SuperClaude-Org/SuperClaude_Framework/blob/master/Docs/session-lifecycle-guide.md) - /sc:load and /sc:save workflows
-- 🎣 [**Hooks System Guide**](https://github.com/SuperClaude-Org/SuperClaude_Framework/blob/master/Docs/hooks-guide.md) - Extending and customizing V4
-- 🏳️ [**Flags Guide**](https://github.com/SuperClaude-Org/SuperClaude_Framework/blob/master/Docs/flags-guide.md) - V4 command flags and behavioral controls
-- 📦 [**Installation Guide**](https://github.com/SuperClaude-Org/SuperClaude_Framework/blob/master/Docs/installation-guide.md) - Detailed V4 installation and setup
+- 📚 [**V4 User Guide**](https://github.com/SuperClaude-Org/SuperGemini_Framework/blob/master/Docs/superclaude-user-guide.md) - Complete V4 overview and getting started
+- 🛠️ [**Commands Guide**](https://github.com/SuperClaude-Org/SuperGemini_Framework/blob/master/Docs/commands-guide.md) - All 21 commands with V4 enhancements
+- 🧠 [**Behavioral Modes Guide**](https://github.com/SuperClaude-Org/SuperGemini_Framework/blob/master/Docs/behavioral-modes-guide.md) - Understanding the 4 behavioral modes
+- 🤖 [**Agent System Guide**](https://github.com/SuperClaude-Org/SuperGemini_Framework/blob/master/Docs/agent-system-guide.md) - Working with 13 specialized agents
+- 💾 [**Session Lifecycle Guide**](https://github.com/SuperClaude-Org/SuperGemini_Framework/blob/master/Docs/session-lifecycle-guide.md) - /sg:load and /sg:save workflows
+- 🎣 [**Hooks System Guide**](https://github.com/SuperClaude-Org/SuperGemini_Framework/blob/master/Docs/hooks-guide.md) - Extending and customizing V4
+- 🏳️ [**Flags Guide**](https://github.com/SuperClaude-Org/SuperGemini_Framework/blob/master/Docs/flags-guide.md) - V4 command flags and behavioral controls
+- 📦 [**Installation Guide**](https://github.com/SuperClaude-Org/SuperGemini_Framework/blob/master/Docs/installation-guide.md) - Detailed V4 installation and setup
 
 ## Contributing 🤝
 
@@ -325,9 +325,9 @@ The V4 architecture is modular and extensible - many ways to contribute!
 ## Project Structure 📁
 
 ```
-SuperClaude/
+SuperGemini/
 ├── setup.py                    # PyPI setup for V4
-├── SuperClaude/                # V4 Framework files  
+├── SuperGemini/                # V4 Framework files  
 │   ├── Core/                   # Behavioral mode documentation
 │   ├── Commands/               # 21 specialized command definitions
 │   ├── Agents/                 # 13 agent specifications
@@ -335,7 +335,7 @@ SuperClaude/
 │   ├── MCP/                    # 6 MCP server integrations
 │   ├── Hooks/                  # Extensible hooks system
 │   └── Config/                 # V4 configuration management
-├── SuperClaude-Lite/           # Lightweight variant
+├── SuperGemini-Lite/           # Lightweight variant
 ├── setup/                      # V4 installation system
 └── profiles/                   # Installation profiles with V4 features
 ```
@@ -363,15 +363,15 @@ A: Yes! Completely redesigned and implemented with extensible architecture.
 **Q: Should I upgrade from V3?**  
 A: V4 beta offers significant improvements, but clean installation recommended for stability.
 
-**Q: What is SuperClaude-Lite?**  
+**Q: What is SuperGemini-Lite?**  
 A: Lightweight variant with core functionality for resource-constrained environments.
 
 **Q: How stable is V4 beta?**  
 A: Core functionality is solid, with some advanced features still being refined. Great for development and testing!
 
-## SuperClaude Contributors
+## SuperGemini Contributors
 
-[![Contributors](https://contrib.rocks/image?repo=SuperClaude-Org/SuperClaude_Framework)](https://github.com/SuperClaude-Org/SuperClaude_Framework/graphs/contributors)
+[![Contributors](https://contrib.rocks/image?repo=SuperClaude-Org/SuperGemini_Framework)](https://github.com/SuperClaude-Org/SuperGemini_Framework/graphs/contributors)
 
 ## License
 
@@ -379,11 +379,11 @@ MIT - [See LICENSE file for details](https://opensource.org/licenses/MIT)
 
 ## Star History
 
-<a href="https://www.star-history.com/#SuperClaude-Org/SuperClaude_Framework&Date">
+<a href="https://www.star-history.com/#SuperClaude-Org/SuperGemini_Framework&Date">
  <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=SuperClaude-Org/SuperClaude_Framework&type=Date&theme=dark" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=SuperClaude-Org/SuperClaude_Framework&type=Date" />
-   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=SuperClaude-Org/SuperClaude_Framework&type=Date" />
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=SuperClaude-Org/SuperGemini_Framework&type=Date&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=SuperClaude-Org/SuperGemini_Framework&type=Date" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=SuperClaude-Org/SuperGemini_Framework&type=Date" />
  </picture>
 </a>
 ---

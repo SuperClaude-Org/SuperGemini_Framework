@@ -19,14 +19,14 @@ mcp-integration:
 performance-profile: standard
 ---
 
-# /sc:estimate - Development Estimation
+# /sg:estimate - Development Estimation
 
 ## Purpose
 Generate accurate development estimates for tasks, features, or projects based on intelligent complexity analysis and historical data patterns. This command serves as the primary estimation engine for development planning, providing systematic estimation methodologies, accuracy tracking, and confidence intervals with comprehensive breakdown analysis.
 
 ## Usage
 ```
-/sc:estimate [target] [--type time|effort|complexity|cost] [--unit hours|days|weeks] [--interactive]
+/sg:estimate [target] [--type time|effort|complexity|cost] [--unit hours|days|weeks] [--interactive]
 ```
 
 ## Arguments
@@ -133,25 +133,25 @@ The command automatically activates relevant personas based on estimation scope:
 
 ### Feature Time Estimation
 ```
-/sc:estimate user authentication system --type time --unit days --breakdown
+/sg:estimate user authentication system --type time --unit days --breakdown
 # Detailed time estimation with component breakdown
 ```
 
 ### Project Complexity Assessment
 ```
-/sc:estimate entire-project --type complexity --confidence --historical
+/sg:estimate entire-project --type complexity --confidence --historical
 # Complexity analysis with confidence intervals and historical data
 ```
 
 ### Cost Estimation with Risk
 ```
-/sc:estimate payment integration --type cost --breakdown --validate
+/sg:estimate payment integration --type cost --breakdown --validate
 # Cost estimation with detailed breakdown and validation
 ```
 
 ### Sprint Planning Estimation
 ```
-/sc:estimate backlog-items --unit sprints --interactive --confidence
+/sg:estimate backlog-items --unit sprints --interactive --confidence
 # Sprint planning with interactive refinement and confidence levels
 ```
 
@@ -177,12 +177,12 @@ The command automatically activates relevant personas based on estimation scope:
 ## Integration Patterns
 
 ### Command Coordination
-- **Preparation Commands**: Often follows /sc:analyze or /sc:design for estimation planning
-- **Follow-up Commands**: Commonly followed by /sc:implement, /sc:plan, or project management tools
-- **Parallel Commands**: Can run alongside /sc:analyze for comprehensive project assessment
+- **Preparation Commands**: Often follows /sg:analyze or /sg:design for estimation planning
+- **Follow-up Commands**: Commonly followed by /sg:implement, /sg:plan, or project management tools
+- **Parallel Commands**: Can run alongside /sg:analyze for comprehensive project assessment
 
 ### Framework Integration
-- **SuperClaude Ecosystem**: Integrates with quality gates and validation cycles
+- **SuperGemini Ecosystem**: Integrates with quality gates and validation cycles
 - **Quality Gates**: Participates in estimation validation and accuracy verification
 - **Session Management**: Maintains estimation context across session boundaries
 

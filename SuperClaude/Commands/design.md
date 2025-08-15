@@ -15,14 +15,14 @@ mcp-integration:
   wave-enabled: false
 ---
 
-# /sc:design - System and Component Design
+# /sg:design - System and Component Design
 
 ## Purpose
 Create comprehensive system architecture, API specifications, component interfaces, and technical design documentation with validation against requirements and industry best practices for maintainable and scalable solutions.
 
 ## Usage
 ```
-/sc:design [target] [--type architecture|api|component|database] [--format diagram|spec|code] [--iterative]
+/sg:design [target] [--type architecture|api|component|database] [--format diagram|spec|code] [--iterative]
 ```
 
 ## Arguments
@@ -38,7 +38,7 @@ Create comprehensive system architecture, API specifications, component interfac
 4. Validate design against functional requirements, quality attributes, and architectural principles
 5. Generate comprehensive design documentation with implementation guides and validation criteria
 
-## Claude Code Integration
+## Gemini CLI Integration
 - **Tool Usage**: Read for requirements analysis, Write for documentation generation, Grep for pattern analysis
 - **File Operations**: Reads requirements and existing code, writes design specs and architectural documentation
 - **Analysis Approach**: Requirement-driven design with pattern matching and best practice validation
@@ -53,14 +53,14 @@ Create comprehensive system architecture, API specifications, component interfac
 
 ### Basic Usage
 ```
-/sc:design user-authentication --type api
+/sg:design user-authentication --type api
 # Designs authentication API with endpoints and security specifications
 # Generates API documentation with request/response schemas
 ```
 
 ### Advanced Usage
 ```
-/sc:design payment-system --type architecture --format diagram --iterative
+/sg:design payment-system --type architecture --format diagram --iterative
 # Creates comprehensive payment system architecture with iterative refinement
 # Generates architectural diagrams and detailed component specifications
 ```
@@ -72,7 +72,7 @@ Create comprehensive system architecture, API specifications, component interfac
 - **Resource Constraints**: Optimizes design complexity based on available information and scope
 
 ## Integration Points
-- **SuperClaude Framework**: Coordinates with analyze command for system assessment and document for specification generation
+- **SuperGemini Framework**: Coordinates with analyze command for system assessment and document for specification generation
 - **Other Commands**: Precedes implementation workflows and integrates with build for validation
 - **File System**: Reads system requirements and existing architecture, writes design specifications to project documentation
 

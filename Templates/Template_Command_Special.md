@@ -19,14 +19,14 @@ mcp-integration:
 performance-profile: specialized
 ---
 
-# /sc:[command-name] - [Special Command Title]
+# /sg:[command-name] - [Special Command Title]
 
 ## Purpose
-[Clear statement of this command's unique role in the SuperClaude ecosystem. Explain the specialized functionality that doesn't fit standard command patterns and why this custom approach is necessary.]
+[Clear statement of this command's unique role in the SuperGemini ecosystem. Explain the specialized functionality that doesn't fit standard command patterns and why this custom approach is necessary.]
 
 ## Usage
 ```
-/sc:[command-name] [specialized-args] [--custom-flag1] [--custom-flag2]
+/sg:[command-name] [specialized-args] [--custom-flag1] [--custom-flag2]
 ```
 
 ## Arguments
@@ -49,7 +49,7 @@ performance-profile: specialized
 - [Unique data processing or transformation operations]
 
 ### 3. Custom Integration
-- [Specialized integration with SuperClaude framework components]
+- [Specialized integration with SuperGemini framework components]
 - [Custom MCP server coordination if required]
 - [Unique persona activation patterns if applicable]
 
@@ -133,8 +133,8 @@ performance-profile: specialized
 
 ## Integration Patterns
 
-### SuperClaude Framework Integration
-- **[Framework Integration 1]**: [How this command integrates with SuperClaude ecosystem]
+### SuperGemini Framework Integration
+- **[Framework Integration 1]**: [How this command integrates with SuperGemini ecosystem]
 - **[Framework Integration 2]**: [Specialized coordination with other components]
 - **[Framework Integration 3]**: [Unique contribution to framework capabilities]
 
@@ -169,25 +169,25 @@ performance-profile: specialized
 
 ### Basic Specialized Operation
 ```
-/sc:[command-name] [basic-specialized-example]
+/sg:[command-name] [basic-specialized-example]
 # Description of expected specialized outcome
 ```
 
 ### Advanced Specialized Usage
 ```
-/sc:[command-name] [complex-example] --custom-flag1 --validate
+/sg:[command-name] [complex-example] --custom-flag1 --validate
 # Description of advanced specialized behavior
 ```
 
 ### System-Level Operation
 ```
-/sc:[command-name] [system-example] --custom-flag2 --dry-run
+/sg:[command-name] [system-example] --custom-flag2 --dry-run
 # Description of system-level specialized operation
 ```
 
 ### Meta-Operation Example
 ```
-/sc:[command-name] [meta-example] --all-flags --comprehensive
+/sg:[command-name] [meta-example] --all-flags --comprehensive
 # Description of comprehensive specialized operation
 ```
 
@@ -213,7 +213,7 @@ performance-profile: specialized
 **This specialized command will:**
 - [Specialized capability 1 unique to this command]
 - [Specialized capability 2 that defines this command's purpose]
-- [Specialized capability 3 that integrates with SuperClaude ecosystem]
+- [Specialized capability 3 that integrates with SuperGemini ecosystem]
 - [Specialized capability 4 that provides unique value]
 
 **This specialized command will not:**
@@ -230,7 +230,7 @@ performance-profile: specialized
 This template is designed for commands that require:
 - Unique functionality that doesn't fit standard command patterns
 - Specialized system interactions or meta-operations
-- Custom integration patterns with SuperClaude framework
+- Custom integration patterns with SuperGemini framework
 - Advanced error handling for specialized failure modes
 - Custom performance characteristics or resource management
 
@@ -247,13 +247,13 @@ This template is designed for commands that require:
 - Define specialized arguments and flags unique to the command
 - Implement custom execution flow that matches specialized functionality
 - Create specialized error handling for unique failure modes
-- Design custom integration patterns with SuperClaude ecosystem
+- Design custom integration patterns with SuperGemini ecosystem
 - Establish specialized performance targets and validation criteria
 
 ## Development Guidelines
 
 ### Architecture Considerations
-- Ensure specialized functionality integrates cleanly with SuperClaude framework
+- Ensure specialized functionality integrates cleanly with SuperGemini framework
 - Design custom error handling that maintains system stability
 - Implement specialized performance monitoring for unique operations
 - Create custom validation patterns for specialized functionality
@@ -277,4 +277,4 @@ This template is designed for commands that require:
 
 ---
 
-*This template is reserved for specialized commands that provide unique functionality not covered by standard command patterns. Each special command should be carefully designed to integrate cleanly with the SuperClaude framework while providing distinctive specialized capabilities.*
+*This template is reserved for specialized commands that provide unique functionality not covered by standard command patterns. Each special command should be carefully designed to integrate cleanly with the SuperGemini framework while providing distinctive specialized capabilities.*

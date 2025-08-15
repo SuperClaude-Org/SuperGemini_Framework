@@ -1,7 +1,7 @@
 # Serena MCP Server
 
 ## Purpose
-Powerful coding agent toolkit providing semantic retrieval, intelligent editing capabilities, project-aware context management, and comprehensive memory operations for SuperClaude integration
+Powerful coding agent toolkit providing semantic retrieval, intelligent editing capabilities, project-aware context management, and comprehensive memory operations for SuperGemini integration
 
 ## Activation Patterns
 
@@ -40,13 +40,13 @@ Powerful coding agent toolkit providing semantic retrieval, intelligent editing 
 1. **Project Activation**: Initialize project context and load semantic understanding
 2. **Symbol Analysis**: Deep symbol discovery and reference mapping across codebase
 3. **Context Gathering with Selective Compression**: Collect relevant code context with content classification
-   - **SuperClaude Framework** (Complete exclusion): All framework directories and components
+   - **SuperGemini Framework** (Complete exclusion): All framework directories and components
    - **Session Data** (Apply compression): Session metadata, checkpoints, cache content only
    - **User Content**: Preserve full fidelity for project code, user-specific content, configurations
 4. **Server Coordination**: Sync with Morphllm for hybrid editing, Sequential for analysis
 5. **Semantic Search**: Intelligent pattern matching and code discovery
 6. **Memory Management with Selective Compression**: Store and retrieve development context with optimized storage
-   - **SuperClaude Framework Content**: Complete exclusion from compression (0% compression)
+   - **SuperGemini Framework Content**: Complete exclusion from compression (0% compression)
    - **Session Data**: Compressed storage for session metadata and operational data only
    - **Project Memories**: Full preservation for user project insights and context
 7. **Intelligent Editing**: Context-aware code modifications with semantic understanding
@@ -60,9 +60,9 @@ Powerful coding agent toolkit providing semantic retrieval, intelligent editing 
 
 **Thinking Modes**: 
 - Works with all thinking flags for semantic analysis
-- `--think`: Symbol-level context analysis
-- `--think-hard`: Project-wide semantic understanding
-- `--ultrathink`: Complex architectural semantic analysis
+- `--seq`: Symbol-level context analysis with Sequential coordination
+- `--systematic`: Project-wide semantic understanding with structured approach
+- `--deep`: Complex architectural semantic analysis with comprehensive coverage
 
 **Other MCP Servers**: 
 - **Morphllm**: Hybrid intelligence for advanced editing operations
@@ -189,16 +189,16 @@ Serena contributes to the following validation steps:
 
 ## Project Management
 
-Essential tools for SuperClaude integration:
+Essential tools for SuperGemini integration:
 - `activate_project`: Initialize project context and semantic understanding
 - `list_memories` / `read_memory` / `write_memory`: Memory-based development context
 - `onboarding` / `check_onboarding_performed`: Project setup and validation
 
-## SuperClaude Integration
+## SuperGemini Integration
 
 **Session Lifecycle Commands**:
-- `/sc:load` → `activate_project` + `list_memories` + context loading  
-- `/sc:save` → `write_memory` + session persistence + checkpoint creation
+- `/sg:load` → `activate_project` + `list_memories` + context loading  
+- `/sg:save` → `write_memory` + session persistence + checkpoint creation
 
 ## Error Recovery
 

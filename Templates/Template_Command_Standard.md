@@ -19,14 +19,14 @@ mcp-integration:
 performance-profile: standard
 ---
 
-# /sc:[command-name] - [Command Title]
+# /sg:[command-name] - [Command Title]
 
 ## Purpose
 [Clear statement of what this command does in the context of development workflows. Explain how it fits into typical development processes and when it provides the most value.]
 
 ## Usage
 ```
-/sc:[command-name] [target] [--type option1|option2|option3] [--safe] [--interactive]
+/sg:[command-name] [target] [--type option1|option2|option3] [--safe] [--interactive]
 ```
 
 ## Arguments
@@ -126,25 +126,25 @@ The command automatically activates relevant personas based on detected context:
 
 ### Basic Workflow
 ```
-/sc:[command-name] src/components --type standard
+/sg:[command-name] src/components --type standard
 # Standard workflow with automatic persona activation
 ```
 
 ### Safe Mode Operation
 ```
-/sc:[command-name] entire-project --safe --preview
+/sg:[command-name] entire-project --safe --preview
 # Conservative approach with preview of changes
 ```
 
 ### Interactive Complex Operation
 ```
-/sc:[command-name] src --interactive --validate --type advanced
+/sg:[command-name] src --interactive --validate --type advanced
 # Interactive mode with enhanced validation
 ```
 
 ### Framework-Specific Operation
 ```
-/sc:[command-name] frontend-app --type react --c7
+/sg:[command-name] frontend-app --type react --c7
 # Leverage Context7 for React-specific patterns
 ```
 
@@ -175,7 +175,7 @@ The command automatically activates relevant personas based on detected context:
 - **Parallel Commands**: [Commands that can run simultaneously]
 
 ### Framework Integration
-- **SuperClaude Ecosystem**: [How this fits into the broader framework]
+- **SuperGemini Ecosystem**: [How this fits into the broader framework]
 - **Quality Gates**: [Integration with validation cycles]
 - **Session Management**: [Interaction with session lifecycle]
 

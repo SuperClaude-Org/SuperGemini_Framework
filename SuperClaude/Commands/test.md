@@ -15,14 +15,14 @@ mcp-integration:
   wave-enabled: true
 ---
 
-# /sc:test - Testing and Quality Assurance
+# /sg:test - Testing and Quality Assurance
 
 ## Purpose
 Execute comprehensive testing workflows across unit, integration, and end-to-end test suites while generating detailed test reports and maintaining coverage standards for project quality assurance.
 
 ## Usage
 ```
-/sc:test [target] [--type unit|integration|e2e|all] [--coverage] [--watch] [--fix]
+/sg:test [target] [--type unit|integration|e2e|all] [--coverage] [--watch] [--fix]
 ```
 
 ## Arguments
@@ -41,7 +41,7 @@ Execute comprehensive testing workflows across unit, integration, and end-to-end
 4. Generate comprehensive test reports with coverage analysis and failure diagnostics
 5. Provide actionable recommendations for test improvements and coverage enhancement
 
-## Claude Code Integration
+## Gemini CLI Integration
 - **Tool Usage**: Bash for test runner execution, Glob for test discovery, Grep for result parsing
 - **File Operations**: Reads test configurations, writes coverage reports and test summaries
 - **Analysis Approach**: Pattern-based test categorization with execution metrics collection
@@ -56,25 +56,25 @@ Execute comprehensive testing workflows across unit, integration, and end-to-end
 
 ### Basic Usage
 ```
-/sc:test
+/sg:test
 # Executes all available tests with standard configuration
 # Generates basic test report with pass/fail summary
 ```
 
 ### Advanced Usage
 ```
-/sc:test src/components --type unit --coverage --fix
+/sg:test src/components --type unit --coverage --fix
 # Runs unit tests for components directory with coverage reporting
 # Automatically fixes simple test failures where safe to do so
 ```
 
 ### Browser Testing Usage
 ```
-/sc:test --type e2e
+/sg:test --type e2e
 # Runs end-to-end tests using Playwright for browser automation
 # Comprehensive UI testing with cross-browser compatibility
 
-/sc:test src/components --coverage --watch
+/sg:test src/components --coverage --watch
 # Unit tests for components with coverage reporting in watch mode
 # Continuous testing during development with live feedback
 ```
@@ -86,7 +86,7 @@ Execute comprehensive testing workflows across unit, integration, and end-to-end
 - **Resource Constraints**: Manages memory and CPU usage during test execution
 
 ## Integration Points
-- **SuperClaude Framework**: Integrates with build and analyze commands for CI/CD workflows
+- **SuperGemini Framework**: Integrates with build and analyze commands for CI/CD workflows
 - **Other Commands**: Commonly follows build command and precedes deployment operations
 - **File System**: Reads test configurations, writes reports to project test output directories
 

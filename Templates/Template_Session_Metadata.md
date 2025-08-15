@@ -1,6 +1,6 @@
 # Session Metadata Template
 
-This template defines the standard structure for session metadata used by the SuperClaude session lifecycle pattern with Serena MCP integration.
+This template defines the standard structure for session metadata used by the SuperGemini session lifecycle pattern with Serena MCP integration.
 
 ## Core Session Metadata Template
 
@@ -11,14 +11,14 @@ session_metadata_{YYYY_MM_DD}_{session_id}
 
 ### YAML Structure
 ```yaml
-# Session Metadata - SuperClaude Session Lifecycle
+# Session Metadata - SuperGemini Session Lifecycle
 # Memory Key: session_metadata_{YYYY_MM_DD}_{session_id}
 # Created: {ISO8601_timestamp}
 # Version: 1.0
 
 metadata:
   format_version: "1.0"
-  created_by: "SuperClaude Session Lifecycle"
+  created_by: "SuperGemini Session Lifecycle"
   template_source: "Template_Session_Metadata.md"
   
 session:
@@ -245,12 +245,12 @@ write_memory
 
 ## Integration Points
 
-### With /sc:load Command
+### With /sg:load Command
 - Initialize session metadata on project activation
 - Load checkpoint metadata for session restoration
 - Track context loading performance
 
-### With /sc:save Command  
+### With /sg:save Command  
 - Update session metadata throughout work
 - Create checkpoint metadata when triggered
 - Record final session state and metrics

@@ -27,7 +27,7 @@
 
 **Commands**: [List of commands that commonly use this server]
 
-**Thinking Modes**: [How it integrates with --think flags if applicable]
+**Analysis Modes**: [How it integrates with --seq and other analysis flags if applicable]
 
 **Other MCP Servers**: [Which other servers it coordinates with]
 
@@ -79,7 +79,7 @@
 # MCP Server Template Guide
 
 ## Overview
-This template provides a standardized format for documenting MCP (Model Context Protocol) servers in the SuperClaude framework. Each MCP server should have its own file following this structure.
+This template provides a standardized format for documenting MCP (Model Context Protocol) servers in the SuperGemini framework. Each MCP server should have its own file following this structure.
 
 ## Section Guidelines
 
@@ -92,7 +92,7 @@ This template provides a standardized format for documenting MCP (Model Context 
 Document three types of activation:
 1. **Automatic**: Conditions that trigger without user intervention
 2. **Manual**: Explicit flags users can specify
-3. **Smart**: Context-aware patterns Claude Code detects
+3. **Smart**: Context-aware patterns Gemini CLI detects
 
 ### Workflow Process
 - Number each step sequentially
@@ -145,4 +145,4 @@ Document three types of activation:
 
 ## Location
 All MCP server documentation files should be placed in:
-`SuperClaude/MCP/`
+`SuperGemini/MCP/`

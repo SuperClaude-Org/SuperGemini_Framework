@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to SuperClaude will be documented in this file.
+All notable changes to SuperGemini will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
@@ -8,35 +8,35 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Changed
-- **BREAKING**: Commands now use `/sc:` namespace to avoid conflicts with user custom commands
+- **BREAKING**: Commands now use `/sg:` namespace to avoid conflicts with user custom commands
 - Commands are now installed in `~/.claude/commands/sc/` subdirectory
-- All 16 commands updated: `/analyze` � `/sc:analyze`, `/build` � `/sc:build`, etc.
+- All 16 commands updated: `/analyze` � `/sg:analyze`, `/build` � `/sg:build`, etc.
 - Automatic migration from old command locations to new `sc/` subdirectory
 
 ### Added
-- **NEW COMMAND**: `/sc:implement` for feature and code implementation (addresses v2 user feedback)
+- **NEW COMMAND**: `/sg:implement` for feature and code implementation (addresses v2 user feedback)
 - Migration logic to move existing commands to new namespace automatically
 - Enhanced uninstaller to handle both old and new command locations
 - Improved command conflict prevention
 - Better command organization and discoverability
 
 ### Technical Details
-- Commands now accessible as `/sc:analyze`, `/sc:build`, `/sc:improve`, etc.
+- Commands now accessible as `/sg:analyze`, `/sg:build`, `/sg:improve`, etc.
 - Migration preserves existing functionality while preventing naming conflicts
 - Installation process detects and migrates existing commands automatically
-- Tab completion support for `/sc:` prefix to discover all SuperClaude commands
+- Tab completion support for `/sg:` prefix to discover all SuperGemini commands
 
 ## [4.0.0-beta.1] - 2025-02-05
 
 ### Added
 - **Agent System**: 13 specialized domain experts replacing personas
 - **Behavioral Modes**: 4 intelligent modes for different workflows (Brainstorming, Introspection, Task Management, Token Efficiency)
-- **Session Lifecycle**: /sc:load and /sc:save for cross-session persistence with Serena MCP
-- **New Commands**: /sc:brainstorm, /sc:reflect, /sc:save, /sc:select-tool (21 total commands)
+- **Session Lifecycle**: /sg:load and /sg:save for cross-session persistence with Serena MCP
+- **New Commands**: /sg:brainstorm, /sg:reflect, /sg:save, /sg:select-tool (21 total commands)
 - **Serena MCP**: Semantic code analysis and memory management
 - **Morphllm MCP**: Intelligent file editing with Fast Apply capability
 - **Hooks System**: Python-based framework integration (completely redesigned and implemented)
-- **SuperClaude-Lite**: Minimal implementation with YAML configuration
+- **SuperGemini-Lite**: Minimal implementation with YAML configuration
 - **Templates**: Comprehensive templates for creating new components
 - **Python-Ultimate-Expert Agent**: Master Python architect for production-ready code
 
@@ -58,7 +58,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [3.0.0] - 2025-07-14
 
 ### Added
-- Initial release of SuperClaude v3.0
+- Initial release of SuperGemini v3.0
 - 15 specialized slash commands for development tasks
 - Smart persona auto-activation system
 - MCP server integration (Context7, Sequential, Magic, Playwright)

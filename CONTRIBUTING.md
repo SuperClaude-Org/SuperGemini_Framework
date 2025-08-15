@@ -1,28 +1,28 @@
-# Contributing to SuperClaude Framework
+# Contributing to SuperGemini Framework
 
 Thanks for your interest in contributing! 🙏
 
-SuperClaude is a community-driven project that enhances Claude Code through modular hooks, intelligent orchestration, specialized agents, and behavioral modes. Every contribution helps make the framework more useful for developers.
+SuperGemini is a community-driven project that enhances Gemini CLI through modular hooks, intelligent orchestration, specialized agents, and behavioral modes. Every contribution helps make the framework more useful for developers.
 
 ## 🚀 Quick Start
 
 ### Prerequisites
 - Python 3.12+ (standard library only)
 - Node.js 18+ (for MCP servers)
-- Claude Code installed and authenticated
+- Gemini CLI installed and authenticated
 - uv package manager (recommended for development)
 
 ### Development Setup
 
 ```bash
 # Clone the repository
-git clone https://github.com/SuperClaude-Org/SuperClaude_Framework.git
-cd SuperClaude_Framework
+git clone https://github.com/SuperClaude-Org/SuperGemini_Framework.git
+cd SuperGemini_Framework
 
 # Install dependencies with uv
 uv sync
 
-# Install SuperClaude V4 Beta
+# Install SuperGemini V4 Beta
 python -m pip install -e .
 
 # Run tests
@@ -60,22 +60,22 @@ python Tests/v4_integration_test.py
 - Create specialized agents for domain expertise
 - Develop behavioral modes for enhanced workflow patterns
 - Ensure proper integration with MCP servers
-- Follow the SuperClaude orchestration principles
+- Follow the SuperGemini orchestration principles
 
 ## 🏗️ Architecture Overview
 
 ### Core Components
 ```
-SuperClaude_Framework/
-├── SuperClaude/
+SuperGemini_Framework/
+├── SuperGemini/
 │   ├── Agents/         # 13 specialized domain agents
-│   ├── Commands/       # 21 slash commands (/sc:load, /sc:save, etc.)
+│   ├── Commands/       # 21 slash commands (/sg:load, /sg:save, etc.)
 │   ├── Core/          # Framework documentation and rules
 │   ├── Config/        # Configuration management
 │   ├── Hooks/         # 22+ Python hooks (main extension points)
 │   ├── MCP/           # 6 MCP server integrations
 │   └── Modes/         # 4 behavioral modes
-├── SuperClaude-Lite/  # Lightweight framework variant
+├── SuperGemini-Lite/  # Lightweight framework variant
 ├── Templates/         # Document and code templates
 └── Tests/            # Comprehensive test suite
 ```
@@ -128,9 +128,9 @@ python Tests/mcp_integration_test.py
 python Tests/session_lifecycle_test.py
 
 # Hook integration tests
-python SuperClaude/Hooks/test_orchestration_integration.py
-python SuperClaude/Hooks/test_session_lifecycle.py
-python SuperClaude/Hooks/test_performance_monitoring.py
+python SuperGemini/Hooks/test_orchestration_integration.py
+python SuperGemini/Hooks/test_session_lifecycle.py
+python SuperGemini/Hooks/test_performance_monitoring.py
 ```
 
 ### Writing Tests
@@ -138,7 +138,7 @@ python SuperClaude/Hooks/test_performance_monitoring.py
 - Include performance benchmarks for V4 features
 - Test error conditions and recovery mechanisms
 - Validate cross-component integration (agents, modes, MCP)
-- Test session lifecycle operations (/sc:load, /sc:save)
+- Test session lifecycle operations (/sg:load, /sg:save)
 - Validate mode coordination and behavioral patterns
 
 ## 📋 Code Standards
@@ -148,7 +148,7 @@ python SuperClaude/Hooks/test_performance_monitoring.py
 #!/usr/bin/env python3
 """
 Brief description of hook purpose.
-Part of SuperClaude Framework V4 Beta
+Part of SuperGemini Framework V4 Beta
 """
 
 import json
@@ -290,7 +290,7 @@ git checkout -b feature/your-feature-name
 - Make focused, atomic changes aligned with V4 architecture
 - Test locally with V4 Beta installation (`python -m pip install -e .`)
 - Ensure hooks, agents, and modes don't break existing functionality
-- Test session lifecycle operations (/sc:load, /sc:save)
+- Test session lifecycle operations (/sg:load, /sg:save)
 - Validate MCP server integration and coordination
 
 ### 3. Submit Pull Request
@@ -332,7 +332,7 @@ git checkout -b feature/your-feature-name
 - Help others learn and improve
 
 ### Stay Focused
-- Keep discussions relevant to SuperClaude's goals
+- Keep discussions relevant to SuperGemini's goals
 - Avoid scope creep in feature requests
 - Consider if changes fit the modular philosophy
 
@@ -351,16 +351,16 @@ git checkout -b feature/your-feature-name
 ### Common Questions
 
 **Q: How do I debug V4 hook execution and session lifecycle?**
-A: Check logs in `~/.claude/` and use verbose logging. Monitor session state with `/sc:load` and `/sc:save` operations.
+A: Check logs in `~/.claude/` and use verbose logging. Monitor session state with `/sg:load` and `/sg:save` operations.
 
 **Q: Can I add new MCP servers or agents?**
-A: Yes! Follow the patterns in `SuperClaude/MCP/` for servers and `SuperClaude/Agents/` for domain specialists. Include proper YAML frontmatter and integration points.
+A: Yes! Follow the patterns in `SuperGemini/MCP/` for servers and `SuperGemini/Agents/` for domain specialists. Include proper YAML frontmatter and integration points.
 
 **Q: How do I test V4 changes without affecting my global setup?**
 A: Use a separate test environment with `python -m pip install -e .` for development installation. Backup your `~/.claude` directory and test session operations.
 
 **Q: How do I create a new behavioral mode?**
-A: Follow the pattern in `SuperClaude/Modes/` with proper YAML frontmatter, activation patterns, and framework integration configuration.
+A: Follow the pattern in `SuperGemini/Modes/` with proper YAML frontmatter, activation patterns, and framework integration configuration.
 
 **Q: What's the difference between agents and modes?**
 A: Agents provide domain expertise (system-architect, performance-optimizer), while modes modify Claude's behavioral approach (brainstorming, task management, token efficiency).
@@ -401,4 +401,4 @@ By contributing, you agree that your contributions will be licensed under the MI
 
 ## 🙏 Acknowledgments
 
-Thanks to all contributors who help make SuperClaude V4 Beta better for the development community! Special recognition for those contributing to the new agents system, behavioral modes, session lifecycle, and MCP server coordination that make V4's intelligent orchestration possible.
+Thanks to all contributors who help make SuperGemini V4 Beta better for the development community! Special recognition for those contributing to the new agents system, behavioral modes, session lifecycle, and MCP server coordination that make V4's intelligent orchestration possible.

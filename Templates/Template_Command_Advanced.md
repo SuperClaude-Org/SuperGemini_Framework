@@ -20,14 +20,14 @@ performance-profile: complex
 personas: [architect, analyzer, project-manager]
 ---
 
-# /sc:[command-name] - [Advanced Command Title]
+# /sg:[command-name] - [Advanced Command Title]
 
 ## Purpose
 [Comprehensive statement of the command's role in complex development workflows. Explain the sophisticated capabilities, orchestration features, and how it coordinates multiple systems and expertise domains for optimal outcomes.]
 
 ## Usage
 ```
-/sc:[command-name] [target] [--strategy systematic|agile|enterprise] [--depth shallow|normal|deep] [--parallel] [--validate] [--mcp-routing]
+/sg:[command-name] [target] [--strategy systematic|agile|enterprise] [--depth shallow|normal|deep] [--parallel] [--validate] [--mcp-routing]
 ```
 
 ## Arguments
@@ -209,8 +209,8 @@ The command orchestrates multiple domain experts working together:
 
 ## Integration Ecosystem
 
-### SuperClaude Framework Integration
-- **Command Coordination**: [Orchestrate other SuperClaude commands for comprehensive workflows]
+### SuperGemini Framework Integration
+- **Command Coordination**: [Orchestrate other SuperGemini commands for comprehensive workflows]
 - **Session Management**: [Deep integration with session lifecycle and persistence]
 - **Quality Framework**: [Integration with comprehensive quality assurance systems]
 - **Knowledge Management**: [Coordinate with knowledge capture and retrieval systems]
@@ -254,25 +254,25 @@ The command orchestrates multiple domain experts working together:
 
 ### Comprehensive Project Analysis
 ```
-/sc:[command-name] entire-project --strategy systematic --depth deep --validate --mcp-routing
+/sg:[command-name] entire-project --strategy systematic --depth deep --validate --mcp-routing
 # Comprehensive analysis with full orchestration capabilities
 ```
 
 ### Agile Multi-Sprint Coordination
 ```
-/sc:[command-name] feature-backlog --strategy agile --parallel --cross-session
+/sg:[command-name] feature-backlog --strategy agile --parallel --cross-session
 # Agile coordination with cross-session persistence
 ```
 
 ### Enterprise-Scale Operation
 ```
-/sc:[command-name] enterprise-system --strategy enterprise --wave-mode --all-personas
+/sg:[command-name] enterprise-system --strategy enterprise --wave-mode --all-personas
 # Enterprise-scale coordination with full persona orchestration
 ```
 
 ### Complex Integration Project
 ```
-/sc:[command-name] integration-project --depth deep --parallel --validate --sequential
+/sg:[command-name] integration-project --depth deep --parallel --validate --sequential
 # Complex integration with sequential thinking and validation
 ```
 
@@ -296,7 +296,7 @@ The command orchestrates multiple domain experts working together:
 # Template Usage Guidelines
 
 ## Implementation Complexity
-This template is designed for the most sophisticated SuperClaude commands that require:
+This template is designed for the most sophisticated SuperGemini commands that require:
 - Multi-domain expertise coordination
 - Cross-session state management  
 - Comprehensive MCP server integration
@@ -334,4 +334,4 @@ Advanced commands require significant resources:
 
 ---
 
-*This template is reserved for the most sophisticated SuperClaude commands that provide advanced orchestration, multi-domain coordination, and enterprise-scale capabilities. Use lower-tier templates for simpler operations.*
+*This template is reserved for the most sophisticated SuperGemini commands that provide advanced orchestration, multi-domain coordination, and enterprise-scale capabilities. Use lower-tier templates for simpler operations.*

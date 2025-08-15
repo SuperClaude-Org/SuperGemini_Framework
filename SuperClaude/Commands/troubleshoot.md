@@ -15,14 +15,14 @@ mcp-integration:
   wave-enabled: false
 ---
 
-# /sc:troubleshoot - Issue Diagnosis and Resolution
+# /sg:troubleshoot - Issue Diagnosis and Resolution
 
 ## Purpose
 Execute systematic issue diagnosis and resolution workflows for code defects, build failures, performance problems, and deployment issues using structured debugging methodologies and comprehensive problem analysis.
 
 ## Usage
 ```
-/sc:troubleshoot [issue] [--type bug|build|performance|deployment] [--trace] [--fix]
+/sg:troubleshoot [issue] [--type bug|build|performance|deployment] [--trace] [--fix]
 ```
 
 ## Arguments
@@ -38,7 +38,7 @@ Execute systematic issue diagnosis and resolution workflows for code defects, bu
 4. Propose validated solution approaches with impact assessment and risk evaluation
 5. Apply appropriate fixes, verify resolution effectiveness, and document troubleshooting process
 
-## Claude Code Integration
+## Gemini CLI Integration
 - **Tool Usage**: Read for log analysis, Bash for diagnostic commands, Grep for error pattern detection
 - **File Operations**: Reads error logs and system state, writes diagnostic reports and resolution documentation
 - **Analysis Approach**: Systematic root cause analysis with hypothesis testing and evidence collection
@@ -53,14 +53,14 @@ Execute systematic issue diagnosis and resolution workflows for code defects, bu
 
 ### Basic Usage
 ```
-/sc:troubleshoot "Build failing with TypeScript errors"
+/sg:troubleshoot "Build failing with TypeScript errors"
 # Analyzes build logs and identifies TypeScript compilation issues
 # Provides specific error locations and recommended fixes
 ```
 
 ### Advanced Usage
 ```
-/sc:troubleshoot "Performance degradation in API responses" --type performance --trace --fix
+/sg:troubleshoot "Performance degradation in API responses" --type performance --trace --fix
 # Deep performance analysis with detailed tracing enabled
 # Identifies bottlenecks and applies safe performance optimizations
 ```
@@ -72,7 +72,7 @@ Execute systematic issue diagnosis and resolution workflows for code defects, bu
 - **Resource Constraints**: Optimizes diagnostic procedures for resource-limited environments
 
 ## Integration Points
-- **SuperClaude Framework**: Coordinates with analyze for code quality issues and test for validation
+- **SuperGemini Framework**: Coordinates with analyze for code quality issues and test for validation
 - **Other Commands**: Integrates with build for compilation issues and git for version-related problems
 - **File System**: Reads system logs and error reports, writes diagnostic summaries and resolution guides
 

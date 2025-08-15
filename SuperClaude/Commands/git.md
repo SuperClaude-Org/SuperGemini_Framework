@@ -15,14 +15,14 @@ mcp-integration:
   wave-enabled: false
 ---
 
-# /sc:git - Git Operations and Workflow Management
+# /sg:git - Git Operations and Workflow Management
 
 ## Purpose
 Execute comprehensive Git operations with intelligent commit message generation, automated branch management, workflow optimization, and integration with development processes while maintaining repository best practices.
 
 ## Usage
 ```
-/sc:git [operation] [args] [--smart-commit] [--branch-strategy] [--interactive]
+/sg:git [operation] [args] [--smart-commit] [--branch-strategy] [--interactive]
 ```
 
 ## Arguments
@@ -39,7 +39,7 @@ Execute comprehensive Git operations with intelligent commit message generation,
 4. Handle merge conflicts, branch management, and repository state consistency
 5. Provide clear operation feedback, next steps guidance, and workflow recommendations
 
-## Claude Code Integration
+## Gemini CLI Integration
 - **Tool Usage**: Bash for Git command execution, Read for repository analysis, Grep for log parsing
 - **File Operations**: Reads repository state and configuration, writes commit messages and branch documentation
 - **Analysis Approach**: Change analysis with pattern recognition for conventional commit formatting
@@ -54,14 +54,14 @@ Execute comprehensive Git operations with intelligent commit message generation,
 
 ### Basic Usage
 ```
-/sc:git status
+/sg:git status
 # Displays comprehensive repository status with change analysis
 # Provides recommendations for next steps and workflow optimization
 ```
 
 ### Advanced Usage
 ```
-/sc:git commit --smart-commit --branch-strategy --interactive
+/sg:git commit --smart-commit --branch-strategy --interactive
 # Interactive commit with intelligent message generation
 # Applies branch naming conventions and workflow best practices
 ```
@@ -73,7 +73,7 @@ Execute comprehensive Git operations with intelligent commit message generation,
 - **Resource Constraints**: Manages large repository operations and network connectivity issues
 
 ## Integration Points
-- **SuperClaude Framework**: Integrates with build for release tagging and test for pre-commit validation
+- **SuperGemini Framework**: Integrates with build for release tagging and test for pre-commit validation
 - **Other Commands**: Coordinates with analyze for code quality gates and troubleshoot for repository issues
 - **File System**: Reads Git configuration and history, writes commit messages and branch documentation
 

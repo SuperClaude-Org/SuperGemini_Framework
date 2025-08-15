@@ -24,14 +24,14 @@ performance-targets:
   memory-operations: <200ms
 ---
 
-# /sc:[command-name] - [Session Command Title]
+# /sg:[command-name] - [Session Command Title]
 
 ## Purpose
-[Clear statement of the command's role in session lifecycle management. Explain how it maintains context continuity, enables cross-session persistence, and supports the SuperClaude framework's session management capabilities.]
+[Clear statement of the command's role in session lifecycle management. Explain how it maintains context continuity, enables cross-session persistence, and supports the SuperGemini framework's session management capabilities.]
 
 ## Usage
 ```
-/sc:[command-name] [--type memory|checkpoint|state] [--resume] [--validate] [--performance]
+/sg:[command-name] [--type memory|checkpoint|state] [--resume] [--validate] [--performance]
 ```
 
 ## Arguments
@@ -173,8 +173,8 @@ performance-targets:
 
 ## Integration Ecosystem
 
-### SuperClaude Framework Integration
-- **Command Coordination**: Integration with other SuperClaude commands for session support
+### SuperGemini Framework Integration
+- **Command Coordination**: Integration with other SuperGemini commands for session support
 - **Quality Gates**: Integration with validation cycles and quality assurance
 - **Mode Coordination**: Support for different operational modes and contexts
 - **Workflow Integration**: Seamless integration with complex workflow operations
@@ -189,25 +189,25 @@ performance-targets:
 
 ### Basic Session Operation
 ```
-/sc:[command-name] --type memory
+/sg:[command-name] --type memory
 # Standard memory management operation
 ```
 
 ### Session Checkpoint
 ```
-/sc:[command-name] --type checkpoint --metadata
+/sg:[command-name] --type checkpoint --metadata
 # Create comprehensive checkpoint with metadata
 ```
 
 ### Session Recovery
 ```
-/sc:[command-name] --resume --validate
+/sg:[command-name] --resume --validate
 # Resume from previous session with validation
 ```
 
 ### Performance Monitoring
 ```
-/sc:[command-name] --performance --validate
+/sg:[command-name] --performance --validate
 # Session operation with performance monitoring
 ```
 

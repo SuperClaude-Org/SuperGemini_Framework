@@ -18,7 +18,7 @@ activation:
 # Integration Configuration
 framework-integration:
   mcp-servers: [sequential-thinking, context7, magic]
-  commands: ["/sc:brainstorm"]
+  commands: ["/sg:brainstorm"]
   modes: [task_management, token_efficiency, introspection]
   quality-gates: [requirements_clarity, brief_completeness, mode_coordination]
 
@@ -32,7 +32,7 @@ performance-profile: standard
 
 ## Purpose
 
-Lightweight behavioral mode that triggers the `/sc:brainstorm` command when users need help discovering requirements through dialogue.
+Lightweight behavioral mode that triggers the `/sg:brainstorm` command when users need help discovering requirements through dialogue.
 
 ## Auto-Activation Patterns
 
@@ -69,16 +69,16 @@ brainstorming_mode:
 
 ## Command Integration
 
-This mode triggers `/sc:brainstorm` which handles:
+This mode triggers `/sg:brainstorm` which handles:
 - Socratic dialogue execution
 - Brief generation
 - PRD handoff
 - Session persistence
 
-See `/sc:brainstorm` command documentation for implementation details.
+See `/sg:brainstorm` command documentation for implementation details.
 
 ## Related Documentation
 
-- **Command Implementation**: /sc:brainstorm
+- **Command Implementation**: /sg:brainstorm
 - **Agent Integration**: brainstorm-PRD
 - **Framework Reference**: ORCHESTRATOR.md

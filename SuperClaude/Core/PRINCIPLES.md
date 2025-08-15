@@ -1,4 +1,4 @@
-# PRINCIPLES.md - SuperClaude Framework Core Principles
+# PRINCIPLES.md - SuperGemini Framework Core Principles
 
 **Primary Directive**: "Evidence > assumptions | Code > documentation | Efficiency > verbosity"
 

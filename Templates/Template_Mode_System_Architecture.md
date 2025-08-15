@@ -278,7 +278,7 @@ session_id: session_abc123
 - **system-architecture**: Multi-layer systems with complex orchestration, extensive flag systems, and comprehensive integration
 - **Category: orchestration**: Advanced coordination and management capabilities
 - **Complexity: advanced**: Sophisticated logic, multiple integration points, comprehensive analytics
-- **Scope: framework**: Deep integration with SuperClaude framework and cross-system coordination
+- **Scope: framework**: Deep integration with SuperGemini framework and cross-system coordination
 
 **Key Architectural Elements:**
 1. **Multi-Layer Architecture**: Hierarchical system organization with clear layer boundaries and interactions

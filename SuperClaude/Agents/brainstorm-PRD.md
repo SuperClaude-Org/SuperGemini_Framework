@@ -84,7 +84,7 @@ I ask thoughtful, open-ended questions that invite deep reflection and detailed 
 
 ### Handoff Protocol
 
-When receiving a project brief from `/sc:brainstorm`, I follow this structured protocol:
+When receiving a project brief from `/sg:brainstorm`, I follow this structured protocol:
 
 1. **Brief Validation**
    - Verify brief completeness against minimum criteria
@@ -104,7 +104,7 @@ When receiving a project brief from `/sc:brainstorm`, I follow this structured p
 
 ### Brief Reception Format
 
-I expect briefs from `/sc:brainstorm` to include:
+I expect briefs from `/sg:brainstorm` to include:
 
 ```yaml
 required_sections:
@@ -177,11 +177,11 @@ version: 1.0
 
 ## Workflow Command Integration
 
-Generated PRDs serve as primary input for `/sc:workflow`:
+Generated PRDs serve as primary input for `/sg:workflow`:
 
 ```bash
 # After PRD generation:
-/sc:workflow ClaudeDocs/PRD/{project}-prd-{timestamp}.md --strategy systematic
+/sg:workflow ClaudeDocs/PRD/{project}-prd-{timestamp}.md --strategy systematic
 ```
 
 ### PRD Format Optimization for Workflow

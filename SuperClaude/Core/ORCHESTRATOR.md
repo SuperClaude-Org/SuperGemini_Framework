@@ -1,6 +1,6 @@
-# ORCHESTRATOR.md - SuperClaude Intelligent Routing System
+# ORCHESTRATOR.md - SuperGemini Intelligent Routing System
 
-Streamlined routing and coordination guide for Claude Code operations.
+Streamlined routing and coordination guide for Gemini CLI operations.
 
 ## 🎯 Quick Pattern Matching
 
@@ -16,10 +16,10 @@ pattern_edits: [framework, style, cleanup] → Morphllm + token optimization
 performance: [optimize, slow, bottleneck] → Performance persona + profiling
 security: [vulnerability, audit, secure] → Security persona + validation
 documentation: [document, README, guide] → Scribe persona + Context7
-brainstorming: [explore, figure out, not sure, new project] → MODE_Brainstorming + /sc:brainstorm
+brainstorming: [explore, figure out, not sure, new project] → MODE_Brainstorming + /sg:brainstorm
 memory_operations: [save, load, checkpoint] → Serena + session management
-session_lifecycle: [init, work, checkpoint, complete] → /sc:load + /sc:save + /sc:reflect
-task_reflection: [validate, analyze, complete] → /sc:reflect + Serena reflection tools
+session_lifecycle: [init, work, checkpoint, complete] → /sg:load + /sg:save + /sg:reflect
+task_reflection: [validate, analyze, complete] → /sg:reflect + Serena reflection tools
 ```
 
 ## 🚦 Resource Management
@@ -74,7 +74,7 @@ morphllm_triggers:
 
 ### Simple Fallback Strategy:
 ```
-Serena unavailable → Morphllm → Native Claude Code tools → Explain limitations if needed
+Serena unavailable → Morphllm → Native Gemini CLI tools → Explain limitations if needed
 ```
 
 ## ⚡ Auto-Activation Rules
@@ -122,22 +122,22 @@ enable_brainstorming:
   - Planning needs (new project, startup idea, feature concept)
 
 enable_session_lifecycle:
-  - Project work without active session → /sc:load automatic activation
-  - 30 minutes elapsed → /sc:reflect --type session + checkpoint evaluation
-  - High priority task completion → /sc:reflect --type completion
-  - Session end detection → /sc:save with metadata
-  - Error recovery situations → /sc:reflect --analyze + checkpoint
+  - Project work without active session → /sg:load automatic activation
+  - 30 minutes elapsed → /sg:reflect --type session + checkpoint evaluation
+  - High priority task completion → /sg:reflect --type completion
+  - Session end detection → /sg:save with metadata
+  - Error recovery situations → /sg:reflect --analyze + checkpoint
 
 enable_task_reflection:
-  - Complex task initiation → /sc:reflect --type task for validation
-  - Task completion requests → /sc:reflect --type completion mandatory
-  - Progress check requests → /sc:reflect --type task or session
-  - Quality validation needs → /sc:reflect --analyze
+  - Complex task initiation → /sg:reflect --type task for validation
+  - Task completion requests → /sg:reflect --type completion mandatory
+  - Progress check requests → /sg:reflect --type task or session
+  - Quality validation needs → /sg:reflect --analyze
 ```
 
 ## 🧠 MODE-Command Architecture
 
-### Brainstorming Pattern: MODE_Brainstorming + /sc:brainstorm
+### Brainstorming Pattern: MODE_Brainstorming + /sg:brainstorm
 
 **Core Philosophy**: Behavioral Mode provides lightweight detection triggers, Command provides full execution engine
 
@@ -147,11 +147,11 @@ enable_task_reflection:
 automatic_activation:
   trigger_detection: MODE_Brainstorming evaluates user request
   pattern_matching: Keywords → ambiguous, explore, uncertain, planning
-  command_invocation: /sc:brainstorm with inherited parameters
+  command_invocation: /sg:brainstorm with inherited parameters
   behavioral_enforcement: MODE communication patterns applied
 
 manual_activation:
-  direct_command: /sc:brainstorm bypasses mode detection
+  direct_command: /sg:brainstorm bypasses mode detection
   explicit_flags: --brainstorm forces mode + command coordination
   parameter_override: Command flags override mode defaults
 ```
@@ -160,7 +160,7 @@ manual_activation:
 
 ```yaml
 mode_to_command_inheritance:
-  # MODE_Brainstorming.md → /sc:brainstorm parameters
+  # MODE_Brainstorming.md → /sg:brainstorm parameters
   brainstorming:
     dialogue:
       max_rounds: 15           → --max-rounds parameter
@@ -190,7 +190,7 @@ dialogue_states:
 quality_enforcement:
   behavioral_compliance: MODE patterns enforced during execution
   communication_style: Collaborative, non-presumptive maintained
-  framework_integration: SuperClaude principles preserved
+  framework_integration: SuperGemini principles preserved
 ```
 
 #### Integration Handoff Protocol
@@ -199,7 +199,7 @@ quality_enforcement:
 mode_command_handoff:
   1. detection: MODE_Brainstorming evaluates request context
   2. parameter_mapping: YAML settings → command parameters
-  3. invocation: /sc:brainstorm executed with behavioral patterns
+  3. invocation: /sg:brainstorm executed with behavioral patterns
   4. enforcement: MODE communication markers applied
   5. brief_generation: Structured brief with mode metadata
   6. agent_handoff: brainstorm-PRD receives enhanced brief
@@ -245,7 +245,7 @@ mode_command_recovery:
 - Multiple valid approaches exist
 - Rules would create unnecessary complexity
 
-**Core Philosophy**: These patterns guide but don't constrain. Claude Code's natural language understanding and adaptive reasoning should take precedence when it leads to better outcomes.
+**Core Philosophy**: These patterns guide but don't constrain. Gemini CLI's natural language understanding and adaptive reasoning should take precedence when it leads to better outcomes.
 
 ## 🔍 Common Routing Patterns
 
@@ -258,14 +258,14 @@ mode_command_recovery:
 "Refactor this mess" → Serena symbol analysis → plan changes → execute systematically
 "Rename function across project" → Serena LSP precision + dependency tracking
 "Apply code style patterns" → Morphllm pattern matching + token optimization
-"Save my work" → Serena memory operations → /sc:save
-"Load project context" → Serena project activation → /sc:load
-"Check my progress" → Task reflection → /sc:reflect --type task
-"Am I done with this?" → Completion validation → /sc:reflect --type completion
-"Save checkpoint" → Session persistence → /sc:save --checkpoint
-"Resume last session" → Session restoration → /sc:load --resume
-"I want to build something for task management" → MODE_Brainstorming → /sc:brainstorm
-"Not sure what to build" → MODE_Brainstorming → /sc:brainstorm --depth deep
+"Save my work" → Serena memory operations → /sg:save
+"Load project context" → Serena project activation → /sg:load
+"Check my progress" → Task reflection → /sg:reflect --type task
+"Am I done with this?" → Completion validation → /sg:reflect --type completion
+"Save checkpoint" → Session persistence → /sg:save --checkpoint
+"Resume last session" → Session restoration → /sg:load --resume
+"I want to build something for task management" → MODE_Brainstorming → /sg:brainstorm
+"Not sure what to build" → MODE_Brainstorming → /sg:brainstorm --depth deep
 ```
 
 ### Parallel Execution Examples:
@@ -280,12 +280,12 @@ mode_command_recovery:
 ### Brainstorming-Specific Patterns:
 ```yaml
 ambiguous_requests:
-  "I have an idea for an app" → MODE detection → /sc:brainstorm "app idea"
-  "Thinking about a startup" → MODE detection → /sc:brainstorm --focus business
-  "Need help figuring this out" → MODE detection → /sc:brainstorm --depth normal
+  "I have an idea for an app" → MODE detection → /sg:brainstorm "app idea"
+  "Thinking about a startup" → MODE detection → /sg:brainstorm --focus business
+  "Need help figuring this out" → MODE detection → /sg:brainstorm --depth normal
 
 explicit_brainstorming:
-  /sc:brainstorm "specific idea" → Direct execution with MODE patterns
+  /sg:brainstorm "specific idea" → Direct execution with MODE patterns
   --brainstorm → MODE activation → Command coordination
   --no-brainstorm → Disable MODE detection
 ```
@@ -294,7 +294,7 @@ explicit_brainstorming:
 - **Simple**: Single file, clear goal, standard pattern → **Morphllm + Direct execution**
 - **Moderate**: Multiple files, some analysis needed, standard tools work → **Context-dependent routing**
 - **Complex**: System-wide, architectural, needs coordination, custom approach → **Serena + Sequential coordination**
-- **Exploratory**: Ambiguous requirements, need discovery, brainstorming beneficial → **MODE_Brainstorming + /sc:brainstorm**
+- **Exploratory**: Ambiguous requirements, need discovery, brainstorming beneficial → **MODE_Brainstorming + /sg:brainstorm**
 
 ### Hybrid Intelligence Examples:
 - **Simple text replacement**: Morphllm (30-50% token savings, <100ms)
@@ -326,7 +326,7 @@ Minimal validation at key points:
 3. **Behavioral Enforcement**: Apply communication patterns
 4. **Brief Validation**: Check completeness criteria
 5. **Agent Handoff**: Verify PRD readiness
-6. **Framework Compliance**: Validate SuperClaude integration
+6. **Framework Compliance**: Validate SuperGemini integration
 
 ## ⚙️ Configuration Philosophy
 
@@ -339,12 +339,12 @@ Minimal validation at key points:
 ### MODE-Command Configuration Hierarchy:
 1. **Explicit Command Parameters** (highest precedence)
 2. **Mode Configuration Settings** (YAML from MODE files)
-3. **Framework Defaults** (SuperClaude standards)
+3. **Framework Defaults** (SuperGemini standards)
 4. **System Defaults** (fallback values)
 
 ## 🎯 Architectural Integration Points
 
-### SuperClaude Framework Compliance
+### SuperGemini Framework Compliance
 
 ```yaml
 framework_integration:
@@ -371,7 +371,7 @@ mode_interactions:
 orchestration_principles:
   behavioral_consistency: MODE patterns preserved across commands
   configuration_harmony: YAML settings shared and coordinated
-  quality_enforcement: SuperClaude standards maintained
+  quality_enforcement: SuperGemini standards maintained
   agent_coordination: Proper handoff protocols for all modes
 ```
 

@@ -25,14 +25,14 @@ performance-targets:
   memory-operations: <200ms
 ---
 
-# /sc:save - Session Context Persistence
+# /sg:save - Session Context Persistence
 
 ## Purpose
-Save session context, progress, and discoveries to Serena MCP memories, complementing the /sc:load workflow for continuous project understanding with comprehensive session lifecycle management and cross-session persistence capabilities.
+Save session context, progress, and discoveries to Serena MCP memories, complementing the /sg:load workflow for continuous project understanding with comprehensive session lifecycle management and cross-session persistence capabilities.
 
 ## Usage
 ```
-/sc:save [--type session|learnings|context|all] [--summarize] [--checkpoint] [--validate] [--performance] [--metadata] [--cleanup] [--uc]
+/sg:save [--type session|learnings|context|all] [--summarize] [--checkpoint] [--validate] [--performance] [--metadata] [--cleanup] [--uc]
 ```
 
 ## Arguments
@@ -49,12 +49,12 @@ Save session context, progress, and discoveries to Serena MCP memories, compleme
 ## Token Efficiency Integration
 
 ### Optional Token Efficiency Mode
-The `/sc:save` command supports optional Token Efficiency mode via the `--uc` flag:
+The `/sg:save` command supports optional Token Efficiency mode via the `--uc` flag:
 
 - **User Choice**: `--uc` flag can be explicitly specified for compression
 - **Compression Strategy**: When enabled: 30-50% reduction with ≥95% information preservation
 - **Content Classification**:
-  - **SuperClaude Framework** (0% compression): Complete exclusion
+  - **SuperGemini Framework** (0% compression): Complete exclusion
   - **User Project Content** (0% compression): Full fidelity preservation
   - **Session Data** (30-50% compression): Optimized storage when --uc used
 - **Quality Preservation**: Framework compliance with MODE_Token_Efficiency.md patterns
@@ -80,7 +80,7 @@ The `/sc:save` command supports optional Token Efficiency mode via the `--uc` fl
 - Call `list_memories` to check existing memories
 - Identify which memories need updates with selective compression
 - **Content Classification Strategy**:
-  - **SuperClaude Framework** (Complete exclusion): All framework directories and components
+  - **SuperGemini Framework** (Complete exclusion): All framework directories and components
   - **Session Data** (Apply compression): Session metadata, checkpoints, cache content only
   - **User Project Content** (Preserve fidelity): Project files, user documentation, configurations
 - Organize new information by category:
@@ -268,7 +268,7 @@ context_snapshot:
   recent_changes: [list_of_changes]
   
 recovery_info:
-  restore_command: "/sc:load --checkpoint {checkpoint_id}"
+  restore_command: "/sg:load --checkpoint {checkpoint_id}"
   dependencies_check: "all_clear|issues_found"
   estimated_restore_time_ms: {number}
 ```
@@ -362,8 +362,8 @@ recovery_info:
 
 ## Integration Ecosystem
 
-### SuperClaude Framework Integration
-- **Command Coordination**: Integration with other SuperClaude commands for session support
+### SuperGemini Framework Integration
+- **Command Coordination**: Integration with other SuperGemini commands for session support
 - **Quality Gates**: Integration with validation cycles and quality assurance
 - **Mode Coordination**: Support for different operational modes and contexts
 - **Workflow Integration**: Seamless integration with complex workflow operations
@@ -374,13 +374,13 @@ recovery_info:
 - **Session Hierarchies**: Managing parent-child session relationships
 - **Continuous Learning**: Each session builds on previous knowledge and insights
 
-### Integration with /sc:load
+### Integration with /sg:load
 
 #### Session Lifecycle
-1. `/sc:load` - Activate project and load context
+1. `/sg:load` - Activate project and load context
 2. Work on project (make changes, discover patterns)
-3. `/sc:save` - Persist discoveries and progress
-4. Next session: `/sc:load` retrieves enhanced context
+3. `/sg:save` - Persist discoveries and progress
+4. Next session: `/sg:load` retrieves enhanced context
 
 #### Continuous Learning
 - Each session builds on previous knowledge
@@ -391,43 +391,43 @@ recovery_info:
 
 ### Basic Session Save
 ```
-/sc:save
+/sg:save
 # Saves current session context and discoveries
 ```
 
 ### Session Checkpoint
 ```
-/sc:save --type checkpoint --metadata
+/sg:save --type checkpoint --metadata
 # Create comprehensive checkpoint with metadata
 ```
 
 ### Session Recovery
 ```
-/sc:save --checkpoint --validate
+/sg:save --checkpoint --validate
 # Create checkpoint with validation
 ```
 
 ### Performance Monitoring
 ```
-/sc:save --performance --validate
+/sg:save --performance --validate
 # Session operation with performance monitoring
 ```
 
 ### Save with Summary
 ```
-/sc:save --summarize
+/sg:save --summarize
 # Saves session and generates summary
 ```
 
 ### Create Checkpoint
 ```
-/sc:save --checkpoint --type all
+/sg:save --checkpoint --type all
 # Creates comprehensive checkpoint for session recovery
 ```
 
 ### Save Only Learnings
 ```
-/sc:save --type learnings
+/sg:save --type learnings
 # Updates only discovered patterns and insights
 ```
 

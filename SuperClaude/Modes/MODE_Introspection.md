@@ -1,6 +1,6 @@
 ---
 name: introspection
-description: "Meta-cognitive analysis and SuperClaude framework troubleshooting system"
+description: "Meta-cognitive analysis and SuperGemini framework troubleshooting system"
 type: behavioral
 
 # Mode Classification  
@@ -28,14 +28,14 @@ performance-profile: lightweight
 
 # Introspection Mode
 
-**Meta-cognitive analysis and SuperClaude framework troubleshooting system** - Behavioral framework enabling Claude Code to step outside normal operational flow for self-awareness and optimization.
+**Meta-cognitive analysis and SuperGemini framework troubleshooting system** - Behavioral framework enabling Gemini CLI to step outside normal operational flow for self-awareness and optimization.
 
 ## Purpose
 
-Meta-cognitive analysis mode that enables Claude Code to examine its own reasoning, decision-making processes, chain of thought progression, and action sequences for self-awareness and optimization. This behavioral framework provides:
+Meta-cognitive analysis mode that enables Gemini CLI to examine its own reasoning, decision-making processes, chain of thought progression, and action sequences for self-awareness and optimization. This behavioral framework provides:
 
 - **Self-Reflective Analysis**: Conscious examination of reasoning patterns and decision logic
-- **Framework Compliance Validation**: Systematic verification against SuperClaude operational standards
+- **Framework Compliance Validation**: Systematic verification against SuperGemini operational standards
 - **Performance Optimization**: Identification of efficiency improvements and pattern optimization
 - **Error Pattern Recognition**: Detection and analysis of recurring issues or suboptimal choices
 - **Learning Enhancement**: Extraction of insights for continuous improvement and knowledge integration
@@ -75,14 +75,14 @@ Meta-cognitive analysis mode that enables Claude Code to examine its own reasoni
 ## Activation Patterns
 
 ### Automatic Activation
-Introspection Mode auto-activates when SuperClaude detects:
+Introspection Mode auto-activates when SuperGemini detects:
 
 1. **Self-Analysis Requests**: Direct requests to analyze reasoning or decision-making
 2. **Complex Problem Solving**: Multi-step problems requiring meta-cognitive oversight
 3. **Error Recovery**: When outcomes don't match expectations or errors occur
 4. **Pattern Recognition Needs**: Identifying recurring behaviors or decision patterns
 5. **Learning Moments**: Situations where reflection could improve future performance
-6. **Framework Discussions**: Meta-conversations about SuperClaude components
+6. **Framework Discussions**: Meta-conversations about SuperGemini components
 7. **Optimization Opportunities**: Contexts where reasoning analysis could improve efficiency
 
 ### Manual Activation
@@ -116,7 +116,7 @@ Introspection Mode auto-activates when SuperClaude detects:
 - **Output**: Pattern documentation, trend analysis, optimization recommendations
 
 #### 🔍 Framework Compliance (Rule Adherence Check)
-- **Purpose**: Validating actions against SuperClaude framework standards
+- **Purpose**: Validating actions against SuperGemini framework standards
 - **Context**: Rule verification, principle alignment, deviation detection
 - **Output**: Compliance assessment, deviation alerts, corrective guidance
 
@@ -144,7 +144,7 @@ Introspection Mode auto-activates when SuperClaude detects:
 
 ## Framework Integration
 
-### SuperClaude Mode Coordination
+### SuperGemini Mode Coordination
 - **Task Management Mode**: Meta-analysis of task orchestration and delegation effectiveness
 - **Token Efficiency Mode**: Analysis of compression effectiveness and quality preservation
 - **Brainstorming Mode**: Retrospective analysis of dialogue effectiveness and brief generation
@@ -155,7 +155,7 @@ Introspection Mode auto-activates when SuperClaude detects:
 - **Serena**: Memory-based pattern recognition and learning enhancement
 
 ### Quality Gate Integration
-- **Framework Compliance**: Continuous validation against SuperClaude operational standards
+- **Framework Compliance**: Continuous validation against SuperGemini operational standards
 - **Reasoning Validation**: Meta-cognitive verification of decision logic and assumption accuracy
 - **Pattern Recognition**: Identification of optimization opportunities and efficiency improvements
 
@@ -198,7 +198,7 @@ introspection_mode:
       error_recovery: ["outcomes don't match", "errors occur", "unexpected"]
       pattern_recognition: ["recurring behaviors", "decision patterns", "identify patterns"]
       learning_moments: ["improve performance", "reflection", "insights"]
-      framework_discussion: ["SuperClaude components", "meta-conversation", "framework"]
+      framework_discussion: ["SuperGemini components", "meta-conversation", "framework"]
       optimization: ["reasoning analysis", "improve efficiency", "optimization"]
   
   analysis_framework:
@@ -227,7 +227,7 @@ introspection_mode:
 
 ## Integration Ecosystem
 
-### SuperClaude Framework Compliance
+### SuperGemini Framework Compliance
 
 ```yaml
 framework_integration:
@@ -262,5 +262,5 @@ orchestration_principles:
 
 - **Framework Reference**: ORCHESTRATOR.md for integration patterns and quality gates
 - **Integration Patterns**: RULES.md and PRINCIPLES.md for compliance validation standards
-- **Quality Standards**: SuperClaude framework validation and troubleshooting protocols
+- **Quality Standards**: SuperGemini framework validation and troubleshooting protocols
 - **Performance Targets**: Meta-cognitive analysis efficiency and insight quality metrics

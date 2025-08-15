@@ -1,6 +1,6 @@
-# RULES.md - SuperClaude Framework Actionable Rules
+# RULES.md - SuperGemini Framework Actionable Rules
 
-Simple actionable rules for Claude Code SuperClaude framework operation.
+Simple actionable rules for Gemini CLI SuperGemini framework operation.
 
 ## Core Operational Rules
 
@@ -43,11 +43,11 @@ Simple actionable rules for Claude Code SuperClaude framework operation.
 - **Maintain knowledge network**: Ensure memory relationships reflect actual operation dependencies
 
 ### Session Lifecycle Rules
-- **Always use /sc:load**: Initialize every project session via /sc:load command with Serena activation
+- **Always use /sg:load**: Initialize every project session via /sg:load command with Serena activation
 - **Session metadata**: Create and maintain session metadata using Template_Session_Metadata.md structure
 - **Automatic checkpoints**: Trigger checkpoints based on time (30min), task completion (high priority), or risk level
 - **Performance monitoring**: Track and record all operation timings against PRD targets (<200ms memory, <500ms load)
-- **Session persistence**: Use /sc:save regularly and always before session end
+- **Session persistence**: Use /sg:save regularly and always before session end
 - **Context continuity**: Maintain ≥90% context retention across checkpoints and session boundaries
 
 ### Task Reflection Rules (Serena Integration)
@@ -60,7 +60,7 @@ Simple actionable rules for Claude Code SuperClaude framework operation.
 ## Quick Reference
 
 ### Do
-✅ Initialize sessions with /sc:load (Serena activation required)
+✅ Initialize sessions with /sg:load (Serena activation required)
 ✅ Read before Write/Edit/Update
 ✅ Use absolute paths and UTC timestamps
 ✅ Batch tool calls when possible
@@ -76,10 +76,10 @@ Simple actionable rules for Claude Code SuperClaude framework operation.
 ✅ Build upon existing Serena memory entries
 ✅ Cross-reference related Serena memory content
 ✅ Use session metadata template for all sessions
-✅ Call /sc:save before session end
+✅ Call /sg:save before session end
 
 ### Don't
-❌ Start work without /sc:load project activation
+❌ Start work without /sg:load project activation
 ❌ Skip Read operations or Serena memory checks
 ❌ Use relative paths or non-UTC timestamps
 ❌ Auto-commit without permission
@@ -92,13 +92,13 @@ Simple actionable rules for Claude Code SuperClaude framework operation.
 ❌ Start operations without checking Serena memories
 ❌ Ignore existing relevant Serena memory entries
 ❌ Create duplicate work when Serena memories exist
-❌ End sessions without /sc:save
+❌ End sessions without /sg:save
 ❌ Use TodoWrite without Serena integration patterns
 
 ### Auto-Triggers
 - Wave mode: complexity ≥0.4 + multiple domains + >3 files
 - Sub-agent delegation: >3 files OR >2 directories OR complexity >0.4
-- Claude Code agents: automatic delegation based on task context  
+- Gemini CLI agents: automatic delegation based on task context  
 - MCP servers: task type + performance requirements
 - Quality gates: all operations apply 8-step validation
 - Parallel suggestions: Multi-file operations with performance estimates

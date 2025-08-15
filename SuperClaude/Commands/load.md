@@ -25,14 +25,14 @@ performance-targets:
   memory-operations: <200ms
 ---
 
-# /sc:load - Project Context Loading with Serena
+# /sg:load - Project Context Loading with Serena
 
 ## Purpose
 Load and analyze project context using Serena MCP for project activation, memory retrieval, and context management with session lifecycle integration and cross-session persistence capabilities.
 
 ## Usage
 ```
-/sc:load [target] [--type project|config|deps|env|checkpoint] [--refresh] [--analyze] [--checkpoint ID] [--resume] [--validate] [--performance] [--metadata] [--cleanup] [--uc]
+/sg:load [target] [--type project|config|deps|env|checkpoint] [--refresh] [--analyze] [--checkpoint ID] [--resume] [--validate] [--performance] [--metadata] [--cleanup] [--uc]
 ```
 
 ## Arguments
@@ -52,12 +52,12 @@ Load and analyze project context using Serena MCP for project activation, memory
 ## Token Efficiency Integration
 
 ### Optional Token Efficiency Mode
-The `/sc:load` command supports optional Token Efficiency mode via the `--uc` flag:
+The `/sg:load` command supports optional Token Efficiency mode via the `--uc` flag:
 
 - **User Choice**: `--uc` flag can be explicitly specified for compression
 - **Compression Strategy**: When enabled: 30-50% reduction with ≥95% information preservation
 - **Content Classification**:
-  - **SuperClaude Framework** (0% compression): Complete exclusion
+  - **SuperGemini Framework** (0% compression): Complete exclusion
   - **User Project Content** (0% compression): Full fidelity preservation
   - **Session Data** (30-50% compression): Optimized storage when --uc used
 - **Quality Preservation**: Framework compliance with MODE_Token_Efficiency.md patterns
@@ -87,7 +87,7 @@ The `/sc:load` command supports optional Token Efficiency mode via the `--uc` fl
   - **deps**: Analyze package.json/pyproject.toml (preserve user content)
   - **env**: Load environment-specific memories (framework excluded from compression)
 - **Content Classification Strategy**:
-  - **SuperClaude Framework** (Complete exclusion): All framework directories and components
+  - **SuperGemini Framework** (Complete exclusion): All framework directories and components
   - **Session Data** (Apply compression): Session metadata, checkpoints, cache content only
   - **User Project Content** (Preserve fidelity): Project files, user documentation, configurations
 - Handle memory organization, checkpoint creation, or state restoration with selective compression
@@ -158,7 +158,7 @@ The `/sc:load` command supports optional Token Efficiency mode via the `--uc` fl
 - Build comprehensive project understanding from compressed and preserved memories
 - Enhance context through accumulated experience and insights with efficient storage
 - **Compression Application**:
-  - SuperClaude framework components: 0% compression (complete exclusion)
+  - SuperGemini framework components: 0% compression (complete exclusion)
   - User project files and custom configurations: 0% compression (full preservation)
   - Session operational data only: 40-70% compression for storage optimization
 
@@ -246,8 +246,8 @@ The `/sc:load` command supports optional Token Efficiency mode via the `--uc` fl
 
 ## Integration Ecosystem
 
-### SuperClaude Framework Integration
-- **Command Coordination**: Integration with other SuperClaude commands for session support
+### SuperGemini Framework Integration
+- **Command Coordination**: Integration with other SuperGemini commands for session support
 - **Quality Gates**: Integration with validation cycles and quality assurance
 - **Mode Coordination**: Support for different operational modes and contexts
 - **Workflow Integration**: Seamless integration with complex workflow operations
@@ -258,9 +258,9 @@ The `/sc:load` command supports optional Token Efficiency mode via the `--uc` fl
 - **Session Hierarchies**: Managing parent-child session relationships
 - **Continuous Learning**: Each session builds on previous knowledge and insights
 
-### Integration with /sc:save
-- Context loaded by /sc:load is enhanced during session
-- Use /sc:save to persist session changes back to Serena
+### Integration with /sg:save
+- Context loaded by /sg:load is enhanced during session
+- Use /sg:save to persist session changes back to Serena
 - Maintains session lifecycle: load → work → save
 - Session continuity through checkpoint and restoration mechanisms
 
@@ -268,72 +268,72 @@ The `/sc:load` command supports optional Token Efficiency mode via the `--uc` fl
 
 ### Basic Project Load
 ```
-/sc:load
+/sg:load
 # Activates current directory project and loads all memories
 ```
 
 ### Specific Project with Analysis
 ```
-/sc:load ~/projects/webapp --analyze
+/sg:load ~/projects/webapp --analyze
 # Activates webapp project and runs deep analysis
 ```
 
 ### Refresh Configuration
 ```
-/sc:load --type config --refresh
+/sg:load --type config --refresh
 # Reloads configuration memories and updates context
 ```
 
 ### New Project Onboarding
 ```
-/sc:load ./new-project --onboard
+/sg:load ./new-project --onboard
 # Activates and onboards new project, creating initial memories
 ```
 
 ### Session Checkpoint
 ```
-/sc:load --type checkpoint --metadata
+/sg:load --type checkpoint --metadata
 # Create comprehensive checkpoint with metadata
 ```
 
 ### Session Recovery
 ```
-/sc:load --resume --validate
+/sg:load --resume --validate
 # Resume from previous session with validation
 ```
 
 ### Performance Monitoring with Compression
 ```
-/sc:load --performance --validate
+/sg:load --performance --validate
 # Session operation with performance monitoring
 
-/sc:load --optimize-internal --performance
+/sg:load --optimize-internal --performance
 # Enable selective compression with performance tracking
 ```
 
 ### Checkpoint Restoration
 ```
-/sc:load --resume
+/sg:load --resume
 # Automatically resume from latest checkpoint
 
-/sc:load --checkpoint checkpoint-2025-01-31-16:00:00  
+/sg:load --checkpoint checkpoint-2025-01-31-16:00:00  
 # Restore from specific checkpoint ID
 
-/sc:load --type checkpoint MyProject
+/sg:load --type checkpoint MyProject
 # Load project and restore from latest checkpoint
 ```
 
 ### Session Continuity Examples
 ```
 # Previous session workflow:
-/sc:load MyProject              # Initialize session
+/sg:load MyProject              # Initialize session
 # ... work on project ...
-/sc:save --checkpoint          # Create checkpoint
+/sg:save --checkpoint          # Create checkpoint
 
 # Next session workflow:
-/sc:load MyProject --resume    # Resume from checkpoint
+/sg:load MyProject --resume    # Resume from checkpoint
 # ... continue work ...
-/sc:save --summarize          # Save with summary
+/sg:save --summarize          # Save with summary
 ```
 
 ## Boundaries

@@ -1,4 +1,4 @@
-# SuperClaude Entry Point
+# SuperGemini Entry Point
 
 @FLAGS.md
 @PRINCIPLES.md

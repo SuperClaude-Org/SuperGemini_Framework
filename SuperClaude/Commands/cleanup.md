@@ -19,14 +19,14 @@ mcp-integration:
 performance-profile: standard
 ---
 
-# /sc:cleanup - Code and Project Cleanup
+# /sg:cleanup - Code and Project Cleanup
 
 ## Purpose
 Systematically clean up code, remove dead code, optimize imports, and improve project structure through intelligent analysis and safety-validated operations. This command serves as the primary maintenance engine for codebase hygiene, providing automated cleanup workflows, dead code detection, and structural optimization with comprehensive validation.
 
 ## Usage
 ```
-/sc:cleanup [target] [--type code|imports|files|all] [--safe|--aggressive] [--interactive]
+/sg:cleanup [target] [--type code|imports|files|all] [--safe|--aggressive] [--interactive]
 ```
 
 ## Arguments
@@ -133,25 +133,25 @@ The command automatically activates relevant personas based on cleanup scope:
 
 ### Safe Code Cleanup
 ```
-/sc:cleanup src/ --type code --safe --backup
+/sg:cleanup src/ --type code --safe --backup
 # Conservative code cleanup with automatic backup
 ```
 
 ### Import Optimization
 ```
-/sc:cleanup project --type imports --preview --validate
+/sg:cleanup project --type imports --preview --validate
 # Import cleanup with preview and validation
 ```
 
 ### Aggressive Project Cleanup
 ```
-/sc:cleanup entire-project --type all --aggressive --interactive
+/sg:cleanup entire-project --type all --aggressive --interactive
 # Comprehensive cleanup with user interaction for safety
 ```
 
 ### Dead Code Removal
 ```
-/sc:cleanup legacy-modules --type code --dry-run
+/sg:cleanup legacy-modules --type code --dry-run
 # Dead code analysis with preview of removal operations
 ```
 
@@ -177,12 +177,12 @@ The command automatically activates relevant personas based on cleanup scope:
 ## Integration Patterns
 
 ### Command Coordination
-- **Preparation Commands**: Often follows /sc:analyze or /sc:improve for cleanup planning
-- **Follow-up Commands**: Commonly followed by /sc:test, /sc:improve, or /sc:validate
-- **Parallel Commands**: Can run alongside /sc:optimize for comprehensive codebase maintenance
+- **Preparation Commands**: Often follows /sg:analyze or /sg:improve for cleanup planning
+- **Follow-up Commands**: Commonly followed by /sg:test, /sg:improve, or /sg:validate
+- **Parallel Commands**: Can run alongside /sg:optimize for comprehensive codebase maintenance
 
 ### Framework Integration
-- **SuperClaude Ecosystem**: Integrates with quality gates and validation cycles
+- **SuperGemini Ecosystem**: Integrates with quality gates and validation cycles
 - **Quality Gates**: Participates in the 8-step validation process for cleanup verification
 - **Session Management**: Maintains cleanup context across session boundaries
 

@@ -19,14 +19,14 @@ mcp-integration:
 performance-profile: specialized
 ---
 
-# /sc:select-tool - Intelligent MCP Tool Selection
+# /sg:select-tool - Intelligent MCP Tool Selection
 
 ## Purpose
 Analyze requested operations and determine the optimal MCP tool (Serena or Morphllm) based on sophisticated complexity scoring, operation type classification, and performance requirements. This meta-system command provides intelligent routing to ensure optimal tool selection with <100ms decision time and >95% accuracy.
 
 ## Usage
 ```
-/sc:select-tool [operation] [--analyze] [--explain] [--force serena|morphllm]
+/sg:select-tool [operation] [--analyze] [--explain] [--force serena|morphllm]
 ```
 
 ## Arguments
@@ -51,7 +51,7 @@ Analyze requested operations and determine the optimal MCP tool (Serena or Morph
 
 ### 3. Custom Integration
 - **MCP Server Coordination**: Seamless integration with Serena and Morphllm servers
-- **Framework Routing**: Automatic integration with other SuperClaude commands
+- **Framework Routing**: Automatic integration with other SuperGemini commands
 - **Performance Optimization**: Sub-100ms decision time with confidence scoring
 
 ### 4. Specialized Validation
@@ -135,10 +135,10 @@ Analyze requested operations and determine the optimal MCP tool (Serena or Morph
 
 ## Integration Patterns
 
-### SuperClaude Framework Integration
+### SuperGemini Framework Integration
 - **Automatic Command Integration**: Used by refactor, edit, implement, improve commands
 - **Performance Monitoring**: Integration with framework performance tracking
-- **Quality Gates**: Selection validation within SuperClaude quality assurance cycle
+- **Quality Gates**: Selection validation within SuperGemini quality assurance cycle
 
 ### Custom MCP Integration
 - **Serena Coordination**: Symbol analysis, multi-file operations, LSP integration
@@ -146,7 +146,7 @@ Analyze requested operations and determine the optimal MCP tool (Serena or Morph
 - **Availability Management**: Real-time server status and capability assessment
 
 ### Specialized System Coordination
-- **Command Workflow**: Seamless integration with other SuperClaude commands
+- **Command Workflow**: Seamless integration with other SuperGemini commands
 - **Performance Tracking**: Selection effectiveness and execution success monitoring
 - **Framework Evolution**: Continuous improvement of selection algorithms
 
@@ -171,25 +171,25 @@ Analyze requested operations and determine the optimal MCP tool (Serena or Morph
 
 ### Basic Specialized Operation
 ```
-/sc:select-tool "fix typo in README.md"
+/sg:select-tool "fix typo in README.md"
 # Result: Morphllm (simple edit, single file, token optimization beneficial)
 ```
 
 ### Advanced Specialized Usage
 ```
-/sc:select-tool "extract authentication logic into separate service" --analyze --explain
+/sg:select-tool "extract authentication logic into separate service" --analyze --explain
 # Result: Serena (high complexity, architectural change, needs LSP and semantic analysis)
 ```
 
 ### System-Level Operation
 ```
-/sc:select-tool "rename function getUserData to fetchUserProfile across all files" --validate
+/sg:select-tool "rename function getUserData to fetchUserProfile across all files" --validate
 # Result: Serena (symbol operation, multi-file scope, cross-file dependencies)
 ```
 
 ### Meta-Operation Example
 ```
-/sc:select-tool "convert all var declarations to const in JavaScript files" --dry-run --explain
+/sg:select-tool "convert all var declarations to const in JavaScript files" --dry-run --explain
 # Result: Morphllm (pattern-based operation, token optimization, framework patterns)
 ```
 
@@ -203,19 +203,19 @@ Analyze requested operations and determine the optimal MCP tool (Serena or Morph
 ### Custom Success Metrics
 - **Decision Confidence**: Confidence scoring for selection decisions with uncertainty indicators
 - **Execution Effectiveness**: Track actual performance of selected tools vs alternatives
-- **Integration Success**: Seamless integration with SuperClaude command ecosystem
+- **Integration Success**: Seamless integration with SuperGemini command ecosystem
 
 ### Specialized Compliance Requirements
-- **Framework Integration**: Full compliance with SuperClaude orchestration patterns
+- **Framework Integration**: Full compliance with SuperGemini orchestration patterns
 - **Performance Standards**: Meet or exceed specified timing and accuracy requirements
-- **Quality Assurance**: Integration with SuperClaude quality gate validation cycle
+- **Quality Assurance**: Integration with SuperGemini quality gate validation cycle
 
 ## Boundaries
 
 **This specialized command will:**
 - Analyze operations and select optimal MCP tools with >95% accuracy
 - Provide sub-100ms decision time with detailed complexity scoring
-- Integrate seamlessly with other SuperClaude commands for automatic tool routing
+- Integrate seamlessly with other SuperGemini commands for automatic tool routing
 - Maintain high success rates through intelligent fallback and error recovery
 
 **This specialized command will not:**

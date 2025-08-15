@@ -1,12 +1,12 @@
-# SuperClaude User Guide 🚀
+# SuperGemini User Guide 🚀
 
 ## 🎯 The Simple Truth
 
-**Behind the apparent complexity, SuperClaude is actually simple to use.**
+**Behind the apparent complexity, SuperGemini is actually simple to use.**
 
 You don't need to learn all the commands, flags, and personas. Just start using it! 🎈
 
-SuperClaude has an **intelligent routing system** that tries to figure out what you need:
+SuperGemini has an **intelligent routing system** that tries to figure out what you need:
 - Type `/analyze some-code/` → It picks the right analysis tools
 - Ask about security → Security expert auto-activates  
 - Work on frontend → UI specialist takes over
@@ -22,7 +22,7 @@ The detailed guides below? They're here **when you want to understand** what jus
 
 ---
 
-A comprehensive guide to understanding and using SuperClaude V4 Beta effectively. But remember - you can skip straight to trying it out!
+A comprehensive guide to understanding and using SuperGemini V4 Beta effectively. But remember - you can skip straight to trying it out!
 
 ## Table of Contents 📖
 
@@ -46,17 +46,17 @@ A comprehensive guide to understanding and using SuperClaude V4 Beta effectively
 **Want to skip the reading and jump right in?** Here's your 2-minute getting started:
 
 ```bash
-# Try these commands in Claude Code:
-/sc:load                    # Initialize session with project context (NEW!)
-/sc:analyze README.md       # SuperClaude analyzes your project
-/sc:brainstorm "task app"   # Interactive requirements discovery (NEW!)
-/sc:implement user-auth     # Create features and components
-/sc:build                   # Smart build with auto-optimization  
-/sc:improve messy-file.js   # Clean up code automatically
-/sc:save                    # Save session state and insights (NEW!)
+# Try these commands in Gemini CLI:
+/sg:load                    # Initialize session with project context (NEW!)
+/sg:analyze README.md       # SuperGemini analyzes your project
+/sg:brainstorm "task app"   # Interactive requirements discovery (NEW!)
+/sg:implement user-auth     # Create features and components
+/sg:build                   # Smart build with auto-optimization  
+/sg:improve messy-file.js   # Clean up code automatically
+/sg:save                    # Save session state and insights (NEW!)
 ```
 
-**What just happened?** SuperClaude automatically:
+**What just happened?** SuperGemini automatically:
 - Initialized persistent session context 🧠
 - Picked the right tools for each task 🛠️
 - Activated appropriate specialized agents 🎭  
@@ -64,7 +64,7 @@ A comprehensive guide to understanding and using SuperClaude V4 Beta effectively
 - Provided evidence-based suggestions 📊
 - Saved insights for future sessions 💾
 
-**See how easy that was?** No studying required - SuperClaude figures out the complexity so you don't have to.
+**See how easy that was?** No studying required - SuperGemini figures out the complexity so you don't have to.
 
 Want to understand how it works? Keep reading. Want to just keep experimenting? Go for it! 🎯
 
@@ -72,15 +72,15 @@ Want to understand how it works? Keep reading. Want to just keep experimenting? 
 
 ## Welcome & Overview 👋
 
-### What is SuperClaude Really? 🤔
+### What is SuperGemini Really? 🤔
 
-SuperClaude makes Claude Code smarter for development work. Instead of generic responses, you get specialized help from different agents (security, performance, frontend, etc.) who know their stuff, plus session persistence and behavioral intelligence.
+SuperGemini makes Gemini CLI smarter for development work. Instead of generic responses, you get specialized help from different agents (security, performance, frontend, etc.) who know their stuff, plus session persistence and behavioral intelligence.
 
 **The honest truth**: V4 Beta represents a major architectural evolution with new session lifecycle management, behavioral modes, and an advanced hooks system. While still in beta, it's significantly more capable than v3, with better context management and intelligent agent coordination.
 
-**The neat part?** You don't need to manage any of this complexity. Just use normal commands like `/analyze` or `/build` and SuperClaude usually figures out which experts to involve and what tools to use. 🪄
+**The neat part?** You don't need to manage any of this complexity. Just use normal commands like `/analyze` or `/build` and SuperGemini usually figures out which experts to involve and what tools to use. 🪄
 
-### What SuperClaude Adds ✨
+### What SuperGemini Adds ✨
 
 **🛠️ 21 Specialized Commands**
 - **Planning tools**: `/estimate`, `/task`, `/brainstorm` (NEW!)
@@ -89,7 +89,7 @@ SuperClaude makes Claude Code smarter for development work. Instead of generic r
 - **Quality tools**: `/improve`, `/cleanup`, `/test`
 - **Session tools**: `/load` (NEW!), `/save` (NEW!), `/reflect` (NEW!)
 - **Plus utilities** for documentation, git, deployment, and more
-- **You just use them** - SuperClaude handles the complexity automatically
+- **You just use them** - SuperGemini handles the complexity automatically
 - **V4 NEW**: Session lifecycle commands for persistent context
 - **V4 NEW**: Interactive brainstorming and reflection capabilities 
 
@@ -117,18 +117,18 @@ SuperClaude makes Claude Code smarter for development work. Instead of generic r
 - **Auto-activate based on context** - you don't configure them
 
 **🏗️ Session Lifecycle System** *(persistent intelligence)*
-- Session initialization with `/sc:load` (NEW!)
+- Session initialization with `/sg:load` (NEW!)
 - Persistent context and memory across sessions (NEW!)
 - Automatic checkpoints and progress tracking (NEW!)
-- Session reflection and insights with `/sc:reflect` (NEW!)
-- **Cross-session learning** - SuperClaude remembers and improves
+- Session reflection and insights with `/sg:reflect` (NEW!)
+- **Cross-session learning** - SuperGemini remembers and improves
 
 **🔌 Hooks System** *(extensible architecture)*
 - Performance monitoring and optimization (NEW!)
 - Quality gates with 8-step validation (NEW!)
 - Framework coordination and orchestration (NEW!)
 - Session lifecycle integration (NEW!)
-- **SuperClaude-Lite** variant for streamlined usage (NEW!)
+- **SuperGemini-Lite** variant for streamlined usage (NEW!)
 
 ### Current Status (V4 Beta) 📊
 
@@ -139,7 +139,7 @@ SuperClaude makes Claude Code smarter for development work. Instead of generic r
 - 6 MCP servers with Morphllm and Serena integration
 - 4 behavioral modes with intelligent auto-activation
 - Advanced hooks system with performance monitoring
-- SuperClaude-Lite for streamlined workflows
+- SuperGemini-Lite for streamlined workflows
 
 **⚠️ What's Still Beta:**
 - Session persistence optimization (performance tuning ongoing)
@@ -158,7 +158,7 @@ V4 Beta represents a significant architectural evolution with much more sophisti
 
 ### How It Works 🔄
 
-**The simple version**: You type something like `/analyze auth.js` and SuperClaude figures out the rest.
+**The simple version**: You type something like `/analyze auth.js` and SuperGemini figures out the rest.
 
 **The slightly more detailed version**:
 
@@ -169,7 +169,7 @@ V4 Beta represents a significant architectural evolution with much more sophisti
 
 **You don't see any of this complexity** - it just feels like Claude got way smarter about development stuff. 
 
-The nice thing is that most of this usually happens automatically. You make a request, SuperClaude tries to figure out a good approach, and executes with appropriate tools and expertise. Usually no configuration or setup needed - just hopefully better results. ✨
+The nice thing is that most of this usually happens automatically. You make a request, SuperGemini tries to figure out a good approach, and executes with appropriate tools and expertise. Usually no configuration or setup needed - just hopefully better results. ✨
 
 ### Quick Feature Overview 🎯
 
@@ -183,13 +183,13 @@ The nice thing is that most of this usually happens automatically. You make a re
 | **Session Lifecycle** | Persistent context across sessions | [This guide](#session-lifecycle-system-) |
 | **Orchestrator** | The smart routing that makes it all work | [This guide](#the-orchestrator-system-) |
 
-**Remember**: You can use SuperClaude effectively without reading any of these guides. They're here when you get curious about how it works! 🎪
+**Remember**: You can use SuperGemini effectively without reading any of these guides. They're here when you get curious about how it works! 🎪
 
 ---
 
 ## Core Components 🧩
 
-SuperClaude is built from several interconnected systems that work together. Here's how each component fits into the bigger picture.
+SuperGemini is built from several interconnected systems that work together. Here's how each component fits into the bigger picture.
 
 ### Commands: Your Toolkit 🛠️
 
@@ -233,7 +233,7 @@ Each command has its own flags, auto-activates appropriate personas, and integra
 
 ### Flags: Behavior Modifiers 🏁
 
-Flags change how SuperClaude processes your requests. They're like command-line options that modify behavior, add capabilities, or change output style.
+Flags change how SuperGemini processes your requests. They're like command-line options that modify behavior, add capabilities, or change output style.
 
 **Key Flag Categories:**
 
@@ -343,7 +343,7 @@ The neat part is when components coordinate:
 
 **Example: Security Analysis Request**
 ```bash
-/sc:analyze auth-system/ --focus security
+/sg:analyze auth-system/ --focus security
 ```
 
 **What usually happens:**
@@ -355,13 +355,13 @@ The neat part is when components coordinate:
 
 **Result**: Security-focused analysis with threat modeling perspective, systematic methodology, and comprehensive coverage.
 
-This coordination usually happens for most requests - SuperClaude tries to figure out a good combination of tools and expertise for your specific need.
+This coordination usually happens for most requests - SuperGemini tries to figure out a good combination of tools and expertise for your specific need.
 
 ---
 
 ## The Four Behavioral Modes 🧠
 
-SuperClaude V4 Beta features four intelligent behavioral modes that automatically adapt to different types of work. These modes provide specialized behavior patterns while maintaining the same command interface.
+SuperGemini V4 Beta features four intelligent behavioral modes that automatically adapt to different types of work. These modes provide specialized behavior patterns while maintaining the same command interface.
 
 ### 1. Brainstorming Mode 🎯 *(NEW!)*
 
@@ -377,7 +377,7 @@ SuperClaude V4 Beta features four intelligent behavioral modes that automaticall
 
 **Example Usage**:
 ```bash
-/sc:brainstorm "task management app"
+/sg:brainstorm "task management app"
 # → Interactive dialogue to discover requirements
 # → Generates comprehensive project brief
 # → Hands off to brainstorm-PRD agent
@@ -385,7 +385,7 @@ SuperClaude V4 Beta features four intelligent behavioral modes that automaticall
 
 ### 2. Introspection Mode 🧠 *(NEW!)*
 
-**What it is**: Meta-cognitive analysis of SuperClaude's own reasoning and decision-making.
+**What it is**: Meta-cognitive analysis of SuperGemini's own reasoning and decision-making.
 
 **When it activates**: Complex problem-solving, error recovery, framework troubleshooting.
 
@@ -397,7 +397,7 @@ SuperClaude V4 Beta features four intelligent behavioral modes that automaticall
 
 **Example Usage**:
 ```bash
-/sc:analyze complex-issue/ --introspect
+/sg:analyze complex-issue/ --introspect
 # → Meta-cognitive analysis of approach
 # → Framework compliance checking
 # → Alternative strategy consideration
@@ -418,14 +418,14 @@ SuperClaude V4 Beta features four intelligent behavioral modes that automaticall
 #### Four Layers of Task Management
 
 **Layer 1: Session Tasks (TodoRead/TodoWrite)**
-- **Scope**: Current Claude Code session
+- **Scope**: Current Gemini CLI session
 - **Capacity**: 3-20 tasks per session
 - **States**: pending 📋, in_progress 🔄, completed ✅, blocked 🚧
 - **Usage**: Real-time progress tracking for immediate work
 
 ```bash
-# SuperClaude usually creates and manages session tasks
-/sc:build large-project/
+# SuperGemini usually creates and manages session tasks
+/sg:build large-project/
 # → Creates: "Analyze project structure", "Run build process", "Validate output"
 ```
 
@@ -436,9 +436,9 @@ SuperClaude V4 Beta features four intelligent behavioral modes that automaticall
 - **Usage**: Long-term feature development
 
 ```bash
-/sc:task create "implement user dashboard" --priority high
-/sc:task breakdown "payment integration"
-/sc:task status  # Check current project tasks
+/sg:task create "implement user dashboard" --priority high
+/sg:task breakdown "payment integration"
+/sg:task status  # Check current project tasks
 ```
 
 **Layer 3: Complex Orchestration (/spawn command)**
@@ -447,8 +447,8 @@ SuperClaude V4 Beta features four intelligent behavioral modes that automaticall
 - **Usage**: Operations involving multiple tools/systems
 
 ```bash
-/sc:spawn deploy-pipeline --parallel
-/sc:spawn setup-dev-environment --monitor
+/sg:spawn deploy-pipeline --parallel
+/sg:spawn setup-dev-environment --monitor
 ```
 
 **Layer 4: Iterative Enhancement (/loop command)**
@@ -457,7 +457,7 @@ SuperClaude V4 Beta features four intelligent behavioral modes that automaticall
 - **Usage**: Quality improvement and refinement
 
 ```bash
-/sc:improve messy-code.js --loop --iterations 3
+/sg:improve messy-code.js --loop --iterations 3
 # → Iteratively improves code with validation between cycles
 ```
 
@@ -476,7 +476,7 @@ SuperClaude V4 Beta features four intelligent behavioral modes that automaticall
 **Example Features**:
 ```bash
 # Automatically activates for large operations
-/sc:analyze enterprise-codebase/ 
+/sg:analyze enterprise-codebase/ 
 # → Token Efficiency Mode activates
 # → Applies symbol systems and compression
 # → Maintains quality while reducing tokens by 30-50%
@@ -492,13 +492,13 @@ SuperClaude V4 Beta features four intelligent behavioral modes that automaticall
 
 ## Session Lifecycle System 🏗️ *(NEW in V4!)*
 
-SuperClaude V4 Beta introduces persistent session management that remembers your work across multiple sessions, enabling continuous learning and context preservation.
+SuperGemini V4 Beta introduces persistent session management that remembers your work across multiple sessions, enabling continuous learning and context preservation.
 
 ### Core Concept
 
 ```
 ┌─────────────┐     ┌─────────────┐     ┌─────────────┐     ┌─────────────┐
-│  /sc:load   │────▶│    WORK     │────▶│  /sc:save   │────▶│    NEXT     │
+│  /sg:load   │────▶│    WORK     │────▶│  /sg:save   │────▶│    NEXT     │
 │  (INIT)     │     │  (ACTIVE)   │     │ (CHECKPOINT)│     │  SESSION    │
 └─────────────┘     └─────────────┘     └─────────────┘     └─────────────┘
        │                                                              │
@@ -507,7 +507,7 @@ SuperClaude V4 Beta introduces persistent session management that remembers your
 
 ### Session States
 
-**1. INITIALIZING** (`/sc:load`)
+**1. INITIALIZING** (`/sg:load`)
 - Activate project via Serena memory system
 - Load existing memories and context
 - Initialize session metadata and tracking
@@ -519,13 +519,13 @@ SuperClaude V4 Beta introduces persistent session management that remembers your
 - Decisions logged for replay
 - Automatic checkpoint triggers
 
-**3. CHECKPOINTED** (`/sc:save`)
+**3. CHECKPOINTED** (`/sg:save`)
 - Analyze session changes and insights  
 - Persist discoveries to memory
 - Create checkpoint records
 - Generate summaries if requested
 
-**4. RESUMED** (Next `/sc:load`)
+**4. RESUMED** (Next `/sg:load`)
 - Load latest checkpoint and context
 - Restore session state and data
 - Display resumption summary
@@ -533,30 +533,30 @@ SuperClaude V4 Beta introduces persistent session management that remembers your
 
 ### Key Session Commands
 
-**`/sc:load` - Session Initialization**
+**`/sg:load` - Session Initialization**
 ```bash
-/sc:load                    # Initialize current project
-/sc:load --deep            # Deep context loading
-/sc:load --resume          # Resume from last checkpoint
+/sg:load                    # Initialize current project
+/sg:load --deep            # Deep context loading
+/sg:load --resume          # Resume from last checkpoint
 ```
 
-**`/sc:save` - Session Persistence**
+**`/sg:save` - Session Persistence**
 ```bash
-/sc:save                    # Save current session state
-/sc:save --checkpoint       # Create checkpoint
-/sc:save --summarize        # Include session summary
+/sg:save                    # Save current session state
+/sg:save --checkpoint       # Create checkpoint
+/sg:save --summarize        # Include session summary
 ```
 
-**`/sc:reflect` - Session Analysis**
+**`/sg:reflect` - Session Analysis**
 ```bash
-/sc:reflect --type task     # Validate current task
-/sc:reflect --type session # Analyze session progress
-/sc:reflect --type completion # Check if work is complete
+/sg:reflect --type task     # Validate current task
+/sg:reflect --type session # Analyze session progress
+/sg:reflect --type completion # Check if work is complete
 ```
 
 ### Automatic Checkpoints
 
-SuperClaude automatically creates checkpoints:
+SuperGemini automatically creates checkpoints:
 - **Task-Based**: Major task completion
 - **Time-Based**: Every 30 minutes of active work
 - **Risk-Based**: Before high-risk operations  
@@ -585,7 +585,7 @@ memories/
 ### Benefits
 
 **Cross-Session Learning**
-- SuperClaude remembers project patterns and decisions
+- SuperGemini remembers project patterns and decisions
 - Context builds over time rather than starting fresh
 - Previous work informs future recommendations
 
@@ -601,9 +601,9 @@ memories/
 
 ---
 
-## Hooks System & SuperClaude-Lite 🔌 *(NEW in V4!)*
+## Hooks System & SuperGemini-Lite 🔌 *(NEW in V4!)*
 
-V4 Beta introduces an advanced hooks system for extensibility and SuperClaude-Lite for streamlined workflows.
+V4 Beta introduces an advanced hooks system for extensibility and SuperGemini-Lite for streamlined workflows.
 
 ### Hooks System Architecture
 
@@ -624,14 +624,14 @@ V4 Beta introduces an advanced hooks system for extensibility and SuperClaude-Li
 - Quality preservation metrics
 
 **Framework Coordination**
-- Seamless integration with all SuperClaude components
+- Seamless integration with all SuperGemini components
 - Session lifecycle management and checkpointing
 - Cross-mode behavioral coordination
 - MCP server orchestration
 
-### SuperClaude-Lite Variant
+### SuperGemini-Lite Variant
 
-**What it is**: Streamlined version of SuperClaude optimized for specific workflows.
+**What it is**: Streamlined version of SuperGemini optimized for specific workflows.
 
 **Key Features**:
 - **Reduced complexity**: Simplified command set focused on core functionality
@@ -639,23 +639,23 @@ V4 Beta introduces an advanced hooks system for extensibility and SuperClaude-Li
 - **Targeted use cases**: Specialized for quick analysis, code review, and documentation
 - **Easy deployment**: Lighter installation with fewer dependencies
 
-**When to use SuperClaude-Lite**:
+**When to use SuperGemini-Lite**:
 - Quick code reviews and analysis
 - Documentation generation workflows
 - Performance-critical environments
 - Teams wanting focused functionality
 - CI/CD pipeline integration
 
-**Relationship to Full SuperClaude**:
+**Relationship to Full SuperGemini**:
 - Shares core architecture and quality standards
 - Compatible session formats and memory systems
-- Can upgrade to full SuperClaude when needed
+- Can upgrade to full SuperGemini when needed
 - Maintains behavioral consistency
 - Considers alternative approaches
 - Identifies optimization opportunities
 
 **Framework Compliance Check** 🔍
-- Validates actions against SuperClaude rules and principles
+- Validates actions against SuperGemini rules and principles
 - Identifies deviations from standard patterns
 - Provides corrective guidance when needed
 - Ensures quality standards are met
@@ -682,13 +682,13 @@ When introspection mode is active, you'll see these markers:
 **Usually activates for**:
 - Complex multi-step problems requiring meta-cognitive oversight
 - Error recovery when outcomes don't match expectations
-- Framework discussions or SuperClaude troubleshooting
+- Framework discussions or SuperGemini troubleshooting
 - Pattern recognition needs for recurring behaviors
 
 **Manual activation**:
 ```bash
-/sc:analyze complex-system/ --introspect
-/sc:troubleshoot "framework confusion" --introspection
+/sg:analyze complex-system/ --introspect
+/sg:troubleshoot "framework confusion" --introspection
 ```
 
 ### Token Efficiency Mode ⚡
@@ -740,8 +740,8 @@ When introspection mode is active, you'll see these markers:
 
 **Manual activation**:
 ```bash
-/sc:analyze huge-codebase/ --uc  # Ultra-compressed mode
-/sc:improve legacy-system/ --uc --delegate auto  # Efficient large operations
+/sg:analyze huge-codebase/ --uc  # Ultra-compressed mode
+/sg:improve legacy-system/ --uc --delegate auto  # Efficient large operations
 ```
 
 **Performance Goals** (still improving!):
@@ -755,7 +755,7 @@ When introspection mode is active, you'll see these markers:
 The three modes often work together:
 
 ```bash
-/sc:improve large-legacy-system/ --wave-mode auto --uc --introspect
+/sg:improve large-legacy-system/ --wave-mode auto --uc --introspect
 ```
 
 **What happens**:
@@ -767,7 +767,7 @@ The three modes often work together:
 
 ## The Orchestrator System 🎯
 
-The orchestrator is SuperClaude's intelligent routing system that tries to analyze your requests and coordinate a good combination of tools, personas, and integrations. It's what hopefully makes SuperClaude feel smart and responsive rather than just a collection of separate tools.
+The orchestrator is SuperGemini's intelligent routing system that tries to analyze your requests and coordinate a good combination of tools, personas, and integrations. It's what hopefully makes SuperGemini feel smart and responsive rather than just a collection of separate tools.
 
 ### How the Orchestrator Works 🔄
 
@@ -805,20 +805,20 @@ The detection engine analyzes every request through multiple lenses:
 
 **High-Confidence Triggers** (90%+ activation):
 ```bash
-/sc:analyze auth-system/ --focus security
+/sg:analyze auth-system/ --focus security
 # → 🛡️ security persona + Sequential MCP + --validate flag
 ```
 
 **Context-Based Activation**:
 ```bash
-/sc:build react-components/
+/sg:build react-components/
 # → 🎨 frontend persona + Magic MCP + --c7 flag (React docs)
 ```
 
 **Performance-Based Activation**:
 ```bash
 # When context usage >75%
-/sc:analyze large-project/
+/sg:analyze large-project/
 # → Auto-adds --uc flag for compression
 ```
 
@@ -840,7 +840,7 @@ The routing system uses dynamic decision trees to map detected patterns to optim
 
 **Multi-Server Operations**:
 ```bash
-/sc:design user-dashboard --type api
+/sg:design user-dashboard --type api
 ```
 **Orchestrator usually coordinates**:
 - 🏗️ architect persona (system design)
@@ -855,7 +855,7 @@ The routing system uses dynamic decision trees to map detected patterns to optim
 
 ### Quality Gates & Validation Framework ✅
 
-SuperClaude tries to implement an 8-step validation cycle for operations:
+SuperGemini tries to implement an 8-step validation cycle for operations:
 
 #### 8-Step Quality Process
 
@@ -903,14 +903,14 @@ The orchestrator tries to optimize for good performance through several strategi
 **Sub-Agent Delegation**:
 ```bash
 # Auto-activates when >7 directories or >50 files detected
-/sc:analyze monorepo/
+/sg:analyze monorepo/
 # → --delegate auto flag + parallel processing
 ```
 
 **Wave Orchestration**:
 ```bash
 # Auto-activates when complexity >0.7 + files >20 + operation types >2
-/sc:improve legacy-system/
+/sg:improve legacy-system/
 # → --wave-mode auto + multi-stage execution
 ```
 
@@ -918,7 +918,7 @@ The orchestrator tries to optimize for good performance through several strategi
 
 #### Example 1: Security Analysis Request
 ```bash
-/sc:analyze user-auth/ --focus security
+/sg:analyze user-auth/ --focus security
 ```
 
 **Orchestrator Analysis**:
@@ -936,7 +936,7 @@ The orchestrator tries to optimize for good performance through several strategi
 
 #### Example 2: Frontend Performance Optimization
 ```bash
-/sc:improve slow-dashboard/ --focus performance
+/sg:improve slow-dashboard/ --focus performance
 ```
 
 **Orchestrator Analysis**:
@@ -954,7 +954,7 @@ The orchestrator tries to optimize for good performance through several strategi
 
 #### Example 3: Large Codebase Analysis  
 ```bash
-/sc:analyze enterprise-monorepo/
+/sg:analyze enterprise-monorepo/
 ```
 
 **Orchestrator Analysis**:
@@ -996,16 +996,16 @@ The orchestrator tries to learn from successful patterns and improve future rout
 
 ## Rules & Principles 📏
 
-SuperClaude operates according to core rules and principles that ensure consistent, reliable, and helpful behavior. Understanding these helps you predict how SuperClaude will approach problems and why it makes certain decisions.
+SuperGemini operates according to core rules and principles that ensure consistent, reliable, and helpful behavior. Understanding these helps you predict how SuperGemini will approach problems and why it makes certain decisions.
 
 ### Core Operational Rules ⚖️
 
-These are the core rules that SuperClaude tries to follow:
+These are the core rules that SuperGemini tries to follow:
 
 #### File Operation Security 🔐
-- **Always Read before Write/Edit** - SuperClaude never modifies files without understanding current content
+- **Always Read before Write/Edit** - SuperGemini never modifies files without understanding current content
 - **Use absolute paths only** - Prevents path traversal attacks and ensures reliable file operations
-- **Never auto-commit** - SuperClaude won't commit changes to git unless explicitly requested
+- **Never auto-commit** - SuperGemini won't commit changes to git unless explicitly requested
 - **Prefer batch operations** - Multiple related changes are grouped for consistency
 
 **Why this matters**: These rules prevent data loss, security vulnerabilities, and unintended modifications to your codebase.
@@ -1028,7 +1028,7 @@ These are the core rules that SuperClaude tries to follow:
 
 ### Development Principles 🛠️
 
-These principles guide how SuperClaude approaches development problems:
+These principles guide how SuperGemini approaches development problems:
 
 #### Evidence-Based Decision Making 📊
 **Primary Directive**: "Evidence > assumptions | Code > documentation | Efficiency > verbosity"
@@ -1040,7 +1040,7 @@ These principles guide how SuperClaude approaches development problems:
 
 **In practice**:
 ```bash
-/sc:improve slow-api/ --focus performance
+/sg:improve slow-api/ --focus performance
 # → Measures current performance, identifies bottlenecks, optimizes based on data
 ```
 
@@ -1051,7 +1051,7 @@ These principles guide how SuperClaude approaches development problems:
 - **Interface Segregation** - No forced dependencies on unused interfaces
 - **Dependency Inversion** - Depend on abstractions, not concretions
 
-**Why SuperClaude follows these**: Leads to maintainable, scalable, and flexible code that's easier to understand and modify.
+**Why SuperGemini follows these**: Leads to maintainable, scalable, and flexible code that's easier to understand and modify.
 
 #### Quality Philosophy ✨
 - **Prevention over detection** - Build quality in rather than test it in
@@ -1060,7 +1060,7 @@ These principles guide how SuperClaude approaches development problems:
 - **Security by default** - Implement secure patterns from the start
 
 #### Senior Developer Mindset 🎓
-SuperClaude approaches problems like an experienced developer:
+SuperGemini approaches problems like an experienced developer:
 
 - **Systems thinking** - Consider impacts across the entire system
 - **Long-term perspective** - Decisions evaluated against multiple time horizons
@@ -1070,10 +1070,10 @@ SuperClaude approaches problems like an experienced developer:
 ### How Rules & Principles Affect You 💡
 
 #### Predictable Behavior
-Because SuperClaude follows consistent rules, you can predict how it will approach problems:
+Because SuperGemini follows consistent rules, you can predict how it will approach problems:
 
 ```bash
-/sc:improve legacy-authentication/
+/sg:improve legacy-authentication/
 ```
 **You can expect**:
 - Reading existing code before suggesting changes
@@ -1085,16 +1085,16 @@ Because SuperClaude follows consistent rules, you can predict how it will approa
 #### Quality Assurance
 The principles ensure high-quality outcomes:
 
-- **Tries to avoid magic changes** - SuperClaude usually explains its reasoning
+- **Tries to avoid magic changes** - SuperGemini usually explains its reasoning
 - **Aims for no breaking changes** - Tries to preserve existing functionality
 - **Security-conscious** - Security principles are important
 - **Debt-aware** - Tries to maintain or reduce complexity
 
 #### Transparency
-You should usually understand what SuperClaude is doing and why:
+You should usually understand what SuperGemini is doing and why:
 
 ```bash
-/sc:analyze --introspect complex-system/
+/sg:analyze --introspect complex-system/
 ```
 **Shows you**:
 - Decision-making process
@@ -1151,7 +1151,7 @@ You should usually understand what SuperClaude is doing and why:
 
 ### Rule Enforcement & Quality Gates 🚨
 
-SuperClaude enforces rules through its quality gate system:
+SuperGemini enforces rules through its quality gate system:
 
 #### Enforcement Approach
 - **Pre-operation validation** - Checks risks before starting
@@ -1164,7 +1164,7 @@ Sometimes rules might seem to conflict with immediate needs:
 
 **Example**: "Just make this work quickly, don't worry about quality"
 
-**SuperClaude's response**:
+**SuperGemini's response**:
 - Acknowledges the urgency
 - Explains why quality rules matter for long-term success
 - Offers compromise solutions that maintain essential rules
@@ -1196,19 +1196,19 @@ The goal is to maintain helpful, predictable behavior while adapting to the chan
 
 ## Getting Started Workflows 🛣️
 
-Now that you understand SuperClaude's components, let's look at practical workflows for different development scenarios. These patterns will help you get productive quickly.
+Now that you understand SuperGemini's components, let's look at practical workflows for different development scenarios. These patterns will help you get productive quickly.
 
 ### First-Time Setup 🎬
 
-If you haven't installed SuperClaude yet, see the [Installation Guide](installation-guide.md). Once installed, here's how to get started:
+If you haven't installed SuperGemini yet, see the [Installation Guide](installation-guide.md). Once installed, here's how to get started:
 
 #### Quick Verification
 ```bash
 # Test basic functionality
-/sc:help                    # Should show SuperClaude commands
-/sc:load                    # Initialize session (NEW!)
-/sc:analyze README.md       # Try analyzing a simple file
-/sc:save                    # Save session state (NEW!)
+/sg:help                    # Should show SuperGemini commands
+/sg:load                    # Initialize session (NEW!)
+/sg:analyze README.md       # Try analyzing a simple file
+/sg:save                    # Save session state (NEW!)
 ```
 
 #### V4 Beta Session Workflow
@@ -1216,36 +1216,36 @@ Experience the new session persistence:
 
 ```bash
 # Initialize your first session
-/sc:load --deep             # Deep project context loading
+/sg:load --deep             # Deep project context loading
 
 # Try the new brainstorming command
-/sc:brainstorm "improve this project"  # Interactive requirements discovery
+/sg:brainstorm "improve this project"  # Interactive requirements discovery
 
 # Work with enhanced context
-/sc:analyze codebase/ --focus architecture  # Persistent context helps
+/sg:analyze codebase/ --focus architecture  # Persistent context helps
 
 # Save your session  
-/sc:save --checkpoint       # Persistent memory for next session
+/sg:save --checkpoint       # Persistent memory for next session
 ```
 
 #### Understanding Auto-Activation
-Try these commands to see how SuperClaude automatically chooses the right tools:
+Try these commands to see how SuperGemini automatically chooses the right tools:
 
 ```bash
 # Frontend work → frontend agent + Magic MCP
-/sc:build src/components/
+/sg:build src/components/
 
 # Security analysis → security agent + Sequential MCP  
-/sc:analyze auth/ --focus security
+/sg:analyze auth/ --focus security
 
 # Complex refactoring → Morphllm MCP + intelligent editing
-/sc:improve legacy-code/ --focus quality
+/sg:improve legacy-code/ --focus quality
 
 # Performance investigation → performance agent + Playwright MCP  
-/sc:analyze --focus performance slow-endpoints/
+/sg:analyze --focus performance slow-endpoints/
 ```
 
-Watch for auto-activated flags and personas in the output. This shows SuperClaude's intelligent routing in action.
+Watch for auto-activated flags and personas in the output. This shows SuperGemini's intelligent routing in action.
 
 ### Development Workflow Patterns 🔄
 
@@ -1254,22 +1254,22 @@ When starting work on an unfamiliar project:
 
 ```bash
 # 1. Initialize persistent session
-/sc:load --deep --summary
+/sg:load --deep --summary
 # → Serena MCP loads project context persistently
 # → Gives overview of structure, dependencies, patterns
 
 # 2. Interactive project discovery
-/sc:brainstorm "understand this project"
+/sg:brainstorm "understand this project"
 # → Brainstorming Mode helps discover project goals
 # → Interactive dialogue to understand requirements
 
 # 3. Analyze architecture with enhanced context
-/sc:analyze --focus architecture
+/sg:analyze --focus architecture
 # → 🏗️ architect agent with persistent memory
 # → Serena provides semantic understanding
 
 # 4. Save discoveries for future sessions
-/sc:save --checkpoint --summarize
+/sg:save --checkpoint --summarize
 # → Persistent memory of project insights
 # → Available in future sessions
 ```
@@ -1279,27 +1279,27 @@ For developing new features:
 
 ```bash
 # 1. Requirements discovery (NEW!)
-/sc:brainstorm "user dashboard feature"
+/sg:brainstorm "user dashboard feature"
 # → Interactive requirements gathering
 # → Generates comprehensive feature brief
 
 # 2. Design with persistent context
-/sc:design user-dashboard --type component
+/sg:design user-dashboard --type component
 # → 🏗️ architect + 🎨 frontend agents coordinate
 # → Leverages session memory for consistency
 
 # 3. Implementation with intelligent editing
-/sc:build dashboard-components/
+/sg:build dashboard-components/
 # → 🎨 frontend agent + Magic MCP for UI generation
 # → Morphllm for intelligent code modifications
 
 # 4. Testing with cross-session context
-/sc:test --type e2e dashboard/
+/sg:test --type e2e dashboard/
 # → 🧪 qa agent + Playwright MCP for testing
 # → Session memory ensures test consistency
 
 # 5. Reflection and checkpoint
-/sc:reflect --type completion
+/sg:reflect --type completion
 # → Validates feature completeness
 # → Creates checkpoint for future work
 ```
@@ -1309,19 +1309,19 @@ For systematic debugging:
 
 ```bash
 # 1. Problem investigation
-/sc:troubleshoot "login randomly fails" --think
+/sg:troubleshoot "login randomly fails" --think
 # → 🔍 analyzer persona + Sequential MCP for methodology
 
 # 2. Root cause analysis
-/sc:analyze auth-flow/ --focus debugging
+/sg:analyze auth-flow/ --focus debugging
 # → Systematic investigation with evidence collection
 
 # 3. Fix implementation
-/sc:improve auth/ --safe-mode --validate
+/sg:improve auth/ --safe-mode --validate
 # → Safe improvements with validation
 
 # 4. Verification testing
-/sc:test auth-flow/ --coverage
+/sg:test auth-flow/ --coverage
 # → Comprehensive testing to ensure fix works
 ```
 
@@ -1330,19 +1330,19 @@ For improving existing code:
 
 ```bash
 # 1. Quality assessment
-/sc:analyze legacy-code/ --focus quality
+/sg:analyze legacy-code/ --focus quality
 # → 🔄 refactorer persona identifies improvement opportunities
 
 # 2. Safe improvements
-/sc:improve --preview legacy-code/
+/sg:improve --preview legacy-code/
 # → See what would change before applying
 
 # 3. Apply improvements
-/sc:improve --safe legacy-code/
+/sg:improve --safe legacy-code/
 # → Apply only low-risk improvements
 
 # 4. Validate changes
-/sc:test --coverage improved-code/
+/sg:test --coverage improved-code/
 # → Ensure improvements don't break functionality
 ```
 
@@ -1351,28 +1351,28 @@ For improving existing code:
 #### Security-First Development
 ```bash
 # Development with security focus
-/sc:analyze --persona-security --focus security
-/sc:build --validate --safe-mode  
-/sc:test --type security
-/sc:git --persona-security --validate
+/sg:analyze --persona-security --focus security
+/sg:build --validate --safe-mode  
+/sg:test --type security
+/sg:git --persona-security --validate
 ```
 
 #### Performance-Optimized Workflow
 ```bash
 # Performance-focused development
-/sc:analyze --focus performance --persona-performance
-/sc:improve --type performance --benchmark
-/sc:test --focus performance --play
-/sc:test --focus performance --play
+/sg:analyze --focus performance --persona-performance
+/sg:improve --type performance --benchmark
+/sg:test --focus performance --play
+/sg:test --focus performance --play
 ```
 
 #### Team Collaboration Workflow
 ```bash
 # Collaborative development patterns
-/sc:analyze team-code/ --persona-qa --focus quality
-/sc:document features/ --persona-scribe --type guide
-/sc:git --smart-commit --branch-strategy
-/sc:task status  # Check team progress
+/sg:analyze team-code/ --persona-qa --focus quality
+/sg:document features/ --persona-scribe --type guide
+/sg:git --smart-commit --branch-strategy
+/sg:task status  # Check team progress
 ```
 
 ### Advanced Workflow Patterns 🚀
@@ -1382,15 +1382,15 @@ For working with enterprise-scale projects:
 
 ```bash
 # Efficient large-scale analysis
-/sc:analyze monorepo/ --delegate auto --uc --focus architecture
+/sg:analyze monorepo/ --delegate auto --uc --focus architecture
 # → Parallel processing + compression + architectural focus
 
 # Systematic improvements
-/sc:improve legacy-system/ --wave-mode auto --safe-mode
+/sg:improve legacy-system/ --wave-mode auto --safe-mode
 # → Multi-stage improvements with safety checks
 
 # Comprehensive quality review
-/sc:analyze enterprise-app/ --delegate folders --focus quality
+/sg:analyze enterprise-app/ --delegate folders --focus quality
 # → Distributed quality analysis
 ```
 
@@ -1399,19 +1399,19 @@ For updating old codebases:
 
 ```bash
 # Assessment phase
-/sc:analyze legacy/ --persona-architect --ultrathink
+/sg:analyze legacy/ --persona-architect --ultrathink
 # → Deep architectural analysis
 
 # Planning phase  
-/sc:design modernization-strategy --type architecture
+/sg:design modernization-strategy --type architecture
 # → Comprehensive modernization plan
 
 # Implementation phase
-/sc:improve legacy/ --wave-mode systematic --safe-mode --loop
+/sg:improve legacy/ --wave-mode systematic --safe-mode --loop
 # → Iterative, safe improvements with validation
 
 # Migration support
-/sc:migrate --type framework legacy-to-modern/
+/sg:migrate --type framework legacy-to-modern/
 # → Framework migration assistance
 ```
 
@@ -1420,16 +1420,16 @@ For projects spanning multiple technical domains:
 
 ```bash
 # Coordinate across domains
-/sc:analyze fullstack-app/ --all-mcp --delegate auto
+/sg:analyze fullstack-app/ --all-mcp --delegate auto
 # → All MCP servers + parallel processing
 
 # Domain-specific improvements
-/sc:improve frontend/ --persona-frontend --magic
-/sc:improve backend/ --persona-backend --c7  
-/sc:improve infrastructure/ --persona-devops --seq
+/sg:improve frontend/ --persona-frontend --magic
+/sg:improve backend/ --persona-backend --c7  
+/sg:improve infrastructure/ --persona-devops --seq
 
 # Integration validation
-/sc:test --type integration --play
+/sg:test --type integration --play
 # → Comprehensive integration testing
 ```
 
@@ -1438,36 +1438,36 @@ For projects spanning multiple technical domains:
 #### Start Small, Scale Up
 ```bash
 # Begin with focused scope
-/sc:analyze single-component.js --focus quality
+/sg:analyze single-component.js --focus quality
 
 # Expand as needed
-/sc:analyze entire-module/ --focus quality --delegate files
+/sg:analyze entire-module/ --focus quality --delegate files
 
 # Scale to full system
-/sc:analyze whole-project/ --delegate auto --uc
+/sg:analyze whole-project/ --delegate auto --uc
 ```
 
 #### Use Progressive Enhancement
 ```bash
 # Basic command
-/sc:build project/
+/sg:build project/
 
 # Add intelligence
-/sc:build project/ --think --c7
+/sg:build project/ --think --c7
 
 # Full orchestration
-/sc:build project/ --wave-mode auto --all-mcp --delegate auto
+/sg:build project/ --wave-mode auto --all-mcp --delegate auto
 ```
 
 #### Combine Complementary Personas
 ```bash
 # Security + Performance analysis
-/sc:analyze api/ --persona-security
-/sc:analyze api/ --persona-performance
+/sg:analyze api/ --persona-security
+/sg:analyze api/ --persona-performance
 
 # Architecture + Quality review
-/sc:review system/ --persona-architect --focus architecture
-/sc:review system/ --persona-qa --focus quality
+/sg:review system/ --persona-architect --focus architecture
+/sg:review system/ --persona-qa --focus quality
 ```
 
 ### Troubleshooting Workflows 🚨
@@ -1475,39 +1475,39 @@ For projects spanning multiple technical domains:
 #### When Commands Don't Work as Expected
 ```bash
 # Debug with introspection
-/sc:troubleshoot "command issues" --introspect
+/sg:troubleshoot "command issues" --introspect
 # → Meta-cognitive analysis of what went wrong
 
 # Try different approaches
-/sc:analyze problem/ --persona-analyzer --seq
+/sg:analyze problem/ --persona-analyzer --seq
 # → Systematic investigation methodology
 
 # Check framework status
-/sc:load framework-status/ --summary
-# → Understand current SuperClaude state
+/sg:load framework-status/ --summary
+# → Understand current SuperGemini state
 ```
 
 #### When Performance is Slow
 ```bash
 # Optimize for speed
-/sc:analyze large-project/ --no-mcp --uc --scope module
+/sg:analyze large-project/ --no-mcp --uc --scope module
 # → Disable extra features, compress output, limit scope
 
 # Use delegation for large tasks
-/sc:improve huge-codebase/ --delegate auto --concurrency 5
+/sg:improve huge-codebase/ --delegate auto --concurrency 5
 # → Parallel processing with controlled concurrency
 ```
 
 #### When Results Aren't Focused Enough
 ```bash
 # Use specific focus flags
-/sc:analyze code/ --focus security --scope file
+/sg:analyze code/ --focus security --scope file
 
 # Activate appropriate personas manually
-/sc:analyze frontend-code/ --persona-security  # Security view of frontend
+/sg:analyze frontend-code/ --persona-security  # Security view of frontend
 
 # Combine multiple approaches
-/sc:analyze --focus performance --persona-performance --play
+/sg:analyze --focus performance --persona-performance --play
 ```
 
 ### Building Your Own Workflows 🛠️
@@ -1531,30 +1531,30 @@ Try different combinations to find what works best:
 
 ```bash
 # For learning: verbose explanations with docs
-/sc:explain concept --persona-mentor --verbose --c7
+/sg:explain concept --persona-mentor --verbose --c7
 
 # For safety: maximum validation and checking
-/sc:improve critical-code/ --safe-mode --validate --preview
+/sg:improve critical-code/ --safe-mode --validate --preview
 
 # For efficiency: compressed output with parallel processing
-/sc:analyze big-project/ --uc --delegate auto --concurrency 3
+/sg:analyze big-project/ --uc --delegate auto --concurrency 3
 ```
 
-Remember: SuperClaude learns from successful patterns, so the more you use effective combinations, the better it gets at auto-activating the right approach for your needs.
+Remember: SuperGemini learns from successful patterns, so the more you use effective combinations, the better it gets at auto-activating the right approach for your needs.
 
 ---
 
 ## Integration & Coordination 🤝
 
-Understanding how SuperClaude's components work together is key to using the framework effectively. This section shows you how commands, flags, personas, and MCP servers coordinate automatically - and how to control that coordination when needed.
+Understanding how SuperGemini's components work together is key to using the framework effectively. This section shows you how commands, flags, personas, and MCP servers coordinate automatically - and how to control that coordination when needed.
 
 ### Auto-Coordination Examples 🤖
 
-SuperClaude automatically coordinates components based on context. Here's how it works in practice:
+SuperGemini automatically coordinates components based on context. Here's how it works in practice:
 
 #### Frontend Development Request
 ```bash
-/sc:build react-dashboard/
+/sg:build react-dashboard/
 ```
 
 **Automatic coordination**:
@@ -1568,7 +1568,7 @@ SuperClaude automatically coordinates components based on context. Here's how it
 
 #### Security Analysis Request
 ```bash
-/sc:scan user-authentication/ --focus security
+/sg:scan user-authentication/ --focus security
 ```
 
 **Automatic coordination**:
@@ -1582,7 +1582,7 @@ SuperClaude automatically coordinates components based on context. Here's how it
 
 #### Performance Investigation
 ```bash
-/sc:troubleshoot "API responses are slow"
+/sg:troubleshoot "API responses are slow"
 ```
 
 **Automatic coordination**:
@@ -1602,38 +1602,38 @@ Sometimes you want to override auto-coordination for specific needs:
 #### Override Persona Selection
 ```bash
 # View frontend code from security perspective
-/sc:analyze react-components/ --persona-security
+/sg:analyze react-components/ --persona-security
 # → Security analysis of UI components (XSS, data exposure, etc.)
 
 # Apply architectural thinking to small utility
-/sc:improve utility-function.js --persona-architect  
+/sg:improve utility-function.js --persona-architect  
 # → Design patterns and extensibility for simple code
 ```
 
 #### Control MCP Server Usage
 ```bash
 # Disable all MCP servers for speed
-/sc:analyze large-codebase/ --no-mcp
+/sg:analyze large-codebase/ --no-mcp
 # → 40-60% faster execution, native tools only
 
 # Enable all MCP servers for comprehensive analysis
-/sc:analyze complex-system/ --all-mcp
+/sg:analyze complex-system/ --all-mcp
 # → Maximum capabilities, higher token usage
 
 # Use specific MCP combinations
-/sc:build ui-components/ --magic --c7 --no-seq
+/sg:build ui-components/ --magic --c7 --no-seq
 # → UI generation + docs, skip complex analysis
 ```
 
 #### Combine Multiple Perspectives
 ```bash
 # Sequential analysis with different personas
-/sc:analyze payment-system/ --persona-security     # Security view
-/sc:analyze payment-system/ --persona-performance  # Performance view  
-/sc:analyze payment-system/ --persona-architect    # Architecture view
+/sg:analyze payment-system/ --persona-security     # Security view
+/sg:analyze payment-system/ --persona-performance  # Performance view  
+/sg:analyze payment-system/ --persona-architect    # Architecture view
 
 # Or coordinate automatically
-/sc:review payment-system/ --focus quality
+/sg:review payment-system/ --focus quality
 # → Auto-coordinates security + performance + architecture insights
 ```
 
@@ -1644,33 +1644,33 @@ Flags work together to create powerful combinations:
 #### Safety-First Patterns
 ```bash
 # Maximum safety for critical code
-/sc:improve production-auth/ --safe-mode --validate --preview
+/sg:improve production-auth/ --safe-mode --validate --preview
 # → Conservative changes + risk assessment + preview before applying
 
 # Safe exploration of large changes
-/sc:improve legacy-system/ --wave-mode auto --safe-mode --validate
+/sg:improve legacy-system/ --wave-mode auto --safe-mode --validate
 # → Multi-stage improvements + safety checks + validation gates
 ```
 
 #### Performance-Optimized Patterns  
 ```bash
 # Fast execution for large operations
-/sc:analyze huge-project/ --uc --no-mcp --scope module
+/sg:analyze huge-project/ --uc --no-mcp --scope module
 # → Compressed output + native tools + limited scope
 
 # Efficient parallel processing
-/sc:improve monorepo/ --delegate auto --uc --concurrency 5
+/sg:improve monorepo/ --delegate auto --uc --concurrency 5
 # → Parallel processing + compression + controlled resource usage
 ```
 
 #### Learning-Focused Patterns
 ```bash
 # Educational explanations with full context
-/sc:explain complex-concept --persona-mentor --verbose --c7
+/sg:explain complex-concept --persona-mentor --verbose --c7
 # → Educational approach + detailed explanations + official docs
 
 # Deep understanding with transparency
-/sc:analyze mysterious-code/ --persona-analyzer --think-hard --introspect  
+/sg:analyze mysterious-code/ --persona-analyzer --think-hard --introspect  
 # → Investigation methodology + deep analysis + thinking transparency
 ```
 
@@ -1680,7 +1680,7 @@ MCP servers often work together automatically:
 
 #### Documentation + Analysis
 ```bash
-/sc:improve old-react-code/
+/sg:improve old-react-code/
 ```
 **MCP coordination**:
 - Context7: Gets current React best practices
@@ -1690,7 +1690,7 @@ MCP servers often work together automatically:
 
 #### Testing + Performance
 ```bash
-/sc:test dashboard/ --focus performance
+/sg:test dashboard/ --focus performance
 ```
 **MCP coordination**:
 - Sequential: Plans comprehensive test strategy
@@ -1700,7 +1700,7 @@ MCP servers often work together automatically:
 
 #### Complex Problem Solving
 ```bash
-/sc:troubleshoot "complex multi-service issue" --ultrathink
+/sg:troubleshoot "complex multi-service issue" --ultrathink
 ```
 **MCP coordination**:
 - Sequential: Structures systematic investigation
@@ -1714,7 +1714,7 @@ Personas automatically collaborate on complex requests:
 
 #### Architecture + Security
 ```bash
-/sc:design payment-api --type secure
+/sg:design payment-api --type secure
 ```
 **Persona collaboration**:
 - 🏗️ architect: System design and scalability
@@ -1724,7 +1724,7 @@ Personas automatically collaborate on complex requests:
 
 #### Frontend + Performance  
 ```bash
-/sc:build dashboard --focus performance
+/sg:build dashboard --focus performance
 ```
 **Persona collaboration**:
 - 🎨 frontend: UI/UX and accessibility
@@ -1734,7 +1734,7 @@ Personas automatically collaborate on complex requests:
 
 #### Quality + Refactoring
 ```bash
-/sc:improve legacy-code/ --focus quality
+/sg:improve legacy-code/ --focus quality
 ```
 **Persona collaboration**:
 - 🔄 refactorer: Code quality and patterns
@@ -1748,7 +1748,7 @@ Personas automatically collaborate on complex requests:
 For complex multi-stage operations:
 
 ```bash
-/sc:improve enterprise-system/ --wave-mode systematic
+/sg:improve enterprise-system/ --wave-mode systematic
 ```
 
 **Wave coordination**:
@@ -1762,7 +1762,7 @@ For complex multi-stage operations:
 For parallel processing:
 
 ```bash
-/sc:analyze large-monorepo/ --delegate folders
+/sg:analyze large-monorepo/ --delegate folders
 ```
 
 **Delegation coordination**:
@@ -1772,7 +1772,7 @@ For parallel processing:
 - **MCP Integration**: Shared across all agents
 
 #### Adaptive Intelligence
-SuperClaude adapts coordination based on context:
+SuperGemini adapts coordination based on context:
 
 **Development Phase Detection**:
 - Planning phase → 🏗️ architect + ✍️ scribe emphasis
@@ -1790,38 +1790,38 @@ SuperClaude adapts coordination based on context:
 #### When Auto-Coordination Goes Wrong
 ```bash
 # Too many tools activated (slow/expensive)
-/sc:analyze simple-file.js --no-mcp --answer-only
+/sg:analyze simple-file.js --no-mcp --answer-only
 # → Minimal tooling for simple tasks
 
 # Wrong persona activated
-/sc:analyze backend-api/ --persona-security  
+/sg:analyze backend-api/ --persona-security  
 # → Override with explicit persona choice
 
 # Not enough analysis depth
-/sc:troubleshoot complex-issue --ultrathink --all-mcp
+/sg:troubleshoot complex-issue --ultrathink --all-mcp
 # → Force maximum capabilities
 ```
 
 #### Optimizing Coordination
 ```bash
 # Start simple, add complexity as needed
-/sc:analyze code.js                    # Basic analysis
-/sc:analyze code.js --think            # Add thinking
-/sc:analyze code.js --think --c7       # Add documentation
-/sc:analyze code.js --think --c7 --seq # Add systematic analysis
+/sg:analyze code.js                    # Basic analysis
+/sg:analyze code.js --think            # Add thinking
+/sg:analyze code.js --think --c7       # Add documentation
+/sg:analyze code.js --think --c7 --seq # Add systematic analysis
 ```
 
 #### Understanding Coordination Decisions
 ```bash
 # See why certain tools were chosen
-/sc:analyze complex-system/ --introspect
+/sg:analyze complex-system/ --introspect
 # → Shows decision-making process and tool selection reasoning
 ```
 
 ### Best Practices for Integration 💡
 
 #### Let Auto-Coordination Work First
-- Trust SuperClaude's automatic tool selection
+- Trust SuperGemini's automatic tool selection
 - Override only when you need specific perspectives
 - Start with simple commands and add flags as needed
 
@@ -1840,13 +1840,13 @@ SuperClaude adapts coordination based on context:
 - Simple tasks → Use `--no-mcp` and `--answer-only`
 - Critical operations → Use `--safe-mode` and `--validate`
 
-The key is understanding that SuperClaude's intelligence comes from the coordination between its components. The automatic coordination works well most of the time, but knowing how to control it gives you the flexibility to handle any situation.
+The key is understanding that SuperGemini's intelligence comes from the coordination between its components. The automatic coordination works well most of the time, but knowing how to control it gives you the flexibility to handle any situation.
 
 ---
 
 ## Practical Examples 💡
 
-Real-world scenarios showing SuperClaude in action. These examples demonstrate how different components work together to solve common development problems.
+Real-world scenarios showing SuperGemini in action. These examples demonstrate how different components work together to solve common development problems.
 
 ### Scenario 1: New Team Member Onboarding 👋
 
@@ -1854,7 +1854,7 @@ Real-world scenarios showing SuperClaude in action. These examples demonstrate h
 
 #### Step 1: Project Understanding
 ```bash
-/sc:load --deep --summary
+/sg:load --deep --summary
 ```
 **What happens**:
 - 🔍 analyzer persona activates (investigation needed)
@@ -1866,7 +1866,7 @@ Real-world scenarios showing SuperClaude in action. These examples demonstrate h
 
 #### Step 2: Code Quality Assessment
 ```bash
-/sc:analyze --focus quality
+/sg:analyze --focus quality
 ```
 **Auto-coordination**:
 - 🧪 qa persona activates (quality focus)
@@ -1878,7 +1878,7 @@ Real-world scenarios showing SuperClaude in action. These examples demonstrate h
 
 #### Step 3: Architecture Understanding
 ```bash
-/sc:analyze --focus architecture --persona-architect
+/sg:analyze --focus architecture --persona-architect
 ```
 **What happens**:
 - 🏗️ architect persona provides system design perspective
@@ -1890,7 +1890,7 @@ Real-world scenarios showing SuperClaude in action. These examples demonstrate h
 
 #### Step 4: Getting Started Guide
 ```bash
-/sc:document onboarding --type guide --persona-scribe
+/sg:document onboarding --type guide --persona-scribe
 ```
 **What happens**:
 - ✍️ scribe persona creates professional documentation
@@ -1908,7 +1908,7 @@ Real-world scenarios showing SuperClaude in action. These examples demonstrate h
 
 #### Step 1: Security-Focused Analysis
 ```bash
-/sc:scan auth-system/ --persona-security --focus security
+/sg:scan auth-system/ --persona-security --focus security
 ```
 **Auto-coordination**:
 - 🛡️ security persona activates (security expertise)
@@ -1920,7 +1920,7 @@ Real-world scenarios showing SuperClaude in action. These examples demonstrate h
 
 #### Step 2: Root Cause Investigation  
 ```bash
-/sc:troubleshoot "JWT token exposure in logs" --think --seq
+/sg:troubleshoot "JWT token exposure in logs" --think --seq
 ```
 **What happens**:
 - 🔍 analyzer persona provides investigation methodology
@@ -1932,7 +1932,7 @@ Real-world scenarios showing SuperClaude in action. These examples demonstrate h
 
 #### Step 3: Secure Implementation
 ```bash
-/sc:improve auth-system/ --focus security --safe-mode --validate
+/sg:improve auth-system/ --focus security --safe-mode --validate
 ```
 **Auto-coordination**:
 - 🛡️ security persona maintains security focus
@@ -1944,7 +1944,7 @@ Real-world scenarios showing SuperClaude in action. These examples demonstrate h
 
 #### Step 4: Security Testing
 ```bash
-/sc:test auth-system/ --type security --play
+/sg:test auth-system/ --type security --play
 ```
 **What happens**:
 - 🧪 qa persona provides testing expertise  
@@ -1962,7 +1962,7 @@ Real-world scenarios showing SuperClaude in action. These examples demonstrate h
 
 #### Step 1: Performance Analysis
 ```bash
-/sc:analyze dashboard/ --focus performance --persona-performance
+/sg:analyze dashboard/ --focus performance --persona-performance
 ```
 **Auto-coordination**:
 - ⚡ performance persona activates (performance expertise)
@@ -1974,7 +1974,7 @@ Real-world scenarios showing SuperClaude in action. These examples demonstrate h
 
 #### Step 2: Frontend Performance Deep Dive
 ```bash
-/sc:analyze frontend/ --persona-frontend --focus performance --play
+/sg:analyze frontend/ --persona-frontend --focus performance --play
 ```
 **What happens**:
 - 🎨 frontend persona provides UI/UX perspective
@@ -1986,7 +1986,7 @@ Real-world scenarios showing SuperClaude in action. These examples demonstrate h
 
 #### Step 3: Backend API Performance
 ```bash
-/sc:analyze api/ --persona-backend --focus performance
+/sg:analyze api/ --persona-backend --focus performance
 ```
 **Auto-coordination**:
 - ⚙️ backend persona provides server-side expertise
@@ -1998,7 +1998,7 @@ Real-world scenarios showing SuperClaude in action. These examples demonstrate h
 
 #### Step 4: Systematic Optimization
 ```bash
-/sc:improve dashboard/ --focus performance --loop --iterations 3
+/sg:improve dashboard/ --focus performance --loop --iterations 3
 ```
 **What happens**:
 - ⚡ performance persona leads optimization
@@ -2010,7 +2010,7 @@ Real-world scenarios showing SuperClaude in action. These examples demonstrate h
 
 #### Step 5: Performance Testing Validation
 ```bash
-/sc:test dashboard/ --focus performance --play --benchmark
+/sg:test dashboard/ --focus performance --play --benchmark
 ```
 **What happens**:
 - Playwright MCP executes comprehensive performance testing
@@ -2028,7 +2028,7 @@ Real-world scenarios showing SuperClaude in action. These examples demonstrate h
 
 #### Step 1: Legacy Assessment
 ```bash
-/sc:analyze legacy-app/ --persona-architect --ultrathink
+/sg:analyze legacy-app/ --persona-architect --ultrathink
 ```
 **Auto-coordination**:
 - 🏗️ architect persona provides structural analysis
@@ -2040,7 +2040,7 @@ Real-world scenarios showing SuperClaude in action. These examples demonstrate h
 
 #### Step 2: Modernization Planning
 ```bash
-/sc:design modernization-strategy --type architecture --persona-architect
+/sg:design modernization-strategy --type architecture --persona-architect
 ```
 **What happens**:
 - 🏗️ architect persona designs migration strategy
@@ -2052,7 +2052,7 @@ Real-world scenarios showing SuperClaude in action. These examples demonstrate h
 
 #### Step 3: Safe Incremental Improvements
 ```bash
-/sc:improve legacy-components/ --safe-mode --wave-mode systematic --loop
+/sg:improve legacy-components/ --safe-mode --wave-mode systematic --loop
 ```
 **Auto-coordination**:
 - 🔄 refactorer persona leads code improvements
@@ -2065,7 +2065,7 @@ Real-world scenarios showing SuperClaude in action. These examples demonstrate h
 
 #### Step 4: Testing Modernization
 ```bash
-/sc:test modernized-app/ --type integration --coverage --play
+/sg:test modernized-app/ --type integration --coverage --play
 ```
 **What happens**:
 - 🧪 qa persona ensures quality throughout modernization
@@ -2083,7 +2083,7 @@ Real-world scenarios showing SuperClaude in action. These examples demonstrate h
 
 #### Step 1: Requirements Analysis
 ```bash
-/sc:design user-service-api --type api --persona-backend
+/sg:design user-service-api --type api --persona-backend
 ```
 **Auto-coordination**:
 - ⚙️ backend persona provides API design expertise
@@ -2095,7 +2095,7 @@ Real-world scenarios showing SuperClaude in action. These examples demonstrate h
 
 #### Step 2: Security Review
 ```bash
-/sc:review api-design/ --persona-security --focus security
+/sg:review api-design/ --persona-security --focus security
 ```
 **What happens**:
 - 🛡️ security persona evaluates API security
@@ -2107,7 +2107,7 @@ Real-world scenarios showing SuperClaude in action. These examples demonstrate h
 
 #### Step 3: Performance Considerations
 ```bash
-/sc:analyze api-design/ --persona-performance --focus performance
+/sg:analyze api-design/ --persona-performance --focus performance
 ```
 **Auto-coordination**:
 - ⚡ performance persona evaluates scalability
@@ -2119,7 +2119,7 @@ Real-world scenarios showing SuperClaude in action. These examples demonstrate h
 
 #### Step 4: Documentation for Multiple Teams
 ```bash
-/sc:document api/ --type api --persona-scribe --detailed
+/sg:document api/ --type api --persona-scribe --detailed
 ```
 **What happens**:
 - ✍️ scribe persona creates professional API documentation
@@ -2131,7 +2131,7 @@ Real-world scenarios showing SuperClaude in action. These examples demonstrate h
 
 #### Step 5: Implementation Validation
 ```bash
-/sc:build api-implementation/ --validate --test-coverage
+/sg:build api-implementation/ --validate --test-coverage
 ```
 **Auto-coordination**:
 - ⚙️ backend persona implements API patterns
@@ -2145,7 +2145,7 @@ Real-world scenarios showing SuperClaude in action. These examples demonstrate h
 
 ### Common Pattern Recognition 🔍
 
-These examples show recurring patterns in how SuperClaude components coordinate:
+These examples show recurring patterns in how SuperGemini components coordinate:
 
 #### Investigation → Analysis → Implementation → Validation
 Most complex workflows follow this pattern with appropriate personas and tools for each phase.
@@ -2160,39 +2160,39 @@ Starting simple and adding complexity as needed (`--think` → `--think-hard` �
 Critical operations automatically include validation and safety checks (`--safe-mode`, `--validate`).
 
 #### Context-Aware Tool Selection
-SuperClaude automatically chooses appropriate MCP servers and flags based on detected context.
+SuperGemini automatically chooses appropriate MCP servers and flags based on detected context.
 
-These examples demonstrate that SuperClaude's value comes from intelligent coordination of its components rather than any single capability. The framework adapts to your needs while maintaining consistent quality and safety standards.
+These examples demonstrate that SuperGemini's value comes from intelligent coordination of its components rather than any single capability. The framework adapts to your needs while maintaining consistent quality and safety standards.
 
 ---
 
 ## Tips & Best Practices 🎯
 
-Based on real-world usage patterns and successful workflows, here are practical tips for getting the most out of SuperClaude.
+Based on real-world usage patterns and successful workflows, here are practical tips for getting the most out of SuperGemini.
 
 ### Starting Out Successfully 🚀
 
 #### Begin with Simple Commands
 ```bash
 # Start here - basic functionality
-/sc:help
-/sc:analyze README.md
-/sc:build --help
+/sg:help
+/sg:analyze README.md
+/sg:build --help
 
 # Not here - complex orchestration
-/sc:improve entire-codebase/ --wave-mode force --all-mcp --delegate auto
+/sg:improve entire-codebase/ --wave-mode force --all-mcp --delegate auto
 ```
 
 **Why**: Understanding basic behavior before adding complexity prevents confusion and helps you learn the framework gradually.
 
 #### Trust Auto-Activation First
 ```bash
-# Let SuperClaude choose tools
-/sc:analyze auth-system/  
+# Let SuperGemini choose tools
+/sg:analyze auth-system/  
 # → Watch what auto-activates (likely security persona + validation)
 
 # Then experiment with manual control
-/sc:analyze auth-system/ --persona-performance
+/sg:analyze auth-system/ --persona-performance
 # → See different perspective on same code
 ```
 
@@ -2201,32 +2201,32 @@ Based on real-world usage patterns and successful workflows, here are practical 
 #### Use Preview and Safe Modes
 ```bash
 # See what would happen first
-/sc:improve messy-code.js --preview
+/sg:improve messy-code.js --preview
 
 # Apply changes safely  
-/sc:improve messy-code.js --safe-mode
+/sg:improve messy-code.js --safe-mode
 
 # For critical code, use both
-/sc:improve production-auth/ --preview --safe-mode --validate
+/sg:improve production-auth/ --preview --safe-mode --validate
 ```
 
-**Why**: Prevents unintended changes and helps you understand what SuperClaude will do before it does it.
+**Why**: Prevents unintended changes and helps you understand what SuperGemini will do before it does it.
 
 ### Flag Usage Patterns 🏁
 
 #### Start Simple, Add Complexity
 ```bash
 # Basic command
-/sc:analyze complex-system/
+/sg:analyze complex-system/
 
 # Add thinking if needed
-/sc:analyze complex-system/ --think
+/sg:analyze complex-system/ --think
 
 # Add documentation if external libraries involved
-/sc:analyze complex-system/ --think --c7
+/sg:analyze complex-system/ --think --c7
 
 # Full analysis for critical systems
-/sc:analyze complex-system/ --think-hard --c7 --seq --validate
+/sg:analyze complex-system/ --think-hard --c7 --seq --validate
 ```
 
 **Why**: Incremental complexity helps you understand what each flag adds and avoids over-engineering simple problems.
@@ -2234,16 +2234,16 @@ Based on real-world usage patterns and successful workflows, here are practical 
 #### Common Flag Combinations That Work
 ```bash
 # Safe improvement workflow
-/sc:improve --preview → /improve --safe-mode → /test --coverage
+/sg:improve --preview → /improve --safe-mode → /test --coverage
 
 # Deep investigation workflow  
-/sc:troubleshoot issue --think --seq → /analyze affected-code/ --focus quality
+/sg:troubleshoot issue --think --seq → /analyze affected-code/ --focus quality
 
 # Learning and documentation workflow
-/sc:explain concept --persona-mentor --verbose --c7
+/sg:explain concept --persona-mentor --verbose --c7
 
 # Performance optimization workflow
-/sc:analyze --focus performance --persona-performance --play
+/sg:analyze --focus performance --persona-performance --play
 ```
 
 **Why**: These combinations are proven patterns that work well together and don't conflict.
@@ -2251,14 +2251,14 @@ Based on real-world usage patterns and successful workflows, here are practical 
 #### Avoid Flag Conflicts
 ```bash
 # ❌ Conflicting flags
-/sc:analyze code/ --no-mcp --c7  # --no-mcp overrides --c7
+/sg:analyze code/ --no-mcp --c7  # --no-mcp overrides --c7
 
 # ❌ Counterproductive combinations
-/sc:analyze small-file.js --ultrathink --all-mcp  # Overkill for simple tasks
+/sg:analyze small-file.js --ultrathink --all-mcp  # Overkill for simple tasks
 
 # ✅ Sensible combinations
-/sc:analyze large-system/ --think --delegate auto  # Appropriate for complexity
-/sc:analyze simple-utility.js --answer-only       # Appropriate for simplicity
+/sg:analyze large-system/ --think --delegate auto  # Appropriate for complexity
+/sg:analyze simple-utility.js --answer-only       # Appropriate for simplicity
 ```
 
 **Why**: Understanding flag precedence and interactions prevents unexpected behavior and wasted resources.
@@ -2268,9 +2268,9 @@ Based on real-world usage patterns and successful workflows, here are practical 
 #### Let Domain Auto-Activation Work
 ```bash
 # These will automatically get the right persona
-/sc:build react-components/     # → frontend persona
-/sc:scan auth/ --focus security # → security persona  
-/sc:troubleshoot slow-api/      # → performance + analyzer personas
+/sg:build react-components/     # → frontend persona
+/sg:scan auth/ --focus security # → security persona  
+/sg:troubleshoot slow-api/      # → performance + analyzer personas
 ```
 
 **Why**: Auto-activation is based on proven patterns and usually selects the most appropriate expertise.
@@ -2278,9 +2278,9 @@ Based on real-world usage patterns and successful workflows, here are practical 
 #### Manual Override for Different Perspectives
 ```bash
 # Get different viewpoints on same code
-/sc:analyze payment-flow/ --persona-security    # Security perspective
-/sc:analyze payment-flow/ --persona-performance # Performance perspective
-/sc:analyze payment-flow/ --persona-architect   # Architecture perspective
+/sg:analyze payment-flow/ --persona-security    # Security perspective
+/sg:analyze payment-flow/ --persona-performance # Performance perspective
+/sg:analyze payment-flow/ --persona-architect   # Architecture perspective
 ```
 
 **Why**: Different personas provide unique insights that can reveal issues or opportunities others might miss.
@@ -2288,16 +2288,16 @@ Based on real-world usage patterns and successful workflows, here are practical 
 #### Use Appropriate Personas for Project Phases
 ```bash
 # Planning phase
-/sc:design new-feature --persona-architect
+/sg:design new-feature --persona-architect
 
 # Implementation phase  
-/sc:build feature/ --persona-frontend  # or backend, etc.
+/sg:build feature/ --persona-frontend  # or backend, etc.
 
 # Testing phase
-/sc:test feature/ --persona-qa
+/sg:test feature/ --persona-qa
 
 # Documentation phase
-/sc:document feature/ --persona-scribe
+/sg:document feature/ --persona-scribe
 ```
 
 **Why**: Each project phase benefits from different types of expertise and perspectives.
@@ -2313,13 +2313,13 @@ Based on real-world usage patterns and successful workflows, here are practical 
 #### Optimize for Performance vs. Capabilities
 ```bash
 # Fast execution for simple tasks
-/sc:analyze simple-script.js --no-mcp
+/sg:analyze simple-script.js --no-mcp
 
 # Comprehensive analysis for complex problems
-/sc:analyze complex-system/ --all-mcp --think-hard
+/sg:analyze complex-system/ --all-mcp --think-hard
 
 # Balanced approach for most work
-/sc:analyze typical-component/ --c7  # Just documentation lookup
+/sg:analyze typical-component/ --c7  # Just documentation lookup
 ```
 
 **Why**: Matching MCP usage to task complexity optimizes both speed and quality of results.
@@ -2329,16 +2329,16 @@ Based on real-world usage patterns and successful workflows, here are practical 
 #### Use Progressive Enhancement
 ```bash
 # Level 1: Basic analysis
-/sc:analyze component.js
+/sg:analyze component.js
 
 # Level 2: Add thinking if complex
-/sc:analyze component.js --think
+/sg:analyze component.js --think
 
 # Level 3: Add documentation for frameworks
-/sc:analyze component.js --think --c7
+/sg:analyze component.js --think --c7
 
 # Level 4: Full analysis for critical code
-/sc:analyze component.js --think-hard --c7 --seq --validate
+/sg:analyze component.js --think-hard --c7 --seq --validate
 ```
 
 **Why**: Start with what you need and add complexity only when necessary. Prevents over-engineering and saves time.
@@ -2346,31 +2346,31 @@ Based on real-world usage patterns and successful workflows, here are practical 
 #### Batch Related Operations
 ```bash
 # ✅ Efficient: Related operations together
-/sc:analyze auth-system/ --focus security
-/sc:improve auth-system/ --focus security --safe-mode  
-/sc:test auth-system/ --type security
+/sg:analyze auth-system/ --focus security
+/sg:improve auth-system/ --focus security --safe-mode  
+/sg:test auth-system/ --type security
 
 # ❌ Inefficient: Scattered operations
-/sc:analyze auth-system/
-/sc:review different-system/
-/sc:improve auth-system/  # Context lost between operations
+/sg:analyze auth-system/
+/sg:review different-system/
+/sg:improve auth-system/  # Context lost between operations
 ```
 
-**Why**: Batching related work maintains context and allows SuperClaude to build on previous analysis.
+**Why**: Batching related work maintains context and allows SuperGemini to build on previous analysis.
 
 #### Use Appropriate Scope
 ```bash
 # File-level for specific issues
-/sc:improve single-component.js --focus performance
+/sg:improve single-component.js --focus performance
 
 # Module-level for related functionality
-/sc:analyze user-auth/ --scope module
+/sg:analyze user-auth/ --scope module
 
 # Project-level for architectural concerns
-/sc:analyze --scope project --focus architecture
+/sg:analyze --scope project --focus architecture
 
 # System-level only when necessary
-/sc:analyze --scope system --delegate auto --uc
+/sg:analyze --scope system --delegate auto --uc
 ```
 
 **Why**: Matching scope to problem prevents both under-analysis and resource waste.
@@ -2380,14 +2380,14 @@ Based on real-world usage patterns and successful workflows, here are practical 
 #### Manage Context and Token Usage
 ```bash
 # For large operations, use compression
-/sc:analyze huge-codebase/ --uc --delegate auto
+/sg:analyze huge-codebase/ --uc --delegate auto
 
 # For repeated analysis, cache results
-/sc:load project-context/  # Cache project understanding
-/sc:analyze specific-issue/  # Build on cached context
+/sg:load project-context/  # Cache project understanding
+/sg:analyze specific-issue/  # Build on cached context
 
 # For simple questions, minimize overhead
-/sc:explain quick-concept --answer-only --no-mcp
+/sg:explain quick-concept --answer-only --no-mcp
 ```
 
 **Why**: Token efficiency keeps operations fast and prevents context overflow in large projects.
@@ -2395,13 +2395,13 @@ Based on real-world usage patterns and successful workflows, here are practical 
 #### Use Delegation for Large Projects
 ```bash
 # Automatically delegate when appropriate
-/sc:analyze monorepo/ --delegate auto
+/sg:analyze monorepo/ --delegate auto
 
 # Manual delegation for specific needs
-/sc:analyze large-project/ --delegate folders --concurrency 3
+/sg:analyze large-project/ --delegate folders --concurrency 3
 
 # Skip delegation for small projects
-/sc:analyze small-app/ --no-delegate
+/sg:analyze small-app/ --no-delegate
 ```
 
 **Why**: Delegation provides significant speedup (40-70%) for large-scale operations while maintaining quality.
@@ -2409,15 +2409,15 @@ Based on real-world usage patterns and successful workflows, here are practical 
 #### Optimize Command Sequences
 ```bash
 # ✅ Efficient sequence
-/sc:load project/           # Understand context once
-/sc:analyze --focus quality # Build on understanding
-/sc:improve --safe-mode     # Apply improvements
-/sc:test --coverage         # Validate changes
+/sg:load project/           # Understand context once
+/sg:analyze --focus quality # Build on understanding
+/sg:improve --safe-mode     # Apply improvements
+/sg:test --coverage         # Validate changes
 
 # ❌ Inefficient sequence  
-/sc:analyze file1.js
-/sc:analyze file2.js        # Duplicate setup
-/sc:analyze file3.js        # Lost optimization opportunities
+/sg:analyze file1.js
+/sg:analyze file2.js        # Duplicate setup
+/sg:analyze file3.js        # Lost optimization opportunities
 ```
 
 **Why**: Sequential commands can build on each other's context and analysis for better results.
@@ -2427,13 +2427,13 @@ Based on real-world usage patterns and successful workflows, here are practical 
 #### Always Validate Important Changes
 ```bash
 # For production code
-/sc:improve production-auth/ --safe-mode --validate --preview
+/sg:improve production-auth/ --safe-mode --validate --preview
 
 # For experimental features
-/sc:improve experimental-feature/ --validate
+/sg:improve experimental-feature/ --validate
 
 # For learning/exploration
-/sc:improve test-code/ --preview  # See what it would do
+/sg:improve test-code/ --preview  # See what it would do
 ```
 
 **Why**: Validation prevents breaking changes and helps you understand the impact of modifications.
@@ -2441,13 +2441,13 @@ Based on real-world usage patterns and successful workflows, here are practical 
 #### Use Quality Gates Effectively
 ```bash
 # Let quality gates run automatically
-/sc:build production-app/  # 8-step validation process runs
+/sg:build production-app/  # 8-step validation process runs
 
 # Add extra validation for critical systems
-/sc:build payment-system/ --validate --safe-mode
+/sg:build payment-system/ --validate --safe-mode
 
 # Skip validation only for experimental work
-/sc:build prototype/ --no-validate  # Use sparingly
+/sg:build prototype/ --no-validate  # Use sparingly
 ```
 
 **Why**: Quality gates catch issues early when they're cheaper and easier to fix.
@@ -2455,12 +2455,12 @@ Based on real-world usage patterns and successful workflows, here are practical 
 #### Maintain Evidence Trail
 ```bash
 # Commands that provide evidence
-/sc:analyze --focus performance  # → Performance metrics
-/sc:test --coverage             # → Coverage reports  
-/sc:scan --focus security       # → Security assessment
+/sg:analyze --focus performance  # → Performance metrics
+/sg:test --coverage             # → Coverage reports  
+/sg:scan --focus security       # → Security assessment
 
 # Use introspection for complex decisions
-/sc:analyze complex-system/ --introspect  # → Decision reasoning
+/sg:analyze complex-system/ --introspect  # → Decision reasoning
 ```
 
 **Why**: Evidence-based development leads to better decisions and easier debugging when issues arise.
@@ -2470,13 +2470,13 @@ Based on real-world usage patterns and successful workflows, here are practical 
 #### Use Mentor Persona for Learning
 ```bash
 # Learn new concepts
-/sc:explain GraphQL --persona-mentor --verbose
+/sg:explain GraphQL --persona-mentor --verbose
 
 # Understand complex code
-/sc:analyze complex-algorithm.js --persona-mentor
+/sg:analyze complex-algorithm.js --persona-mentor
 
 # Get step-by-step guidance
-/sc:build new-feature/ --persona-mentor --plan
+/sg:build new-feature/ --persona-mentor --plan
 ```
 
 **Why**: Mentor persona optimizes for understanding and knowledge transfer rather than just task completion.
@@ -2484,13 +2484,13 @@ Based on real-world usage patterns and successful workflows, here are practical 
 #### Experiment with Different Approaches
 ```bash
 # Try different personas on same problem
-/sc:analyze api-design/ --persona-architect
-/sc:analyze api-design/ --persona-security
-/sc:analyze api-design/ --persona-performance
+/sg:analyze api-design/ --persona-architect
+/sg:analyze api-design/ --persona-security
+/sg:analyze api-design/ --persona-performance
 
 # Compare tool combinations
-/sc:build app/ --magic --c7
-/sc:build app/ --no-mcp --uc  # Faster but simpler
+/sg:build app/ --magic --c7
+/sg:build app/ --no-mcp --uc  # Faster but simpler
 ```
 
 **Why**: Understanding different approaches helps you choose the best tools for different situations.
@@ -2499,12 +2499,12 @@ Based on real-world usage patterns and successful workflows, here are practical 
 ```bash
 # Identify what works for your workflow
 # Security-focused API development
-/sc:design api --persona-security --validate
-/sc:build api --persona-backend --c7
-/sc:test api --type security --play
+/sg:design api --persona-security --validate
+/sg:build api --persona-backend --c7
+/sg:test api --type security --play
 
 # Create your own efficient combinations
-/sc:analyze code/ --think --c7 --safe-mode  # Your personal "thorough analysis"
+/sg:analyze code/ --think --c7 --safe-mode  # Your personal "thorough analysis"
 ```
 
 **Why**: Developing your own proven patterns increases productivity and ensures consistent quality.
@@ -2514,38 +2514,38 @@ Based on real-world usage patterns and successful workflows, here are practical 
 #### Don't Over-Engineer Simple Tasks
 ```bash
 # ❌ Overkill for simple tasks
-/sc:analyze simple-utility.js --ultrathink --all-mcp --wave-mode force
+/sg:analyze simple-utility.js --ultrathink --all-mcp --wave-mode force
 
 # ✅ Appropriate for simple tasks  
-/sc:analyze simple-utility.js --focus quality
+/sg:analyze simple-utility.js --focus quality
 ```
 
 #### Don't Ignore Auto-Activation Wisdom
 ```bash
 # ❌ Fighting the system
-/sc:build react-app/ --persona-backend --no-magic  # Wrong tools for the job
+/sg:build react-app/ --persona-backend --no-magic  # Wrong tools for the job
 
 # ✅ Working with the system
-/sc:build react-app/  # Let frontend persona and Magic activate automatically
+/sg:build react-app/  # Let frontend persona and Magic activate automatically
 ```
 
 #### Don't Skip Safety for Speed
 ```bash
 # ❌ Risky for important code
-/sc:improve production-auth/ --force --no-validate
+/sg:improve production-auth/ --force --no-validate
 
 # ✅ Balanced approach
-/sc:improve production-auth/ --safe-mode --validate  # Safer but still efficient
+/sg:improve production-auth/ --safe-mode --validate  # Safer but still efficient
 ```
 
 #### Don't Use Flags You Don't Understand
 ```bash
 # ❌ Cargo cult flag usage
-/sc:command --random-flags-that-look-important
+/sg:command --random-flags-that-look-important
 
 # ✅ Understand what each flag does
-/sc:command --think  # Because I need deeper analysis
-/sc:command --c7     # Because I'm working with external libraries
+/sg:command --think  # Because I need deeper analysis
+/sg:command --c7     # Because I'm working with external libraries
 ```
 
 ### Measuring Success 📊
@@ -2557,13 +2557,13 @@ Track what works well for your specific needs:
 - **Learning**: Which combinations help you understand problems better?
 - **Safety**: Which patterns prevent issues in your environment?
 
-Remember: SuperClaude learns from successful patterns, so using effective combinations consistently helps the framework get better at auto-activation for your specific workflow.
+Remember: SuperGemini learns from successful patterns, so using effective combinations consistently helps the framework get better at auto-activation for your specific workflow.
 
 ---
 
 ## Troubleshooting & Common Issues 🚨
 
-When SuperClaude doesn't work as expected, here's how to diagnose and fix common problems.
+When SuperGemini doesn't work as expected, here's how to diagnose and fix common problems.
 
 ### Command Issues 🛠️
 
@@ -2574,31 +2574,31 @@ When SuperClaude doesn't work as expected, here's how to diagnose and fix common
 **Diagnosis**:
 ```bash
 # Check what auto-activated
-/sc:analyze code.js --introspect
+/sg:analyze code.js --introspect
 # → Shows decision-making process
 
 # Try with explicit control
-/sc:analyze code.js --persona-analyzer --think --seq
+/sg:analyze code.js --persona-analyzer --think --seq
 # → Override auto-activation
 ```
 
 **Solutions**:
 ```bash
 # Be more specific about what you want
-/sc:improve code.js --focus performance --safe-mode
+/sg:improve code.js --focus performance --safe-mode
 
 # Use preview to understand what will happen
-/sc:improve code.js --preview
+/sg:improve code.js --preview
 
 # Start simple and add complexity
-/sc:analyze code.js                    # Basic
-/sc:analyze code.js --think            # Add depth
-/sc:analyze code.js --think --c7       # Add documentation
+/sg:analyze code.js                    # Basic
+/sg:analyze code.js --think            # Add depth
+/sg:analyze code.js --think --c7       # Add documentation
 ```
 
 **Common Causes**:
 - Auto-activation chose different tools than you expected
-- Request was too vague for SuperClaude to understand intent
+- Request was too vague for SuperGemini to understand intent
 - Complexity mismatch (simple request with complex flags or vice versa)
 
 #### Commands Running Too Slowly
@@ -2608,27 +2608,27 @@ When SuperClaude doesn't work as expected, here's how to diagnose and fix common
 **Diagnosis**:
 ```bash
 # Check what's activated
-/sc:analyze large-project/ --introspect
+/sg:analyze large-project/ --introspect
 # → See what tools and servers are being used
 
 # Monitor resource usage
-/sc:analyze large-project/ --verbose
+/sg:analyze large-project/ --verbose
 # → Shows detailed execution steps
 ```
 
 **Solutions**:
 ```bash
 # Optimize for speed
-/sc:analyze large-project/ --uc --no-mcp --scope module
+/sg:analyze large-project/ --uc --no-mcp --scope module
 
 # Use delegation for large operations
-/sc:analyze huge-codebase/ --delegate auto --concurrency 3
+/sg:analyze huge-codebase/ --delegate auto --concurrency 3
 
 # Reduce scope
-/sc:analyze specific-component.js  # Instead of entire project
+/sg:analyze specific-component.js  # Instead of entire project
 
 # Disable expensive features
-/sc:analyze code/ --no-mcp --answer-only
+/sg:analyze code/ --no-mcp --answer-only
 ```
 
 **Performance Optimization Priority**:
@@ -2645,16 +2645,16 @@ When SuperClaude doesn't work as expected, here's how to diagnose and fix common
 **Solutions**:
 ```bash
 # Use compression
-/sc:analyze large-system/ --uc
+/sg:analyze large-system/ --uc
 
 # Be more specific about focus
-/sc:analyze system/ --focus security  # Instead of general analysis
+/sg:analyze system/ --focus security  # Instead of general analysis
 
 # Use answer-only for simple questions
-/sc:explain concept --answer-only
+/sg:explain concept --answer-only
 
 # Limit scope
-/sc:analyze --scope file specific-issue.js
+/sg:analyze --scope file specific-issue.js
 ```
 
 ### Flag Issues 🏁
@@ -2666,13 +2666,13 @@ When SuperClaude doesn't work as expected, here's how to diagnose and fix common
 **Common Conflicts**:
 ```bash
 # ❌ These conflict
-/sc:command --no-mcp --c7        # --no-mcp overrides --c7
-/sc:command --answer-only --plan # --answer-only skips planning
-/sc:command --uc --verbose       # --uc overrides --verbose
+/sg:command --no-mcp --c7        # --no-mcp overrides --c7
+/sg:command --answer-only --plan # --answer-only skips planning
+/sg:command --uc --verbose       # --uc overrides --verbose
 
 # ✅ These work together
-/sc:command --think --c7 --seq   # Complementary capabilities
-/sc:command --safe-mode --validate --preview  # Layered safety
+/sg:command --think --c7 --seq   # Complementary capabilities
+/sg:command --safe-mode --validate --preview  # Layered safety
 ```
 
 **Flag Precedence Order**:
@@ -2685,7 +2685,7 @@ When SuperClaude doesn't work as expected, here's how to diagnose and fix common
 **Diagnosis**:
 ```bash
 # Check what flags are actually active
-/sc:command args --introspect
+/sg:command args --introspect
 # → Shows final flag configuration after precedence resolution
 ```
 
@@ -2696,50 +2696,50 @@ When SuperClaude doesn't work as expected, here's how to diagnose and fix common
 **Solutions**:
 ```bash
 # Override auto-activation explicitly
-/sc:analyze frontend-code/ --persona-security  # Force security view
-/sc:build project/ --no-mcp                    # Force native tools only
+/sg:analyze frontend-code/ --persona-security  # Force security view
+/sg:build project/ --no-mcp                    # Force native tools only
 
 # Use more specific language
-/sc:analyze "security vulnerabilities in auth system"  # Clear intent
+/sg:analyze "security vulnerabilities in auth system"  # Clear intent
 # vs
-/sc:analyze auth system                                # Ambiguous
+/sg:analyze auth system                                # Ambiguous
 
 # Check what keywords trigger auto-activation
-/sc:help analyze  # Shows auto-activation patterns
+/sg:help analyze  # Shows auto-activation patterns
 ```
 
 **Auto-Activation Debugging**:
 ```bash
 # See why certain flags activated
-/sc:troubleshoot "why did --think-hard activate?" --introspect
+/sg:troubleshoot "why did --think-hard activate?" --introspect
 ```
 
 ### Persona Issues 🎭
 
 #### Wrong Persona Activated
 
-**Problem**: SuperClaude uses the wrong specialist for your needs.
+**Problem**: SuperGemini uses the wrong specialist for your needs.
 
 **Diagnosis**:
 ```bash
 # Check what triggered persona activation
-/sc:analyze code/ --introspect
+/sg:analyze code/ --introspect
 # → Shows persona selection reasoning
 ```
 
 **Solutions**:
 ```bash
 # Override with explicit persona
-/sc:analyze backend-api/ --persona-security  # Security view of backend code
-/sc:analyze ui-component/ --persona-performance  # Performance view of frontend
+/sg:analyze backend-api/ --persona-security  # Security view of backend code
+/sg:analyze ui-component/ --persona-performance  # Performance view of frontend
 
 # Use more specific language
-/sc:analyze "security issues in payment processing"  # Triggers security persona
-/sc:analyze "slow database queries"                  # Triggers performance persona
+/sg:analyze "security issues in payment processing"  # Triggers security persona
+/sg:analyze "slow database queries"                  # Triggers performance persona
 
 # Try different personas for different perspectives
-/sc:analyze payment-system/ --persona-security    # Security view
-/sc:analyze payment-system/ --persona-architect   # Architecture view
+/sg:analyze payment-system/ --persona-security    # Security view
+/sg:analyze payment-system/ --persona-architect   # Architecture view
 ```
 
 #### Persona Doesn't Seem Active
@@ -2749,22 +2749,22 @@ When SuperClaude doesn't work as expected, here's how to diagnose and fix common
 **Check Persona Activation**:
 ```bash
 # Verify persona is active
-/sc:analyze auth/ --persona-security --introspect
+/sg:analyze auth/ --persona-security --introspect
 # → Should show security-focused reasoning
 
 # Check if domain keywords are clear
-/sc:scan authentication --focus security  # Should auto-activate security persona
+/sg:scan authentication --focus security  # Should auto-activate security persona
 ```
 
 **Solutions**:
 ```bash
 # Be explicit about persona and focus
-/sc:analyze code/ --persona-security --focus security
+/sg:analyze code/ --persona-security --focus security
 
 # Use appropriate commands for personas
-/sc:scan --persona-security     # Security scanning
-/sc:test --persona-qa           # Quality-focused testing
-/sc:document --persona-scribe   # Professional documentation
+/sg:scan --persona-security     # Security scanning
+/sg:test --persona-qa           # Quality-focused testing
+/sg:document --persona-scribe   # Professional documentation
 ```
 
 ### MCP Server Issues 🔧
@@ -2776,28 +2776,28 @@ When SuperClaude doesn't work as expected, here's how to diagnose and fix common
 **Diagnosis**:
 ```bash
 # Check MCP server status
-/sc:troubleshoot "MCP servers not working" --introspect
+/sg:troubleshoot "MCP servers not working" --introspect
 
 # Verify MCP installation
-/sc:load --summary  # Should show available MCP servers
+/sg:load --summary  # Should show available MCP servers
 
 # Test specific servers
-/sc:analyze react-app/ --c7     # Should use Context7
-/sc:troubleshoot issue --seq    # Should use Sequential
-/sc:build ui/ --magic           # Should use Magic
-/sc:test app/ --play            # Should use Playwright
+/sg:analyze react-app/ --c7     # Should use Context7
+/sg:troubleshoot issue --seq    # Should use Sequential
+/sg:build ui/ --magic           # Should use Magic
+/sg:test app/ --play            # Should use Playwright
 ```
 
 **Common Solutions**:
 ```bash
 # Force MCP activation
-/sc:analyze code/ --all-mcp
+/sg:analyze code/ --all-mcp
 
 # Check if servers are disabled
-/sc:analyze code/ --c7  # If this doesn't work, Context7 may be unavailable
+/sg:analyze code/ --c7  # If this doesn't work, Context7 may be unavailable
 
 # Use fallback approaches
-/sc:analyze react-app/ --no-mcp  # Use native tools if MCP unavailable
+/sg:analyze react-app/ --no-mcp  # Use native tools if MCP unavailable
 ```
 
 #### MCP Servers Too Slow
@@ -2807,13 +2807,13 @@ When SuperClaude doesn't work as expected, here's how to diagnose and fix common
 **Solutions**:
 ```bash
 # Disable MCP for speed
-/sc:analyze large-project/ --no-mcp
+/sg:analyze large-project/ --no-mcp
 
 # Use selective MCP activation
-/sc:analyze react-code/ --magic --no-seq  # Only UI generation, skip analysis
+/sg:analyze react-code/ --magic --no-seq  # Only UI generation, skip analysis
 
 # Optimize MCP usage
-/sc:analyze code/ --uc --c7  # Compression + documentation only
+/sg:analyze code/ --uc --c7  # Compression + documentation only
 ```
 
 ### Performance Issues ⚡
@@ -2825,17 +2825,17 @@ When SuperClaude doesn't work as expected, here's how to diagnose and fix common
 **Solutions**:
 ```bash
 # Enable compression automatically
-/sc:analyze huge-project/ --uc
+/sg:analyze huge-project/ --uc
 
 # Reduce scope
-/sc:analyze --scope module specific-area/
-/sc:analyze --scope file specific-file.js
+/sg:analyze --scope module specific-area/
+/sg:analyze --scope file specific-file.js
 
 # Use delegation
-/sc:analyze large-codebase/ --delegate auto --uc
+/sg:analyze large-codebase/ --delegate auto --uc
 
 # Disable expensive features
-/sc:analyze code/ --no-mcp --answer-only
+/sg:analyze code/ --no-mcp --answer-only
 ```
 
 #### Memory or Resource Issues
@@ -2845,15 +2845,15 @@ When SuperClaude doesn't work as expected, here's how to diagnose and fix common
 **Solutions**:
 ```bash
 # Reduce concurrency
-/sc:analyze large-project/ --delegate auto --concurrency 1
+/sg:analyze large-project/ --delegate auto --concurrency 1
 
 # Use safe mode
-/sc:improve large-system/ --safe-mode  # More conservative resource usage
+/sg:improve large-system/ --safe-mode  # More conservative resource usage
 
 # Break work into smaller chunks
-/sc:analyze module1/
-/sc:analyze module2/
-/sc:analyze module3/
+/sg:analyze module1/
+/sg:analyze module2/
+/sg:analyze module3/
 # Instead of /analyze entire-project/
 ```
 
@@ -2861,21 +2861,21 @@ When SuperClaude doesn't work as expected, here's how to diagnose and fix common
 
 #### Unsafe or Risky Suggestions
 
-**Problem**: SuperClaude suggests changes that seem risky.
+**Problem**: SuperGemini suggests changes that seem risky.
 
 **Always Use Safety Features**:
 ```bash
 # Preview before applying
-/sc:improve important-code/ --preview
+/sg:improve important-code/ --preview
 
 # Use safe mode for critical code
-/sc:improve production-auth/ --safe-mode
+/sg:improve production-auth/ --safe-mode
 
 # Add validation
-/sc:improve system/ --validate --safe-mode
+/sg:improve system/ --validate --safe-mode
 
 # Use iterative approach
-/sc:improve complex-system/ --loop --safe-mode
+/sg:improve complex-system/ --loop --safe-mode
 ```
 
 #### Changes Breaking Functionality
@@ -2885,13 +2885,13 @@ When SuperClaude doesn't work as expected, here's how to diagnose and fix common
 **Prevention**:
 ```bash
 # Always use preview first
-/sc:improve code/ --preview
+/sg:improve code/ --preview
 
 # Use safe mode
-/sc:improve code/ --safe-mode
+/sg:improve code/ --safe-mode
 
 # Test after changes
-/sc:improve code/ --safe-mode && /test code/
+/sg:improve code/ --safe-mode && /test code/
 ```
 
 **Recovery**:
@@ -2901,21 +2901,21 @@ When SuperClaude doesn't work as expected, here's how to diagnose and fix common
 
 ### Framework and Integration Issues 🔗
 
-#### SuperClaude Doesn't Understand Project Context
+#### SuperGemini Doesn't Understand Project Context
 
 **Problem**: Recommendations don't fit your project's patterns or constraints.
 
 **Solutions**:
 ```bash
 # Load project context first
-/sc:load --deep --summary
+/sg:load --deep --summary
 
 # Be explicit about project type
-/sc:analyze react-typescript-app/ --c7  # Include tech stack in description
+/sg:analyze react-typescript-app/ --c7  # Include tech stack in description
 
 # Use appropriate personas
-/sc:analyze node-api/ --persona-backend
-/sc:analyze react-ui/ --persona-frontend
+/sg:analyze node-api/ --persona-backend
+/sg:analyze react-ui/ --persona-frontend
 ```
 
 #### Inconsistent Results
@@ -2925,20 +2925,20 @@ When SuperClaude doesn't work as expected, here's how to diagnose and fix common
 **Diagnosis**:
 ```bash
 # Check what's auto-activating differently
-/sc:command args --introspect
+/sg:command args --introspect
 
 # Use explicit flags for consistency
-/sc:analyze code/ --persona-analyzer --think --c7  # Explicit configuration
+/sg:analyze code/ --persona-analyzer --think --c7  # Explicit configuration
 ```
 
 **Solutions**:
 ```bash
 # Be more explicit about requirements
-/sc:improve code/ --focus performance --persona-performance --safe-mode
+/sg:improve code/ --focus performance --persona-performance --safe-mode
 
 # Use consistent flag patterns
-/sc:analyze --think --c7     # Your standard thorough analysis
-/sc:improve --safe-mode      # Your standard safe improvement
+/sg:analyze --think --c7     # Your standard thorough analysis
+/sg:improve --safe-mode      # Your standard safe improvement
 ```
 
 ### Getting Help 🆘
@@ -2946,7 +2946,7 @@ When SuperClaude doesn't work as expected, here's how to diagnose and fix common
 #### When You're Stuck
 
 **Self-Diagnosis Steps**:
-1. Use `--introspect` to understand what SuperClaude is thinking
+1. Use `--introspect` to understand what SuperGemini is thinking
 2. Try simpler versions of your command
 3. Check auto-activation with explicit flags
 4. Use `--help` on commands to see options
@@ -2954,15 +2954,15 @@ When SuperClaude doesn't work as expected, here's how to diagnose and fix common
 **Escalation Path**:
 ```bash
 # Get framework help
-/sc:troubleshoot "SuperClaude framework issues" --introspect
+/sg:troubleshoot "SuperGemini framework issues" --introspect
 
 # Check documentation
-/sc:help                    # Command overview
-/sc:analyze --help          # Specific command help
+/sg:help                    # Command overview
+/sg:analyze --help          # Specific command help
 
 # Test basic functionality
-/sc:analyze README.md       # Simple test
-/sc:build --help           # Check if commands work
+/sg:analyze README.md       # Simple test
+/sg:build --help           # Check if commands work
 ```
 
 #### Reporting Issues
@@ -2972,12 +2972,12 @@ When reporting problems, include:
 - **Expected behavior**: "Should provide security analysis"
 - **Actual behavior**: "Only provided basic code review"
 - **Context**: "Working on Node.js authentication system"
-- **SuperClaude version**: Check with `/help`
+- **SuperGemini version**: Check with `/help`
 
 **Useful Debug Information**:
 ```bash
 # Get diagnostic information
-/sc:troubleshoot "describe your issue" --introspect --verbose
+/sg:troubleshoot "describe your issue" --introspect --verbose
 # → Provides detailed context for bug reports
 ```
 
@@ -2994,13 +2994,13 @@ When reporting problems, include:
 | Context issues | Load project context | `/load --deep` |
 | Token limits | Enable compression + delegation | `--uc --delegate auto` |
 
-Remember: When in doubt, start simple and add complexity gradually. Use `--introspect` to understand what SuperClaude is thinking, and don't hesitate to override auto-activation when you need specific behavior.
+Remember: When in doubt, start simple and add complexity gradually. Use `--introspect` to understand what SuperGemini is thinking, and don't hesitate to override auto-activation when you need specific behavior.
 
 ---
 
 ## What's Next 🔮
 
-SuperClaude v3.0 is fresh out of beta, and we're honest about what that means: it works pretty well for what it does, but there are rough edges and room for improvement. Here's what you can expect as the framework evolves.
+SuperGemini v3.0 is fresh out of beta, and we're honest about what that means: it works pretty well for what it does, but there are rough edges and room for improvement. Here's what you can expect as the framework evolves.
 
 ### Current Limitations (Let's Be Honest) ⚠️
 
@@ -3143,7 +3143,7 @@ We actively monitor:
 #### How to Keep Current
 ```bash
 # Check for updates regularly
-/sc:help  # Shows current version and update availability
+/sg:help  # Shows current version and update availability
 
 # Monitor development progress
 # - GitHub releases: Feature announcements and changelogs
@@ -3165,12 +3165,12 @@ We actively monitor:
 - **Community contributions**: Additional MCP servers, workflow patterns, integrations
 
 #### What Not to Expect
-- **Perfect AI**: SuperClaude will continue to have limitations and edge cases
+- **Perfect AI**: SuperGemini will continue to have limitations and edge cases
 - **One-Size-Fits-All**: Different projects and teams will need different approaches
 - **Zero Learning Curve**: New features will require learning and experimentation
 - **Magical Solutions**: Complex problems still require human expertise and judgment
 
-### Contributing to SuperClaude 🤝
+### Contributing to SuperGemini 🤝
 
 #### Ways to Help
 - **Bug Reports**: Detailed reports help improve stability and reliability
@@ -3180,32 +3180,32 @@ We actively monitor:
 
 #### What We Value Most
 - **Honest Feedback**: Both positive experiences and frustrations help improve the framework
-- **Real-World Usage**: How SuperClaude works (or doesn't work) in actual development workflows
+- **Real-World Usage**: How SuperGemini works (or doesn't work) in actual development workflows
 - **Specific Examples**: Concrete scenarios are more valuable than abstract feature requests
 - **Patience**: Remember that v3.0 is fresh out of beta - improvement takes time
 
 ### The Bottom Line 🎯
 
-SuperClaude v3.0 is a solid foundation with room to grow. We're committed to:
+SuperGemini v3.0 is a solid foundation with room to grow. We're committed to:
 - **Honest Communication**: No overpromising, clear about limitations and timelines
 - **User-Driven Development**: Prioritizing features that solve real problems
 - **Quality Over Features**: Making existing capabilities excellent before adding new ones
 - **Community Focus**: Building a framework that serves the development community
 
-We believe SuperClaude can become significantly more helpful for software development workflows, but it will take time, feedback, and iteration to get there. We appreciate your patience, feedback, and continued use as we improve the framework together.
+We believe SuperGemini can become significantly more helpful for software development workflows, but it will take time, feedback, and iteration to get there. We appreciate your patience, feedback, and continued use as we improve the framework together.
 
-**Want to stay involved?** Watch the GitHub repository, try new features when they're released, and let us know what works (and what doesn't) in your development workflows. Your real-world usage and feedback are what will make SuperClaude truly valuable for the development community.
+**Want to stay involved?** Watch the GitHub repository, try new features when they're released, and let us know what works (and what doesn't) in your development workflows. Your real-world usage and feedback are what will make SuperGemini truly valuable for the development community.
 
 ---
 
 ## Conclusion 🎉
 
-You've now got a comprehensive understanding of SuperClaude V4 Beta - its components, capabilities, and how to use them effectively. Let's wrap up with the key takeaways that will help you get the most out of the framework.
+You've now got a comprehensive understanding of SuperGemini V4 Beta - its components, capabilities, and how to use them effectively. Let's wrap up with the key takeaways that will help you get the most out of the framework.
 
 ### Key Takeaways 🎯
 
-#### SuperClaude's Core Value
-SuperClaude V4 Beta transforms Claude Code into an intelligent development partner through:
+#### SuperGemini's Core Value
+SuperGemini V4 Beta transforms Gemini CLI into an intelligent development partner through:
 - **21 specialized commands** including session management and brainstorming
 - **13 expert agents** with enhanced coordination and specialization  
 - **4 behavioral modes** that adapt intelligently to different work types
@@ -3214,7 +3214,7 @@ SuperClaude V4 Beta transforms Claude Code into an intelligent development partn
 - **6 MCP servers** including intelligent editing and semantic analysis
 
 #### The Power is in the Coordination
-SuperClaude V4's power comes from intelligent system integration:
+SuperGemini V4's power comes from intelligent system integration:
 - **Session lifecycle** maintains context across all interactions
 - **Behavioral modes** adapt automatically to different work patterns
 - **Agents coordinate** seamlessly for multi-domain problems  
@@ -3223,14 +3223,14 @@ SuperClaude V4's power comes from intelligent system integration:
 - **Memory system** enables continuous learning and improvement
 
 #### Start Simple, Scale Intelligently
-The best approach to SuperClaude V4 Beta is progressive:
-1. **Initialize sessions** with `/sc:load` to experience persistent context
-2. **Try brainstorming** with `/sc:brainstorm` for interactive discovery
+The best approach to SuperGemini V4 Beta is progressive:
+1. **Initialize sessions** with `/sg:load` to experience persistent context
+2. **Try brainstorming** with `/sg:brainstorm` for interactive discovery
 3. **Trust behavioral modes** to adapt automatically to your work patterns
-4. **Use session persistence** with `/sc:save` to build continuous context
+4. **Use session persistence** with `/sg:save` to build continuous context
 5. **Experiment with advanced features** like hooks and multi-layer orchestration
 
-### What Makes SuperClaude Different 🌟
+### What Makes SuperGemini Different 🌟
 
 #### Honest About Limitations
 - V4 Beta represents major architectural improvements but is still in beta
@@ -3254,9 +3254,9 @@ The best approach to SuperClaude V4 Beta is progressive:
 
 #### For New Users
 1. **Start with installation**: Follow the [Installation Guide](installation-guide.md)
-2. **Initialize your first session**: `/sc:load` to experience persistent context
-3. **Try interactive discovery**: `/sc:brainstorm "project idea"` for requirements
-4. **Experience the lifecycle**: Use `/sc:save` to persist your session
+2. **Initialize your first session**: `/sg:load` to experience persistent context
+3. **Try interactive discovery**: `/sg:brainstorm "project idea"` for requirements
+4. **Experience the lifecycle**: Use `/sg:save` to persist your session
 5. **Build confidence gradually**: Session basics → behavioral modes → advanced orchestration
 
 #### For Experienced Users
@@ -3264,11 +3264,11 @@ The best approach to SuperClaude V4 Beta is progressive:
 2. **Master behavioral modes**: Understand how brainstorming, introspection, task management, and token efficiency work
 3. **Explore advanced orchestration**: Wave systems, hooks integration, and multi-layer coordination
 4. **Contribute feedback**: Share what works (and what doesn't) with V4 Beta features
-5. **Try SuperClaude-Lite**: Experiment with the streamlined variant for specific workflows
+5. **Try SuperGemini-Lite**: Experiment with the streamlined variant for specific workflows
 
-### When to Use SuperClaude 🤔
+### When to Use SuperGemini 🤔
 
-#### SuperClaude V4 Beta Excels At
+#### SuperGemini V4 Beta Excels At
 - **Persistent development workflows**: Long-term projects with cross-session context
 - **Interactive requirements discovery**: Brainstorming and clarifying project goals
 - **Intelligent code analysis**: Semantic understanding with Serena and Morphllm
@@ -3276,20 +3276,20 @@ The best approach to SuperClaude V4 Beta is progressive:
 - **Cross-domain coordination**: Complex problems requiring multiple agents and modes
 - **Session-based learning**: Building project understanding over time
 
-#### When to Use Standard Claude Code
+#### When to Use Standard Gemini CLI
 - **Simple questions**: Quick explanations that don't need specialized tools
 - **Creative writing**: Non-technical content creation
 - **General research**: Topics outside software development
 - **Brainstorming**: Open-ended ideation without specific implementation needs
 
-### The SuperClaude Philosophy 💭
+### The SuperGemini Philosophy 💭
 
 #### Human-AI Collaboration
-SuperClaude is designed to augment human expertise, not replace it:
-- **You provide context and goals** - SuperClaude provides execution and expertise
-- **You make decisions** - SuperClaude provides evidence and recommendations  
-- **You understand your constraints** - SuperClaude respects and works within them
-- **You own the outcomes** - SuperClaude helps you achieve better results
+SuperGemini is designed to augment human expertise, not replace it:
+- **You provide context and goals** - SuperGemini provides execution and expertise
+- **You make decisions** - SuperGemini provides evidence and recommendations  
+- **You understand your constraints** - SuperGemini respects and works within them
+- **You own the outcomes** - SuperGemini helps you achieve better results
 
 #### Continuous Improvement
 The framework gets better through:
@@ -3320,21 +3320,21 @@ The framework gets better through:
 
 ### Final Thoughts 🎉
 
-SuperClaude V4 Beta represents a significant architectural evolution in AI-assisted development. With persistent sessions, behavioral intelligence, and advanced orchestration, it demonstrates how AI can become a true development partner that learns and adapts while respecting existing workflows and human expertise.
+SuperGemini V4 Beta represents a significant architectural evolution in AI-assisted development. With persistent sessions, behavioral intelligence, and advanced orchestration, it demonstrates how AI can become a true development partner that learns and adapts while respecting existing workflows and human expertise.
 
 The framework succeeds when it makes you more productive, helps you learn new things, or catches issues you might have missed. It's designed to be a helpful colleague rather than a replacement for understanding your craft.
 
 #### Thank You 🙏
 
-Thanks for taking the time to understand SuperClaude thoroughly. Your thoughtful usage, honest feedback, and patience with rough edges are what will make this framework truly valuable for the development community.
+Thanks for taking the time to understand SuperGemini thoroughly. Your thoughtful usage, honest feedback, and patience with rough edges are what will make this framework truly valuable for the development community.
 
-Whether you use SuperClaude occasionally for specific tasks or integrate it deeply into your daily workflow, we hope it makes your development experience a bit better. And when it doesn't work as expected, please let us know - that feedback is invaluable for making improvements.
+Whether you use SuperGemini occasionally for specific tasks or integrate it deeply into your daily workflow, we hope it makes your development experience a bit better. And when it doesn't work as expected, please let us know - that feedback is invaluable for making improvements.
 
-**Happy coding!** 🚀 We're excited to see what you build with SuperClaude as your development partner.
+**Happy coding!** 🚀 We're excited to see what you build with SuperGemini as your development partner.
 
 ---
 
 *Last updated: January 2025*  
-*SuperClaude V4 Beta User Guide*
+*SuperGemini V4 Beta User Guide*
 
 *For questions, feedback, or contributions, visit our GitHub repository or join the community discussions. We're always happy to hear from users and learn about your experiences with the framework.*

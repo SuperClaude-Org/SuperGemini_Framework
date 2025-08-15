@@ -1,9 +1,9 @@
 """
-Security utilities for SuperClaude installation system
+Security utilities for SuperGemini installation system
 Path validation and input sanitization
 
 This module provides comprehensive security validation for file paths and user inputs
-during SuperClaude installation. It includes protection against:
+during SuperGemini installation. It includes protection against:
 - Directory traversal attacks
 - Installation to system directories
 - Path injection attacks
@@ -637,7 +637,7 @@ class SecurityValidator:
             return (
                 f"Cannot install to {dir_desc} '{path}'. "
                 f"Please choose a location in your home directory instead, "
-                f"such as ~/.claude/ or ~/SuperClaude/"
+                f"such as ~/.claude/ or ~/SuperGemini/"
             )
         else:
             return f"Security validation failed for path '{path}'"

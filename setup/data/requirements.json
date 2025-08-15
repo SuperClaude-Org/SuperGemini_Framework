@@ -26,7 +26,7 @@
       "linux": "sudo apt update && sudo apt install python3 python3-pip",
       "darwin": "brew install python3",
       "win32": "Download Python from https://python.org/downloads/",
-      "description": "Python 3.8+ is required for SuperClaude framework"
+      "description": "Python 3.8+ is required for SuperGemini framework"
     },
     "node": {
       "linux": "sudo apt update && sudo apt install nodejs npm",

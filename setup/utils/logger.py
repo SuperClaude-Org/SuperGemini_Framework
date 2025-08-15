@@ -1,5 +1,5 @@
 """
-Logging system for SuperClaude installation suite
+Logging system for SuperGemini installation suite
 """
 
 import logging

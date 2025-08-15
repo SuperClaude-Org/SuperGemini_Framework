@@ -20,14 +20,14 @@ performance-profile: complex
 personas: [architect, analyzer, project-manager]
 ---
 
-# /sc:task - Enhanced Task Management
+# /sg:task - Enhanced Task Management
 
 ## Purpose
 Execute complex tasks with intelligent workflow management, cross-session persistence, hierarchical task organization, and advanced orchestration capabilities.
 
 ## Usage  
 ```
-/sc:task [action] [target] [--strategy systematic|agile|enterprise] [--depth shallow|normal|deep] [--parallel] [--validate] [--mcp-routing]
+/sg:task [action] [target] [--strategy systematic|agile|enterprise] [--depth shallow|normal|deep] [--parallel] [--validate] [--mcp-routing]
 ```
 
 ## Arguments
@@ -140,46 +140,46 @@ Execute complex tasks with intelligent workflow management, cross-session persis
 
 ### Comprehensive Project Analysis
 ```
-/sc:task create "enterprise authentication system" --strategy systematic --depth deep --validate --mcp-routing
+/sg:task create "enterprise authentication system" --strategy systematic --depth deep --validate --mcp-routing
 # Comprehensive analysis with full orchestration capabilities
 ```
 
 ### Agile Multi-Sprint Coordination
 ```
-/sc:task execute "feature backlog" --strategy agile --parallel --cross-session
+/sg:task execute "feature backlog" --strategy agile --parallel --cross-session
 # Agile coordination with cross-session persistence
 ```
 
 ### Enterprise-Scale Operation
 ```
-/sc:task create "digital transformation" --strategy enterprise --wave-mode --all-personas
+/sg:task create "digital transformation" --strategy enterprise --wave-mode --all-personas
 # Enterprise-scale coordination with full persona orchestration
 ```
 
 ### Complex Integration Project
 ```  
-/sc:task execute "microservices platform" --depth deep --parallel --validate --sequential
+/sg:task execute "microservices platform" --depth deep --parallel --validate --sequential
 # Complex integration with sequential thinking and validation
 ```
 
 ### Create Project-Level Task Hierarchy
 ```
-/sc:task create "Implement user authentication system" --hierarchy --persist --strategy systematic
+/sg:task create "Implement user authentication system" --hierarchy --persist --strategy systematic
 ```
 
 ### Execute with Multi-Agent Delegation
 ```
-/sc:task execute AUTH-001 --delegate --wave-mode --validate
+/sg:task execute AUTH-001 --delegate --wave-mode --validate
 ```
 
 ### Analytics and Optimization
 ```
-/sc:task analytics --project AUTH --optimization-recommendations
+/sg:task analytics --project AUTH --optimization-recommendations
 ```
 
 ### Cross-Session Task Management
 ```
-/sc:task status --all-sessions --detailed-breakdown
+/sg:task status --all-sessions --detailed-breakdown
 ```
 
 ## Boundaries
@@ -202,7 +202,7 @@ Execute complex tasks with intelligent workflow management, cross-session persis
 
 ---
 
-## Claude Code Integration
+## Gemini CLI Integration
 - **TodoWrite Integration**: Seamless session-level task coordination
 - **Wave System**: Advanced multi-stage execution orchestration
 - **Hook System**: Real-time task monitoring and optimization

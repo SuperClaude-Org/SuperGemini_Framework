@@ -33,7 +33,7 @@ performance-targets:
 ## Architecture Layers
 
 ### Layer 1: TodoRead/TodoWrite (Session Tasks)
-- **Scope**: Current Claude Code session with real-time state management
+- **Scope**: Current Gemini CLI session with real-time state management
 - **States**: pending, in_progress, completed, blocked with strict transitions
 - **Capacity**: 3-20 tasks per session with dynamic load balancing
 - **Integration**: Foundation layer connecting to project and orchestration systems
@@ -223,7 +223,7 @@ performance_analytics:
 
 ## Integration Points
 
-### SuperClaude Framework Integration
+### SuperGemini Framework Integration
 - **Session Lifecycle**: Deep integration with session management and checkpoint systems
 - **Quality Gates**: Embedded validation throughout the 8-step quality cycle
 - **MCP Coordination**: Seamless integration with all MCP servers for orchestration

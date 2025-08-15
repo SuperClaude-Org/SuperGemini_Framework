@@ -61,7 +61,7 @@ performance-profile: [standard|optimized|enterprise]
 ## Mode Activation
 
 ### Automatic Activation Patterns
-[Mode Name] Mode auto-activates when SuperClaude detects:
+[Mode Name] Mode auto-activates when SuperGemini detects:
 
 1. **[Pattern Category]**: [Description and examples of trigger patterns]
 2. **[Pattern Category]**: [Description and examples of trigger patterns]
@@ -81,7 +81,7 @@ performance-profile: [standard|optimized|enterprise]
 
 ## Framework Integration
 
-### SuperClaude Mode Coordination
+### SuperGemini Mode Coordination
 - **[Related Mode]**: [Description of coordination relationship]
 - **[Related Mode]**: [Description of coordination relationship]
 - **[Related Mode]**: [Description of coordination relationship]
@@ -199,7 +199,7 @@ performance-profile: [standard|optimized|enterprise]
 # Command-Integrated Mode Template Guide
 
 ## Overview
-This template provides a standardized format for documenting Command-Integrated Modes in the SuperClaude framework. These modes define behavioral frameworks that coordinate closely with specific commands to provide seamless user experiences.
+This template provides a standardized format for documenting Command-Integrated Modes in the SuperGemini framework. These modes define behavioral frameworks that coordinate closely with specific commands to provide seamless user experiences.
 
 ## Key Characteristics: Command-Integrated Modes
 
@@ -300,12 +300,12 @@ Should comprehensively explain:
 - Explain coordination workflows step-by-step
 
 ### 2. Behavioral Focus
-- Emphasize how the mode modifies SuperClaude's behavior
+- Emphasize how the mode modifies SuperGemini's behavior
 - Document communication patterns and interaction changes
 - Include examples of behavioral modifications
 
 ### 3. Framework Compliance
-- Ensure integration with SuperClaude quality gates
+- Ensure integration with SuperGemini quality gates
 - Document MCP server coordination patterns
 - Include agent orchestration workflows
 
@@ -341,11 +341,11 @@ Should comprehensively explain:
 ## File Naming Convention
 - **Pattern**: `Template_Mode_Command_Integrated.md`
 - **Usage**: For modes that integrate closely with specific commands
-- **Examples**: Brainstorming Mode + /sc:brainstorm, Task Management Mode + /task
+- **Examples**: Brainstorming Mode + /sg:brainstorm, Task Management Mode + /task
 
 ## Location
 Template files should be placed in:
-`SuperClaude/Templates/`
+`SuperGemini/Templates/`
 
 Implemented modes should be placed in:
-`SuperClaude/Modes/` or directly in the global configuration directory
+`SuperGemini/Modes/` or directly in the global configuration directory

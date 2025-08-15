@@ -34,9 +34,9 @@ performance-profile: lightweight
 
 [Clear description of the behavioral framework this mode provides. Focus on:
 - What operational behavior changes it enables
-- How it modifies Claude Code's approach to tasks
+- How it modifies Gemini CLI's approach to tasks
 - Why this behavioral modification is valuable
-- What problems it solves in the SuperClaude framework]
+- What problems it solves in the SuperGemini framework]
 
 ## Core [Capabilities|Framework]
 
@@ -61,7 +61,7 @@ performance-profile: lightweight
 ## Activation Patterns
 
 ### Automatic Activation
-[Mode] auto-activates when SuperClaude detects:
+[Mode] auto-activates when SuperGemini detects:
 
 1. **[Primary Trigger Category]**: [Description of detection pattern]
 2. **[Secondary Trigger Category]**: [Specific conditions or keywords]
@@ -90,7 +90,7 @@ performance-profile: lightweight
 
 ## Framework Integration
 
-### SuperClaude Mode Coordination
+### SuperGemini Mode Coordination
 - **[Related Mode]**: [How this mode coordinates with other behavioral modes]
 - **[Related Mode]**: [Shared configuration or mutual enhancement]
 - **[Related Mode]**: [Conflict resolution or priority handling]
@@ -115,7 +115,7 @@ performance-profile: lightweight
 ### [Primary Communication Pattern]
 1. **[Style Element]**: [How this mode changes Claude's communication]
 2. **[Style Element]**: [Specific behavioral modifications in responses]
-3. **[Style Element]**: [Integration with SuperClaude communication standards]
+3. **[Style Element]**: [Integration with SuperGemini communication standards]
 4. **[Style Element]**: [Quality or efficiency improvements in dialogue]
 
 ### [Secondary Communication Pattern]
@@ -157,7 +157,7 @@ performance-profile: lightweight
 
 ## Integration Ecosystem
 
-### SuperClaude Framework Compliance
+### SuperGemini Framework Compliance
 
 ```yaml
 framework_integration:
@@ -184,7 +184,7 @@ mode_interactions:
 orchestration_principles:
   behavioral_consistency: [how consistency is maintained]
   configuration_harmony: [shared settings and coordination]
-  quality_enforcement: [SuperClaude standards preserved]
+  quality_enforcement: [SuperGemini standards preserved]
   performance_optimization: [efficiency gains through coordination]
 ```
 
@@ -201,14 +201,14 @@ orchestration_principles:
 
 ## Overview
 
-This template is designed for **basic behavioral framework modes** that provide lightweight, session-scoped behavioral modifications to Claude Code's operation. These modes focus on optimizing specific aspects of the SuperClaude framework through global behavioral changes.
+This template is designed for **basic behavioral framework modes** that provide lightweight, session-scoped behavioral modifications to Gemini CLI's operation. These modes focus on optimizing specific aspects of the SuperGemini framework through global behavioral changes.
 
 ## Behavioral Mode Characteristics
 
 ### Key Features
 - **Lightweight Performance Profile**: Minimal resource overhead with maximum behavioral impact
 - **Global Behavioral Modification**: Changes that apply consistently across all operations
-- **Framework Integration**: Deep integration with SuperClaude's quality gates and orchestration
+- **Framework Integration**: Deep integration with SuperGemini's quality gates and orchestration
 - **Adaptive Intelligence**: Context-aware behavioral adjustments based on task complexity
 - **Evidence-Based Operation**: All behavioral modifications validated with metrics
 
@@ -233,7 +233,7 @@ This template is designed for **basic behavioral framework modes** that provide 
 2. **Purpose**: Clear behavioral modification description
 3. **Core Framework**: The specific framework this mode provides
 4. **Activation Patterns**: Auto-detection and manual activation
-5. **Framework Integration**: SuperClaude ecosystem integration
+5. **Framework Integration**: SuperGemini ecosystem integration
 6. **Configuration**: YAML configuration structures
 
 ### Optional Sections
@@ -246,7 +246,7 @@ This template is designed for **basic behavioral framework modes** that provide 
 ### When to Use This Template
 - **Simple behavioral modifications** that don't require complex state management
 - **Global optimizations** that apply across all operations
-- **Framework enhancements** that integrate with SuperClaude's core systems
+- **Framework enhancements** that integrate with SuperGemini's core systems
 - **Lightweight modes** with minimal performance overhead
 
 ### When NOT to Use This Template
@@ -271,10 +271,10 @@ This template is designed for **basic behavioral framework modes** that provide 
 ## Best Practices
 
 1. **Clear Behavioral Focus**: Each mode should have a single, clear behavioral modification
-2. **Framework Integration**: Deep integration with SuperClaude's quality gates and orchestration
+2. **Framework Integration**: Deep integration with SuperGemini's quality gates and orchestration
 3. **Performance Awareness**: Document performance impact and optimization benefits
 4. **Evidence-Based Design**: Include metrics and validation for all behavioral changes
-5. **Consistent Communication**: Maintain SuperClaude's communication standards
+5. **Consistent Communication**: Maintain SuperGemini's communication standards
 
 ## File Naming Convention
 - **Prefix**: `MODE_`
@@ -282,4 +282,4 @@ This template is designed for **basic behavioral framework modes** that provide 
 - **Examples**: `MODE_Token_Efficiency.md`, `MODE_Introspection.md`
 
 ## Location
-All Basic Behavioral Mode files should be placed in: `SuperClaude/Modes/`
+All Basic Behavioral Mode files should be placed in: `SuperGemini/Modes/`

@@ -1,14 +1,14 @@
-# FLAGS.md - Claude Code Behavior Flags
+# FLAGS.md - Gemini CLI Behavior Flags
 
 Quick reference for flags that modify how I approach tasks. **Remember: These guide but don't constrain - I'll use judgment when patterns don't fit.**
 
 ## 🎯 Flag Categories
 
-### Thinking Flags
+### Analysis Control
 ```yaml
---think         # Analyze multi-file problems (~4K tokens)
---think-hard    # Deep system analysis (~10K tokens)  
---ultrathink    # Critical architectural decisions (~32K tokens)
+--seq           # Enable Sequential analysis for complex problems
+--deep          # Enable comprehensive analysis mode
+--systematic    # Enable systematic multi-step analysis
 ```
 
 ### Execution Control
@@ -49,10 +49,10 @@ Quick reference for flags that modify how I approach tasks. **Remember: These gu
 I'll automatically enable appropriate flags when I detect:
 
 ```yaml
-thinking_modes:
-  complex_imports → --think
-  system_architecture → --think-hard  
-  critical_decisions → --ultrathink
+analysis_modes:
+  complex_imports → --seq
+  system_architecture → --systematic  
+  critical_decisions → --deep
 
 parallel_work:
   many_files (>50) → --delegate auto
@@ -75,7 +75,7 @@ When flags conflict, I follow this order:
 
 1. **Your explicit flags** > auto-detection
 2. **Safety** > performance  
-3. **Deeper thinking** > shallow analysis
+3. **Comprehensive analysis** > shallow analysis
 4. **Specific scope** > general scope
 5. **--no-mcp** overrides individual server flags
 
@@ -84,9 +84,9 @@ When flags conflict, I follow this order:
 Quick examples of flag combinations:
 
 ```
-"analyze this architecture" → --think-hard
+"analyze this architecture" → --systematic
 "build a login form" → Magic server (auto)
-"fix this bug" → --think + focused analysis
+"fix this bug" → --seq + focused analysis
 "process entire codebase" → --delegate auto
 "just explain this" → --answer-only
 "make this code better" → --loop (auto)

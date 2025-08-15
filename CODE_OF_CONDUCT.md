@@ -2,7 +2,7 @@
 
 ## 🤝 Our Commitment
 
-SuperClaude Framework is committed to providing a welcoming, inclusive, and harassment-free experience for everyone, regardless of age, body size, visible or invisible disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, caste, color, religion, or sexual identity and orientation.
+SuperGemini Framework is committed to providing a welcoming, inclusive, and harassment-free experience for everyone, regardless of age, body size, visible or invisible disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, caste, color, religion, or sexual identity and orientation.
 
 We pledge to act in ways that contribute to an open, welcoming, diverse, inclusive, and healthy community.
 
@@ -94,7 +94,7 @@ This Code of Conduct applies in all community spaces, including:
 - **Communication channels** (Discord, Slack, email)
 - **Events and meetups** (virtual or in-person)
 - **Social media** when representing the project
-- **Any other spaces** where community members interact regarding SuperClaude
+- **Any other spaces** where community members interact regarding SuperGemini
 
 ## 💬 Guidelines for Healthy Discussion
 
@@ -163,4 +163,4 @@ This Code of Conduct is adapted from:
 **Last Updated**: July 2025  
 **Next Review**: January 2026
 
-Thank you for helping make SuperClaude Framework a welcoming space for all developers! 🚀
+Thank you for helping make SuperGemini Framework a welcoming space for all developers! 🚀

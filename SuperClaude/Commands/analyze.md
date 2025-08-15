@@ -15,14 +15,14 @@ mcp-integration:
   wave-enabled: false
 ---
 
-# /sc:analyze - Code Analysis and Quality Assessment
+# /sg:analyze - Code Analysis and Quality Assessment
 
 ## Purpose
 Execute systematic code analysis across quality, security, performance, and architecture domains to identify issues, technical debt, and improvement opportunities with detailed reporting and actionable recommendations.
 
 ## Usage
 ```
-/sc:analyze [target] [--focus quality|security|performance|architecture] [--depth quick|deep] [--format text|json|report]
+/sg:analyze [target] [--focus quality|security|performance|architecture] [--depth quick|deep] [--format text|json|report]
 ```
 
 ## Arguments
@@ -38,7 +38,7 @@ Execute systematic code analysis across quality, security, performance, and arch
 4. Create actionable recommendations with implementation guidance and effort estimates
 5. Present comprehensive analysis report with metrics, trends, and improvement roadmap
 
-## Claude Code Integration
+## Gemini CLI Integration
 - **Tool Usage**: Glob for file discovery, Grep for pattern analysis, Read for code inspection, Bash for tool execution
 - **File Operations**: Reads source files and configurations, writes analysis reports and metrics summaries
 - **Analysis Approach**: Multi-domain analysis combining static analysis, pattern matching, and heuristic evaluation
@@ -53,14 +53,14 @@ Execute systematic code analysis across quality, security, performance, and arch
 
 ### Basic Usage
 ```
-/sc:analyze
+/sg:analyze
 # Performs comprehensive analysis of entire project
 # Generates multi-domain report with key findings and recommendations
 ```
 
 ### Advanced Usage
 ```
-/sc:analyze src/security --focus security --depth deep --format report
+/sg:analyze src/security --focus security --depth deep --format report
 # Deep security analysis of specific directory
 # Generates detailed HTML report with vulnerability assessment
 ```
@@ -72,7 +72,7 @@ Execute systematic code analysis across quality, security, performance, and arch
 - **Resource Constraints**: Optimizes memory usage for large codebases and provides progress feedback
 
 ## Integration Points
-- **SuperClaude Framework**: Integrates with build command for pre-build analysis and test for quality gates
+- **SuperGemini Framework**: Integrates with build command for pre-build analysis and test for quality gates
 - **Other Commands**: Commonly precedes refactoring operations and follows development workflows
 - **File System**: Reads project source code, writes analysis reports to designated output directories
 

@@ -19,14 +19,14 @@ mcp-integration:
 performance-profile: specialized
 ---
 
-# /sc:spawn - Meta-System Task Orchestration
+# /sg:spawn - Meta-System Task Orchestration
 
 ## Purpose
 Advanced meta-system command for decomposing complex multi-domain operations into coordinated subtask hierarchies with sophisticated execution strategies. Provides intelligent task breakdown algorithms, parallel/sequential coordination patterns, and advanced argument processing for complex system-wide operations that require meta-level orchestration beyond standard command capabilities.
 
 ## Usage
 ```
-/sc:spawn [complex-task] [--strategy sequential|parallel|adaptive] [--depth shallow|normal|deep] [--orchestration wave|direct|hybrid]
+/sg:spawn [complex-task] [--strategy sequential|parallel|adaptive] [--depth shallow|normal|deep] [--orchestration wave|direct|hybrid]
 ```
 
 ## Arguments
@@ -52,7 +52,7 @@ Advanced meta-system command for decomposing complex multi-domain operations int
 - **Execution Strategy Selection**: Adaptive coordination pattern selection based on task characteristics
 
 ### 3. Custom Integration
-- **Meta-System Coordination**: Advanced integration with SuperClaude framework orchestration layers
+- **Meta-System Coordination**: Advanced integration with SuperGemini framework orchestration layers
 - **Wave System Integration**: Coordination with wave-based execution for complex operations
 - **Cross-Domain Orchestration**: Management of operations spanning multiple technical domains
 
@@ -99,7 +99,7 @@ Advanced meta-system command for decomposing complex multi-domain operations int
 
 ### Meta-System Capabilities
 - **Cross-Session Orchestration**: Multi-session task coordination with state persistence
-- **System-Wide Coordination**: Operations spanning multiple SuperClaude framework components
+- **System-Wide Coordination**: Operations spanning multiple SuperGemini framework components
 - **Advanced Argument Processing**: Sophisticated parameter parsing and context extraction
 - **Meta-Level Analytics**: Orchestration performance analysis and optimization recommendations
 
@@ -139,10 +139,10 @@ Advanced meta-system command for decomposing complex multi-domain operations int
 
 ## Integration Patterns
 
-### SuperClaude Framework Integration
+### SuperGemini Framework Integration
 - **Wave System Coordination**: Integration with wave-based execution for progressive enhancement
 - **Quality Gate Integration**: Comprehensive validation throughout orchestration phases
-- **Framework Orchestration**: Meta-level coordination with other SuperClaude components
+- **Framework Orchestration**: Meta-level coordination with other SuperGemini components
 
 ### Custom MCP Integration (when applicable)
 - **Server Coordination**: Advanced coordination with MCP servers when required for specific tasks
@@ -175,25 +175,25 @@ Advanced meta-system command for decomposing complex multi-domain operations int
 
 ### Basic Specialized Operation
 ```
-/sc:spawn "implement user authentication system"
+/sg:spawn "implement user authentication system"
 # Creates hierarchical breakdown: Database → Backend → Frontend → Testing
 ```
 
 ### Advanced Specialized Usage
 ```
-/sc:spawn "migrate legacy monolith to microservices" --strategy adaptive --depth deep --orchestration wave
+/sg:spawn "migrate legacy monolith to microservices" --strategy adaptive --depth deep --orchestration wave
 # Complex multi-domain operation with sophisticated orchestration
 ```
 
 ### System-Level Operation
 ```
-/sc:spawn "establish CI/CD pipeline with security scanning" --validate --dependency-map
+/sg:spawn "establish CI/CD pipeline with security scanning" --validate --dependency-map
 # System-wide infrastructure operation with comprehensive validation
 ```
 
 ### Meta-Operation Example
 ```
-/sc:spawn "refactor entire codebase for performance optimization" --orchestration hybrid --priority high
+/sg:spawn "refactor entire codebase for performance optimization" --orchestration hybrid --priority high
 # Enterprise-scale operation requiring meta-system coordination
 ```
 
@@ -207,10 +207,10 @@ Advanced meta-system command for decomposing complex multi-domain operations int
 ### Custom Success Metrics
 - **Coordination Success Rate**: Percentage of successful orchestration operations across task hierarchies
 - **Parallel Execution Efficiency**: Performance gains achieved through parallel coordination patterns
-- **Meta-System Integration**: Successful integration with SuperClaude framework orchestration layers
+- **Meta-System Integration**: Successful integration with SuperGemini framework orchestration layers
 
 ### Specialized Compliance Requirements
-- **Framework Integration**: Full compliance with SuperClaude meta-system orchestration patterns
+- **Framework Integration**: Full compliance with SuperGemini meta-system orchestration patterns
 - **Quality Assurance**: Integration with comprehensive quality gates and validation cycles
 - **Performance Standards**: Meet or exceed orchestration efficiency and coordination effectiveness targets
 
@@ -220,7 +220,7 @@ Advanced meta-system command for decomposing complex multi-domain operations int
 - Decompose complex multi-domain operations into coordinated task hierarchies
 - Provide sophisticated orchestration patterns for parallel and sequential execution
 - Manage advanced argument processing and meta-system coordination
-- Integrate with SuperClaude framework orchestration and wave systems
+- Integrate with SuperGemini framework orchestration and wave systems
 
 **This specialized command will not:**
 - Replace specialized domain commands that have specific technical focuses

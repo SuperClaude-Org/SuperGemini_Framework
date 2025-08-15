@@ -167,7 +167,7 @@ Specify which MCP servers enhance this agent's capabilities:
 - **Serena**: For semantic code analysis and memory operations
 
 ### Quality Gate Integration
-Connect to SuperClaude's 8-step validation cycle where applicable:
+Connect to SuperGemini's 8-step validation cycle where applicable:
 - **Step 1**: Syntax validation
 - **Step 2**: Type analysis  
 - **Step 3**: Lint rules
@@ -178,7 +178,7 @@ Connect to SuperClaude's 8-step validation cycle where applicable:
 - **Step 8**: Integration testing
 
 ### Mode Coordination
-Specify integration with SuperClaude behavioral modes:
+Specify integration with SuperGemini behavioral modes:
 - **Brainstorming Mode**: For requirements discovery and ideation
 - **Task Management Mode**: For multi-session coordination
 - **Token Efficiency Mode**: For optimized communication

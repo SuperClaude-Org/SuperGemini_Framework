@@ -15,14 +15,14 @@ mcp-integration:
   wave-enabled: false
 ---
 
-# /sc:[command-name] - [Command Title]
+# /sg:[command-name] - [Command Title]
 
 ## Purpose
 [Clear statement of what this command does and when to use it. Focus on the primary goal and value proposition.]
 
 ## Usage
 ```
-/sc:[command-name] [arguments] [--flag1] [--flag2]
+/sg:[command-name] [arguments] [--flag1] [--flag2]
 ```
 
 ## Arguments
@@ -38,7 +38,7 @@ mcp-integration:
 4. [Fourth step - validation or output generation]
 5. [Fifth step - final results and feedback]
 
-## Claude Code Integration
+## Gemini CLI Integration
 - **Tool Usage**: [Describe how the command uses its allowed tools]
 - **File Operations**: [Explain file reading, writing, or manipulation patterns]
 - **Analysis Approach**: [Detail how the command analyzes or processes input]
@@ -53,13 +53,13 @@ mcp-integration:
 
 ### Basic Usage
 ```
-/sc:[command-name] [simple-example]
+/sg:[command-name] [simple-example]
 # Expected outcome description
 ```
 
 ### Advanced Usage
 ```
-/sc:[command-name] [complex-example] --flag1 --flag2
+/sg:[command-name] [complex-example] --flag1 --flag2
 # Expected outcome description
 ```
 
@@ -70,7 +70,7 @@ mcp-integration:
 - **Resource Constraints**: [Behavior under resource limitations]
 
 ## Integration Points
-- **SuperClaude Framework**: [How this command fits into the broader framework]
+- **SuperGemini Framework**: [How this command fits into the broader framework]
 - **Other Commands**: [Commands that commonly precede or follow this one]
 - **File System**: [File system interactions and expectations]
 
@@ -91,11 +91,11 @@ mcp-integration:
 # Template Usage Guidelines
 
 ## Quick Start
-1. Copy this template to `SuperClaude/Commands/[command-name].md`
+1. Copy this template to `SuperGemini/Commands/[command-name].md`
 2. Fill in the frontmatter with appropriate values
 3. Replace all placeholder text with command-specific content
 4. Test the command with various inputs
-5. Validate integration with Claude Code
+5. Validate integration with Gemini CLI
 
 ## Tool Selection Guidelines
 Basic commands should use minimal, focused tool sets:
@@ -122,7 +122,7 @@ Basic commands should use minimal, focused tool sets:
 - Focus on what happens, not how it's implemented
 - Use action-oriented language
 
-### Claude Code Integration Section
+### Gemini CLI Integration Section
 - Explain how the command leverages its allowed tools
 - Detail file system interactions
 - Describe error handling approach
@@ -148,8 +148,8 @@ Basic commands should use minimal, focused tool sets:
 - Proper markdown formatting
 
 ### Integration Standards
-- Must work within Claude Code environment
-- Should integrate cleanly with other SuperClaude commands
+- Must work within Gemini CLI environment
+- Should integrate cleanly with other SuperGemini commands
 - Must handle errors gracefully
 - Should provide clear user feedback
 
@@ -204,7 +204,7 @@ typical_flow:
 - Invalid input with appropriate error messages
 - Edge cases (empty files, large inputs, etc.)
 - Missing dependencies or permissions
-- Integration with other SuperClaude commands
+- Integration with other SuperGemini commands
 
 ---
 

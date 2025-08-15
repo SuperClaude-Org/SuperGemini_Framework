@@ -19,14 +19,14 @@ mcp-integration:
 performance-profile: standard
 ---
 
-# /sc:explain - Code and Concept Explanation
+# /sg:explain - Code and Concept Explanation
 
 ## Purpose
 Deliver clear, comprehensive explanations of code functionality, concepts, or system behavior with educational clarity and interactive learning support. This command serves as the primary knowledge transfer engine, providing adaptive explanation frameworks, clarity assessment, and progressive learning patterns with comprehensive context understanding.
 
 ## Usage
 ```
-/sc:explain [target] [--level basic|intermediate|advanced] [--format text|diagram|examples] [--interactive]
+/sg:explain [target] [--level basic|intermediate|advanced] [--format text|diagram|examples] [--interactive]
 ```
 
 ## Arguments
@@ -133,25 +133,25 @@ The command automatically activates relevant personas based on explanation scope
 
 ### Basic Code Explanation
 ```
-/sc:explain authentication.js --level basic --examples
+/sg:explain authentication.js --level basic --examples
 # Clear explanation with practical examples for beginners
 ```
 
 ### Advanced System Architecture
 ```
-/sc:explain microservices-system --level advanced --diagrams --interactive
+/sg:explain microservices-system --level advanced --diagrams --interactive
 # Advanced explanation with visual diagrams and interactive exploration
 ```
 
 ### Framework Concept Explanation
 ```
-/sc:explain react-hooks --level intermediate --format examples --c7
+/sg:explain react-hooks --level intermediate --format examples --c7
 # Framework-specific explanation with Context7 documentation integration
 ```
 
 ### Security Concept Breakdown
 ```
-/sc:explain jwt-authentication --context security --level basic --validate
+/sg:explain jwt-authentication --context security --level basic --validate
 # Security-focused explanation with validation and clear context
 ```
 
@@ -177,12 +177,12 @@ The command automatically activates relevant personas based on explanation scope
 ## Integration Patterns
 
 ### Command Coordination
-- **Preparation Commands**: Often follows /sc:analyze or /sc:document for explanation preparation
-- **Follow-up Commands**: Commonly followed by /sc:implement, /sc:improve, or /sc:test
-- **Parallel Commands**: Can run alongside /sc:document for comprehensive knowledge transfer
+- **Preparation Commands**: Often follows /sg:analyze or /sg:document for explanation preparation
+- **Follow-up Commands**: Commonly followed by /sg:implement, /sg:improve, or /sg:test
+- **Parallel Commands**: Can run alongside /sg:document for comprehensive knowledge transfer
 
 ### Framework Integration
-- **SuperClaude Ecosystem**: Integrates with quality gates and validation cycles
+- **SuperGemini Ecosystem**: Integrates with quality gates and validation cycles
 - **Quality Gates**: Participates in explanation accuracy and clarity verification
 - **Session Management**: Maintains explanation context across session boundaries
 

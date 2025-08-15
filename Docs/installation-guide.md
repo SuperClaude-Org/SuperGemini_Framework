@@ -1,4 +1,4 @@
-# SuperClaude V4 Beta Installation Guide 📦
+# SuperGemini V4 Beta Installation Guide 📦
 
 ## 🎯 It's Easier Than It Looks!
 
@@ -8,18 +8,18 @@
 
 **Option A: From PyPI (Recommended)**
 ```bash
-uv add SuperClaude
+uv add SuperGemini
 ```
 
 **Option B: From Source**
 ```bash
-git clone https://github.com/SuperClaude-Org/SuperClaude_Framework.git
-cd SuperClaude_Framework
+git clone https://github.com/SuperClaude-Org/SuperGemini_Framework.git
+cd SuperGemini_Framework
 uv sync
 ```
 ### 🔧 UV / UVX Setup Guide
 
-SuperClaude V4 Beta supports installation via [`uv`](https://github.com/astral-sh/uv) (a faster, modern Python package manager) or `uvx` for cross-platform usage.
+SuperGemini V4 Beta supports installation via [`uv`](https://github.com/astral-sh/uv) (a faster, modern Python package manager) or `uvx` for cross-platform usage.
 
 ### 🌀 Install with `uv`
 
@@ -31,12 +31,12 @@ curl -Ls https://astral.sh/uv/install.sh | sh
 
 > Or follow instructions from: [https://github.com/astral-sh/uv](https://github.com/astral-sh/uv)
 
-Once `uv` is available, you can install SuperClaude like this:
+Once `uv` is available, you can install SuperGemini like this:
 
 ```bash
 uv venv
 source .venv/bin/activate
-uv pip install SuperClaude
+uv pip install SuperGemini
 ```
 
 ### ⚡ Install with `uvx` (Cross-platform CLI)
@@ -44,11 +44,11 @@ uv pip install SuperClaude
 If you’re using `uvx`, just run:
 
 ```bash
-uvx pip install SuperClaude
+uvx pip install SuperGemini
 ```
 ## 🔧 UV / UVX Setup Guide
 
-SuperClaude V4 Beta supports installation via [`uv`](https://github.com/astral-sh/uv) (a faster, modern Python package manager) or `uvx` for cross-platform usage.
+SuperGemini V4 Beta supports installation via [`uv`](https://github.com/astral-sh/uv) (a faster, modern Python package manager) or `uvx` for cross-platform usage.
 
 ### 🌀 Install with `uv`
 
@@ -60,12 +60,12 @@ curl -Ls https://astral.sh/uv/install.sh | sh
 
 > Or follow instructions from: [https://github.com/astral-sh/uv](https://github.com/astral-sh/uv)
 
-Once `uv` is available, you can install SuperClaude like this:
+Once `uv` is available, you can install SuperGemini like this:
 
 ```bash
 uv venv
 source .venv/bin/activate
-uv pip install SuperClaude
+uv pip install SuperGemini
 ```
 
 ### ⚡ Install with `uvx` (Cross-platform CLI)
@@ -73,7 +73,7 @@ uv pip install SuperClaude
 If you’re using `uvx`, just run:
 
 ```bash
-uvx pip install SuperClaude
+uvx pip install SuperGemini
 ```
 
 ### ✅ Finish Installation
@@ -81,42 +81,42 @@ uvx pip install SuperClaude
 After installing, continue with the usual installer step:
 
 ```bash
-python3 -m SuperClaude install
+python3 -m SuperGemini install
 ```
 
 Or using bash-style CLI:
 
 ```bash
-SuperClaude install
+SuperGemini install
 ```
 
 ### 🧠 Note:
 
 * `uv` provides better caching and performance.
-* Compatible with Python 3.8+ and works smoothly with SuperClaude.
+* Compatible with Python 3.8+ and works smoothly with SuperGemini.
 
 ---
 
 ### ⚠️ Important Note 
-**After installing the SuperClaude.**
-**You can use `SuperClaude commands`
-, `python3 -m SuperClaude commands` or also `python3 SuperClaude commands`**
+**After installing the SuperGemini.**
+**You can use `SuperGemini commands`
+, `python3 -m SuperGemini commands` or also `python3 SuperGemini commands`**
 
-**What just happened?** SuperClaude tried to set up everything you need. Usually no complex configuration, dependency hunting, or setup headaches! 🎉
+**What just happened?** SuperGemini tried to set up everything you need. Usually no complex configuration, dependency hunting, or setup headaches! 🎉
 
 ---
 
-A comprehensive guide to installing SuperClaude V4 Beta. But remember - most people never need to read past the quick start above! 😊
+A comprehensive guide to installing SuperGemini V4 Beta. But remember - most people never need to read past the quick start above! 😊
 
 ## Before You Start 🔍
 
 ### What You Need 💻
 
-SuperClaude works on **Windows**, **macOS**, and **Linux**. Here's what you need:
+SuperGemini works on **Windows**, **macOS**, and **Linux**. Here's what you need:
 
 **Required:**
 - **Python 3.8 or newer** - The framework is written in Python
-- **Claude CLI** - SuperClaude enhances Claude Code, so you need it installed first
+- **Gemini CLI** - SuperGemini enhances Gemini CLI, so you need it installed first
 
 **Optional (but recommended):**
 - **Node.js 16+** - Only needed if you want MCP server integration
@@ -144,10 +144,10 @@ If any of these fail, see the [Prerequisites Setup](#prerequisites-setup-🛠️
 **🏆 The "Just Get It Working" Approach (Recommended for 90% of Users)**
 **Option A: From PyPI (Recommended)**
 ```bash
-pip install SuperClaude
+pip install SuperGemini
 
 # Install with recommended settings  
-SuperClaude install --quick
+SuperGemini install --quick
 
 # That's it! 🎉
 ```
@@ -155,18 +155,18 @@ SuperClaude install --quick
 ```bash
 # Clone the repo
 git clone <repository-url>
-cd SuperClaude
+cd SuperGemini
 pip install .
 
 # Install with recommended settings  
-SuperClaude install --quick
+SuperGemini install --quick
 
 # That's it! 🎉
 ```
 **⚠️ Important Note**
-**After installing the SuperClaude.**
-**You can use `SuperClaude commands`
-, `python3 -m SuperClaude commands` or also `python3 SuperClaude commands`**
+**After installing the SuperGemini.**
+**You can use `SuperGemini commands`
+, `python3 -m SuperGemini commands` or also `python3 SuperGemini commands`**
 
 **What you just got:**
 - ✅ All 16 smart commands that auto-activate experts  
@@ -176,35 +176,64 @@ SuperClaude install --quick
 - ✅ Intelligent routing that figures out complexity for you
 - ✅ About 2 minutes of your time and ~50MB disk space
 
-**Seriously, you're done.** Open Claude Code, type `/help`, and watch SuperClaude work its magic.
+**Seriously, you're done.** Open Gemini CLI, type `/help`, and watch SuperGemini work its magic.
 
 **Nervous about what it will do?** See first with:
 ```bash
-SuperClaude install --dry-run
+SuperGemini install --quick --dry-run
 ```
 
 ## Installation Options 🎯
 
-### 🎛️ Interactive Two-Stage Installation (Default)
-```bash
-SuperClaude install
-```
-- **Stage 1**: Select MCP servers (Context7, Sequential, Magic, Playwright, etc.)
-- **Stage 2**: Choose framework components (Core, Commands, Agents, Modes)
-- **Time**: ~3-5 minutes depending on selections
-- **Space**: ~50-100MB depending on selections
-- **Good for**: All users - gives you full control over what gets installed
-- **Interactive**: Shows detailed descriptions and lets you pick exactly what you want
+We have three installation profiles to choose from:
 
-### 🎯 Component-Specific Installation
+### 🎯 Minimal Installation
 ```bash
-SuperClaude install --components core commands modes
+SuperGemini install --minimal
 ```
-- **What**: Install only specific components you need
-- **Time**: Variable based on selection
-- **Space**: Variable based on selection
-- **Good for**: Users who know exactly what they want
-- **Available components**: core, commands, agents, modes, mcp, mcp_docs
+- **What**: Just the core framework files
+- **Time**: ~1 minute
+- **Space**: ~20MB  
+- **Good for**: Testing, basic enhancement, minimal setups
+- **Includes**: Core behavior documentation that guides Claude
+
+### 🚀 Quick Installation (Recommended)
+```bash
+SuperGemini install --quick
+```
+- **What**: Core framework + 16 slash commands
+- **Time**: ~2 minutes
+- **Space**: ~50MB
+- **Good for**: Most users, general development
+- **Includes**: Everything in minimal + specialized commands like `/analyze`, `/build`, `/improve`
+
+### 🪶 SuperGemini-Lite Installation (V4 Beta)
+```bash
+SuperGemini install --lite
+```
+- **What**: Streamlined version with core features only
+- **Time**: ~1 minute
+- **Space**: ~25MB
+- **Good for**: Resource-constrained environments, basic enhancement
+- **Includes**: Essential framework features without advanced orchestration
+
+### 🔧 Developer Installation  
+```bash
+SuperGemini install --profile developer
+```
+- **What**: Everything including MCP server integration + Hooks system
+- **Time**: ~5 minutes
+- **Space**: ~100MB
+- **Good for**: Power users, contributors, advanced workflows
+- **Includes**: Everything + Context7, Sequential, Magic, Playwright, Morphllm, Serena servers + Python hooks
+
+### 🎛️ Interactive Installation
+```bash
+SuperGemini install
+```
+- Lets you pick and choose components
+- Shows detailed descriptions of what each component does
+- Good if you want control over what gets installed
 
 ## Step-by-Step Installation 📋
 
@@ -226,7 +255,7 @@ winget install python
 
 **Missing Claude CLI?**
 - Visit https://claude.ai/code for installation instructions
-- SuperClaude enhances Claude Code, so you need it first
+- SuperGemini enhances Gemini CLI, so you need it first
 
 **Missing Node.js? (Optional)**
 ```bash
@@ -242,11 +271,11 @@ brew install node
 winget install nodejs
 ```
 
-### Getting SuperClaude 📥
+### Getting SuperGemini 📥
 
 **Option 1: From PyPI (Recommended)**
 ```bash
-pip install SuperClaude
+pip install SuperGemini
 ```
 
 **Option 2: Download the latest release**
@@ -261,8 +290,8 @@ pip install .
 
 **Option 3: Clone from Git**
 ```bash
-git clone https://github.com/SuperClaude-Org/SuperClaude_Framework.git
-cd SuperClaude_Framework
+git clone https://github.com/SuperClaude-Org/SuperGemini_Framework.git
+cd SuperGemini_Framework
 pip install .
 ```
 
@@ -272,22 +301,22 @@ The installer is pretty smart and will guide you through the process:
 
 ```bash
 # See all available options
-SuperClaude install --help
+SuperGemini install --help
 
-# Interactive installation (recommended)
-SuperClaude install
+# Quick installation (recommended)
+SuperGemini install --quick
 
 # Want to see what would happen first?
-SuperClaude install --dry-run
+SuperGemini install --quick --dry-run
 
 # Install everything
-SuperClaude install --components core commands agents modes mcp mcp_docs
+SuperGemini install --profile developer
 
 # Quiet installation (minimal output)
-SuperClaude install --quiet
+SuperGemini install --quick --quiet
 
 # Force installation (skip confirmations)
-python3 SuperClaude.py install --quick --force
+python3 SuperGemini.py install --quick --force
 ```
 
 ### During Installation 📱
@@ -299,8 +328,8 @@ Here's what happens when you install:
 3. **Core Files** - Copies framework documentation files
 4. **Commands** - Installs slash command definitions (if selected)
 5. **MCP Servers** - Downloads and configures MCP servers (if selected)
-6. **Configuration** - Sets up framework settings and CLAUDE.md imports
-7. **Settings** - Sets up `settings.json` with your preferences
+6. **Hooks System** - Installs Python hooks for framework coordination (developer profile)
+7. **Configuration** - Sets up `settings.json` with your preferences
 8. **Validation** - Tests that everything works
 
 The installer shows progress and will tell you if anything goes wrong.
@@ -315,21 +344,21 @@ Let's make sure everything worked:
 # Check if files were installed
 ls ~/.claude/
 
-# Should show: CLAUDE.md, COMMANDS.md, settings.json, etc.
+# Should show: GEMINI.md, COMMANDS.md, settings.json, etc.
 ```
 
-**Test with Claude Code:**
-1. Open Claude Code
-2. Try typing `/help` - you should see SuperClaude commands
+**Test with Gemini CLI:**
+1. Open Gemini CLI
+2. Try typing `/help` - you should see SuperGemini commands
 3. Try `/analyze --help` - should show command options
 
 ### What Got Installed 📂
 
-SuperClaude V4 Beta installs to `~/.claude/` by default. Here's what you'll find:
+SuperGemini V4 Beta installs to `~/.claude/` by default. Here's what you'll find:
 
 ```
 ~/.claude/
-├── CLAUDE.md              # Main framework entry point
+├── GEMINI.md              # Main framework entry point
 ├── FLAGS.md                # Command flags and options
 ├── PRINCIPLES.md           # Development principles
 ├── RULES.md                # Operational rules
@@ -349,7 +378,7 @@ SuperClaude V4 Beta installs to `~/.claude/` by default. Here's what you'll find
 ```
 ~/.claude/
 ├── [above files]           # Core framework files
-└── backups/                # Installation backups
+└── hooks/                  # Python hooks system (developer profile)
     ├── framework_coordinator/
     ├── session_lifecycle/
     ├── performance_monitor/
@@ -358,7 +387,7 @@ SuperClaude V4 Beta installs to `~/.claude/` by default. Here's what you'll find
 ```
 
 **What each file does:**
-- **CLAUDE.md** - Tells Claude Code about SuperClaude and loads other files
+- **GEMINI.md** - Tells Gemini CLI about SuperGemini and loads other files
 - **settings.json** - Configuration (MCP servers, hooks, etc.)
 - **commands/** - Detailed definitions for each slash command
 - **hooks/** - Python hooks for advanced framework coordination (developer only)
@@ -368,27 +397,27 @@ SuperClaude V4 Beta installs to `~/.claude/` by default. Here's what you'll find
 Try these commands to get started:
 
 ```bash
-# In Claude Code, try these:
-/sc:help                    # See available commands
-/sc:analyze README.md       # Analyze a file
-/sc:build --help           # See build options
-/sc:improve --help         # See improvement options
-/sc:brainstorm "my app idea" # Try V4 Beta brainstorming mode
+# In Gemini CLI, try these:
+/sg:help                    # See available commands
+/sg:analyze README.md       # Analyze a file
+/sg:build --help           # See build options
+/sg:improve --help         # See improvement options
+/sg:brainstorm "my app idea" # Try V4 Beta brainstorming mode
 ```
 
-**Don't worry if it seems overwhelming** - SuperClaude enhances Claude Code gradually. You can use as much or as little as you want.
+**Don't worry if it seems overwhelming** - SuperGemini enhances Gemini CLI gradually. You can use as much or as little as you want.
 
 ### Installing Hooks System (V4 Beta) 🔗
 
 If you want to add the Python hooks system to an existing installation:
 
 ```bash
-# Install hooks to existing SuperClaude installation
-cd SuperClaude_Framework
-python3 SuperClaude/Hooks/scripts/install_hooks.py
+# Install hooks to existing SuperGemini installation
+cd SuperGemini_Framework
+python3 SuperGemini/Hooks/scripts/install_hooks.py
 
 # Or upgrade existing installation with hooks
-SuperClaude install --upgrade --hooks
+SuperGemini install --upgrade --hooks
 ```
 
 **What the hooks system provides:**
@@ -400,34 +429,34 @@ SuperClaude install --upgrade --hooks
 **Verification:**
 ```bash
 # Test hooks installation
-python3 SuperClaude/Hooks/scripts/test_hooks.py
+python3 SuperGemini/Hooks/scripts/test_hooks.py
 
 # Check hook status
-SuperClaude hooks --status
+SuperGemini hooks --status
 ```
 
 ## Managing Your Installation 🛠️
 
 ### Updates 📅
 
-Keep SuperClaude up to date:
+Keep SuperGemini up to date:
 
 ```bash
 # Check for updates
-SuperClaude update
+SuperGemini update
 
 # Force update (overwrite local changes)
-SuperClaude update --force
+SuperGemini update --force
 
 # Update specific components only
-SuperClaude update --components core,commands
+SuperGemini update --components core,commands
 
 # See what would be updated
-SuperClaude update --dry-run
+SuperGemini update --dry-run
 ```
 
 **When to update:**
-- When new SuperClaude versions are released
+- When new SuperGemini versions are released
 - If you're having issues (updates often include fixes)
 - When new MCP servers become available
 
@@ -437,47 +466,47 @@ Create backups before major changes:
 
 ```bash
 # Create a backup
-SuperClaude backup --create
+SuperGemini backup --create
 
 # List existing backups  
-SuperClaude backup --list
+SuperGemini backup --list
 
 # Restore from backup
-SuperClaude backup --restore
+SuperGemini backup --restore
 
 # Create backup with custom name
-SuperClaude backup --create --name "before-update"
+SuperGemini backup --create --name "before-update"
 ```
 
 **When to backup:**
-- Before updating SuperClaude
+- Before updating SuperGemini
 - Before experimenting with settings
 - Before uninstalling
 - Periodically if you've customized heavily
 
 ### Uninstallation 🗑️
 
-If you need to remove SuperClaude:
+If you need to remove SuperGemini:
 
 ```bash
-# Remove SuperClaude (keeps backups)
-SuperClaude uninstall
+# Remove SuperGemini (keeps backups)
+SuperGemini uninstall
 
 # Complete removal (removes everything)
-SuperClaude uninstall --complete
+SuperGemini uninstall --complete
 
 # See what would be removed
-SuperClaude uninstall --dry-run
+SuperGemini uninstall --dry-run
 ```
 
 **What gets removed:**
 - All files in `~/.claude/` 
 - MCP server configurations
-- SuperClaude settings from Claude Code
+- SuperGemini settings from Gemini CLI
 
 **What stays:**
 - Your backups (unless you use `--complete`)
-- Claude Code itself (SuperClaude doesn't touch it)
+- Gemini CLI itself (SuperGemini doesn't touch it)
 - Your projects and other files
 
 ## Troubleshooting 🔧
@@ -494,14 +523,14 @@ which python3
 ```
 
 **"Claude CLI not found"**
-- Make sure Claude Code is installed first
+- Make sure Gemini CLI is installed first
 - Try `claude --version` to verify
 - Visit https://claude.ai/code for installation help
 
 **"Permission denied"**
 ```bash
 # Try with explicit Python path
-/usr/bin/python3 SuperClaude.py install --quick
+/usr/bin/python3 SuperGemini.py install --quick
 
 # Or check if you need different permissions
 ls -la ~/.claude/
@@ -515,10 +544,10 @@ ls -la ~/.claude/
 **"Installation fails partway through"**
 ```bash
 # Try with verbose output to see what's happening
-SuperClaude install --quick --verbose
+SuperGemini install --quick --verbose
 
 # Or try a dry run first
-SuperClaude install --quick --dry-run
+SuperGemini install --quick --dry-run
 ```
 
 ### Platform-Specific Issues 🖥️
@@ -529,7 +558,7 @@ SuperClaude install --quick --dry-run
 - Make sure Python is in your PATH
 
 **macOS:**  
-- You might need to approve SuperClaude in Security & Privacy settings
+- You might need to approve SuperGemini in Security & Privacy settings
 - Use `brew install python3` if you don't have Python 3.8+
 - Try using `python3` explicitly instead of `python`
 
@@ -541,7 +570,7 @@ SuperClaude install --quick --dry-run
 ### Still Having Issues? 🤔
 
 **Check our troubleshooting resources:**
-- GitHub Issues: https://github.com/SuperClaude-Org/SuperClaude_Framework/issues
+- GitHub Issues: https://github.com/SuperClaude-Org/SuperGemini_Framework/issues
 - Look for existing issues similar to yours
 - Create a new issue if you can't find a solution
 
@@ -564,49 +593,52 @@ SuperClaude install --quick --dry-run
 
 ```bash
 # Install to custom location
-SuperClaude install --quick --install-dir /custom/path
+SuperGemini install --quick --install-dir /custom/path
 
 # Use environment variable
-export SUPERCLAUDE_DIR=/custom/path
-SuperClaude install --quick
+export SUPERGEMINI_DIR=/custom/path
+SuperGemini install --quick
 ```
 
 ### Component Selection
 
 ```bash
 # See available components
-SuperClaude install --list-components
+SuperGemini install --list-components
 
 # Install specific components only
-SuperClaude install --components core,commands
+SuperGemini install --components core,commands
 
 # Skip certain components
-SuperClaude install --quick --skip mcp
+SuperGemini install --quick --skip mcp
 ```
 
 ### Development Setup
 
-If you're planning to contribute or modify SuperClaude:
+If you're planning to contribute or modify SuperGemini:
 
 ```bash
 # Developer installation with all components
-SuperClaude install --components core commands agents modes mcp mcp_docs
+SuperGemini install --profile developer
 
-# Install in development mode
-SuperClaude install --dev-mode
+# Install in development mode (symlinks instead of copies)
+SuperGemini install --profile developer --dev-mode
+
+# Install with git hooks for development
+SuperGemini install --profile developer --dev-hooks
 ```
 
 ## What's Next? 🚀
 
-**Now that SuperClaude is installed (that was easy, right?):**
+**Now that SuperGemini is installed (that was easy, right?):**
 
 1. **Just start using it** - Try `/analyze some-file.js` or `/build` and see what happens ✨
-2. **Don't stress about learning** - SuperClaude usually figures out what you need
+2. **Don't stress about learning** - SuperGemini usually figures out what you need
 3. **Experiment freely** - Commands like `/improve` and `/troubleshoot` are pretty forgiving
 4. **Read guides if curious** - Check `Docs/` when you want to understand what just happened
 5. **Give feedback** - Let us know what works and what doesn't
 
-**The real secret**: SuperClaude is designed to enhance your existing workflow without you having to learn a bunch of new stuff. Just use it like you'd use regular Claude Code, but notice how much smarter it gets! 🎯
+**The real secret**: SuperGemini is designed to enhance your existing workflow without you having to learn a bunch of new stuff. Just use it like you'd use regular Gemini CLI, but notice how much smarter it gets! 🎯
 
 **Still feeling uncertain?** Start with just `/help` and `/analyze README.md` - you'll see how non-intimidating it actually is.
 
@@ -620,11 +652,11 @@ SuperClaude install --dev-mode
 - **Easy to uninstall** if you change your mind
 - **Community supported** - we actually read and respond to issues
 - ### ⚠️ Important Note 
-**After installing the SuperClaude.**
-**You can use `SuperClaude commands`
-, `python3 -m SuperClaude commands` or also `python3 SuperClaude commands`**
+**After installing the SuperGemini.**
+**You can use `SuperGemini commands`
+, `python3 -m SuperGemini commands` or also `python3 SuperGemini commands`**
 
-Thanks for trying SuperClaude! We hope it makes your development workflow a bit smoother. 🙂
+Thanks for trying SuperGemini! We hope it makes your development workflow a bit smoother. 🙂
 
 ---
 

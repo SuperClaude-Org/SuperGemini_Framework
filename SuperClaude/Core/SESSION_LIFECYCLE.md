@@ -1,14 +1,14 @@
-# SuperClaude Session Lifecycle Pattern
+# SuperGemini Session Lifecycle Pattern
 
 ## Overview
 
-The Session Lifecycle Pattern defines how SuperClaude manages work sessions through integration with Serena MCP, enabling continuous learning and context preservation across sessions.
+The Session Lifecycle Pattern defines how SuperGemini manages work sessions through integration with Serena MCP, enabling continuous learning and context preservation across sessions.
 
 ## Core Concept
 
 ```
 ┌─────────────┐     ┌─────────────┐     ┌─────────────┐     ┌─────────────┐
-│  /sc:load   │────▶│    WORK     │────▶│  /sc:save   │────▶│    NEXT     │
+│  /sg:load   │────▶│    WORK     │────▶│  /sg:save   │────▶│    NEXT     │
 │  (INIT)     │     │  (ACTIVE)   │     │ (CHECKPOINT)│     │  SESSION    │
 └─────────────┘     └─────────────┘     └─────────────┘     └─────────────┘
        │                                                              │
@@ -18,7 +18,7 @@ The Session Lifecycle Pattern defines how SuperClaude manages work sessions thro
 ## Session States
 
 ### 1. INITIALIZING
-- **Trigger**: `/sc:load` command execution
+- **Trigger**: `/sg:load` command execution
 - **Actions**:
   - Activate project via `activate_project`
   - Load existing memories via `list_memories`
@@ -27,7 +27,7 @@ The Session Lifecycle Pattern defines how SuperClaude manages work sessions thro
   - Initialize session context and memory structures
 - **Content Management**:
   - **Session Data**: Session metadata, checkpoints, cache content
-  - **Framework Content**: All SuperClaude framework components loaded
+  - **Framework Content**: All SuperGemini framework components loaded
   - **User Content**: Project files, user docs, configurations loaded
 - **Duration**: <500ms target
 - **Next State**: ACTIVE
@@ -40,12 +40,12 @@ The Session Lifecycle Pattern defines how SuperClaude manages work sessions thro
   - Changes tracked for persistence
   - Decisions logged for replay
 - **Checkpoint Triggers**:
-  - Manual: User requests via `/sc:save --checkpoint`
+  - Manual: User requests via `/sg:save --checkpoint`
   - Automatic: See Automatic Checkpoint Triggers section
 - **Next State**: CHECKPOINTED or COMPLETED
 
 ### 3. CHECKPOINTED
-- **Trigger**: `/sc:save` command or automatic trigger
+- **Trigger**: `/sg:save` command or automatic trigger
 - **Actions**:
   - Analyze session changes via `think_about_collected_information`
   - Persist discoveries to appropriate memories
@@ -62,7 +62,7 @@ The Session Lifecycle Pattern defines how SuperClaude manages work sessions thro
 - **Next State**: ACTIVE (continue) or COMPLETED
 
 ### 4. RESUMED
-- **Trigger**: `/sc:load` after previous checkpoint
+- **Trigger**: `/sg:load` after previous checkpoint
 - **Actions**:
   - Load latest checkpoint via `read_memory`
   - Restore session context and data
@@ -94,9 +94,9 @@ The Session Lifecycle Pattern defines how SuperClaude manages work sessions thro
 
 ### Manual Checkpoints
 ```bash
-/sc:save --checkpoint                  # Basic checkpoint
-/sc:save --checkpoint --summarize      # With summary
-/sc:save --checkpoint --type all       # Comprehensive
+/sg:save --checkpoint                  # Basic checkpoint
+/sg:save --checkpoint --summarize      # With summary
+/sg:save --checkpoint --type all       # Comprehensive
 ```
 
 ### Automatic Checkpoint Triggers
@@ -134,7 +134,7 @@ The Session Lifecycle Pattern defines how SuperClaude manages work sessions thro
 # Stored in: session/{timestamp}
 session:
   id: "session-2025-01-31-14:30:00"
-  project: "SuperClaude"
+  project: "SuperGemini"
   start_time: "2025-01-31T14:30:00Z"
   end_time: "2025-01-31T16:45:00Z"
   duration_minutes: 135
@@ -156,17 +156,17 @@ context:
 work:
   tasks_completed:
     - id: "TASK-006"
-      description: "Refactor /sc:load command"
+      description: "Refactor /sg:load command"
       duration_minutes: 45
     - id: "TASK-007"
-      description: "Implement /sc:save command"
+      description: "Implement /sg:save command"
       duration_minutes: 60
       
   files_modified:
-    - path: "/SuperClaude/Commands/load.md"
+    - path: "/SuperGemini/Commands/load.md"
       operations: ["edit"]
       changes: 6
-    - path: "/SuperClaude/Commands/save.md"
+    - path: "/SuperGemini/Commands/save.md"
       operations: ["create"]
       
   decisions_made:
@@ -180,7 +180,7 @@ discoveries:
     - "MCP tool naming convention: direct tool names"
     - "Commands use declarative markdown format"
   insights_gained:
-    - "SuperClaude as orchestration layer"
+    - "SuperGemini as orchestration layer"
     - "Session persistence enables continuous learning"
     
 checkpoints:
@@ -216,11 +216,11 @@ context_snapshot:
     - "project_purpose"
     - "session/current"
   recent_changes:
-    - "Updated /sc:load command"
-    - "Created /sc:save command"
+    - "Updated /sg:load command"
+    - "Created /sg:save command"
     
 recovery_info:
-  restore_command: "/sc:load --checkpoint checkpoint-2025-01-31-16:00:00"
+  restore_command: "/sg:load --checkpoint checkpoint-2025-01-31-16:00:00"
   dependencies_check: "all_clear"
   estimated_restore_time_ms: 450
 ```
@@ -255,7 +255,7 @@ memories/
 # Planned hook integration points
 class SessionLifecycleHooks:
     def on_session_start(self, context):
-        """Called after /sc:load completes"""
+        """Called after /sg:load completes"""
         pass
         
     def on_task_complete(self, task_id, result):
@@ -267,7 +267,7 @@ class SessionLifecycleHooks:
         pass
         
     def on_session_end(self, summary):
-        """Called during /sc:save"""
+        """Called during /sg:save"""
         pass
 ```
 
@@ -320,7 +320,7 @@ class SessionLifecycleHooks:
 ## Best Practices
 
 ### For Users
-1. Run `/sc:save` before major changes
+1. Run `/sg:save` before major changes
 2. Use `--checkpoint` flag for critical work
 3. Review summaries weekly for insights
 4. Clean old checkpoints periodically

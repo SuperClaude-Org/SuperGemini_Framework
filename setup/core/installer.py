@@ -1,5 +1,5 @@
 """
-Base installer logic for SuperClaude installation system fixed some issues
+Base installer logic for SuperGemini installation system fixed some issues
 """
 
 from typing import List, Dict, Optional, Set, Tuple, Any

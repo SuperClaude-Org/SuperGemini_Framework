@@ -80,7 +80,7 @@ performance-targets: [specific monitoring requirements]
 2. **[Performance Threshold]**: [Performance degradation or optimization opportunities]
 3. **[System Event]**: [System lifecycle events requiring monitoring]
 4. **[Risk Indicator]**: [High-risk operations needing continuous tracking]
-5. **[Quality Gate]**: [Integration with SuperClaude quality validation steps]
+5. **[Quality Gate]**: [Integration with SuperGemini quality validation steps]
 
 ### Manual Activation
 - **Primary Flag**: `--[shorthand]` or `--[fullname]`
@@ -290,7 +290,7 @@ performance-targets: [specific monitoring requirements]
 # Monitoring Mode Template Guide
 
 ## Overview
-This template provides a specialized format for documenting Monitoring and Analytics Modes in the SuperClaude framework. These modes focus on real-time tracking, metrics collection, performance monitoring, and analytical insights.
+This template provides a specialized format for documenting Monitoring and Analytics Modes in the SuperGemini framework. These modes focus on real-time tracking, metrics collection, performance monitoring, and analytical insights.
 
 ## Key Characteristics: Monitoring Modes
 
@@ -380,7 +380,7 @@ This template provides a specialized format for documenting Monitoring and Analy
 
 ### Integration Excellence
 1. **Seamless Integration**: Monitoring should integrate transparently with existing workflows
-2. **Framework Compliance**: Maintain compliance with SuperClaude framework standards
+2. **Framework Compliance**: Maintain compliance with SuperGemini framework standards
 3. **Cross-Mode Coordination**: Coordinate effectively with other active modes
 4. **Hook System Integration**: Leverage hook system for event-driven monitoring
 
@@ -390,7 +390,7 @@ This template provides a specialized format for documenting Monitoring and Analy
 
 ## Location
 All Monitoring Mode documentation files should be placed in:
-`SuperClaude/Modes/`
+`SuperGemini/Modes/`
 
 ## Integration with Template System
 This template specializes the base `Template_Mode.md` for monitoring and analytics use cases, providing:
