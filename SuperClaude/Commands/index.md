@@ -11,7 +11,7 @@ scope: project
 # Integration Configuration
 mcp-integration:
   servers: [sequential, context7]  # Sequential for analysis, Context7 for documentation patterns
-  personas: [architect, scribe, quality]  # Auto-activated based on documentation scope
+  personas: [system-architect, technical-writer, code-refactorer]  # Auto-activated based on documentation scope
   wave-enabled: false
   complexity-threshold: 0.5
 

@@ -11,7 +11,7 @@ scope: cross-file
 # Integration Configuration
 mcp-integration:
   servers: [context7, sequential, magic, playwright]  # Enhanced capabilities for implementation
-  personas: [architect, frontend, backend, security, qa-specialist]  # Auto-activated based on context
+  personas: [system-architect, frontend-specialist, backend-engineer, security-auditor, qa-specialist]  # Auto-activated based on context
   wave-enabled: false
   complexity-threshold: 0.5
 

@@ -7,15 +7,31 @@ Streamlined routing and coordination guide for Gemini CLI operations.
 Match user requests to appropriate tools and strategies:
 
 ```yaml
-ui_component: [component, design, frontend, UI] → Magic + frontend persona
-deep_analysis: [architecture, complex, system-wide] → Sequential + think modes  
-quick_tasks: [simple, basic, straightforward] → Morphllm + Direct execution
+# Agent-First Routing (Primary)
+system_architecture: [architecture, scalability, design patterns, microservices] → system-architect
+backend_development: [API, database, server-side, reliability, fault tolerance] → backend-engineer
+frontend_development: [UI, React, Vue, Angular, accessibility, responsive] → frontend-specialist
+performance_optimization: [slow, optimization, bottleneck, speed, performance] → performance-optimizer
+security_analysis: [security, vulnerability, audit, OWASP, threat modeling] → security-auditor
+quality_assurance: [testing, QA, test cases, quality, edge cases] → qa-specialist
+debugging_investigation: [debug, troubleshoot, investigate, root cause, errors] → root-cause-analyzer
+code_improvement: [refactor, cleanup, technical debt, code quality] → code-refactorer
+python_expertise: [Python, SOLID, clean architecture, production] → python-ultimate-expert
+documentation: [docs, README, API guides, technical writing] → technical-writer
+education_training: [teach, explain, tutorial, learning, examples] → code-educator
+operations_deployment: [deployment, CI/CD, infrastructure, automation] → devops-engineer
+
+# MCP Server Routing (Secondary)
+ui_component: [component, design, frontend, UI] → Magic + frontend-specialist
+deep_analysis: [architecture, complex, system-wide] → Sequential + system-architect
+quick_tasks: [simple, basic, straightforward] → Morphllm + appropriate agent
 large_scope: [many files, entire codebase] → Serena + Wave orchestration
-symbol_operations: [rename, refactor, extract, move] → Serena + LSP precision
-pattern_edits: [framework, style, cleanup] → Morphllm + token optimization
-performance: [optimize, slow, bottleneck] → Performance persona + profiling
-security: [vulnerability, audit, secure] → Security persona + validation
-documentation: [document, README, guide] → Scribe persona + Context7
+symbol_operations: [rename, refactor, extract, move] → Serena + code-refactorer
+pattern_edits: [framework, style, cleanup] → Morphllm + code-refactorer
+library_integration: [import, require, framework documentation] → Context7 + relevant agent
+browser_testing: [E2E, UI testing, visual testing] → Playwright + qa-specialist
+
+# Mode & Session Management
 brainstorming: [explore, figure out, not sure, new project] → MODE_Brainstorming + /sg:brainstorm
 memory_operations: [save, load, checkpoint] → Serena + session management
 session_lifecycle: [init, work, checkpoint, complete] → /sg:load + /sg:save + /sg:reflect
@@ -82,10 +98,17 @@ Serena unavailable → Morphllm → Native Gemini CLI tools → Explain limitati
 Clear triggers for automatic enhancements:
 
 ```yaml
+enable_agents:
+  - Domain-specific expertise needed (see Agent Selection Matrix below)
+  - Quality standards require specialized knowledge
+  - Multi-agent coordination for complex problems
+  - Task matches specific agent trigger patterns
+
 enable_sequential:
   - Complexity appears high (multi-file, architectural)
   - User explicitly requests thinking/analysis
-  - Debugging complex issues
+  - Agent needs structured reasoning support
+  - Debugging complex issues requiring systematic analysis
 
 enable_serena:
   - File count >5 or symbol operations detected
@@ -93,10 +116,12 @@ enable_serena:
   - Shell command integration needed
   - Complex refactoring or project-wide analysis
   - Memory operations (save/load/checkpoint)
+  - Agent context persistence needed
 
 enable_morphllm:
   - Framework patterns or token optimization critical
   - Simple edits or fast apply suitable
+  - Agent recommendations need precise implementation
   - Pattern-based modifications needed
 
 enable_wave_orchestration:
@@ -249,23 +274,55 @@ mode_command_recovery:
 
 ## 🔍 Common Routing Patterns
 
-### Simple Examples:
+### Agent-First Examples:
 ```
-"Build a login form" → Magic + frontend persona
-"Why is this slow?" → Sequential + performance analysis
-"Document this API" → Scribe + Context7 patterns
-"Fix this bug" → Read code → Sequential analysis → Morphllm targeted fix
-"Refactor this mess" → Serena symbol analysis → plan changes → execute systematically
-"Rename function across project" → Serena LSP precision + dependency tracking
-"Apply code style patterns" → Morphllm pattern matching + token optimization
+"Build a login form" → frontend-specialist + Magic for UI generation
+"Why is this slow?" → performance-optimizer + Sequential for analysis
+"Document this API" → technical-writer + Context7 for patterns
+"Fix this bug" → root-cause-analyzer + Sequential for investigation
+"Refactor this mess" → code-refactorer + Serena for symbol analysis
+"Design the architecture" → system-architect + Sequential for planning
+"Security audit needed" → security-auditor + comprehensive assessment
+"Write tests for this" → qa-specialist + test strategy design
+"Deploy this app" → devops-engineer + infrastructure automation
+"Teach me Python" → code-educator + progressive learning path
+"Backend API design" → backend-engineer + reliability focus
+"Python best practices" → python-ultimate-expert + SOLID principles
+
+# Legacy MCP-First Examples (Fallback)
+"Rename function across project" → Serena LSP precision + code-refactorer
+"Apply code style patterns" → Morphllm pattern matching + code-refactorer
 "Save my work" → Serena memory operations → /sg:save
 "Load project context" → Serena project activation → /sg:load
 "Check my progress" → Task reflection → /sg:reflect --type task
 "Am I done with this?" → Completion validation → /sg:reflect --type completion
-"Save checkpoint" → Session persistence → /sg:save --checkpoint
-"Resume last session" → Session restoration → /sg:load --resume
 "I want to build something for task management" → MODE_Brainstorming → /sg:brainstorm
 "Not sure what to build" → MODE_Brainstorming → /sg:brainstorm --depth deep
+```
+
+### Agent Selection Matrix:
+```yaml
+# Primary Agent Selection Logic
+task_analysis:
+  keywords_detected: [architecture, scalability] → system-architect
+  keywords_detected: [API, database, backend] → backend-engineer  
+  keywords_detected: [UI, React, frontend] → frontend-specialist
+  keywords_detected: [slow, performance, optimization] → performance-optimizer
+  keywords_detected: [security, vulnerability] → security-auditor
+  keywords_detected: [testing, QA, quality] → qa-specialist
+  keywords_detected: [debug, troubleshoot] → root-cause-analyzer
+  keywords_detected: [refactor, cleanup] → code-refactorer
+  keywords_detected: [Python, SOLID] → python-ultimate-expert
+  keywords_detected: [documentation, README] → technical-writer
+  keywords_detected: [teach, explain] → code-educator
+  keywords_detected: [deployment, CI/CD] → devops-engineer
+
+# Multi-Agent Coordination
+complex_scenarios:
+  "Build full-stack app" → system-architect → backend-engineer → frontend-specialist → qa-specialist
+  "Security performance audit" → security-auditor + performance-optimizer (parallel)
+  "Refactor and document" → code-refactorer → technical-writer (sequential)
+  "Deploy with monitoring" → devops-engineer + performance-optimizer (coordinated)
 ```
 
 ### Parallel Execution Examples:

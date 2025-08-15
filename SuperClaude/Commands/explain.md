@@ -11,7 +11,7 @@ scope: cross-file
 # Integration Configuration
 mcp-integration:
   servers: [sequential, context7]  # Sequential for analysis, Context7 for framework documentation
-  personas: [educator, architect, security]  # Auto-activated based on explanation context
+  personas: [code-educator, system-architect, security-auditor]  # Auto-activated based on explanation context
   wave-enabled: false
   complexity-threshold: 0.4
 

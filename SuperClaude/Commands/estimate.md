@@ -11,7 +11,7 @@ scope: project
 # Integration Configuration
 mcp-integration:
   servers: [sequential, context7]  # Sequential for analysis, Context7 for framework patterns
-  personas: [architect, performance, project-manager]  # Auto-activated based on estimation scope
+  personas: [system-architect, performance-optimizer]  # Auto-activated based on estimation scope
   wave-enabled: false
   complexity-threshold: 0.6
 

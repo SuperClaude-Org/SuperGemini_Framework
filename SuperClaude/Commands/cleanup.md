@@ -11,7 +11,7 @@ scope: cross-file
 # Integration Configuration
 mcp-integration:
   servers: [sequential, context7]  # Sequential for analysis, Context7 for framework patterns
-  personas: [architect, quality, security]  # Auto-activated based on cleanup type
+  personas: [system-architect, code-refactorer, security-auditor]  # Auto-activated based on cleanup type
   wave-enabled: false
   complexity-threshold: 0.7
 
