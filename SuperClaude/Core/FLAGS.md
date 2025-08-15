@@ -4,11 +4,14 @@ Quick reference for flags that modify how I approach tasks. **Remember: These gu
 
 ## 🎯 Flag Categories
 
-### Analysis Control
+### MCP Server Flags
 ```yaml
---seq           # Enable Sequential analysis for complex problems
---deep          # Enable comprehensive analysis mode
---systematic    # Enable systematic multi-step analysis
+--seq           # Enable Sequential for complex analysis
+--c7            # Enable Context7 for documentation
+--magic         # Enable Magic for UI components
+--play          # Enable Playwright for testing
+--morph         # Enable Morphllm for fast edits
+--serena        # Enable Serena for semantic analysis
 ```
 
 ### Execution Control
@@ -49,10 +52,11 @@ Quick reference for flags that modify how I approach tasks. **Remember: These gu
 I'll automatically enable appropriate flags when I detect:
 
 ```yaml
-analysis_modes:
-  complex_imports → --seq
-  system_architecture → --systematic  
-  critical_decisions → --deep
+mcp_server_activation:
+  complex_analysis → Sequential
+  library_docs → Context7
+  ui_components → Magic
+  browser_testing → Playwright
 
 parallel_work:
   many_files (>50) → --delegate auto
@@ -75,7 +79,7 @@ When flags conflict, I follow this order:
 
 1. **Your explicit flags** > auto-detection
 2. **Safety** > performance  
-3. **Comprehensive analysis** > shallow analysis
+3. **Deeper analysis** > shallow analysis
 4. **Specific scope** > general scope
 5. **--no-mcp** overrides individual server flags
 
@@ -84,9 +88,9 @@ When flags conflict, I follow this order:
 Quick examples of flag combinations:
 
 ```
-"analyze this architecture" → --systematic
+"analyze this architecture" → Sequential server (auto)
 "build a login form" → Magic server (auto)
-"fix this bug" → --seq + focused analysis
+"fix this bug" → Sequential + focused analysis
 "process entire codebase" → --delegate auto
 "just explain this" → --answer-only
 "make this code better" → --loop (auto)
