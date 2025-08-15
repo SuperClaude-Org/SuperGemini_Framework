@@ -72,24 +72,12 @@ These control how deeply SuperGemini thinks about your request.
 **Example**: `/build --plan` - See build steps before running
 
 #### `--seq`
-**What it does**: Multi-file analysis (~4K tokens)  
-**When to use**: Complex problems involving several files  
-**Auto-activates**: Import chains >5 files, cross-module calls >10 references  
+**What it does**: Enables Sequential MCP server for complex multi-step analysis  
+**When to use**: Complex problems requiring systematic investigation  
+**Auto-activates**: Complex debugging, system design, multi-step problems  
 **Example**: `/analyze complex-system/ --seq`
 
-#### `--systematic` 
-**What it does**: Deep architectural analysis (~10K tokens)  
-**When to use**: System-wide problems, architectural decisions  
-**Auto-activates**: System refactoring, bottlenecks >3 modules  
-**Example**: `/improve legacy-system/ --systematic`
-
-#### `--ultrathink`
-**What it does**: Maximum depth analysis (~32K tokens)  
-**When to use**: Critical system redesign, complex debugging  
-**Auto-activates**: Legacy modernization, critical vulnerabilities  
-**Example**: `/troubleshoot "entire auth system broken" --ultrathink`
-
-**💡 Tip**: Start with `--seq`, only go deeper if needed. More thinking = slower but more thorough.
+**💡 Tip**: Use `--seq` for complex analysis that needs structured reasoning and systematic approach.
 
 ---
 
@@ -190,7 +178,7 @@ For complex operations and workflows.
 
 #### `--wave-mode [auto|force|off]`
 **What it does**: Multi-stage execution with compound intelligence  
-**When to use**: Complex improvements, systematic analysis  
+**When to use**: Complex improvements, structured analysis  
 **Auto-activates**: Complexity >0.8 AND files >20 AND operation types >2  
 **Example**: `/improve legacy-system/ --wave-mode force`
 
@@ -273,13 +261,13 @@ Direct SuperGemini's attention to specific areas.
 ### Deep Investigation  
 ```bash
 /sg:troubleshoot "bug" --seq --seq      # Systematic debugging
-/sg:analyze --systematic --focus architecture  # Architectural analysis
+/sg:analyze --seq --focus architecture  # Architectural analysis
 ```
 
 ### Large Project Work
 ```bash
 /sg:analyze monorepo/ --uc     # Efficient large analysis
-/sg:improve legacy/ --wave-mode auto --safe-mode  # Safe systematic improvement
+/sg:improve legacy/ --wave-mode auto --safe-mode  # Safe structured improvement
 ```
 
 ### Learning & Documentation
@@ -389,7 +377,7 @@ SuperGemini usually adds flags based on context. Here's when it tries:
 
 **Comprehensive Code Review**:
 ```bash
-/sg:review codebase/ --agent qa-specialist --systematic --focus quality --validate --c7
+/sg:review codebase/ --agent qa-specialist --seq --focus quality --validate --c7
 # → QA specialist agent + deep thinking + quality focus + validation + docs
 ```
 
@@ -401,8 +389,8 @@ SuperGemini usually adds flags based on context. Here's when it tries:
 
 **Security Audit**:
 ```bash
-/sg:scan --agent security-auditor --ultrathink --focus security --validate --seq
-# → Security auditor agent + maximum thinking + security focus + validation + systematic analysis
+/sg:scan --agent security-auditor --seq --focus security --validate
+# → Security auditor agent + sequential analysis + security focus + validation
 ```
 
 ### Performance Optimization
@@ -415,8 +403,8 @@ SuperGemini usually adds flags based on context. Here's when it tries:
 
 **For Thoroughness**:
 ```bash
-/sg:analyze --all-mcp --systematic
-# → All capabilities, systematic analysis
+/sg:analyze --all-mcp --seq
+# → All capabilities, sequential analysis
 ```
 
 ### Custom Workflows
@@ -507,7 +495,7 @@ SuperGemini usually adds flags based on context. Here's when it tries:
 - Use `--answer-only` for simple questions
 
 **"Not thorough enough"**
-- Add `--seq` or `--systematic`
+- Add `--seq` for complex analysis
 - Enable relevant MCP servers: `--seq`, `--c7`
 - Use appropriate agent: `--agent root-cause-analyzer`
 
@@ -526,7 +514,7 @@ SuperGemini usually adds flags based on context. Here's when it tries:
 **Precedence order**:
 1. Safety flags (`--safe-mode`) beat optimization
 2. Explicit flags beat auto-activation
-3. Thinking depth: `--ultrathink` > `--systematic` > `--seq`
+3. Analysis mode: Use `--seq` for complex multi-step analysis
 4. Scope: system > project > module > file
 
 ## Tips for Effective Flag Usage 💡
@@ -540,12 +528,12 @@ SuperGemini usually adds flags based on context. Here's when it tries:
 ### Getting Advanced (If You Want To)
 1. **Experiment with overrides** - Try `--agent security-auditor` on non-security code for different perspectives
 2. **Learn the useful combos** - `--safe-mode --validate` for important stuff, `--brainstorm --prd` for new projects
-3. **Understand the performance trade-offs** - Fast (`--uc --no-mcp`) vs thorough (`--systematic --all-mcp`)
+3. **Understand the performance trade-offs** - Fast (`--uc --no-mcp`) vs thorough (`--seq --all-mcp`)
 4. **Use flags for learning** - `--verbose` when you want to understand what's happening
 
 ### Performance Tips (For Power Users)
 - **For speed**: `--uc --no-mcp --scope file`
-- **For thoroughness**: `--systematic --all-mcp`
+- **For thoroughness**: `--seq --all-mcp`
 - **For safety**: `--safe-mode --validate --preview`
 - **For learning**: `--verbose --c7 --agent code-educator`
 - **For project discovery**: `--brainstorm --max-rounds 15 --prd`
