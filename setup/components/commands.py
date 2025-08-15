@@ -21,7 +21,6 @@ class CommandsComponent(Component):
         """Get list of command files to install"""
         return [
             "analyze.md",
-            "brainstorm.md", 
             "build.md",
             "cleanup.md",
             "design.md",
@@ -35,11 +34,9 @@ class CommandsComponent(Component):
             "load.md",
             "reflect.md",
             "save.md",
-            "spawn.md",
-            "task.md",
+            "select-tool.md",
             "test.md",
-            "troubleshoot.md",
-            "workflow.md"
+            "troubleshoot.md"
         ]
     
     def get_metadata(self) -> Dict[str, str]:
