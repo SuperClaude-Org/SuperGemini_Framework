@@ -50,7 +50,7 @@ Multi-step problem solving, architectural analysis, systematic debugging
 
 **Thinking Modes**: 
 - `--seq`: Enable Sequential analysis for complex multi-step problems and systematic analysis with structured approach
-- `--deep`: Comprehensive analysis with extensive coverage
+- `--seq`: Sequential analysis for complex multi-step problems
 
 **Other MCP Servers**: 
 - Context7: Documentation lookup and pattern verification

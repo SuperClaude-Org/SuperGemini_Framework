@@ -657,17 +657,17 @@ A practical guide to all 21 SuperGemini V4 Beta slash commands. We'll be honest 
 ```bash
 /sg:load                           # Load current project context
 /sg:load src/                      # Load specific directory context
-/sg:load --deep                    # Deep analysis of project structure
+/sg:load --analyze                  # Analysis of project structure
 ```
 
 **Useful flags**:
-- `--deep` - Comprehensive project analysis
+- `--analyze` - Project analysis
 - `--focus <area>` - Focus on specific project area
 - `--summary` - Generate project summary
 
 **Real examples**:
 ```bash
-/sg:load --deep --summary
+/sg:load --analyze --summary
 /sg:load src/components/ --focus architecture
 /sg:load . --focus dependencies
 ```
@@ -835,7 +835,7 @@ A practical guide to all 21 SuperGemini V4 Beta slash commands. We'll be honest 
 /sg:git --smart-commit --branch-strategy
 
 # Project understanding workflow
-/sg:load --deep --summary
+/sg:load --analyze --summary
 /sg:analyze --focus architecture
 /sg:document --type guide
 ```
@@ -845,14 +845,14 @@ A practical guide to all 21 SuperGemini V4 Beta slash commands. We'll be honest 
 **New Project Discovery** (V4 Beta):
 ```bash
 /sg:brainstorm "project idea" --prd         # Explore and define requirements
-/sg:load --deep --summary                   # Understand existing codebase
+/sg:load --analyze --summary             # Understand existing codebase
 /sg:workflow requirements.md                # Create implementation plan
 /sg:save --checkpoint "project planning"    # Save planning insights
 ```
 
 **New Project Onboarding**:
 ```bash
-/sg:load --deep --summary
+/sg:load --analyze --summary
 /sg:analyze --focus architecture
 /sg:test --coverage
 /sg:document README
