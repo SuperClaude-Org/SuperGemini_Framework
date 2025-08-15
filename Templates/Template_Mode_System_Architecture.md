@@ -110,7 +110,7 @@
 
 ### Directory Structure
 ```
-ClaudeDocs/{PrimaryCategory}/{SecondaryCategory}/
+GeminiDocs/{PrimaryCategory}/{SecondaryCategory}/
 ├── {Subcategory1}/           # {Description}
 ├── {Subcategory2}/           # {Description}
 ├── {Subcategory3}/           # {Description}
@@ -120,7 +120,7 @@ ClaudeDocs/{PrimaryCategory}/{SecondaryCategory}/
 
 ### Summary Documents
 ```
-ClaudeDocs/Summary/
+GeminiDocs/Summary/
 ├── {summary-type1}-{identifier}-{YYYY-MM-DD-HHMMSS}.md
 ├── {summary-type2}-{project}-{YYYY-MM-DD-HHMMSS}.md
 ├── {summary-type3}-{project}-{YYYY-MM-DD-HHMMSS}.md
@@ -253,7 +253,7 @@ session_id: session_abc123
   
   {persistence_config}:
     enabled: true
-    directory: "ClaudeDocs/{Category}/"
+    directory: "GeminiDocs/{Category}/"
     auto_save: true
     {feature1}:
       - {type1}

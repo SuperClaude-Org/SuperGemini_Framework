@@ -17,7 +17,7 @@ quality_standards:
 # Document Persistence Configuration
 persistence:
   strategy: [serena_memory|claudedocs|hybrid]
-  storage_location: "ClaudeDocs/{category}/ or Memory/{type}/{identifier}"
+  storage_location: "GeminiDocs/{category}/ or Memory/{type}/{identifier}"
   metadata_format: [structured|simple|comprehensive]
   retention_policy: [session|project|permanent]
 
@@ -99,35 +99,35 @@ Specify appropriate persistence strategy based on agent category:
 
 #### Analysis Agents
 ```
-ClaudeDocs/Analysis/{subdomain}/
+GeminiDocs/Analysis/{subdomain}/
 ├── {issue-id}-{agent-type}-{YYYY-MM-DD-HHMMSS}.md
 └── metadata/classification.json
 ```
 
 #### Design Agents  
 ```
-ClaudeDocs/Design/{subdomain}/
+GeminiDocs/Design/{subdomain}/
 ├── {project}-{design-type}-{YYYY-MM-DD-HHMMSS}.md
 └── diagrams/architecture-{timestamp}.svg
 ```
 
 #### Quality Agents
 ```
-ClaudeDocs/Report/
+GeminiDocs/Report/
 ├── {agent-type}-{project}-{YYYY-MM-DD-HHMMSS}.md
 └── metrics/quality-scores.json
 ```
 
 #### Education Agents
 ```
-ClaudeDocs/Documentation/Tutorial/
+GeminiDocs/Documentation/Tutorial/
 ├── {topic}-tutorial-{YYYY-MM-DD-HHMMSS}.md
 └── exercises/practice-problems.md
 ```
 
 #### Infrastructure Agents
 ```
-ClaudeDocs/Report/
+GeminiDocs/Report/
 ├── deployment-{environment}-{YYYY-MM-DD-HHMMSS}.md
 └── configs/infrastructure-{timestamp}.yaml
 ```
@@ -150,7 +150,7 @@ serena.write_memory(
 ### Persistence Workflow Template
 1. **Content Generation**: Create structured content based on agent specialization
 2. **Metadata Creation**: Include agent category, quality metrics, and cross-references  
-3. **Storage Decision**: Use ClaudeDocs for artifacts, Serena memory for knowledge
+3. **Storage Decision**: Use GeminiDocs for artifacts, Serena memory for knowledge
 4. **Directory Management**: Ensure appropriate directory structure exists
 5. **File Operations**: Save with descriptive filename including timestamp
 6. **Index Updates**: Maintain cross-references and related document links

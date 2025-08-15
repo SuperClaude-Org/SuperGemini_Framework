@@ -109,7 +109,7 @@ poetry.lock
 
 # Project specific
 Tests/
-ClaudeDocs/
+GeminiDocs/
 temp/
 tmp/
 .cache/
