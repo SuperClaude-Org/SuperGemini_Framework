@@ -1,7 +1,7 @@
 ---
 name: explain
 description: "Provide clear explanations of code, concepts, or system behavior with educational clarity and interactive learning patterns"
-allowed-tools: [read_file, search_file_content, glob, run_shell_command, TodoWrite]
+allowed-tools: [read_file, search_file_content, glob, run_shell_command]
 
 # Command Classification
 category: workflow

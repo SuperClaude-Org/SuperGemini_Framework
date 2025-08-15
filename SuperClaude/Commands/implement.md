@@ -1,7 +1,7 @@
 ---
 name: implement
 description: "Feature and code implementation with intelligent persona activation and comprehensive MCP integration for development workflows"
-allowed-tools: [read_file, write_file, replace, run_shell_command, search_file_content, glob, TodoWrite]
+allowed-tools: [read_file, write_file, replace, run_shell_command, search_file_content, glob]
 
 # Command Classification
 category: workflow

@@ -1,7 +1,7 @@
 ---
 name: reflect
 description: "Session lifecycle management with Serena MCP integration and performance requirements for task reflection and validation"
-allowed-tools: [think_about_task_adherence, think_about_collected_information, think_about_whether_you_are_done, read_memory, write_memory, list_memories, TodoRead, TodoWrite]
+allowed-tools: [think_about_task_adherence, think_about_collected_information, think_about_whether_you_are_done, read_memory, write_memory, list_memories]
 
 # Command Classification
 category: session

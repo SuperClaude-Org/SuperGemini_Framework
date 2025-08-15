@@ -1,7 +1,7 @@
 ---
 name: index
 description: "Generate comprehensive project documentation and knowledge base with intelligent organization and cross-referencing"
-allowed-tools: [read_file, search_file_content, glob, run_shell_command, write_file, TodoWrite]
+allowed-tools: [read_file, search_file_content, glob, run_shell_command, write_file]
 
 # Command Classification
 category: workflow

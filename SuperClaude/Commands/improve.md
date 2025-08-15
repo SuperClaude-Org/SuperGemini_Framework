@@ -1,7 +1,7 @@
 ---
 name: improve
 description: "Apply systematic improvements to code quality, performance, and maintainability with intelligent analysis and refactoring patterns"
-allowed-tools: [read_file, search_file_content, glob, replace, TodoWrite]
+allowed-tools: [read_file, search_file_content, glob, replace]
 
 # Command Classification
 category: workflow
