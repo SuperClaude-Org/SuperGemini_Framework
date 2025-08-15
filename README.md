@@ -1,7 +1,7 @@
 # SuperGemini Framework
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![PyPI version](https://img.shields.io/pypi/v/SuperGemini.svg)](https://pypi.org/project/SuperGemini/)
+[![PyPI version](https://img.shields.io/pypi/v/SuperGemini.svg?cache=none)](https://pypi.org/project/SuperGemini/)
 [![Version](https://img.shields.io/badge/version-3.2.0-blue.svg)](https://github.com/SuperClaude-Org/SuperGemini_Framework)
 [![GitHub issues](https://img.shields.io/github/issues/SuperClaude-Org/SuperGemini_Framework)](https://github.com/SuperClaude-Org/SuperGemini_Framework/issues)
 
