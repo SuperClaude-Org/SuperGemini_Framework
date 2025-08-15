@@ -1,498 +1,472 @@
 """
-MCP component for MCP server integration
+MCP component for MCP server configuration via .claude.json
 """
 
-import subprocess
+import json
+import shutil
+import time
 import sys
 from typing import Dict, List, Tuple, Optional, Any
 from pathlib import Path
 
-from ..base.component import Component
+# Platform-specific file locking imports
+try:
+    if sys.platform == "win32":
+        import msvcrt
+        LOCKING_AVAILABLE = "windows"
+    else:
+        import fcntl
+        LOCKING_AVAILABLE = "unix"
+except ImportError:
+    LOCKING_AVAILABLE = None
+
+from ..core.base import Component
 from ..utils.ui import display_info, display_warning
 
 
 class MCPComponent(Component):
-    """MCP servers integration component"""
+    """MCP servers configuration component"""
     
     def __init__(self, install_dir: Optional[Path] = None):
         """Initialize MCP component"""
         super().__init__(install_dir)
         
-        # Define MCP servers to install
+        # Define MCP servers available for configuration
         self.mcp_servers = {
-            "sequential-thinking": {
-                "name": "sequential-thinking",
-                "description": "Multi-step problem solving and systematic analysis",
-                "npm_package": "@modelcontextprotocol/server-sequential-thinking",
-                "required": True
-            },
             "context7": {
-                "name": "context7", 
+                "name": "context7",
                 "description": "Official library documentation and code examples",
-                "npm_package": "@upstash/context7-mcp",
-                "required": True
+                "config_file": "context7.json",
+                "requires_api_key": False
+            },
+            "sequential": {
+                "name": "sequential-thinking", 
+                "description": "Multi-step problem solving and systematic analysis",
+                "config_file": "sequential.json",
+                "requires_api_key": False
             },
             "magic": {
                 "name": "magic",
                 "description": "Modern UI component generation and design systems",
-                "npm_package": "@21st-dev/magic",
-                "required": False,
-                "api_key_env": "TWENTYFIRST_API_KEY",
-                "api_key_description": "21st.dev API key for UI component generation"
+                "config_file": "magic.json",
+                "requires_api_key": True,
+                "api_key_env": "TWENTYFIRST_API_KEY"
             },
             "playwright": {
                 "name": "playwright",
                 "description": "Cross-browser E2E testing and automation",
-                "npm_package": "@playwright/mcp@latest",
-                "required": False
+                "config_file": "playwright.json", 
+                "requires_api_key": False
+            },
+            "serena": {
+                "name": "serena",
+                "description": "Semantic code analysis and intelligent editing",
+                "config_file": "serena.json",
+                "requires_api_key": False
+            },
+            "morphllm": {
+                "name": "morphllm-fast-apply",
+                "description": "Fast Apply capability for context-aware code modifications",
+                "config_file": "morphllm.json",
+                "requires_api_key": True,
+                "api_key_env": "MORPH_API_KEY"
             }
         }
+        
+        # This will be set during installation - initialize as empty list
+        self.selected_servers: List[str] = []
+        
+        # Store collected API keys for configuration
+        self.collected_api_keys: Dict[str, str] = {}
+    
+    def _lock_file(self, file_handle, exclusive: bool = False):
+        """Cross-platform file locking"""
+        if LOCKING_AVAILABLE == "unix":
+            lock_type = fcntl.LOCK_EX if exclusive else fcntl.LOCK_SH
+            fcntl.flock(file_handle.fileno(), lock_type)
+        elif LOCKING_AVAILABLE == "windows":
+            # Windows locking using msvcrt
+            if exclusive:
+                msvcrt.locking(file_handle.fileno(), msvcrt.LK_LOCK, 1)
+        # If no locking available, continue without locking
+    
+    def _unlock_file(self, file_handle):
+        """Cross-platform file unlocking"""
+        if LOCKING_AVAILABLE == "unix":
+            fcntl.flock(file_handle.fileno(), fcntl.LOCK_UN)
+        elif LOCKING_AVAILABLE == "windows":
+            msvcrt.locking(file_handle.fileno(), msvcrt.LK_UNLCK, 1)
+        # If no locking available, continue without unlocking
     
     def get_metadata(self) -> Dict[str, str]:
         """Get component metadata"""
         return {
             "name": "mcp",
-            "version": "3.0.0",
-            "description": "MCP server integration (Context7, Sequential, Magic, Playwright)",
+            "version": "4.0.0",
+            "description": "MCP server configuration management via .claude.json",
             "category": "integration"
         }
     
+    def set_selected_servers(self, selected_servers: List[str]) -> None:
+        """Set which MCP servers were selected for configuration"""
+        self.selected_servers = selected_servers
+        self.logger.debug(f"MCP servers to configure: {selected_servers}")
+    
     def validate_prerequisites(self, installSubPath: Optional[Path] = None) -> Tuple[bool, List[str]]:
-        """Check prerequisites"""
+        """
+        Check prerequisites for MCP component
+        """
         errors = []
         
-        # Check if Node.js is available
-        try:
-            result = subprocess.run(
-                ["node", "--version"], 
-                capture_output=True, 
-                text=True, 
-                timeout=10,
-                shell=(sys.platform == "win32")
-            )
-            if result.returncode != 0:
-                errors.append("Node.js not found - required for MCP servers")
-            else:
-                version = result.stdout.strip()
-                self.logger.debug(f"Found Node.js {version}")
-                
-                # Check version (require 18+)
-                try:
-                    version_num = int(version.lstrip('v').split('.')[0])
-                    if version_num < 18:
-                        errors.append(f"Node.js version {version} found, but version 18+ required")
-                except:
-                    self.logger.warning(f"Could not parse Node.js version: {version}")
-        except (subprocess.TimeoutExpired, FileNotFoundError):
-            errors.append("Node.js not found - required for MCP servers")
+        # Check if config source directory exists
+        source_dir = self._get_config_source_dir()
+        if not source_dir or not source_dir.exists():
+            errors.append(f"MCP config source directory not found: {source_dir}")
+            return False, errors
         
-        # Check if Claude CLI is available
-        try:
-            result = subprocess.run(
-                ["claude", "--version"], 
-                capture_output=True, 
-                text=True, 
-                timeout=10,
-                shell=(sys.platform == "win32")
-            )
-            if result.returncode != 0:
-                errors.append("Claude CLI not found - required for MCP server management")
-            else:
-                version = result.stdout.strip()
-                self.logger.debug(f"Found Claude CLI {version}")
-        except (subprocess.TimeoutExpired, FileNotFoundError):
-            errors.append("Claude CLI not found - required for MCP server management")
-        
-        # Check if npm is available
-        try:
-            result = subprocess.run(
-                ["npm", "--version"], 
-                capture_output=True, 
-                text=True, 
-                timeout=10,
-                shell=(sys.platform == "win32")
-            )
-            if result.returncode != 0:
-                errors.append("npm not found - required for MCP server installation")
-            else:
-                version = result.stdout.strip()
-                self.logger.debug(f"Found npm {version}")
-        except (subprocess.TimeoutExpired, FileNotFoundError):
-            errors.append("npm not found - required for MCP server installation")
+        # Check if user's Claude config exists
+        claude_config = Path.home() / ".claude.json"
+        if not claude_config.exists():
+            errors.append(f"Claude configuration file not found: {claude_config}")
+            errors.append("Please run Claude Code at least once to create the configuration file")
         
         return len(errors) == 0, errors
     
     def get_files_to_install(self) -> List[Tuple[Path, Path]]:
-        """Get files to install (none for MCP component)"""
+        """MCP component doesn't install files - it modifies .claude.json"""
         return []
     
-    def get_metadata_modifications(self) -> Dict[str, Any]:
-        """Get metadata modifications for MCP component"""
-        return {
-            "components": {
-                "mcp": {
-                    "version": "3.0.0",
-                    "installed": True,
-                    "servers_count": len(self.mcp_servers)
-                }
-            },
-            "mcp": {
-                "enabled": True,
-                "servers": list(self.mcp_servers.keys()),
-                "auto_update": False
-            }
-        }
-    
-    def _check_mcp_server_installed(self, server_name: str) -> bool:
-        """Check if MCP server is already installed"""
-        try:
-            result = subprocess.run(
-                ["claude", "mcp", "list"], 
-                capture_output=True, 
-                text=True, 
-                timeout=15,
-                shell=(sys.platform == "win32")
-            )
-            
-            if result.returncode != 0:
-                self.logger.warning(f"Could not list MCP servers: {result.stderr}")
-                return False
-            
-            # Parse output to check if server is installed
-            output = result.stdout.lower()
-            return server_name.lower() in output
-            
-        except (subprocess.TimeoutExpired, subprocess.SubprocessError) as e:
-            self.logger.warning(f"Error checking MCP server status: {e}")
-            return False
-    
-    def _install_mcp_server(self, server_info: Dict[str, Any], config: Dict[str, Any]) -> bool:
-        """Install a single MCP server"""
-        server_name = server_info["name"]
-        npm_package = server_info["npm_package"]
+    def _get_config_source_dir(self) -> Optional[Path]:
+        """Get source directory for MCP config files"""
+        project_root = Path(__file__).parent.parent.parent
+        config_dir = project_root / "SuperClaude" / "MCP" / "configs"
         
-        command = "npx"
+        if not config_dir.exists():
+            return None
+        
+        return config_dir
+    
+    def _get_source_dir(self) -> Optional[Path]:
+        """Override parent method - MCP component doesn't use traditional file installation"""
+        return self._get_config_source_dir()
+    
+    def _load_claude_config(self) -> Tuple[Optional[Dict], Path]:
+        """Load user's Claude configuration with file locking"""
+        claude_config_path = Path.home() / ".claude.json"
         
         try:
-            self.logger.info(f"Installing MCP server: {server_name}")
-            
-            # Check if already installed
-            if self._check_mcp_server_installed(server_name):
-                self.logger.info(f"MCP server {server_name} already installed")
-                return True
-            
-            # Handle API key requirements
-            if "api_key_env" in server_info:
-                api_key_env = server_info["api_key_env"]
-                api_key_desc = server_info.get("api_key_description", f"API key for {server_name}")
-                
-                if not config.get("dry_run", False):
-                    display_info(f"MCP server '{server_name}' requires an API key")
-                    display_info(f"Environment variable: {api_key_env}")
-                    display_info(f"Description: {api_key_desc}")
-                    
-                    # Check if API key is already set
-                    import os
-                    if not os.getenv(api_key_env):
-                        display_warning(f"API key {api_key_env} not found in environment")
-                        self.logger.warning(f"Proceeding without {api_key_env} - server may not function properly")
-            
-            # Install using Claude CLI
-            if config.get("dry_run"):
-                self.logger.info(f"Would install MCP server (user scope): claude mcp add -s user {server_name} {command} -y {npm_package}")
-                return True
-            
-            self.logger.debug(f"Running: claude mcp add -s user {server_name} {command} -y {npm_package}")
-            
-            result = subprocess.run(
-                ["claude", "mcp", "add", "-s", "user", "--", server_name, command, "-y", npm_package],
-                capture_output=True,
-                text=True,
-                timeout=120,  # 2 minutes timeout for installation
-                shell=(sys.platform == "win32")
-            )
-            
-            if result.returncode == 0:
-                self.logger.success(f"Successfully installed MCP server (user scope): {server_name}")
-                return True
-            else:
-                error_msg = result.stderr.strip() if result.stderr else "Unknown error"
-                self.logger.error(f"Failed to install MCP server {server_name}: {error_msg}")
-                return False
-                
-        except subprocess.TimeoutExpired:
-            self.logger.error(f"Timeout installing MCP server {server_name}")
-            return False
+            with open(claude_config_path, 'r') as f:
+                # Apply shared lock for reading
+                self._lock_file(f, exclusive=False)
+                try:
+                    config = json.load(f)
+                    return config, claude_config_path
+                finally:
+                    self._unlock_file(f)
         except Exception as e:
-            self.logger.error(f"Error installing MCP server {server_name}: {e}")
-            return False
+            self.logger.error(f"Failed to load Claude config: {e}")
+            return None, claude_config_path
     
-    def _uninstall_mcp_server(self, server_name: str) -> bool:
-        """Uninstall a single MCP server"""
-        try:
-            self.logger.info(f"Uninstalling MCP server: {server_name}")
-            
-            # Check if installed
-            if not self._check_mcp_server_installed(server_name):
-                self.logger.info(f"MCP server {server_name} not installed")
-                return True
-            
-            self.logger.debug(f"Running: claude mcp remove {server_name} (auto-detect scope)")
-            
-            result = subprocess.run(
-                ["claude", "mcp", "remove", server_name],
-                capture_output=True,
-                text=True,
-                timeout=60,
-                shell=(sys.platform == "win32")
-            )
-            
-            if result.returncode == 0:
-                self.logger.success(f"Successfully uninstalled MCP server: {server_name}")
-                return True
-            else:
-                error_msg = result.stderr.strip() if result.stderr else "Unknown error"
-                self.logger.error(f"Failed to uninstall MCP server {server_name}: {error_msg}")
-                return False
+    def _save_claude_config(self, config: Dict, config_path: Path) -> bool:
+        """Save user's Claude configuration with backup and file locking"""
+        max_retries = 3
+        retry_delay = 0.1
+        
+        for attempt in range(max_retries):
+            try:
+                # Create backup first
+                if config_path.exists():
+                    backup_path = config_path.with_suffix('.json.backup')
+                    shutil.copy2(config_path, backup_path)
+                    self.logger.debug(f"Created backup: {backup_path}")
                 
-        except subprocess.TimeoutExpired:
-            self.logger.error(f"Timeout uninstalling MCP server {server_name}")
-            return False
+                # Save updated config with exclusive lock
+                with open(config_path, 'w') as f:
+                    # Apply exclusive lock for writing
+                    self._lock_file(f, exclusive=True)
+                    try:
+                        json.dump(config, f, indent=2)
+                        f.flush()  # Ensure data is written
+                    finally:
+                        self._unlock_file(f)
+                
+                self.logger.debug("Updated Claude configuration")
+                return True
+                
+            except (OSError, IOError) as e:
+                if attempt < max_retries - 1:
+                    self.logger.warning(f"File lock attempt {attempt + 1} failed, retrying: {e}")
+                    time.sleep(retry_delay * (2 ** attempt))  # Exponential backoff
+                    continue
+                else:
+                    self.logger.error(f"Failed to save Claude config after {max_retries} attempts: {e}")
+                    return False
+            except Exception as e:
+                self.logger.error(f"Failed to save Claude config: {e}")
+                return False
+        
+        return False
+    
+    def _merge_mcp_server_config(self, existing_config: Dict, new_config: Dict, server_key: str) -> None:
+        """Precisely merge MCP server config, preserving user customizations
+        
+        Args:
+            existing_config: User's current mcpServers configuration
+            new_config: New MCP server configuration to merge
+            server_key: Server key for logging purposes
+        """
+        for server_name, server_def in new_config.items():
+            if server_name in existing_config:
+                # Server already exists - preserve user customizations
+                existing_server = existing_config[server_name]
+                
+                # Only add missing keys, never overwrite existing ones
+                for key, value in server_def.items():
+                    if key not in existing_server:
+                        existing_server[key] = value
+                        self.logger.debug(f"Added missing key '{key}' to existing server '{server_name}'")
+                    else:
+                        self.logger.debug(f"Preserved user customization for '{server_name}.{key}'")
+                
+                # NEW: Apply environment variable references for API keys
+                if "env" in existing_server and self.collected_api_keys:
+                    for env_key, env_value in existing_server["env"].items():
+                        if env_key in self.collected_api_keys and env_value == "":
+                            # Update to use environment variable reference
+                            existing_server["env"][env_key] = f"${{{env_key}}}"
+                            self.logger.info(f"Configured {env_key} to use environment variable")
+                
+                self.logger.info(f"Updated existing MCP server '{server_name}' (preserved user customizations)")
+            else:
+                # New server - add complete configuration
+                # Apply environment variable references if we have collected keys
+                if "env" in server_def and self.collected_api_keys:
+                    for env_key in server_def["env"]:
+                        if env_key in self.collected_api_keys and server_def["env"][env_key] == "":
+                            server_def["env"][env_key] = f"${{{env_key}}}"
+                
+                existing_config[server_name] = server_def
+                self.logger.info(f"Added new MCP server '{server_name}' from {server_key}")
+    
+    def _load_mcp_server_config(self, server_key: str) -> Optional[Dict]:
+        """Load MCP server configuration snippet"""
+        if server_key not in self.mcp_servers:
+            return None
+        
+        server_info = self.mcp_servers[server_key]
+        config_file = server_info["config_file"]
+        config_source_dir = self._get_config_source_dir()
+        
+        if not config_source_dir:
+            return None
+        
+        config_path = config_source_dir / config_file
+        
+        try:
+            with open(config_path, 'r') as f:
+                return json.load(f)
         except Exception as e:
-            self.logger.error(f"Error uninstalling MCP server {server_name}: {e}")
-            return False
+            self.logger.error(f"Failed to load MCP config for {server_key}: {e}")
+            return None
     
     def _install(self, config: Dict[str, Any]) -> bool:
-        """Install MCP component"""
-        self.logger.info("Installing SuperGemini MCP servers...")
-
+        """Install MCP component by configuring .claude.json"""
+        self.logger.info("Configuring MCP servers in Claude...")
+        
+        # Get selected servers from config
+        selected_servers = config.get("selected_mcp_servers", [])
+        if not selected_servers:
+            self.logger.info("No MCP servers selected - skipping MCP configuration")
+            return True
+        
+        self.set_selected_servers(selected_servers)
+        
+        # NEW: Log collected API keys information
+        if hasattr(self, 'collected_api_keys') and self.collected_api_keys:
+            self.logger.info(f"Using {len(self.collected_api_keys)} collected API keys for configuration")
+        
         # Validate prerequisites
         success, errors = self.validate_prerequisites()
         if not success:
             for error in errors:
                 self.logger.error(error)
             return False
-
-        # Install each MCP server
-        installed_count = 0
-        failed_servers = []
-
-        for server_name, server_info in self.mcp_servers.items():
-            if self._install_mcp_server(server_info, config):
-                installed_count += 1
-            else:
-                failed_servers.append(server_name)
-                
-                # Check if this is a required server
-                if server_info.get("required", False):
-                    self.logger.error(f"Required MCP server {server_name} failed to install")
-                    return False
-
-        # Verify installation
-        if not config.get("dry_run", False):
-            self.logger.info("Verifying MCP server installation...")
-            try:
-                result = subprocess.run(
-                    ["claude", "mcp", "list"],
-                    capture_output=True,
-                    text=True,
-                    timeout=15,
-                    shell=(sys.platform == "win32")
-                )
-                
-                if result.returncode == 0:
-                    self.logger.debug("MCP servers list:")
-                    for line in result.stdout.strip().split('\n'):
-                        if line.strip():
-                            self.logger.debug(f"  {line.strip()}")
-                else:
-                    self.logger.warning("Could not verify MCP server installation")
-                    
-            except Exception as e:
-                self.logger.warning(f"Could not verify MCP installation: {e}")
-
-        if failed_servers:
-            self.logger.warning(f"Some MCP servers failed to install: {failed_servers}")
-            self.logger.success(f"MCP component partially installed ({installed_count} servers)")
+        
+        # Load Claude configuration
+        claude_config, config_path = self._load_claude_config()
+        if claude_config is None:
+            return False
+        
+        # Ensure mcpServers section exists
+        if "mcpServers" not in claude_config:
+            claude_config["mcpServers"] = {}
+        
+        # Configure each selected server
+        configured_count = 0
+        for server_key in selected_servers:
+            if server_key not in self.mcp_servers:
+                self.logger.warning(f"Unknown MCP server: {server_key}")
+                continue
+            
+            server_info = self.mcp_servers[server_key]
+            server_config = self._load_mcp_server_config(server_key)
+            
+            if server_config is None:
+                self.logger.error(f"Failed to load configuration for {server_key}")
+                continue
+            
+            # Handle API key requirements
+            if server_info.get("requires_api_key", False):
+                api_key_env = server_info.get("api_key_env")
+                if api_key_env:
+                    display_info(f"Server '{server_key}' requires API key: {api_key_env}")
+                    display_info("You can set this environment variable later")
+            
+            # Precisely merge server config, preserving user customizations
+            self._merge_mcp_server_config(claude_config["mcpServers"], server_config, server_key)
+            configured_count += 1
+            
+            self.logger.info(f"Configured MCP server: {server_info['name']}")
+        
+        if configured_count == 0:
+            self.logger.error("No MCP servers were successfully configured")
+            return False
+        
+        # Save updated configuration
+        success = self._save_claude_config(claude_config, config_path)
+        
+        if success:
+            self.logger.success(f"Successfully configured {configured_count} MCP servers")
+            return self._post_install()
         else:
-            self.logger.success(f"MCP component installed successfully ({installed_count} servers)")
-
-        return self._post_install()
-
+            return False
+    
     def _post_install(self) -> bool:
-        # Update metadata
+        """Post-installation tasks"""
         try:
-            metadata_mods = self.get_metadata_modifications()
+            # Update metadata
+            metadata_mods = {
+                "components": {
+                    "mcp": {
+                        "version": "4.0.0",
+                        "installed": True,
+                        "servers_configured": len(self.selected_servers),
+                        "configured_servers": self.selected_servers
+                    }
+                }
+            }
             self.settings_manager.update_metadata(metadata_mods)
-
-            # Add component registration to metadata
-            self.settings_manager.add_component_registration("mcp", {
-                "version": "3.0.0",
-                "category": "integration",
-                "servers_count": len(self.mcp_servers)
-            })
-
             self.logger.info("Updated metadata with MCP component registration")
+            
+            return True
         except Exception as e:
             self.logger.error(f"Failed to update metadata: {e}")
             return False
-
-        return True
-
     
     def uninstall(self) -> bool:
-        """Uninstall MCP component"""
+        """Uninstall MCP component by removing servers from .claude.json"""
         try:
-            self.logger.info("Uninstalling SuperGemini MCP servers...")
+            self.logger.info("Removing MCP server configurations...")
             
-            # Uninstall each MCP server
-            uninstalled_count = 0
+            # Load Claude configuration
+            claude_config, config_path = self._load_claude_config()
+            if claude_config is None:
+                self.logger.warning("Could not load Claude config for cleanup")
+                return True  # Not a failure if config doesn't exist
             
-            for server_name in self.mcp_servers.keys():
-                if self._uninstall_mcp_server(server_name):
-                    uninstalled_count += 1
+            if "mcpServers" not in claude_config:
+                self.logger.info("No MCP servers configured")
+                return True
             
-            # Update metadata to remove MCP component
+            # Only remove servers that were installed by SuperClaude
+            removed_count = 0
+            installed_servers = self._get_installed_servers()
+            
+            for server_name in installed_servers:
+                if server_name in claude_config["mcpServers"]:
+                    # Check if this server was installed by SuperClaude by comparing with our configs
+                    if self._is_superclaude_managed_server(claude_config["mcpServers"][server_name], server_name):
+                        del claude_config["mcpServers"][server_name]
+                        removed_count += 1
+                        self.logger.debug(f"Removed SuperClaude-managed MCP server: {server_name}")
+                    else:
+                        self.logger.info(f"Preserved user-customized MCP server: {server_name}")
+            
+            # Save updated configuration
+            if removed_count > 0:
+                success = self._save_claude_config(claude_config, config_path)
+                if not success:
+                    self.logger.warning("Failed to save updated Claude configuration")
+            
+            # Update settings.json
             try:
                 if self.settings_manager.is_component_installed("mcp"):
                     self.settings_manager.remove_component_registration("mcp")
-                    # Also remove MCP configuration from metadata
-                    metadata = self.settings_manager.load_metadata()
-                    if "mcp" in metadata:
-                        del metadata["mcp"]
-                        self.settings_manager.save_metadata(metadata)
-                    self.logger.info("Removed MCP component from metadata")
+                    self.logger.info("Removed MCP component from settings.json")
             except Exception as e:
-                self.logger.warning(f"Could not update metadata: {e}")
+                self.logger.warning(f"Could not update settings.json: {e}")
             
-            self.logger.success(f"MCP component uninstalled ({uninstalled_count} servers removed)")
+            if removed_count > 0:
+                self.logger.success(f"MCP component uninstalled ({removed_count} SuperClaude-managed servers removed)")
+            else:
+                self.logger.info("MCP component uninstalled (no SuperClaude-managed servers to remove)")
             return True
             
         except Exception as e:
             self.logger.exception(f"Unexpected error during MCP uninstallation: {e}")
             return False
     
+    def _get_installed_servers(self) -> List[str]:
+        """Get list of servers that were installed by SuperClaude"""
+        try:
+            metadata = self.settings_manager.get_metadata_setting("components")
+            if metadata and "mcp" in metadata:
+                return metadata["mcp"].get("configured_servers", [])
+        except Exception:
+            pass
+        return []
+    
+    def _is_superclaude_managed_server(self, server_config: Dict, server_name: str) -> bool:
+        """Check if a server configuration matches SuperClaude's templates
+        
+        This helps determine if a server was installed by SuperClaude or manually
+        configured by the user, allowing us to preserve user customizations.
+        """
+        # Find the server key that maps to this server name
+        server_key = None
+        for key, info in self.mcp_servers.items():
+            if info["name"] == server_name:
+                server_key = key
+                break
+        
+        if not server_key:
+            return False  # Unknown server, don't remove
+        
+        # Load our template config for comparison
+        template_config = self._load_mcp_server_config(server_key)
+        if not template_config or server_name not in template_config:
+            return False
+        
+        template_server = template_config[server_name]
+        
+        # Check if the current config has the same structure as our template
+        # If user has customized it, the structure might be different
+        required_keys = {"command", "args"}
+        
+        # Check if all required keys exist and match our template
+        for key in required_keys:
+            if key not in server_config or key not in template_server:
+                return False
+            # For command and basic structure, they should match our template
+            if key == "command" and server_config[key] != template_server[key]:
+                return False
+        
+        return True
+    
     def get_dependencies(self) -> List[str]:
         """Get dependencies"""
         return ["core"]
     
-    def update(self, config: Dict[str, Any]) -> bool:
-        """Update MCP component"""
-        try:
-            self.logger.info("Updating SuperGemini MCP servers...")
-            
-            # Check current version
-            current_version = self.settings_manager.get_component_version("mcp")
-            target_version = self.get_metadata()["version"]
-            
-            if current_version == target_version:
-                self.logger.info(f"MCP component already at version {target_version}")
-                return True
-            
-            self.logger.info(f"Updating MCP component from {current_version} to {target_version}")
-            
-            # For MCP servers, update means reinstall to get latest versions
-            updated_count = 0
-            failed_servers = []
-            
-            for server_name, server_info in self.mcp_servers.items():
-                try:
-                    # Uninstall old version
-                    if self._check_mcp_server_installed(server_name):
-                        self._uninstall_mcp_server(server_name)
-                    
-                    # Install new version
-                    if self._install_mcp_server(server_info, config):
-                        updated_count += 1
-                    else:
-                        failed_servers.append(server_name)
-                        
-                except Exception as e:
-                    self.logger.error(f"Error updating MCP server {server_name}: {e}")
-                    failed_servers.append(server_name)
-            
-            # Update metadata
-            try:
-                # Update component version in metadata
-                metadata = self.settings_manager.load_metadata()
-                if "components" in metadata and "mcp" in metadata["components"]:
-                    metadata["components"]["mcp"]["version"] = target_version
-                    metadata["components"]["mcp"]["servers_count"] = len(self.mcp_servers)
-                if "mcp" in metadata:
-                    metadata["mcp"]["servers"] = list(self.mcp_servers.keys())
-                self.settings_manager.save_metadata(metadata)
-            except Exception as e:
-                self.logger.warning(f"Could not update metadata: {e}")
-            
-            if failed_servers:
-                self.logger.warning(f"Some MCP servers failed to update: {failed_servers}")
-                return False
-            else:
-                self.logger.success(f"MCP component updated to version {target_version}")
-                return True
-            
-        except Exception as e:
-            self.logger.exception(f"Unexpected error during MCP update: {e}")
-            return False
-    
-    def validate_installation(self) -> Tuple[bool, List[str]]:
-        """Validate MCP component installation"""
-        errors = []
-        
-        # Check metadata registration
-        if not self.settings_manager.is_component_installed("mcp"):
-            errors.append("MCP component not registered in metadata")
-            return False, errors
-        
-        # Check version matches
-        installed_version = self.settings_manager.get_component_version("mcp")
-        expected_version = self.get_metadata()["version"]
-        if installed_version != expected_version:
-            errors.append(f"Version mismatch: installed {installed_version}, expected {expected_version}")
-        
-        # Check if Claude CLI is available
-        try:
-            result = subprocess.run(
-                ["claude", "mcp", "list"],
-                capture_output=True,
-                text=True,
-                timeout=15,
-                shell=(sys.platform == "win32")
-            )
-            
-            if result.returncode != 0:
-                errors.append("Could not communicate with Claude CLI for MCP server verification")
-            else:
-                # Check if required servers are installed
-                output = result.stdout.lower()
-                for server_name, server_info in self.mcp_servers.items():
-                    if server_info.get("required", False):
-                        if server_name.lower() not in output:
-                            errors.append(f"Required MCP server not found: {server_name}")
-                            
-        except Exception as e:
-            errors.append(f"Could not verify MCP server installation: {e}")
-        
-        return len(errors) == 0, errors
-    
-    def _get_source_dir(self):
-        """Get source directory for framework files"""
-        return None
-
     def get_size_estimate(self) -> int:
-        """Get estimated installation size"""
-        # MCP servers are installed via npm, estimate based on typical sizes
-        base_size = 50 * 1024 * 1024  # ~50MB for all servers combined
-        return base_size
-    
-    def get_installation_summary(self) -> Dict[str, Any]:
-        """Get installation summary"""
-        return {
-            "component": self.get_metadata()["name"],
-            "version": self.get_metadata()["version"],
-            "servers_count": len(self.mcp_servers),
-            "mcp_servers": list(self.mcp_servers.keys()),
-            "estimated_size": self.get_size_estimate(),
-            "dependencies": self.get_dependencies(),
-            "required_tools": ["node", "npm", "claude"]
-        }
+        """Get estimated size - minimal since we only modify config"""
+        return 4096  # 4KB - just config modifications

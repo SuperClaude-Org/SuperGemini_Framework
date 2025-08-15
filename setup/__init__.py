@@ -1,10 +1,10 @@
 """
-SuperGemini Installation Suite
-Pure Python installation system for SuperGemini framework
+SuperClaude Installation Suite
+Pure Python installation system for SuperClaude framework
 """
 
-__version__ = "3.0.0"
-__author__ = "SuperGemini Team"
+__version__ = "4.0.0b1"
+__author__ = "SuperClaude Team"
 
 from pathlib import Path
 

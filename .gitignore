@@ -23,6 +23,12 @@ share/python-wheels/
 *.egg
 MANIFEST
 
+# PyPI Publishing
+*.whl
+*.tar.gz
+twine.log
+.twine/
+
 # PyInstaller
 *.manifest
 *.spec
@@ -125,13 +131,62 @@ site/
 *.temp
 .temp/
 
-# Security
+# Security & API Keys
 .env
 .env.local
 .env.*.local
+.pypirc
 secrets/
 private/
 *.key
 *.pem
 *.p12
 *.pfx
+
+# PyPI & Package Management
+uv.lock
+Pipfile.lock
+poetry.lock
+requirements-dev.txt
+requirements-test.txt
+
+# Development Tools
+.mypy_cache/
+.ruff_cache/
+.black/
+.isort.cfg
+.flake8
+pyrightconfig.json
+.pylintrc
+
+# Publishing & Release
+PYPI_SETUP_COMPLETE.md
+release-notes/
+changelog-temp/
+
+# Build artifacts (additional)
+*.deb
+*.rpm
+*.dmg
+*.pkg
+*.msi
+*.exe
+
+# IDE & Editor specific
+.vscode/settings.json
+.vscode/launch.json
+.idea/workspace.xml
+.idea/tasks.xml
+*.sublime-project
+*.sublime-workspace
+
+# System & OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/

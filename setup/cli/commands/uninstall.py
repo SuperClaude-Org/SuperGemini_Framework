@@ -1,5 +1,5 @@
 """
-SuperGemini Uninstall Operation Module
+SuperClaude Uninstall Operation Module
 Refactored from uninstall.py for unified CLI hub
 """
 
@@ -16,9 +16,105 @@ from ...utils.ui import (
     display_header, display_info, display_success, display_error, 
     display_warning, Menu, confirm, ProgressBar, Colors
 )
+from ...utils.environment import get_superclaude_environment_variables, cleanup_environment_variables
 from ...utils.logger import get_logger
 from ... import DEFAULT_INSTALL_DIR, PROJECT_ROOT
 from . import OperationBase
+
+
+def verify_superclaude_file(file_path: Path, component: str) -> bool:
+    """
+    Verify this is a SuperClaude file before removal
+    
+    Args:
+        file_path: Path to the file to verify
+        component: Component name this file belongs to
+        
+    Returns:
+        True if safe to remove, False if uncertain (preserve by default)
+    """
+    try:
+        # Known SuperClaude file patterns by component
+        superclaude_patterns = {
+            'core': [
+                'CLAUDE.md', 'FLAGS.md', 'PRINCIPLES.md', 'RULES.md', 
+                'ORCHESTRATOR.md', 'SESSION_LIFECYCLE.md'
+            ],
+            'commands': [
+                # Commands are only in sc/ subdirectory
+            ],
+            'agents': [
+                'backend-engineer.md', 'brainstorm-PRD.md', 'code-educator.md',
+                'code-refactorer.md', 'devops-engineer.md', 'frontend-specialist.md',
+                'performance-optimizer.md', 'python-ultimate-expert.md', 'qa-specialist.md',
+                'root-cause-analyzer.md', 'security-auditor.md', 'system-architect.md',
+                'technical-writer.md'
+            ],
+            'modes': [
+                'MODE_Brainstorming.md', 'MODE_Introspection.md', 
+                'MODE_Task_Management.md', 'MODE_Token_Efficiency.md'
+            ],
+            'mcp_docs': [
+                'MCP_Context7.md', 'MCP_Sequential.md', 'MCP_Magic.md',
+                'MCP_Playwright.md', 'MCP_Morphllm.md', 'MCP_Serena.md'
+            ]
+        }
+        
+        # For commands component, verify it's in the sc/ subdirectory
+        if component == 'commands':
+            return 'commands/sc/' in str(file_path)
+        
+        # For other components, check against known file lists
+        if component in superclaude_patterns:
+            filename = file_path.name
+            return filename in superclaude_patterns[component]
+        
+        # For MCP component, it doesn't remove files but modifies .claude.json
+        if component == 'mcp':
+            return True  # MCP component has its own safety logic
+        
+        # Default to preserve if uncertain
+        return False
+        
+    except Exception:
+        # If any error occurs in verification, preserve the file
+        return False
+
+
+def verify_directory_safety(directory: Path, component: str) -> bool:
+    """
+    Verify it's safe to remove a directory
+    
+    Args:
+        directory: Directory path to verify
+        component: Component name
+        
+    Returns:
+        True if safe to remove (only if empty or only contains SuperClaude files)
+    """
+    try:
+        if not directory.exists():
+            return True
+        
+        # Check if directory is empty
+        contents = list(directory.iterdir())
+        if not contents:
+            return True
+        
+        # Check if all contents are SuperClaude files for this component
+        for item in contents:
+            if item.is_file():
+                if not verify_superclaude_file(item, component):
+                    return False
+            elif item.is_dir():
+                # Don't remove directories that contain non-SuperClaude subdirectories
+                return False
+        
+        return True
+        
+    except Exception:
+        # If any error occurs, preserve the directory
+        return False
 
 
 class UninstallOperation(OperationBase):
@@ -34,14 +130,14 @@ def register_parser(subparsers, global_parser=None) -> argparse.ArgumentParser:
     
     parser = subparsers.add_parser(
         "uninstall",
-        help="Remove SuperGemini framework installation",
-        description="Uninstall SuperGemini Framework components",
+        help="Remove SuperClaude framework installation",
+        description="Uninstall SuperClaude Framework components",
         epilog="""
 Examples:
-  SuperGemini uninstall                    # Interactive uninstall
-  SuperGemini uninstall --components core  # Remove specific components
-  SuperGemini uninstall --complete --force # Complete removal (forced)
-  SuperGemini uninstall --keep-backups     # Keep backup files
+  SuperClaude uninstall                    # Interactive uninstall
+  SuperClaude uninstall --components core  # Remove specific components
+  SuperClaude uninstall --complete --force # Complete removal (forced)
+  SuperClaude uninstall --keep-backups     # Keep backup files
         """,
         formatter_class=argparse.RawDescriptionHelpFormatter,
         parents=parents
@@ -87,6 +183,19 @@ Examples:
         help="Skip confirmation prompts (use with caution)"
     )
     
+    # Environment cleanup options
+    parser.add_argument(
+        "--cleanup-env",
+        action="store_true",
+        help="Remove SuperClaude environment variables"
+    )
+    
+    parser.add_argument(
+        "--no-restore-script",
+        action="store_true",
+        help="Skip creating environment variable restore script"
+    )
+    
     return parser
 
 def get_installed_components(install_dir: Path) -> Dict[str, Dict[str, Any]]:
@@ -129,13 +238,33 @@ def get_installation_info(install_dir: Path) -> Dict[str, Any]:
     return info
 
 
+def display_environment_info() -> Dict[str, str]:
+    """Display SuperClaude environment variables and return them"""
+    env_vars = get_superclaude_environment_variables()
+    
+    if env_vars:
+        print(f"\n{Colors.CYAN}{Colors.BRIGHT}Environment Variables{Colors.RESET}")
+        print("=" * 50)
+        print(f"{Colors.BLUE}SuperClaude API key environment variables found:{Colors.RESET}")
+        for env_var, value in env_vars.items():
+            # Show only first few and last few characters for security
+            masked_value = f"{value[:4]}...{value[-4:]}" if len(value) > 8 else "***"
+            print(f"  {env_var}: {masked_value}")
+        
+        print(f"\n{Colors.YELLOW}Note: These environment variables will remain unless you use --cleanup-env{Colors.RESET}")
+    else:
+        print(f"\n{Colors.GREEN}No SuperClaude environment variables found{Colors.RESET}")
+    
+    return env_vars
+
+
 def display_uninstall_info(info: Dict[str, Any]) -> None:
     """Display installation information before uninstall"""
     print(f"\n{Colors.CYAN}{Colors.BRIGHT}Current Installation{Colors.RESET}")
     print("=" * 50)
     
     if not info["exists"]:
-        print(f"{Colors.YELLOW}No SuperGemini installation found{Colors.RESET}")
+        print(f"{Colors.YELLOW}No SuperClaude installation found{Colors.RESET}")
         return
     
     print(f"{Colors.BLUE}Installation Directory:{Colors.RESET} {info['install_dir']}")
@@ -176,60 +305,269 @@ def get_components_to_uninstall(args: argparse.Namespace, installed_components: 
     return interactive_uninstall_selection(installed_components)
 
 
-def interactive_uninstall_selection(installed_components: Dict[str, str]) -> Optional[List[str]]:
-    """Interactive uninstall selection"""
+def interactive_component_selection(installed_components: Dict[str, str], env_vars: Dict[str, str]) -> Optional[tuple]:
+    """
+    Enhanced interactive selection with granular component options
+    
+    Returns:
+        Tuple of (components_to_remove, cleanup_options) or None if cancelled
+    """
     if not installed_components:
         return []
     
-    print(f"\n{Colors.CYAN}Uninstall Options:{Colors.RESET}")
+    print(f"\n{Colors.CYAN}{Colors.BRIGHT}SuperClaude Uninstall Options{Colors.RESET}")
+    print("=" * 60)
     
-    # Create menu options
-    preset_options = [
-        "Complete Uninstall (remove everything)",
-        "Remove Specific Components",
+    # Main uninstall type selection
+    main_options = [
+        "Complete Uninstall (remove all SuperClaude components)",
+        "Custom Uninstall (choose specific components)",
         "Cancel Uninstall"
     ]
     
-    menu = Menu("Select uninstall option:", preset_options)
-    choice = menu.display()
+    print(f"\n{Colors.BLUE}Choose uninstall type:{Colors.RESET}")
+    main_menu = Menu("Select option:", main_options)
+    main_choice = main_menu.display()
     
-    if choice == -1 or choice == 2:  # Cancelled
+    if main_choice == -1 or main_choice == 2:  # Cancelled
         return None
-    elif choice == 0:  # Complete uninstall
-        return list(installed_components.keys())
-    elif choice == 1:  # Select specific components
-        component_options = []
-        component_names = []
-        
-        for component, version in installed_components.items():
-            component_options.append(f"{component} (v{version})")
-            component_names.append(component)
-        
-        component_menu = Menu("Select components to uninstall:", component_options, multi_select=True)
-        selections = component_menu.display()
-        
-        if not selections:
-            return None
-        
-        return [component_names[i] for i in selections]
+    elif main_choice == 0:  # Complete uninstall
+        # Complete uninstall - include all components and optional cleanup
+        cleanup_options = _ask_complete_uninstall_options(env_vars)
+        return list(installed_components.keys()), cleanup_options
+    elif main_choice == 1:  # Custom uninstall
+        return _custom_component_selection(installed_components, env_vars)
     
     return None
 
 
-def display_uninstall_plan(components: List[str], args: argparse.Namespace, info: Dict[str, Any]) -> None:
-    """Display uninstall plan"""
+def _ask_complete_uninstall_options(env_vars: Dict[str, str]) -> Dict[str, bool]:
+    """Ask for complete uninstall options"""
+    cleanup_options = {
+        'remove_mcp_configs': True,
+        'cleanup_env_vars': False,
+        'create_restore_script': True
+    }
+    
+    print(f"\n{Colors.YELLOW}{Colors.BRIGHT}Complete Uninstall Options{Colors.RESET}")
+    print("This will remove ALL SuperClaude components.")
+    
+    if env_vars:
+        print(f"\n{Colors.BLUE}Environment variables found:{Colors.RESET}")
+        for env_var, value in env_vars.items():
+            masked_value = f"{value[:4]}...{value[-4:]}" if len(value) > 8 else "***"
+            print(f"  {env_var}: {masked_value}")
+        
+        cleanup_env = confirm("Also remove API key environment variables?", default=False)
+        cleanup_options['cleanup_env_vars'] = cleanup_env
+        
+        if cleanup_env:
+            create_script = confirm("Create restore script for environment variables?", default=True)
+            cleanup_options['create_restore_script'] = create_script
+    
+    return cleanup_options
+
+
+def _custom_component_selection(installed_components: Dict[str, str], env_vars: Dict[str, str]) -> Optional[tuple]:
+    """Handle custom component selection with granular options"""
+    print(f"\n{Colors.CYAN}{Colors.BRIGHT}Custom Uninstall - Choose Components{Colors.RESET}")
+    print("Select which SuperClaude components to remove:")
+    
+    # Build component options with descriptions
+    component_options = []
+    component_keys = []
+    
+    component_descriptions = {
+        'core': 'Core Framework Files (CLAUDE.md, FLAGS.md, PRINCIPLES.md, etc.)',
+        'commands': 'SuperClaude Commands (commands/sc/*.md)',
+        'agents': 'Specialized Agents (agents/*.md)',
+        'mcp': 'MCP Server Configurations',
+        'mcp_docs': 'MCP Documentation',
+        'modes': 'SuperClaude Modes'
+    }
+    
+    for component, version in installed_components.items():
+        description = component_descriptions.get(component, f"{component} component")
+        component_options.append(f"{description}")
+        component_keys.append(component)
+    
+    print(f"\n{Colors.BLUE}Select components to remove:{Colors.RESET}")
+    component_menu = Menu("Components:", component_options, multi_select=True)
+    selections = component_menu.display()
+    
+    if not selections:
+        return None
+    
+    selected_components = [component_keys[i] for i in selections]
+    
+    # If MCP component is selected, ask about related cleanup options
+    cleanup_options = {
+        'remove_mcp_configs': 'mcp' in selected_components,
+        'cleanup_env_vars': False,
+        'create_restore_script': True
+    }
+    
+    if 'mcp' in selected_components:
+        cleanup_options.update(_ask_mcp_cleanup_options(env_vars))
+    elif env_vars:
+        # Even if MCP not selected, ask about env vars if they exist
+        cleanup_env = confirm(f"Remove {len(env_vars)} API key environment variables?", default=False)
+        cleanup_options['cleanup_env_vars'] = cleanup_env
+        if cleanup_env:
+            create_script = confirm("Create restore script for environment variables?", default=True)
+            cleanup_options['create_restore_script'] = create_script
+    
+    return selected_components, cleanup_options
+
+
+def _ask_mcp_cleanup_options(env_vars: Dict[str, str]) -> Dict[str, bool]:
+    """Ask for MCP-related cleanup options"""
+    print(f"\n{Colors.YELLOW}{Colors.BRIGHT}MCP Cleanup Options{Colors.RESET}")
+    print("Since you're removing the MCP component:")
+    
+    cleanup_options = {}
+    
+    # Ask about MCP server configurations
+    remove_configs = confirm("Remove MCP server configurations from .claude.json?", default=True)
+    cleanup_options['remove_mcp_configs'] = remove_configs
+    
+    # Ask about API key environment variables
+    if env_vars:
+        print(f"\n{Colors.BLUE}Related API key environment variables found:{Colors.RESET}")
+        for env_var, value in env_vars.items():
+            masked_value = f"{value[:4]}...{value[-4:]}" if len(value) > 8 else "***"
+            print(f"  {env_var}: {masked_value}")
+        
+        cleanup_env = confirm(f"Remove {len(env_vars)} API key environment variables?", default=False)
+        cleanup_options['cleanup_env_vars'] = cleanup_env
+        
+        if cleanup_env:
+            create_script = confirm("Create restore script for environment variables?", default=True)
+            cleanup_options['create_restore_script'] = create_script
+        else:
+            cleanup_options['create_restore_script'] = True
+    else:
+        cleanup_options['cleanup_env_vars'] = False
+        cleanup_options['create_restore_script'] = True
+    
+    return cleanup_options
+
+
+def interactive_uninstall_selection(installed_components: Dict[str, str]) -> Optional[List[str]]:
+    """Legacy function - redirects to enhanced selection"""
+    env_vars = get_superclaude_environment_variables()
+    result = interactive_component_selection(installed_components, env_vars)
+    
+    if result is None:
+        return None
+    
+    # For backwards compatibility, return only component list
+    components, cleanup_options = result
+    return components
+
+
+def display_preservation_info() -> None:
+    """Show what will NOT be removed (user's custom files)"""
+    print(f"\n{Colors.GREEN}{Colors.BRIGHT}Files that will be preserved:{Colors.RESET}")
+    print(f"{Colors.GREEN}✓ User's custom commands (not in commands/sc/){Colors.RESET}")
+    print(f"{Colors.GREEN}✓ User's custom agents (not SuperClaude agents){Colors.RESET}")
+    print(f"{Colors.GREEN}✓ User's custom .claude.json configurations{Colors.RESET}")
+    print(f"{Colors.GREEN}✓ User's custom files in shared directories{Colors.RESET}")
+    print(f"{Colors.GREEN}✓ Claude Code settings and other tools' configurations{Colors.RESET}")
+
+
+def display_component_details(component: str, info: Dict[str, Any]) -> Dict[str, Any]:
+    """Get detailed information about what will be removed for a component"""
+    details = {
+        'files': [],
+        'directories': [],
+        'size': 0,
+        'description': ''
+    }
+    
+    install_dir = info['install_dir']
+    
+    component_paths = {
+        'core': {
+            'files': ['CLAUDE.md', 'FLAGS.md', 'PRINCIPLES.md', 'RULES.md', 'ORCHESTRATOR.md', 'SESSION_LIFECYCLE.md'],
+            'description': 'Core framework files in ~/.claude/'
+        },
+        'commands': {
+            'files': 'commands/sc/*.md',
+            'description': 'SuperClaude commands in ~/.claude/commands/sc/'
+        },
+        'agents': {
+            'files': 'agents/*.md',
+            'description': 'Specialized AI agents in ~/.claude/agents/'
+        },
+        'mcp': {
+            'files': 'MCP server configurations in .claude.json',
+            'description': 'MCP server configurations'
+        },
+        'mcp_docs': {
+            'files': 'MCP/*.md',
+            'description': 'MCP documentation files'
+        },
+        'modes': {
+            'files': 'MODE_*.md',
+            'description': 'SuperClaude operational modes'
+        }
+    }
+    
+    if component in component_paths:
+        details['description'] = component_paths[component]['description']
+        
+        # Get actual file count from metadata if available
+        component_metadata = info["components"].get(component, {})
+        if isinstance(component_metadata, dict):
+            if 'files_count' in component_metadata:
+                details['file_count'] = component_metadata['files_count']
+            elif 'agents_count' in component_metadata:
+                details['file_count'] = component_metadata['agents_count']
+            elif 'servers_configured' in component_metadata:
+                details['file_count'] = component_metadata['servers_configured']
+    
+    return details
+
+
+def display_uninstall_plan(components: List[str], args: argparse.Namespace, info: Dict[str, Any], env_vars: Dict[str, str]) -> None:
+    """Display detailed uninstall plan"""
     print(f"\n{Colors.CYAN}{Colors.BRIGHT}Uninstall Plan{Colors.RESET}")
-    print("=" * 50)
+    print("=" * 60)
     
     print(f"{Colors.BLUE}Installation Directory:{Colors.RESET} {info['install_dir']}")
     
     if components:
-        print(f"{Colors.BLUE}Components to remove:{Colors.RESET}")
+        print(f"\n{Colors.BLUE}Components to remove:{Colors.RESET}")
+        total_files = 0
+        
         for i, component_name in enumerate(components, 1):
+            details = display_component_details(component_name, info)
             version = info["components"].get(component_name, "unknown")
-            print(f"  {i}. {component_name} (v{version})")
+            
+            if isinstance(version, dict):
+                version_str = version.get('version', 'unknown')
+                file_count = details.get('file_count', version.get('files_count', version.get('agents_count', version.get('servers_configured', '?'))))
+            else:
+                version_str = str(version)
+                file_count = details.get('file_count', '?')
+            
+            print(f"  {i}. {component_name} (v{version_str}) - {file_count} files")
+            print(f"     {details['description']}")
+            
+            if isinstance(file_count, int):
+                total_files += file_count
+        
+        print(f"\n{Colors.YELLOW}Total estimated files to remove: {total_files}{Colors.RESET}")
     
-    # Show what will be preserved
+    # Show detailed preservation information
+    print(f"\n{Colors.GREEN}{Colors.BRIGHT}Safety Guarantees - Will Preserve:{Colors.RESET}")
+    print(f"{Colors.GREEN}✓ User's custom commands (not in commands/sc/){Colors.RESET}")
+    print(f"{Colors.GREEN}✓ User's custom agents (not SuperClaude agents){Colors.RESET}")
+    print(f"{Colors.GREEN}✓ User's .claude.json customizations{Colors.RESET}")
+    print(f"{Colors.GREEN}✓ Claude Code settings and other tools' configurations{Colors.RESET}")
+    
+    # Show additional preserved items
     preserved = []
     if args.keep_backups:
         preserved.append("backup files")
@@ -239,10 +577,25 @@ def display_uninstall_plan(components: List[str], args: argparse.Namespace, info
         preserved.append("user settings")
     
     if preserved:
-        print(f"{Colors.GREEN}Will preserve:{Colors.RESET} {', '.join(preserved)}")
+        for item in preserved:
+            print(f"{Colors.GREEN}✓ {item}{Colors.RESET}")
     
     if args.complete:
-        print(f"{Colors.RED}WARNING: Complete uninstall will remove all SuperGemini files{Colors.RESET}")
+        print(f"\n{Colors.RED}⚠️  WARNING: Complete uninstall will remove all SuperClaude files{Colors.RESET}")
+    
+    # Environment variable cleanup information
+    if env_vars:
+        print(f"\n{Colors.BLUE}Environment Variables:{Colors.RESET}")
+        if args.cleanup_env:
+            print(f"{Colors.YELLOW}Will remove {len(env_vars)} API key environment variables:{Colors.RESET}")
+            for env_var in env_vars.keys():
+                print(f"  - {env_var}")
+            if not args.no_restore_script:
+                print(f"{Colors.GREEN}  ✓ Restore script will be created{Colors.RESET}")
+        else:
+            print(f"{Colors.BLUE}Will preserve {len(env_vars)} API key environment variables:{Colors.RESET}")
+            for env_var in env_vars.keys():
+                print(f"  ✓ {env_var}")
     
     print()
 
@@ -279,7 +632,7 @@ def create_uninstall_backup(install_dir: Path, components: List[str]) -> Optiona
         return None
 
 
-def perform_uninstall(components: List[str], args: argparse.Namespace, info: Dict[str, Any]) -> bool:
+def perform_uninstall(components: List[str], args: argparse.Namespace, info: Dict[str, Any], env_vars: Dict[str, str]) -> bool:
     """Perform the actual uninstall"""
     logger = get_logger()
     start_time = time.time()
@@ -332,6 +685,18 @@ def perform_uninstall(components: List[str], args: argparse.Namespace, info: Dic
         # Handle complete uninstall cleanup
         if args.complete:
             cleanup_installation_directory(args.install_dir, args)
+        
+        # Handle environment variable cleanup
+        env_cleanup_success = True
+        if args.cleanup_env and env_vars:
+            logger.info("Cleaning up environment variables...")
+            create_restore_script = not args.no_restore_script
+            env_cleanup_success = cleanup_environment_variables(env_vars, create_restore_script)
+            
+            if env_cleanup_success:
+                logger.success(f"Removed {len(env_vars)} environment variables")
+            else:
+                logger.warning("Some environment variables could not be removed")
         
         # Show results
         duration = time.time() - start_time
@@ -421,8 +786,8 @@ def run(args: argparse.Namespace) -> int:
         # Display header
         if not args.quiet:
             display_header(
-                "SuperGemini Uninstall v3.0",
-                "Removing SuperGemini framework components"
+                "SuperClaude Uninstall v3.0",
+                "Removing SuperClaude framework components"
             )
         
         # Get installation information
@@ -432,28 +797,53 @@ def run(args: argparse.Namespace) -> int:
         if not args.quiet:
             display_uninstall_info(info)
         
-        # Check if SuperGemini is installed
+        # Check for environment variables
+        env_vars = display_environment_info() if not args.quiet else get_superclaude_environment_variables()
+        
+        # Check if SuperClaude is installed
         if not info["exists"]:
-            logger.warning(f"No SuperGemini installation found in {args.install_dir}")
+            logger.warning(f"No SuperClaude installation found in {args.install_dir}")
             return 0
         
-        # Get components to uninstall
-        components = get_components_to_uninstall(args, info["components"])
-        if components is None:
-            logger.info("Uninstall cancelled by user")
-            return 0
-        elif not components:
-            logger.info("No components selected for uninstall")
-            return 0
+        # Get components to uninstall using enhanced selection
+        if args.components or args.complete:
+            # Non-interactive mode - use existing logic
+            components = get_components_to_uninstall(args, info["components"])
+            cleanup_options = {
+                'remove_mcp_configs': 'mcp' in (components or []),
+                'cleanup_env_vars': args.cleanup_env,
+                'create_restore_script': not args.no_restore_script
+            }
+            if components is None:
+                logger.info("Uninstall cancelled by user")
+                return 0
+            elif not components:
+                logger.info("No components selected for uninstall")
+                return 0
+        else:
+            # Interactive mode - use enhanced selection
+            result = interactive_component_selection(info["components"], env_vars)
+            if result is None:
+                logger.info("Uninstall cancelled by user")
+                return 0
+            elif not result:
+                logger.info("No components selected for uninstall")
+                return 0
+            
+            components, cleanup_options = result
+            
+            # Override command-line args with interactive choices
+            args.cleanup_env = cleanup_options.get('cleanup_env_vars', False)
+            args.no_restore_script = not cleanup_options.get('create_restore_script', True)
         
         # Display uninstall plan
         if not args.quiet:
-            display_uninstall_plan(components, args, info)
+            display_uninstall_plan(components, args, info, env_vars)
         
         # Confirmation
         if not args.no_confirm and not args.yes:
             if args.complete:
-                warning_msg = "This will completely remove SuperGemini. Continue?"
+                warning_msg = "This will completely remove SuperClaude. Continue?"
             else:
                 warning_msg = f"This will remove {len(components)} component(s). Continue?"
             
@@ -466,17 +856,17 @@ def run(args: argparse.Namespace) -> int:
             create_uninstall_backup(args.install_dir, components)
         
         # Perform uninstall
-        success = perform_uninstall(components, args, info)
+        success = perform_uninstall(components, args, info, env_vars)
         
         if success:
             if not args.quiet:
-                display_success("SuperGemini uninstall completed successfully!")
+                display_success("SuperClaude uninstall completed successfully!")
                 
                 if not args.dry_run:
                     print(f"\n{Colors.CYAN}Uninstall complete:{Colors.RESET}")
-                    print(f"SuperGemini has been removed from {args.install_dir}")
+                    print(f"SuperClaude has been removed from {args.install_dir}")
                     if not args.complete:
-                        print(f"You can reinstall anytime using 'SuperGemini install'")
+                        print(f"You can reinstall anytime using 'SuperClaude install'")
                     
             return 0
         else:

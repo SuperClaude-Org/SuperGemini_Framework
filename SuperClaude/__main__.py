@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 """
-SuperGemini Framework Management Hub
-Unified entry point for all SuperGemini operations
+SuperClaude Framework Management Hub
+Unified entry point for all SuperClaude operations
 
 Usage:
-    SuperGemini install [options]
-    SuperGemini update [options]
-    SuperGemini uninstall [options]
-    SuperGemini backup [options]
-    SuperGemini --help
+    SuperClaude install [options]
+    SuperClaude update [options]
+    SuperClaude uninstall [options]
+    SuperClaude backup [options]
+    SuperClaude --help
 """
 
 import sys
@@ -85,19 +85,19 @@ def create_parser():
     global_parser = create_global_parser()
 
     parser = argparse.ArgumentParser(
-        prog="SuperGemini",
-        description="SuperGemini Framework Management Hub - Unified CLI",
+        prog="SuperClaude",
+        description="SuperClaude Framework Management Hub - Unified CLI",
         epilog="""
 Examples:
-  SuperGemini install --dry-run
-  SuperGemini update --verbose
-  SuperGemini backup --create
+  SuperClaude install --dry-run
+  SuperClaude update --verbose
+  SuperClaude backup --create
         """,
         formatter_class=argparse.RawDescriptionHelpFormatter,
         parents=[global_parser]
     )
 
-    parser.add_argument("--version", action="version", version="SuperGemini 4.0.0-beta")
+    parser.add_argument("--version", action="version", version="SuperClaude 4.0.0b1")
 
     subparsers = parser.add_subparsers(
         dest="operation",
@@ -125,16 +125,16 @@ def setup_global_environment(args: argparse.Namespace):
     # Log startup context
     logger = get_logger()
     if logger:
-        logger.debug(f"SuperGemini called with operation: {getattr(args, 'operation', 'None')}")
+        logger.debug(f"SuperClaude called with operation: {getattr(args, 'operation', 'None')}")
         logger.debug(f"Arguments: {vars(args)}")
 
 
 def get_operation_modules() -> Dict[str, str]:
     """Return supported operations and their descriptions"""
     return {
-        "install": "Install SuperGemini framework components",
-        "update": "Update existing SuperGemini installation",
-        "uninstall": "Remove SuperGemini installation",
+        "install": "Install SuperClaude framework components",
+        "update": "Update existing SuperClaude installation",
+        "uninstall": "Remove SuperClaude installation",
         "backup": "Backup and restore operations"
     }
 
@@ -205,7 +205,7 @@ def main() -> int:
         # No operation provided? Show help manually unless in quiet mode
         if not args.operation:
             if not args.quiet:
-                display_header("SuperGemini Framework v4.0.0-beta", "Unified CLI for all operations")
+                display_header("SuperClaude Framework v4.0.0-beta", "Unified CLI for all operations")
                 print(f"{Colors.CYAN}Available operations:{Colors.RESET}")
                 for op, desc in get_operation_modules().items():
                     print(f"  {op:<12} {desc}")

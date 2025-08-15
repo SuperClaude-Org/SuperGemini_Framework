@@ -6,6 +6,7 @@ Cross-platform console UI with colors and progress indication
 import sys
 import time
 import shutil
+import getpass
 from typing import List, Optional, Any, Dict, Union
 from enum import Enum
 
@@ -337,6 +338,43 @@ def display_table(headers: List[str], rows: List[List[str]], title: str = '') ->
         print(row_line)
     
     print()
+
+
+def prompt_api_key(service_name: str, env_var_name: str) -> Optional[str]:
+    """
+    Prompt for API key with security and UX best practices
+    
+    Args:
+        service_name: Human-readable service name (e.g., "Magic", "Morphllm")
+        env_var_name: Environment variable name (e.g., "TWENTYFIRST_API_KEY")
+        
+    Returns:
+        API key string if provided, None if skipped
+    """
+    print(f"{Colors.BLUE}[API KEY] {service_name} requires: {Colors.BRIGHT}{env_var_name}{Colors.RESET}")
+    print(f"{Colors.WHITE}Visit the service documentation to obtain your API key{Colors.RESET}")
+    print(f"{Colors.YELLOW}Press Enter to skip (you can set this manually later){Colors.RESET}")
+    
+    try:
+        # Use getpass for hidden input
+        api_key = getpass.getpass(f"Enter {env_var_name}: ").strip()
+        
+        if not api_key:
+            print(f"{Colors.YELLOW}[SKIPPED] {env_var_name} - set manually later{Colors.RESET}")
+            return None
+        
+        # Basic validation (non-empty, reasonable length)
+        if len(api_key) < 10:
+            print(f"{Colors.RED}[WARNING] API key seems too short. Continue anyway? (y/N){Colors.RESET}")
+            if not confirm("", default=False):
+                return None
+        
+        print(f"{Colors.GREEN}[✓] {env_var_name} configured{Colors.RESET}")
+        return api_key
+        
+    except KeyboardInterrupt:
+        print(f"\n{Colors.YELLOW}[SKIPPED] {env_var_name}{Colors.RESET}")
+        return None
 
 
 def wait_for_key(message: str = "Press Enter to continue...") -> None:

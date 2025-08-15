@@ -1,0 +1,172 @@
+name: Publish to PyPI
+
+on:
+  # Trigger on new releases
+  release:
+    types: [published]
+  
+  # Allow manual triggering
+  workflow_dispatch:
+    inputs:
+      target:
+        description: 'Publication target'
+        required: true
+        default: 'testpypi'
+        type: choice
+        options:
+          - testpypi
+          - pypi
+
+# Restrict permissions for security
+permissions:
+  contents: read
+
+jobs:
+  build-and-publish:
+    name: Build and publish Python package
+    runs-on: ubuntu-latest
+    environment: 
+      name: ${{ github.event_name == 'release' && 'pypi' || 'testpypi' }}
+      url: ${{ github.event_name == 'release' && 'https://pypi.org/p/SuperClaude' || 'https://test.pypi.org/p/SuperClaude' }}
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        # Fetch full history for proper version detection
+        fetch-depth: 0
+    
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+        cache: 'pip'
+    
+    - name: Install build dependencies
+      run: |
+        python -m pip install --upgrade pip
+        python -m pip install build twine
+    
+    - name: Verify package structure
+      run: |
+        echo "📦 Checking package structure..."
+        ls -la
+        echo "🔍 Checking SuperClaude package..."
+        ls -la SuperClaude/
+        echo "🔍 Checking setup package..."
+        ls -la setup/
+        
+        # Verify version consistency
+        echo "📋 Checking version consistency..."
+        python -c "
+        import toml
+        import sys
+        sys.path.insert(0, '.')
+        
+        # Load pyproject.toml version
+        with open('pyproject.toml', 'r') as f:
+            pyproject = toml.load(f)
+        pyproject_version = pyproject['project']['version']
+        
+        # Load package version
+        from SuperClaude import __version__
+        
+        print(f'pyproject.toml version: {pyproject_version}')
+        print(f'Package version: {__version__}')
+        
+        if pyproject_version != __version__:
+            print('❌ Version mismatch!')
+            sys.exit(1)
+        else:
+            print('✅ Versions match')
+        "
+    
+    - name: Clean previous builds
+      run: |
+        rm -rf dist/ build/ *.egg-info/
+    
+    - name: Build package
+      run: |
+        echo "🔨 Building package..."
+        python -m build
+        echo "📦 Built files:"
+        ls -la dist/
+    
+    - name: Validate package
+      run: |
+        echo "🔍 Validating package..."
+        python -m twine check dist/*
+    
+    # Upload to TestPyPI for testing (manual trigger or non-release)
+    - name: Upload to TestPyPI
+      if: github.event_name == 'workflow_dispatch' && github.event.inputs.target == 'testpypi'
+      uses: pypa/gh-action-pypi-publish@release/v1
+      with:
+        repository-url: https://test.pypi.org/legacy/
+        password: ${{ secrets.TEST_PYPI_API_TOKEN }}
+        print-hash: true
+    
+    # Upload to production PyPI (only on releases)
+    - name: Upload to PyPI
+      if: github.event_name == 'release' || (github.event_name == 'workflow_dispatch' && github.event.inputs.target == 'pypi')
+      uses: pypa/gh-action-pypi-publish@release/v1
+      with:
+        password: ${{ secrets.PYPI_API_TOKEN }}
+        print-hash: true
+    
+    - name: Create deployment summary
+      if: always()
+      run: |
+        echo "## 📦 SuperClaude Package Deployment" >> $GITHUB_STEP_SUMMARY
+        echo "| Property | Value |" >> $GITHUB_STEP_SUMMARY
+        echo "|----------|-------|" >> $GITHUB_STEP_SUMMARY
+        echo "| Target | ${{ github.event_name == 'release' && 'PyPI (Production)' || github.event.inputs.target || 'TestPyPI' }} |" >> $GITHUB_STEP_SUMMARY
+        echo "| Trigger | ${{ github.event_name }} |" >> $GITHUB_STEP_SUMMARY
+        echo "| Version | $(python -c 'from SuperClaude import __version__; print(__version__)') |" >> $GITHUB_STEP_SUMMARY
+        echo "| Commit | ${{ github.sha }} |" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        
+        if [ "${{ github.event_name }}" == "release" ]; then
+          echo "🎉 **Production release published to PyPI!**" >> $GITHUB_STEP_SUMMARY
+          echo "Install with: \`pip install SuperClaude\`" >> $GITHUB_STEP_SUMMARY
+        else
+          echo "🧪 **Test release published to TestPyPI**" >> $GITHUB_STEP_SUMMARY
+          echo "Test install with: \`pip install --index-url https://test.pypi.org/simple/ SuperClaude\`" >> $GITHUB_STEP_SUMMARY
+        fi
+
+  test-installation:
+    name: Test package installation
+    needs: build-and-publish
+    runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_dispatch' && github.event.inputs.target == 'testpypi'
+    
+    steps:
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+    
+    - name: Test installation from TestPyPI
+      run: |
+        echo "🧪 Testing installation from TestPyPI..."
+        
+        # Wait a bit for the package to be available
+        sleep 30
+        
+        # Install from TestPyPI
+        pip install --index-url https://test.pypi.org/simple/ \
+                   --extra-index-url https://pypi.org/simple/ \
+                   SuperClaude
+        
+        # Test basic import
+        python -c "
+        import SuperClaude
+        print(f'✅ Successfully imported SuperClaude v{SuperClaude.__version__}')
+        
+        # Test CLI entry point
+        import subprocess
+        result = subprocess.run(['SuperClaude', '--version'], capture_output=True, text=True)
+        print(f'✅ CLI version: {result.stdout.strip()}')
+        "
+        
+        echo "✅ Installation test completed successfully!"

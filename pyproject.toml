@@ -4,27 +4,32 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "SuperClaude"
-version = "3.0.0"
+version = "4.0.0b1"
 authors = [
     {name = "Mithun Gowda B", email = "contact@superclaude.dev"},
     {name = "NomenAK"}
 ]
-description = "SuperClaude Framework Management Hub"
+description = "SuperClaude Framework Management Hub - AI-enhanced development framework for Claude Code"
 readme = "README.md"
-license = "MIT"
+license = {text = "MIT"}
 requires-python = ">=3.8"
 classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9", 
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
-    "Operating System :: OS Independent",
-    "Development Status :: 4 - Beta",
-    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Software Development :: Code Generators",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Environment :: Console",
 ]
-keywords = ["claude", "ai", "automation", "framework", "mcp", "agents"]
+keywords = ["claude", "ai", "automation", "framework", "mcp", "agents", "development", "code-generation", "assistant"]
 dependencies = [
     "setuptools>=45.0.0",
     "importlib-metadata>=1.0.0; python_version<'3.8'"
@@ -55,12 +60,16 @@ test = [
 ]
 
 [tool.setuptools]
-packages = ["SuperClaude", "setup"]
 include-package-data = true
 
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["SuperClaude*", "setup*"]
+exclude = ["tests*", "*.tests*", "*.tests", ".git*", ".venv*", "*.egg-info*"]
+
 [tool.setuptools.package-data]
-"setup" = ["data/*.json", "data/*.yaml", "data/*.yml"]
-"SuperClaude" = ["*.md", "*.txt"]
+"setup" = ["data/*.json", "data/*.yaml", "data/*.yml", "components/*.py", "**/*.py"]
+"SuperClaude" = ["*.md", "*.txt", "**/*.md", "**/*.txt", "**/*.json", "**/*.yaml", "**/*.yml"]
 
 [tool.black]
 line-length = 88
