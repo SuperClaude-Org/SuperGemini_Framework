@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
 """
-SuperClaude Framework Management Hub
-Unified entry point for all SuperClaude operations
+SuperGemini Framework Management Hub
+Unified entry point for all SuperGemini operations
 
 Usage:
-    SuperClaude install [options]
-    SuperClaude update [options]
-    SuperClaude uninstall [options]
-    SuperClaude backup [options]
-    SuperClaude --help
+    SuperGemini install [options]
+    SuperGemini update [options]
+    SuperGemini uninstall [options]
+    SuperGemini backup [options]
+    SuperGemini --help
 """
 
-__version__ = "4.0.0b1"
+__version__ = "4.0.0-beta.1"
 __author__ = "Mithun Gowda B, NomenAK"
 __email__ = "contact@superclaude.dev"
 __license__ = "MIT"
