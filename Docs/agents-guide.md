@@ -22,7 +22,7 @@ SuperGemini V4 Beta features 13 specialized domain expert agents that automatica
 /sg:build react-app/               # → Frontend specialist takes over  
 /sg:improve slow-queries.sql       # → Performance optimizer jumps in
 /sg:troubleshoot "auth failing"    # → Root cause analyzer + security expert coordinate
-/sg:brainstorm "task manager app"  # → Brainstorm-PRD agent guides discovery
+/sg:document api-system/          # → Technical writer creates documentation
 ```
 
 **See the pattern?** You focus on what you want to do, SuperGemini figures out who should help.
@@ -434,43 +434,6 @@ SuperGemini V4 Beta features 13 specialized domain expert agents that automatica
 - **Sequential**: Complex concept breakdown and progressive learning design
 - **Magic**: Interactive examples and educational component creation
 
-### Special Purpose Agents 🎯
-
-#### 🧠 `brainstorm-PRD` - Requirements Discovery Expert
-**What they do**: Transform ambiguous project ideas into concrete specifications through structured brainstorming
-
-**Auto-activation triggers**:
-- Ambiguous project requests ("I want to build something that...")
-- Exploration keywords: brainstorm, explore, discuss, figure out, not sure
-- PRD creation and requirements discovery needs
-- `/sg:brainstorm` command usage
-
-**Specialized capabilities**:
-- **Requirements Discovery**: Socratic questioning, stakeholder analysis
-- **PRD Creation**: Comprehensive product requirement documentation
-- **Brainstorming Facilitation**: Creative exploration with practical constraints
-- **Specification Development**: Abstract concepts to concrete requirements
-- **Risk Assessment**: Early constraint and dependency identification
-
-**Quality standards**:
-- Primary: Requirements are complete and unambiguous before project handoff
-- Secondary: All stakeholder perspectives integrated, feasibility validated
-- Success: Comprehensive PRD enabling downstream agent execution
-
-**Integration workflow**:
-```bash
-/sg:brainstorm "task management app"  # → Interactive discovery session
-# → Automatic handoff to brainstorm-PRD agent
-# → PRD generation with structured requirements
-# → Ready for /sg:workflow implementation
-```
-
-**Integration with MCP servers**:
-- **Sequential**: Complex requirements analysis and systematic discovery
-- **Context7**: Industry patterns and requirement frameworks
-- **Serena**: Session persistence and cross-project learning
-
----
 
 ## Agent Coordination & Integration 🤝
 
@@ -516,12 +479,10 @@ Agents seamlessly integrate with SuperGemini's command system:
 /sg:analyze → root-cause-analyzer or system-architect (context-dependent)
 /sg:build → frontend-specialist, backend-engineer, or python-ultimate-expert
 /sg:test → qa-specialist with domain-specific coordination
-/sg:brainstorm → brainstorm-PRD for requirements discovery
 /sg:document → technical-writer with audience-appropriate formatting
 ```
 
 **Mode Integration**:
-- **Brainstorming Mode**: Activates brainstorm-PRD for discovery sessions
 - **Task Management Mode**: Coordinates multiple agents across complex workflows
 - **Token Efficiency Mode**: Optimizes agent communication for resource constraints
 
@@ -543,7 +504,6 @@ Agents seamlessly integrate with SuperGemini's command system:
 | 🔄 code-refactorer | Code improvement | Refactoring, cleanup, quality | Clean code practices |
 | ✍️ technical-writer | Documentation | Documentation requests | API documentation |
 | 👨‍🏫 code-educator | Learning & teaching | "explain", "learn", tutorials | Educational content |
-| 🧠 brainstorm-PRD | Requirements discovery | Ambiguous projects, brainstorming | Project specification |
 
 ### Most Useful Agent Combinations
 
@@ -565,10 +525,10 @@ Agents seamlessly integrate with SuperGemini's command system:
 /sg:explain complex-system --educational
 ```
 
-**Project Discovery to Implementation**:
+**Architecture to Implementation**:
 ```bash
-# Brainstorm → PRD → Architecture → Implementation
-/sg:brainstorm "e-commerce platform"
+# Design → Architecture → Implementation
+/sg:design "e-commerce platform" --type architecture
 # → Automatic handoff through agent coordination
 ```
 
@@ -590,8 +550,8 @@ Agents seamlessly integrate with SuperGemini's command system:
 
 **For New Projects**:
 ```bash
-/sg:brainstorm "your project idea"  # → Requirements discovery
-# → Automatic PRD generation and handoff
+/sg:design "your project idea"      # → System architecture and planning
+# → Automatic technical specification
 # → Ready for implementation workflow
 ```
 

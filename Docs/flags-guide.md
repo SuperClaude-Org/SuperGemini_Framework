@@ -27,7 +27,7 @@
 /sg:build                          # Auto-optimizes based on your project  
 /sg:improve messy-code.js          # Auto-activates quality analysis and safety flags
 /sg:troubleshoot "weird error"     # Auto-activates systematic analysis and debugging flags
-/sg:brainstorm "my app idea"       # Auto-activates requirements discovery mode
+/sg:design "my app idea"          # Auto-activates architecture planning mode
 ```
 
 **See? No flags needed.** Everything below is for when you get curious about what's happening behind the scenes.
@@ -206,24 +206,13 @@ For complex operations and workflows.
 
 These V4 Beta flags control session management and advanced workflows.
 
-#### `--brainstorm`
-**What it does**: Activates brainstorming mode for requirements discovery  
-**When to use**: Ambiguous project ideas, need specification development  
-**Auto-activates**: Exploration keywords, "not sure", project planning  
-**Example**: `/brainstorm "task management app" --brainstorm`
+#### `--design-focus [type]`
+**What it does**: Focuses design planning on specific architecture aspects  
+**When to use**: Targeted design sessions, specific architectural concerns  
+**Options**: architecture, component, api, database, system  
+**Example**: `/design payment-system --design-focus api`
 
-#### `--max-rounds [n]`
-**What it does**: Controls brainstorming dialogue rounds (default: 15)  
-**When to use**: Controlling brainstorming session depth  
-**Example**: `/brainstorm idea --max-rounds 10`
-
-#### `--prd`
-**What it does**: Generates Product Requirements Document from brainstorming  
-**When to use**: Convert discussions to formal specifications  
-**Auto-activates**: End of successful brainstorming sessions  
-**Example**: `/brainstorm app-idea --prd`
-
-**💡 Tip**: V4 Beta introduces powerful session management - let brainstorming mode guide requirement discovery naturally.
+**💡 Tip**: V4 Beta introduces powerful session management with enhanced design and planning capabilities.
 
 ---
 
@@ -432,7 +421,7 @@ SuperGemini usually adds flags based on context. Here's when it tries:
 | `--focus security` | Security focus | Security concerns |
 
 | `--validate` | Check before action | Risky operations |
-| `--brainstorm` | Requirements discovery | Ambiguous projects |
+| `--design-focus` | Targeted design planning | Architecture sessions |
 | `--serena` | Semantic analysis | Symbol operations |
 
 ### Flag Combinations That Work Well
@@ -455,8 +444,8 @@ SuperGemini usually adds flags based on context. Here's when it tries:
 # Performance work
 --focus performance --play
 
-# Requirements discovery
---brainstorm --max-rounds 10 --prd
+# Architecture planning  
+--design-focus architecture --scope system
 ```
 
 ### Auto-Activation Triggers
@@ -467,7 +456,7 @@ SuperGemini usually adds flags based on context. Here's when it tries:
 - **--c7**: Framework imports, documentation requests
 - **--seq**: Debugging keywords, --seq flags
 - **--serena**: Symbol operations, memory commands
-- **--brainstorm**: Exploration keywords, ambiguous requests
+- **--design-focus**: Architecture keywords, design planning
 - **Focus Modes**: Domain-specific keywords and patterns
 
 ## Troubleshooting Flag Issues 🚨
@@ -522,7 +511,7 @@ SuperGemini usually adds flags based on context. Here's when it tries:
 
 ### Getting Advanced (If You Want To)
 1. **Experiment with overrides** - Try `--focus security` on non-security code for different perspectives
-2. **Learn the useful combos** - `--safe-mode --validate` for important stuff, `--brainstorm --prd` for new projects
+2. **Learn the useful combos** - `--safe-mode --validate` for important stuff, `--design-focus architecture` for planning
 3. **Understand the performance trade-offs** - Fast (`--uc --no-mcp`) vs thorough (`--seq --all-mcp`)
 4. **Use flags for learning** - `--verbose` when you want to understand what's happening
 
@@ -531,7 +520,7 @@ SuperGemini usually adds flags based on context. Here's when it tries:
 - **For thoroughness**: `--seq --all-mcp`
 - **For safety**: `--safe-mode --validate --preview`
 - **For learning**: `--verbose --c7`
-- **For project discovery**: `--brainstorm --max-rounds 15 --prd`
+- **For architecture planning**: `--design-focus system --scope project`
 
 ---
 

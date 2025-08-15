@@ -88,11 +88,9 @@ Domain-specialized agents for expert capabilities:
 - **performance-optimizer.md**: Performance analysis and optimization
 - **security-auditor.md**: Security assessment and hardening
 - **frontend-specialist.md**: UI/UX and frontend development
-- **brainstorm-PRD.md**: Requirements discovery and PRD generation
 
 #### Modes System
 Behavioral modes that modify Claude's operational approach:
-- **MODE_Brainstorming.md**: Interactive requirements discovery
 - **MODE_Task_Management.md**: Multi-layer task orchestration
 - **MODE_Token_Efficiency.md**: Intelligent compression and optimization
 - **MODE_Introspection.md**: Meta-cognitive analysis and troubleshooting
@@ -363,7 +361,7 @@ A: Use a separate test environment with `python -m pip install -e .` for develop
 A: Follow the pattern in `SuperGemini/Modes/` with proper YAML frontmatter, activation patterns, and framework integration configuration.
 
 **Q: What's the difference between agents and modes?**
-A: Agents provide domain expertise (system-architect, performance-optimizer), while modes modify Claude's behavioral approach (brainstorming, task management, token efficiency).
+A: Agents provide domain expertise (system-architect, performance-optimizer), while modes modify Claude's behavioral approach (task management, token efficiency, introspection).
 
 ## 🚀 Contributing to V4 Components
 

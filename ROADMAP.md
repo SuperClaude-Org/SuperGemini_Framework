@@ -25,11 +25,11 @@ SuperGemini v4 represents a massive leap forward with intelligent agents and beh
 
 ### ✅ What We've Accomplished
 - **Agent System** - 13 specialized domain experts replacing the persona system
-- **Behavioral Modes** - 4 intelligent modes (Brainstorming, Introspection, Task Management, Token Efficiency)
+- **Behavioral Modes** - 3 intelligent modes (Introspection, Task Management, Token Efficiency)
 - **Hooks System Redesigned** - Completely rebuilt with Python-based integration
 - **Session Lifecycle** - Cross-session persistence with /sg:load and /sg:save
 - **SuperGemini-Lite** - Lightweight implementation with YAML configuration
-- **Expanded Commands** - 21 commands (added brainstorm, reflect, save, select-tool)
+- **Expanded Commands** - 20 commands (added reflect, save, select-tool)
 - **Enhanced MCP** - 6 servers including new Serena and Morphllm
 - **Quality Gates** - 8-step validation cycle
 - **Templates System** - Comprehensive templates for framework extension

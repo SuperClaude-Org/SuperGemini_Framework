@@ -20,8 +20,6 @@
 ```bash
 /sg:index                    # See what's available
 /sg:analyze src/            # Tries to analyze your code smartly 
-/sg:brainstorm "app idea"   # Interactive help for exploring ideas
-/sg:workflow feature-100-prd.md  # Creates step-by-step implementation workflow from PRD
 /sg:implement user-auth     # Creates features and components (replaces v2 /build)
 /sg:build                   # Attempts intelligent project building
 /sg:improve messy-file.js   # Tries to clean up code 
@@ -56,9 +54,7 @@ A practical guide to all 21 SuperGemini V4 Beta slash commands. We'll be honest 
 | `/sg:estimate` | Smart estimation | Planning experts | Time/effort planning, complexity analysis |
 | `/sg:spawn` | Complex workflows | Orchestration system | Multi-step operations, workflow automation |
 | `/sg:task` | Project management | Planning system | Long-term feature planning, task tracking |
-| `/sg:workflow` | Implementation planning | Workflow system | Creating step-by-step workflows from PRDs |
 | `/sg:index` | Command navigation | Help system | Finding the right command for your task |
-| `/sg:brainstorm` | Interactive discovery | Socratic dialogue | Requirements gathering, idea exploration |
 | `/sg:reflect` | Task validation | Serena intelligence | Progress checking, completion validation |
 | `/sg:save` | Session persistence | Checkpoint system | Context saving, session management |
 | `/sg:select-tool` | Tool selection | Intelligence routing | Complex operation optimization |
@@ -82,9 +78,6 @@ A practical guide to all 21 SuperGemini V4 Beta slash commands. We'll be honest 
 
 **Examples**:
 ```bash
-/sg:workflow docs/feature-100-prd.md --strategy systematic --c7 --sequential
-/sg:workflow "user authentication system" --persona security --output detailed
-/sg:workflow payment-api --strategy mvp --risks --dependencies
 ```
 
 **What you get**:
@@ -679,40 +672,6 @@ A practical guide to all 21 SuperGemini V4 Beta slash commands. We'll be honest 
 
 ## Session & Intelligence Commands 🧠
 
-### `/brainstorm` - Interactive Requirements Discovery
-**What it does**: Interactive Socratic dialogue for exploring ideas and discovering requirements.
-
-**When to use it**:
-- Starting with vague project ideas ("I want to build something...")
-- Need help figuring out what to build
-- Exploring requirements for new features
-- Creative problem solving and ideation
-
-**Basic syntax**:
-```bash
-/sg:brainstorm "mobile app idea"        # Explore app concept
-/sg:brainstorm --depth deep startup     # Deep exploration of startup idea
-/sg:brainstorm --focus business ecom    # Business-focused e-commerce planning
-```
-
-**Useful flags**:
-- `--depth normal|deep` - Exploration thoroughness
-- `--focus business|technical|user` - Conversation focus area
-- `--prd` - Generate Product Requirements Document after dialogue
-
-**Real examples**:
-```bash
-/sg:brainstorm "task management app" --prd
-/sg:brainstorm --depth deep --focus technical "real-time chat system"
-/sg:brainstorm "improve user onboarding" --focus user
-```
-
-**Gotchas**:
-- Works best when you're genuinely uncertain about requirements
-- Quality of output depends on engagement in the dialogue
-- Can take 10-15 minutes for thorough exploration
-
----
 
 ### `/reflect` - Task Reflection and Validation
 **What it does**: Uses Serena intelligence for task validation, progress analysis, and completion verification.
@@ -844,9 +803,8 @@ A practical guide to all 21 SuperGemini V4 Beta slash commands. We'll be honest 
 
 **New Project Discovery** (V4 Beta):
 ```bash
-/sg:brainstorm "project idea" --prd         # Explore and define requirements
+/sg:design "project idea" --type architecture # Plan and define architecture
 /sg:load --analyze --summary             # Understand existing codebase
-/sg:workflow requirements.md                # Create implementation plan
 /sg:save --checkpoint "project planning"    # Save planning insights
 ```
 
@@ -888,7 +846,6 @@ A practical guide to all 21 SuperGemini V4 Beta slash commands. We'll be honest 
 ```bash
 /sg:select-tool "migrate to microservices"  # Get approach recommendations
 /sg:reflect --type task "migration strategy" # Validate approach
-/sg:workflow migration-plan.md              # Create detailed workflow
 /sg:save "migration planning complete"      # Preserve insights
 ```
 

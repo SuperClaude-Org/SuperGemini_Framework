@@ -49,7 +49,7 @@ A comprehensive guide to understanding and using SuperGemini V4 Beta effectively
 # Try these commands in Gemini CLI:
 /sg:load                    # Initialize session with project context (NEW!)
 /sg:analyze README.md       # SuperGemini analyzes your project
-/sg:brainstorm "task app"   # Interactive requirements discovery (NEW!)
+/sg:design "task app"      # System architecture and planning
 /sg:implement user-auth     # Create features and components
 /sg:build                   # Smart build with auto-optimization  
 /sg:improve messy-file.js   # Clean up code automatically
@@ -83,7 +83,7 @@ SuperGemini makes Gemini CLI smarter for development work. Instead of generic re
 ### What SuperGemini Adds ✨
 
 **🛠️ 21 Specialized Commands**
-- **Planning tools**: `/estimate`, `/task`, `/brainstorm` (NEW!)
+- **Planning tools**: `/estimate`, `/task`, `/design`
 - **Development tools**: `/implement`, `/build`, `/design`, `/select-tool` (NEW!)
 - **Analysis tools**: `/analyze`, `/troubleshoot`, `/explain`
 - **Quality tools**: `/improve`, `/cleanup`, `/test`
@@ -91,7 +91,7 @@ SuperGemini makes Gemini CLI smarter for development work. Instead of generic re
 - **Plus utilities** for documentation, git, deployment, and more
 - **You just use them** - SuperGemini handles the complexity automatically
 - **V4 NEW**: Session lifecycle commands for persistent context
-- **V4 NEW**: Interactive brainstorming and reflection capabilities 
+- **V4 NEW**: Enhanced reflection and session management capabilities 
 
 **🤖 13 Specialized Agents** *(that know when to jump in)*
 - AI agents that adapt behavior for different domains
@@ -109,8 +109,7 @@ SuperGemini makes Gemini CLI smarter for development work. Instead of generic re
 - **Serena**: Semantic code analysis and memory (NEW!)
 - **Auto-connects when needed** - you don't manage this stuff
 
-**🧠 4 Behavioral Modes** *(intelligent adaptation)*
-- **Brainstorming Mode**: Interactive requirements discovery (NEW!)
+**🧠 3 Behavioral Modes** *(intelligent adaptation)*
 - **Introspection Mode**: Meta-cognitive analysis and debugging (NEW!) 
 - **Task Management Mode**: Multi-layer orchestration with wave systems (NEW!)
 - **Token Efficiency Mode**: Smart compression and optimization (NEW!)
@@ -134,10 +133,10 @@ SuperGemini makes Gemini CLI smarter for development work. Instead of generic re
 
 **✅ What's Working Well:**
 - Complete session lifecycle with persistent memory
-- 21 commands including new brainstorming and reflection tools  
+- 21 commands including new reflection and session management tools  
 - 13 specialized agents with enhanced coordination
 - 6 MCP servers with Morphllm and Serena integration
-- 4 behavioral modes with intelligent auto-activation
+- 3 behavioral modes with intelligent auto-activation
 - Advanced hooks system with performance monitoring
 - SuperGemini-Lite for streamlined workflows
 
@@ -218,7 +217,7 @@ Commands are specialized tools that handle specific types of development work. I
 - `/reflect` - Task validation and completion analysis
 
 **Planning & Discovery** 🎯
-- `/brainstorm` - Interactive requirements discovery *(NEW!)*  
+- `/design` - System and component architecture planning  
 - `/estimate` - Project estimation and planning
 - `/task` - Long-term project management
 
@@ -288,8 +287,8 @@ Agents are like having a team of specialists available on demand. Each brings di
 - ✍️ **scribe** - Documentation, technical writing
 
 **V4 Beta Enhancements** 🆕
-- 🎯 **brainstorm-PRD** - Requirements analysis and PRD generation *(NEW!)*
 - 🔮 **workflow-agent** - Advanced workflow orchestration *(NEW!)*
+- 🧠 **semantic-analyst** - Deep code analysis and understanding *(NEW!)*
 
 Analysis modes usually auto-activate based on request patterns. Each mode has different priorities (e.g., security focus prioritizes security over speed). V4 Beta improves analysis coordination patterns.
 
@@ -359,31 +358,11 @@ This coordination usually happens for most requests - SuperGemini tries to figur
 
 ---
 
-## The Four Behavioral Modes 🧠
+## The Three Behavioral Modes 🧠
 
-SuperGemini V4 Beta features four intelligent behavioral modes that automatically adapt to different types of work. These modes provide specialized behavior patterns while maintaining the same command interface.
+SuperGemini V4 Beta features three intelligent behavioral modes that automatically adapt to different types of work. These modes provide specialized behavior patterns while maintaining the same command interface.
 
-### 1. Brainstorming Mode 🎯 *(NEW!)*
-
-**What it is**: Interactive requirements discovery through collaborative dialogue.
-
-**When it activates**: Vague project requests, exploration keywords, uncertainty indicators.
-
-**How it works**: 
-- Socratic dialogue to clarify requirements
-- Interactive exploration of possibilities  
-- Consensus building and brief generation
-- Automatic handoff to PRD agent
-
-**Example Usage**:
-```bash
-/sg:brainstorm "task management app"
-# → Interactive dialogue to discover requirements
-# → Generates comprehensive project brief
-# → Hands off to brainstorm-PRD agent
-```
-
-### 2. Introspection Mode 🧠 *(NEW!)*
+### 1. Introspection Mode 🧠 *(NEW!)*
 
 **What it is**: Meta-cognitive analysis of SuperGemini's own reasoning and decision-making.
 
@@ -403,7 +382,7 @@ SuperGemini V4 Beta features four intelligent behavioral modes that automaticall
 # → Alternative strategy consideration
 ```
 
-### 3. Task Management Mode 📋
+### 2. Task Management Mode 📋
 
 **What it is**: Multi-layer orchestration with wave systems and advanced delegation.
 
@@ -461,7 +440,7 @@ SuperGemini V4 Beta features four intelligent behavioral modes that automaticall
 # → Iteratively improves code with validation between cycles
 ```
 
-### 4. Token Efficiency Mode ⚡ *(NEW!)*
+### 3. Token Efficiency Mode ⚡ *(NEW!)*
 
 **What it is**: Intelligent token optimization with adaptive compression strategies.
 
@@ -1218,8 +1197,8 @@ Experience the new session persistence:
 # Initialize your first session
 /sg:load              # Deep project context loading
 
-# Try the new brainstorming command
-/sg:brainstorm "improve this project"  # Interactive requirements discovery
+# Try the design command
+/sg:design "improve this project"      # System architecture planning
 
 # Work with enhanced context
 /sg:analyze codebase/ --focus architecture  # Persistent context helps
@@ -1258,17 +1237,12 @@ When starting work on an unfamiliar project:
 # → Serena MCP loads project context persistently
 # → Gives overview of structure, dependencies, patterns
 
-# 2. Interactive project discovery
-/sg:brainstorm "understand this project"
-# → Brainstorming Mode helps discover project goals
-# → Interactive dialogue to understand requirements
-
-# 3. Analyze architecture with enhanced context
+# 2. Project structure analysis
 /sg:analyze --focus architecture
-# → 🏗️ architect agent with persistent memory
+# → System architect analyzes project structure
 # → Serena provides semantic understanding
 
-# 4. Save discoveries for future sessions
+# 3. Save discoveries for future sessions
 /sg:save --checkpoint --summarize
 # → Persistent memory of project insights
 # → Available in future sessions
@@ -1278,17 +1252,12 @@ When starting work on an unfamiliar project:
 For developing new features:
 
 ```bash
-# 1. Requirements discovery (NEW!)
-/sg:brainstorm "user dashboard feature"
-# → Interactive requirements gathering
-# → Generates comprehensive feature brief
-
-# 2. Design with persistent context
-/sg:design user-dashboard --type component
+# 1. Feature design and planning
+/sg:design "user dashboard feature" --type component
 # → 🏗️ architect + 🎨 frontend agents coordinate
 # → Leverages session memory for consistency
 
-# 3. Implementation with intelligent editing
+# 2. Implementation with intelligent editing
 /sg:build dashboard-components/
 # → 🎨 frontend agent + Magic MCP for UI generation
 # → Morphllm for intelligent code modifications
@@ -3206,9 +3175,9 @@ You've now got a comprehensive understanding of SuperGemini V4 Beta - its compon
 
 #### SuperGemini's Core Value
 SuperGemini V4 Beta transforms Gemini CLI into an intelligent development partner through:
-- **21 specialized commands** including session management and brainstorming
+- **21 specialized commands** including session management and design planning
 - **13 expert agents** with enhanced coordination and specialization  
-- **4 behavioral modes** that adapt intelligently to different work types
+- **3 behavioral modes** that adapt intelligently to different work types
 - **Session persistence** that remembers and learns across sessions
 - **Advanced orchestration** with hooks system and quality gates
 - **6 MCP servers** including intelligent editing and semantic analysis
@@ -3225,7 +3194,7 @@ SuperGemini V4's power comes from intelligent system integration:
 #### Start Simple, Scale Intelligently
 The best approach to SuperGemini V4 Beta is progressive:
 1. **Initialize sessions** with `/sg:load` to experience persistent context
-2. **Try brainstorming** with `/sg:brainstorm` for interactive discovery
+2. **Try design planning** with `/sg:design` for system architecture
 3. **Trust behavioral modes** to adapt automatically to your work patterns
 4. **Use session persistence** with `/sg:save` to build continuous context
 5. **Experiment with advanced features** like hooks and multi-layer orchestration
@@ -3255,13 +3224,13 @@ The best approach to SuperGemini V4 Beta is progressive:
 #### For New Users
 1. **Start with installation**: Follow the [Installation Guide](installation-guide.md)
 2. **Initialize your first session**: `/sg:load` to experience persistent context
-3. **Try interactive discovery**: `/sg:brainstorm "project idea"` for requirements
+3. **Try system design**: `/sg:design "project idea"` for architecture planning
 4. **Experience the lifecycle**: Use `/sg:save` to persist your session
 5. **Build confidence gradually**: Session basics → behavioral modes → advanced orchestration
 
 #### For Experienced Users
 1. **Leverage session persistence**: Build long-term project context across sessions
-2. **Master behavioral modes**: Understand how brainstorming, introspection, task management, and token efficiency work
+2. **Master behavioral modes**: Understand how introspection, task management, and token efficiency work
 3. **Explore advanced orchestration**: Wave systems, hooks integration, and multi-layer coordination
 4. **Contribute feedback**: Share what works (and what doesn't) with V4 Beta features
 5. **Try SuperGemini-Lite**: Experiment with the streamlined variant for specific workflows

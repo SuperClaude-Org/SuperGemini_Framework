@@ -30,9 +30,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - **Agent System**: 13 specialized domain experts replacing personas
-- **Behavioral Modes**: 4 intelligent modes for different workflows (Brainstorming, Introspection, Task Management, Token Efficiency)
+- **Behavioral Modes**: 3 intelligent modes for different workflows (Introspection, Task Management, Token Efficiency)
 - **Session Lifecycle**: /sg:load and /sg:save for cross-session persistence with Serena MCP
-- **New Commands**: /sg:brainstorm, /sg:reflect, /sg:save, /sg:select-tool (21 total commands)
+- **New Commands**: /sg:reflect, /sg:save, /sg:select-tool (20 total commands)
 - **Serena MCP**: Semantic code analysis and memory management
 - **Morphllm MCP**: Intelligent file editing with Fast Apply capability
 - **Hooks System**: Python-based framework integration (completely redesigned and implemented)

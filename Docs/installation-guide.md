@@ -171,7 +171,7 @@ SuperGemini install --quick
 **What you just got:**
 - ✅ All 16 smart commands that auto-activate experts  
 - ✅ 13 specialized domain expert agents that know when to help
-- ✅ Advanced session management with brainstorming mode
+- ✅ Advanced session management with design planning mode
 - ✅ Python hooks system for intelligent framework coordination
 - ✅ Intelligent routing that figures out complexity for you
 - ✅ About 2 minutes of your time and ~50MB disk space
@@ -402,7 +402,7 @@ Try these commands to get started:
 /sg:analyze README.md       # Analyze a file
 /sg:build --help           # See build options
 /sg:improve --help         # See improvement options
-/sg:brainstorm "my app idea" # Try V4 Beta brainstorming mode
+/sg:design "my app idea"    # Try V4 Beta design planning mode
 ```
 
 **Don't worry if it seems overwhelming** - SuperGemini enhances Gemini CLI gradually. You can use as much or as little as you want.

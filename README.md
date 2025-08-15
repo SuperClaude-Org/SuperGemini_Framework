@@ -17,7 +17,7 @@ An intelligent framework that transforms Gemini CLI into a comprehensive develop
 SuperGemini V4 represents a complete evolution of the development framework, now featuring:
 - 🛠️ **21 specialized commands** for comprehensive development workflows
 - 🤖 **13 specialized agents** with domain expertise and intelligent routing
-- 🧠 **4 Behavioral Modes** for different types of work (Brainstorming, Introspection, Task Management, Token Efficiency)
+- 🧠 **3 Behavioral Modes** for different types of work (Introspection, Task Management, Token Efficiency)
 - 🔧 **6 MCP servers** including the powerful new Morphllm and Serena agents
 - 💾 **Session Lifecycle** with persistent context via /sg:load and /sg:save
 - 🎣 **Hooks System** for extensibility and customization
@@ -55,8 +55,8 @@ Enhanced command suite for comprehensive development workflows:
 **Development**: `/sg:implement`, `/sg:build`, `/sg:design`  
 **Analysis**: `/sg:analyze`, `/sg:troubleshoot`, `/sg:explain`  
 **Quality**: `/sg:improve`, `/sg:test`, `/sg:cleanup`  
-**Session**: `/sg:load`, `/sg:save`, `/sg:brainstorm`, `/sg:reflect`  
-**Workflow**: `/sg:task`, `/sg:spawn`, `/sg:workflow`, `/sg:select-tool`  
+**Session**: `/sg:load`, `/sg:save`, `/sg:reflect`  
+**Workflow**: `/sg:task`, `/sg:spawn`, `/sg:select-tool`  
 **Others**: `/sg:document`, `/sg:git`, `/sg:estimate`, `/sg:index`
 
 ### 13 Specialized Agents 🤖
@@ -77,13 +77,8 @@ AI specialists with deep domain expertise and intelligent coordination:
 
 *These agents feature intelligent routing, context awareness, and collaborative problem-solving capabilities.*
 
-### 4 Behavioral Modes 🧠
+### 3 Behavioral Modes 🧠
 Revolutionary behavioral system that adapts SuperGemini's approach:
-
-#### Brainstorming Mode
-- **Purpose**: Interactive requirements discovery and ideation
-- **Triggers**: Ambiguous requests, exploration keywords, uncertainty indicators
-- **Features**: Socratic dialogue, collaborative discovery, automated brief generation
 
 #### Introspection Mode  
 - **Purpose**: Meta-cognitive analysis and framework troubleshooting
@@ -144,7 +139,7 @@ SuperGemini V4 is a major architectural upgrade. Clean installation recommended:
 3. **Install V4 Beta** - Follow installation instructions below
 
 ### 🔄 **Key Changes for v3 Users**
-- **New Commands**: `/sg:brainstorm`, `/sg:reflect`, `/sg:save`, `/sg:select-tool`
+- **New Commands**: `/sg:reflect`, `/sg:save`, `/sg:select-tool`
 - **Session Management**: Use `/sg:load` to initialize projects, `/sg:save` for persistence
 - **Agent System**: Enhanced from personas to full agent coordination
 - **Behavioral Modes**: Automatic activation based on context and needs
