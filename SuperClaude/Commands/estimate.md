@@ -1,7 +1,7 @@
 ---
 name: estimate
 description: "Provide development estimates for tasks, features, or projects with intelligent analysis and accuracy tracking"
-allowed-tools: [Read, Grep, Glob, Bash, TodoWrite, Task]
+allowed-tools: [read_file, search_file_content, glob, run_shell_command, TodoWrite]
 
 # Command Classification
 category: workflow

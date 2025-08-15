@@ -1,7 +1,7 @@
 ---
 name: save
 description: "Session lifecycle management with Serena MCP integration and performance requirements for session context persistence"
-allowed-tools: [Read, Grep, Glob, Write, write_memory, list_memories, read_memory, summarize_changes, think_about_collected_information]
+allowed-tools: [read_file, search_file_content, glob, write_file, write_memory, list_memories, read_memory, summarize_changes, think_about_collected_information]
 
 # Command Classification
 category: session

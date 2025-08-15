@@ -1,7 +1,7 @@
 ---
 name: troubleshoot
 description: "Diagnose and resolve issues in code, builds, deployments, or system behavior"
-allowed-tools: [Read, Bash, Grep, Glob, Write]
+allowed-tools: [read_file, run_shell_command, search_file_content, glob, write_file]
 
 # Command Classification
 category: utility

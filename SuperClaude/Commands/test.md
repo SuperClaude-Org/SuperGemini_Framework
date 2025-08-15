@@ -1,7 +1,7 @@
 ---
 name: test
 description: "Execute tests, generate test reports, and maintain test coverage standards with AI-powered automated testing"
-allowed-tools: [Read, Bash, Grep, Glob, Write]
+allowed-tools: [read_file, run_shell_command, search_file_content, glob, write_file]
 
 # Command Classification
 category: utility

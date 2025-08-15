@@ -1,7 +1,7 @@
 ---
 name: load
 description: "Session lifecycle management with Serena MCP integration and performance requirements for project context loading"
-allowed-tools: [Read, Grep, Glob, Write, activate_project, list_memories, read_memory, write_memory, check_onboarding_performed, onboarding]
+allowed-tools: [read_file, search_file_content, glob, write_file, activate_project, list_memories, read_memory, write_memory, check_onboarding_performed, onboarding]
 
 # Command Classification
 category: session

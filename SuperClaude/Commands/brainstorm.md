@@ -1,7 +1,7 @@
 ---
 name: brainstorm
 description: "Interactive requirements discovery through Socratic dialogue, systematic exploration, and seamless PRD generation with advanced orchestration"
-allowed-tools: [Read, Write, Edit, MultiEdit, Bash, Grep, Glob, TodoWrite, Task, WebSearch, sequentialthinking]
+allowed-tools: [read_file, write_file, replace, run_shell_command, search_file_content, glob, TodoWrite, google_web_search, sequentialthinking]
 
 # Command Classification
 category: orchestration

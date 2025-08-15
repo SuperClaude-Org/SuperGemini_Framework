@@ -1,7 +1,7 @@
 ---
 name: design
 description: "Design system architecture, APIs, and component interfaces with comprehensive specifications"
-allowed-tools: [Read, Bash, Grep, Glob, Write]
+allowed-tools: [read_file, run_shell_command, search_file_content, glob, write_file]
 
 # Command Classification
 category: utility

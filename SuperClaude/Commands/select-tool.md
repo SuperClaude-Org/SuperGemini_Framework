@@ -1,7 +1,7 @@
 ---
 name: select-tool
 description: "Intelligent MCP tool selection based on complexity scoring and operation analysis"
-allowed-tools: [get_current_config, execute_sketched_edit, Read, Grep]
+allowed-tools: [get_current_config, execute_sketched_edit, read_file, search_file_content]
 
 # Command Classification
 category: special

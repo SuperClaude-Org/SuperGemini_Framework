@@ -1,7 +1,7 @@
 ---
 name: build
 description: "Build, compile, and package projects with comprehensive error handling, optimization, and automated validation"
-allowed-tools: [Read, Bash, Grep, Glob, Write]
+allowed-tools: [read_file, run_shell_command, search_file_content, glob, write_file]
 
 # Command Classification
 category: utility

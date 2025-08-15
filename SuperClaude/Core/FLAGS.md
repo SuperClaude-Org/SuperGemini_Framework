@@ -94,7 +94,7 @@ Quick examples of flag combinations:
 
 For complex scenarios, additional flags available:
 
-- **Wave orchestration**: For enterprise-scale operations (see MODE_Task_Management.md)
+- **Wave orchestration**: For progressive enhancement in complex operations
 - **Token efficiency**: Compression modes (see MODE_Token_Efficiency.md)
 - **Introspection**: Self-analysis mode (see MODE_Introspection.md)
 

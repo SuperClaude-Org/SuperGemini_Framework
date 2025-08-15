@@ -1,7 +1,7 @@
 ---
 name: cleanup
 description: "Clean up code, remove dead code, and optimize project structure with intelligent analysis and safety validation"
-allowed-tools: [Read, Grep, Glob, Bash, Edit, MultiEdit, TodoWrite, Task]
+allowed-tools: [read_file, search_file_content, glob, run_shell_command, replace, TodoWrite]
 
 # Command Classification
 category: workflow
