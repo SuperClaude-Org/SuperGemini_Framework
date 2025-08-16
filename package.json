@@ -1,0 +1,65 @@
+{
+  "name": "superclaude",
+  "version": "4.0.0",
+  "description": "SuperClaude official npm wrapper for the Python package (PyPI: SuperClaude). Run with npx superclaude anywhere!",
+  "bin": {
+    "superclaude": "./bin/cli.js"
+  },
+  "scripts": {
+    "postinstall": "node ./bin/install.js",
+    "update": "node ./bin/update.js",
+    "lint": "eslint . --ext .js,.mjs,.cjs",
+    "test": "echo \"No tests defined yet\" && exit 0"
+  },
+  "files": [
+    "bin/",
+    "README.md",
+    "LICENSE"
+  ],
+  "author": {
+    "name": "SuperClaude Org",
+    "url": "https://github.com/SuperClaude-Org"
+  },
+
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SuperClaude-Org/SuperClaude_Framework.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SuperClaude-Org/SuperClaude_Framework/issues"
+  },
+  "homepage": "https://github.com/SuperClaude-Org/SuperClaude_Framework#readme",
+  "license": "MIT",
+  "keywords": [
+    "superclaude",
+    "ai",
+    "cli",
+    "pypi",
+    "python",
+    "wrapper",
+    "cross-platform",
+    "automation"
+  ],
+  "engines": {
+    "node": ">=16"
+  },
+  "os": [
+    "darwin",
+    "linux",
+    "win32"
+  ],
+  "cpu": [
+    "x64",
+    "arm64"
+  ],
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/SuperClaude-Org"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "preferGlobal": true,
+  "type": "commonjs"
+}
