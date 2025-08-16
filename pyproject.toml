@@ -9,9 +9,9 @@ description = "SuperGemini Framework Management Hub"
 readme = "README.md"
 license = {text = "MIT"}
 authors = [
+    {name = "hyunjae-labs", email = "contact@supergemini.dev"},
     {name = "Mithun Gowda B", email = "contact@supergemini.dev"},
     {name = "NomenAK", email = "contact@supergemini.dev"},
-    {name = "hyunjae-labs", email = "contact@supergemini.dev"},
 ]
 requires-python = ">=3.8"
 dependencies = [
