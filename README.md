@@ -2,7 +2,6 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![PyPI version](https://img.shields.io/pypi/v/SuperGemini.svg?cache=none)](https://pypi.org/project/SuperGemini/)
-[![Version](https://img.shields.io/badge/version-3.2.2-blue.svg)](https://github.com/SuperClaude-Org/SuperGemini_Framework)
 [![GitHub issues](https://img.shields.io/github/issues/SuperClaude-Org/SuperGemini_Framework)](https://github.com/SuperClaude-Org/SuperGemini_Framework/issues)
 
 A framework that extends Gemini CLI with specialized commands, personas, and MCP server integration.
@@ -42,7 +41,7 @@ A framework that extends Gemini CLI with specialized commands, personas, and MCP
 pip install SuperGemini
 
 # Verify installation
-SuperGemini --version  # Should show: SuperGemini v3.2.2
+SuperGemini --version  # Shows current version
 
 # Install all components
 SuperGemini install --quick --yes
