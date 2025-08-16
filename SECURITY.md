@@ -8,7 +8,7 @@ We take security seriously. If you discover a security vulnerability in SuperGem
 
 **Please do NOT create public GitHub issues for security vulnerabilities.**
 
-Instead, email us directly at: `security@superclaude.dev` (or create a private GitHub Security Advisory)
+Instead, email us directly at: `anton.knoery@gmail.com` (or create a private GitHub Security Advisory)
 
 ### What to Include
 
@@ -35,7 +35,7 @@ When reporting a vulnerability, please provide:
 - Data exfiltration or unauthorized access to sensitive information
 
 ### High (Fix within 1 week)  
-- Local code execution through hook manipulation
+- Local code execution through framework component manipulation
 - Unauthorized file system access beyond intended scope
 - Authentication bypass in MCP server communication
 
@@ -59,12 +59,12 @@ When reporting a vulnerability, please provide:
 
 ## 🛡️ Security Features
 
-### Hook Execution Security (V4 Enhanced)
-- **Timeout protection**: All hooks have configurable timeouts (default 30s)
-- **Input validation**: JSON schema validation for all hook inputs
-- **Sandboxed execution**: Hooks run with limited system permissions
-- **Error containment**: Hook failures don't affect framework stability
-- **Performance monitoring**: Real-time hook execution tracking
+### Framework Component Security (V4 Enhanced)
+- **Timeout protection**: All components have configurable timeouts (default 30s)
+- **Input validation**: JSON schema validation for all component inputs
+- **Sandboxed execution**: Components run with limited system permissions
+- **Error containment**: Component failures don't affect framework stability
+- **Performance monitoring**: Real-time component execution tracking
 - **Session lifecycle integration**: Secure checkpoint and recovery
 
 ### File System Protection
@@ -119,12 +119,12 @@ ls -la ~/.claude/
 #### Regular Maintenance
 - **Update regularly**: Keep SuperGemini and dependencies current
 - **Review logs**: Check `~/.claude/` for suspicious activity
-- **Monitor permissions**: Ensure hooks have minimal required permissions
+- **Monitor permissions**: Ensure components have minimal required permissions
 - **Validate configurations**: Use provided schemas to validate settings
 
 ### For Developers
 
-#### Hook Development
+#### Component Development
 ```python
 # Always validate inputs
 def validate_input(data: Dict[str, Any]) -> bool:
@@ -182,7 +182,7 @@ Currently, we don't have a formal bug bounty program, but we recognize security 
 ## 📞 Contact Information
 
 ### Security Team
-- **Email**: `security@superclaude.dev`
+- **Email**: `anton.knoery@gmail.com`
 - **PGP Key**: Available on request
 - **Response Time**: 48 hours maximum
 
@@ -206,7 +206,7 @@ For general security questions (not vulnerabilities):
 
 ---
 
-**Last Updated**: February 2025 (V4 Beta)  
-**Next Review**: May 2025
+**Last Updated**: August 2025 (V4 Beta)  
+**Next Review**: November 2025
 
 Thank you for helping keep SuperGemini Framework secure! 🙏

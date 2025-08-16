@@ -1,92 +1,94 @@
 ---
 name: build
-description: "Build, compile, and package projects with comprehensive error handling, optimization, and automated validation"
-allowed-tools: [read_file, run_shell_command, search_file_content, glob, write_file]
-
-# Command Classification
+description: "Build, compile, and package projects with intelligent error handling and optimization"
 category: utility
 complexity: enhanced
-scope: project
-
-# Integration Configuration
-mcp-integration:
-  servers: [playwright]  # Playwright MCP for build validation
-  personas: [devops-engineer]  # DevOps engineer persona for builds
-  wave-enabled: true
+mcp-servers: [playwright]
+personas: [devops-engineer]
 ---
 
-# /sg:build - Project Building and Packaging
+# /sc:build - Project Building and Packaging
 
-## Purpose
-Execute comprehensive build workflows that compile, bundle, and package projects with intelligent error handling, build optimization, and deployment preparation across different build targets and environments.
+## Triggers
+- Project compilation and packaging requests for different environments
+- Build optimization and artifact generation needs
+- Error debugging during build processes
+- Deployment preparation and artifact packaging requirements
 
 ## Usage
 ```
-/sg:build [target] [--type dev|prod|test] [--clean] [--optimize] [--verbose]
+/sc:build [target] [--type dev|prod|test] [--clean] [--optimize] [--verbose]
 ```
 
-## Arguments
-- `target` - Specific project component, module, or entire project to build
-- `--type` - Build environment configuration (dev, prod, test)
-- `--clean` - Remove build artifacts and caches before building
-- `--optimize` - Enable advanced build optimizations and minification
-- `--verbose` - Display detailed build output and progress information
+## Behavioral Flow
+1. **Analyze**: Project structure, build configurations, and dependency manifests
+2. **Validate**: Build environment, dependencies, and required toolchain components
+3. **Execute**: Build process with real-time monitoring and error detection
+4. **Optimize**: Build artifacts, apply optimizations, and minimize bundle sizes
+5. **Package**: Generate deployment artifacts and comprehensive build reports
 
-## Execution
+Key behaviors:
+- Configuration-driven build orchestration with dependency validation
+- Intelligent error analysis with actionable resolution guidance
+- Environment-specific optimization (dev/prod/test configurations)
+- Comprehensive build reporting with timing metrics and artifact analysis
 
-### Standard Build Workflow (Default)
-1. Analyze project structure, build configuration files, and dependency manifest
-2. Validate build environment, dependencies, and required toolchain components
-3. Execute build process with real-time monitoring and error detection
-4. Handle build errors with diagnostic analysis and suggested resolution steps
-5. Optimize build artifacts, generate build reports, and prepare deployment packages
+## MCP Integration
+- **Playwright MCP**: Auto-activated for build validation and UI testing during builds
+- **DevOps Engineer Persona**: Activated for build optimization and deployment preparation
+- **Enhanced Capabilities**: Build pipeline integration, performance monitoring, artifact validation
 
-## Gemini CLI Integration
-- **Tool Usage**: Bash for build system execution, Read for configuration analysis, Grep for error parsing
-- **File Operations**: Reads build configs and package manifests, writes build logs and artifact reports
-- **Analysis Approach**: Configuration-driven build orchestration with dependency validation
-- **Output Format**: Structured build reports with artifact sizes, timing metrics, and error diagnostics
+## Tool Coordination
+- **Bash**: Build system execution and process management
+- **Read**: Configuration analysis and manifest inspection
+- **Grep**: Error parsing and build log analysis
+- **Glob**: Artifact discovery and validation
+- **Write**: Build reports and deployment documentation
 
-## Performance Targets
-- **Execution Time**: <5s for build setup and validation, variable for compilation process
-- **Success Rate**: >95% for build environment validation and process initialization
-- **Error Handling**: Comprehensive build error analysis with actionable resolution guidance
+## Key Patterns
+- **Environment Builds**: dev/prod/test → appropriate configuration and optimization
+- **Error Analysis**: Build failures → diagnostic analysis and resolution guidance
+- **Optimization**: Artifact analysis → size reduction and performance improvements
+- **Validation**: Build verification → quality gates and deployment readiness
 
 ## Examples
 
-### Basic Usage
+### Standard Project Build
 ```
-/sg:build
+/sc:build
 # Builds entire project using default configuration
-# Generates standard build artifacts in output directory
+# Generates artifacts and comprehensive build report
 ```
 
-### Advanced Usage
+### Production Optimization Build
 ```
-/sg:build frontend --type prod --clean --optimize --verbose
-# Clean production build of frontend module with optimizations
-# Displays detailed build progress and generates optimized artifacts
+/sc:build --type prod --clean --optimize
+# Clean production build with advanced optimizations
+# Minification, tree-shaking, and deployment preparation
 ```
 
-## Error Handling
-- **Invalid Input**: Validates build targets exist and build system is properly configured
-- **Missing Dependencies**: Checks for required build tools, compilers, and dependency packages
-- **File Access Issues**: Handles source file permissions and build output directory access
-- **Resource Constraints**: Manages memory and disk space during compilation and bundling
+### Targeted Component Build
+```
+/sc:build frontend --verbose
+# Builds specific project component with detailed output
+# Real-time progress monitoring and diagnostic information
+```
 
-## Integration Points
-- **SuperGemini Framework**: Coordinates with test command for build verification and analyze for quality checks
-- **Other Commands**: Precedes test and deployment workflows, integrates with git for build tagging
-- **File System**: Reads source code and configurations, writes build artifacts to designated output directories
+### Development Build with Validation
+```
+/sc:build --type dev --validate
+# Development build with Playwright validation
+# UI testing and build verification integration
+```
 
 ## Boundaries
 
-**This command will:**
-- Execute project build systems using existing build configurations
-- Provide comprehensive build error analysis and optimization recommendations
-- Generate build artifacts and deployment packages according to target specifications
+**Will:**
+- Execute project build systems using existing configurations
+- Provide comprehensive error analysis and optimization recommendations
+- Generate deployment-ready artifacts with detailed reporting
 
-**This command will not:**
+**Will Not:**
 - Modify build system configuration or create new build scripts
 - Install missing build dependencies or development tools
 - Execute deployment operations beyond artifact preparation

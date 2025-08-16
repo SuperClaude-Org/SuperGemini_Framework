@@ -52,7 +52,7 @@ Examples of unacceptable behavior:
 
 If you experience or witness unacceptable behavior, please report it by:
 
-1. **Email**: `conduct@superclaude.dev`
+1. **Email**: `anton.knoery@gmail.com`
 2. **GitHub**: Private message to project maintainers
 3. **Direct contact**: Reach out to any maintainer directly
 
@@ -128,7 +128,7 @@ We believe in education over punishment when possible:
 ## 📞 Contact Information
 
 ### Conduct Team
-- **Email**: `conduct@superclaude.dev`
+- **Email**: `anton.knoery@gmail.com`
 - **Response time**: 48 hours maximum
 - **Anonymous reporting**: Available upon request
 
@@ -160,7 +160,7 @@ This Code of Conduct is adapted from:
 
 ---
 
-**Last Updated**: July 2025  
-**Next Review**: January 2026
+**Last Updated**: August 2025  
+**Next Review**: November 2025
 
 Thank you for helping make SuperGemini Framework a welcoming space for all developers! 🚀

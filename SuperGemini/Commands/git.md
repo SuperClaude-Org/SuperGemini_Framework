@@ -1,90 +1,80 @@
 ---
 name: git
-description: "Git operations with intelligent commit messages, branch management, and workflow optimization"
-allowed-tools: [read_file, run_shell_command, search_file_content, glob, write_file]
-
-# Command Classification
+description: "Git operations with intelligent commit messages and workflow optimization"
 category: utility
 complexity: basic
-scope: project
-
-# Integration Configuration
-mcp-integration:
-  servers: []  # No MCP servers required for basic commands
-  personas: []  # No persona activation required
-  wave-enabled: false
+mcp-servers: []
+personas: []
 ---
 
-# /sg:git - Git Operations and Workflow Management
+# /sc:git - Git Operations
 
-## Purpose
-Execute comprehensive Git operations with intelligent commit message generation, automated branch management, workflow optimization, and integration with development processes while maintaining repository best practices.
+## Triggers
+- Git repository operations: status, add, commit, push, pull, branch
+- Need for intelligent commit message generation
+- Repository workflow optimization requests
+- Branch management and merge operations
 
 ## Usage
 ```
-/sg:git [operation] [args] [--smart-commit] [--branch-strategy] [--interactive]
+/sc:git [operation] [args] [--smart-commit] [--interactive]
 ```
 
-## Arguments
-- `operation` - Git command (add, commit, push, pull, merge, branch, status, log, diff)
-- `args` - Operation-specific arguments and file specifications
-- `--smart-commit` - Enable intelligent commit message generation based on changes
-- `--branch-strategy` - Apply consistent branch naming conventions and workflow patterns
-- `--interactive` - Enable interactive mode for complex operations requiring user input
+## Behavioral Flow
+1. **Analyze**: Check repository state and working directory changes
+2. **Validate**: Ensure operation is appropriate for current Git context
+3. **Execute**: Run Git command with intelligent automation
+4. **Optimize**: Apply smart commit messages and workflow patterns
+5. **Report**: Provide status and next steps guidance
 
-## Execution
-1. Analyze current Git repository state, working directory changes, and branch context
-2. Execute requested Git operations with comprehensive validation and error checking
-3. Apply intelligent commit message generation based on change analysis and conventional patterns
-4. Handle merge conflicts, branch management, and repository state consistency
-5. Provide clear operation feedback, next steps guidance, and workflow recommendations
+Key behaviors:
+- Generate conventional commit messages based on change analysis
+- Apply consistent branch naming conventions
+- Handle merge conflicts with guided resolution
+- Provide clear status summaries and workflow recommendations
 
-## Gemini CLI Integration
-- **Tool Usage**: Bash for Git command execution, Read for repository analysis, Grep for log parsing
-- **File Operations**: Reads repository state and configuration, writes commit messages and branch documentation
-- **Analysis Approach**: Change analysis with pattern recognition for conventional commit formatting
-- **Output Format**: Structured Git operation reports with status summaries and recommended actions
+## Tool Coordination
+- **Bash**: Git command execution and repository operations
+- **Read**: Repository state analysis and configuration review
+- **Grep**: Log parsing and status analysis
+- **Write**: Commit message generation and documentation
 
-## Performance Targets
-- **Execution Time**: <5s for repository analysis and standard Git operations
-- **Success Rate**: >95% for Git command execution and repository state validation
-- **Error Handling**: Comprehensive handling of merge conflicts, permission issues, and network problems
+## Key Patterns
+- **Smart Commits**: Analyze changes → generate conventional commit message
+- **Status Analysis**: Repository state → actionable recommendations
+- **Branch Strategy**: Consistent naming and workflow enforcement
+- **Error Recovery**: Conflict resolution and state restoration guidance
 
 ## Examples
 
-### Basic Usage
+### Smart Status Analysis
 ```
-/sg:git status
-# Displays comprehensive repository status with change analysis
-# Provides recommendations for next steps and workflow optimization
-```
-
-### Advanced Usage
-```
-/sg:git commit --smart-commit --branch-strategy --interactive
-# Interactive commit with intelligent message generation
-# Applies branch naming conventions and workflow best practices
+/sc:git status
+# Analyzes repository state with change summary
+# Provides next steps and workflow recommendations
 ```
 
-## Error Handling
-- **Invalid Input**: Validates Git repository exists and operations are appropriate for current state
-- **Missing Dependencies**: Checks Git installation and repository initialization status
-- **File Access Issues**: Handles file permissions, lock files, and concurrent Git operations
-- **Resource Constraints**: Manages large repository operations and network connectivity issues
+### Intelligent Commit
+```
+/sc:git commit --smart-commit
+# Generates conventional commit message from change analysis
+# Applies best practices and consistent formatting
+```
 
-## Integration Points
-- **SuperGemini Framework**: Integrates with build for release tagging and test for pre-commit validation
-- **Other Commands**: Coordinates with analyze for code quality gates and troubleshoot for repository issues
-- **File System**: Reads Git configuration and history, writes commit messages and branch documentation
+### Interactive Operations
+```
+/sc:git merge feature-branch --interactive
+# Guided merge with conflict resolution assistance
+```
 
 ## Boundaries
 
-**This command will:**
-- Execute standard Git operations with intelligent automation and best practice enforcement
-- Generate conventional commit messages based on change analysis and repository patterns
-- Provide comprehensive repository status analysis and workflow optimization recommendations
+**Will:**
+- Execute Git operations with intelligent automation
+- Generate conventional commit messages from change analysis
+- Provide workflow optimization and best practice guidance
 
-**This command will not:**
-- Modify Git repository configuration or hooks without explicit user authorization
-- Execute destructive operations like force pushes or history rewriting without confirmation
-- Handle complex merge scenarios requiring manual intervention beyond basic conflict resolution
+**Will Not:**
+- Modify repository configuration without explicit authorization
+- Execute destructive operations without confirmation
+- Handle complex merges requiring manual intervention

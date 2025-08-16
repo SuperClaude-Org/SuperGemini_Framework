@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Commands are now installed in `~/.claude/commands/sc/` subdirectory
 - All 16 commands updated: `/analyze` � `/sg:analyze`, `/build` � `/sg:build`, etc.
 - Automatic migration from old command locations to new `sc/` subdirectory
+- **BREAKING**: Documentation reorganization - Docs/ directory renamed to Guides/
 
 ### Added
 - **NEW COMMAND**: `/sg:implement` for feature and code implementation (addresses v2 user feedback)
@@ -19,6 +20,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Enhanced uninstaller to handle both old and new command locations
 - Improved command conflict prevention
 - Better command organization and discoverability
+- Comprehensive PyPI publishing infrastructure
+- API key management during SuperClaude MCP setup
+
+### Removed
+- **BREAKING**: Removed Templates/ directory (legacy templates no longer needed)
+- **BREAKING**: Removed legacy agents and replaced with enhanced 13-agent system
+
+### Improved
+- Refactored Modes and MCP documentation for concise behavioral guidance
+- Enhanced project cleanup and gitignore for PyPI publishing
+- Implemented uninstall and update safety enhancements
+- Better agent specialization and domain expertise focus
 
 ### Technical Details
 - Commands now accessible as `/sg:analyze`, `/sg:build`, `/sg:improve`, etc.

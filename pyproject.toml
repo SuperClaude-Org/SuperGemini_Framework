@@ -6,8 +6,8 @@ build-backend = "setuptools.build_meta"
 name = "SuperGemini"
 version = "4.0.0-beta.1"
 authors = [
-    {name = "Mithun Gowda B", email = "contact@superclaude.dev"},
-    {name = "NomenAK"}
+    {name = "NomenAK", email = "anton.knoery@gmail.com"},
+    {name = "Mithun Gowda B", email = "mithungowda.b7411@gmail.com"}
 ]
 description = "SuperGemini Framework Management Hub - AI-enhanced development framework for Gemini single-agent architecture"
 readme = "README.md"

@@ -1,89 +1,89 @@
 ---
 name: analyze
-description: "Analyze code quality, security, performance, and architecture with comprehensive reporting"
-allowed-tools: [read_file, run_shell_command, search_file_content, glob, write_file]
-
-# Command Classification
+description: "Comprehensive code analysis across quality, security, performance, and architecture domains"
 category: utility
 complexity: basic
-scope: project
-
-# Integration Configuration
-mcp-integration:
-  servers: []  # No MCP servers required for basic commands
-  personas: []  # No persona activation required
-  wave-enabled: false
+mcp-servers: []
+personas: []
 ---
 
-# /sg:analyze - Code Analysis and Quality Assessment
+# /sc:analyze - Code Analysis and Quality Assessment
 
-## Purpose
-Execute systematic code analysis across quality, security, performance, and architecture domains to identify issues, technical debt, and improvement opportunities with detailed reporting and actionable recommendations.
+## Triggers
+- Code quality assessment requests for projects or specific components
+- Security vulnerability scanning and compliance validation needs
+- Performance bottleneck identification and optimization planning
+- Architecture review and technical debt assessment requirements
 
 ## Usage
 ```
-/sg:analyze [target] [--focus quality|security|performance|architecture] [--depth quick|deep] [--format text|json|report]
+/sc:analyze [target] [--focus quality|security|performance|architecture] [--depth quick|deep] [--format text|json|report]
 ```
 
-## Arguments
-- `target` - Files, directories, modules, or entire project to analyze
-- `--focus` - Primary analysis domain (quality, security, performance, architecture)
-- `--depth` - Analysis thoroughness level (quick scan, deep inspection)
-- `--format` - Output format specification (text summary, json data, html report)
+## Behavioral Flow
+1. **Discover**: Categorize source files using language detection and project analysis
+2. **Scan**: Apply domain-specific analysis techniques and pattern matching
+3. **Evaluate**: Generate prioritized findings with severity ratings and impact assessment
+4. **Recommend**: Create actionable recommendations with implementation guidance
+5. **Report**: Present comprehensive analysis with metrics and improvement roadmap
 
-## Execution
-1. Discover and categorize source files using language detection and project structure analysis
-2. Apply domain-specific analysis techniques including static analysis and pattern matching
-3. Generate prioritized findings with severity ratings and impact assessment
-4. Create actionable recommendations with implementation guidance and effort estimates
-5. Present comprehensive analysis report with metrics, trends, and improvement roadmap
+Key behaviors:
+- Multi-domain analysis combining static analysis and heuristic evaluation
+- Intelligent file discovery and language-specific pattern recognition
+- Severity-based prioritization of findings and recommendations
+- Comprehensive reporting with metrics, trends, and actionable insights
 
-## Gemini CLI Integration
-- **Tool Usage**: Glob for file discovery, Grep for pattern analysis, Read for code inspection, Bash for tool execution
-- **File Operations**: Reads source files and configurations, writes analysis reports and metrics summaries
-- **Analysis Approach**: Multi-domain analysis combining static analysis, pattern matching, and heuristic evaluation
-- **Output Format**: Structured reports with severity classifications, metrics, and prioritized recommendations
+## Tool Coordination
+- **Glob**: File discovery and project structure analysis
+- **Grep**: Pattern analysis and code search operations
+- **Read**: Source code inspection and configuration analysis
+- **Bash**: External analysis tool execution and validation
+- **Write**: Report generation and metrics documentation
 
-## Performance Targets
-- **Execution Time**: <5s for analysis setup and file discovery, scales with project size
-- **Success Rate**: >95% for file analysis and pattern detection across supported languages
-- **Error Handling**: Graceful handling of unsupported files and malformed code structures
+## Key Patterns
+- **Domain Analysis**: Quality/Security/Performance/Architecture → specialized assessment
+- **Pattern Recognition**: Language detection → appropriate analysis techniques
+- **Severity Assessment**: Issue classification → prioritized recommendations
+- **Report Generation**: Analysis results → structured documentation
 
 ## Examples
 
-### Basic Usage
+### Comprehensive Project Analysis
 ```
-/sg:analyze
-# Performs comprehensive analysis of entire project
-# Generates multi-domain report with key findings and recommendations
-```
-
-### Advanced Usage
-```
-/sg:analyze src/security --focus security --depth deep --format report
-# Deep security analysis of specific directory
-# Generates detailed HTML report with vulnerability assessment
+/sc:analyze
+# Multi-domain analysis of entire project
+# Generates comprehensive report with key findings and roadmap
 ```
 
-## Error Handling
-- **Invalid Input**: Validates analysis targets exist and contain analyzable source code
-- **Missing Dependencies**: Checks for analysis tools availability and handles unsupported file types
-- **File Access Issues**: Manages permission restrictions and handles binary or encrypted files
-- **Resource Constraints**: Optimizes memory usage for large codebases and provides progress feedback
+### Focused Security Assessment
+```
+/sc:analyze src/auth --focus security --depth deep
+# Deep security analysis of authentication components
+# Vulnerability assessment with detailed remediation guidance
+```
 
-## Integration Points
-- **SuperGemini Framework**: Integrates with build command for pre-build analysis and test for quality gates
-- **Other Commands**: Commonly precedes refactoring operations and follows development workflows
-- **File System**: Reads project source code, writes analysis reports to designated output directories
+### Performance Optimization Analysis
+```
+/sc:analyze --focus performance --format report
+# Performance bottleneck identification
+# Generates HTML report with optimization recommendations
+```
+
+### Quick Quality Check
+```
+/sc:analyze src/components --focus quality --depth quick
+# Rapid quality assessment of component directory
+# Identifies code smells and maintainability issues
+```
 
 ## Boundaries
 
-**This command will:**
-- Perform static code analysis using pattern matching and heuristic evaluation
-- Generate comprehensive quality, security, performance, and architecture assessments
-- Provide actionable recommendations with severity ratings and implementation guidance
+**Will:**
+- Perform comprehensive static code analysis across multiple domains
+- Generate severity-rated findings with actionable recommendations
+- Provide detailed reports with metrics and improvement guidance
 
-**This command will not:**
-- Execute dynamic analysis requiring code compilation or runtime environments
-- Modify source code or automatically apply fixes without explicit user consent
-- Analyze external dependencies or third-party libraries beyond import analysis
+**Will Not:**
+- Execute dynamic analysis requiring code compilation or runtime
+- Modify source code or apply fixes without explicit user consent
+- Analyze external dependencies beyond import and usage patterns

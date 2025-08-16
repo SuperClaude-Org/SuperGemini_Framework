@@ -1,103 +1,121 @@
-# FLAGS.md - Gemini CLI Behavior Flags
+# SuperClaude Framework Flags
 
-Quick reference for flags that modify how I approach tasks. **Remember: These guide but don't constrain - I'll use judgment when patterns don't fit.**
+Behavioral flags for Claude Code to enable specific execution modes and tool selection patterns.
 
-## 🎯 Flag Categories
+## Mode Activation Flags
 
-### MCP Server Flags
-```yaml
---seq           # Enable Sequential for complex analysis
---c7            # Enable Context7 for documentation
---magic         # Enable Magic for UI components
---play          # Enable Playwright for testing
---morph         # Enable Morphllm for fast edits
---serena        # Enable Serena for semantic analysis
-```
+**--brainstorm**
+- Trigger: Vague project requests, exploration keywords ("maybe", "thinking about", "not sure")
+- Behavior: Activate collaborative discovery mindset, ask probing questions, guide requirement elicitation
 
-### Execution Control
-```yaml
---plan          # Show what I'll do before starting
---validate      # Check risks before operations
---answer-only   # Skip automation, just respond directly
-```
+**--introspect**
+- Trigger: Self-analysis requests, error recovery, complex problem solving requiring meta-cognition
+- Behavior: Expose thinking process with transparency markers (🤔, 🎯, ⚡, 📊, 💡)
 
+**--task-manage**
+- Trigger: Multi-step operations (>3 steps), complex scope (>2 directories OR >3 files)
+- Behavior: Orchestrate through delegation, progressive enhancement, systematic organization
 
+**--orchestrate**
+- Trigger: Multi-tool operations, performance constraints, parallel execution opportunities
+- Behavior: Optimize tool selection matrix, enable parallel thinking, adapt to resource constraints
 
-### MCP Servers
-```yaml
---all-mcp       # Enable all MCP servers (Context7, Sequential, Magic, Playwright, Morphllm, Serena)
---no-mcp        # Disable all MCP servers, use native tools
-# Individual server flags: see MCP/*.md docs
-```
+**--token-efficient**
+- Trigger: Context usage >75%, large-scale operations, --uc flag
+- Behavior: Symbol-enhanced communication, 30-50% token reduction while preserving clarity
 
-### Scope & Focus
-```yaml
---scope [file|module|project|system]         # Analysis scope
---focus [performance|security|quality|architecture|testing]  # Domain focus
-```
+## MCP Server Flags
 
-### Iteration
-```yaml
---loop          # Iterative improvement mode (default: 3 cycles)
---iterations n  # Set specific number of iterations
---interactive   # Pause for confirmation between iterations
-```
+**--c7 / --context7**
+- Trigger: Library imports, framework questions, official documentation needs
+- Behavior: Enable Context7 for curated documentation lookup and pattern guidance
 
-## ⚡ Auto-Activation
+**--seq / --sequential**
+- Trigger: Complex debugging, system design, multi-component analysis
+- Behavior: Enable Sequential for structured multi-step reasoning and hypothesis testing
 
-I'll automatically enable appropriate flags when I detect:
+**--magic**
+- Trigger: UI component requests (/ui, /21), design system queries, frontend development
+- Behavior: Enable Magic for modern UI generation from 21st.dev patterns
 
-```yaml
-mcp_server_activation:
-  complex_analysis → Sequential
-  library_docs → Context7
-  ui_components → Magic
-  browser_testing → Playwright
+**--morph / --morphllm**
+- Trigger: Bulk code transformations, pattern-based edits, style enforcement
+- Behavior: Enable Morphllm for efficient multi-file pattern application
 
+**--serena**
+- Trigger: Symbol operations, project memory needs, large codebase navigation
+- Behavior: Enable Serena for semantic understanding and session persistence
 
+**--play / --playwright**
+- Trigger: Browser testing, E2E scenarios, visual validation, accessibility testing
+- Behavior: Enable Playwright for real browser automation and testing
 
-mcp_servers:
-  ui_components → Magic
-  library_docs → Context7
-  complex_analysis → Sequential
-  browser_testing → Playwright
+**--all-mcp**
+- Trigger: Maximum complexity scenarios, multi-domain problems
+- Behavior: Enable all MCP servers for comprehensive capability
 
-safety:
-  high_risk → --validate
-  production_code → --validate
-```
+**--no-mcp**
+- Trigger: Native-only execution needs, performance priority
+- Behavior: Disable all MCP servers, use native tools with WebSearch fallback
 
-## 📋 Simple Precedence
+## Analysis Depth Flags
 
-When flags conflict, I follow this order:
+**--think**
+- Trigger: Multi-component analysis needs, moderate complexity
+- Behavior: Standard structured analysis (~4K tokens), enables Sequential
 
-1. **Your explicit flags** > auto-detection
-2. **Safety** > performance  
-3. **Deeper analysis** > shallow analysis
-4. **Specific scope** > general scope
-5. **--no-mcp** overrides individual server flags
+**--think-hard**
+- Trigger: Architectural analysis, system-wide dependencies
+- Behavior: Deep analysis (~10K tokens), enables Sequential + Context7
 
-## 💡 Common Patterns
+**--ultrathink**
+- Trigger: Critical system redesign, legacy modernization, complex debugging
+- Behavior: Maximum depth analysis (~32K tokens), enables all MCP servers
 
-Quick examples of flag combinations:
+## Execution Control Flags
 
-```
-"analyze this architecture" → Sequential server (auto)
-"build a login form" → Magic server (auto)
-"fix this bug" → Sequential + focused analysis
-"process entire codebase" → systematic processing
-"just explain this" → --answer-only
-"make this code better" → --loop (auto)
-```
+**--delegate [auto|files|folders]**
+- Trigger: >7 directories OR >50 files OR complexity >0.8
+- Behavior: Enable sub-agent parallel processing with intelligent routing
 
-## 🧠 Advanced Features
+**--concurrency [n]**
+- Trigger: Resource optimization needs, parallel operation control
+- Behavior: Control max concurrent operations (range: 1-15)
 
-For complex scenarios, additional flags available:
+**--loop**
+- Trigger: Improvement keywords (polish, refine, enhance, improve)
+- Behavior: Enable iterative improvement cycles with validation gates
 
-- **Wave orchestration**: For progressive enhancement in complex operations
-- **Token efficiency**: Compression modes (see MODE_Token_Efficiency.md)
-- **Introspection**: Self-analysis mode (see MODE_Introspection.md)
+**--iterations [n]**
+- Trigger: Specific improvement cycle requirements
+- Behavior: Set improvement cycle count (range: 1-10)
 
----
+**--validate**
+- Trigger: Risk score >0.7, resource usage >75%, production environment
+- Behavior: Pre-execution risk assessment and validation gates
 
-*These flags help me work more effectively, but my natural understanding of your needs takes precedence. When in doubt, I'll choose the approach that best serves your goal.*
+**--safe-mode**
+- Trigger: Resource usage >85%, production environment, critical operations
+- Behavior: Maximum validation, conservative execution, auto-enable --uc
+
+## Output Optimization Flags
+
+**--uc / --ultracompressed**
+- Trigger: Context pressure, efficiency requirements, large operations
+- Behavior: Symbol communication system, 30-50% token reduction
+
+**--scope [file|module|project|system]**
+- Trigger: Analysis boundary needs
+- Behavior: Define operational scope and analysis depth
+
+**--focus [performance|security|quality|architecture|accessibility|testing]**
+- Trigger: Domain-specific optimization needs
+- Behavior: Target specific analysis domain and expertise application
+
+## Flag Priority Rules
+
+**Safety First**: --safe-mode > --validate > optimization flags
+**Explicit Override**: User flags > auto-detection
+**Depth Hierarchy**: --ultrathink > --think-hard > --think  
+**MCP Control**: --no-mcp overrides all individual MCP flags
+**Scope Precedence**: system > project > module > file

@@ -1,89 +1,88 @@
 ---
 name: document
-description: "Generate focused documentation for specific components, functions, or features"
-allowed-tools: [read_file, run_shell_command, search_file_content, glob, write_file]
-
-# Command Classification
+description: "Generate focused documentation for components, functions, APIs, and features"
 category: utility
 complexity: basic
-scope: file
-
-# Integration Configuration
-mcp-integration:
-  servers: []  # No MCP servers required for basic commands
-  personas: []  # No persona activation required
-  wave-enabled: false
+mcp-servers: []
+personas: []
 ---
 
-# /sg:document - Focused Documentation Generation
+# /sc:document - Focused Documentation Generation
 
-## Purpose
-Generate precise, well-structured documentation for specific components, functions, APIs, or features with appropriate formatting, comprehensive coverage, and integration with existing documentation ecosystems.
+## Triggers
+- Documentation requests for specific components, functions, or features
+- API documentation and reference material generation needs
+- Code comment and inline documentation requirements
+- User guide and technical documentation creation requests
 
 ## Usage
 ```
-/sg:document [target] [--type inline|external|api|guide] [--style brief|detailed] [--template standard|custom]
+/sc:document [target] [--type inline|external|api|guide] [--style brief|detailed]
 ```
 
-## Arguments
-- `target` - Specific file, function, class, module, or component to document
-- `--type` - Documentation format (inline code comments, external files, api reference, user guide)
-- `--style` - Documentation depth and verbosity (brief summary, detailed comprehensive)
-- `--template` - Template specification (standard format, custom organization)
+## Behavioral Flow
+1. **Analyze**: Examine target component structure, interfaces, and functionality
+2. **Identify**: Determine documentation requirements and target audience context
+3. **Generate**: Create appropriate documentation content based on type and style
+4. **Format**: Apply consistent structure and organizational patterns
+5. **Integrate**: Ensure compatibility with existing project documentation ecosystem
 
-## Execution
-1. Analyze target component structure, interfaces, and functionality through comprehensive code inspection
-2. Identify documentation requirements, target audience, and integration context within project
-3. Generate appropriate documentation content based on type specifications and style preferences
-4. Apply consistent formatting, structure, and organizational patterns following documentation standards
-5. Integrate generated documentation with existing project documentation and ensure cross-reference consistency
+Key behaviors:
+- Code structure analysis with API extraction and usage pattern identification
+- Multi-format documentation generation (inline, external, API reference, guides)
+- Consistent formatting and cross-reference integration
+- Language-specific documentation patterns and conventions
 
-## Gemini CLI Integration
-- **Tool Usage**: Read for component analysis, Write for documentation creation, Grep for reference extraction
-- **File Operations**: Reads source code and existing docs, writes documentation files with proper formatting
-- **Analysis Approach**: Code structure analysis with API extraction and usage pattern identification
-- **Output Format**: Structured documentation with consistent formatting, cross-references, and examples
+## Tool Coordination
+- **Read**: Component analysis and existing documentation review
+- **Grep**: Reference extraction and pattern identification
+- **Write**: Documentation file creation with proper formatting
+- **Glob**: Multi-file documentation projects and organization
 
-## Performance Targets
-- **Execution Time**: <5s for component analysis and documentation generation
-- **Success Rate**: >95% for documentation extraction and formatting across supported languages
-- **Error Handling**: Graceful handling of complex code structures and incomplete information
+## Key Patterns
+- **Inline Documentation**: Code analysis → JSDoc/docstring generation → inline comments
+- **API Documentation**: Interface extraction → reference material → usage examples
+- **User Guides**: Feature analysis → tutorial content → implementation guidance
+- **External Docs**: Component overview → detailed specifications → integration instructions
 
 ## Examples
 
-### Basic Usage
+### Inline Code Documentation
 ```
-/sg:document src/auth/login.js --type inline
-# Generates inline code comments for login function
-# Adds JSDoc comments with parameter and return descriptions
-```
-
-### Advanced Usage
-```
-/sg:document src/api --type api --style detailed --template standard
-# Creates comprehensive API documentation for entire API module
-# Generates detailed external documentation with examples and usage guidelines
+/sc:document src/auth/login.js --type inline
+# Generates JSDoc comments with parameter and return descriptions
+# Adds comprehensive inline documentation for functions and classes
 ```
 
-## Error Handling
-- **Invalid Input**: Validates documentation targets exist and contain documentable code structures
-- **Missing Dependencies**: Handles cases where code analysis is incomplete or context is insufficient
-- **File Access Issues**: Manages read access to source files and write permissions for documentation output
-- **Resource Constraints**: Optimizes documentation generation for large codebases with progress feedback
+### API Reference Generation
+```
+/sc:document src/api --type api --style detailed
+# Creates comprehensive API documentation with endpoints and schemas
+# Generates usage examples and integration guidelines
+```
 
-## Integration Points
-- **SuperGemini Framework**: Coordinates with analyze for code understanding and design for specification documentation
-- **Other Commands**: Follows development workflows and integrates with build for documentation publishing
-- **File System**: Reads project source code and existing documentation, writes formatted docs to appropriate locations
+### User Guide Creation
+```
+/sc:document payment-module --type guide --style brief
+# Creates user-focused documentation with practical examples
+# Focuses on implementation patterns and common use cases
+```
+
+### Component Documentation
+```
+/sc:document components/ --type external
+# Generates external documentation files for component library
+# Includes props, usage examples, and integration patterns
+```
 
 ## Boundaries
 
-**This command will:**
-- Generate comprehensive documentation based on code analysis and existing patterns
-- Create properly formatted documentation following project conventions and standards
-- Extract API information, usage examples, and integration guidance from source code
+**Will:**
+- Generate focused documentation for specific components and features
+- Create multiple documentation formats based on target audience needs
+- Integrate with existing documentation ecosystems and maintain consistency
 
-**This command will not:**
-- Modify source code structure or add functionality beyond documentation
-- Generate documentation for external dependencies or third-party libraries
-- Create documentation requiring runtime analysis or dynamic code execution
+**Will Not:**
+- Generate documentation without proper code analysis and context understanding
+- Override existing documentation standards or project-specific conventions
+- Create documentation that exposes sensitive implementation details

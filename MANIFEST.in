@@ -8,7 +8,6 @@ include SECURITY.md
 include ARCHITECTURE_OVERVIEW.md
 include pyproject.toml
 recursive-include SuperGemini *
-recursive-include SuperGemini-Lite *
 recursive-include Templates *
 recursive-include Docs *.md
 recursive-include Setup *

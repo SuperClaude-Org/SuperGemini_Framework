@@ -1,89 +1,88 @@
 ---
 name: troubleshoot
-description: "Diagnose and resolve issues in code, builds, deployments, or system behavior"
-allowed-tools: [read_file, run_shell_command, search_file_content, glob, write_file]
-
-# Command Classification
+description: "Diagnose and resolve issues in code, builds, deployments, and system behavior"
 category: utility
 complexity: basic
-scope: project
-
-# Integration Configuration
-mcp-integration:
-  servers: []  # No MCP servers required for basic commands
-  personas: []  # No persona activation required
-  wave-enabled: false
+mcp-servers: []
+personas: []
 ---
 
-# /sg:troubleshoot - Issue Diagnosis and Resolution
+# /sc:troubleshoot - Issue Diagnosis and Resolution
 
-## Purpose
-Execute systematic issue diagnosis and resolution workflows for code defects, build failures, performance problems, and deployment issues using structured debugging methodologies and comprehensive problem analysis.
+## Triggers
+- Code defects and runtime error investigation requests
+- Build failure analysis and resolution needs
+- Performance issue diagnosis and optimization requirements
+- Deployment problem analysis and system behavior debugging
 
 ## Usage
 ```
-/sg:troubleshoot [issue] [--type bug|build|performance|deployment] [--trace] [--fix]
+/sc:troubleshoot [issue] [--type bug|build|performance|deployment] [--trace] [--fix]
 ```
 
-## Arguments
-- `issue` - Problem description, error message, or specific symptoms to investigate
-- `--type` - Issue classification (bug, build failure, performance issue, deployment problem)
-- `--trace` - Enable detailed diagnostic tracing and comprehensive logging analysis
-- `--fix` - Automatically apply safe fixes when resolution is clearly identified
+## Behavioral Flow
+1. **Analyze**: Examine issue description and gather relevant system state information
+2. **Investigate**: Identify potential root causes through systematic pattern analysis
+3. **Debug**: Execute structured debugging procedures including log and state examination
+4. **Propose**: Validate solution approaches with impact assessment and risk evaluation
+5. **Resolve**: Apply appropriate fixes and verify resolution effectiveness
 
-## Execution
-1. Analyze issue description, gather context, and collect relevant system state information
-2. Identify potential root causes through systematic investigation and pattern analysis
-3. Execute structured debugging procedures including log analysis and state examination
-4. Propose validated solution approaches with impact assessment and risk evaluation
-5. Apply appropriate fixes, verify resolution effectiveness, and document troubleshooting process
+Key behaviors:
+- Systematic root cause analysis with hypothesis testing and evidence collection
+- Multi-domain troubleshooting (code, build, performance, deployment)
+- Structured debugging methodologies with comprehensive problem analysis
+- Safe fix application with verification and documentation
 
-## Gemini CLI Integration
-- **Tool Usage**: Read for log analysis, Bash for diagnostic commands, Grep for error pattern detection
-- **File Operations**: Reads error logs and system state, writes diagnostic reports and resolution documentation
-- **Analysis Approach**: Systematic root cause analysis with hypothesis testing and evidence collection
-- **Output Format**: Structured troubleshooting reports with findings, solutions, and prevention recommendations
+## Tool Coordination
+- **Read**: Log analysis and system state examination
+- **Bash**: Diagnostic command execution and system investigation
+- **Grep**: Error pattern detection and log analysis
+- **Write**: Diagnostic reports and resolution documentation
 
-## Performance Targets
-- **Execution Time**: <5s for initial issue analysis and diagnostic setup
-- **Success Rate**: >95% for issue categorization and diagnostic procedure execution
-- **Error Handling**: Comprehensive handling of incomplete information and ambiguous symptoms
+## Key Patterns
+- **Bug Investigation**: Error analysis → stack trace examination → code inspection → fix validation
+- **Build Troubleshooting**: Build log analysis → dependency checking → configuration validation
+- **Performance Diagnosis**: Metrics analysis → bottleneck identification → optimization recommendations
+- **Deployment Issues**: Environment analysis → configuration verification → service validation
 
 ## Examples
 
-### Basic Usage
+### Code Bug Investigation
 ```
-/sg:troubleshoot "Build failing with TypeScript errors"
-# Analyzes build logs and identifies TypeScript compilation issues
-# Provides specific error locations and recommended fixes
-```
-
-### Advanced Usage
-```
-/sg:troubleshoot "Performance degradation in API responses" --type performance --trace --fix
-# Deep performance analysis with detailed tracing enabled
-# Identifies bottlenecks and applies safe performance optimizations
+/sc:troubleshoot "Null pointer exception in user service" --type bug --trace
+# Systematic analysis of error context and stack traces
+# Identifies root cause and provides targeted fix recommendations
 ```
 
-## Error Handling
-- **Invalid Input**: Validates issue descriptions provide sufficient context for meaningful analysis
-- **Missing Dependencies**: Handles cases where diagnostic tools or logs are unavailable
-- **File Access Issues**: Manages permissions for log files and system diagnostic information
-- **Resource Constraints**: Optimizes diagnostic procedures for resource-limited environments
+### Build Failure Analysis
+```
+/sc:troubleshoot "TypeScript compilation errors" --type build --fix
+# Analyzes build logs and TypeScript configuration
+# Automatically applies safe fixes for common compilation issues
+```
 
-## Integration Points
-- **SuperGemini Framework**: Coordinates with analyze for code quality issues and test for validation
-- **Other Commands**: Integrates with build for compilation issues and git for version-related problems
-- **File System**: Reads system logs and error reports, writes diagnostic summaries and resolution guides
+### Performance Issue Diagnosis
+```
+/sc:troubleshoot "API response times degraded" --type performance
+# Performance metrics analysis and bottleneck identification
+# Provides optimization recommendations and monitoring guidance
+```
+
+### Deployment Problem Resolution
+```
+/sc:troubleshoot "Service not starting in production" --type deployment --trace
+# Environment and configuration analysis
+# Systematic verification of deployment requirements and dependencies
+```
 
 ## Boundaries
 
-**This command will:**
-- Perform systematic issue diagnosis using available logs, error messages, and system state
-- Provide structured troubleshooting procedures with step-by-step resolution guidance
-- Apply safe, well-validated fixes for clearly identified and understood problems
+**Will:**
+- Execute systematic issue diagnosis using structured debugging methodologies
+- Provide validated solution approaches with comprehensive problem analysis
+- Apply safe fixes with verification and detailed resolution documentation
 
-**This command will not:**
-- Execute potentially destructive operations without explicit user confirmation
-- Modify production systems or critical configuration without proper validation
-- Diagnose issues requiring specialized domain knowledge beyond general software development
+**Will Not:**
+- Apply risky fixes without proper analysis and user confirmation
+- Modify production systems without explicit permission and safety validation
+- Make architectural changes without understanding full system impact

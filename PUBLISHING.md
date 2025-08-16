@@ -60,6 +60,7 @@ pip install --upgrade build twine toml
 - **Entry Points**: 
   - `SuperClaude` → `SuperClaude.__main__:main`
   - `superclaude` → `SuperClaude.__main__:main`
+- **Recent Improvements**: Enhanced PyPI publishing infrastructure with automated validation and deployment
 
 ## 🔧 Available Scripts
 
