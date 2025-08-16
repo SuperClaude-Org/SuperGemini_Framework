@@ -97,7 +97,7 @@ MIT License - see [LICENSE](LICENSE) file for details.
 
 - **Mithun Gowda B** - [GitHub](https://github.com/mithun50)
 - **NomenAK** - [GitHub](https://github.com/NomenAK)
-- **Hyunjae Lim** [Github](https://github.com/hyunjae-labs)
+- **Hyunjae Lim** - [GitHub](https://github.com/hyunjae-labs)
 
 ## 🔗 Links
 
