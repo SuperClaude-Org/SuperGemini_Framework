@@ -34,7 +34,7 @@ performance-profile: "optimization|standard|complex"
 
 **Wave-Enabled Commands**:
 - **Tier 1**: `/analyze`, `/build`, `/implement`, `/improve`
-- **Tier 2**: `/design`, `/task`
+- **Tier 2**: `/design`
 
 ### Development Commands
 
@@ -117,8 +117,6 @@ performance-profile: "optimization"
 
 **`/estimate [target] [flags]`** - Evidence-based estimation | Auto-Persona: Analyzer, Architect | MCP: Sequential, Context7
 
-**`/task [operation] [flags]`** - Long-term project management | Auto-Persona: Architect, Analyzer | MCP: Sequential
-
 **`/test [type] [flags]`** - Testing workflows | Auto-Persona: QA | MCP: Playwright, Sequential
 
 **`/git [operation] [flags]`** - Git workflow assistant | Auto-Persona: DevOps, Scribe, QA | MCP: Sequential
@@ -133,8 +131,6 @@ performance-profile: "optimization"
 
 **Iterative Operations** - Use `--loop` flag with improvement commands for iterative refinement
 
-**`/spawn [mode] [flags]`** - Task orchestration | Auto-Persona: Analyzer, Architect, DevOps | MCP: All servers
-
 ## Command Execution Matrix
 
 ### Performance Profiles
@@ -146,14 +142,14 @@ complex: "Resource-intensive with comprehensive analysis"
 
 ### Command Categories
 - **Development**: build, implement, design
-- **Planning**: workflow, estimate, task
+- **Planning**: estimate
 - **Analysis**: analyze, troubleshoot, explain
 - **Quality**: improve, cleanup
 - **Testing**: test
 - **Documentation**: document
 - **Version-Control**: git
-- **Meta**: index, load, spawn
+- **Meta**: index, load
 
 ### Wave-Enabled Commands
-7 commands: `/analyze`, `/build`, `/design`, `/implement`, `/improve`, `/task`, `/workflow`
+5 commands: `/analyze`, `/build`, `/design`, `/implement`, `/improve`
 

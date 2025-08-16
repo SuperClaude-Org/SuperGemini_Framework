@@ -143,7 +143,7 @@ wave_operations:
   verbs: [comprehensively, systematically, thoroughly, progressively, iteratively]
   modifiers: [improve, optimize, refactor, modernize, enhance, audit, transform]
   outputs: [comprehensive improvements, systematic enhancements, progressive transformations]
-  typical_tools: [Sequential, Task, Read, Edit, MultiEdit, Context7]
+  typical_tools: [Sequential, Read, Edit, MultiEdit, Context7]
   wave_patterns: [review-plan-implement-validate, assess-design-execute-verify, analyze-strategize-transform-optimize]
 ```
 
@@ -186,7 +186,7 @@ wave-strategies:
 
 **Wave-Enabled Commands**:
 - **Tier 1**: `/analyze`, `/build`, `/implement`, `/improve`
-- **Tier 2**: `/design`, `/task`
+- **Tier 2**: `/design`
 
 ### Master Routing Table
 
@@ -222,7 +222,6 @@ wave-strategies:
 - **Testing**: Playwright
 
 **Delegation & Wave Evaluation**:
-- **Delegation Score >0.6**: Add Task tool, auto-enable delegation flags based on scope
 - **Wave Score >0.7**: Add Sequential for coordination, auto-enable wave strategies based on requirements
 
 **Auto-Flag Assignment**:
@@ -319,7 +318,7 @@ token_optimization:
 **Wave-Specific Specialization Matrix**:
 - **Review**: analyzer persona, current_state/quality_assessment focus, Read/Grep/Sequential tools
 - **Planning**: architect persona, strategy/design focus, Sequential/Context7/Write tools
-- **Implementation**: intelligent persona, code_modification/feature_creation focus, Edit/MultiEdit/Task tools
+- **Implementation**: intelligent persona, code_modification/feature_creation focus, Edit/MultiEdit tools
 - **Validation**: qa persona, testing/validation focus, Sequential/Playwright/Context7 tools
 - **Optimization**: performance persona, performance_tuning/resource_optimization focus, Read/Sequential/Grep tools
 

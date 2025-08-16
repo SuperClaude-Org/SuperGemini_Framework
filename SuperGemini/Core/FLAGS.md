@@ -120,8 +120,8 @@ Flag system for Gemini Code SuperGemini framework with auto-activation and confl
 
 **`--loop`**
 - Enable iterative improvement mode for commands
-- Auto-activates: Quality improvement requests, refinement operations, polish tasks
-- Compatible commands: /improve, /refine, /enhance, /fix, /cleanup, /analyze
+- Auto-activates: Quality improvement requests, polish tasks
+- Compatible commands: /improve, /cleanup, /analyze
 - Default: 3 iterations with automatic validation
 
 **`--iterations [n]`**
@@ -175,11 +175,11 @@ Flag system for Gemini Code SuperGemini framework with auto-activation and confl
 5. Last specified persona takes precedence
 6. Wave mode: --wave-mode off > --wave-mode force > --wave-mode auto
 
-9. Loop mode: explicit --loop > auto-detection based on refinement keywords
+9. Loop mode: explicit --loop > auto-detection based on keywords
 10. --uc auto-activation overrides verbose flags
 
 ### Context-Based Auto-Activation
 
 **Wave Auto-Activation**: complexity ≥0.7 AND files >20 AND operation_types >2
 
-**Loop Auto-Activation**: polish, refine, enhance, improve keywords detected
+**Loop Auto-Activation**: polish, improve keywords detected
