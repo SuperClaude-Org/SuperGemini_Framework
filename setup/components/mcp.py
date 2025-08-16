@@ -54,7 +54,7 @@ class MCPComponent(Component):
         """Get component metadata"""
         return {
             "name": "mcp",
-            "version": "3.2.1",
+            "version": "3.2.2",
             "description": "MCP server integration (Context7, Sequential, Playwright active; Magic disabled by default)",
             "category": "integration"
         }
@@ -133,7 +133,7 @@ class MCPComponent(Component):
         return {
             "components": {
                 "mcp": {
-                    "version": "3.2.1",
+                    "version": "3.2.2",
                     "installed": True,
                     "servers_count": len(self.mcp_servers)
                 }
@@ -394,7 +394,7 @@ class MCPComponent(Component):
 
             # Add component registration to metadata
             self.settings_manager.add_component_registration("mcp", {
-                "version": "3.2.1",
+                "version": "3.2.2",
                 "category": "integration",
                 "servers_count": len(self.mcp_servers)
             })

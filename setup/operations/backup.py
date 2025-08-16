@@ -509,7 +509,7 @@ def run(args: argparse.Namespace) -> int:
         # Display header
         if not args.quiet:
             display_header(
-                "SuperGemini Backup v3.2.1",
+                "SuperGemini Backup v3.2.2",
                 "Backup and restore SuperGemini installations"
             )
         
