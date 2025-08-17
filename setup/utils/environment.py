@@ -16,7 +16,7 @@ from .logger import get_logger
 __all__ = [
     'setup_environment_variables',
     'get_supergemini_environment_variables', 
-    'get_superclaude_environment_variables',
+    'get_supergemini_environment_variables',
     'cleanup_environment_variables',
     'validate_environment_variables',
     'get_shell_name'
@@ -254,7 +254,7 @@ def get_supergemini_environment_variables() -> Dict[str, str]:
     
     found_vars = {}
     for env_var, metadata in tracking_data.items():
-        if metadata.get("set_by") in ["supergemini", "superclaude"]:  # Support both for migration
+        if metadata.get("set_by") in ["supergemini", "supergemini"]:  # Support both for migration
             value = os.environ.get(env_var)
             if value:
                 found_vars[env_var] = value
@@ -275,7 +275,7 @@ def get_supergemini_environment_variables() -> Dict[str, str]:
     return found_vars
 
 
-def get_superclaude_environment_variables() -> Dict[str, str]:
+def get_supergemini_environment_variables() -> Dict[str, str]:
     """
     Alias for get_supergemini_environment_variables for backwards compatibility
     
@@ -406,7 +406,7 @@ def _remove_env_var_from_shell_config(shell_config: Path, env_var: str) -> bool:
         
         for line in lines:
             # Check if this line exports our variable
-            if f'export {env_var}=' in line or line.strip() in [f'# SuperGemini API Key', f'# SuperClaude API Key']:
+            if f'export {env_var}=' in line or line.strip() in [f'# SuperGemini API Key', f'# SuperGemini API Key']:
                 skip_next_blank = True
                 continue
             

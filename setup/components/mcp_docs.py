@@ -1,5 +1,5 @@
 """
-MCP Documentation component for SuperClaude MCP server documentation
+MCP Documentation component for SuperGemini MCP server documentation
 """
 
 from typing import Dict, List, Tuple, Optional, Any
@@ -207,10 +207,10 @@ class MCPDocsComponent(Component):
     
     def _get_source_dir(self) -> Optional[Path]:
         """Get source directory for MCP documentation files"""
-        # Assume we're in SuperClaude/setup/components/mcp_docs.py
-        # and MCP docs are in SuperClaude/SuperClaude/MCP/
+        # Assume we're in SuperGemini/setup/components/mcp_docs.py
+        # and MCP docs are in SuperGemini/SuperGemini/MCP/
         project_root = Path(__file__).parent.parent.parent
-        mcp_dir = project_root / "SuperClaude" / "MCP"
+        mcp_dir = project_root / "SuperGemini" / "MCP"
         
         # Return None if directory doesn't exist to prevent warning
         if not mcp_dir.exists():

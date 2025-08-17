@@ -3,7 +3,7 @@
     "core": {
       "name": "core",
       "version": "3.0.0",
-      "description": "SuperClaude framework documentation and core files",
+      "description": "SuperGemini framework documentation and core files",
       "category": "core",
       "dependencies": [],
       "enabled": true,
@@ -12,7 +12,7 @@
     "commands": {
       "name": "commands",
       "version": "3.0.0", 
-      "description": "SuperClaude slash command definitions",
+      "description": "SuperGemini slash command definitions",
       "category": "commands",
       "dependencies": ["core"],
       "enabled": true,
@@ -30,7 +30,7 @@
     "modes": {
       "name": "modes",
       "version": "4.0.0",
-      "description": "SuperClaude behavioral modes (Brainstorming, Introspection, Task Management, Token Efficiency)",
+      "description": "SuperGemini behavioral modes (Brainstorming, Introspection, Task Management, Token Efficiency)",
       "category": "modes",
       "dependencies": ["core"],
       "enabled": true,

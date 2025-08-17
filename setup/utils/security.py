@@ -703,7 +703,7 @@ class SecurityValidator:
             import datetime
             
             # Create security logger if it doesn't exist
-            security_logger = logging.getLogger('superclaude.security')
+            security_logger = logging.getLogger('supergemini.security')
             if not security_logger.handlers:
                 # Set up basic logging if not already configured
                 handler = logging.StreamHandler()
@@ -728,7 +728,7 @@ class SecurityValidator:
             pass
     
     @classmethod
-    def create_secure_temp_dir(cls, prefix: str = "superclaude_") -> Path:
+    def create_secure_temp_dir(cls, prefix: str = "supergemini_") -> Path:
         """
         Create secure temporary directory
         

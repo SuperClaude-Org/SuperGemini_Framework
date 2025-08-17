@@ -378,17 +378,17 @@ class MCPComponent(Component):
                 self.logger.info("No MCP servers configured")
                 return True
             
-            # Only remove servers that were installed by SuperClaude
+            # Only remove servers that were installed by SuperGemini
             removed_count = 0
             installed_servers = self._get_installed_servers()
             
             for server_name in installed_servers:
                 if server_name in claude_config["mcpServers"]:
-                    # Check if this server was installed by SuperClaude by comparing with our configs
-                    if self._is_superclaude_managed_server(claude_config["mcpServers"][server_name], server_name):
+                    # Check if this server was installed by SuperGemini by comparing with our configs
+                    if self._is_supergemini_managed_server(claude_config["mcpServers"][server_name], server_name):
                         del claude_config["mcpServers"][server_name]
                         removed_count += 1
-                        self.logger.debug(f"Removed SuperClaude-managed MCP server: {server_name}")
+                        self.logger.debug(f"Removed SuperGemini-managed MCP server: {server_name}")
                     else:
                         self.logger.info(f"Preserved user-customized MCP server: {server_name}")
             
@@ -407,9 +407,9 @@ class MCPComponent(Component):
                 self.logger.warning(f"Could not update settings.json: {e}")
             
             if removed_count > 0:
-                self.logger.success(f"MCP component uninstalled ({removed_count} SuperClaude-managed servers removed)")
+                self.logger.success(f"MCP component uninstalled ({removed_count} SuperGemini-managed servers removed)")
             else:
-                self.logger.info("MCP component uninstalled (no SuperClaude-managed servers to remove)")
+                self.logger.info("MCP component uninstalled (no SuperGemini-managed servers to remove)")
             return True
             
         except Exception as e:
@@ -417,7 +417,7 @@ class MCPComponent(Component):
             return False
     
     def _get_installed_servers(self) -> List[str]:
-        """Get list of servers that were installed by SuperClaude"""
+        """Get list of servers that were installed by SuperGemini"""
         try:
             metadata = self.settings_manager.get_metadata_setting("components")
             if metadata and "mcp" in metadata:
@@ -426,10 +426,10 @@ class MCPComponent(Component):
             pass
         return []
     
-    def _is_superclaude_managed_server(self, server_config: Dict, server_name: str) -> bool:
-        """Check if a server configuration matches SuperClaude's templates
+    def _is_supergemini_managed_server(self, server_config: Dict, server_name: str) -> bool:
+        """Check if a server configuration matches SuperGemini's templates
         
-        This helps determine if a server was installed by SuperClaude or manually
+        This helps determine if a server was installed by SuperGemini or manually
         configured by the user, allowing us to preserve user customizations.
         """
         # Find the server key that maps to this server name

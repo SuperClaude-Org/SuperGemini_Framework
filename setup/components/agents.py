@@ -1,5 +1,5 @@
 """
-Agents component for SuperClaude specialized AI agents installation
+Agents component for SuperGemini specialized AI agents installation
 """
 
 from typing import Dict, List, Tuple, Optional, Any
@@ -9,7 +9,7 @@ from ..core.base import Component
 
 
 class AgentsComponent(Component):
-    """SuperClaude specialized AI agents component"""
+    """SuperGemini specialized AI agents component"""
     
     def __init__(self, install_dir: Optional[Path] = None):
         """Initialize agents component"""
@@ -39,7 +39,7 @@ class AgentsComponent(Component):
     
     def _install(self, config: Dict[str, Any]) -> bool:
         """Install agents component"""
-        self.logger.info("Installing SuperClaude specialized agents...")
+        self.logger.info("Installing SuperGemini specialized agents...")
         
         # Call parent install method
         success = super()._install(config)
@@ -79,7 +79,7 @@ class AgentsComponent(Component):
     def uninstall(self) -> bool:
         """Uninstall agents component"""
         try:
-            self.logger.info("Uninstalling SuperClaude agents component...")
+            self.logger.info("Uninstalling SuperGemini agents component...")
             
             # Remove agent files
             removed_count = 0
@@ -121,7 +121,7 @@ class AgentsComponent(Component):
     def update(self, config: Dict[str, Any]) -> bool:
         """Update agents component"""
         try:
-            self.logger.info("Updating SuperClaude agents component...")
+            self.logger.info("Updating SuperGemini agents component...")
             
             # Check current version
             current_version = self.settings_manager.get_component_version("agents")
@@ -165,10 +165,10 @@ class AgentsComponent(Component):
     
     def _get_source_dir(self) -> Path:
         """Get source directory for agent files"""
-        # Assume we're in SuperClaude/setup/components/agents.py
-        # and agent files are in SuperClaude/SuperClaude/Agents/
+        # Assume we're in SuperGemini/setup/components/agents.py
+        # and agent files are in SuperGemini/SuperGemini/Agents/
         project_root = Path(__file__).parent.parent.parent
-        return project_root / "SuperClaude" / "Agents"
+        return project_root / "SuperGemini" / "Agents"
     
     def get_size_estimate(self) -> int:
         """Get estimated installation size"""

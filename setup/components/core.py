@@ -35,7 +35,7 @@ class CoreComponent(Component):
                 "installation_type": "global",
                 "components": ["core"]
             },
-            "superclaude": {
+            "supergemini": {
                 "enabled": True,
                 "version": "3.0.0",
                 "profile": "default",
@@ -66,7 +66,7 @@ class CoreComponent(Component):
             self.logger.info("Updated metadata with core component registration")
             
             # Migrate any existing SuperGemini data from settings.json
-            if self.settings_manager.migrate_superclaude_data():
+            if self.settings_manager.migrate_supergemini_data():
                 self.logger.info("Migrated existing SuperGemini data from settings.json")
         except Exception as e:
             self.logger.error(f"Failed to update metadata: {e}")

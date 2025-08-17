@@ -1,5 +1,5 @@
 """
-SuperClaude Installation Operation Module
+SuperGemini Installation Operation Module
 Refactored from install.py for unified CLI hub
 """
 
@@ -36,14 +36,14 @@ def register_parser(subparsers, global_parser=None) -> argparse.ArgumentParser:
     
     parser = subparsers.add_parser(
         "install",
-        help="Install SuperClaude framework components",
-        description="Install SuperClaude Framework with various options and profiles",
+        help="Install SuperGemini framework components",
+        description="Install SuperGemini Framework with various options and profiles",
         epilog="""
 Examples:
-  SuperClaude install                          # Interactive installation
-  SuperClaude install --dry-run                # Dry-run mode  
-  SuperClaude install --components core mcp    # Specific components
-  SuperClaude install --verbose --force        # Verbose with force mode
+  SuperGemini install                          # Interactive installation
+  SuperGemini install --dry-run                # Dry-run mode  
+  SuperGemini install --components core mcp    # Specific components
+  SuperGemini install --verbose --force        # Verbose with force mode
         """,
         formatter_class=argparse.RawDescriptionHelpFormatter,
         parents=parents
@@ -104,7 +104,7 @@ def validate_system_requirements(validator: Validator, component_names: List[str
             
             # Provide additional guidance
             print(f"\n{Colors.CYAN}💡 Installation Help:{Colors.RESET}")
-            print("  Run 'SuperClaude install --diagnose' for detailed system diagnostics")
+            print("  Run 'SuperGemini install --diagnose' for detailed system diagnostics")
             print("  and step-by-step installation instructions.")
             
             return False
@@ -190,7 +190,7 @@ def select_mcp_servers(registry: ComponentRegistry) -> List[str]:
         print(f"\n{Colors.CYAN}{Colors.BRIGHT}═══════════════════════════════════════════════════{Colors.RESET}")
         print(f"{Colors.CYAN}{Colors.BRIGHT}Stage 1: MCP Server Selection (Optional){Colors.RESET}")
         print(f"{Colors.CYAN}{Colors.BRIGHT}═══════════════════════════════════════════════════{Colors.RESET}")
-        print(f"\n{Colors.BLUE}MCP servers extend Claude Code with specialized capabilities.{Colors.RESET}")
+        print(f"\n{Colors.BLUE}MCP servers extend Gemini CLI with specialized capabilities.{Colors.RESET}")
         print(f"{Colors.BLUE}Select servers to configure (you can always add more later):{Colors.RESET}")
         
         # Add option to skip MCP
@@ -264,7 +264,7 @@ def select_framework_components(registry: ComponentRegistry, config_manager: Con
         print(f"\n{Colors.CYAN}{Colors.BRIGHT}═══════════════════════════════════════════════════{Colors.RESET}")
         print(f"{Colors.CYAN}{Colors.BRIGHT}Stage 2: Framework Component Selection{Colors.RESET}")
         print(f"{Colors.CYAN}{Colors.BRIGHT}═══════════════════════════════════════════════════{Colors.RESET}")
-        print(f"\n{Colors.BLUE}Select SuperClaude framework components to install:{Colors.RESET}")
+        print(f"\n{Colors.BLUE}Select SuperGemini framework components to install:{Colors.RESET}")
         
         menu = Menu("Select components (Core is recommended):", component_options, multi_select=True)
         selections = menu.display()
@@ -307,7 +307,7 @@ def interactive_component_selection(registry: ComponentRegistry, config_manager:
     logger = get_logger()
     
     try:
-        print(f"\n{Colors.CYAN}SuperClaude Interactive Installation{Colors.RESET}")
+        print(f"\n{Colors.CYAN}SuperGemini Interactive Installation{Colors.RESET}")
         print(f"{Colors.BLUE}Select components to install using the two-stage process:{Colors.RESET}")
         
         # Stage 1: MCP Server Selection
@@ -374,7 +374,7 @@ def run_system_diagnostics(validator: Validator) -> None:
     """Run comprehensive system diagnostics"""
     logger = get_logger()
     
-    print(f"\n{Colors.CYAN}{Colors.BRIGHT}SuperClaude System Diagnostics{Colors.RESET}")
+    print(f"\n{Colors.CYAN}{Colors.BRIGHT}SuperGemini System Diagnostics{Colors.RESET}")
     print("=" * 50)
     
     # Run diagnostics
@@ -409,18 +409,18 @@ def run_system_diagnostics(validator: Validator) -> None:
     
     # Summary
     if all_passed:
-        print(f"\n{Colors.GREEN}✅ All system checks passed! Your system is ready for SuperClaude.{Colors.RESET}")
+        print(f"\n{Colors.GREEN}✅ All system checks passed! Your system is ready for SuperGemini.{Colors.RESET}")
     else:
         print(f"\n{Colors.YELLOW}⚠️  Some issues found. Please address the recommendations above.{Colors.RESET}")
     
     print(f"\n{Colors.BLUE}Next steps:{Colors.RESET}")
     if all_passed:
-        print("  1. Run 'SuperClaude install' to proceed with installation")
+        print("  1. Run 'SuperGemini install' to proceed with installation")
         print("  2. Choose your preferred installation mode (quick, minimal, or custom)")
     else:
         print("  1. Install missing dependencies using the commands above")
         print("  2. Restart your terminal after installing tools")
-        print("  3. Run 'SuperClaude install --diagnose' again to verify")
+        print("  3. Run 'SuperGemini install --diagnose' again to verify")
 
 
 def perform_installation(components: List[str], args: argparse.Namespace, config_manager: ConfigService = None) -> bool:
@@ -560,8 +560,8 @@ def run(args: argparse.Namespace) -> int:
         # Display header
         if not args.quiet:
             display_header(
-                "SuperClaude Installation v3.0",
-                "Installing SuperClaude framework components"
+                "SuperGemini Installation v3.0",
+                "Installing SuperGemini framework components"
             )
         
         # Handle special modes
@@ -643,13 +643,13 @@ def run(args: argparse.Namespace) -> int:
         
         if success:
             if not args.quiet:
-                display_success("SuperClaude installation completed successfully!")
+                display_success("SuperGemini installation completed successfully!")
                 
                 if not args.dry_run:
                     print(f"\n{Colors.CYAN}Next steps:{Colors.RESET}")
                     print(f"1. Restart your Claude Code session")
                     print(f"2. Framework files are now available in {args.install_dir}")
-                    print(f"3. Use SuperClaude commands and features in Claude Code")
+                    print(f"3. Use SuperGemini commands and features in Claude Code")
                     
             return 0
         else:

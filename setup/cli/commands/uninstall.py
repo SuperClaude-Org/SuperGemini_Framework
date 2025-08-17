@@ -1,5 +1,5 @@
 """
-SuperClaude Uninstall Operation Module
+SuperGemini Uninstall Operation Module
 Refactored from uninstall.py for unified CLI hub
 """
 
@@ -16,15 +16,15 @@ from ...utils.ui import (
     display_header, display_info, display_success, display_error, 
     display_warning, Menu, confirm, ProgressBar, Colors
 )
-from ...utils.environment import get_superclaude_environment_variables, cleanup_environment_variables
+from ...utils.environment import get_supergemini_environment_variables, cleanup_environment_variables
 from ...utils.logger import get_logger
 from ... import DEFAULT_INSTALL_DIR, PROJECT_ROOT
 from . import OperationBase
 
 
-def verify_superclaude_file(file_path: Path, component: str) -> bool:
+def verify_supergemini_file(file_path: Path, component: str) -> bool:
     """
-    Verify this is a SuperClaude file before removal
+    Verify this is a SuperGemini file before removal
     
     Args:
         file_path: Path to the file to verify
@@ -34,8 +34,8 @@ def verify_superclaude_file(file_path: Path, component: str) -> bool:
         True if safe to remove, False if uncertain (preserve by default)
     """
     try:
-        # Known SuperClaude file patterns by component
-        superclaude_patterns = {
+        # Known SuperGemini file patterns by component
+        supergemini_patterns = {
             'core': [
                 'CLAUDE.md', 'FLAGS.md', 'PRINCIPLES.md', 'RULES.md', 
                 'ORCHESTRATOR.md', 'SESSION_LIFECYCLE.md'
@@ -65,9 +65,9 @@ def verify_superclaude_file(file_path: Path, component: str) -> bool:
             return 'commands/sc/' in str(file_path)
         
         # For other components, check against known file lists
-        if component in superclaude_patterns:
+        if component in supergemini_patterns:
             filename = file_path.name
-            return filename in superclaude_patterns[component]
+            return filename in supergemini_patterns[component]
         
         # For MCP component, it doesn't remove files but modifies .claude.json
         if component == 'mcp':
@@ -90,7 +90,7 @@ def verify_directory_safety(directory: Path, component: str) -> bool:
         component: Component name
         
     Returns:
-        True if safe to remove (only if empty or only contains SuperClaude files)
+        True if safe to remove (only if empty or only contains SuperGemini files)
     """
     try:
         if not directory.exists():
@@ -101,13 +101,13 @@ def verify_directory_safety(directory: Path, component: str) -> bool:
         if not contents:
             return True
         
-        # Check if all contents are SuperClaude files for this component
+        # Check if all contents are SuperGemini files for this component
         for item in contents:
             if item.is_file():
-                if not verify_superclaude_file(item, component):
+                if not verify_supergemini_file(item, component):
                     return False
             elif item.is_dir():
-                # Don't remove directories that contain non-SuperClaude subdirectories
+                # Don't remove directories that contain non-SuperGemini subdirectories
                 return False
         
         return True
@@ -130,14 +130,14 @@ def register_parser(subparsers, global_parser=None) -> argparse.ArgumentParser:
     
     parser = subparsers.add_parser(
         "uninstall",
-        help="Remove SuperClaude framework installation",
-        description="Uninstall SuperClaude Framework components",
+        help="Remove SuperGemini framework installation",
+        description="Uninstall SuperGemini Framework components",
         epilog="""
 Examples:
-  SuperClaude uninstall                    # Interactive uninstall
-  SuperClaude uninstall --components core  # Remove specific components
-  SuperClaude uninstall --complete --force # Complete removal (forced)
-  SuperClaude uninstall --keep-backups     # Keep backup files
+  SuperGemini uninstall                    # Interactive uninstall
+  SuperGemini uninstall --components core  # Remove specific components
+  SuperGemini uninstall --complete --force # Complete removal (forced)
+  SuperGemini uninstall --keep-backups     # Keep backup files
         """,
         formatter_class=argparse.RawDescriptionHelpFormatter,
         parents=parents
@@ -187,7 +187,7 @@ Examples:
     parser.add_argument(
         "--cleanup-env",
         action="store_true",
-        help="Remove SuperClaude environment variables"
+        help="Remove SuperGemini environment variables"
     )
     
     parser.add_argument(
@@ -239,13 +239,13 @@ def get_installation_info(install_dir: Path) -> Dict[str, Any]:
 
 
 def display_environment_info() -> Dict[str, str]:
-    """Display SuperClaude environment variables and return them"""
-    env_vars = get_superclaude_environment_variables()
+    """Display SuperGemini environment variables and return them"""
+    env_vars = get_supergemini_environment_variables()
     
     if env_vars:
         print(f"\n{Colors.CYAN}{Colors.BRIGHT}Environment Variables{Colors.RESET}")
         print("=" * 50)
-        print(f"{Colors.BLUE}SuperClaude API key environment variables found:{Colors.RESET}")
+        print(f"{Colors.BLUE}SuperGemini API key environment variables found:{Colors.RESET}")
         for env_var, value in env_vars.items():
             # Show only first few and last few characters for security
             masked_value = f"{value[:4]}...{value[-4:]}" if len(value) > 8 else "***"
@@ -253,7 +253,7 @@ def display_environment_info() -> Dict[str, str]:
         
         print(f"\n{Colors.YELLOW}Note: These environment variables will remain unless you use --cleanup-env{Colors.RESET}")
     else:
-        print(f"\n{Colors.GREEN}No SuperClaude environment variables found{Colors.RESET}")
+        print(f"\n{Colors.GREEN}No SuperGemini environment variables found{Colors.RESET}")
     
     return env_vars
 
@@ -264,7 +264,7 @@ def display_uninstall_info(info: Dict[str, Any]) -> None:
     print("=" * 50)
     
     if not info["exists"]:
-        print(f"{Colors.YELLOW}No SuperClaude installation found{Colors.RESET}")
+        print(f"{Colors.YELLOW}No SuperGemini installation found{Colors.RESET}")
         return
     
     print(f"{Colors.BLUE}Installation Directory:{Colors.RESET} {info['install_dir']}")
@@ -315,12 +315,12 @@ def interactive_component_selection(installed_components: Dict[str, str], env_va
     if not installed_components:
         return []
     
-    print(f"\n{Colors.CYAN}{Colors.BRIGHT}SuperClaude Uninstall Options{Colors.RESET}")
+    print(f"\n{Colors.CYAN}{Colors.BRIGHT}SuperGemini Uninstall Options{Colors.RESET}")
     print("=" * 60)
     
     # Main uninstall type selection
     main_options = [
-        "Complete Uninstall (remove all SuperClaude components)",
+        "Complete Uninstall (remove all SuperGemini components)",
         "Custom Uninstall (choose specific components)",
         "Cancel Uninstall"
     ]
@@ -350,7 +350,7 @@ def _ask_complete_uninstall_options(env_vars: Dict[str, str]) -> Dict[str, bool]
     }
     
     print(f"\n{Colors.YELLOW}{Colors.BRIGHT}Complete Uninstall Options{Colors.RESET}")
-    print("This will remove ALL SuperClaude components.")
+    print("This will remove ALL SuperGemini components.")
     
     if env_vars:
         print(f"\n{Colors.BLUE}Environment variables found:{Colors.RESET}")
@@ -371,7 +371,7 @@ def _ask_complete_uninstall_options(env_vars: Dict[str, str]) -> Dict[str, bool]
 def _custom_component_selection(installed_components: Dict[str, str], env_vars: Dict[str, str]) -> Optional[tuple]:
     """Handle custom component selection with granular options"""
     print(f"\n{Colors.CYAN}{Colors.BRIGHT}Custom Uninstall - Choose Components{Colors.RESET}")
-    print("Select which SuperClaude components to remove:")
+    print("Select which SuperGemini components to remove:")
     
     # Build component options with descriptions
     component_options = []
@@ -379,11 +379,11 @@ def _custom_component_selection(installed_components: Dict[str, str], env_vars: 
     
     component_descriptions = {
         'core': 'Core Framework Files (CLAUDE.md, FLAGS.md, PRINCIPLES.md, etc.)',
-        'commands': 'SuperClaude Commands (commands/sc/*.md)',
+        'commands': 'SuperGemini Commands (commands/sc/*.md)',
         'agents': 'Specialized Agents (agents/*.md)',
         'mcp': 'MCP Server Configurations',
         'mcp_docs': 'MCP Documentation',
-        'modes': 'SuperClaude Modes'
+        'modes': 'SuperGemini Modes'
     }
     
     for component, version in installed_components.items():
@@ -455,7 +455,7 @@ def _ask_mcp_cleanup_options(env_vars: Dict[str, str]) -> Dict[str, bool]:
 
 def interactive_uninstall_selection(installed_components: Dict[str, str]) -> Optional[List[str]]:
     """Legacy function - redirects to enhanced selection"""
-    env_vars = get_superclaude_environment_variables()
+    env_vars = get_supergemini_environment_variables()
     result = interactive_component_selection(installed_components, env_vars)
     
     if result is None:
@@ -470,7 +470,7 @@ def display_preservation_info() -> None:
     """Show what will NOT be removed (user's custom files)"""
     print(f"\n{Colors.GREEN}{Colors.BRIGHT}Files that will be preserved:{Colors.RESET}")
     print(f"{Colors.GREEN}✓ User's custom commands (not in commands/sc/){Colors.RESET}")
-    print(f"{Colors.GREEN}✓ User's custom agents (not SuperClaude agents){Colors.RESET}")
+    print(f"{Colors.GREEN}✓ User's custom agents (not SuperGemini agents){Colors.RESET}")
     print(f"{Colors.GREEN}✓ User's custom .claude.json configurations{Colors.RESET}")
     print(f"{Colors.GREEN}✓ User's custom files in shared directories{Colors.RESET}")
     print(f"{Colors.GREEN}✓ Claude Code settings and other tools' configurations{Colors.RESET}")
@@ -494,7 +494,7 @@ def display_component_details(component: str, info: Dict[str, Any]) -> Dict[str,
         },
         'commands': {
             'files': 'commands/sc/*.md',
-            'description': 'SuperClaude commands in ~/.claude/commands/sc/'
+            'description': 'SuperGemini commands in ~/.claude/commands/sc/'
         },
         'agents': {
             'files': 'agents/*.md',
@@ -510,7 +510,7 @@ def display_component_details(component: str, info: Dict[str, Any]) -> Dict[str,
         },
         'modes': {
             'files': 'MODE_*.md',
-            'description': 'SuperClaude operational modes'
+            'description': 'SuperGemini operational modes'
         }
     }
     
@@ -563,7 +563,7 @@ def display_uninstall_plan(components: List[str], args: argparse.Namespace, info
     # Show detailed preservation information
     print(f"\n{Colors.GREEN}{Colors.BRIGHT}Safety Guarantees - Will Preserve:{Colors.RESET}")
     print(f"{Colors.GREEN}✓ User's custom commands (not in commands/sc/){Colors.RESET}")
-    print(f"{Colors.GREEN}✓ User's custom agents (not SuperClaude agents){Colors.RESET}")
+    print(f"{Colors.GREEN}✓ User's custom agents (not SuperGemini agents){Colors.RESET}")
     print(f"{Colors.GREEN}✓ User's .claude.json customizations{Colors.RESET}")
     print(f"{Colors.GREEN}✓ Claude Code settings and other tools' configurations{Colors.RESET}")
     
@@ -581,7 +581,7 @@ def display_uninstall_plan(components: List[str], args: argparse.Namespace, info
             print(f"{Colors.GREEN}✓ {item}{Colors.RESET}")
     
     if args.complete:
-        print(f"\n{Colors.RED}⚠️  WARNING: Complete uninstall will remove all SuperClaude files{Colors.RESET}")
+        print(f"\n{Colors.RED}⚠️  WARNING: Complete uninstall will remove all SuperGemini files{Colors.RESET}")
     
     # Environment variable cleanup information
     if env_vars:
@@ -786,8 +786,8 @@ def run(args: argparse.Namespace) -> int:
         # Display header
         if not args.quiet:
             display_header(
-                "SuperClaude Uninstall v3.0",
-                "Removing SuperClaude framework components"
+                "SuperGemini Uninstall v3.0",
+                "Removing SuperGemini framework components"
             )
         
         # Get installation information
@@ -798,11 +798,11 @@ def run(args: argparse.Namespace) -> int:
             display_uninstall_info(info)
         
         # Check for environment variables
-        env_vars = display_environment_info() if not args.quiet else get_superclaude_environment_variables()
+        env_vars = display_environment_info() if not args.quiet else get_supergemini_environment_variables()
         
-        # Check if SuperClaude is installed
+        # Check if SuperGemini is installed
         if not info["exists"]:
-            logger.warning(f"No SuperClaude installation found in {args.install_dir}")
+            logger.warning(f"No SuperGemini installation found in {args.install_dir}")
             return 0
         
         # Get components to uninstall using enhanced selection
@@ -843,7 +843,7 @@ def run(args: argparse.Namespace) -> int:
         # Confirmation
         if not args.no_confirm and not args.yes:
             if args.complete:
-                warning_msg = "This will completely remove SuperClaude. Continue?"
+                warning_msg = "This will completely remove SuperGemini. Continue?"
             else:
                 warning_msg = f"This will remove {len(components)} component(s). Continue?"
             
@@ -860,13 +860,13 @@ def run(args: argparse.Namespace) -> int:
         
         if success:
             if not args.quiet:
-                display_success("SuperClaude uninstall completed successfully!")
+                display_success("SuperGemini uninstall completed successfully!")
                 
                 if not args.dry_run:
                     print(f"\n{Colors.CYAN}Uninstall complete:{Colors.RESET}")
-                    print(f"SuperClaude has been removed from {args.install_dir}")
+                    print(f"SuperGemini has been removed from {args.install_dir}")
                     if not args.complete:
-                        print(f"You can reinstall anytime using 'SuperClaude install'")
+                        print(f"You can reinstall anytime using 'SuperGemini install'")
                     
             return 0
         else:

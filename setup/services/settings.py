@@ -24,7 +24,7 @@ class SettingsService:
         """
         self.install_dir = install_dir
         self.settings_file = install_dir / "settings.json"
-        self.metadata_file = install_dir / ".superclaude-metadata.json"
+        self.metadata_file = install_dir / ".supergemini-metadata.json"
         self.backup_dir = install_dir / "backups" / "settings"
         
     def load_settings(self) -> Dict[str, Any]:
@@ -67,7 +67,7 @@ class SettingsService:
     
     def load_metadata(self) -> Dict[str, Any]:
         """
-        Load SuperGemini metadata from .superclaude-metadata.json
+        Load SuperGemini metadata from .supergemini-metadata.json
         
         Returns:
             Metadata dict (empty if file doesn't exist)
@@ -83,7 +83,7 @@ class SettingsService:
     
     def save_metadata(self, metadata: Dict[str, Any]) -> None:
         """
-        Save SuperGemini metadata to .superclaude-metadata.json
+        Save SuperGemini metadata to .supergemini-metadata.json
         
         Args:
             metadata: Metadata dict to save
@@ -122,7 +122,7 @@ class SettingsService:
         merged = self.merge_metadata(modifications)
         self.save_metadata(merged)
 
-    def migrate_superclaude_data(self) -> bool:
+    def migrate_supergemini_data(self) -> bool:
         """
         Migrate SuperGemini-specific data from settings.json to metadata file
         
@@ -132,12 +132,12 @@ class SettingsService:
         settings = self.load_settings()
         
         # SuperGemini-specific fields to migrate
-        superclaude_fields = ["components", "framework", "superclaude", "mcp"]
+        supergemini_fields = ["components", "framework", "supergemini", "mcp"]
         data_to_migrate = {}
         fields_found = False
         
         # Extract SuperGemini data
-        for field in superclaude_fields:
+        for field in supergemini_fields:
             if field in settings:
                 data_to_migrate[field] = settings[field]
                 fields_found = True
@@ -153,7 +153,7 @@ class SettingsService:
         self.save_metadata(merged_metadata)
         
         # Remove SuperGemini fields from settings
-        clean_settings = {k: v for k, v in settings.items() if k not in superclaude_fields}
+        clean_settings = {k: v for k, v in settings.items() if k not in supergemini_fields}
         
         # Save cleaned settings
         self.save_settings(clean_settings, create_backup=True)

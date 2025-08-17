@@ -78,7 +78,7 @@ class CLAUDEMdService:
             User content without framework imports
         """
         # Look for framework imports section marker
-        framework_marker = "# ═══════════════════════════════════════════════════\n# SuperClaude Framework Components"
+        framework_marker = "# ═══════════════════════════════════════════════════\n# SuperGemini Framework Components"
         
         if framework_marker in content:
             user_content = content.split(framework_marker)[0].rstrip()
@@ -105,7 +105,7 @@ class CLAUDEMdService:
         
         # Framework imports section header
         sections.append("# ═══════════════════════════════════════════════════")
-        sections.append("# SuperClaude Framework Components")
+        sections.append("# SuperGemini Framework Components")
         sections.append("# ═══════════════════════════════════════════════════")
         sections.append("")
         
@@ -197,7 +197,7 @@ class CLAUDEMdService:
         imports_by_category = {}
         
         # Look for framework imports section
-        framework_marker = "# ═══════════════════════════════════════════════════\n# SuperClaude Framework Components"
+        framework_marker = "# ═══════════════════════════════════════════════════\n# SuperGemini Framework Components"
         
         if framework_marker not in content:
             return imports_by_category
@@ -242,12 +242,12 @@ class CLAUDEMdService:
             self.claude_md_path.parent.mkdir(parents=True, exist_ok=True)
             
             # Default CLAUDE.md content
-            default_content = """# SuperClaude Entry Point
+            default_content = """# SuperGemini Entry Point
 
-This file serves as the entry point for the SuperClaude framework.
+This file serves as the entry point for the SuperGemini framework.
 You can add your own custom instructions and configurations here.
 
-The SuperClaude framework components will be automatically imported below.
+The SuperGemini framework components will be automatically imported below.
 """
             
             with open(self.claude_md_path, 'w', encoding='utf-8') as f:

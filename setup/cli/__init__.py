@@ -1,6 +1,6 @@
 """
-SuperClaude CLI Module
-Command-line interface operations for SuperClaude installation system
+SuperGemini CLI Module
+Command-line interface operations for SuperGemini installation system
 """
 
 from .base import OperationBase

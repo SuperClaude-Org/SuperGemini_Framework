@@ -10,7 +10,7 @@ try:
 except Exception:
     __version__ = "4.0.0"  # Fallback
 
-__author__ = "SuperClaude-Org"
+__author__ = "SuperGemini-Org"
 
 # Core paths
 SETUP_DIR = Path(__file__).parent

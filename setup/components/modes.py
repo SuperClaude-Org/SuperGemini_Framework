@@ -1,5 +1,5 @@
 """
-Modes component for SuperClaude behavioral modes
+Modes component for SuperGemini behavioral modes
 """
 
 from typing import Dict, List, Tuple, Optional, Any
@@ -10,7 +10,7 @@ from ..services.gemini_md import GEMINIMdService
 
 
 class ModesComponent(Component):
-    """SuperClaude behavioral modes component"""
+    """SuperGemini behavioral modes component"""
     
     def __init__(self, install_dir: Optional[Path] = None):
         """Initialize modes component"""
@@ -21,13 +21,13 @@ class ModesComponent(Component):
         return {
             "name": "modes",
             "version": "4.0.0",
-            "description": "SuperClaude behavioral modes (Brainstorming, Introspection, Task Management, Token Efficiency)",
+            "description": "SuperGemini behavioral modes (Brainstorming, Introspection, Task Management, Token Efficiency)",
             "category": "modes"
         }
     
     def _install(self, config: Dict[str, Any]) -> bool:
         """Install modes component"""
-        self.logger.info("Installing SuperClaude behavioral modes...")
+        self.logger.info("Installing SuperGemini behavioral modes...")
 
         # Validate installation
         success, errors = self.validate_prerequisites()
@@ -95,7 +95,7 @@ class ModesComponent(Component):
     def uninstall(self) -> bool:
         """Uninstall modes component"""
         try:
-            self.logger.info("Uninstalling SuperClaude modes component...")
+            self.logger.info("Uninstalling SuperGemini modes component...")
             
             # Remove mode files
             removed_count = 0
@@ -135,10 +135,10 @@ class ModesComponent(Component):
     
     def _get_source_dir(self) -> Optional[Path]:
         """Get source directory for mode files"""
-        # Assume we're in SuperClaude/setup/components/modes.py
-        # and mode files are in SuperClaude/SuperClaude/Modes/
+        # Assume we're in SuperGemini/setup/components/modes.py
+        # and mode files are in SuperGemini/SuperGemini/Modes/
         project_root = Path(__file__).parent.parent.parent
-        modes_dir = project_root / "SuperClaude" / "Modes"
+        modes_dir = project_root / "SuperGemini" / "Modes"
         
         # Return None if directory doesn't exist to prevent warning
         if not modes_dir.exists():

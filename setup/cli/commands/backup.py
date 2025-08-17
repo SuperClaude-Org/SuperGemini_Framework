@@ -12,13 +12,13 @@ from datetime import datetime
 from typing import List, Optional, Dict, Any, Tuple
 import argparse
 
-from ..managers.settings_manager import SettingsManager
-from ..utils.ui import (
+from ...services.settings import SettingsService as SettingsManager
+from ...utils.ui import (
     display_header, display_info, display_success, display_error, 
     display_warning, Menu, confirm, ProgressBar, Colors, format_size
 )
-from ..utils.logger import get_logger
-from .. import DEFAULT_INSTALL_DIR
+from ...utils.logger import get_logger
+from ... import DEFAULT_INSTALL_DIR
 from . import OperationBase
 
 
@@ -279,7 +279,7 @@ def create_backup(args: argparse.Namespace) -> bool:
         if args.name:
             backup_name = f"{args.name}_{timestamp}"
         else:
-            backup_name = f"superclaude_backup_{timestamp}"
+            backup_name = f"supergemini_backup_{timestamp}"
         
         # Determine compression
         if args.compress == "gzip":

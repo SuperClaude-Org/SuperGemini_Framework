@@ -1,6 +1,6 @@
 """
-SuperClaude Services Module
-Business logic services for the SuperClaude installation system
+SuperGemini Services Module
+Business logic services for the SuperGemini installation system
 """
 
 from .claude_md import CLAUDEMdService
