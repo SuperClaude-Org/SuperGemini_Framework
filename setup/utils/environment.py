@@ -1,5 +1,5 @@
 """
-Environment variable management for SuperClaude
+Environment variable management for SuperGemini
 Cross-platform utilities for setting up persistent environment variables
 """
 
@@ -17,9 +17,9 @@ from .logger import get_logger
 def _get_env_tracking_file() -> Path:
     """Get path to environment variable tracking file"""
     from .. import DEFAULT_INSTALL_DIR
-    install_dir = Path.home() / ".claude"
+    install_dir = Path.home() / ".gemini"
     install_dir.mkdir(exist_ok=True)
-    return install_dir / "superclaude_env_vars.json"
+    return install_dir / "supergemini_env_vars.json"
 
 
 def _load_env_tracking() -> Dict[str, Dict[str, str]]:
@@ -59,7 +59,7 @@ def _add_env_tracking(env_vars: Dict[str, str]) -> None:
     
     for env_var, value in env_vars.items():
         tracking_data[env_var] = {
-            "set_by": "superclaude",
+            "set_by": "supergemini",
             "timestamp": timestamp,
             "value_hash": str(hash(value))  # Store hash, not actual value for security
         }
@@ -160,7 +160,7 @@ def setup_environment_variables(api_keys: Dict[str, str]) -> bool:
                     else:
                         # Append export to shell config
                         with open(shell_config, 'a') as f:
-                            f.write(f'\n# SuperClaude API Key\n{export_line}\n')
+                            f.write(f'\n# SuperGemini API Key\n{export_line}\n')
                         
                         display_info(f"Added {env_var} to {shell_config.name}")
                         logger.info(f"Added {env_var} to {shell_config}")
@@ -233,31 +233,31 @@ def get_shell_name() -> str:
     return 'unknown'
 
 
-def get_superclaude_environment_variables() -> Dict[str, str]:
+def get_supergemini_environment_variables() -> Dict[str, str]:
     """
-    Get environment variables that were set by SuperClaude
+    Get environment variables that were set by SuperGemini
     
     Returns:
         Dictionary of environment variable names to their current values
     """
-    # Load tracking data to get SuperClaude-managed variables
+    # Load tracking data to get SuperGemini-managed variables
     tracking_data = _load_env_tracking()
     
     found_vars = {}
     for env_var, metadata in tracking_data.items():
-        if metadata.get("set_by") == "superclaude":
+        if metadata.get("set_by") in ["supergemini", "superclaude"]:  # Support both for migration
             value = os.environ.get(env_var)
             if value:
                 found_vars[env_var] = value
     
-    # Fallback: check known SuperClaude API key environment variables
+    # Fallback: check known SuperGemini API key environment variables
     # (for backwards compatibility with existing installations)
-    known_superclaude_env_vars = [
+    known_supergemini_env_vars = [
         "TWENTYFIRST_API_KEY",  # Magic server
         "MORPH_API_KEY"         # Morphllm server
     ]
     
-    for env_var in known_superclaude_env_vars:
+    for env_var in known_supergemini_env_vars:
         if env_var not in found_vars:
             value = os.environ.get(env_var)
             if value:
@@ -342,20 +342,20 @@ def _create_restore_script(env_vars: Dict[str, str]) -> Optional[Path]:
     try:
         home = Path.home()
         if os.name == 'nt':  # Windows
-            script_path = home / "restore_superclaude_env.bat"
+            script_path = home / "restore_supergemini_env.bat"
             with open(script_path, 'w') as f:
                 f.write("@echo off\n")
-                f.write("REM SuperClaude Environment Variable Restore Script\n")
+                f.write("REM SuperGemini Environment Variable Restore Script\n")
                 f.write("REM Generated during uninstall\n\n")
                 for env_var, value in env_vars.items():
                     f.write(f'setx {env_var} "{value}"\n')
                 f.write("\necho Environment variables restored\n")
                 f.write("pause\n")
         else:  # Unix-like
-            script_path = home / "restore_superclaude_env.sh"
+            script_path = home / "restore_supergemini_env.sh"
             with open(script_path, 'w') as f:
                 f.write("#!/bin/bash\n")
-                f.write("# SuperClaude Environment Variable Restore Script\n")
+                f.write("# SuperGemini Environment Variable Restore Script\n")
                 f.write("# Generated during uninstall\n\n")
                 shell_config = detect_shell_config()
                 for env_var, value in env_vars.items():
@@ -387,7 +387,7 @@ def _remove_env_var_from_shell_config(shell_config: Path, env_var: str) -> bool:
         
         for line in lines:
             # Check if this line exports our variable
-            if f'export {env_var}=' in line or line.strip() == f'# SuperClaude API Key':
+            if f'export {env_var}=' in line or line.strip() in [f'# SuperGemini API Key', f'# SuperClaude API Key']:
                 skip_next_blank = True
                 continue
             
@@ -450,7 +450,7 @@ def create_env_file(api_keys: Dict[str, str], env_file_path: Optional[Path] = No
             with open(env_file_path, 'a') as f:
                 if existing_content and not existing_content.endswith('\n'):
                     f.write('\n')
-                f.write('# SuperClaude API Keys\n')
+                f.write('# SuperGemini API Keys\n')
                 for line in new_lines:
                     f.write(line + '\n')
             

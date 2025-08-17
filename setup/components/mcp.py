@@ -1,5 +1,5 @@
 """
-MCP component for MCP server configuration via .claude.json
+MCP component for MCP server configuration via .gemini.json
 """
 
 import json
@@ -103,7 +103,7 @@ class MCPComponent(Component):
         return {
             "name": "mcp",
             "version": "4.0.0",
-            "description": "MCP server configuration management via .claude.json",
+            "description": "MCP server configuration management via .gemini.json",
             "category": "integration"
         }
     
@@ -124,22 +124,22 @@ class MCPComponent(Component):
             errors.append(f"MCP config source directory not found: {source_dir}")
             return False, errors
         
-        # Check if user's Claude config exists
-        claude_config = Path.home() / ".claude.json"
-        if not claude_config.exists():
-            errors.append(f"Claude configuration file not found: {claude_config}")
-            errors.append("Please run Claude Code at least once to create the configuration file")
+        # Check if user's Gemini config exists
+        gemini_config = Path.home() / ".gemini.json"
+        if not gemini_config.exists():
+            errors.append(f"Gemini configuration file not found: {gemini_config}")
+            errors.append("Please run Gemini CLI at least once to create the configuration file")
         
         return len(errors) == 0, errors
     
     def get_files_to_install(self) -> List[Tuple[Path, Path]]:
-        """MCP component doesn't install files - it modifies .claude.json"""
+        """MCP component doesn't install files - it modifies .gemini.json"""
         return []
     
     def _get_config_source_dir(self) -> Optional[Path]:
         """Get source directory for MCP config files"""
         project_root = Path(__file__).parent.parent.parent
-        config_dir = project_root / "SuperClaude" / "MCP" / "configs"
+        config_dir = project_root / "SuperGemini" / "MCP" / "configs"
         
         if not config_dir.exists():
             return None
@@ -150,25 +150,25 @@ class MCPComponent(Component):
         """Override parent method - MCP component doesn't use traditional file installation"""
         return self._get_config_source_dir()
     
-    def _load_claude_config(self) -> Tuple[Optional[Dict], Path]:
-        """Load user's Claude configuration with file locking"""
-        claude_config_path = Path.home() / ".claude.json"
+    def _load_gemini_config(self) -> Tuple[Optional[Dict], Path]:
+        """Load user's Gemini configuration with file locking"""
+        gemini_config_path = Path.home() / ".gemini.json"
         
         try:
-            with open(claude_config_path, 'r') as f:
+            with open(gemini_config_path, 'r') as f:
                 # Apply shared lock for reading
                 self._lock_file(f, exclusive=False)
                 try:
                     config = json.load(f)
-                    return config, claude_config_path
+                    return config, gemini_config_path
                 finally:
                     self._unlock_file(f)
         except Exception as e:
-            self.logger.error(f"Failed to load Claude config: {e}")
-            return None, claude_config_path
+            self.logger.error(f"Failed to load Gemini config: {e}")
+            return None, gemini_config_path
     
-    def _save_claude_config(self, config: Dict, config_path: Path) -> bool:
-        """Save user's Claude configuration with backup and file locking"""
+    def _save_gemini_config(self, config: Dict, config_path: Path) -> bool:
+        """Save user's Gemini configuration with backup and file locking"""
         max_retries = 3
         retry_delay = 0.1
         

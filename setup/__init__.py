@@ -1,6 +1,6 @@
 """
-SuperClaude Installation Suite
-Pure Python installation system for SuperClaude framework
+SuperGemini Installation Suite
+Pure Python installation system for SuperGemini framework
 """
 
 from pathlib import Path
@@ -10,7 +10,7 @@ try:
 except Exception:
     __version__ = "4.0.0"  # Fallback
 
-__author__ = "NomenAK"
+__author__ = "SuperClaude-Org"
 
 # Core paths
 SETUP_DIR = Path(__file__).parent
@@ -18,4 +18,4 @@ PROJECT_ROOT = SETUP_DIR.parent
 DATA_DIR = SETUP_DIR / "data"
 
 # Installation target
-DEFAULT_INSTALL_DIR = Path.home() / ".claude"
+DEFAULT_INSTALL_DIR = Path.home() / ".gemini"

@@ -404,23 +404,23 @@ class SecurityValidator:
         else:
             abs_target_str = str(abs_target).lower()
         
-        # Special handling for Claude installation directory
-        claude_patterns = ['.claude', '.claude' + os.sep, '.claude\\', '.claude/']
-        is_claude_dir = any(abs_target_str.endswith(pattern) for pattern in claude_patterns)
+        # Special handling for Gemini installation directory
+        gemini_patterns = ['.gemini', '.gemini' + os.sep, '.gemini\\', '.gemini/']
+        is_gemini_dir = any(abs_target_str.endswith(pattern) for pattern in gemini_patterns)
         
-        if is_claude_dir:
+        if is_gemini_dir:
             try:
                 home_path = Path.home()
             except (RuntimeError, OSError):
-                # If we can't determine home directory, skip .claude special handling
-                cls._log_security_decision("WARN", f"Cannot determine home directory for .claude validation: {abs_target}")
+                # If we can't determine home directory, skip .gemini special handling
+                cls._log_security_decision("WARN", f"Cannot determine home directory for .gemini validation: {abs_target}")
                 # Fall through to regular validation
             else:
                 try:
                     # Verify it's specifically the current user's home directory
                     abs_target.relative_to(home_path)
                     
-                    # Enhanced Windows security checks for .claude directories
+                    # Enhanced Windows security checks for .gemini directories
                     if os.name == 'nt':
                         # Check for junction points and symbolic links on Windows
                         if cls._is_windows_junction_or_symlink(abs_target):
@@ -450,19 +450,19 @@ class SecurityValidator:
                             errors.append(f"Insufficient permissions: missing {missing}")
                     
                     # Log successful validation for audit trail
-                    cls._log_security_decision("ALLOW", f"Claude directory installation validated: {abs_target}")
+                    cls._log_security_decision("ALLOW", f"Gemini directory installation validated: {abs_target}")
                     return len(errors) == 0, errors
                     
                 except ValueError:
                     # Not under current user's home directory
                     if os.name == 'nt':
-                        errors.append("Claude installation must be in your user directory (e.g., C:\\Users\\YourName\\.claude)")
+                        errors.append("Gemini installation must be in your user directory (e.g., C:\\Users\\YourName\\.gemini)")
                     else:
-                        errors.append("Claude installation must be in your home directory (e.g., ~/.claude)")
-                    cls._log_security_decision("DENY", f"Claude directory outside user home: {abs_target}")
+                        errors.append("Gemini installation must be in your home directory (e.g., ~/.gemini)")
+                    cls._log_security_decision("DENY", f"Gemini directory outside user home: {abs_target}")
                     return False, errors
         
-        # Validate path for non-.claude directories
+        # Validate path for non-.gemini directories
         is_safe, msg = cls.validate_path(target_dir)
         if not is_safe:
             if os.name == 'nt':
@@ -606,13 +606,13 @@ class SecurityValidator:
                 return (
                     f"Cannot install to Windows system directory '{path}'. "
                     f"Please choose a location in your user directory instead, "
-                    f"such as C:\\Users\\{os.environ.get('USERNAME', 'YourName')}\\.claude\\"
+                    f"such as C:\\Users\\{os.environ.get('USERNAME', 'YourName')}\\.gemini\\"
                 )
             elif pattern == r'^c:\\program files\\':
                 return (
                     f"Cannot install to Program Files directory '{path}'. "
                     f"Please choose a location in your user directory instead, "
-                    f"such as C:\\Users\\{os.environ.get('USERNAME', 'YourName')}\\.claude\\"
+                    f"such as C:\\Users\\{os.environ.get('USERNAME', 'YourName')}\\.gemini\\"
                 )
             else:
                 return (
@@ -637,7 +637,7 @@ class SecurityValidator:
             return (
                 f"Cannot install to {dir_desc} '{path}'. "
                 f"Please choose a location in your home directory instead, "
-                f"such as ~/.claude/ or ~/SuperGemini/"
+                f"such as ~/.gemini/ or ~/SuperGemini/"
             )
         else:
             return f"Security validation failed for path '{path}'"
