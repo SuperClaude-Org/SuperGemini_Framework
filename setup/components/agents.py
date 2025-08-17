@@ -19,7 +19,7 @@ class AgentsComponent(Component):
         """Get component metadata"""
         return {
             "name": "agents",
-            "version": "4.0.0",
+            "version": "4.0.2",
             "description": "13 specialized AI agents with domain expertise and intelligent routing",
             "category": "agents"
         }
@@ -29,7 +29,7 @@ class AgentsComponent(Component):
         return {
             "components": {
                 "agents": {
-                    "version": "4.0.0",
+                    "version": "4.0.2",
                     "installed": True,
                     "agents_count": len(self.component_files),
                     "install_directory": str(self.install_component_subdir)
@@ -63,7 +63,7 @@ class AgentsComponent(Component):
             
             # Add component registration
             self.settings_manager.add_component_registration("agents", {
-                "version": "4.0.0",
+                "version": "4.0.2",
                 "category": "agents",
                 "agents_count": len(self.component_files),
                 "agents_list": self.component_files

@@ -848,7 +848,7 @@ def run(args: argparse.Namespace) -> int:
         # Display header
         if not args.quiet:
             display_header(
-                "SuperGemini Uninstall v4.0.0",
+                "SuperGemini Uninstall v4.0.2",
                 "Removing SuperGemini framework components"
             )
         

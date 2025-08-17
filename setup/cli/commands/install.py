@@ -560,7 +560,7 @@ def run(args: argparse.Namespace) -> int:
         # Display header
         if not args.quiet:
             display_header(
-                "SuperGemini Installation v4.0.0",
+                "SuperGemini Installation v4.0.2",
                 "Installing SuperGemini framework components"
             )
         

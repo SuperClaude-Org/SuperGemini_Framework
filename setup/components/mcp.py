@@ -84,6 +84,13 @@ class MCPComponent(Component):
                 "api_key_env": "MORPH_API_KEY",
                 "disabled_by_default": True,
                 "disabled_reason": "Gemini API compatibility issues - function naming conflicts with fast apply"
+            },
+            "semantic-prompt": {
+                "name": "semantic-prompt",
+                "description": "Intelligent prompt enhancement and chain-of-thought reasoning",
+                "config_file": "semantic-prompt.json",
+                "npm_package": "semantic-prompt-mcp@latest",
+                "requires_api_key": False
             }
         }
         
@@ -116,7 +123,7 @@ class MCPComponent(Component):
         """Get component metadata"""
         return {
             "name": "mcp",
-            "version": "4.0.0",
+            "version": "4.0.2",
             "description": "MCP server configuration management via .gemini.json",
             "category": "integration"
         }
@@ -603,7 +610,7 @@ class MCPComponent(Component):
             metadata_mods = {
                 "components": {
                     "mcp": {
-                        "version": "4.0.0",
+                        "version": "4.0.2",
                         "installed": True,
                         "servers_configured": len(self.selected_servers),
                         "configured_servers": self.selected_servers
@@ -615,7 +622,7 @@ class MCPComponent(Component):
             
             # Add component registration
             self.settings_manager.add_component_registration("mcp", {
-                "version": "4.0.0",
+                "version": "4.0.2",
                 "category": "integration",
                 "servers_configured": len(self.selected_servers),
                 "configured_servers": self.selected_servers

@@ -1,0 +1,12 @@
+{
+  "semantic-prompt": {
+    "command": "npx",
+    "args": [
+      "-y",
+      "semantic-prompt-mcp@latest"
+    ],
+    "env": {
+      "CHAIN_OF_THOUGHT_CONFIG": "supergemini.json"
+    }
+  }
+}

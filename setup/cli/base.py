@@ -15,7 +15,7 @@ Available operations:
 - backup: Backup and restore SuperGemini installations
 """
 
-__version__ = "3.0.0"
+__version__ = "4.0.2"
 __all__ = ["install", "update", "uninstall", "backup"]
 
 

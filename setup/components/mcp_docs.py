@@ -34,7 +34,7 @@ class MCPDocsComponent(Component):
         """Get component metadata"""
         return {
             "name": "mcp_docs",
-            "version": "4.0.0",
+            "version": "4.0.2",
             "description": "MCP server documentation and usage guides",
             "category": "documentation"
         }
@@ -139,7 +139,7 @@ class MCPDocsComponent(Component):
             metadata_mods = {
                 "components": {
                     "mcp_docs": {
-                        "version": "4.0.0",
+                        "version": "4.0.2",
                         "installed": True,
                         "files_count": len(self.component_files),
                         "servers_documented": self.selected_servers
@@ -151,7 +151,7 @@ class MCPDocsComponent(Component):
             
             # Add component registration
             self.settings_manager.add_component_registration("mcp_docs", {
-                "version": "4.0.0",
+                "version": "4.0.2",
                 "category": "documentation",
                 "files_count": len(self.component_files),
                 "servers_documented": self.selected_servers

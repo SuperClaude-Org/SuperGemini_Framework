@@ -20,7 +20,7 @@ class ModesComponent(Component):
         """Get component metadata"""
         return {
             "name": "modes",
-            "version": "4.0.0",
+            "version": "4.0.2",
             "description": "SuperGemini behavioral modes (Brainstorming, Introspection, Task Management, Token Efficiency)",
             "category": "modes"
         }
@@ -69,7 +69,7 @@ class ModesComponent(Component):
             metadata_mods = {
                 "components": {
                     "modes": {
-                        "version": "4.0.0",
+                        "version": "4.0.2",
                         "installed": True,
                         "files_count": len(self.component_files)
                     }
@@ -80,7 +80,7 @@ class ModesComponent(Component):
             
             # Add component registration
             self.settings_manager.add_component_registration("modes", {
-                "version": "4.0.0",
+                "version": "4.0.2",
                 "category": "modes",
                 "files_count": len(self.component_files)
             })

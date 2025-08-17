@@ -11,7 +11,7 @@ Usage:
     SuperGemini --help
 """
 
-__version__ = "4.0.0"
+__version__ = "4.0.2"
 __author__ = "Mithun Gowda B, NomenAK"
 __email__ = "contact@superclaude.dev"
 __license__ = "MIT"
