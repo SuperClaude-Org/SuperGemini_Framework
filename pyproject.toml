@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "SuperGemini"
-version = "4.0.0"
+version = "4.0.1"
 authors = [
     {name = "hyunjae-labs", email = "thecurrent.lim@gmail.com"},
     {name = "NomenAK", email = "anton.knoery@gmail.com"},
