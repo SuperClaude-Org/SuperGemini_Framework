@@ -124,6 +124,35 @@ def get_components_to_install(args: argparse.Namespace, registry: ComponentRegis
             return ["core", "commands", "agents", "modes", "mcp", "mcp_docs"]
         return args.components
     
+    # Auto-select defaults when --yes flag is used
+    if getattr(args, 'yes', False):
+        logger.info("Auto-selecting default components and MCP servers (--yes flag)")
+        
+        # Get default active MCP servers
+        try:
+            mcp_instance = registry.get_component_instance("mcp", Path.home() / ".gemini")
+            if mcp_instance and hasattr(mcp_instance, 'mcp_servers'):
+                default_servers = []
+                for server_key, server_info in mcp_instance.mcp_servers.items():
+                    if not server_info.get("disabled_by_default", False):
+                        default_servers.append(server_key)
+                
+                logger.info(f"Auto-selected MCP servers: {', '.join(default_servers)}")
+                
+                # Store selected MCP servers for components to use
+                if not hasattr(config_manager, '_installation_context'):
+                    config_manager._installation_context = {}
+                config_manager._installation_context["selected_mcp_servers"] = default_servers
+                
+                # Return default components with MCP included
+                return ["core", "commands", "agents", "modes", "mcp", "mcp_docs"]
+            else:
+                logger.warning("Could not access MCP server information for auto-selection")
+                return ["core", "commands", "agents", "modes"]
+        except Exception as e:
+            logger.error(f"Error during auto-selection: {e}")
+            return ["core", "commands", "agents", "modes"]
+    
     # Interactive two-stage selection
     return interactive_component_selection(registry, config_manager)
 
@@ -560,7 +589,7 @@ def run(args: argparse.Namespace) -> int:
         # Display header
         if not args.quiet:
             display_header(
-                "SuperGemini Installation v4.0.2",
+                "SuperGemini Installation v4.0.3",
                 "Installing SuperGemini framework components"
             )
         

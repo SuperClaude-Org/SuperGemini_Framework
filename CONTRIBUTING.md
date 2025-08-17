@@ -27,7 +27,7 @@ SuperGemini Framework transforms Claude Code into a structured development platf
 **Good Bug Report Example:**
 ```
 **Environment:**
-- SuperGemini: 4.0.2
+- SuperGemini: 4.0.3
 - OS: Ubuntu 22.04
 - Claude Code: 1.5.2
 - Python: 3.9.7

@@ -23,6 +23,7 @@ class CommandsComponent(Component):
             "analyze.toml",
             "build.toml",
             "cleanup.toml",
+            "cot.toml",
             "design.toml",
             "document.toml",
             "estimate.toml",
@@ -43,7 +44,7 @@ class CommandsComponent(Component):
         """Get component metadata"""
         return {
             "name": "commands",
-            "version": "4.0.2",
+            "version": "4.0.3",
             "description": "SuperGemini slash command definitions",
             "category": "commands"
         }
@@ -53,14 +54,14 @@ class CommandsComponent(Component):
         return {
             "components": {
                 "commands": {
-                    "version": "4.0.2",
+                    "version": "4.0.3",
                     "installed": True,
                     "files_count": len(self.component_files)
                 }
             },
             "commands": {
                 "enabled": True,
-                "version": "4.0.2",
+                "version": "4.0.3",
                 "auto_update": False
             }
         }
@@ -86,7 +87,7 @@ class CommandsComponent(Component):
 
             # Add component registration to metadata
             self.settings_manager.add_component_registration("commands", {
-                "version": "4.0.2",
+                "version": "4.0.3",
                 "category": "commands",
                 "files_count": len(self.component_files)
             })

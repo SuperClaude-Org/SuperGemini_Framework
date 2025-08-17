@@ -101,29 +101,39 @@ class MCPComponent(Component):
         self.collected_api_keys: Dict[str, str] = {}
     
     def _lock_file(self, file_handle, exclusive: bool = False):
-        """Cross-platform file locking"""
-        if LOCKING_AVAILABLE == "unix":
-            lock_type = fcntl.LOCK_EX if exclusive else fcntl.LOCK_SH
-            fcntl.flock(file_handle.fileno(), lock_type)
-        elif LOCKING_AVAILABLE == "windows":
-            # Windows locking using msvcrt
-            if exclusive:
-                msvcrt.locking(file_handle.fileno(), msvcrt.LK_LOCK, 1)
-        # If no locking available, continue without locking
+        """Cross-platform file locking with error handling"""
+        try:
+            if LOCKING_AVAILABLE == "unix":
+                lock_type = fcntl.LOCK_EX if exclusive else fcntl.LOCK_SH
+                fcntl.flock(file_handle.fileno(), lock_type)
+            elif LOCKING_AVAILABLE == "windows":
+                # Windows locking using msvcrt with retry logic
+                if exclusive:
+                    try:
+                        msvcrt.locking(file_handle.fileno(), msvcrt.LK_NBLCK, 1)
+                    except OSError:
+                        # If non-blocking lock fails, fall back to no locking
+                        self.logger.debug("File locking failed, proceeding without lock")
+            # If no locking available, continue without locking
+        except Exception as e:
+            self.logger.debug(f"File locking error (non-critical): {e}")
     
     def _unlock_file(self, file_handle):
-        """Cross-platform file unlocking"""
-        if LOCKING_AVAILABLE == "unix":
-            fcntl.flock(file_handle.fileno(), fcntl.LOCK_UN)
-        elif LOCKING_AVAILABLE == "windows":
-            msvcrt.locking(file_handle.fileno(), msvcrt.LK_UNLCK, 1)
-        # If no locking available, continue without unlocking
+        """Cross-platform file unlocking with error handling"""
+        try:
+            if LOCKING_AVAILABLE == "unix":
+                fcntl.flock(file_handle.fileno(), fcntl.LOCK_UN)
+            elif LOCKING_AVAILABLE == "windows":
+                msvcrt.locking(file_handle.fileno(), msvcrt.LK_UNLCK, 1)
+            # If no locking available, continue without unlocking
+        except Exception as e:
+            self.logger.debug(f"File unlocking error (non-critical): {e}")
     
     def get_metadata(self) -> Dict[str, str]:
         """Get component metadata"""
         return {
             "name": "mcp",
-            "version": "4.0.2",
+            "version": "4.0.3",
             "description": "MCP server configuration management via .gemini.json",
             "category": "integration"
         }
@@ -196,30 +206,45 @@ class MCPComponent(Component):
             return None, settings_path
     
     def _save_gemini_config(self, config: Dict, config_path: Path) -> bool:
-        """Save user's Gemini configuration with backup and file locking"""
+        """Save user's Gemini configuration with backup and improved error handling"""
         max_retries = 3
         retry_delay = 0.1
         
         for attempt in range(max_retries):
             try:
-                # Create backup first
-                if config_path.exists():
+                # Create backup first (if file exists and is not empty)
+                if config_path.exists() and config_path.stat().st_size > 2:
                     backup_path = config_path.with_suffix('.json.backup')
                     shutil.copy2(config_path, backup_path)
                     self.logger.debug(f"Created backup: {backup_path}")
                 
-                # Save updated config with exclusive lock
-                with open(config_path, 'w') as f:
-                    # Apply exclusive lock for writing
-                    self._lock_file(f, exclusive=True)
-                    try:
+                # Try simple write first (no locking for problematic cases)
+                try:
+                    with open(config_path, 'w') as f:
                         json.dump(config, f, indent=2)
-                        f.flush()  # Ensure data is written
-                    finally:
-                        self._unlock_file(f)
-                
-                self.logger.debug("Updated Gemini configuration")
-                return True
+                        f.flush()
+                    
+                    self.logger.debug("Updated Gemini configuration")
+                    return True
+                    
+                except (OSError, IOError, PermissionError) as e:
+                    if attempt < max_retries - 1:
+                        self.logger.warning(f"Write attempt {attempt + 1} failed, retrying: {e}")
+                        time.sleep(retry_delay * (2 ** attempt))
+                        continue
+                    else:
+                        # Final attempt with file locking
+                        self.logger.debug("Trying with file locking as last resort")
+                        with open(config_path, 'w') as f:
+                            self._lock_file(f, exclusive=True)
+                            try:
+                                json.dump(config, f, indent=2)
+                                f.flush()
+                            finally:
+                                self._unlock_file(f)
+                        
+                        self.logger.debug("Updated Gemini configuration with locking")
+                        return True
                 
             except (OSError, IOError) as e:
                 if attempt < max_retries - 1:
@@ -610,7 +635,7 @@ class MCPComponent(Component):
             metadata_mods = {
                 "components": {
                     "mcp": {
-                        "version": "4.0.2",
+                        "version": "4.0.3",
                         "installed": True,
                         "servers_configured": len(self.selected_servers),
                         "configured_servers": self.selected_servers
@@ -622,7 +647,7 @@ class MCPComponent(Component):
             
             # Add component registration
             self.settings_manager.add_component_registration("mcp", {
-                "version": "4.0.2",
+                "version": "4.0.3",
                 "category": "integration",
                 "servers_configured": len(self.selected_servers),
                 "configured_servers": self.selected_servers
