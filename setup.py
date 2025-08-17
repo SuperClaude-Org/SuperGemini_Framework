@@ -51,8 +51,8 @@ def get_install_requires():
 setuptools.setup(
     name="SuperGemini",
     version=get_version(),
-    author="Mithun Gowda B, NomenAK",
-    author_email="contact@superclaude.dev",
+    author="hyunjae-labs, NomenAK, Mithun Gowda B",
+    author_email="thecurrent.lim@gmail.com",
     description="SuperGemini Framework Management Hub",
     long_description=get_long_description(),
     long_description_content_type="text/markdown",
@@ -63,14 +63,12 @@ setuptools.setup(
     entry_points={
         "console_scripts": [
             "SuperGemini=SuperGemini.__main__:main",
-            "superclaude=SuperGemini.__main__:main",
+            "supergemini=SuperGemini.__main__:main",
         ],
     },
     python_requires=">=3.8",
     project_urls={
         "GitHub": "https://github.com/SuperClaude-Org/SuperGemini_Framework",
-        "Mithun Gowda B": "https://github.com/mithun50",
-        "NomenAK": "https://github.com/NomenAK",
         "Bug Tracker": "https://github.com/SuperClaude-Org/SuperGemini_Framework/issues",
     },
     classifiers=[

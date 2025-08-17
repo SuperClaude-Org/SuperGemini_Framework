@@ -2,7 +2,7 @@
 
 ## 🔒 Reporting Security Vulnerabilities
 
-SuperClaude Framework prioritizes security through secure-by-design principles, comprehensive input validation, and responsible vulnerability management. We are committed to maintaining a secure development platform while enabling powerful AI-assisted workflows.
+SuperGemini Framework prioritizes security through secure-by-design principles, comprehensive input validation, and responsible vulnerability management. We are committed to maintaining a secure development platform while enabling powerful AI-assisted workflows.
 
 **Security Commitment:**
 - Timely response to security reports (48-72 hours)
@@ -12,10 +12,10 @@ SuperClaude Framework prioritizes security through secure-by-design principles, 
 
 ### Responsible Disclosure
 
-**Primary Contact:** security@superclaude.org (monitored by maintainers)
+**Primary Contact:** thecurrent.lim@gmail.com (monitored by maintainers)
 
 **Process:**
-1. **Report**: Send detailed vulnerability report to security@superclaude.org
+1. **Report**: Send detailed vulnerability report to thecurrent.lim@gmail.com
 2. **Acknowledgment**: We'll confirm receipt within 48 hours
 3. **Investigation**: Initial assessment within 72 hours
 4. **Coordination**: Work together on fix development and testing
@@ -39,10 +39,10 @@ SuperClaude Framework prioritizes security through secure-by-design principles, 
 ### What to Include
 
 **Essential Information:**
-- SuperClaude version: `SuperClaude --version`
+- SuperGemini version: `SuperGemini --version`
 - Operating system and version
 - Python version: `python3 --version`
-- Claude Code version: `claude --version`
+- Gemini CLI version: `gemini --version`
 - Vulnerability description and potential impact
 - Detailed reproduction steps with minimal test case
 - Proof-of-concept code or commands (if applicable)

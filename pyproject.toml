@@ -6,6 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "SuperGemini"
 version = "4.0.0-beta.1"
 authors = [
+    {name = "hyunjae-labs", email = "thecurrent.lim@gmail.com"},
     {name = "NomenAK", email = "anton.knoery@gmail.com"},
     {name = "Mithun Gowda B", email = "mithungowda.b7411@gmail.com"}
 ]
@@ -29,22 +30,20 @@ classifiers = [
     "Topic :: Scientific/Engineering :: Artificial Intelligence",
     "Environment :: Console",
 ]
-keywords = ["claude", "ai", "automation", "framework", "mcp", "agents", "development", "code-generation", "assistant"]
+keywords = ["gemini", "ai", "automation", "framework", "mcp", "agents", "development", "code-generation", "assistant"]
 dependencies = [
     "setuptools>=45.0.0",
     "importlib-metadata>=1.0.0; python_version<'3.8'"
 ]
 
 [project.urls]
-Homepage = "https://github.com/SuperClaude-Org/SuperClaude_Framework"
-GitHub = "https://github.com/SuperClaude-Org/SuperClaude_Framework"
-"Bug Tracker" = "https://github.com/SuperClaude-Org/SuperClaude_Framework/issues"
-"Mithun Gowda B" = "https://github.com/mithun50"
-"NomenAK" = "https://github.com/NomenAK"
+Homepage = "https://github.com/SuperClaude-Org/SuperGemini_Framework"
+GitHub = "https://github.com/SuperClaude-Org/SuperGemini_Framework"
+"Bug Tracker" = "https://github.com/SuperClaude-Org/SuperGemini_Framework/issues"
 
 [project.scripts]
-SuperClaude = "SuperClaude.__main__:main"
-superclaude = "SuperClaude.__main__:main"
+SuperGemini = "SuperGemini.__main__:main"
+supergemini = "SuperGemini.__main__:main"
 
 [project.optional-dependencies]
 dev = [

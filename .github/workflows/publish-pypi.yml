@@ -27,7 +27,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: 
       name: ${{ github.event_name == 'release' && 'pypi' || 'testpypi' }}
-      url: ${{ github.event_name == 'release' && 'https://pypi.org/p/SuperClaude' || 'https://test.pypi.org/p/SuperClaude' }}
+      url: ${{ github.event_name == 'release' && 'https://pypi.org/p/SuperGemini' || 'https://test.pypi.org/p/SuperGemini' }}
     
     steps:
     - name: Checkout repository
@@ -51,8 +51,8 @@ jobs:
       run: |
         echo "📦 Checking package structure..."
         ls -la
-        echo "🔍 Checking SuperClaude package..."
-        ls -la SuperClaude/
+        echo "🔍 Checking SuperGemini package..."
+        ls -la SuperGemini/
         echo "🔍 Checking setup package..."
         ls -la setup/
         
@@ -69,7 +69,7 @@ jobs:
         pyproject_version = pyproject['project']['version']
         
         # Load package version
-        from SuperClaude import __version__
+        from SuperGemini import __version__
         
         print(f'pyproject.toml version: {pyproject_version}')
         print(f'Package version: {__version__}')
@@ -117,21 +117,21 @@ jobs:
     - name: Create deployment summary
       if: always()
       run: |
-        echo "## 📦 SuperClaude Package Deployment" >> $GITHUB_STEP_SUMMARY
+        echo "## 📦 SuperGemini Package Deployment" >> $GITHUB_STEP_SUMMARY
         echo "| Property | Value |" >> $GITHUB_STEP_SUMMARY
         echo "|----------|-------|" >> $GITHUB_STEP_SUMMARY
         echo "| Target | ${{ github.event_name == 'release' && 'PyPI (Production)' || github.event.inputs.target || 'TestPyPI' }} |" >> $GITHUB_STEP_SUMMARY
         echo "| Trigger | ${{ github.event_name }} |" >> $GITHUB_STEP_SUMMARY
-        echo "| Version | $(python -c 'from SuperClaude import __version__; print(__version__)') |" >> $GITHUB_STEP_SUMMARY
+        echo "| Version | $(python -c 'from SuperGemini import __version__; print(__version__)') |" >> $GITHUB_STEP_SUMMARY
         echo "| Commit | ${{ github.sha }} |" >> $GITHUB_STEP_SUMMARY
         echo "" >> $GITHUB_STEP_SUMMARY
         
         if [ "${{ github.event_name }}" == "release" ]; then
           echo "🎉 **Production release published to PyPI!**" >> $GITHUB_STEP_SUMMARY
-          echo "Install with: \`pip install SuperClaude\`" >> $GITHUB_STEP_SUMMARY
+          echo "Install with: \`pip install SuperGemini\`" >> $GITHUB_STEP_SUMMARY
         else
           echo "🧪 **Test release published to TestPyPI**" >> $GITHUB_STEP_SUMMARY
-          echo "Test install with: \`pip install --index-url https://test.pypi.org/simple/ SuperClaude\`" >> $GITHUB_STEP_SUMMARY
+          echo "Test install with: \`pip install --index-url https://test.pypi.org/simple/ SuperGemini\`" >> $GITHUB_STEP_SUMMARY
         fi
 
   test-installation:
@@ -156,16 +156,16 @@ jobs:
         # Install from TestPyPI
         pip install --index-url https://test.pypi.org/simple/ \
                    --extra-index-url https://pypi.org/simple/ \
-                   SuperClaude
+                   SuperGemini
         
         # Test basic import
         python -c "
-        import SuperClaude
-        print(f'✅ Successfully imported SuperClaude v{SuperClaude.__version__}')
+        import SuperGemini
+        print(f'✅ Successfully imported SuperGemini v{SuperGemini.__version__}')
         
         # Test CLI entry point
         import subprocess
-        result = subprocess.run(['SuperClaude', '--version'], capture_output=True, text=True)
+        result = subprocess.run(['SuperGemini', '--version'], capture_output=True, text=True)
         print(f'✅ CLI version: {result.stdout.strip()}')
         "
         
