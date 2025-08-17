@@ -20,30 +20,30 @@ class CommandsComponent(Component):
     def _get_command_files(self) -> List[str]:
         """Get list of command files to install"""
         return [
-            "analyze.md",
-            "build.md",
-            "cleanup.md",
-            "design.md",
-            "document.md",
-            "estimate.md",
-            "explain.md",
-            "git.md",
-            "implement.md",
-            "improve.md",
-            "index.md",
-            "load.md",
-            "reflect.md",
-            "save.md",
-            "select-tool.md",
-            "test.md",
-            "troubleshoot.md"
+            "analyze.toml",
+            "build.toml",
+            "cleanup.toml",
+            "design.toml",
+            "document.toml",
+            "estimate.toml",
+            "explain.toml",
+            "git.toml",
+            "implement.toml",
+            "improve.toml",
+            "index.toml",
+            "load.toml",
+            "reflect.toml",
+            "save.toml",
+            "select-tool.toml",
+            "test.toml",
+            "troubleshoot.toml"
         ]
     
     def get_metadata(self) -> Dict[str, str]:
         """Get component metadata"""
         return {
             "name": "commands",
-            "version": "3.0.0",
+            "version": "4.0.0",
             "description": "SuperGemini slash command definitions",
             "category": "commands"
         }
@@ -53,14 +53,14 @@ class CommandsComponent(Component):
         return {
             "components": {
                 "commands": {
-                    "version": "3.0.0",
+                    "version": "4.0.0",
                     "installed": True,
                     "files_count": len(self.component_files)
                 }
             },
             "commands": {
                 "enabled": True,
-                "version": "3.0.0",
+                "version": "4.0.0",
                 "auto_update": False
             }
         }
@@ -86,7 +86,7 @@ class CommandsComponent(Component):
 
             # Add component registration to metadata
             self.settings_manager.add_component_registration("commands", {
-                "version": "3.0.0",
+                "version": "4.0.0",
                 "category": "commands",
                 "files_count": len(self.component_files)
             })

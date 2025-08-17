@@ -6,6 +6,7 @@ import json
 import shutil
 import time
 import sys
+import subprocess
 from typing import Dict, List, Tuple, Optional, Any
 from pathlib import Path
 
@@ -37,39 +38,52 @@ class MCPComponent(Component):
                 "name": "context7",
                 "description": "Official library documentation and code examples",
                 "config_file": "context7.json",
+                "npm_package": "@upstash/context7-mcp@latest",
                 "requires_api_key": False
             },
             "sequential": {
                 "name": "sequential-thinking", 
                 "description": "Multi-step problem solving and systematic analysis",
                 "config_file": "sequential.json",
+                "npm_package": "@modelcontextprotocol/server-sequential-thinking",
                 "requires_api_key": False
             },
             "magic": {
                 "name": "magic",
                 "description": "Modern UI component generation and design systems",
                 "config_file": "magic.json",
+                "npm_package": "@21st-dev/magic",
                 "requires_api_key": True,
-                "api_key_env": "TWENTYFIRST_API_KEY"
+                "api_key_env": "TWENTYFIRST_API_KEY",
+                "disabled_by_default": True,
+                "disabled_reason": "Gemini API compatibility issues - function naming conflicts"
             },
             "playwright": {
                 "name": "playwright",
                 "description": "Cross-browser E2E testing and automation",
-                "config_file": "playwright.json", 
+                "config_file": "playwright.json",
+                "npm_package": "@playwright/mcp@latest", 
                 "requires_api_key": False
             },
             "serena": {
                 "name": "serena",
                 "description": "Semantic code analysis and intelligent editing",
                 "config_file": "serena.json",
-                "requires_api_key": False
+                "install_method": "uv",
+                "uv_package": "git+https://github.com/oraios/serena",
+                "requires_api_key": False,
+                "disabled_by_default": True,
+                "disabled_reason": "Gemini API compatibility issues - complex semantic operations may conflict"
             },
             "morphllm": {
                 "name": "morphllm-fast-apply",
                 "description": "Fast Apply capability for context-aware code modifications",
                 "config_file": "morphllm.json",
+                "npm_package": "@morph-llm/morph-fast-apply",
                 "requires_api_key": True,
-                "api_key_env": "MORPH_API_KEY"
+                "api_key_env": "MORPH_API_KEY",
+                "disabled_by_default": True,
+                "disabled_reason": "Gemini API compatibility issues - function naming conflicts with fast apply"
             }
         }
         
@@ -124,11 +138,18 @@ class MCPComponent(Component):
             errors.append(f"MCP config source directory not found: {source_dir}")
             return False, errors
         
-        # Check if user's Gemini config exists
-        gemini_config = Path.home() / ".gemini.json"
-        if not gemini_config.exists():
-            errors.append(f"Gemini configuration file not found: {gemini_config}")
-            errors.append("Please run Gemini CLI at least once to create the configuration file")
+        # Check if user's Gemini settings directory exists
+        settings_path = self.install_dir / "settings.json"
+        if not settings_path.parent.exists():
+            errors.append(f"Gemini settings directory not found: {settings_path.parent}")
+            errors.append("Please ensure Gemini is properly configured")
+        elif not settings_path.exists():
+            # Create empty settings.json if directory exists but file doesn't
+            try:
+                settings_path.write_text('{}')
+                self.logger.debug(f"Created empty settings.json at {settings_path}")
+            except Exception as e:
+                errors.append(f"Could not create settings.json: {e}")
         
         return len(errors) == 0, errors
     
@@ -152,20 +173,20 @@ class MCPComponent(Component):
     
     def _load_gemini_config(self) -> Tuple[Optional[Dict], Path]:
         """Load user's Gemini configuration with file locking"""
-        gemini_config_path = Path.home() / ".gemini.json"
+        settings_path = self.install_dir / "settings.json"
         
         try:
-            with open(gemini_config_path, 'r') as f:
+            with open(settings_path, 'r') as f:
                 # Apply shared lock for reading
                 self._lock_file(f, exclusive=False)
                 try:
                     config = json.load(f)
-                    return config, gemini_config_path
+                    return config, settings_path
                 finally:
                     self._unlock_file(f)
         except Exception as e:
-            self.logger.error(f"Failed to load Gemini config: {e}")
-            return None, gemini_config_path
+            self.logger.error(f"Failed to load Gemini configuration: {e}")
+            return None, settings_path
     
     def _save_gemini_config(self, config: Dict, config_path: Path) -> bool:
         """Save user's Gemini configuration with backup and file locking"""
@@ -190,7 +211,7 @@ class MCPComponent(Component):
                     finally:
                         self._unlock_file(f)
                 
-                self.logger.debug("Updated Claude configuration")
+                self.logger.debug("Updated Gemini configuration")
                 return True
                 
             except (OSError, IOError) as e:
@@ -199,10 +220,10 @@ class MCPComponent(Component):
                     time.sleep(retry_delay * (2 ** attempt))  # Exponential backoff
                     continue
                 else:
-                    self.logger.error(f"Failed to save Claude config after {max_retries} attempts: {e}")
+                    self.logger.error(f"Failed to save Gemini config after {max_retries} attempts: {e}")
                     return False
             except Exception as e:
-                self.logger.error(f"Failed to save Claude config: {e}")
+                self.logger.error(f"Failed to save Gemini config: {e}")
                 return False
         
         return False
@@ -269,44 +290,261 @@ class MCPComponent(Component):
             self.logger.error(f"Failed to load MCP config for {server_key}: {e}")
             return None
     
+    def _install_mcp_server_package(self, server_key: str, server_info: Dict[str, Any]) -> bool:
+        """Install MCP server package (supports both npm and uv methods)"""
+        install_method = server_info.get("install_method", "npm")
+        
+        if install_method == "uv":
+            return self._install_uv_package(server_key, server_info)
+        else:
+            return self._install_npm_package(server_key, server_info)
+    
+    def _install_npm_package(self, server_key: str, server_info: Dict[str, Any]) -> bool:
+        """Install npm package for MCP server"""
+        npm_package = server_info.get("npm_package")
+        if not npm_package:
+            self.logger.error(f"No npm package defined for {server_key}")
+            return False
+        
+        try:
+            self.logger.info(f"Installing npm package: {npm_package}")
+            
+            result = subprocess.run(
+                ["npm", "install", "-g", npm_package],
+                capture_output=True,
+                text=True,
+                timeout=180,
+                shell=True
+            )
+            
+            if result.returncode == 0:
+                self.logger.info(f"Successfully installed: {npm_package}")
+                return True
+            else:
+                self.logger.error(f"npm install failed for {npm_package}: {result.stderr}")
+                return False
+                
+        except subprocess.TimeoutExpired:
+            self.logger.error(f"npm install timeout for {npm_package}")
+            return False
+        except Exception as e:
+            self.logger.error(f"Installation error for {server_key}: {e}")
+            return False
+    
+    def _install_uv_package(self, server_key: str, server_info: Dict[str, Any]) -> bool:
+        """Install uv package for Python-based MCP server (like Serena)"""
+        uv_package = server_info.get("uv_package")
+        if not uv_package:
+            self.logger.error(f"No uv package defined for {server_key}")
+            return False
+        
+        try:
+            self.logger.info(f"Installing uv package: {uv_package}")
+            
+            # Create serena directory in .gemini
+            serena_dir = self.install_dir / "serena"
+            serena_dir.mkdir(exist_ok=True)
+            
+            # Install using uv tool install with correct package name (serena-agent)
+            result = subprocess.run(
+                ["uv", "tool", "install", "--from", uv_package, "serena-agent"],
+                capture_output=True,
+                text=True,
+                timeout=300,
+                shell=True
+            )
+            
+            if result.returncode == 0:
+                self.logger.info(f"Successfully installed: {uv_package}")
+                return True
+            else:
+                self.logger.error(f"uv install failed for {uv_package}: {result.stderr}")
+                return False
+                
+        except subprocess.TimeoutExpired:
+            self.logger.error(f"uv install timeout for {uv_package}")
+            return False
+        except Exception as e:
+            self.logger.error(f"Installation error for {server_key}: {e}")
+            return False
+    
+    def _verify_mcp_installation(self, server_key: str, server_info: Dict[str, Any]) -> bool:
+        """Verify installed MCP server package"""
+        install_method = server_info.get("install_method", "npm")
+        
+        if install_method == "uv":
+            return self._verify_uv_installation(server_key, server_info)
+        else:
+            return self._verify_npm_installation(server_key, server_info)
+    
+    def _verify_npm_installation(self, server_key: str, server_info: Dict[str, Any]) -> bool:
+        """Verify npm package installation"""
+        npm_package = server_info.get("npm_package")
+        if not npm_package:
+            return False
+        
+        try:
+            result = subprocess.run(
+                ["npm", "list", "-g", npm_package.split('@')[0]],
+                capture_output=True,
+                text=True,
+                timeout=30,
+                shell=True
+            )
+            
+            if result.returncode == 0:
+                self.logger.info(f"Verified installation: {server_key}")
+                return True
+            else:
+                self.logger.warning(f"Package verification failed: {npm_package}")
+                return False
+                
+        except Exception as e:
+            self.logger.error(f"Verification failed for {server_key}: {e}")
+            return False
+    
+    def _verify_uv_installation(self, server_key: str, server_info: Dict[str, Any]) -> bool:
+        """Verify uv package installation"""
+        try:
+            # Check if uv tool is installed
+            result = subprocess.run(
+                ["uv", "tool", "list"],
+                capture_output=True,
+                text=True,
+                timeout=30,
+                shell=True
+            )
+            
+            if result.returncode == 0 and ("serena" in result.stdout or "serena-agent" in result.stdout):
+                self.logger.info(f"Verified installation: {server_key}")
+                return True
+            else:
+                self.logger.warning(f"uv tool verification failed for {server_key}")
+                return False
+                
+        except Exception as e:
+            self.logger.error(f"Verification failed for {server_key}: {e}")
+            return False
+    
+    def _validate_prerequisites(self) -> Tuple[bool, List[str]]:
+        """Validate Gemini environment, npm and uv prerequisites"""
+        errors = []
+        
+        # Check Node.js version (>=18 required for MCP)
+        try:
+            result = subprocess.run(["node", "--version"], capture_output=True, text=True, timeout=10, shell=True)
+            if result.returncode == 0:
+                version = result.stdout.strip().lstrip('v')
+                major_version = int(version.split('.')[0])
+                if major_version < 18:
+                    errors.append(f"Node.js {version} found, but 18+ required for MCP")
+                else:
+                    self.logger.debug(f"Node.js {version} OK")
+            else:
+                errors.append("Node.js not working properly")
+        except Exception:
+            errors.append("Node.js not found - required for MCP server installation")
+        
+        # Check npm availability
+        try:
+            result = subprocess.run(["npm", "--version"], capture_output=True, text=True, timeout=10, shell=True)
+            if result.returncode != 0:
+                errors.append("npm not working properly")
+            else:
+                self.logger.debug(f"npm {result.stdout.strip()} OK")
+        except Exception:
+            errors.append("npm not found - required for MCP server installation")
+        
+        # Check uv availability (for Python-based MCP servers like Serena)
+        try:
+            result = subprocess.run(["uv", "--version"], capture_output=True, text=True, timeout=10, shell=True)
+            if result.returncode == 0:
+                self.logger.debug(f"uv {result.stdout.strip()} OK")
+            else:
+                self.logger.warning("uv not found - Python MCP servers (Serena) will be skipped")
+        except Exception:
+            self.logger.warning("uv not found - Python MCP servers (Serena) will be skipped")
+        
+        return len(errors) == 0, errors
+    
     def _install(self, config: Dict[str, Any]) -> bool:
-        """Install MCP component by configuring .claude.json"""
-        self.logger.info("Configuring MCP servers in Claude...")
+        """Install MCP component: npm packages + Gemini configuration (v3 + v4 hybrid)"""
+        self.logger.info("Installing MCP servers for Gemini...")
         
         # Get selected servers from config
         selected_servers = config.get("selected_mcp_servers", [])
         if not selected_servers:
-            self.logger.info("No MCP servers selected - skipping MCP configuration")
-            return True
+            self.logger.info("No MCP servers selected - skipping MCP installation")
+            self.set_selected_servers([])
+            return self._post_install()
         
         self.set_selected_servers(selected_servers)
         
-        # NEW: Log collected API keys information
+        # Log collected API keys information
         if hasattr(self, 'collected_api_keys') and self.collected_api_keys:
             self.logger.info(f"Using {len(self.collected_api_keys)} collected API keys for configuration")
         
-        # Validate prerequisites
+        # Validate Node.js and npm prerequisites (NEW from v3)
+        success, errors = self._validate_prerequisites()
+        if not success:
+            for error in errors:
+                self.logger.error(error)
+            return False
+        
+        # Validate basic prerequisites
         success, errors = self.validate_prerequisites()
         if not success:
             for error in errors:
                 self.logger.error(error)
             return False
         
-        # Load Claude configuration
-        claude_config, config_path = self._load_claude_config()
-        if claude_config is None:
-            return False
+        # Phase 1: Install npm packages (NEW - v3 logic)
+        installed_count = 0
+        failed_servers = []
         
-        # Ensure mcpServers section exists
-        if "mcpServers" not in claude_config:
-            claude_config["mcpServers"] = {}
-        
-        # Configure each selected server
-        configured_count = 0
         for server_key in selected_servers:
             if server_key not in self.mcp_servers:
                 self.logger.warning(f"Unknown MCP server: {server_key}")
+                failed_servers.append(server_key)
                 continue
+            
+            server_info = self.mcp_servers[server_key]
+            
+            # Step 1: Install actual npm package
+            if not self._install_mcp_server_package(server_key, server_info):
+                self.logger.error(f"Failed to install npm package for {server_key}")
+                failed_servers.append(server_key)
+                continue
+            
+            # Step 2: Verify installation
+            if not self._verify_mcp_installation(server_key, server_info):
+                self.logger.warning(f"Installation verification failed for {server_key}")
+                # Continue anyway as package might still work
+            
+            installed_count += 1
+            self.logger.info(f"Successfully installed MCP server: {server_info['name']}")
+        
+        if installed_count == 0:
+            self.logger.error("No MCP servers were successfully installed")
+            return False
+        
+        # Phase 2: Configure settings.json (v4 logic)
+        gemini_config, config_path = self._load_gemini_config()
+        if gemini_config is None:
+            self.logger.error("Failed to load Gemini configuration for setup")
+            return False
+        
+        # Ensure mcpServers and _disabledMcpServers sections exist
+        if "mcpServers" not in gemini_config:
+            gemini_config["mcpServers"] = {}
+        if "_disabledMcpServers" not in gemini_config:
+            gemini_config["_disabledMcpServers"] = {}
+        
+        # Configure only successfully installed servers
+        configured_count = 0
+        for server_key in selected_servers:
+            if server_key in failed_servers:
+                continue  # Skip failed installations
             
             server_info = self.mcp_servers[server_key]
             server_config = self._load_mcp_server_config(server_key)
@@ -322,23 +560,40 @@ class MCPComponent(Component):
                     display_info(f"Server '{server_key}' requires API key: {api_key_env}")
                     display_info("You can set this environment variable later")
             
-            # Precisely merge server config, preserving user customizations
-            self._merge_mcp_server_config(claude_config["mcpServers"], server_config, server_key)
+            # Determine target section based on disabled_by_default flag
+            is_disabled_by_default = server_info.get("disabled_by_default", False)
+            target_section = "_disabledMcpServers" if is_disabled_by_default else "mcpServers"
+            
+            # Add comments for disabled section
+            if is_disabled_by_default and "_comment" not in gemini_config["_disabledMcpServers"]:
+                gemini_config["_disabledMcpServers"]["_comment"] = f"{server_info['description']} - disabled due to compatibility issues"
+                gemini_config["_disabledMcpServers"]["_instructions"] = f"Reason: {server_info.get('disabled_reason', 'Compatibility issues')}. Move to mcpServers section to enable."
+            
+            # Merge server config into appropriate section
+            self._merge_mcp_server_config(gemini_config[target_section], server_config, server_key)
             configured_count += 1
             
-            self.logger.info(f"Configured MCP server: {server_info['name']}")
-        
-        if configured_count == 0:
-            self.logger.error("No MCP servers were successfully configured")
-            return False
+            if is_disabled_by_default:
+                self.logger.info(f"Server '{server_key}' installed as disabled by default: {server_info.get('disabled_reason', 'Compatibility issues')}")
+            else:
+                self.logger.debug(f"Server '{server_key}' installed as enabled")
         
         # Save updated configuration
-        success = self._save_claude_config(claude_config, config_path)
+        if configured_count > 0:
+            success = self._save_gemini_config(gemini_config, config_path)
+            if not success:
+                self.logger.error("Failed to save Gemini configuration")
+                return False
         
-        if success:
-            self.logger.success(f"Successfully configured {configured_count} MCP servers")
+        # Report results
+        if failed_servers:
+            self.logger.warning(f"Failed to install: {', '.join(failed_servers)}")
+        
+        if configured_count > 0:
+            self.logger.success(f"Successfully installed and configured {configured_count} MCP servers")
             return self._post_install()
         else:
+            self.logger.error("No MCP servers were successfully configured")
             return False
     
     def _post_install(self) -> bool:
@@ -358,23 +613,32 @@ class MCPComponent(Component):
             self.settings_manager.update_metadata(metadata_mods)
             self.logger.info("Updated metadata with MCP component registration")
             
+            # Add component registration
+            self.settings_manager.add_component_registration("mcp", {
+                "version": "4.0.0",
+                "category": "integration",
+                "servers_configured": len(self.selected_servers),
+                "configured_servers": self.selected_servers
+            })
+            self.logger.info("Registered MCP component in metadata")
+            
             return True
         except Exception as e:
             self.logger.error(f"Failed to update metadata: {e}")
             return False
     
     def uninstall(self) -> bool:
-        """Uninstall MCP component by removing servers from .claude.json"""
+        """Uninstall MCP component by removing servers from .gemini.json"""
         try:
             self.logger.info("Removing MCP server configurations...")
             
-            # Load Claude configuration
-            claude_config, config_path = self._load_claude_config()
-            if claude_config is None:
-                self.logger.warning("Could not load Claude config for cleanup")
+            # Load Gemini configuration
+            gemini_config, config_path = self._load_gemini_config()
+            if gemini_config is None:
+                self.logger.warning("Could not load Gemini configuration for cleanup")
                 return True  # Not a failure if config doesn't exist
             
-            if "mcpServers" not in claude_config:
+            if "mcpServers" not in gemini_config:
                 self.logger.info("No MCP servers configured")
                 return True
             
@@ -383,10 +647,10 @@ class MCPComponent(Component):
             installed_servers = self._get_installed_servers()
             
             for server_name in installed_servers:
-                if server_name in claude_config["mcpServers"]:
+                if server_name in gemini_config["mcpServers"]:
                     # Check if this server was installed by SuperGemini by comparing with our configs
-                    if self._is_supergemini_managed_server(claude_config["mcpServers"][server_name], server_name):
-                        del claude_config["mcpServers"][server_name]
+                    if self._is_supergemini_managed_server(gemini_config["mcpServers"][server_name], server_name):
+                        del gemini_config["mcpServers"][server_name]
                         removed_count += 1
                         self.logger.debug(f"Removed SuperGemini-managed MCP server: {server_name}")
                     else:
@@ -394,9 +658,9 @@ class MCPComponent(Component):
             
             # Save updated configuration
             if removed_count > 0:
-                success = self._save_claude_config(claude_config, config_path)
+                success = self._save_gemini_config(gemini_config, config_path)
                 if not success:
-                    self.logger.warning("Failed to save updated Claude configuration")
+                    self.logger.warning("Failed to save updated Gemini configuration")
             
             # Update settings.json
             try:

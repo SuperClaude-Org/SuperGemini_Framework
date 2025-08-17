@@ -78,6 +78,14 @@ class ModesComponent(Component):
             self.settings_manager.update_metadata(metadata_mods)
             self.logger.info("Updated metadata with modes component registration")
             
+            # Add component registration
+            self.settings_manager.add_component_registration("modes", {
+                "version": "4.0.0",
+                "category": "modes",
+                "files_count": len(self.component_files)
+            })
+            self.logger.info("Registered modes component in metadata")
+            
             # Update GEMINI.md with mode imports
             try:
                 manager = GEMINIMdService(self.install_dir)

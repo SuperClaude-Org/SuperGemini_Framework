@@ -19,7 +19,7 @@ from ...utils.ui import (
 )
 from ...utils.logger import get_logger
 from ... import DEFAULT_INSTALL_DIR
-from . import OperationBase
+from ..base import OperationBase
 
 
 class BackupOperation(OperationBase):

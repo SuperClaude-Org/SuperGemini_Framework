@@ -88,7 +88,11 @@ class MCPDocsComponent(Component):
         selected_servers = config.get("selected_mcp_servers", [])
         if not selected_servers:
             self.logger.info("No MCP servers selected - skipping documentation installation")
-            return True
+            # Still register component even if no servers selected
+            self.set_selected_servers([])
+            # Update component files based on selection (empty)
+            self.component_files = self._discover_component_files()
+            return self._post_install()
         
         self.set_selected_servers(selected_servers)
         
@@ -144,6 +148,15 @@ class MCPDocsComponent(Component):
             }
             self.settings_manager.update_metadata(metadata_mods)
             self.logger.info("Updated metadata with MCP docs component registration")
+            
+            # Add component registration
+            self.settings_manager.add_component_registration("mcp_docs", {
+                "version": "4.0.0",
+                "category": "documentation",
+                "files_count": len(self.component_files),
+                "servers_documented": self.selected_servers
+            })
+            self.logger.info("Registered MCP docs component in metadata")
             
             # Update GEMINI.md with MCP documentation imports
             try:

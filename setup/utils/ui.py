@@ -190,7 +190,11 @@ class Menu:
         else:
             print(f"\n{Colors.BLUE}Enter your choice (1-{len(self.options)}):{Colors.RESET}")
         
-        while True:
+        max_attempts = 10  # Prevent infinite recursion
+        attempt = 0
+        
+        while attempt < max_attempts:
+            attempt += 1
             try:
                 user_input = input("> ").strip().lower()
                 
@@ -223,12 +227,19 @@ class Menu:
                     else:
                         print(f"{Colors.RED}Please enter a valid number.{Colors.RESET}")
                         
-            except (ValueError, KeyboardInterrupt) as e:
+            except (ValueError, KeyboardInterrupt, EOFError) as e:
                 if isinstance(e, KeyboardInterrupt):
                     print(f"\n{Colors.YELLOW}Operation cancelled.{Colors.RESET}")
                     return [] if self.multi_select else -1
+                elif isinstance(e, EOFError):
+                    print(f"\n{Colors.YELLOW}EOF detected, cancelling operation.{Colors.RESET}")
+                    return [] if self.multi_select else -1
                 else:
                     print(f"{Colors.RED}Invalid input: {e}{Colors.RESET}")
+        
+        # If we reach here, too many failed attempts
+        print(f"\n{Colors.RED}Too many invalid attempts. Cancelling operation.{Colors.RESET}")
+        return [] if self.multi_select else -1
 
 
 def confirm(message: str, default: bool = True) -> bool:
@@ -245,7 +256,11 @@ def confirm(message: str, default: bool = True) -> bool:
     suffix = "[Y/n]" if default else "[y/N]"
     print(f"{Colors.BLUE}{message} {suffix}{Colors.RESET}")
     
-    while True:
+    max_attempts = 10  # Prevent infinite recursion
+    attempt = 0
+    
+    while attempt < max_attempts:
+        attempt += 1
         try:
             response = input("> ").strip().lower()
             
@@ -258,9 +273,13 @@ def confirm(message: str, default: bool = True) -> bool:
             else:
                 print(f"{Colors.RED}Please enter 'y' or 'n' (or press Enter for default).{Colors.RESET}")
                 
-        except KeyboardInterrupt:
+        except (KeyboardInterrupt, EOFError):
             print(f"\n{Colors.YELLOW}Operation cancelled.{Colors.RESET}")
             return False
+    
+    # If we reach here, too many failed attempts
+    print(f"\n{Colors.RED}Too many invalid attempts. Using default: {default}{Colors.RESET}")
+    return default
 
 
 def display_header(title: str, subtitle: str = '') -> None:

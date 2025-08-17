@@ -2,12 +2,12 @@
   "serena": {
     "command": "uv",
     "args": [
+      "tool",
       "run",
-      "serena",
+      "serena-agent",
       "start-mcp-server",
       "--context",
       "ide-assistant"
-    ],
-    "cwd": "$HOME/.claude/serena"
+    ]
   }
 }

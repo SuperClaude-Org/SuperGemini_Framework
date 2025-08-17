@@ -20,7 +20,7 @@ from ...utils.ui import (
 from ...utils.environment import setup_environment_variables
 from ...utils.logger import get_logger
 from ... import DEFAULT_INSTALL_DIR, PROJECT_ROOT
-from . import OperationBase
+from ..base import OperationBase
 
 
 class UpdateOperation(OperationBase):

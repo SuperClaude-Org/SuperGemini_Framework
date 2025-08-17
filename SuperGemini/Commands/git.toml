@@ -5,7 +5,7 @@ description: "Git operations with intelligent commit messages and workflow optim
 category: utility
 complexity: basic
 mcp-servers: []
-agents: ["@Agents/devops-engineer.md"]
+agents: ["devops-engineer"]
 ---
 
 # /sc:git - Git Operations

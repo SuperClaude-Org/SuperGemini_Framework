@@ -223,9 +223,18 @@ class AgentsComponent(Component):
         # Check if at least some standard agents are present
         expected_agents = [
             "system-architect.md",
-            "frontend-specialist.md", 
-            "backend-engineer.md",
-            "security-auditor.md"
+            "frontend-architect.md", 
+            "backend-architect.md",
+            "security-engineer.md",
+            "devops-architect.md",
+            "performance-engineer.md", 
+            "quality-engineer.md",
+            "technical-writer.md",
+            "python-expert.md",
+            "requirements-analyst.md",
+            "root-cause-analyst.md",
+            "refactoring-expert.md",
+            "learning-guide.md"
         ]
         
         missing_core_agents = []

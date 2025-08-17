@@ -5,7 +5,7 @@ description: "Generate focused documentation for components, functions, APIs, an
 category: utility
 complexity: basic
 mcp-servers: []
-agents: ["@Agents/scribe.md", "@Agents/code-educator.md"]
+agents: ["scribe", "code-educator"]
 ---
 
 # /sc:document - Focused Documentation Generation

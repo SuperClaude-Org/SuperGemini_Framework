@@ -2,7 +2,7 @@
 
 ## The Simple Truth
 
-SuperGemini transforms Claude Code into a structured development framework with just one installation command. Behind the simple interface, intelligent routing automatically selects the right tools, activates domain experts, and coordinates complex workflows.
+SuperGemini transforms Gemini CLI into a structured development framework with just one installation command. Behind the simple interface, intelligent routing automatically selects the right tools, activates domain experts, and coordinates complex workflows.
 
 **5-Minute Start**: Install → Start using SuperGemini Framework → Watch the magic happen.
 
@@ -16,10 +16,10 @@ pip install SuperGemini && SuperGemini install
 **First Commands (3 minutes):**
 ```bash
 # Analyze existing code
-SuperGemini $1 src/
+/sg:analyze src/
 
 # Generate implementation plan
-SuperGemini $1 "add user authentication"
+/sg:implement "add user authentication"
 ```
 
 **What Happens Automatically:**
@@ -32,19 +32,19 @@ SuperGemini $1 "add user authentication"
 
 ## What is SuperGemini Really?
 
-SuperGemini is a meta-programming framework that enhances Claude Code with:
+SuperGemini is a meta-programming framework that enhances Gemini CLI with:
 
-**21 Slash Commands** for workflow automation (/sg:analyze, /sg:implement, /sg:workflow)
+**18 TOML-based Slash Commands** for workflow automation (/sg:analyze, /sg:implement, /sg:workflow)
 **13 AI Specialists** with domain expertise (architect, security, frontend, backend)
-**6 Behavioral Modes** for different contexts (introspection, orchestration, task management)
-**6 MCP Servers** for enhanced capabilities (Context7, Sequential, Magic, Playwright)
+**5 Behavioral Modes** for different contexts (introspection, orchestration, task management)
+**Optional MCP Servers** for enhanced capabilities (Context7, Sequential, Magic, Playwright)
 
 **Version 4.0** delivers production-ready workflow orchestration with intelligent agent coordination and session persistence.
 
 ## How It Works
 
 **User Experience:**
-You type `SuperGemini $1 "user login"` → /sg:analyzes requirements → activates security specialist → connects to Context7 for authentication patterns → generates complete implementation with tests.
+You type `/sg:implement "user login"` → analyzes requirements → activates security specialist → connects to Context7 for authentication patterns → generates complete implementation with tests.
 
 **Technical Workflow:**
 1. **Command Parser** analyzes intent and complexity
@@ -62,22 +62,22 @@ You type `SuperGemini $1 "user login"` → /sg:analyzes requirements → activat
 # 1. Project Discovery
 
 # 2. Load Context (existing projects)
-SuperGemini $1 src/
+/sg:analyze src/
 
 # 3. Analyze Current State
-SuperGemini $1 --focus architecture
+/sg:analyze --focus architecture
 
 # 4. Plan Implementation
-SuperGemini $1 "add payment integration"
+/sg:workflow "add payment integration"
 
 # 5. Implement Features
-SuperGemini $1 "Stripe payment flow"
+/sg:implement "Stripe payment flow"
 
 # 6. Validate Quality
-SuperGemini $1 --coverage
+/sg:test --coverage
 
 # 7. Save Session
-SuperGemini $1 "payment-integration-complete"
+/sg:save "payment-integration-complete"
 ```
 
 **Domain-Specific Workflows:**
@@ -92,7 +92,7 @@ SuperGemini $1 "payment-integration-complete"
 
 ### SuperGemini's Core Value
 
-SuperGemini transforms Claude Code from a general-purpose AI assistant into a **specialized development framework** with:
+SuperGemini transforms Gemini CLI from a general-purpose AI assistant into a **specialized development framework** with:
 
 - **Systematic Workflows** instead of ad-hoc requests
 - **Domain Expertise** through specialized agents
@@ -121,9 +121,9 @@ SuperGemini transforms Claude Code from a general-purpose AI assistant into a **
 
 **Usage Recommendations:**
 - Start with simple commands and let complexity emerge naturally
-- Use `SuperGemini $1` to discover relevant commands for your context
+- Use `/sg:index` to discover relevant commands for your context
 - Enable MCP servers gradually as you understand their benefits
-- Save successful patterns with `SuperGemini $1` for reuse
+- Save successful patterns with `/sg:save` for reuse
 
 ### When to Use SuperGemini
 
@@ -134,7 +134,7 @@ SuperGemini transforms Claude Code from a general-purpose AI assistant into a **
 - Require session persistence across development cycles
 - Want specialized domain expertise (security, performance, etc.)
 
-**Use Standard Claude Code When:**
+**Use Standard Gemini CLI When:**
 - Simple questions or explanations
 - One-off coding tasks
 - Learning programming concepts

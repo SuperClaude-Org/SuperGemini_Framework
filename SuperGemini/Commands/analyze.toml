@@ -5,7 +5,7 @@ description: "Comprehensive code analysis across quality, security, performance,
 category: utility
 complexity: basic
 mcp-servers: []
-agents: ["@Agents/system-architect.md", "@Agents/root-cause-analyzer.md", "@Agents/performance-optimizer.md", "@Agents/security-engineer.md"]
+agents: ["system-architect", "root-cause-analyzer", "performance-optimizer", "security-engineer"]
 ---
 
 # /sc:analyze - Code Analysis and Quality Assessment

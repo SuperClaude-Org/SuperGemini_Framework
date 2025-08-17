@@ -19,7 +19,7 @@ from ...utils.ui import (
 from ...utils.environment import get_supergemini_environment_variables, cleanup_environment_variables
 from ...utils.logger import get_logger
 from ... import DEFAULT_INSTALL_DIR, PROJECT_ROOT
-from . import OperationBase
+from ..base import OperationBase
 
 
 def verify_supergemini_file(file_path: Path, component: str) -> bool:
@@ -201,9 +201,24 @@ Examples:
 def get_installed_components(install_dir: Path) -> Dict[str, Dict[str, Any]]:
     """Get currently installed components and their versions"""
     try:
+        from ...services.settings import SettingsService
         settings_manager = SettingsService(install_dir)
-        return settings_manager.get_installed_components()
-    except Exception:
+        components = settings_manager.get_installed_components()
+        
+        # Ensure we return a safe dict, preventing recursion
+        if isinstance(components, dict):
+            return components
+        else:
+            return {}
+    except RecursionError as e:
+        # Specifically catch recursion errors
+        logger = get_logger()
+        logger.error(f"Recursion error in get_installed_components: {e}")
+        return {}
+    except Exception as e:
+        # Log the exception for debugging
+        logger = get_logger()
+        logger.debug(f"Error getting installed components: {e}")
         return {}
 
 
@@ -222,16 +237,42 @@ def get_installation_info(install_dir: Path) -> Dict[str, Any]:
         return info
     
     info["exists"] = True
-    info["components"] = get_installed_components(install_dir)
-    
-    # Scan installation directory
     try:
-        for item in install_dir.rglob("*"):
-            if item.is_file():
-                info["files"].append(item)
-                info["total_size"] += item.stat().st_size
-            elif item.is_dir():
-                info["directories"].append(item)
+        logger = get_logger()
+        logger.debug("About to call get_installed_components...")
+        info["components"] = get_installed_components(install_dir)
+        logger.debug(f"Got components: {info['components']}")
+    except Exception as e:
+        logger = get_logger()
+        logger.error(f"Error getting components in get_installation_info: {e}")
+        info["components"] = {}
+    
+    # Scan installation directory (non-recursive to prevent infinite loops)
+    try:
+        visited = set()
+        
+        def safe_scan(directory: Path, max_depth: int = 3, current_depth: int = 0):
+            """Safely scan directory with depth limit and cycle detection"""
+            if current_depth > max_depth:
+                return
+            
+            real_path = directory.resolve()
+            if real_path in visited:
+                return  # Avoid cycles
+            visited.add(real_path)
+            
+            try:
+                for item in directory.iterdir():
+                    if item.is_file():
+                        info["files"].append(item)
+                        info["total_size"] += item.stat().st_size
+                    elif item.is_dir():
+                        info["directories"].append(item)
+                        safe_scan(item, max_depth, current_depth + 1)
+            except (PermissionError, OSError):
+                pass  # Skip inaccessible directories
+        
+        safe_scan(install_dir)
     except Exception:
         pass
     
@@ -642,12 +683,26 @@ def perform_uninstall(components: List[str], args: argparse.Namespace, info: Dic
     start_time = time.time()
     
     try:
-        # Create component registry
-        registry = ComponentRegistry(PROJECT_ROOT / "setup" / "components")
-        registry.discover_components()
-        
-        # Create component instances
-        component_instances = registry.create_component_instances(components, args.install_dir)
+        # Create component registry with recursion protection
+        try:
+            registry = ComponentRegistry(PROJECT_ROOT / "setup" / "components")
+            registry.discover_components()
+            
+            # Create component instances with error handling
+            component_instances = {}
+            for component_name in components:
+                try:
+                    instance = registry.get_component_instance(component_name, args.install_dir)
+                    if instance:
+                        component_instances[component_name] = instance
+                    else:
+                        logger.warning(f"Could not create instance for component {component_name}")
+                except Exception as e:
+                    logger.error(f"Error creating instance for {component_name}: {e}")
+                    # Continue with other components
+        except Exception as e:
+            logger.error(f"Error creating component registry: {e}")
+            return False
         
         # Setup progress tracking
         progress = ProgressBar(
@@ -739,8 +794,8 @@ def cleanup_installation_directory(install_dir: Path, args: argparse.Namespace) 
         
         # Remove installation directory contents
         if args.complete and not preserve_patterns:
-            # Complete removal
-            if file_manager.remove_directory(install_dir):
+            # Complete removal - use recursive=True for complete removal
+            if file_manager.remove_directory(install_dir, recursive=True):
                 logger.info(f"Removed installation directory: {install_dir}")
             else:
                 logger.warning(f"Could not remove installation directory: {install_dir}")
@@ -750,8 +805,9 @@ def cleanup_installation_directory(install_dir: Path, args: argparse.Namespace) 
                 should_preserve = False
                 
                 for pattern in preserve_patterns:
-                    from pathlib import PurePath
-                    if PurePath(item).match(pattern):
+                    import fnmatch
+                    # Use fnmatch for pattern matching instead of PurePath.match
+                    if fnmatch.fnmatch(str(item.relative_to(install_dir)), pattern):
                         should_preserve = True
                         break
                 
@@ -759,7 +815,8 @@ def cleanup_installation_directory(install_dir: Path, args: argparse.Namespace) 
                     if item.is_file():
                         file_manager.remove_file(item)
                     elif item.is_dir():
-                        file_manager.remove_directory(item)
+                        # Use recursive=True to remove non-empty directories
+                        file_manager.remove_directory(item, recursive=True)
                         
     except Exception as e:
         logger.error(f"Error during cleanup: {e}")
@@ -795,19 +852,58 @@ def run(args: argparse.Namespace) -> int:
                 "Removing SuperGemini framework components"
             )
         
-        # Get installation information
-        info = get_installation_info(args.install_dir)
+        # Get installation information (with error handling to prevent recursion)
+        try:
+            info = get_installation_info(args.install_dir)
+        except RecursionError:
+            logger.error("Recursion detected in get_installation_info. Using basic cleanup.")
+            # Basic cleanup - just remove the directory
+            if args.install_dir.exists():
+                if not args.no_confirm:
+                    if confirm(f"Remove SuperGemini directory {args.install_dir}?", default=False):
+                        import shutil
+                        shutil.rmtree(args.install_dir)
+                        logger.success("SuperGemini directory removed")
+                        return 0
+            return 1
         
-        # Display current installation
+        # Display current installation (with error handling)
         if not args.quiet:
-            display_uninstall_info(info)
+            try:
+                display_uninstall_info(info)
+            except RecursionError:
+                logger.error("Recursion detected in display_uninstall_info")
+                print(f"Installation Directory: {info['install_dir']}")
+                print(f"Files found: {len(info.get('files', []))}")
+                print(f"Directories found: {len(info.get('directories', []))}")
         
-        # Check for environment variables
-        env_vars = display_environment_info() if not args.quiet else get_supergemini_environment_variables()
+        # Check for environment variables (with error handling)
+        try:
+            env_vars = display_environment_info() if not args.quiet else get_supergemini_environment_variables()
+        except RecursionError:
+            logger.error("Recursion detected in environment variable functions")
+            env_vars = {}
         
         # Check if SuperGemini is installed
         if not info["exists"]:
             logger.warning(f"No SuperGemini installation found in {args.install_dir}")
+            return 0
+        
+        # If no components are installed, but directory exists, offer cleanup
+        if not info["components"]:
+            logger.info(f"No SuperGemini components found in {args.install_dir}")
+            logger.info("Directory appears to be empty or not a SuperGemini installation")
+            
+            # Check if directory has any files and offer to clean up
+            if info["exists"] and (info["files"] or info["directories"]):
+                if not args.no_confirm:
+                    if confirm(f"Remove empty SuperGemini directory {args.install_dir}?", default=False):
+                        try:
+                            import shutil
+                            shutil.rmtree(args.install_dir)
+                            logger.success(f"Removed directory {args.install_dir}")
+                        except Exception as e:
+                            logger.error(f"Could not remove directory: {e}")
             return 0
         
         # Get components to uninstall using enhanced selection

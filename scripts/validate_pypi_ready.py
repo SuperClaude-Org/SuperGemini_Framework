@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 PyPI Readiness Validation Script
-Checks if SuperClaude project is ready for PyPI publication
+Checks if SuperGemini project is ready for PyPI publication
 """
 
 import sys
@@ -38,14 +38,14 @@ def check_version_consistency() -> bool:
         print(f"❌ Error reading pyproject.toml: {e}")
         return False
     
-    # Check SuperClaude/__init__.py
+    # Check SuperGemini/__init__.py
     try:
         sys.path.insert(0, str(PROJECT_ROOT))
-        from SuperClaude import __version__
-        versions['SuperClaude/__init__.py'] = __version__
-        print(f"📦 Package version: {versions['SuperClaude/__init__.py']}")
+        from SuperGemini import __version__
+        versions['SuperGemini/__init__.py'] = __version__
+        print(f"📦 Package version: {versions['SuperGemini/__init__.py']}")
     except Exception as e:
-        print(f"❌ Error importing SuperClaude version: {e}")
+        print(f"❌ Error importing SuperGemini version: {e}")
         return False
     
     # Check setup/__init__.py
@@ -71,13 +71,13 @@ def check_package_structure() -> bool:
     print("\n🏗️ Checking package structure...")
     
     required_structure = [
-        ("SuperClaude/__init__.py", "Main package __init__.py"),
-        ("SuperClaude/__main__.py", "Main entry point"),
-        ("SuperClaude/Core/__init__.py", "Core module __init__.py"),
-        ("SuperClaude/Commands/__init__.py", "Commands module __init__.py"),
-        ("SuperClaude/Agents/__init__.py", "Agents module __init__.py"),
-        ("SuperClaude/Modes/__init__.py", "Modes module __init__.py"),
-        ("SuperClaude/MCP/__init__.py", "MCP module __init__.py"),
+        ("SuperGemini/__init__.py", "Main package __init__.py"),
+        ("SuperGemini/__main__.py", "Main entry point"),
+        ("SuperGemini/Core/__init__.py", "Core module __init__.py"),
+        ("SuperGemini/Commands/__init__.py", "Commands module __init__.py"),
+        ("SuperGemini/Agents/__init__.py", "Agents module __init__.py"),
+        ("SuperGemini/Modes/__init__.py", "Modes module __init__.py"),
+        ("SuperGemini/MCP/__init__.py", "MCP module __init__.py"),
         ("setup/__init__.py", "Setup package __init__.py"),
     ]
     
@@ -131,8 +131,10 @@ def check_pyproject_config() -> bool:
         
         # Check entry points
         scripts = project.get('scripts', {})
-        if 'SuperClaude' in scripts:
-            print(f"✅ CLI entry point: {scripts['SuperClaude']}")
+        if any(name in scripts for name in ['SuperGemini', 'supergemini', 'sg']):
+            for name in ['SuperGemini', 'supergemini', 'sg']:
+                if name in scripts:
+                    print(f"✅ CLI entry point: {name} = {scripts[name]}")
         else:
             print("❌ Missing CLI entry point")
             return False
@@ -156,10 +158,10 @@ def check_import_test() -> bool:
     
     try:
         sys.path.insert(0, str(PROJECT_ROOT))
-        import SuperClaude
-        print(f"✅ SuperClaude import successful")
-        print(f"📦 Version: {SuperClaude.__version__}")
-        print(f"👤 Author: {SuperClaude.__author__}")
+        import SuperGemini
+        print(f"✅ SuperGemini import successful")
+        print(f"📦 Version: {SuperGemini.__version__}")
+        print(f"👤 Author: {SuperGemini.__author__}")
         return True
     except Exception as e:
         print(f"❌ Import failed: {e}")
@@ -167,7 +169,7 @@ def check_import_test() -> bool:
 
 def main():
     """Main validation function"""
-    print("🔍 SuperClaude PyPI Readiness Validation")
+    print("🔍 SuperGemini PyPI Readiness Validation")
     print(f"📁 Project root: {PROJECT_ROOT}")
     print("=" * 50)
     

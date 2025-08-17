@@ -2,7 +2,7 @@
 
 ## 🎯 It's Easier Than It Looks!
 
-SuperGemini installs in under 2 minutes with an interactive installer. The process involves installing the Python package and running the component installer to configure your Claude Code environment.
+SuperGemini installs in under 2 minutes with an interactive installer. The process involves installing the Python package and running the component installer to configure your Gemini CLI environment with TOML commands and AI agent personas.
 
 ## Quick Start 🚀
 
@@ -12,13 +12,15 @@ pip install SuperGemini
 SuperGemini install
 ```
 
-**Method 2: NPM (Cross-platform)**
+**Method 2: Direct Git Clone**
 ```bash
-npm install -g superclaude
-superclaude install
+git clone https://github.com/SuperClaude-Org/SuperGemini_Framework.git
+cd SuperGemini_Framework
+pip install -e ".[dev]"
+SuperGemini install --dry-run
 ```
 
-**Method 3: Development**
+**Method 3: Development Setup**
 ```bash
 git clone https://github.com/SuperClaude-Org/SuperGemini_Framework.git
 cd SuperGemini_Framework
@@ -29,11 +31,11 @@ SuperGemini install --dry-run
 ---
 
 **What Gets Installed:**
-- 21 slash commands (SuperGemini *) for workflow automation
-- 13 specialized AI agents with domain expertise
-- 6 behavioral modes for different contexts
-- 6 MCP server configurations for enhanced capabilities
-- Core instruction files in ~/.claude directory
+- 18 TOML-based slash commands (/sg:*) for Gemini CLI workflow automation
+- 13 specialized AI agent personas with domain expertise
+- 5 behavioral modes for different development contexts
+- Core instruction files for systematic development practices
+- Framework configuration in ~/.gemini directory
 
 **Dry-run Preview:**
 ```bash
@@ -46,13 +48,12 @@ SuperGemini install --dry-run  # Preview changes without installing
 
 **Required:**
 - Python 3.8+ with pip
-- Claude Code installed and working
+- Gemini CLI access and configuration
 - 50MB free space for components
 
 **Optional but Recommended:**
-- Node.js 16+ (for MCP servers like Context7, Magic)
 - Git (for version control integration)
-- 1GB RAM for optimal performance
+- 1GB RAM for optimal performance with complex projects
 
 ### Quick Check 🔍
 
@@ -62,11 +63,8 @@ Run these commands to verify your system is ready:
 # Verify Python (should be 3.8+)
 python3 --version
 
-# Verify Claude Code availability
-claude --version
-
-# Optional: Check Node.js for MCP servers
-node --version
+# Verify Gemini CLI access (follow Gemini CLI setup if needed)
+# SuperGemini enhances Gemini CLI with structured commands
 
 # Check available disk space
 df -h ~
@@ -78,11 +76,8 @@ If any checks fail, see [Prerequisites Setup](#prerequisites-setup-🛠️) belo
 # Check Python version (should be 3.8+)
 python3 --version
 
-# Check if Claude Code is available
-claude --version
-
-# Check Node.js (optional, for MCP servers)
-node --version
+# Check if you have Gemini CLI access configured
+# SuperGemini will enhance your Gemini CLI experience
 ```
 
 If any of these fail, see the [Prerequisites Setup](#prerequisites-setup-🛠️) section below.
@@ -95,18 +90,13 @@ If any of these fail, see the [Prerequisites Setup](#prerequisites-setup-🛠️
 
 ### 🔍 Other Useful Options
 
-**Node.js Installation:**
+**Development Mode Installation:**
 ```bash
-# Linux (Ubuntu/Debian)
-curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
-sudo apt-get install -y nodejs
-
-# macOS
-brew install node
-
-# Windows
-winget install OpenJS.NodeJS
-# Or download from https://nodejs.org/
+# Clone and install in development mode
+git clone https://github.com/SuperClaude-Org/SuperGemini_Framework.git
+cd SuperGemini_Framework
+pip install -e ".[dev]"
+SuperGemini install --dry-run
 ```
 
 ### Getting SuperGemini 📥
@@ -118,9 +108,10 @@ winget install OpenJS.NodeJS
 pip install SuperGemini
 ```
 
-**JavaScript/Node.js Users:**
+**Development Setup:**
 ```bash
-npm install -g superclaude
+git clone https://github.com/SuperClaude-Org/SuperGemini_Framework.git
+cd SuperGemini_Framework
 ```
 
 **Development/Contributors:**
@@ -137,30 +128,30 @@ pip install -e ".[dev]"
 SuperGemini install
 ```
 The installer will:
-1. Detect your system configuration
-2. Show available components with descriptions
-3. Let you select which components to install
-4. Configure MCP servers if desired
+1. Detect your system configuration and Gemini CLI setup
+2. Show available components with descriptions (Commands, Agents, Modes, Core)
+3. Let you select which components to install interactively
+4. Configure SuperGemini framework files
 5. Create backups before making changes
 
 **Command-line Options:**
 ```bash
-SuperGemini install --components core mcp modes  # Specific components
-SuperGemini install --dry-run                    # Preview only
-SuperGemini install --force --yes                # Skip confirmations
-SuperGemini install --install-dir /custom/path   # Custom location
+SuperGemini install --components core commands agents  # Specific components
+SuperGemini install --dry-run                          # Preview only
+SuperGemini install --force --yes                      # Skip confirmations
+SuperGemini install --install-dir /custom/path         # Custom location
 ```
 
 ### During Installation 📱
 
 **Installation Steps:**
 
-1. **System Check** - Validates Python, Claude Code, permissions
+1. **System Check** - Validates Python, Gemini CLI setup, permissions
 2. **Component Discovery** - Scans available components and dependencies
 3. **User Selection** - Interactive menu for component choices
-4. **Backup Creation** - Saves existing ~/.claude configuration
-5. **File Installation** - Copies framework files with merge logic
-6. **MCP Configuration** - Sets up .claude.json for selected servers
+4. **Backup Creation** - Saves existing ~/.gemini configuration if present
+5. **File Installation** - Copies TOML commands, agents, and framework files
+6. **Configuration Setup** - Sets up SuperGemini framework configuration
 7. **Verification** - Tests installation and provides next steps
 
 **Progress Indicators:**
@@ -181,42 +172,42 @@ SuperGemini --version
 # List installed components
 SuperGemini install --list-components
 
-# Test basic functionality
-echo "Test analysis" | claude
-# Then try: /sg:analyze README.md
+# Test basic functionality with Gemini CLI
+# Try: /sg:analyze README.md
+# Try: /sg:implement user authentication
 
-# Verify MCP servers (if installed)
-ls ~/.claude/.claude.json
+# Verify SuperGemini configuration
+ls ~/.gemini/
 ```
 
 **Expected Results:**
 - ✅ Version number displays correctly
 - ✅ Components list shows installed items
-- ✅ Slash commands available in Claude Code
-- ✅ MCP servers connect successfully
+- ✅ TOML slash commands available in Gemini CLI (/sg:*)
+- ✅ SuperGemini framework configuration active
 
 ### What Got Installed 📂
 
-**Files in ~/.claude:**
+**Files in ~/.gemini:**
 ```
-~/.claude/
-├── CLAUDE.md           # Main instruction file with @imports
+~/.gemini/
+├── GEMINI.md           # Main instruction file with @imports
 ├── FLAGS.md            # Behavioral flags system
 ├── RULES.md            # Development rules
 ├── PRINCIPLES.md       # Engineering principles
 ├── MCP_*.md            # MCP server instructions
 ├── MODE_*.md           # Behavioral modes
-├── .claude.json        # MCP server configurations
+├── .gemini.json        # MCP server configurations
 └── [your files]        # Preserved customizations
 ```
 
 **Component Breakdown:**
 - **Core**: Essential framework files and behavioral instructions
-- **Commands**: 21 slash commands for workflow automation
-- **Modes**: 6 behavioral modes for different contexts
+- **Commands**: 18 TOML-based slash commands for workflow automation
+- **Modes**: 5 behavioral modes for different contexts
 - **Agents**: 13 specialized AI personas
-- **MCP**: Configuration for 6 MCP servers
-- **MCP Docs**: Documentation for MCP server usage
+- **MCP**: Optional MCP server integrations
+- **Framework**: Core TOML command structure and persona system
 
 ### First Steps 🎯
 
@@ -246,7 +237,6 @@ ls ~/.claude/.claude.json
 ```bash
 # Update core package
 pip install --upgrade SuperGemini
-# or: npm update -g superclaude
 
 # Update components
 SuperGemini update
@@ -264,7 +254,7 @@ SuperGemini install --components mcp modes --force
 
 **Automatic Backups:**
 - Created before every installation/update
-- Stored in ~/.claude.backup.YYYYMMDD_HHMMSS
+- Stored in ~/.gemini.backup.YYYYMMDD_HHMMSS
 - Include all customizations and configurations
 
 **Manual Backup Management:**
@@ -276,10 +266,10 @@ SuperGemini backup --create
 SuperGemini backup --list
 
 # Restore from backup
-SuperGemini backup --restore ~/.claude.backup.20241201_143022
+SuperGemini backup --restore ~/.gemini.backup.20241201_143022
 
 # Manual backup (alternative)
-cp -r ~/.claude ~/.claude.backup.manual
+cp -r ~/.gemini ~/.gemini.backup.manual
 ```
 
 ### Uninstallation 🗑️
@@ -294,11 +284,11 @@ pip uninstall SuperGemini
 # or: npm uninstall -g superclaude
 
 # Manual cleanup (if needed)
-rm -rf ~/.claude/FLAGS.md ~/.claude/RULES.md ~/.claude/MODE_*.md
+rm -rf ~/.gemini/FLAGS.md ~/.gemini/RULES.md ~/.gemini/MODE_*.md
 ```
 
 **What Gets Preserved:**
-- Your custom CLAUDE.md content
+- Your custom GEMINI.md content
 - Personal configuration files
 - Project-specific customizations
 - Created backups (manual removal required)
@@ -319,17 +309,17 @@ brew install python3
 winget install python
 ```
 
-**Missing Claude Code?**
-- Visit https://claude.ai/code for installation instructions
-- SuperGemini enhances Claude Code, so you need it first
+**Missing Gemini CLI?**
+- Visit Google AI Studio for Gemini CLI installation instructions
+- SuperGemini enhances Gemini CLI, so you need it first
 
-**MCP Server Requirements:**
-Some MCP servers require Node.js for optimal functionality:
-- Context7: Library documentation lookup
-- Magic: UI component generation
+**Optional MCP Servers:**
+SuperGemini includes optional MCP server integrations:
+- Context7: Library documentation (requires Node.js)
+- Magic: UI component generation (requires Node.js)
 - Sequential: Advanced reasoning
 
-Install Node.js 16+ for full MCP capabilities.
+MCP servers enhance functionality but are not required for core features.
 
 ## Troubleshooting 🔧
 
@@ -341,7 +331,7 @@ Install Node.js 16+ for full MCP capabilities.
 pip install --user SuperGemini
 
 # Or fix permissions
-sudo chown -R $USER ~/.claude
+sudo chown -R $USER ~/.gemini
 ```
 
 **Python Version Issues:**
@@ -353,9 +343,9 @@ python3 --version
 python3.9 -m pip install SuperGemini
 ```
 
-**Claude Code Not Found:**
-- Install Claude Code from https://claude.ai/code
-- Verify with: `claude --version`
+**Gemini CLI Not Found:**
+- Install Gemini CLI from Google AI Studio
+- Verify with: `gemini --version`
 - Check PATH configuration
 
 **Get Help:**
@@ -367,10 +357,10 @@ python3.9 -m pip install SuperGemini
 **Custom Installation Directory:**
 ```bash
 # Install to custom location
-SuperGemini install --install-dir /path/to/custom/claude
+SuperGemini install --install-dir /path/to/custom/gemini
 
 # Set environment variable
-export CLAUDE_CONFIG_DIR=/path/to/custom/claude
+export GEMINI_CONFIG_DIR=/path/to/custom/gemini
 SuperGemini install
 ```
 

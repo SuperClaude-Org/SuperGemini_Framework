@@ -1,27 +1,27 @@
-# SuperClaude Agents Guide 🤖
+# SuperGemini AI Personas Guide 🤖
 
 ## Overview
 
-SuperClaude employs 13 specialized AI agents that automatically activate based on task context and keywords. The intelligent routing system analyzes your requests and coordinates the most relevant domain experts for optimal results.
+SuperGemini employs 13 specialized AI personas through Gemini CLI's Persona Mode. Unlike sub-agents, the Gemini CLI directly adopts these expert roles, providing specialized knowledge and capabilities based on task context and keywords.
 
-**Automatic Activation**: Type `/sg:implement "secure user login"` and watch as the security-engineer, backend-architect, and frontend-architect agents coordinate automatically.
+**Persona Mode Activation**: Type `/sg:implement "secure user login"` and watch as Gemini CLI adopts the security-engineer persona, providing specialized security expertise directly.
 
-**Intelligent Coordination**: Multiple agents can work together on complex tasks, with each contributing their specialized expertise to different aspects of the problem.
+**Persona Intelligence**: Gemini CLI seamlessly switches between personas or combines their expertise for complex tasks, providing comprehensive domain knowledge without creating separate agents.
 
 ## 🚀 Just Try These (No Agent Knowledge Required)
 
-**Automatic Agent Examples:**
+**Persona Mode Examples:**
 ```bash
-# Triggers: security-engineer + backend-architect
+# Activates: security-engineer persona
 /sg:implement "JWT authentication with rate limiting"
 
-# Triggers: frontend-architect + ux-designer
+# Activates: frontend-architect persona
 /sg:design "responsive dashboard with accessibility"
 
-# Triggers: devops-architect + performance-engineer
+# Activates: devops-architect persona
 /sg:troubleshoot "slow deployment pipeline"
 
-# Triggers: qa-specialist + security-engineer
+# Activates: qa-specialist persona
 /sg:test "payment processing security"
 ```
 
@@ -29,13 +29,13 @@ SuperClaude employs 13 specialized AI agents that automatically activate based o
 - **Keywords**: "auth", "security" → security-engineer
 - **File types**: ".jsx", ".vue" → frontend-architect
 - **Context**: API endpoints → backend-architect
-- **Complexity**: Multi-domain tasks → Multiple agents
+- **Complexity**: Multi-domain tasks → Combined persona expertise
 
 ---
 
 ## The SuperClaude Agent Team 👥
 
-### Architecture & System Design Agents 🏗️
+### Architecture & System Design Personas 🏗️
 
 #### system-architect 🏢
 **Expertise**: Large-scale system design, microservices, distributed architectures

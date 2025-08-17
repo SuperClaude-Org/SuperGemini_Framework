@@ -2,11 +2,11 @@
 
 ## 💡 Don't Overthink It - SuperGemini Tries to Help
 
-SuperGemini provides 21 specialized commands that automatically coordinate domain experts, MCP servers, and behavioral modes based on context. The system intelligently routes tasks to appropriate specialists while maintaining a simple, discoverable interface.
+SuperGemini provides 18 TOML-based specialized commands that automatically coordinate domain experts, MCP servers, and behavioral modes based on context. The system intelligently routes tasks to appropriate specialists while maintaining a simple, discoverable interface.
 
-**Auto-Activation Philosophy**: Type `/sg:implement "user auth"` and watch as the security specialist activates, Context7 provides authentication patterns, and quality gates ensure completeness.
+**TOML Command Structure**: Each command is defined in TOML format, enabling Gemini CLI's Persona Mode where specialized agents work directly through the CLI interface.
 
-**Progressive Discovery**: Use `/sg:index` to explore commands relevant to your current context.
+**Progressive Discovery**: Use `/sg:index` to explore TOML commands relevant to your current context.
 
 ## Core Philosophy
 

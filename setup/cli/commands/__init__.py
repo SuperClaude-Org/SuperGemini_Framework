@@ -3,16 +3,7 @@ SuperGemini CLI Commands
 Individual command implementations for the CLI interface
 """
 
-from ..base import OperationBase
-from .install import InstallOperation
-from .uninstall import UninstallOperation
-from .update import UpdateOperation
-from .backup import BackupOperation
+# Don't import operations at module level to avoid circular imports
+# They will be imported dynamically when needed
 
-__all__ = [
-    'OperationBase',
-    'InstallOperation',
-    'UninstallOperation', 
-    'UpdateOperation',
-    'BackupOperation'
-]
+__all__ = []
