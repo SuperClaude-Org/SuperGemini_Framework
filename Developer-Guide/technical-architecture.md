@@ -1,16 +1,16 @@
-# SuperGemini Technical Architecture Guide 🏗️
+# SuperClaude Technical Architecture Guide 🏗️
 
 ## Overview
 
-This technical architecture guide documents SuperGemini Framework's V4 orchestrator system - a sophisticated meta-programming framework that transforms Claude Code into a structured development platform through behavioral instruction injection and intelligent component orchestration.
+This technical architecture guide documents SuperClaude Framework's V4 orchestrator system - a sophisticated meta-programming framework that transforms Claude Code into a structured development platform through behavioral instruction injection and intelligent component orchestration.
 
-**Target Audience**: Framework developers, system architects, contributors, and advanced users requiring deep technical understanding of SuperGemini's internal architecture and extension patterns.
+**Target Audience**: Framework developers, system architects, contributors, and advanced users requiring deep technical understanding of SuperClaude's internal architecture and extension patterns.
 
-**Architecture Philosophy**: SuperGemini operates as a **meta-framework** that enhances Claude Code through configuration-driven behavioral programming, intelligent task routing, and dynamic tool coordination rather than replacing core functionality.
+**Architecture Philosophy**: SuperClaude operates as a **meta-framework** that enhances Claude Code through configuration-driven behavioral programming, intelligent task routing, and dynamic tool coordination rather than replacing core functionality.
 
 ## Table of Contents
 
-**For Screen Readers**: This document contains 14 main sections covering SuperGemini Framework architecture. Use heading navigation to jump between sections. Complex architectural diagrams are accompanied by detailed text descriptions.
+**For Screen Readers**: This document contains 14 main sections covering SuperClaude Framework architecture. Use heading navigation to jump between sections. Complex architectural diagrams are accompanied by detailed text descriptions.
 
 1. [Architecture Overview](#architecture-overview) - Multi-layered orchestration pattern with visual diagrams
 2. [Detection Engine](#detection-engine) - Intelligent task classification and context analysis
@@ -43,7 +43,7 @@ This technical architecture guide documents SuperGemini Framework's V4 orchestra
 
 ### System Design Principles
 
-**Meta-Framework Architecture**: SuperGemini enhances Claude Code through instruction injection rather than code modification, maintaining compatibility while adding sophisticated orchestration capabilities.
+**Meta-Framework Architecture**: SuperClaude enhances Claude Code through instruction injection rather than code modification, maintaining compatibility while adding sophisticated orchestration capabilities.
 
 **Configuration-Driven Behavior**: Behavioral programming through structured `.md` files enables AI behavior modification without code changes, providing unprecedented flexibility in AI system customization.
 
@@ -68,15 +68,15 @@ This technical architecture guide documents SuperGemini Framework's V4 orchestra
 
 ### System Overview Architecture
 
-**Accessibility Description**: This diagram shows SuperGemini Framework's five-layer architecture flowing top to bottom. The User Interaction Layer receives natural language inputs, slash commands, and flag modifiers. The Detection & Routing Engine analyzes context, matches patterns, and scores complexity. The Orchestration Layer handles agent selection, MCP activation, and mode control. The Execution Framework manages tasks, quality gates, and session memory. The Foundation Layer contains Claude Code base, configuration system, and MCP integration.
+**Accessibility Description**: This diagram shows SuperClaude Framework's five-layer architecture flowing top to bottom. The User Interaction Layer receives natural language inputs, slash commands, and flag modifiers. The Detection & Routing Engine analyzes context, matches patterns, and scores complexity. The Orchestration Layer handles agent selection, MCP activation, and mode control. The Execution Framework manages tasks, quality gates, and session memory. The Foundation Layer contains Claude Code base, configuration system, and MCP integration.
 
 ```
-                        SuperGemini Framework V4 Architecture
+                        SuperClaude Framework V4 Architecture
 
 ┌──────────────────── USER INTERACTION LAYER ────────────────────┐
 │ Natural Language Input  │  Slash Commands    │   Flag Modifiers │
-│ "build auth system"     │  /sg:load project  │   --think-hard   │
-│ "optimize performance"  │  /sg:save state    │   --uc --delegate│
+│ "build auth system"     │  /sc:load project  │   --think-hard   │
+│ "optimize performance"  │  /sc:save state    │   --uc --delegate│
 └─────────────────────────┬───────────────────────────────────────┘
                           │
 ┌──────────────────── DETECTION & ROUTING ENGINE ────────────────┐
@@ -97,9 +97,9 @@ This technical architecture guide documents SuperGemini Framework's V4 orchestra
                           │
 ┌──────────────────── EXECUTION FRAMEWORK ────────────────────────┐
 │ ┌─ Task Management ─┐ ┌─ Quality Gates ──┐ ┌─ Session Memory ──┐│
-│ │• TodoWrite system │ │• Pre-execution   │ │• /sg:load state   ││
+│ │• TodoWrite system │ │• Pre-execution   │ │• /sc:load state   ││
 │ │• Progress track   │ │• Real-time check │ │• Context persist  ││
-│ │• Agent coordinate │ │• Post-validation │ │• /sg:save results ││
+│ │• Agent coordinate │ │• Post-validation │ │• /sc:save results ││
 │ └───────────────────┘ └──────────────────┘ └───────────────────┘│
 └─────────────────────────┬───────────────────────────────────────┘
                           │
@@ -114,10 +114,10 @@ This technical architecture guide documents SuperGemini Framework's V4 orchestra
 
 ### Agent Coordination Flow Diagram
 
-**Accessibility Description**: This flowchart shows how SuperGemini coordinates multiple agents for complex tasks. It flows top to bottom through four stages: Task Input (example authentication task), Detection Engine (analyzes triggers and complexity), Agent Selection (selects four agents based on complexity and domain), and Coordination Pattern (shows how four agents collaborate with the system-architect as strategic lead, security-engineer as critical reviewer, backend-architect as implementation expert, and performance-engineer as optimization specialist, all feeding into collaborative synthesis).
+**Accessibility Description**: This flowchart shows how SuperClaude coordinates multiple agents for complex tasks. It flows top to bottom through four stages: Task Input (example authentication task), Detection Engine (analyzes triggers and complexity), Agent Selection (selects four agents based on complexity and domain), and Coordination Pattern (shows how four agents collaborate with the system-architect as strategic lead, security-engineer as critical reviewer, backend-architect as implementation expert, and performance-engineer as optimization specialist, all feeding into collaborative synthesis).
 
 ```
-        SuperGemini V4 Agent Coordination Architecture
+        SuperClaude V4 Agent Coordination Architecture
 
 ┌─ TASK INPUT ─────────────────────────────────────────────────────┐
 │ "Implement secure authentication with performance optimization"   │
@@ -179,7 +179,7 @@ This technical architecture guide documents SuperGemini Framework's V4 orchestra
 ### MCP Integration Architecture
 
 ```
-        SuperGemini MCP Server Integration Architecture
+        SuperClaude MCP Server Integration Architecture
 
 ┌─ CLAUDE CODE CORE ──────────────────────────────────────────────┐
 │ Native Tools: Read, Write, Edit, Bash, LS, Grep, Glob          │
@@ -260,7 +260,7 @@ This technical architecture guide documents SuperGemini Framework's V4 orchestra
 ### Intelligent Task Classification
 
 **Context Analysis Configuration:**
-SuperGemini's detection engine operates through structured markdown configuration files that define trigger patterns and routing logic:
+SuperClaude's detection engine operates through structured markdown configuration files that define trigger patterns and routing logic:
 
 ```markdown
 # Pattern Recognition Configuration (RULES.md)
@@ -659,7 +659,7 @@ class TestingFramework:
 
 **🎯 Skill Level: Intermediate to Advanced**
 
-Systematic performance evaluation framework for SuperGemini Framework components and integrations:
+Systematic performance evaluation framework for SuperClaude Framework components and integrations:
 
 #### Benchmarking Framework Architecture
 
@@ -966,7 +966,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 class ScalabilityTester:
-    """Framework for testing SuperGemini Framework scalability"""
+    """Framework for testing SuperClaude Framework scalability"""
     
     def __init__(self, test_name: str):
         self.test_name = test_name
@@ -1012,9 +1012,9 @@ class ScalabilityTester:
     
     async def _create_test_workflow(self, workflow_id: int):
         """Create a representative test workflow"""
-        from setup.core.orchestrator import SuperGeminiOrchestrator
+        from setup.core.orchestrator import SuperClaudeOrchestrator
         
-        orchestrator = SuperGeminiOrchestrator()
+        orchestrator = SuperClaudeOrchestrator()
         
         # Simulate typical workflow
         test_task = {
@@ -1550,7 +1550,7 @@ MORPHLLM_MCP:
 
 SERENA_MCP:
 - Purpose: Semantic code understanding with project memory and LSP integration
-- Triggers: symbol operations, /sg:load, /sg:save, large codebase navigation
+- Triggers: symbol operations, /sc:load, /sc:save, large codebase navigation
 - Choose Over: Morphllm for symbol operations and dependency tracking
 - Integration: Serena → Sequential (project context + architectural analysis)
 ```
@@ -1800,7 +1800,7 @@ class BackupManager:
 **Component Extension Framework:**
 ```python
 class BaseComponent:
-    """Base class for all SuperGemini components"""
+    """Base class for all SuperClaude components"""
     
     def get_metadata(self):
         """Return component metadata including dependencies"""
@@ -2018,7 +2018,7 @@ class CustomCommandExtension:
         
     def register_command(self):
         command_registry = CommandRegistry()
-        command_registry.register_command(f'/sg:{self.command_name}', {
+        command_registry.register_command(f'/sc:{self.command_name}', {
             'handler': self.command_config['handler'],
             'description': self.command_config['description'],
             'flags': self.command_config.get('flags', []),
@@ -2045,9 +2045,9 @@ validate_command = CustomCommandExtension('validate', {
     'handler': 'ValidationCommandHandler',
     'description': 'Multi-layer validation including security, performance, and quality',
     'usage': [
-        '/sg:validate codebase/',
-        '/sg:validate --focus security auth-system/',
-        '/sg:validate --comprehensive --report project/'
+        '/sc:validate codebase/',
+        '/sc:validate --focus security auth-system/',
+        '/sc:validate --comprehensive --report project/'
     ],
     'flags': ['focus', 'comprehensive', 'report', 'fix'],
     'capabilities': ['code_analysis', 'security_scanning', 'performance_testing'],
@@ -2074,7 +2074,7 @@ Complete API reference with request/response examples and integration patterns:
 # API: setup.core.component_manager.ComponentManager
 
 class ComponentManager:
-    """Primary interface for managing SuperGemini Framework components"""
+    """Primary interface for managing SuperClaude Framework components"""
     
     def install_component(self, component_id: str, options: InstallOptions) -> InstallResult:
         """
@@ -2309,9 +2309,9 @@ class MCPManager:
 
 **Orchestration API:**
 ```python
-# API: setup.core.orchestrator.SuperGeminiOrchestrator
+# API: setup.core.orchestrator.SuperClaudeOrchestrator
 
-class SuperGeminiOrchestrator:
+class SuperClaudeOrchestrator:
     """Central orchestration engine for complex multi-component tasks"""
     
     def execute_workflow(self, workflow: WorkflowDefinition) -> WorkflowResult:
@@ -2325,7 +2325,7 @@ class SuperGeminiOrchestrator:
             WorkflowResult with execution status, outputs, and performance metrics
             
         Example:
-            >>> orchestrator = SuperGeminiOrchestrator()
+            >>> orchestrator = SuperClaudeOrchestrator()
             >>> workflow = WorkflowDefinition(
             ...     name="secure_api_development",
             ...     description="Design and implement secure REST API",
@@ -2531,8 +2531,8 @@ class MCPResponse:
 ```python
 # Exception classes for API error handling
 
-class SuperGeminiException(Exception):
-    """Base exception for all SuperGemini Framework errors"""
+class SuperClaudeException(Exception):
+    """Base exception for all SuperClaude Framework errors"""
     
     def __init__(self, message: str, error_code: str = None, context: Dict = None):
         super().__init__(message)
@@ -2540,16 +2540,16 @@ class SuperGeminiException(Exception):
         self.context = context or {}
         self.timestamp = datetime.now()
 
-class ComponentInstallationError(SuperGeminiException):
+class ComponentInstallationError(SuperClaudeException):
     """Raised when component installation fails"""
     
-class AgentCoordinationError(SuperGeminiException):
+class AgentCoordinationError(SuperClaudeException):
     """Raised when agent coordination fails"""
     
-class MCPConnectionError(SuperGeminiException):
+class MCPConnectionError(SuperClaudeException):
     """Raised when MCP server connection fails"""
     
-class ValidationError(SuperGeminiException):
+class ValidationError(SuperClaudeException):
     """Raised when validation criteria are not met"""
 
 # Usage example with error handling
@@ -2565,7 +2565,7 @@ except ComponentInstallationError as e:
     print(f"Installation error [{e.error_code}]: {e}")
     print(f"Context: {e.context}")
     # Handle specific installation errors
-except SuperGeminiException as e:
+except SuperClaudeException as e:
     print(f"Framework error: {e}")
     # Handle general framework errors
 except Exception as e:
@@ -2580,13 +2580,13 @@ except Exception as e:
 # Example: Complete integration workflow for custom development
 
 async def implement_secure_feature(feature_description: str, security_requirements: Dict):
-    """Complete example of SuperGemini Framework integration"""
+    """Complete example of SuperClaude Framework integration"""
     
     # Initialize framework components
     component_manager = ComponentManager()
     agent_manager = AgentManager()
     mcp_manager = MCPManager()
-    orchestrator = SuperGeminiOrchestrator()
+    orchestrator = SuperClaudeOrchestrator()
     quality_manager = QualityManager()
     
     try:
@@ -2694,7 +2694,7 @@ async def implement_secure_feature(feature_description: str, security_requiremen
             'recommendations': validation_result.recommendations
         }
         
-    except SuperGeminiException as e:
+    except SuperClaudeException as e:
         print(f"Framework error during implementation: {e}")
         return {'success': False, 'error': str(e), 'error_code': e.error_code}
     
@@ -2828,7 +2828,7 @@ class PluginManager:
             return PluginLoadResult.DEPENDENCY_ERROR
 
 class Plugin:
-    """Base class for SuperGemini plugins"""
+    """Base class for SuperClaude plugins"""
     
     def get_manifest(self) -> PluginManifest:
         """Return plugin metadata and capabilities"""
@@ -2974,7 +2974,7 @@ class ErrorRecoveryManager:
 
 ### Technical Innovation Summary
 
-SuperGemini Framework V4 represents a paradigm shift in AI system architecture through its configuration-driven behavioral programming approach. Key technical innovations include:
+SuperClaude Framework V4 represents a paradigm shift in AI system architecture through its configuration-driven behavioral programming approach. Key technical innovations include:
 
 **Meta-Framework Design**: Enhancement of Claude Code through instruction injection rather than code modification, maintaining full compatibility while adding sophisticated orchestration capabilities.
 
@@ -3013,19 +3013,19 @@ SuperGemini Framework V4 represents a paradigm shift in AI system architecture t
 **Advanced Security**: Enhanced threat detection and response automation
 **Cross-Platform Expansion**: Architecture patterns for other AI development environments
 
-This technical architecture establishes SuperGemini as a production-ready meta-framework for advanced AI system orchestration, providing both immediate utility and a foundation for future innovation in AI development tooling.
+This technical architecture establishes SuperClaude as a production-ready meta-framework for advanced AI system orchestration, providing both immediate utility and a foundation for future innovation in AI development tooling.
 
 ---
 
 ## Architecture Glossary
 
-**For Screen Readers**: This glossary contains alphabetically ordered architectural and technical terms specific to SuperGemini Framework's system design. Each term includes detailed technical definitions and system context.
+**For Screen Readers**: This glossary contains alphabetically ordered architectural and technical terms specific to SuperClaude Framework's system design. Each term includes detailed technical definitions and system context.
 
 ### A
 
 **Agent Coordination Protocol**: The communication and collaboration framework that enables multiple specialized AI agents to work together on complex tasks, including role assignment, authority hierarchies, and consensus mechanisms.
 
-**Architectural Patterns**: Established design patterns used throughout SuperGemini including meta-framework injection, orchestration layers, detection engines, and plugin architectures.
+**Architectural Patterns**: Established design patterns used throughout SuperClaude including meta-framework injection, orchestration layers, detection engines, and plugin architectures.
 
 **Auto-Activation System**: Intelligent trigger system that automatically activates appropriate agents, MCP servers, and behavioral modes based on context analysis and pattern matching.
 
@@ -3063,7 +3063,7 @@ This technical architecture establishes SuperGemini as a production-ready meta-f
 
 **Foundation Layer**: Base system layer containing Claude Code integration, configuration management, and MCP protocol handling that provides core capabilities for higher-level orchestration.
 
-**Framework Meta-Architecture**: Overall design approach where SuperGemini functions as an enhancement layer for Claude Code rather than a replacement, maintaining compatibility while adding orchestration.
+**Framework Meta-Architecture**: Overall design approach where SuperClaude functions as an enhancement layer for Claude Code rather than a replacement, maintaining compatibility while adding orchestration.
 
 ### I
 
@@ -3075,7 +3075,7 @@ This technical architecture establishes SuperGemini as a production-ready meta-f
 
 **MCP Protocol Integration**: Implementation of Model Context Protocol for external tool coordination, including connection management, health monitoring, and error recovery for enhanced capabilities.
 
-**Meta-Framework Design**: Architectural approach where SuperGemini enhances existing AI systems through instruction injection and orchestration rather than replacing core functionality.
+**Meta-Framework Design**: Architectural approach where SuperClaude enhances existing AI systems through instruction injection and orchestration rather than replacing core functionality.
 
 **Multi-Agent Orchestration**: Coordination system that manages simultaneous activation and collaboration of multiple specialized AI agents with defined roles, authorities, and communication patterns.
 
@@ -3119,7 +3119,7 @@ This technical architecture establishes SuperGemini as a production-ready meta-f
 
 ### V
 
-**V4 Architecture**: Current SuperGemini Framework version featuring 13 specialized agents, 6 MCP servers, 5 behavioral modes, enhanced orchestration capabilities, and production-ready stability.
+**V4 Architecture**: Current SuperClaude Framework version featuring 13 specialized agents, 6 MCP servers, 5 behavioral modes, enhanced orchestration capabilities, and production-ready stability.
 
 **Validation Framework**: Comprehensive system for ensuring framework reliability including component validation, integration testing, performance benchmarking, and security verification.
 

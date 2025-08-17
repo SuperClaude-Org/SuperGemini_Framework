@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 """
-SuperGemini Framework Management Hub
-Unified entry point for all SuperGemini operations
+SuperClaude Framework Management Hub
+Unified entry point for all SuperClaude operations
 
 Usage:
-    SuperGemini install [options]
-    SuperGemini update [options]
-    SuperGemini uninstall [options]
-    SuperGemini backup [options]
-    SuperGemini --help
+    SuperClaude install [options]
+    SuperClaude update [options]
+    SuperClaude uninstall [options]
+    SuperClaude backup [options]
+    SuperClaude --help
 """
 
 import sys
@@ -18,20 +18,34 @@ import difflib
 from pathlib import Path
 from typing import Dict, Callable
 
-# Add the 'setup' directory to the Python import path (with deprecation-safe logic)
+# Add the 'setup' directory to the Python import path (modern approach)
 
 try:
-    # Python 3.9+ preferred modern way
+    # Python 3.9+ preferred way
     from importlib.resources import files, as_file
     with as_file(files("setup")) as resource:
         setup_dir = str(resource)
+        sys.path.insert(0, setup_dir)
 except (ImportError, ModuleNotFoundError, AttributeError):
-    # Fallback for Python < 3.9
-    from pkg_resources import resource_filename
-    setup_dir = resource_filename('setup', '')
-
-# Add to sys.path
-sys.path.insert(0, str(setup_dir))
+    # Fallback: try to locate setup relative to this file
+    try:
+        current_dir = Path(__file__).parent
+        project_root = current_dir.parent
+        setup_dir = project_root / "setup"
+        if setup_dir.exists():
+            sys.path.insert(0, str(setup_dir))
+        else:
+            # Last resort: try pkg_resources if available
+            try:
+                from pkg_resources import resource_filename
+                setup_dir = resource_filename('setup', '')
+                sys.path.insert(0, str(setup_dir))
+            except ImportError:
+                # If all else fails, setup directory should be relative to this file
+                sys.path.insert(0, str(project_root / "setup"))
+    except Exception as e:
+        print(f"Warning: Could not locate setup directory: {e}")
+        # Continue anyway, imports might still work
 
 
 # Try to import utilities from the setup package
@@ -85,19 +99,19 @@ def create_parser():
     global_parser = create_global_parser()
 
     parser = argparse.ArgumentParser(
-        prog="SuperGemini",
-        description="SuperGemini Framework Management Hub - Unified CLI",
+        prog="SuperClaude",
+        description="SuperClaude Framework Management Hub - Unified CLI",
         epilog="""
 Examples:
-  SuperGemini install --dry-run
-  SuperGemini update --verbose
-  SuperGemini backup --create
+  SuperClaude install --dry-run
+  SuperClaude update --verbose
+  SuperClaude backup --create
         """,
         formatter_class=argparse.RawDescriptionHelpFormatter,
         parents=[global_parser]
     )
 
-    parser.add_argument("--version", action="version", version="SuperGemini 4.0.0-beta")
+    parser.add_argument("--version", action="version", version="SuperClaude 4.0.0")
 
     subparsers = parser.add_subparsers(
         dest="operation",
@@ -125,16 +139,16 @@ def setup_global_environment(args: argparse.Namespace):
     # Log startup context
     logger = get_logger()
     if logger:
-        logger.debug(f"SuperGemini called with operation: {getattr(args, 'operation', 'None')}")
+        logger.debug(f"SuperClaude called with operation: {getattr(args, 'operation', 'None')}")
         logger.debug(f"Arguments: {vars(args)}")
 
 
 def get_operation_modules() -> Dict[str, str]:
     """Return supported operations and their descriptions"""
     return {
-        "install": "Install SuperGemini framework components",
-        "update": "Update existing SuperGemini installation",
-        "uninstall": "Remove SuperGemini installation",
+        "install": "Install SuperClaude framework components",
+        "update": "Update existing SuperClaude installation",
+        "uninstall": "Remove SuperClaude installation",
         "backup": "Backup and restore operations"
     }
 
@@ -205,7 +219,7 @@ def main() -> int:
         # No operation provided? Show help manually unless in quiet mode
         if not args.operation:
             if not args.quiet:
-                display_header("SuperGemini Framework v4.0.0-beta", "Unified CLI for all operations")
+                display_header("SuperClaude Framework v4.0.0-beta", "Unified CLI for all operations")
                 print(f"{Colors.CYAN}Available operations:{Colors.RESET}")
                 for op, desc in get_operation_modules().items():
                     print(f"  {op:<12} {desc}")

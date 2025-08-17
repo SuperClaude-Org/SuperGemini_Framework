@@ -1,8 +1,8 @@
-# Testing & Debugging SuperGemini Framework
+# Testing & Debugging SuperClaude Framework
 
-This guide provides comprehensive testing and debugging strategies for SuperGemini Framework development. Whether you're contributing components, fixing bugs, or optimizing performance, these techniques will help you build robust, reliable code.
+This guide provides comprehensive testing and debugging strategies for SuperClaude Framework development. Whether you're contributing components, fixing bugs, or optimizing performance, these techniques will help you build robust, reliable code.
 
-**Developer-Focused Approach**: Testing and debugging strategies specifically designed for the meta-framework architecture, component system, and intelligent orchestration patterns unique to SuperGemini.
+**Developer-Focused Approach**: Testing and debugging strategies specifically designed for the meta-framework architecture, component system, and intelligent orchestration patterns unique to SuperClaude.
 
 ## Table of Contents
 
@@ -11,7 +11,7 @@ This guide provides comprehensive testing and debugging strategies for SuperGemi
 1. [Quick Start Testing Tutorial](#quick-start-testing-tutorial) - Get started with basic testing
 2. [Testing Environment Setup](#testing-environment-setup) - Comprehensive test configuration
 3. [Testing Framework](#testing-framework) - Development testing procedures and standards
-4. [Debugging SuperGemini Components](#debugging-superclaude-components) - Component-specific debugging
+4. [Debugging SuperClaude Components](#debugging-superclaude-components) - Component-specific debugging
 5. [Performance Testing & Optimization](#performance-testing--optimization) - Benchmarking and profiling
 6. [Security Testing](#security-testing) - Security validation and vulnerability testing
 7. [Integration Testing](#integration-testing) - End-to-end workflow validation
@@ -59,13 +59,13 @@ import os
 from pathlib import Path
 from unittest.mock import Mock, patch
 
-# Import SuperGemini components
+# Import SuperClaude components
 from setup.components.base import BaseComponent
 from setup.core.registry import ComponentRegistry
 from setup.services.session_manager import SessionManager
 
 class TestBasicSetup:
-    """Basic SuperGemini component testing example"""
+    """Basic SuperClaude component testing example"""
     
     def setup_method(self):
         """Set up test environment before each test"""
@@ -469,7 +469,7 @@ import os
 from pathlib import Path
 from unittest.mock import Mock, patch
 
-# SuperGemini imports
+# SuperClaude imports
 from setup.components.base import BaseComponent
 from setup.components.core import CoreComponent
 from setup.core.registry import ComponentRegistry
@@ -534,7 +534,7 @@ class TestComponentSystem:
         assert hasattr(component, 'install'), "Component missing install method"
 ```
 
-## Debugging SuperGemini Components
+## Debugging SuperClaude Components
 
 > **🏗️ Architecture Context**: Understanding component architecture is essential for effective debugging. Review [Technical Architecture Guide](technical-architecture.md) for system architecture details.
 
@@ -697,8 +697,8 @@ mkdir -p ~/.claude/logs
 # Run with agent tracing (corrected command)
 python -m setup.main install --debug-agents --dry-run --verbose
 
-# Alternative: Use SuperGemini CLI if installed
-SuperGemini install core --debug --trace-agents --dry-run
+# Alternative: Use SuperClaude CLI if installed
+SuperClaude install core --debug --trace-agents --dry-run
 
 # Monitor agent activation in real-time
 tail -f ~/.claude/logs/superclaude-debug.log | grep -E "(AGENT|COORDINATION)"
@@ -1242,7 +1242,7 @@ class MCPDebugger:
         else:
             health_status['overall'] = 'inactive'
             health_status['issues'].append('Server not in active connections')
-            health_status['recommendations'].append(f'Try: SuperGemini install {server_name}')
+            health_status['recommendations'].append(f'Try: SuperClaude install {server_name}')
             
         return health_status
         
@@ -1426,7 +1426,7 @@ which npx
 netstat -tlnp | grep :300[1-6]
 
 # 5. Reset MCP configuration
-SuperGemini install mcp --force --reset
+SuperClaude install mcp --force --reset
 ```
 
 **Issue: Agent System Not Activating**
@@ -1597,7 +1597,7 @@ def diagnose_memory_issues():
     for obj_type, count in top_objects:
         print(f"  {obj_type}: {count}")
     
-    # Check SuperGemini specific memory usage
+    # Check SuperClaude specific memory usage
     try:
         session_manager = SessionManager()
         active_sessions = session_manager.get_active_sessions()
@@ -1608,7 +1608,7 @@ def diagnose_memory_issues():
         print(f"Loaded Components: {len(loaded_components)}")
         
     except Exception as e:
-        print(f"SuperGemini memory check failed: {e}")
+        print(f"SuperClaude memory check failed: {e}")
     
     # Memory leak detection
     gc.set_debug(gc.DEBUG_LEAK)
@@ -1762,14 +1762,14 @@ class ComprehensiveDebugger:
         # Agent system recommendations
         agent_health = diagnosis_results['components']['agents']['overall_health']
         if agent_health != 'healthy':
-            recommendations.append("Reinstall agent components: SuperGemini install agents --force")
+            recommendations.append("Reinstall agent components: SuperClaude install agents --force")
             recommendations.append("Check agent trigger keywords in ~/.claude/AGENT_*.md files")
             
         # MCP system recommendations
         mcp_health = diagnosis_results['components']['mcp']['overall_health']
         if mcp_health != 'healthy':
             recommendations.append("Check Node.js version: node --version (requires 16+)")
-            recommendations.append("Reinstall MCP servers: SuperGemini install mcp --force")
+            recommendations.append("Reinstall MCP servers: SuperClaude install mcp --force")
             recommendations.append("Check MCP server logs: ~/.claude/logs/mcp-*.log")
             
         # General recommendations
@@ -2204,9 +2204,9 @@ class MemoryDebugger:
         print(f"  Process memory: {process_memory['rss_mb']:.1f} MB RSS, {process_memory['vms_mb']:.1f} MB VMS")
         memory_report['process'] = process_memory
         
-        # SuperGemini specific memory
+        # SuperClaude specific memory
         sc_memory = self._get_superclaude_memory()
-        print(f"  SuperGemini components: {sc_memory['total_mb']:.1f} MB")
+        print(f"  SuperClaude components: {sc_memory['total_mb']:.1f} MB")
         memory_report['superclaude'] = sc_memory
         
         # Session memory breakdown
@@ -2259,7 +2259,7 @@ class MemoryDebugger:
             return {'error': str(e)}
             
     def _get_superclaude_memory(self) -> Dict[str, Any]:
-        """Get SuperGemini specific memory usage"""
+        """Get SuperClaude specific memory usage"""
         try:
             total_size = 0
             component_sizes = {}
@@ -2615,12 +2615,12 @@ class AgentSystem:
 
 **🎯 Skill Level: Advanced**
 
-Systematic chaos engineering framework for testing SuperGemini Framework resilience and fault tolerance:
+Systematic chaos engineering framework for testing SuperClaude Framework resilience and fault tolerance:
 
 ### Chaos Engineering Framework
 
 **Chaos Testing Philosophy:**
-SuperGemini Framework operates in complex environments with multiple failure modes. Chaos engineering proactively tests system resilience by intentionally introducing controlled failures.
+SuperClaude Framework operates in complex environments with multiple failure modes. Chaos engineering proactively tests system resilience by intentionally introducing controlled failures.
 
 ```python
 # chaos/framework/chaos_engine.py
@@ -2819,8 +2819,8 @@ from hypothesis import given, strategies as st, settings, example
 from hypothesis.stateful import RuleBasedStateMachine, rule, invariant
 import pytest
 
-class SuperGeminiPropertyTests:
-    """Property-based tests for SuperGemini Framework invariants"""
+class SuperClaudePropertyTests:
+    """Property-based tests for SuperClaude Framework invariants"""
     
     @given(component_ids=st.lists(
         st.sampled_from(['core', 'mcp', 'agents', 'modes']),
@@ -3401,10 +3401,10 @@ class TestCrossPlatformIntegration:
     def test_installation_cross_platform(self, platform):
         """Test installation across different platforms"""
         if platform == "windows":
-            expected_executable = "SuperGemini.exe"
+            expected_executable = "SuperClaude.exe"
             path_separator = "\"
         else:
-            expected_executable = "SuperGemini"
+            expected_executable = "SuperClaude"
             path_separator = "/"
         
         # Platform-specific installation
@@ -3429,22 +3429,22 @@ class TestCrossPlatformIntegration:
 
 ### Built-in Debugging Tools
 
-**SuperGemini Debug Command:**
+**SuperClaude Debug Command:**
 ```bash
 # Comprehensive system diagnostics
-SuperGemini debug --comprehensive
+SuperClaude debug --comprehensive
 
 # Component-specific debugging
-SuperGemini debug --components agents,mcp
+SuperClaude debug --components agents,mcp
 
 # Performance debugging
-SuperGemini debug --performance --memory
+SuperClaude debug --performance --memory
 
 # Session debugging
-SuperGemini debug --sessions --verbose
+SuperClaude debug --sessions --verbose
 
 # MCP server debugging
-SuperGemini debug --mcp-servers --trace
+SuperClaude debug --mcp-servers --trace
 ```
 
 **Debug Environment Variables:**
@@ -3575,7 +3575,7 @@ report = debugger.generate_debug_report()
 **Log Analysis Tools:**
 ```python
 class LogAnalyzer:
-    """Analyze SuperGemini logs for issues and patterns"""
+    """Analyze SuperClaude logs for issues and patterns"""
     
     def analyze_installation_logs(self, log_file):
         """Analyze installation logs for failures"""
@@ -3634,7 +3634,7 @@ metrics = analyzer.extract_performance_metrics('~/.claude/logs/performance.log')
 ERROR: Component 'mcp' requires 'core' but it's not installed
 
 # Solution: Install in dependency order
-SuperGemini install --components core mcp --resolve-dependencies
+SuperClaude install --components core mcp --resolve-dependencies
 
 # Issue: Permission denied during installation
 ERROR: Permission denied: '/home/user/.claude/CLAUDE.md'
@@ -3654,7 +3654,7 @@ node --version  # Should be 16+
 which context7  # Verify installation path
 
 # Solution: Reinstall MCP servers
-SuperGemini install --components mcp --force
+SuperClaude install --components mcp --force
 npm install -g @context7/mcp-server
 ```
 
@@ -3823,7 +3823,7 @@ print(f"Response expectation: {classifier.SEVERITY_LEVELS[severity]['response_ti
 **Development Support Workflow:**
 ```bash
 # Step 1: Self-diagnosis
-SuperGemini debug --comprehensive > debug-report.txt
+SuperClaude debug --comprehensive > debug-report.txt
 
 # Step 2: Check common issues
 python -c "
@@ -3835,12 +3835,12 @@ for solution in solutions:
 "
 
 # Step 3: Community support
-# Search existing issues: https://github.com/SuperClaude-Org/SuperGemini_Framework/issues
-# Join discussions: https://github.com/SuperClaude-Org/SuperGemini_Framework/discussions
+# Search existing issues: https://github.com/SuperClaude-Org/SuperClaude_Framework/issues
+# Join discussions: https://github.com/SuperClaude-Org/SuperClaude_Framework/discussions
 
 # Step 4: Create detailed issue report
 # Include:
-# - SuperGemini version: SuperGemini --version
+# - SuperClaude version: SuperClaude --version
 # - System info: uname -a
 # - Python version: python --version  
 # - Debug report: debug-report.txt
@@ -3861,7 +3861,7 @@ import memory_profiler
 from pytest import benchmark
 
 class TestPerformance:
-    """Performance testing suite for SuperGemini components"""
+    """Performance testing suite for SuperClaude components"""
     
     @memory_profiler.profile
     def test_memory_usage_component_installation(self):
@@ -3925,7 +3925,7 @@ def test_concurrent_installations():
 **Security Test Categories:**
 ```python
 class SecurityTestSuite:
-    """Comprehensive security testing for SuperGemini components"""
+    """Comprehensive security testing for SuperClaude components"""
     
     def test_input_validation(self):
         """Test input sanitization and validation"""
@@ -3963,7 +3963,7 @@ class SecurityTestSuite:
 pip install bandit safety pip-audit
 
 # Run security scans
-python -m bandit -r setup/ SuperGemini/
+python -m bandit -r setup/ SuperClaude/
 python -m safety check
 python -m pip-audit
 
@@ -3985,7 +3985,7 @@ class TestSystemIntegration:
     def test_complete_development_workflow(self):
         """Test complete development workflow end-to-end"""
         # 1. Initialize system
-        system = SuperGeminiFramework()
+        system = SuperClaudeFramework()
         system.initialize()
         
         # 2. Install components
@@ -4325,7 +4325,7 @@ else:
 class HumanReviewGuidelines:
     REVIEW_CHECKLIST = {
         'architecture': [
-            'Does the component follow SuperGemini patterns?',
+            'Does the component follow SuperClaude patterns?',
             'Is the component properly integrated with the registry?',
             'Are dependencies clearly defined and minimal?',
             'Does it follow the single responsibility principle?'
@@ -4598,7 +4598,7 @@ from pathlib import Path
 
 @pytest.fixture(scope="session")
 def test_environment():
-    """Set up test environment for SuperGemini testing"""
+    """Set up test environment for SuperClaude testing"""
     test_dir = Path(tempfile.mkdtemp(prefix="superclaude_test_"))
     
     # Setup test configuration
@@ -4633,7 +4633,7 @@ def mock_mcp_servers():
 **CI/CD Integration:**
 ```yaml
 # .github/workflows/test.yml
-name: SuperGemini Tests
+name: SuperClaude Tests
 
 on: [push, pull_request]
 
@@ -4671,8 +4671,8 @@ jobs:
 ### Community Resources
 
 **Development Community:**
-- [GitHub Discussions](https://github.com/SuperClaude-Org/SuperGemini_Framework/discussions) - Technical discussions
-- [GitHub Issues](https://github.com/SuperClaude-Org/SuperGemini_Framework/issues) - Bug reports and feature requests
+- [GitHub Discussions](https://github.com/SuperClaude-Org/SuperClaude_Framework/discussions) - Technical discussions
+- [GitHub Issues](https://github.com/SuperClaude-Org/SuperClaude_Framework/issues) - Bug reports and feature requests
 - [Contributing Guidelines](../CONTRIBUTING.md) - Contribution process
 
 **Learning Resources:**
@@ -4683,7 +4683,7 @@ jobs:
 **Advanced Topics:**
 - [Session Management](../User-Guide/session-management.md) - Persistent workflows
 - [Flags Guide](../User-Guide/flags.md) - Behavioral control
-- [Technical Roadmap](https://github.com/SuperClaude-Org/SuperGemini_Framework/projects) - Future development
+- [Technical Roadmap](https://github.com/SuperClaude-Org/SuperClaude_Framework/projects) - Future development
 
 ---
 
@@ -4694,11 +4694,11 @@ For testing and debugging assistance, join our community discussions or create a
 
 ## Testing Glossary
 
-**For Screen Readers**: This glossary contains alphabetically ordered testing and debugging terms specific to SuperGemini Framework development. Each term includes practical definitions and framework-specific context.
+**For Screen Readers**: This glossary contains alphabetically ordered testing and debugging terms specific to SuperClaude Framework development. Each term includes practical definitions and framework-specific context.
 
 ### A
 
-**Agent Testing**: Specialized testing procedures for validating AI agent behavior, activation triggers, coordination patterns, and collaborative synthesis within the SuperGemini orchestration system.
+**Agent Testing**: Specialized testing procedures for validating AI agent behavior, activation triggers, coordination patterns, and collaborative synthesis within the SuperClaude orchestration system.
 
 **Automated Quality Gates**: Continuous validation checkpoints that automatically verify code quality, security compliance, performance standards, and architectural consistency throughout development workflows.
 
@@ -4712,9 +4712,9 @@ For testing and debugging assistance, join our community discussions or create a
 
 ### C
 
-**Component Integration Testing**: Testing methodology that validates the interaction between SuperGemini components including agents, MCP servers, behavioral modes, and core framework elements.
+**Component Integration Testing**: Testing methodology that validates the interaction between SuperClaude components including agents, MCP servers, behavioral modes, and core framework elements.
 
-**Configuration Testing**: Validation procedures for testing configuration file loading, instruction injection, and behavioral programming patterns unique to SuperGemini's meta-framework approach.
+**Configuration Testing**: Validation procedures for testing configuration file loading, instruction injection, and behavioral programming patterns unique to SuperClaude's meta-framework approach.
 
 **Coverage Analysis**: Measurement of test completeness including code coverage, feature coverage, and integration scenario coverage for comprehensive quality validation.
 
@@ -4726,7 +4726,7 @@ For testing and debugging assistance, join our community discussions or create a
 
 ### E
 
-**End-to-End Testing**: Comprehensive testing that validates complete user workflows from input through detection, routing, orchestration, and execution within SuperGemini Framework.
+**End-to-End Testing**: Comprehensive testing that validates complete user workflows from input through detection, routing, orchestration, and execution within SuperClaude Framework.
 
 **Error Recovery Testing**: Validation procedures for testing fault tolerance, graceful degradation, and recovery mechanisms when components fail or connections are lost.
 
@@ -4734,11 +4734,11 @@ For testing and debugging assistance, join our community discussions or create a
 
 **Framework Testing**: Specialized testing methodologies for meta-framework components including instruction injection, behavioral programming, and configuration-driven behavior modification.
 
-**Functional Testing**: Testing approach that validates component functionality, feature implementation, and user workflow completion within the SuperGemini ecosystem.
+**Functional Testing**: Testing approach that validates component functionality, feature implementation, and user workflow completion within the SuperClaude ecosystem.
 
 ### I
 
-**Integration Testing**: Testing methodology that validates the interaction between SuperGemini components and external systems including Claude Code, MCP servers, and development tools.
+**Integration Testing**: Testing methodology that validates the interaction between SuperClaude components and external systems including Claude Code, MCP servers, and development tools.
 
 **Installation Testing**: Verification procedures for testing component installation, dependency resolution, configuration setup, and environment validation across different platforms.
 
@@ -4768,7 +4768,7 @@ For testing and debugging assistance, join our community discussions or create a
 
 **Security Testing**: Comprehensive security validation including vulnerability testing, sandboxing verification, input validation testing, and threat modeling for framework components.
 
-**System Testing**: End-to-end validation of complete SuperGemini Framework functionality including detection engines, orchestration layers, and execution frameworks.
+**System Testing**: End-to-end validation of complete SuperClaude Framework functionality including detection engines, orchestration layers, and execution frameworks.
 
 ### U
 
@@ -4791,7 +4791,7 @@ For testing and debugging assistance, join our community discussions or create a
 4. **Practice**: Work through provided code examples and test cases
 
 **Intermediate Testing Skills**:
-1. **Component Testing**: [Debugging SuperGemini Components](#debugging-superclaude-components) for component-specific testing
+1. **Component Testing**: [Debugging SuperClaude Components](#debugging-superclaude-components) for component-specific testing
 2. **Integration Testing**: [Integration Testing](#integration-testing) for workflow validation
 3. **Quality Gates**: [Quality Validation](#quality-validation) for comprehensive testing frameworks
 4. **Performance**: Basic [Performance Testing & Optimization](#performance-testing--optimization)

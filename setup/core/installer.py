@@ -8,6 +8,7 @@ import shutil
 import tempfile
 from datetime import datetime
 from .base import Component
+from ..utils.logger import get_logger
 
 
 class Installer:
@@ -33,6 +34,7 @@ class Installer:
         self.failed_components: Set[str] = set()
         self.skipped_components: Set[str] = set()
         self.backup_path: Optional[Path] = None
+        self.logger = get_logger()
 
     def register_component(self, component: Component) -> None:
         """
@@ -166,18 +168,18 @@ class Installer:
                             shutil.copytree(item, temp_backup / item.name)
                     except Exception as e:
                         # Log warning but continue backup process
-                        print(f"Warning: Could not backup {item.name}: {e}")
+                        self.logger.warning(f"Could not backup {item.name}: {e}")
 
             # Create archive only if there are files to backup
             if any(temp_backup.iterdir()):
-                # Remove both .tar.gz extensions to prevent double extension
-                base_path = backup_path.with_suffix('').with_suffix('')
+                # shutil.make_archive adds .tar.gz automatically, so use base name without extensions
+                base_path = backup_dir / backup_name
                 shutil.make_archive(str(base_path), 'gztar', temp_backup)
             else:
                 # Create empty backup file to indicate backup was attempted
                 backup_path.touch()
-                print(
-                    f"Warning: No files to backup, created empty backup marker: {backup_path.name}"
+                self.logger.warning(
+                    f"No files to backup, created empty backup marker: {backup_path.name}"
                 )
 
         self.backup_path = backup_path
@@ -207,16 +209,16 @@ class Installer:
         # Check prerequisites
         success, errors = component.validate_prerequisites()
         if not success:
-            print(f"Prerequisites failed for {component_name}:")
+            self.logger.error(f"Prerequisites failed for {component_name}:")
             for error in errors:
-                print(f"  - {error}")
+                self.logger.error(f"  - {error}")
             self.failed_components.add(component_name)
             return False
 
         # Perform installation
         try:
             if self.dry_run:
-                print(f"[DRY RUN] Would install {component_name}")
+                self.logger.info(f"[DRY RUN] Would install {component_name}")
                 success = True
             else:
                 success = component.install(config)
@@ -230,7 +232,7 @@ class Installer:
             return success
 
         except Exception as e:
-            print(f"Error installing {component_name}: {e}")
+            self.logger.error(f"Error installing {component_name}: {e}")
             self.failed_components.add(component_name)
             return False
 
@@ -253,26 +255,30 @@ class Installer:
         try:
             ordered_names = self.resolve_dependencies(component_names)
         except ValueError as e:
-            print(f"Dependency resolution error: {e}")
+            self.logger.error(f"Dependency resolution error: {e}")
             return False
 
         # Validate system requirements
         success, errors = self.validate_system_requirements()
         if not success:
-            print("System requirements not met:")
+            self.logger.error("System requirements not met:")
             for error in errors:
-                print(f"  - {error}")
+                self.logger.error(f"  - {error}")
             return False
 
         # Create backup if updating
         if self.install_dir.exists() and not self.dry_run:
-            print("Creating backup of existing installation...")
-            self.create_backup()
+            self.logger.info("Creating backup of existing installation...")
+            try:
+                self.create_backup()
+            except Exception as e:
+                self.logger.error(f"Failed to create backup: {e}")
+                return False
 
         # Install each component
         all_success = True
         for name in ordered_names:
-            print(f"\nInstalling {name}...")
+            self.logger.info(f"Installing {name}...")
             if not self.install_component(name, config):
                 all_success = False
                 # Continue installing other components even if one fails
@@ -284,7 +290,7 @@ class Installer:
 
     def _run_post_install_validation(self) -> None:
         """Run post-installation validation for all installed components"""
-        print("\nRunning post-installation validation...")
+        self.logger.info("Running post-installation validation...")
 
         all_valid = True
         for name in self.installed_components:
@@ -292,17 +298,17 @@ class Installer:
             success, errors = component.validate_installation()
 
             if success:
-                print(f"  ✓ {name}: Valid")
+                self.logger.info(f"  ✓ {name}: Valid")
             else:
-                print(f"  ✗ {name}: Invalid")
+                self.logger.error(f"  ✗ {name}: Invalid")
                 for error in errors:
-                    print(f"    - {error}")
+                    self.logger.error(f"    - {error}")
                 all_valid = False
 
         if all_valid:
-            print("\nAll components validated successfully!")
+            self.logger.info("All components validated successfully!")
         else:
-            print("\nSome components failed validation. Check errors above.")
+            self.logger.error("Some components failed validation. Check errors above.")
     def update_components(self, component_names: List[str], config: Dict[str, Any]) -> bool:
         """Alias for update operation (uses install logic)"""
         return self.install_components(component_names, config)

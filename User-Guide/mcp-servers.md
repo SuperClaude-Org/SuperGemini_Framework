@@ -1,10 +1,10 @@
-# SuperGemini MCP Servers Guide 🔌
+# SuperClaude MCP Servers Guide 🔌
 
 ## 🎯 The Simple Truth About MCP Servers
 
-MCP (Model Context Protocol) servers are specialized tools that extend Claude Code's capabilities beyond native functionality. SuperGemini integrates 6 carefully selected MCP servers that automatically activate based on your tasks, providing enhanced documentation access, advanced reasoning, UI generation, browser automation, code transformation, and project memory.
+MCP (Model Context Protocol) servers are specialized tools that extend Claude Code's capabilities beyond native functionality. SuperClaude integrates 6 carefully selected MCP servers that automatically activate based on your tasks, providing enhanced documentation access, advanced reasoning, UI generation, browser automation, code transformation, and project memory.
 
-**Seamless Integration**: Type `/sg:implement "React dashboard"` → Magic MCP activates for UI generation. Type `/sg:analyze --think-hard` → Sequential MCP enables structured reasoning. The system intelligently selects the right tools for your context.
+**Seamless Integration**: Type `/sc:implement "React dashboard"` → Magic MCP activates for UI generation. Type `/sc:analyze --think-hard` → Sequential MCP enables structured reasoning. The system intelligently selects the right tools for your context.
 
 ## Overview
 
@@ -16,7 +16,7 @@ MCP (Model Context Protocol) servers are specialized tools that extend Claude Co
 - **Morphllm**: Efficient pattern-based code transformations
 - **Serena**: Semantic code understanding with project memory
 
-**How They Enhance SuperGemini:**
+**How They Enhance SuperClaude:**
 - **Automatic Activation**: Intelligent context-based server selection
 - **Parallel Coordination**: Multiple servers working together on complex tasks
 - **Quality Enhancement**: Specialized tools for specific domains
@@ -44,11 +44,11 @@ MCP (Model Context Protocol) servers are specialized tools that extend Claude Co
 **Usage Examples:**
 ```bash
 # Automatic activation
-/sg:implement "React useEffect for data fetching"
+/sc:implement "React useEffect for data fetching"
 # → Context7 provides official React hooks documentation
 
 # Manual activation
-/sg:analyze auth-system/ --c7
+/sc:analyze auth-system/ --c7
 # → Access authentication pattern libraries
 ```
 
@@ -79,11 +79,11 @@ MCP (Model Context Protocol) servers are specialized tools that extend Claude Co
 **Usage Examples:**
 ```bash
 # Automatic activation
-/sg:troubleshoot "API performance degrading under load"
+/sc:troubleshoot "API performance degrading under load"
 # → Sequential enables systematic root cause analysis
 
 # Manual activation  
-/sg:analyze --think-hard microservices-architecture/
+/sc:analyze --think-hard microservices-architecture/
 # → Deep architectural analysis with structured reasoning
 ```
 
@@ -114,11 +114,11 @@ MCP (Model Context Protocol) servers are specialized tools that extend Claude Co
 **Usage Examples:**
 ```bash
 # Automatic activation
-/sg:implement "responsive dashboard with data visualization" 
+/sc:implement "responsive dashboard with data visualization" 
 # → Magic generates modern UI components with accessibility
 
 # Manual activation
-/sg:design "e-commerce checkout flow" --magic
+/sc:design "e-commerce checkout flow" --magic
 # → UI-focused design with component generation
 ```
 
@@ -149,11 +149,11 @@ MCP (Model Context Protocol) servers are specialized tools that extend Claude Co
 **Usage Examples:**
 ```bash
 # Automatic activation
-/sg:test --type e2e "user registration flow"
+/sc:test --type e2e "user registration flow"
 # → Playwright automates browser testing
 
 # Manual activation
-/sg:validate "form accessibility compliance" --play
+/sc:validate "form accessibility compliance" --play
 # → Browser-based accessibility testing
 ```
 
@@ -184,11 +184,11 @@ MCP (Model Context Protocol) servers are specialized tools that extend Claude Co
 **Usage Examples:**
 ```bash
 # Automatic activation
-/sg:improve legacy-codebase/ --focus maintainability
+/sc:improve legacy-codebase/ --focus maintainability
 # → Morphllm applies consistent patterns across files
 
 # Manual activation
-/sg:cleanup src/ --morph
+/sc:cleanup src/ --morph
 # → Pattern-based code organization
 ```
 
@@ -213,17 +213,17 @@ MCP (Model Context Protocol) servers are specialized tools that extend Claude Co
 **Auto-Activation Triggers:**
 - Symbol operations: rename, extract, move functions
 - Project-wide code navigation
-- Session management: `/sg:load`, `/sg:save`
+- Session management: `/sc:load`, `/sc:save`
 - Large codebase analysis requirements
 
 **Usage Examples:**
 ```bash
 # Automatic activation  
-/sg:load existing-project/
+/sc:load existing-project/
 # → Serena builds project understanding and memory
 
 # Manual activation
-/sg:refactor "extract UserService class" --serena
+/sc:refactor "extract UserService class" --serena
 # → Semantic-aware code restructuring
 ```
 
@@ -237,9 +237,9 @@ MCP (Model Context Protocol) servers are specialized tools that extend Claude Co
 
 ### Automatic Installation (Recommended)
 
-**During SuperGemini Setup:**
+**During SuperClaude Setup:**
 ```bash
-SuperGemini install
+SuperClaude install
 # → Interactive installer offers MCP server selection
 # → Automatically configures selected servers
 # → Creates .claude.json with server configurations
@@ -256,13 +256,13 @@ SuperGemini install
 **Server-Specific Installation:**
 ```bash
 # Install specific MCP components
-SuperGemini install --components mcp
+SuperClaude install --components mcp
 
 # Individual server configuration
-SuperGemini install --components mcp_context7 mcp_sequential
+SuperClaude install --components mcp_context7 mcp_sequential
 
 # Force reinstall with updated configurations
-SuperGemini install --components mcp --force
+SuperClaude install --components mcp --force
 ```
 
 **Configuration File (`.claude.json`):**
@@ -290,7 +290,7 @@ SuperGemini install --components mcp --force
 
 **Python Required:**
 - Morphllm, Serena work with Python environment
-- Already satisfied by SuperGemini installation
+- Already satisfied by SuperClaude installation
 
 **System Resources:**
 - **Minimal**: 2GB RAM for basic MCP functionality
@@ -302,23 +302,23 @@ SuperGemini install --components mcp --force
 ### Automatic Server Selection
 
 **Context-Based Activation:**
-SuperGemini analyzes your request and automatically selects optimal MCP servers:
+SuperClaude analyzes your request and automatically selects optimal MCP servers:
 
 ```bash
 # Frontend development → Magic + Context7
-/sg:implement "responsive navigation component"
+/sc:implement "responsive navigation component"
 
 # Performance investigation → Sequential + Playwright  
-/sg:troubleshoot "page load time >3 seconds"
+/sc:troubleshoot "page load time >3 seconds"
 
 # Large refactoring → Serena + Morphllm + Sequential
-/sg:improve legacy-authentication-system/
+/sc:improve legacy-authentication-system/
 
 # Documentation lookup → Context7
-/sg:explain "React useCallback best practices"
+/sc:explain "React useCallback best practices"
 
 # Browser testing → Playwright + Sequential
-/sg:test --type e2e user-checkout-flow/
+/sc:test --type e2e user-checkout-flow/
 ```
 
 **Intelligence Behind Selection:**
@@ -333,35 +333,35 @@ SuperGemini analyzes your request and automatically selects optimal MCP servers:
 **Force Specific Servers:**
 ```bash
 # Enable specific servers
-/sg:analyze codebase/ --c7 --seq --serena
+/sc:analyze codebase/ --c7 --seq --serena
 
 # Disable all MCP servers
-/sg:implement "simple function" --no-mcp
+/sc:implement "simple function" --no-mcp
 
 # Enable all servers for maximum capability
-/sg:design "complex system architecture" --all-mcp
+/sc:design "complex system architecture" --all-mcp
 
 # Lightweight execution
-/sg:explain "function purpose" --no-mcp
+/sc:explain "function purpose" --no-mcp
 ```
 
 **Server Combination Strategies:**
 
 **Documentation + Analysis:**
 ```bash
-/sg:analyze security-patterns/ --c7 --seq
+/sc:analyze security-patterns/ --c7 --seq
 # → Context7 provides security patterns + Sequential analyzes implementation
 ```
 
 **UI Development:**
 ```bash
-/sg:implement "dashboard interface" --magic --c7 --play
+/sc:implement "dashboard interface" --magic --c7 --play
 # → Magic generates components + Context7 patterns + Playwright testing
 ```
 
 **Code Transformation:**
 ```bash
-/sg:improve legacy-code/ --serena --morph --seq
+/sc:improve legacy-code/ --serena --morph --seq
 # → Serena analyzes structure + Morphllm transforms + Sequential validates
 ```
 
@@ -369,7 +369,7 @@ SuperGemini analyzes your request and automatically selects optimal MCP servers:
 
 **Complex Workflow Example:**
 ```bash
-/sg:implement "e-commerce checkout system"
+/sc:implement "e-commerce checkout system"
 ```
 
 **Automatic Coordination:**
@@ -390,11 +390,11 @@ SuperGemini analyzes your request and automatically selects optimal MCP servers:
 ### Multi-Server Orchestration
 
 **Intelligent Workflow Coordination:**
-SuperGemini orchestrates multiple MCP servers for complex tasks:
+SuperClaude orchestrates multiple MCP servers for complex tasks:
 
 **Full-Stack Development Workflow:**
 ```bash
-/sg:implement "real-time chat application"
+/sc:implement "real-time chat application"
 ```
 1. **Sequential**: Analyzes requirements and architecture
 2. **Context7**: Provides WebSocket and React patterns  
@@ -405,7 +405,7 @@ SuperGemini orchestrates multiple MCP servers for complex tasks:
 
 **Performance Optimization Workflow:**
 ```bash
-/sg:analyze --focus performance --ultrathink
+/sc:analyze --focus performance --ultrathink
 ```
 1. **Sequential**: Systematic performance analysis methodology
 2. **Serena**: Code structure and bottleneck identification
@@ -432,13 +432,13 @@ SuperGemini orchestrates multiple MCP servers for complex tasks:
 **Concurrency Control:**
 ```bash
 # Limit concurrent server operations
-/sg:implement "complex feature" --concurrency 2
+/sc:implement "complex feature" --concurrency 2
 
 # Maximum performance mode
-/sg:analyze large-codebase/ --all-mcp --concurrency 6
+/sc:analyze large-codebase/ --all-mcp --concurrency 6
 
 # Resource-constrained mode  
-/sg:troubleshoot issue/ --c7 --seq --concurrency 1
+/sc:troubleshoot issue/ --c7 --seq --concurrency 1
 ```
 
 ### Advanced Configuration
@@ -499,13 +499,13 @@ SuperGemini orchestrates multiple MCP servers for complex tasks:
 ls ~/.claude/.claude.json
 
 # Verify server installation
-SuperGemini install --list-components
+SuperClaude install --list-components
 
 # Reinstall MCP configuration
-SuperGemini install --components mcp --force
+SuperClaude install --components mcp --force
 
 # Test specific server
-SuperGemini test-mcp context7
+SuperClaude test-mcp context7
 ```
 
 **Node.js Dependency Issues:**
@@ -524,10 +524,10 @@ npm cache clean --force
 **Performance Issues:**
 ```bash
 # Reduce server load
-/sg:command --concurrency 1
+/sc:command --concurrency 1
 
 # Use selective servers
-/sg:command --c7 --seq  # Instead of --all-mcp
+/sc:command --c7 --seq  # Instead of --all-mcp
 
 # Check system resources
 top | grep node
@@ -554,14 +554,14 @@ ps aux | grep mcp
 **MCP Server Status Check:**
 ```bash
 # Check all server health
-SuperGemini status --mcp
+SuperClaude status --mcp
 
 # Test individual servers
-SuperGemini test-mcp --server context7
-SuperGemini test-mcp --server sequential
+SuperClaude test-mcp --server context7
+SuperClaude test-mcp --server sequential
 
 # Detailed diagnostics
-SuperGemini diagnose --verbose
+SuperClaude diagnose --verbose
 ```
 
 **Log Analysis:**
@@ -570,7 +570,7 @@ SuperGemini diagnose --verbose
 tail -f ~/.claude/logs/mcp-context7.log
 tail -f ~/.claude/logs/mcp-sequential.log
 
-# SuperGemini operation logs  
+# SuperClaude operation logs  
 tail -f ~/.claude/logs/superclaude.log
 
 # Claude Code MCP logs
@@ -592,15 +592,15 @@ echo "Complex analysis task" | claude --mcp context7,sequential
 ### Resolution Steps
 
 **Step 1: Basic Verification**
-1. Check SuperGemini installation: `SuperGemini --version`
-2. Verify MCP component: `SuperGemini install --list-components`
+1. Check SuperClaude installation: `SuperClaude --version`
+2. Verify MCP component: `SuperClaude install --list-components`
 3. Check Node.js: `node --version` (should be 16+)
 4. Restart Claude Code session
 
 **Step 2: Configuration Check**
 1. Verify `.claude.json` exists: `ls ~/.claude/.claude.json`
 2. Check server paths and permissions
-3. Test configuration syntax: `SuperGemini validate-config`
+3. Test configuration syntax: `SuperClaude validate-config`
 
 **Step 3: Server Specific**
 1. **Context7**: Check documentation server connection
@@ -616,8 +616,8 @@ echo "Complex analysis task" | claude --mcp context7,sequential
 cp ~/.claude/.claude.json ~/.claude/.claude.json.backup
 
 # Remove and reinstall MCP
-SuperGemini uninstall --components mcp
-SuperGemini install --components mcp
+SuperClaude uninstall --components mcp
+SuperClaude install --components mcp
 
 # Restore custom settings if needed
 ```
@@ -657,7 +657,7 @@ server.setRequestHandler(
 );
 ```
 
-**SuperGemini Integration:**
+**SuperClaude Integration:**
 ```python
 # setup/components/custom_mcp.py
 from setup.components.base import BaseComponent
@@ -699,7 +699,7 @@ class CustomMCPComponent(BaseComponent):
 }
 ```
 
-**SuperGemini MCP Interface:**
+**SuperClaude MCP Interface:**
 ```python
 class MCPCoordinator:
     def select_servers(self, task_context):
@@ -745,7 +745,7 @@ config_service.add_mcp_server({
 
 **Tool Registration:**
 ```python
-# Register server capabilities with SuperGemini
+# Register server capabilities with SuperClaude
 from setup.core.mcp_registry import MCPRegistry
 
 registry = MCPRegistry()

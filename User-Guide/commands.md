@@ -1,12 +1,12 @@
-# SuperGemini Commands Guide 🛠️
+# SuperClaude Commands Guide 🛠️
 
-## 💡 Don't Overthink It - SuperGemini Tries to Help
+## 💡 Don't Overthink It - SuperClaude Tries to Help
 
-SuperGemini provides 21 specialized commands that automatically coordinate domain experts, MCP servers, and behavioral modes based on context. The system intelligently routes tasks to appropriate specialists while maintaining a simple, discoverable interface.
+SuperClaude provides 21 specialized commands that automatically coordinate domain experts, MCP servers, and behavioral modes based on context. The system intelligently routes tasks to appropriate specialists while maintaining a simple, discoverable interface.
 
-**Auto-Activation Philosophy**: Type `/sg:implement "user auth"` and watch as the security specialist activates, Context7 provides authentication patterns, and quality gates ensure completeness.
+**Auto-Activation Philosophy**: Type `/sc:implement "user auth"` and watch as the security specialist activates, Context7 provides authentication patterns, and quality gates ensure completeness.
 
-**Progressive Discovery**: Use `/sg:index` to explore commands relevant to your current context.
+**Progressive Discovery**: Use `/sc:index` to explore commands relevant to your current context.
 
 ## Core Philosophy
 
@@ -30,18 +30,18 @@ SuperGemini provides 21 specialized commands that automatically coordinate domai
 
 **Essential Commands (Start Here):**
 ```bash
-/sg:brainstorm "mobile app idea"     # Interactive discovery
-/sg:analyze src/                      # Code analysis
-/sg:implement "user login"           # Feature implementation
-/sg:troubleshoot "API not working"   # Problem solving
-/sg:test --coverage                   # Quality assurance
+/sc:brainstorm "mobile app idea"     # Interactive discovery
+/sc:analyze src/                      # Code analysis
+/sc:implement "user login"           # Feature implementation
+/sc:troubleshoot "API not working"   # Problem solving
+/sc:test --coverage                   # Quality assurance
 ```
 
 **Discovery Pattern:**
-1. Use `/sg:index` to explore available commands
-2. Try `/sg:brainstorm` for project planning
-3. Progress to `/sg:implement` for development
-4. Use `/sg:reflect` to validate completion
+1. Use `/sc:index` to explore available commands
+2. Try `/sc:brainstorm` for project planning
+3. Progress to `/sc:implement` for development
+4. Use `/sc:reflect` to validate completion
 
 ---
 
@@ -83,19 +83,19 @@ SuperGemini provides 21 specialized commands that automatically coordinate domai
 | **reflect** | Session | - | serena | Task validation |
 | **select-tool** | Meta | - | all | Tool optimization |
 
-**Selection Strategy**: Commands auto-activate based on keywords, file types, and project context. Use `/sg:select-tool` for optimization recommendations.
+**Selection Strategy**: Commands auto-activate based on keywords, file types, and project context. Use `/sc:select-tool` for optimization recommendations.
 
 ## Development Commands 🔨
 
-### /sg:workflow - Implementation Planning
+### /sc:workflow - Implementation Planning
 
 **Purpose**: Generate structured implementation workflows from PRDs and feature requirements
 
 **Usage**:
 ```bash
-/sg:workflow "user authentication system"
-/sg:workflow --strategy agile --format markdown
-/sg:workflow "payment integration" --depth detailed
+/sc:workflow "user authentication system"
+/sc:workflow --strategy agile --format markdown
+/sc:workflow "payment integration" --depth detailed
 ```
 
 **Expert Activation**: Architect + Project Manager
@@ -104,26 +104,26 @@ SuperGemini provides 21 specialized commands that automatically coordinate domai
 **Examples**:
 ```bash
 # Basic workflow generation
-/sg:workflow "real-time chat feature"
+/sc:workflow "real-time chat feature"
 
 # Agile sprint planning
-/sg:workflow "e-commerce cart" --strategy agile --format sprint
+/sc:workflow "e-commerce cart" --strategy agile --format sprint
 
 # Enterprise architecture
-/sg:workflow "microservices migration" --strategy enterprise
+/sc:workflow "microservices migration" --strategy enterprise
 ```
 
 **Output**: Structured tasks, dependency mapping, time estimates, risk assessment
 
-### /sg:implement - Feature Implementation
+### /sc:implement - Feature Implementation
 
 **Purpose**: Feature and code implementation with intelligent persona activation and MCP integration
 
 **Usage**:
 ```bash
-/sg:implement "user login with JWT"
-/sg:implement --type frontend --framework react
-/sg:implement "REST API" --focus security --validate
+/sc:implement "user login with JWT"
+/sc:implement --type frontend --framework react
+/sc:implement "REST API" --focus security --validate
 ```
 
 **Expert Activation**: Context-dependent (frontend, backend, security, database)
@@ -132,16 +132,16 @@ SuperGemini provides 21 specialized commands that automatically coordinate domai
 **Examples**:
 ```bash
 # Full-stack feature
-/sg:implement "user registration with email verification"
+/sc:implement "user registration with email verification"
 
 # Frontend focus
-/sg:implement "responsive dashboard" --type frontend
+/sc:implement "responsive dashboard" --type frontend
 
 # Security-focused
-/sg:implement "OAuth integration" --focus security
+/sc:implement "OAuth integration" --focus security
 
 # API development
-/sg:implement "GraphQL mutations" --type backend --validate
+/sc:implement "GraphQL mutations" --type backend --validate
 ```
 
 **Auto-Activation Patterns**:
@@ -152,15 +152,15 @@ SuperGemini provides 21 specialized commands that automatically coordinate domai
 
 ---
 
-### /sg:build - Project Building
+### /sc:build - Project Building
 
 **Purpose**: Build, compile, and package projects with intelligent error handling and optimization
 
 **Usage**:
 ```bash
-/sg:build
-/sg:build --optimize --parallel
-/sg:build --target production --fix-errors
+/sc:build
+/sc:build --optimize --parallel
+/sc:build --target production --fix-errors
 ```
 
 **Expert Activation**: DevOps specialist
@@ -169,16 +169,16 @@ SuperGemini provides 21 specialized commands that automatically coordinate domai
 **Examples**:
 ```bash
 # Basic build
-/sg:build
+/sc:build
 
 # Production optimization
-/sg:build --target production --optimize
+/sc:build --target production --optimize
 
 # Parallel compilation
-/sg:build --parallel --jobs 4
+/sc:build --parallel --jobs 4
 
 # Error fixing
-/sg:build --fix-errors --verbose
+/sc:build --fix-errors --verbose
 ```
 
 **Common Issues & Solutions**:
@@ -189,15 +189,15 @@ SuperGemini provides 21 specialized commands that automatically coordinate domai
 
 ---
 
-### /sg:design - System Design
+### /sc:design - System Design
 
 **Purpose**: Design system architecture, APIs, and component interfaces with comprehensive specifications
 
 **Usage**:
 ```bash
-/sg:design "microservices architecture"
-/sg:design --type api --format openapi
-/sg:design "database schema" --focus performance
+/sc:design "microservices architecture"
+/sc:design --type api --format openapi
+/sc:design "database schema" --focus performance
 ```
 
 **Expert Activation**: Architect + UX Designer (for UI)
@@ -206,16 +206,16 @@ SuperGemini provides 21 specialized commands that automatically coordinate domai
 **Examples**:
 ```bash
 # System architecture
-/sg:design "e-commerce platform architecture"
+/sc:design "e-commerce platform architecture"
 
 # API specification
-/sg:design "REST API for blog" --type api --format openapi
+/sc:design "REST API for blog" --type api --format openapi
 
 # Database design
-/sg:design "user management schema" --type database
+/sc:design "user management schema" --type database
 
 # Component architecture
-/sg:design "React component hierarchy" --type frontend
+/sc:design "React component hierarchy" --type frontend
 ```
 
 **Design Types**:
@@ -227,15 +227,15 @@ SuperGemini provides 21 specialized commands that automatically coordinate domai
 
 ## Analysis Commands 🔍
 
-### /sg:analyze - Code Analysis
+### /sc:analyze - Code Analysis
 
 **Purpose**: Comprehensive code analysis across quality, security, performance, and architecture domains
 
 **Usage**:
 ```bash
-/sg:analyze src/
-/sg:analyze --focus security --depth deep
-/sg:analyze . --format report --export html
+/sc:analyze src/
+/sc:analyze --focus security --depth deep
+/sc:analyze . --format report --export html
 ```
 
 **Expert Activation**: Analyzer + domain specialists based on focus
@@ -244,16 +244,16 @@ SuperGemini provides 21 specialized commands that automatically coordinate domai
 **Examples**:
 ```bash
 # Full project analysis
-/sg:analyze .
+/sc:analyze .
 
 # Security audit
-/sg:analyze src/ --focus security --depth deep
+/sc:analyze src/ --focus security --depth deep
 
 # Performance bottlenecks
-/sg:analyze --focus performance --profile
+/sc:analyze --focus performance --profile
 
 # Architecture review
-/sg:analyze --focus architecture --dependencies
+/sc:analyze --focus architecture --dependencies
 ```
 
 **Focus Areas**:
@@ -264,15 +264,15 @@ SuperGemini provides 21 specialized commands that automatically coordinate domai
 
 ---
 
-### /sg:troubleshoot - Problem Diagnosis
+### /sc:troubleshoot - Problem Diagnosis
 
 **Purpose**: Diagnose and resolve issues in code, builds, deployments, and system behavior
 
 **Usage**:
 ```bash
-/sg:troubleshoot "API returns 500 error"
-/sg:troubleshoot --logs server.log --focus performance
-/sg:troubleshoot --type build --verbose
+/sc:troubleshoot "API returns 500 error"
+/sc:troubleshoot --logs server.log --focus performance
+/sc:troubleshoot --type build --verbose
 ```
 
 **Expert Activation**: Analyzer + DevOps (for deployment issues)
@@ -281,16 +281,16 @@ SuperGemini provides 21 specialized commands that automatically coordinate domai
 **Examples**:
 ```bash
 # General issue diagnosis
-/sg:troubleshoot "users can't login"
+/sc:troubleshoot "users can't login"
 
 # Build failures
-/sg:troubleshoot --type build --fix-suggestions
+/sc:troubleshoot --type build --fix-suggestions
 
 # Performance issues
-/sg:troubleshoot "slow page load" --logs access.log
+/sc:troubleshoot "slow page load" --logs access.log
 
 # Database problems
-/sg:troubleshoot "connection timeout" --focus database
+/sc:troubleshoot "connection timeout" --focus database
 ```
 
 **Systematic Methodology**:
@@ -302,15 +302,15 @@ SuperGemini provides 21 specialized commands that automatically coordinate domai
 
 ---
 
-### /sg:explain - Code & Concept Explanation
+### /sc:explain - Code & Concept Explanation
 
 **Purpose**: Provide clear explanations of code, concepts, and system behavior with educational clarity
 
 **Usage**:
 ```bash
-/sg:explain "async/await in JavaScript"
-/sg:explain src/auth.py --level beginner
-/sg:explain --concept "dependency injection" --examples
+/sc:explain "async/await in JavaScript"
+/sc:explain src/auth.py --level beginner
+/sc:explain --concept "dependency injection" --examples
 ```
 
 **Teaching Approaches**: Beginner, intermediate, expert levels with progressive detail
@@ -319,16 +319,16 @@ SuperGemini provides 21 specialized commands that automatically coordinate domai
 **Examples**:
 ```bash
 # Code explanation
-/sg:explain src/components/UserAuth.jsx
+/sc:explain src/components/UserAuth.jsx
 
 # Concept clarification
-/sg:explain "microservices vs monolith" --pros-cons
+/sc:explain "microservices vs monolith" --pros-cons
 
 # Pattern explanation
-/sg:explain "observer pattern" --examples react
+/sc:explain "observer pattern" --examples react
 
 # Beginner-friendly
-/sg:explain "what is REST API" --level beginner --examples
+/sc:explain "what is REST API" --level beginner --examples
 ```
 
 **Explanation Styles**:
@@ -340,15 +340,15 @@ SuperGemini provides 21 specialized commands that automatically coordinate domai
 
 ## Quality Commands ✨
 
-### /sg:improve - Code Enhancement
+### /sc:improve - Code Enhancement
 
 **Purpose**: Apply systematic improvements to code quality, performance, and maintainability
 
 **Usage**:
 ```bash
-/sg:improve src/components/
-/sg:improve --type performance --preview
-/sg:improve . --focus maintainability --safe-mode
+/sc:improve src/components/
+/sc:improve --type performance --preview
+/sc:improve . --focus maintainability --safe-mode
 ```
 
 **Expert Activation**: Analyzer + Performance Engineer (for performance focus)
@@ -357,16 +357,16 @@ SuperGemini provides 21 specialized commands that automatically coordinate domai
 **Examples**:
 ```bash
 # General improvements
-/sg:improve src/
+/sc:improve src/
 
 # Performance optimization
-/sg:improve --type performance --measure-impact
+/sc:improve --type performance --measure-impact
 
 # Code quality enhancement
-/sg:improve --focus quality --preview --backup
+/sc:improve --focus quality --preview --backup
 
 # Safe refactoring
-/sg:improve legacy/ --safe-mode --tests-required
+/sc:improve legacy/ --safe-mode --tests-required
 ```
 
 **Improvement Types**:
@@ -378,15 +378,15 @@ SuperGemini provides 21 specialized commands that automatically coordinate domai
 
 ---
 
-### /sg:cleanup - Technical Debt Reduction
+### /sc:cleanup - Technical Debt Reduction
 
 **Purpose**: Systematically clean up code, remove dead code, and optimize project structure
 
 **Usage**:
 ```bash
-/sg:cleanup
-/sg:cleanup --type imports --organize
-/sg:cleanup --dead-code --confirm-before-delete
+/sc:cleanup
+/sc:cleanup --type imports --organize
+/sc:cleanup --dead-code --confirm-before-delete
 ```
 
 **Expert Activation**: Analyzer
@@ -395,16 +395,16 @@ SuperGemini provides 21 specialized commands that automatically coordinate domai
 **Examples**:
 ```bash
 # Full project cleanup
-/sg:cleanup --comprehensive --backup
+/sc:cleanup --comprehensive --backup
 
 # Import optimization
-/sg:cleanup --type imports --sort --remove-unused
+/sc:cleanup --type imports --sort --remove-unused
 
 # Dead code removal
-/sg:cleanup --dead-code --analyze-usage
+/sc:cleanup --dead-code --analyze-usage
 
 # File organization
-/sg:cleanup --organize-files --follow-conventions
+/sc:cleanup --organize-files --follow-conventions
 ```
 
 **Cleanup Operations**:
@@ -416,15 +416,15 @@ SuperGemini provides 21 specialized commands that automatically coordinate domai
 
 ---
 
-### /sg:test - Testing & Quality Assurance
+### /sc:test - Testing & Quality Assurance
 
 **Purpose**: Execute tests with coverage analysis and automated quality reporting
 
 **Usage**:
 ```bash
-/sg:test
-/sg:test --type e2e --coverage
-/sg:test --fix --watch
+/sc:test
+/sc:test --type e2e --coverage
+/sc:test --fix --watch
 ```
 
 **Expert Activation**: QA Specialist
@@ -433,16 +433,16 @@ SuperGemini provides 21 specialized commands that automatically coordinate domai
 **Examples**:
 ```bash
 # Run all tests
-/sg:test --coverage --report
+/sc:test --coverage --report
 
 # Unit tests only
-/sg:test --type unit --watch
+/sc:test --type unit --watch
 
 # E2E browser testing
-/sg:test --type e2e --browsers chrome,firefox
+/sc:test --type e2e --browsers chrome,firefox
 
 # Fix failing tests
-/sg:test --fix --preview-changes
+/sc:test --fix --preview-changes
 ```
 
 **Test Types**:
@@ -454,15 +454,15 @@ SuperGemini provides 21 specialized commands that automatically coordinate domai
 
 ## Documentation Commands 📝
 
-### /sg:document - Documentation Generation
+### /sc:document - Documentation Generation
 
 **Purpose**: Generate focused documentation for components, functions, APIs, and features
 
 **Usage**:
 ```bash
-/sg:document src/api/
-/sg:document --type api --format openapi
-/sg:document . --style technical --audience developers
+/sc:document src/api/
+/sc:document --type api --format openapi
+/sc:document . --style technical --audience developers
 ```
 
 **Expert Activation**: Documentation Specialist
@@ -471,16 +471,16 @@ SuperGemini provides 21 specialized commands that automatically coordinate domai
 **Examples**:
 ```bash
 # Component documentation
-/sg:document src/components/ --inline-comments
+/sc:document src/components/ --inline-comments
 
 # API documentation
-/sg:document --type api --format swagger
+/sc:document --type api --format swagger
 
 # User documentation
-/sg:document --type user-guide --audience end-users
+/sc:document --type user-guide --audience end-users
 
 # Technical documentation
-/sg:document --style technical --diagrams
+/sc:document --style technical --diagrams
 ```
 
 **Documentation Styles**:
@@ -492,11 +492,11 @@ SuperGemini provides 21 specialized commands that automatically coordinate domai
 
 ## Project Management Commands 📊
 
-### /sg:estimate - Project Estimation
+### /sc:estimate - Project Estimation
 
 **Purpose**: Provide development estimates for tasks, features, or projects with intelligent analysis
 
-**Usage**: `/sg:estimate "user authentication system"`, `/sg:estimate --detailed --team-size 3`
+**Usage**: `/sc:estimate "user authentication system"`, `/sc:estimate --detailed --team-size 3`
 
 **Expert Activation**: Project Manager
 **Features**: Time estimates, complexity analysis, resource allocation, risk assessment
@@ -505,11 +505,11 @@ SuperGemini provides 21 specialized commands that automatically coordinate domai
 
 ---
 
-### /sg:task - Project Management
+### /sc:task - Project Management
 
 **Purpose**: Execute complex tasks with intelligent workflow management and delegation
 
-**Usage**: `/sg:task "implement payment system"`, `/sg:task --breakdown --priority high`
+**Usage**: `/sc:task "implement payment system"`, `/sc:task --breakdown --priority high`
 
 **Expert Activation**: Project Manager
 **MCP Integration**: Serena for task persistence
@@ -517,22 +517,22 @@ SuperGemini provides 21 specialized commands that automatically coordinate domai
 
 ---
 
-### /sg:spawn - Meta-System Orchestration
+### /sc:spawn - Meta-System Orchestration
 
 **Purpose**: Meta-system task orchestration with intelligent breakdown and delegation
 
-**Usage**: `/sg:spawn "full-stack e-commerce platform"`, `/sg:spawn --parallel --monitor`
+**Usage**: `/sc:spawn "full-stack e-commerce platform"`, `/sc:spawn --parallel --monitor`
 
 **Expert Activation**: Project Manager + Multiple domain specialists
 **Features**: Complex workflow orchestration, parallel execution, progress monitoring, resource management
 
 ## Version Control Commands 🔄
 
-### /sg:git - Version Control
+### /sc:git - Version Control
 
 **Purpose**: Git operations with intelligent commit messages and workflow optimization
 
-**Usage**: `/sg:git commit "add user auth"`, `/sg:git --smart-messages --conventional`
+**Usage**: `/sc:git commit "add user auth"`, `/sc:git --smart-messages --conventional`
 
 **Expert Activation**: DevOps specialist
 **Features**: Smart commit messages, branch management, conflict resolution, workflow optimization
@@ -541,11 +541,11 @@ SuperGemini provides 21 specialized commands that automatically coordinate domai
 
 ## Utility Commands 🔧
 
-### /sg:index - Command Discovery
+### /sc:index - Command Discovery
 
 **Purpose**: Generate comprehensive project documentation and knowledge base with intelligent organization
 
-**Usage**: `/sg:index`, `/sg:index --category development`, `/sg:index --search "testing"`
+**Usage**: `/sc:index`, `/sc:index --category development`, `/sc:index --search "testing"`
 
 **Features**: Command discovery, capability exploration, contextual recommendations, usage patterns
 
@@ -553,11 +553,11 @@ SuperGemini provides 21 specialized commands that automatically coordinate domai
 
 ---
 
-### /sg:load - Session Context Loading
+### /sc:load - Session Context Loading
 
 **Purpose**: Session lifecycle management with Serena MCP integration for project context loading
 
-**Usage**: `/sg:load src/`, `/sg:load --focus architecture`, `/sg:load "previous session"`
+**Usage**: `/sc:load src/`, `/sc:load --focus architecture`, `/sc:load "previous session"`
 
 **Expert Activation**: Context analysis
 **MCP Integration**: Serena for project memory
@@ -565,11 +565,11 @@ SuperGemini provides 21 specialized commands that automatically coordinate domai
 
 ## Session & Intelligence Commands 🧠
 
-### /sg:brainstorm - Interactive Requirements Discovery
+### /sc:brainstorm - Interactive Requirements Discovery
 
 **Purpose**: Interactive requirements discovery through Socratic dialogue and systematic exploration
 
-**Usage**: `/sg:brainstorm "mobile app idea"`, `/sg:brainstorm --strategy systematic --depth deep`
+**Usage**: `/sc:brainstorm "mobile app idea"`, `/sc:brainstorm --strategy systematic --depth deep`
 
 **Expert Activation**: Architect + Analyst + PM
 **MCP Integration**: Sequential for structured reasoning, Context7 for patterns
@@ -578,11 +578,11 @@ SuperGemini provides 21 specialized commands that automatically coordinate domai
 
 ---
 
-### /sg:reflect - Task Reflection & Validation
+### /sc:reflect - Task Reflection & Validation
 
 **Purpose**: Task reflection and validation using Serena MCP analysis capabilities
 
-**Usage**: `/sg:reflect`, `/sg:reflect --type completion`, `/sg:reflect "payment integration"`
+**Usage**: `/sc:reflect`, `/sc:reflect --type completion`, `/sc:reflect "payment integration"`
 
 **Expert Activation**: Context analysis
 **MCP Integration**: Serena for intelligence analysis
@@ -591,11 +591,11 @@ SuperGemini provides 21 specialized commands that automatically coordinate domai
 
 ---
 
-### /sg:save - Session Persistence
+### /sc:save - Session Persistence
 
 **Purpose**: Session lifecycle management with Serena MCP integration for session context persistence
 
-**Usage**: `/sg:save "payment-integration-complete"`, `/sg:save --checkpoint --description "auth module done"`
+**Usage**: `/sc:save "payment-integration-complete"`, `/sc:save --checkpoint --description "auth module done"`
 
 **Expert Activation**: Session management
 **MCP Integration**: Serena for context persistence
@@ -604,11 +604,11 @@ SuperGemini provides 21 specialized commands that automatically coordinate domai
 
 ---
 
-### /sg:select-tool - Intelligent Tool Selection
+### /sc:select-tool - Intelligent Tool Selection
 
 **Purpose**: Intelligent MCP tool selection based on complexity scoring and operation analysis
 
-**Usage**: `/sg:select-tool "implement user auth"`, `/sg:select-tool --analyze-complexity --recommend`
+**Usage**: `/sc:select-tool "implement user auth"`, `/sc:select-tool --analyze-complexity --recommend`
 
 **Expert Activation**: Meta-analysis
 **MCP Integration**: All servers for capability assessment
@@ -620,16 +620,16 @@ SuperGemini provides 21 specialized commands that automatically coordinate domai
 **Effective Flag Combinations:**
 ```bash
 # Development workflow
-/sg:analyze --focus quality && /sg:improve --preview && /sg:test --coverage
+/sc:analyze --focus quality && /sc:improve --preview && /sc:test --coverage
 
 # Production preparation
-/sg:build --optimize --target production && /sg:test --type e2e
+/sc:build --optimize --target production && /sc:test --type e2e
 
 # Deep analysis
-/sg:analyze --focus security --depth deep --export report
+/sc:analyze --focus security --depth deep --export report
 
 # Safe refactoring
-/sg:improve --safe-mode --backup --tests-required
+/sc:improve --safe-mode --backup --tests-required
 ```
 
 **Command Chaining Strategies:**
@@ -642,34 +642,34 @@ SuperGemini provides 21 specialized commands that automatically coordinate domai
 
 **New Project Onboarding:**
 ```bash
-/sg:load . → /sg:analyze --comprehensive → /sg:document --type overview → /sg:save "project-analyzed"
+/sc:load . → /sc:analyze --comprehensive → /sc:document --type overview → /sc:save "project-analyzed"
 ```
 
 **Feature Development:**
 ```bash
-/sg:brainstorm "feature idea" → /sg:design → /sg:implement → /sg:test → /sg:document
+/sc:brainstorm "feature idea" → /sc:design → /sc:implement → /sc:test → /sc:document
 ```
 
 **Bug Investigation:**
 ```bash
-/sg:troubleshoot "issue description" → /sg:analyze --focus problem-area → /sg:improve --fix
+/sc:troubleshoot "issue description" → /sc:analyze --focus problem-area → /sc:improve --fix
 ```
 
 **Pre-Deployment:**
 ```bash
-/sg:test --comprehensive → /sg:analyze --focus security → /sg:build --production → /sg:git commit
+/sc:test --comprehensive → /sc:analyze --focus security → /sc:build --production → /sc:git commit
 ```
 
 **Quality Improvement:**
 ```bash
-/sg:analyze --focus quality → /sg:cleanup → /sg:improve → /sg:test → /sg:reflect
+/sc:analyze --focus quality → /sc:cleanup → /sc:improve → /sc:test → /sc:reflect
 ```
 
 **Common Issues & Solutions:**
 
 **Command Not Found:**
-- Verify SuperGemini installation: `SuperGemini --version`
-- Check component installation: `SuperGemini install --list-components`
+- Verify SuperClaude installation: `SuperClaude --version`
+- Check component installation: `SuperClaude install --list-components`
 - Restart Claude Code session
 
 **Slow Performance:**
@@ -679,7 +679,7 @@ SuperGemini provides 21 specialized commands that automatically coordinate domai
 
 **MCP Server Issues:**
 - Check server status: `ls ~/.claude/.claude.json`
-- Restart with: `SuperGemini install --components mcp --force`
+- Restart with: `SuperClaude install --components mcp --force`
 - Use `--no-mcp` for native-only execution
 
 **Scope Management:**
@@ -693,20 +693,20 @@ SuperGemini provides 21 specialized commands that automatically coordinate domai
 
 **Command Reliability & Evolution:**
 
-SuperGemini commands are actively developed with regular improvements. Core commands (brainstorm, analyze, implement) are production-ready, while emerging commands (spawn, estimate) are rapidly maturing.
+SuperClaude commands are actively developed with regular improvements. Core commands (brainstorm, analyze, implement) are production-ready, while emerging commands (spawn, estimate) are rapidly maturing.
 
 **Discovery-Based Learning:**
-1. Start with `/sg:index` to explore available commands
-2. Use `/sg:brainstorm` for project-specific guidance
+1. Start with `/sc:index` to explore available commands
+2. Use `/sc:brainstorm` for project-specific guidance
 3. Try commands in `--dry-run` mode first
 4. Progress from simple to complex commands naturally
-5. Save successful patterns with `/sg:save`
+5. Save successful patterns with `/sc:save`
 
 **Getting Help:**
-- In-app: `/sg:index --help` or `/sg:explain "command name"`
-- Documentation: [SuperGemini Guides](../README.md)
-- Issues: [GitHub Repository](https://github.com/SuperClaude-Org/SuperGemini_Framework/issues)
-- Community: [Discussions](https://github.com/SuperClaude-Org/SuperGemini_Framework/discussions)
+- In-app: `/sc:index --help` or `/sc:explain "command name"`
+- Documentation: [SuperClaude Guides](../README.md)
+- Issues: [GitHub Repository](https://github.com/SuperClaude-Org/SuperClaude_Framework/issues)
+- Community: [Discussions](https://github.com/SuperClaude-Org/SuperClaude_Framework/discussions)
 
 ## Related Guides
 
@@ -758,10 +758,10 @@ SuperGemini commands are actively developed with regular improvements. Core comm
 
 ---
 
-**Your SuperGemini Journey:**
+**Your SuperClaude Journey:**
 
-SuperGemini grows with you. Start simple with `/sg:brainstorm` and `/sg:analyze`, then discover advanced capabilities naturally. Each command learns from your usage patterns and becomes more helpful over time.
+SuperClaude grows with you. Start simple with `/sc:brainstorm` and `/sc:analyze`, then discover advanced capabilities naturally. Each command learns from your usage patterns and becomes more helpful over time.
 
-🚀 **The magic happens when you stop thinking about tools and start focusing on your goals.** SuperGemini handles the orchestration, expert coordination, and quality gates automatically.
+🚀 **The magic happens when you stop thinking about tools and start focusing on your goals.** SuperClaude handles the orchestration, expert coordination, and quality gates automatically.
 
-**Remember**: There's no wrong way to explore. Use `/sg:index` whenever you need guidance, and don't hesitate to experiment with new commands and flag combinations.
+**Remember**: There's no wrong way to explore. Use `/sc:index` whenever you need guidance, and don't hesitate to experiment with new commands and flag combinations.

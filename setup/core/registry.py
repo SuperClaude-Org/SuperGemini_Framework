@@ -7,6 +7,7 @@ import inspect
 from typing import Dict, List, Set, Optional, Type
 from pathlib import Path
 from .base import Component
+from ..utils.logger import get_logger
 
 
 class ComponentRegistry:
@@ -24,6 +25,7 @@ class ComponentRegistry:
         self.component_instances: Dict[str, Component] = {}
         self.dependency_graph: Dict[str, Set[str]] = {}
         self._discovered = False
+        self.logger = get_logger()
     
     def discover_components(self, force_reload: bool = False) -> None:
         """
@@ -96,10 +98,10 @@ class ComponentRegistry:
                         self.component_instances[component_name] = instance
                         
                     except Exception as e:
-                        print(f"Warning: Could not instantiate component {name}: {e}")
+                        self.logger.warning(f"Could not instantiate component {name}: {e}")
         
         except Exception as e:
-            print(f"Warning: Could not load component module {module_name}: {e}")
+            self.logger.warning(f"Could not load component module {module_name}: {e}")
     
     def _build_dependency_graph(self) -> None:
         """Build dependency graph for all discovered components"""
@@ -108,7 +110,7 @@ class ComponentRegistry:
                 dependencies = instance.get_dependencies()
                 self.dependency_graph[name] = set(dependencies)
             except Exception as e:
-                print(f"Warning: Could not get dependencies for {name}: {e}")
+                self.logger.warning(f"Could not get dependencies for {name}: {e}")
                 self.dependency_graph[name] = set()
     
     def get_component_class(self, component_name: str) -> Optional[Type[Component]]:
@@ -144,7 +146,7 @@ class ComponentRegistry:
                 try:
                     return component_class(install_dir)
                 except Exception as e:
-                    print(f"Error creating component instance {component_name}: {e}")
+                    self.logger.error(f"Error creating component instance {component_name}: {e}")
                     return None
         
         return self.component_instances.get(component_name)
@@ -360,7 +362,7 @@ class ComponentRegistry:
             if instance:
                 instances[name] = instance
             else:
-                print(f"Warning: Could not create instance for component {name}")
+                self.logger.warning(f"Could not create instance for component {name}")
         
         return instances
     

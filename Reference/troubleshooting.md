@@ -1,6 +1,6 @@
-# SuperGemini Troubleshooting Guide 🔧
+# SuperClaude Troubleshooting Guide 🔧
 
-**Comprehensive Problem Resolution**: Step-by-step solutions for common SuperGemini issues, from installation problems to advanced configuration challenges. Each solution includes diagnosis steps, resolution procedures, and prevention strategies.
+**Comprehensive Problem Resolution**: Step-by-step solutions for common SuperClaude issues, from installation problems to advanced configuration challenges. Each solution includes diagnosis steps, resolution procedures, and prevention strategies.
 
 **Quick Resolution Focus**: Most issues can be resolved in under 5 minutes with the right diagnostic approach. This guide provides systematic troubleshooting methods to get you back to productive development quickly.
 
@@ -22,17 +22,17 @@ sudo chown -R $USER ~/.claude
 chmod 755 ~/.claude
 
 # Solution 2: Use --user installation
-pip install --user SuperGemini
-SuperGemini install --install-dir ~/superclaude
+pip install --user SuperClaude
+SuperClaude install --install-dir ~/superclaude
 
 # Prevention
-# Always install SuperGemini in user space, avoid sudo for installation
+# Always install SuperClaude in user space, avoid sudo for installation
 ```
 
 **Issue: Python Version Compatibility**
 ```bash
 # Error message
-ERROR: SuperGemini requires Python 3.8+ but found Python 3.7
+ERROR: SuperClaude requires Python 3.8+ but found Python 3.7
 
 # Diagnosis
 python3 --version
@@ -41,18 +41,18 @@ which python3
 # Solution 1: Update Python (Linux/Ubuntu)
 sudo apt update
 sudo apt install python3.8 python3.8-pip
-python3.8 -m pip install SuperGemini
+python3.8 -m pip install SuperClaude
 
 # Solution 2: Use pyenv for version management
 curl https://pyenv.run | bash
 pyenv install 3.9.0
 pyenv global 3.9.0
-pip install SuperGemini
+pip install SuperClaude
 
 # Solution 3: Virtual environment with specific Python
 python3.9 -m venv superclaude-env
 source superclaude-env/bin/activate
-pip install SuperGemini
+pip install SuperClaude
 ```
 
 **Issue: Component Installation Failures**
@@ -61,19 +61,19 @@ pip install SuperGemini
 ERROR: Component 'mcp' installation failed - dependency not met
 
 # Diagnosis
-SuperGemini install --dry-run --components mcp
-SuperGemini debug --components
+SuperClaude install --dry-run --components mcp
+SuperClaude debug --components
 
 # Solution 1: Install dependencies first
-SuperGemini install --components core  # Install core first
-SuperGemini install --components mcp   # Then install MCP
+SuperClaude install --components core  # Install core first
+SuperClaude install --components mcp   # Then install MCP
 
 # Solution 2: Force reinstallation
-SuperGemini install --components mcp --force
+SuperClaude install --components mcp --force
 
 # Solution 3: Clean installation
 rm -rf ~/.claude/
-SuperGemini install --fresh
+SuperClaude install --fresh
 
 # Prevention
 # Always install components in dependency order: core → agents → modes → mcp
@@ -88,7 +88,7 @@ ERROR: Cannot find file 'C:\Users\name\.claude\CLAUDE.md'
 
 # Solution: Use proper Windows paths
 set CLAUDE_CONFIG_DIR=C:\Users\%USERNAME%\.claude
-SuperGemini install --install-dir "%CLAUDE_CONFIG_DIR%"
+SuperClaude install --install-dir "%CLAUDE_CONFIG_DIR%"
 
 # Issue: Node.js not found for MCP servers
 # Solution: Install Node.js from official source
@@ -125,12 +125,12 @@ sudo apt install python3-dev python3-pip build-essential
 # CentOS/RHEL
 # Issue: Python 3.8+ not available
 sudo yum install python39 python39-pip
-python3.9 -m pip install SuperGemini
+python3.9 -m pip install SuperClaude
 
 # Arch Linux
 # Issue: Package conflicts
 sudo pacman -S python python-pip
-pip install --user SuperGemini
+pip install --user SuperClaude
 ```
 
 ## Command Issues
@@ -140,11 +140,11 @@ pip install --user SuperGemini
 **Issue: Command Not Found**
 ```bash
 # Error message
-ERROR: Command '/sg:analyze' not recognized
+ERROR: Command '/sc:analyze' not recognized
 
 # Diagnosis
-# Check if SuperGemini is properly installed
-SuperGemini --version
+# Check if SuperClaude is properly installed
+SuperClaude --version
 ls ~/.claude/
 
 # Check Claude Code session
@@ -154,15 +154,15 @@ claude --version
 # Exit and restart Claude Code completely
 
 # Solution 2: Verify installation
-SuperGemini install --list-components
-SuperGemini install --components core --force
+SuperClaude install --list-components
+SuperClaude install --components core --force
 
 # Solution 3: Manual verification
 cat ~/.claude/CLAUDE.md
-# Should contain SuperGemini instructions and imports
+# Should contain SuperClaude instructions and imports
 
 # Prevention
-# Always restart Claude Code after SuperGemini installation
+# Always restart Claude Code after SuperClaude installation
 ```
 
 **Issue: Command Timeout or Hanging**
@@ -176,12 +176,12 @@ df -h
 ps aux | grep claude
 
 # Solution 1: Reduce scope
-/sg:analyze src/ --scope file    # Instead of entire project
-/sg:implement "simple task"      # Instead of complex features
+/sc:analyze src/ --scope file    # Instead of entire project
+/sc:implement "simple task"      # Instead of complex features
 
 # Solution 2: Use timeout flags
-/sg:analyze . --timeout 300      # 5-minute timeout
-/sg:implement "feature" --quick  # Faster implementation mode
+/sc:analyze . --timeout 300      # 5-minute timeout
+/sc:implement "feature" --quick  # Faster implementation mode
 
 # Solution 3: Clear cache and restart
 rm -rf ~/.claude/cache/
@@ -200,19 +200,19 @@ rm -rf ~/.claude/cache/
 # Check current directory and context
 pwd
 ls -la
-/sg:reflect  # Check current session context
+/sc:reflect  # Check current session context
 
 # Solution 1: Reset session context
-/sg:save "backup-session"  # Backup current state
+/sc:save "backup-session"  # Backup current state
 # Restart Claude Code and reload if needed
 
 # Solution 2: Use explicit scope
-/sg:analyze ./specific-folder/  # Explicit path
-/sg:implement "specific task" --focus area
+/sc:analyze ./specific-folder/  # Explicit path
+/sc:implement "specific task" --focus area
 
 # Solution 3: Debug mode
 export SUPERCLAUDE_DEBUG=true
-/sg:analyze . --verbose
+/sc:analyze . --verbose
 
 # Prevention
 # Use explicit paths and clear task descriptions
@@ -226,22 +226,22 @@ export SUPERCLAUDE_DEBUG=true
 # Symptoms: Wrong specialist activated for the task
 
 # Example problem
-/sg:implement "database optimization"
+/sc:implement "database optimization"
 # Activates frontend-architect instead of database specialist
 
 # Diagnosis
 # Check keyword patterns and triggers
-/sg:explain "why was frontend-architect selected for database work?"
+/sc:explain "why was frontend-architect selected for database work?"
 
 # Solution 1: Use explicit keywords
-/sg:implement "PostgreSQL database performance optimization"
+/sc:implement "PostgreSQL database performance optimization"
 # More specific keywords trigger correct specialist
 
 # Solution 2: Use focus flags
-/sg:implement "database optimization" --focus backend --database
+/sc:implement "database optimization" --focus backend --database
 
 # Solution 3: Manual agent specification
-/sg:implement "database optimization" --agent database-specialist
+/sc:implement "database optimization" --agent database-specialist
 
 # Prevention
 # Use domain-specific terminology
@@ -254,21 +254,21 @@ export SUPERCLAUDE_DEBUG=true
 
 # Diagnosis
 # Check complexity score and mode thresholds
-/sg:reflect "task complexity analysis"
+/sc:reflect "task complexity analysis"
 
 # Example: Task management mode not activating for complex project
-/sg:implement "entire microservices platform"
+/sc:implement "entire microservices platform"
 # Should activate task management mode but doesn't
 
 # Solution 1: Explicit mode activation
-/sg:implement "microservices platform" --task-manage
+/sc:implement "microservices platform" --task-manage
 
 # Solution 2: Break down complexity
-/sg:workflow "microservices platform"  # Plan first
-/sg:implement "authentication service"  # Then implement pieces
+/sc:workflow "microservices platform"  # Plan first
+/sc:implement "authentication service"  # Then implement pieces
 
 # Solution 3: Use complexity flags
-/sg:implement "platform" --complex --multi-step
+/sc:implement "platform" --complex --multi-step
 
 # Prevention
 # Describe task complexity explicitly
@@ -282,27 +282,27 @@ export SUPERCLAUDE_DEBUG=true
 **Issue: Expected Agent Not Activating**
 ```bash
 # Example: Security agent not activating for security-related tasks
-/sg:implement "user login system"
+/sc:implement "user login system"
 # Expected: security-engineer activation
 # Actual: Only backend-architect activates
 
 # Diagnosis
 # Check agent trigger patterns
-/sg:explain "agent activation patterns for security tasks"
+/sc:explain "agent activation patterns for security tasks"
 
 # Solution 1: Use explicit security keywords
-/sg:implement "secure user authentication with JWT and encryption"
+/sc:implement "secure user authentication with JWT and encryption"
 # Keywords: "secure", "authentication", "encryption" trigger security-engineer
 
 # Solution 2: Explicit security focus
-/sg:implement "user login" --focus security
+/sc:implement "user login" --focus security
 
 # Solution 3: Multi-keyword approach
-/sg:implement "user login with security best practices and vulnerability protection"
+/sc:implement "user login with security best practices and vulnerability protection"
 
 # Verification
 # Check which agents activated in response
-/sg:reflect "which agents were activated for the last task?"
+/sc:reflect "which agents were activated for the last task?"
 ```
 
 **Issue: Too Many Agents Activating**
@@ -310,18 +310,18 @@ export SUPERCLAUDE_DEBUG=true
 # Symptoms: Overwhelming agent coordination, slow performance
 
 # Example: Simple task activating multiple agents
-/sg:implement "add console.log statement"
+/sc:implement "add console.log statement"
 # Multiple agents activate unnecessarily
 
 # Solution 1: Reduce task scope
-/sg:implement "add debug logging to user.js line 45"
+/sc:implement "add debug logging to user.js line 45"
 # More specific, simpler task
 
 # Solution 2: Use scope limiting
-/sg:implement "logging" --scope file --simple
+/sc:implement "logging" --scope file --simple
 
 # Solution 3: Agent limitation
-/sg:implement "logging" --max-agents 2
+/sc:implement "logging" --max-agents 2
 
 # Prevention
 # Use specific, focused task descriptions
@@ -334,19 +334,19 @@ export SUPERCLAUDE_DEBUG=true
 
 # Diagnosis
 # Review agent recommendations and conflicts
-/sg:reflect "agent coordination issues in last task"
+/sc:reflect "agent coordination issues in last task"
 
 # Solution 1: Establish priority hierarchy
-/sg:implement "payment system" --lead-agent security-engineer
+/sc:implement "payment system" --lead-agent security-engineer
 # Security-engineer leads, others support
 
 # Solution 2: Sequential agent consultation
-/sg:design "payment architecture" --agent system-architect
-/sg:implement "payment security" --agent security-engineer
-/sg:implement "payment UI" --agent frontend-architect
+/sc:design "payment architecture" --agent system-architect
+/sc:implement "payment security" --agent security-engineer
+/sc:implement "payment UI" --agent frontend-architect
 
 # Solution 3: Single-domain focus
-/sg:implement "payment backend only" --focus backend
+/sc:implement "payment backend only" --focus backend
 
 # Prevention
 # Break complex tasks into domain-specific subtasks
@@ -358,7 +358,7 @@ export SUPERCLAUDE_DEBUG=true
 **Issue: Brainstorming Mode Not Activating**
 ```bash
 # Expected: Interactive discovery for vague requests
-/sg:brainstorm "build something for productivity"
+/sc:brainstorm "build something for productivity"
 # Should activate brainstorming mode but doesn't
 
 # Diagnosis
@@ -366,14 +366,14 @@ export SUPERCLAUDE_DEBUG=true
 echo "Requirements: vague project, needs discovery"
 
 # Solution 1: Use uncertainty indicators
-/sg:brainstorm "maybe we could build some kind of productivity tool"
+/sc:brainstorm "maybe we could build some kind of productivity tool"
 # Keywords: "maybe", "some kind of" trigger exploration
 
 # Solution 2: Explicit mode activation
-/sg:brainstorm "productivity tool" --mode brainstorming
+/sc:brainstorm "productivity tool" --mode brainstorming
 
 # Solution 3: Question-based approach
-/sg:brainstorm "not sure what kind of productivity solution we need"
+/sc:brainstorm "not sure what kind of productivity solution we need"
 
 # Verification
 # Mode should respond with Socratic questions
@@ -384,17 +384,17 @@ echo "Requirements: vague project, needs discovery"
 # Symptoms: Simple task gets complex project management treatment
 
 # Example
-/sg:implement "fix typo in README"
+/sc:implement "fix typo in README"
 # Activates task management mode unnecessarily
 
 # Solution 1: Use simple language
-/sg:implement "correct spelling error in README.md"
+/sc:implement "correct spelling error in README.md"
 
 # Solution 2: Scope limitation
-/sg:implement "typo fix" --scope file --simple
+/sc:implement "typo fix" --scope file --simple
 
 # Solution 3: Single-step indication
-/sg:implement "one-line fix in README" --quick
+/sc:implement "one-line fix in README" --quick
 
 # Prevention
 # Use simple, direct language for simple tasks
@@ -424,14 +424,14 @@ sudo apt-get install -y nodejs
 npm install -g @context7/mcp-server
 
 # Solution 2: Reconfigure MCP servers
-SuperGemini install --components mcp --force
+SuperClaude install --components mcp --force
 
 # Solution 3: Manual server testing
 node -e "console.log('Node.js working')"
 npm test @context7/mcp-server
 
 # Verification
-/sg:implement "React component" --c7
+/sc:implement "React component" --c7
 # Should connect to Context7 for React patterns
 ```
 
@@ -451,15 +451,15 @@ free -h
 
 # Solution 1: Increase timeout
 export SUPERCLAUDE_MCP_TIMEOUT=60
-/sg:implement "complex task" --timeout 60
+/sc:implement "complex task" --timeout 60
 
 # Solution 2: Restart MCP servers
-SuperGemini debug --mcp-restart
+SuperClaude debug --mcp-restart
 
 # Solution 3: Disable problematic server temporarily
-/sg:implement "task" --no-mcp
+/sc:implement "task" --no-mcp
 # or
-/sg:implement "task" --seq --magic  # Enable specific servers only
+/sc:implement "task" --seq --magic  # Enable specific servers only
 
 # Prevention
 # Monitor system resources before large operations
@@ -476,13 +476,13 @@ ERROR: Sequential reasoning server encountered internal error
 tail -f ~/.claude/logs/sequential-mcp.log
 
 # Check server version compatibility
-SuperGemini debug --mcp-versions
+SuperClaude debug --mcp-versions
 
 # Solution 1: Restart Sequential server
-SuperGemini debug --mcp-restart sequential
+SuperClaude debug --mcp-restart sequential
 
 # Solution 2: Use alternative reasoning approach
-/sg:analyze complex-problem --native-reasoning
+/sc:analyze complex-problem --native-reasoning
 # Fall back to native analysis
 
 # Solution 3: Reinstall Sequential MCP
@@ -490,7 +490,7 @@ npm uninstall -g @sequential/mcp-server
 npm install -g @sequential/mcp-server@latest
 
 # Verification
-/sg:troubleshoot "test complex debugging scenario" --seq
+/sc:troubleshoot "test complex debugging scenario" --seq
 # Should activate Sequential reasoning successfully
 ```
 
@@ -502,7 +502,7 @@ npm install -g @sequential/mcp-server@latest
 
 # Diagnosis
 # Check Magic server status and configuration
-SuperGemini debug --mcp-servers
+SuperClaude debug --mcp-servers
 grep "magic" ~/.claude/.claude.json
 
 # Solution 1: Verify Magic server installation
@@ -510,10 +510,10 @@ npm list -g @magic/ui-generator
 npm install -g @magic/ui-generator@latest
 
 # Solution 2: Use explicit Magic activation
-/sg:implement "React button component" --magic --ui
+/sc:implement "React button component" --magic --ui
 
 # Solution 3: Check component request format
-/sg:implement "modern responsive navigation component with accessibility"
+/sc:implement "modern responsive navigation component with accessibility"
 # More descriptive request for better Magic activation
 
 # Verification
@@ -526,7 +526,7 @@ npm install -g @magic/ui-generator@latest
 ERROR: Playwright browser automation failed - browser not installed
 
 # Diagnosis
-SuperGemini debug --mcp-servers playwright
+SuperClaude debug --mcp-servers playwright
 npx playwright --version
 
 # Solution 1: Install Playwright browsers
@@ -534,13 +534,13 @@ npx playwright install
 npx playwright install-deps
 
 # Solution 2: Specify browser explicitly
-/sg:test "login flow" --browser chromium --playwright
+/sc:test "login flow" --browser chromium --playwright
 
 # Solution 3: Fallback to headless mode
-/sg:test "ui validation" --headless --playwright
+/sc:test "ui validation" --headless --playwright
 
 # Verification
-/sg:test "simple page load test" --play
+/sc:test "simple page load test" --play
 # Should successfully run browser automation
 ```
 
@@ -555,10 +555,10 @@ npx playwright install-deps
 # Diagnosis
 # Check session persistence
 ls ~/.claude/sessions/
-/sg:load  # Lists available sessions
+/sc:load  # Lists available sessions
 
 # Solution 1: Save session before closing
-/sg:save "current-work-session"
+/sc:save "current-work-session"
 # Before closing Claude Code
 
 # Solution 2: Auto-save configuration
@@ -566,8 +566,8 @@ export SUPERCLAUDE_AUTO_SAVE=true
 # Enables automatic session saving
 
 # Solution 3: Manual session recovery
-/sg:load "last-session"
-/sg:reflect "previous work context"
+/sc:load "last-session"
+/sc:reflect "previous work context"
 
 # Prevention
 # Always save important session state
@@ -585,14 +585,14 @@ ls -la ~/.claude/sessions/
 file ~/.claude/sessions/session-*.json
 
 # Solution 1: Restore from backup
-/sg:load "backup-session-20241201"  # Use backup session
+/sc:load "backup-session-20241201"  # Use backup session
 
 # Solution 2: Partial context recovery
-/sg:reflect "what do I remember about the project?"
+/sc:reflect "what do I remember about the project?"
 # Manually rebuild context
 
 # Solution 3: Fresh session with project analysis
-/sg:load project-directory/ --fresh-analysis
+/sc:load project-directory/ --fresh-analysis
 # Start fresh with project re-analysis
 
 # Prevention
@@ -606,22 +606,22 @@ file ~/.claude/sessions/session-*.json
 
 # Diagnosis
 # Compare session contexts
-/sg:load "session-1" && /sg:reflect "project understanding"
-/sg:load "session-2" && /sg:reflect "project understanding"
+/sc:load "session-1" && /sc:reflect "project understanding"
+/sc:load "session-2" && /sc:reflect "project understanding"
 
 # Solution 1: Consolidate session contexts
-/sg:load "session-1"
-/sg:save "consolidated-session"
-/sg:load "session-2"
-/sg:save "consolidated-session" --merge
+/sc:load "session-1"
+/sc:save "consolidated-session"
+/sc:load "session-2"
+/sc:save "consolidated-session" --merge
 
 # Solution 2: Rebuild authoritative context
-/sg:load project/ --comprehensive-analysis
-/sg:save "authoritative-project-context"
+/sc:load project/ --comprehensive-analysis
+/sc:save "authoritative-project-context"
 
 # Solution 3: Use session hierarchy
-/sg:load "main-project-session"  # Primary context
-/sg:load "feature-branch-session" --inherit-context
+/sc:load "main-project-session"  # Primary context
+/sc:load "feature-branch-session" --inherit-context
 
 # Prevention
 # Maintain single authoritative session per project
@@ -636,18 +636,18 @@ file ~/.claude/sessions/session-*.json
 
 # Diagnosis
 # Check session size and memory usage
-/sg:debug --memory-usage
+/sc:debug --memory-usage
 du -sh ~/.claude/sessions/
 
 # Solution 1: Clean session memory
-/sg:cleanup --session-memory --preserve-important
+/sc:cleanup --session-memory --preserve-important
 
 # Solution 2: Archive old context
-/sg:save "archived-context-$(date +%Y%m%d)"
-/sg:cleanup --session-reset
+/sc:save "archived-context-$(date +%Y%m%d)"
+/sc:cleanup --session-reset
 
 # Solution 3: Selective memory cleanup
-/sg:cleanup --memory-threshold 100MB --keep-recent 30days
+/sc:cleanup --memory-threshold 100MB --keep-recent 30days
 
 # Prevention
 # Regular session maintenance and archiving
@@ -673,11 +673,11 @@ grep -n "@" ~/.claude/CLAUDE.md
 # Remove any @CLAUDE.md references from imported files
 
 # Solution 2: Reset to default configuration
-SuperGemini install --reset-config --backup
+SuperClaude install --reset-config --backup
 
 # Solution 3: Manual configuration repair
 cp ~/.claude/CLAUDE.md ~/.claude/CLAUDE.md.backup
-SuperGemini install --components core --force
+SuperClaude install --components core --force
 
 # Verification
 # Check that imports work correctly
@@ -691,18 +691,18 @@ grep "@" ~/.claude/CLAUDE.md
 
 # Diagnosis
 # Check component installation order and dependencies
-SuperGemini install --list-components
-SuperGemini debug --component-conflicts
+SuperClaude install --list-components
+SuperClaude debug --component-conflicts
 
 # Solution 1: Reinstall in correct order
-SuperGemini install --components core agents modes mcp --force
+SuperClaude install --components core agents modes mcp --force
 
 # Solution 2: Selective component installation
-SuperGemini uninstall --components mcp
-SuperGemini install --components mcp --clean
+SuperClaude uninstall --components mcp
+SuperClaude install --components mcp --clean
 
 # Solution 3: Configuration validation
-SuperGemini install --validate-config --fix-conflicts
+SuperClaude install --validate-config --fix-conflicts
 
 # Prevention
 # Install components in dependency order
@@ -719,15 +719,15 @@ cat ~/.claude/CLAUDE.md
 # Look for syntax errors
 
 # Solution 1: Validate configuration syntax
-SuperGemini debug --validate-config
+SuperClaude debug --validate-config
 
 # Solution 2: Backup and reset
 cp ~/.claude/CLAUDE.md ~/.claude/CLAUDE.md.custom
-SuperGemini install --reset-config
+SuperClaude install --reset-config
 # Manually merge custom content back
 
 # Solution 3: Step-by-step integration
-SuperGemini install --components core  # Base installation
+SuperClaude install --components core  # Base installation
 # Add custom content gradually and test
 
 # Prevention
@@ -739,7 +739,7 @@ SuperGemini install --components core  # Base installation
 
 **Issue: Complete Configuration Corruption**
 ```bash
-# Symptoms: SuperGemini completely non-functional after configuration changes
+# Symptoms: SuperClaude completely non-functional after configuration changes
 
 # Emergency Recovery Procedure
 # Step 1: Backup current state
@@ -747,14 +747,14 @@ cp -r ~/.claude ~/.claude.corrupted.$(date +%Y%m%d)
 
 # Step 2: Complete reset
 rm -rf ~/.claude/
-SuperGemini install --fresh
+SuperClaude install --fresh
 
 # Step 3: Selective recovery
 # Restore specific custom files from backup if needed
 cp ~/.claude.corrupted.*/custom-file.md ~/.claude/
 
 # Step 4: Gradual reconfiguration
-SuperGemini install --components core agents modes
+SuperClaude install --components core agents modes
 # Test after each component
 
 # Prevention
@@ -776,18 +776,18 @@ top
 df -h
 iostat 1 5
 
-# Check SuperGemini resource usage
+# Check SuperClaude resource usage
 ps aux | grep -i superclaude
-/sg:debug --performance-metrics
+/sc:debug --performance-metrics
 
 # Solution 1: Reduce operation scope
-/sg:analyze src/ --scope file          # Instead of entire project
-/sg:implement "simple task" --quick    # Use quick mode
+/sc:analyze src/ --scope file          # Instead of entire project
+/sc:implement "simple task" --quick    # Use quick mode
 
 # Solution 2: Optimize resource allocation
 export SUPERCLAUDE_MAX_MEMORY=2GB
 export SUPERCLAUDE_CONCURRENCY=2
-/sg:analyze . --parallel 2
+/sc:analyze . --parallel 2
 
 # Solution 3: Clear caches and restart
 rm -rf ~/.claude/cache/
@@ -806,17 +806,17 @@ rm -rf ~/.claude/cache/
 # Check memory usage
 free -h
 ps aux --sort=-%mem | head -10
-/sg:debug --memory-analysis
+/sc:debug --memory-analysis
 
 # Solution 1: Enable memory optimization
 export SUPERCLAUDE_MEMORY_OPTIMIZE=true
-/sg:analyze . --memory-efficient
+/sc:analyze . --memory-efficient
 
 # Solution 2: Use streaming mode for large operations
-/sg:analyze large-project/ --stream --chunk-size 10MB
+/sc:analyze large-project/ --stream --chunk-size 10MB
 
 # Solution 3: Cleanup and optimization
-/sg:cleanup --memory --cache --sessions
+/sc:cleanup --memory --cache --sessions
 # Remove unnecessary cached data
 
 # Prevention
@@ -831,19 +831,19 @@ export SUPERCLAUDE_MEMORY_OPTIMIZE=true
 
 # Diagnosis
 # Check MCP server performance
-/sg:debug --mcp-performance
+/sc:debug --mcp-performance
 tail -f ~/.claude/logs/mcp-*.log
 
 # Solution 1: Selective MCP server usage
-/sg:implement "task" --c7 --seq  # Use only needed servers
+/sc:implement "task" --c7 --seq  # Use only needed servers
 # Instead of --all-mcp
 
 # Solution 2: MCP server optimization
-SuperGemini debug --mcp-optimize
+SuperClaude debug --mcp-optimize
 # Optimize server configurations
 
 # Solution 3: Local fallback mode
-/sg:implement "task" --no-mcp --native-mode
+/sc:implement "task" --no-mcp --native-mode
 # Use native capabilities when MCP servers slow
 
 # Prevention
@@ -863,10 +863,10 @@ htop
 iotop
 netstat -i
 
-# SuperGemini-specific monitoring
-/sg:debug --comprehensive-performance
+# SuperClaude-specific monitoring
+/sc:debug --comprehensive-performance
 export SUPERCLAUDE_PROFILE=true
-/sg:analyze . --profile
+/sc:analyze . --profile
 
 # Analysis and optimization
 # Based on monitoring results:
@@ -887,14 +887,14 @@ crontab -e
 **Error: "Command not recognized"**
 ```bash
 # Full error message
-ERROR: Command '/sg:analyze' not recognized by Claude Code
+ERROR: Command '/sc:analyze' not recognized by Claude Code
 
-# Meaning: SuperGemini instructions not loaded into Claude Code session
+# Meaning: SuperClaude instructions not loaded into Claude Code session
 # Resolution:
-1. Verify SuperGemini installation: SuperGemini --version
-2. Check ~/.claude/CLAUDE.md exists and contains SuperGemini instructions
+1. Verify SuperClaude installation: SuperClaude --version
+2. Check ~/.claude/CLAUDE.md exists and contains SuperClaude instructions
 3. Restart Claude Code completely
-4. If persistent: SuperGemini install --components core --force
+4. If persistent: SuperClaude install --components core --force
 ```
 
 **Error: "Component dependency not met"**
@@ -904,9 +904,9 @@ ERROR: Component 'mcp' installation failed - dependency 'core' not met
 
 # Meaning: Attempting to install component without required dependencies
 # Resolution:
-1. Install dependencies first: SuperGemini install --components core
-2. Then install desired component: SuperGemini install --components mcp
-3. Or use automatic dependency resolution: SuperGemini install --components mcp --resolve-dependencies
+1. Install dependencies first: SuperClaude install --components core
+2. Then install desired component: SuperClaude install --components mcp
+3. Or use automatic dependency resolution: SuperClaude install --components mcp --resolve-dependencies
 ```
 
 **Error: "MCP server connection failed"**
@@ -917,9 +917,9 @@ ERROR: MCP server 'context7' connection failed - server not responding
 # Meaning: MCP server unavailable or misconfigured
 # Resolution:
 1. Check Node.js installation: node --version (should be 16+)
-2. Reinstall MCP servers: SuperGemini install --components mcp --force
-3. Verify server status: SuperGemini debug --mcp-servers
-4. Test without MCP: /sg:command --no-mcp
+2. Reinstall MCP servers: SuperClaude install --components mcp --force
+3. Verify server status: SuperClaude debug --mcp-servers
+4. Test without MCP: /sc:command --no-mcp
 ```
 
 **Error: "Session context corrupted"**
@@ -929,10 +929,10 @@ ERROR: Cannot load session - data corruption detected
 
 # Meaning: Session file damaged or incompatible format
 # Resolution:
-1. Try backup session: /sg:load "backup-session-name"
-2. List available sessions: /sg:load (shows all sessions)
-3. Start fresh: /sg:load project-directory/ --fresh-analysis
-4. Rebuild context: /sg:analyze . --comprehensive && /sg:save "new-session"
+1. Try backup session: /sc:load "backup-session-name"
+2. List available sessions: /sc:load (shows all sessions)
+3. Start fresh: /sc:load project-directory/ --fresh-analysis
+4. Rebuild context: /sc:analyze . --comprehensive && /sc:save "new-session"
 ```
 
 **Error: "Agent activation failed"**
@@ -942,9 +942,9 @@ ERROR: No suitable agent found for task complexity
 
 # Meaning: Task description insufficient for agent selection
 # Resolution:
-1. Add specific keywords: /sg:implement "React TypeScript component with security validation"
-2. Use explicit focus: /sg:implement "task" --focus frontend --agent frontend-architect
-3. Break down complex tasks: /sg:workflow "complex task" first, then implement pieces
+1. Add specific keywords: /sc:implement "React TypeScript component with security validation"
+2. Use explicit focus: /sc:implement "task" --focus frontend --agent frontend-architect
+3. Break down complex tasks: /sc:workflow "complex task" first, then implement pieces
 ```
 
 ### Error Interpretation Strategies
@@ -975,13 +975,13 @@ ERROR: MCP context7 connection failed - timeout after 30s [E001]
 **Required Information for Bug Reports:**
 ```bash
 # Essential diagnostic information
-SuperGemini --version                    # Version information
+SuperClaude --version                    # Version information
 uname -a                                 # System information  
 python --version                         # Python version
 node --version                           # Node.js version (if using MCP)
 
-# SuperGemini-specific diagnostics
-SuperGemini debug --comprehensive > debug-report.txt
+# SuperClaude-specific diagnostics
+SuperClaude debug --comprehensive > debug-report.txt
 
 # Error reproduction
 # 1. Exact command that caused the issue
@@ -994,7 +994,7 @@ SuperGemini debug --comprehensive > debug-report.txt
 ```markdown
 ## Bug Report
 
-**SuperGemini Version:** [Output of `SuperGemini --version`]
+**SuperClaude Version:** [Output of `SuperClaude --version`]
 
 **Environment:**
 - OS: [Linux/macOS/Windows + version]
@@ -1022,7 +1022,7 @@ SuperGemini debug --comprehensive > debug-report.txt
 ```
 
 **Debug Information:**
-[Attach output of `SuperGemini debug --comprehensive`]
+[Attach output of `SuperClaude debug --comprehensive`]
 
 **Additional Context:**
 [Any other relevant information]
@@ -1033,12 +1033,12 @@ SuperGemini debug --comprehensive > debug-report.txt
 **Primary Support Channels:**
 
 1. **GitHub Issues** (Technical Problems)
-   - URL: https://github.com/SuperClaude-Org/SuperGemini_Framework/issues
+   - URL: https://github.com/SuperClaude-Org/SuperClaude_Framework/issues
    - Use for: Bug reports, installation issues, feature requests
    - Response time: 24-48 hours for critical issues
 
 2. **GitHub Discussions** (General Help)
-   - URL: https://github.com/SuperClaude-Org/SuperGemini_Framework/discussions
+   - URL: https://github.com/SuperClaude-Org/SuperClaude_Framework/discussions
    - Use for: Usage questions, best practices, community support
    - Response time: Community-driven, usually <24 hours
 
@@ -1054,23 +1054,23 @@ SuperGemini debug --comprehensive > debug-report.txt
 
 **Enterprise Support:**
 - Available for organizations requiring dedicated support
-- Contact: [GitHub repository maintainers](https://github.com/SuperClaude-Org/SuperGemini_Framework)
+- Contact: [GitHub repository maintainers](https://github.com/SuperClaude-Org/SuperClaude_Framework)
 
 ## Frequently Asked Questions
 
 ### Installation and Setup
 
-**Q: Can I use SuperGemini without Node.js?**
-A: Yes, but with limited functionality. Core SuperGemini works with Python only. MCP servers (Context7, Magic, Sequential) require Node.js 16+ for enhanced capabilities.
+**Q: Can I use SuperClaude without Node.js?**
+A: Yes, but with limited functionality. Core SuperClaude works with Python only. MCP servers (Context7, Magic, Sequential) require Node.js 16+ for enhanced capabilities.
 
-**Q: Does SuperGemini work on Windows?**
-A: Yes, SuperGemini supports Windows 10/11. Use PowerShell or Command Prompt for installation. Some features may require WSL for optimal compatibility.
+**Q: Does SuperClaude work on Windows?**
+A: Yes, SuperClaude supports Windows 10/11. Use PowerShell or Command Prompt for installation. Some features may require WSL for optimal compatibility.
 
-**Q: How much disk space does SuperGemini require?**
+**Q: How much disk space does SuperClaude require?**
 A: Core installation: ~50MB. With all MCP servers: ~200MB. Session storage grows over time but can be managed with cleanup commands.
 
-**Q: Can I install SuperGemini in a virtual environment?**
-A: Yes, recommended for isolation. Use `python -m venv superclaude-env && source superclaude-env/bin/activate && pip install SuperGemini`.
+**Q: Can I install SuperClaude in a virtual environment?**
+A: Yes, recommended for isolation. Use `python -m venv superclaude-env && source superclaude-env/bin/activate && pip install SuperClaude`.
 
 ### Usage and Features
 
@@ -1081,7 +1081,7 @@ A: Use descriptive keywords related to your domain (e.g., "secure" for security-
 A: Yes, use server-specific flags like `--c7` (Context7), `--seq` (Sequential), `--magic` (Magic UI), or `--no-mcp` for none.
 
 **Q: How do I save and resume work sessions?**
-A: Use `/sg:save "session-name"` to save and `/sg:load "session-name"` to resume. See [Session Management](../User-Guide/session-management.md) for details.
+A: Use `/sc:save "session-name"` to save and `/sc:load "session-name"` to resume. See [Session Management](../User-Guide/session-management.md) for details.
 
 **Q: What's the difference between modes and agents?**
 A: Modes control behavior style (brainstorming, task management, etc.). Agents provide domain expertise (security, frontend, etc.). They work together automatically.
@@ -1089,12 +1089,12 @@ A: Modes control behavior style (brainstorming, task management, etc.). Agents p
 ### Troubleshooting
 
 **Q: Commands are slow or hanging - what should I do?**
-A: 1) Check system resources with `top`, 2) Reduce scope with `--scope file`, 3) Use `--quick` flag, 4) Clear cache with `/sg:cleanup`.
+A: 1) Check system resources with `top`, 2) Reduce scope with `--scope file`, 3) Use `--quick` flag, 4) Clear cache with `/sc:cleanup`.
 
-**Q: How do I reset SuperGemini to default configuration?**
-A: `SuperGemini install --reset-config --backup` creates backup and resets to defaults.
+**Q: How do I reset SuperClaude to default configuration?**
+A: `SuperClaude install --reset-config --backup` creates backup and resets to defaults.
 
-**Q: Can I contribute to SuperGemini development?**
+**Q: Can I contribute to SuperClaude development?**
 A: Yes! See [Contributing Guide](../Developer-Guide/contributing-code.md) for development setup and contribution process.
 
 ## System Diagnostics
@@ -1103,8 +1103,8 @@ A: Yes! See [Contributing Guide](../Developer-Guide/contributing-code.md) for de
 
 **Comprehensive System Health Check:**
 ```bash
-# Complete SuperGemini diagnostics
-SuperGemini debug --comprehensive
+# Complete SuperClaude diagnostics
+SuperClaude debug --comprehensive
 
 # Expected output includes:
 # - Installation status and component health
@@ -1118,22 +1118,22 @@ SuperGemini debug --comprehensive
 **Quick Health Verification:**
 ```bash
 # Basic functionality test
-SuperGemini --version                    # Version verification
-SuperGemini install --list-components    # Component status
-SuperGemini debug --quick               # Quick health check
+SuperClaude --version                    # Version verification
+SuperClaude install --list-components    # Component status
+SuperClaude debug --quick               # Quick health check
 
 # Test core functionality
-echo "Test SuperGemini functionality" | claude
-# Then try: /sg:analyze README.md
+echo "Test SuperClaude functionality" | claude
+# Then try: /sc:analyze README.md
 ```
 
 **Component-Specific Diagnostics:**
 ```bash
 # Test specific components
-SuperGemini debug --components core agents modes mcp
-SuperGemini debug --mcp-servers         # MCP server health
-SuperGemini debug --sessions           # Session management
-SuperGemini debug --performance        # Performance metrics
+SuperClaude debug --components core agents modes mcp
+SuperClaude debug --mcp-servers         # MCP server health
+SuperClaude debug --sessions           # Session management
+SuperClaude debug --performance        # Performance metrics
 ```
 
 ### System Requirement Validation
@@ -1141,7 +1141,7 @@ SuperGemini debug --performance        # Performance metrics
 **Automated Compatibility Check:**
 ```bash
 # System requirements validation
-SuperGemini install --check-requirements
+SuperClaude install --check-requirements
 
 # Expected validations:
 # ✅ Python 3.8+ detected
@@ -1179,13 +1179,13 @@ free -h                    # Check available memory (1GB+ recommended)
 **Performance Baseline Testing:**
 ```bash
 # Establish performance baselines
-time SuperGemini install --dry-run       # Installation speed test
-time /sg:analyze small-file.py           # Analysis speed test  
-/sg:debug --benchmark                     # Performance benchmarks
+time SuperClaude install --dry-run       # Installation speed test
+time /sc:analyze small-file.py           # Analysis speed test  
+/sc:debug --benchmark                     # Performance benchmarks
 
 # Create performance profile for troubleshooting
 export SUPERCLAUDE_PROFILE=true
-/sg:analyze . --profile > performance-profile.txt
+/sc:analyze . --profile > performance-profile.txt
 ```
 
 ---
@@ -1221,8 +1221,8 @@ export SUPERCLAUDE_PROFILE=true
 - [Testing & Debugging](../Developer-Guide/testing-debugging.md) - Advanced debugging techniques and testing procedures
 
 **Community Support:**
-- [GitHub Issues](https://github.com/SuperClaude-Org/SuperGemini_Framework/issues) - Bug reports and technical support
-- [GitHub Discussions](https://github.com/SuperClaude-Org/SuperGemini_Framework/discussions) - Community help and best practices
+- [GitHub Issues](https://github.com/SuperClaude-Org/SuperClaude_Framework/issues) - Bug reports and technical support
+- [GitHub Discussions](https://github.com/SuperClaude-Org/SuperClaude_Framework/discussions) - Community help and best practices
 - [Contributing Guidelines](../CONTRIBUTING.md) - How to contribute fixes and improvements
 
 ### Quick Reference Links
@@ -1241,8 +1241,8 @@ export SUPERCLAUDE_PROFILE=true
 ---
 
 **Emergency Recovery:**
-If SuperGemini is completely non-functional:
+If SuperClaude is completely non-functional:
 1. Backup current configuration: `cp -r ~/.claude ~/.claude.backup`
-2. Complete reset: `rm -rf ~/.claude && SuperGemini install --fresh`
+2. Complete reset: `rm -rf ~/.claude && SuperClaude install --fresh`
 3. Restore custom configurations gradually from backup
-4. If issues persist, report to [GitHub Issues](https://github.com/SuperClaude-Org/SuperGemini_Framework/issues) with diagnostic information
+4. If issues persist, report to [GitHub Issues](https://github.com/SuperClaude-Org/SuperClaude_Framework/issues) with diagnostic information

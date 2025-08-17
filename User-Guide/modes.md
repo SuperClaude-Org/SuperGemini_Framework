@@ -1,10 +1,10 @@
-# SuperGemini Behavioral Modes Guide 🧠
+# SuperClaude Behavioral Modes Guide 🧠
 
 ## 💡 The Simple Truth About Modes
 
-SuperGemini employs 6 behavioral modes that automatically adapt Claude Code's communication style, tool selection, and workflow approach based on task context and complexity. Modes work seamlessly in the background - you don't need to think about them.
+SuperClaude employs 6 behavioral modes that automatically adapt Claude Code's communication style, tool selection, and workflow approach based on task context and complexity. Modes work seamlessly in the background - you don't need to think about them.
 
-**Automatic Intelligence**: Type `/sg:brainstorm "mobile app"` → Brainstorming mode activates with Socratic questions. Type `/sg:analyze src/` → Introspection mode provides transparent reasoning. Type complex multi-file operations → Task Management coordinates execution phases.
+**Automatic Intelligence**: Type `/sc:brainstorm "mobile app"` → Brainstorming mode activates with Socratic questions. Type `/sc:analyze src/` → Introspection mode provides transparent reasoning. Type complex multi-file operations → Task Management coordinates execution phases.
 
 **Behind the Scenes**: Modes enhance your experience by optimizing communication patterns, resource usage, and workflow orchestration based on what you're trying to accomplish.
 
@@ -15,19 +15,19 @@ SuperGemini employs 6 behavioral modes that automatically adapt Claude Code's co
 **Automatic Mode Examples:**
 ```bash
 # Brainstorming mode activates automatically
-/sg:brainstorm "fitness tracking app"
+/sc:brainstorm "fitness tracking app"
 # → Socratic questions about users, features, goals
 
 # Introspection mode shows reasoning
-/sg:analyze --focus security 
+/sc:analyze --focus security 
 # → Transparent thinking: "🤔 Why security first? 🎯 Risk assessment shows..."
 
 # Task Management coordinates complex work
-/sg:implement "user authentication with email verification"
+/sc:implement "user authentication with email verification"
 # → Phases: analysis → design → implementation → testing
 
 # Orchestration optimizes tool selection  
-/sg:improve src/ --focus performance
+/sc:improve src/ --focus performance
 # → Magic + Morphllm + Sequential coordination
 
 # Token Efficiency compresses output
@@ -123,7 +123,7 @@ Introspective: "🧠 Reasoning: Why structural over functional analysis?
 
 **Example Experience:**
 ```
-/sg:implement "payment system"
+/sc:implement "payment system"
 → Phase 1: Security analysis
 → Phase 2: API design  
 → Phase 3: Implementation
@@ -264,7 +264,7 @@ Compressed: "build ✅ » test 🔄 » deploy ⏳"
 **Examples:**
 ```bash
 # E-commerce platform development (auto-delegates to multiple agents)
-/sg:implement "complete e-commerce platform with payment integration"
+/sc:implement "complete e-commerce platform with payment integration"
 # Phase 1: Architecture → system-architect
 # Phase 2: Backend APIs → backend-architect + security-engineer  
 # Phase 3: Frontend UI → frontend-architect + quality-engineer
@@ -272,7 +272,7 @@ Compressed: "build ✅ » test 🔄 » deploy ⏳"
 # Phase 5: Testing & Deployment → devops-architect + quality-engineer
 
 # Large codebase refactoring (delegates by file type and complexity)
-/sg:improve legacy-codebase/ --comprehensive
+/sc:improve legacy-codebase/ --comprehensive
 # Delegation: Python files → python-expert + refactoring-expert
 # Delegation: React components → frontend-architect + refactoring-expert
 # Delegation: API endpoints → backend-architect + security-engineer
@@ -353,11 +353,11 @@ Compressed: "build ✅ » test 🔄 » deploy ⏳"
 **Discovery → Implementation Workflow:**
 ```bash
 # Brainstorming discovers requirements
-/sg:brainstorm "e-commerce platform"
+/sc:brainstorm "e-commerce platform"
 → Requirements brief generated
 
 # Task Management coordinates implementation  
-/sg:implement "payment integration"
+/sc:implement "payment integration"
 → Phase 1: Architecture (Orchestration mode for tool selection)
 → Phase 2: Implementation (Token Efficiency if complex)
 → Phase 3: Testing (Introspection for quality analysis)
@@ -393,19 +393,19 @@ Compressed: "build ✅ » test 🔄 » deploy ⏳"
 **Mode Activation Flags:**
 ```bash
 # Force brainstorming for requirement exploration
-/sg:implement "user auth" --brainstorm
+/sc:implement "user auth" --brainstorm
 
 # Enable introspection for learning/debugging
-/sg:analyze src/ --introspect
+/sc:analyze src/ --introspect
 
 # Activate task management for complex coordination
-/sg:improve legacy-code/ --task-manage
+/sc:improve legacy-code/ --task-manage
 
 # Enable orchestration for optimal tool selection
-/sg:refactor components/ --orchestrate
+/sc:refactor components/ --orchestrate
 
 # Force token efficiency for compressed output
-/sg:analyze large-project/ --uc
+/sc:analyze large-project/ --uc
 ```
 
 **When to Use Manual Control:**
@@ -430,10 +430,10 @@ Compressed: "build ✅ » test 🔄 » deploy ⏳"
 **Mode Combination:**
 ```bash
 # Multiple modes for complex scenarios
-/sg:implement "microservices architecture" --brainstorm --task-manage --orchestrate
+/sc:implement "microservices architecture" --brainstorm --task-manage --orchestrate
 
 # Analysis with reasoning transparency
-/sg:analyze security-audit/ --introspect --uc
+/sc:analyze security-audit/ --introspect --uc
 ```
 
 ---
@@ -444,21 +444,21 @@ Compressed: "build ✅ » test 🔄 » deploy ⏳"
 
 ```bash
 # Phase 1: Discovery (Brainstorming Mode)
-/sg:brainstorm "task management mobile app"
+/sc:brainstorm "task management mobile app"
 ```
 *Experience*: Socratic questions about users, features, platform choice, backend needs
 *Outcome*: Structured requirements brief with technical specifications
 
 ```bash
 # Phase 2: Planning (Task Management Mode)  
-/sg:workflow "implement core task features"
+/sc:workflow "implement core task features"
 ```
 *Experience*: Multi-phase breakdown with dependencies and time estimates
 *Outcome*: Systematic implementation plan with quality gates
 
 ```bash
 # Phase 3: Implementation (Orchestration Mode)
-/sg:implement "user authentication with social login"
+/sc:implement "user authentication with social login"
 ```
 *Experience*: Magic (UI) + Context7 (auth patterns) + Security specialist coordination
 *Outcome*: Complete auth system with tests and documentation
@@ -469,7 +469,7 @@ Compressed: "build ✅ » test 🔄 » deploy ⏳"
 
 ```bash
 # Step 1: Problem Analysis (Introspection Mode)
-/sg:troubleshoot "users getting 401 errors intermittently"
+/sc:troubleshoot "users getting 401 errors intermittently"
 ```
 *Experience*: 
 ```
@@ -482,7 +482,7 @@ Compressed: "build ✅ » test 🔄 » deploy ⏳"
 
 ```bash
 # Step 2: Systematic Fix (Task Management Mode)
-/sg:implement "token refresh queue with retry logic"
+/sc:implement "token refresh queue with retry logic"
 ```
 *Experience*: Phase coordination across middleware, frontend, and testing
 *Outcome*: Robust authentication flow with comprehensive error handling
@@ -493,7 +493,7 @@ Compressed: "build ✅ » test 🔄 » deploy ⏳"
 
 ```bash
 # Phase 1: Assessment (Token Efficiency + Introspection)
-/sg:analyze legacy-codebase/ --focus maintainability --uc
+/sc:analyze legacy-codebase/ --focus maintainability --uc
 ```
 *Experience*:
 ```
@@ -507,14 +507,14 @@ Compressed: "build ✅ » test 🔄 » deploy ⏳"
 
 ```bash
 # Phase 2: Planning (Task Management + Orchestration)  
-/sg:improve legacy-codebase/ --task-manage --orchestrate
+/sc:improve legacy-codebase/ --task-manage --orchestrate
 ```
 *Experience*: Multi-phase plan with Morphllm (patterns) + Sequential (analysis) + Serena (context)
 *Outcome*: Systematic refactoring with progress tracking and rollback safety
 
 ```bash
 # Phase 3: Quality Validation (Introspection)
-/sg:reflect "refactoring impact assessment"
+/sc:reflect "refactoring impact assessment"
 ```
 *Experience*: Transparent analysis of improvements, remaining debt, and success metrics
 *Outcome*: Evidence-based completion assessment with next steps
@@ -525,14 +525,14 @@ Compressed: "build ✅ » test 🔄 » deploy ⏳"
 
 ```bash
 # Discovery (Brainstorming Mode for unclear performance issues)
-/sg:brainstorm "app feels slow but unclear where"
+/sc:brainstorm "app feels slow but unclear where"
 ```
 *Experience*: Questions about user workflows, data volumes, environment differences
 *Outcome*: Focused performance investigation scope
 
 ```bash
 # Systematic Analysis (Task Management + Token Efficiency)
-/sg:analyze --focus performance --task-manage --uc
+/sc:analyze --focus performance --task-manage --uc
 ```
 *Experience*:
 ```
@@ -544,7 +544,7 @@ Priority: db opt → bundle split → memory tuning
 
 ```bash
 # Coordinated Fixes (Orchestration Mode)
-/sg:improve --focus performance --orchestrate
+/sc:improve --focus performance --orchestrate
 ```
 *Experience*: Sequential (analysis) + Morphllm (code patterns) + Context7 (optimization patterns)
 *Outcome*: 60% performance improvement with systematic validation
@@ -588,9 +588,9 @@ A: Integrated coordination:
 **Q: What if automatic detection is wrong?**
 A: Manual override available:
 ```bash
-/sg:command --brainstorm      # Force discovery approach
-/sg:command --no-introspect   # Suppress reasoning markers
-/sg:command --uc              # Force compression
+/sc:command --brainstorm      # Force discovery approach
+/sc:command --no-introspect   # Suppress reasoning markers
+/sc:command --uc              # Force compression
 ```
 
 ---
@@ -658,7 +658,7 @@ A: Manual override available:
 
 ## The Magic of Intelligent Adaptation ✨
 
-SuperGemini's behavioral modes represent a breakthrough in AI framework design: **intelligence that adapts to you, not the other way around**. The system observes your context, analyzes task complexity, and seamlessly adjusts its communication style, tool selection, and workflow approach.
+SuperClaude's behavioral modes represent a breakthrough in AI framework design: **intelligence that adapts to you, not the other way around**. The system observes your context, analyzes task complexity, and seamlessly adjusts its communication style, tool selection, and workflow approach.
 
 **You Don't Need to Think About Modes** - they work transparently in the background, enhancing your experience without adding complexity. Start a vague project idea and watch Brainstorming mode guide discovery. Tackle complex refactoring and see Task Management coordinate phases. Work under resource pressure and observe Token Efficiency compress communication while preserving clarity.
 

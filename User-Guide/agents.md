@@ -1,10 +1,10 @@
-# SuperGemini Agents Guide 🤖
+# SuperClaude Agents Guide 🤖
 
 ## Overview
 
-SuperGemini employs 13 specialized AI agents that automatically activate based on task context and keywords. The intelligent routing system analyzes your requests and coordinates the most relevant domain experts for optimal results.
+SuperClaude employs 13 specialized AI agents that automatically activate based on task context and keywords. The intelligent routing system analyzes your requests and coordinates the most relevant domain experts for optimal results.
 
-**Automatic Activation**: Type `/sg:implement "secure user login"` and watch as the security-engineer, backend-architect, and frontend-architect agents coordinate automatically.
+**Automatic Activation**: Type `/sc:implement "secure user login"` and watch as the security-engineer, backend-architect, and frontend-architect agents coordinate automatically.
 
 **Intelligent Coordination**: Multiple agents can work together on complex tasks, with each contributing their specialized expertise to different aspects of the problem.
 
@@ -13,16 +13,16 @@ SuperGemini employs 13 specialized AI agents that automatically activate based o
 **Automatic Agent Examples:**
 ```bash
 # Triggers: security-engineer + backend-architect
-/sg:implement "JWT authentication with rate limiting"
+/sc:implement "JWT authentication with rate limiting"
 
 # Triggers: frontend-architect + ux-designer
-/sg:design "responsive dashboard with accessibility"
+/sc:design "responsive dashboard with accessibility"
 
 # Triggers: devops-architect + performance-engineer
-/sg:troubleshoot "slow deployment pipeline"
+/sc:troubleshoot "slow deployment pipeline"
 
 # Triggers: qa-specialist + security-engineer
-/sg:test "payment processing security"
+/sc:test "payment processing security"
 ```
 
 **Pattern Recognition Logic:**
@@ -33,7 +33,7 @@ SuperGemini employs 13 specialized AI agents that automatically activate based o
 
 ---
 
-## The SuperGemini Agent Team 👥
+## The SuperClaude Agent Team 👥
 
 ### Architecture & System Design Agents 🏗️
 
@@ -174,12 +174,12 @@ Complex projects automatically activate multiple agents based on scope and requi
 - **Serena**: Provides project memory and context for all agents
 
 **Command Integration:**
-Each SuperGemini command automatically selects appropriate agents:
-- `/sg:implement` → domain-specific architects (frontend, backend, security)
-- `/sg:analyze` → quality-engineer + security-engineer + performance-engineer
-- `/sg:troubleshoot` → root-cause-analyst + domain specialists
-- `/sg:improve` → refactoring-expert + performance-engineer
-- `/sg:document` → technical-writer + domain specialists
+Each SuperClaude command automatically selects appropriate agents:
+- `/sc:implement` → domain-specific architects (frontend, backend, security)
+- `/sc:analyze` → quality-engineer + security-engineer + performance-engineer
+- `/sc:troubleshoot` → root-cause-analyst + domain specialists
+- `/sc:improve` → refactoring-expert + performance-engineer
+- `/sc:document` → technical-writer + domain specialists
 
 ## Quick Reference 📋
 
@@ -210,11 +210,11 @@ Each SuperGemini command automatically selects appropriate agents:
 **Multi-Agent Workflow Examples:**
 ```bash
 # E-commerce platform (4 agents activate)
-/sg:implement "secure payment processing with fraud detection"
+/sc:implement "secure payment processing with fraud detection"
 # → backend-architect + security-engineer + quality-engineer + performance-engineer
 
 # Learning platform (3 agents activate)
-/sg:design "interactive coding tutorial system"
+/sc:design "interactive coding tutorial system"
 # → frontend-architect + learning-guide + technical-writer
 ```
 
@@ -222,7 +222,7 @@ Each SuperGemini command automatically selects appropriate agents:
 
 **Getting Started (Simple Approach):**
 1. **Start Simple**: Just describe what you want - agents activate automatically
-2. **Trust the System**: SuperGemini selects the right experts for your context
+2. **Trust the System**: SuperClaude selects the right experts for your context
 3. **Learn from Patterns**: Notice which agents activate for different tasks
 4. **Gradual Complexity**: Add more detail to trigger additional specialist agents
 
@@ -236,31 +236,31 @@ Each SuperGemini command automatically selects appropriate agents:
 
 **New Project Startup:**
 ```bash
-/sg:brainstorm "fintech mobile app"
+/sc:brainstorm "fintech mobile app"
 # → Activates: system-architect + frontend-architect + security-engineer
 ```
 
 **Existing Code Analysis:**
 ```bash
-/sg:analyze src/ --focus security
+/sc:analyze src/ --focus security
 # → Activates: security-engineer + quality-engineer + refactoring-expert
 ```
 
 **Learning & Understanding:**
 ```bash
-/sg:explain "microservices architecture patterns"
+/sc:explain "microservices architecture patterns"
 # → Activates: system-architect + learning-guide + technical-writer
 ```
 
 **Performance Investigation:**
 ```bash
-/sg:troubleshoot "API response time > 2 seconds"
+/sc:troubleshoot "API response time > 2 seconds"
 # → Activates: performance-engineer + root-cause-analyst + backend-architect
 ```
 
 **Quality Improvement:**
 ```bash
-/sg:improve legacy-code/ --focus maintainability
+/sc:improve legacy-code/ --focus maintainability
 # → Activates: refactoring-expert + quality-engineer + technical-writer
 ```
 
@@ -270,7 +270,7 @@ Each SuperGemini command automatically selects appropriate agents:
 
 **The Truth About Agent Usage:**
 
-SuperGemini agents activate automatically based on keywords and context - you don't need to manage them. The system is designed to be sophisticated under the hood while remaining simple to use.
+SuperClaude agents activate automatically based on keywords and context - you don't need to manage them. The system is designed to be sophisticated under the hood while remaining simple to use.
 
 **Agent Knowledge Usefulness:**
 - **Useful**: Understanding why certain agents activate can help you craft better commands
@@ -281,7 +281,7 @@ SuperGemini agents activate automatically based on keywords and context - you do
 **Simple Usage Approach:**
 1. **Focus on Your Goal**: Describe what you want to accomplish clearly
 2. **Use Natural Language**: Include domain keywords naturally ("security", "performance", "UI")
-3. **Trust the System**: Let SuperGemini activate appropriate agents automatically
+3. **Trust the System**: Let SuperClaude activate appropriate agents automatically
 4. **Learn from Results**: Notice which agents activate and why, but don't force it
 
 ---
@@ -311,16 +311,16 @@ SuperGemini agents activate automatically based on keywords and context - you do
 
 ---
 
-**Your SuperGemini Agent Journey:**
+**Your SuperClaude Agent Journey:**
 
-SuperGemini's agent system represents the best of both worlds: sophisticated coordination happening automatically behind a simple, intuitive interface. You get the benefit of 13 specialized experts without the complexity of managing them.
+SuperClaude's agent system represents the best of both worlds: sophisticated coordination happening automatically behind a simple, intuitive interface. You get the benefit of 13 specialized experts without the complexity of managing them.
 
 **The Magic is in the Simplicity:**
-- Type `/sg:implement "secure user login"` and watch security engineers, backend architects, and frontend specialists coordinate seamlessly
+- Type `/sc:implement "secure user login"` and watch security engineers, backend architects, and frontend specialists coordinate seamlessly
 - No agent configuration, no manual routing, no complex setup - just describe your goal and let the system work
-- The more you use SuperGemini, the better you'll understand the patterns, but you never need to micromanage the agents
+- The more you use SuperClaude, the better you'll understand the patterns, but you never need to micromanage the agents
 
 **Start Simple, Stay Simple:**
-Begin with basic commands and let complexity emerge naturally. SuperGemini handles the orchestration so you can focus on building great software. The agent system grows with your needs while maintaining the same straightforward interface.
+Begin with basic commands and let complexity emerge naturally. SuperClaude handles the orchestration so you can focus on building great software. The agent system grows with your needs while maintaining the same straightforward interface.
 
-🚀 **Ready to experience intelligent agent coordination? Try `/sg:brainstorm` and watch the magic happen.**
+🚀 **Ready to experience intelligent agent coordination? Try `/sc:brainstorm` and watch the magic happen.**

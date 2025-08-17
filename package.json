@@ -1,9 +1,9 @@
 {
-  "name": "supergemini",
+  "name": "@superclaude-org/superclaude",
   "version": "4.0.0",
-  "description": "SuperGemini official npm wrapper for the Python package (PyPI: SuperGemini). Run with npx supergemini anywhere!",
+  "description": "SuperClaude Framework NPM wrapper - Official Node.js wrapper for the Python SuperClaude package. Enhances Claude Code with specialized commands and AI development tools.",
   "bin": {
-    "supergemini": "./bin/cli.js"
+    "superclaude": "./bin/cli.js"
   },
   "scripts": {
     "postinstall": "node ./bin/install.js",
@@ -23,15 +23,15 @@
 
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SuperClaude-Org/SuperGemini_Framework.git"
+    "url": "git+https://github.com/SuperClaude-Org/SuperClaude_Framework.git"
   },
   "bugs": {
-    "url": "https://github.com/SuperClaude-Org/SuperGemini_Framework/issues"
+    "url": "https://github.com/SuperClaude-Org/SuperClaude_Framework/issues"
   },
-  "homepage": "https://github.com/SuperClaude-Org/SuperGemini_Framework#readme",
+  "homepage": "https://github.com/SuperClaude-Org/SuperClaude_Framework#readme",
   "license": "MIT",
   "keywords": [
-    "supergemini",
+    "superclaude",
     "ai",
     "cli",
     "pypi",
