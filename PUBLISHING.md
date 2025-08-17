@@ -51,7 +51,7 @@ twine upload --repository testpypi dist/*
 pip install SuperGemini
 
 # Development version
-pip install git+https://github.com/SuperGemini-Org/SuperGemini_Framework.git
+pip install git+https://github.com/SuperClaude-Org/SuperGemini_Framework.git
 
 # Specific version
 pip install SuperGemini==4.0.0
@@ -214,7 +214,7 @@ git config tag.gpgsign true
 **Package Name**: `SuperGemini`
 **Current Version**: 4.0.0 (Major release with v4 architecture)
 **PyPI URL**: https://pypi.org/project/SuperGemini/
-**GitHub URL**: https://github.com/SuperGemini-Org/SuperGemini_Framework
+**GitHub URL**: https://github.com/SuperClaude-Org/SuperGemini_Framework
 
 **Entry Points:**
 ```python
@@ -648,7 +648,7 @@ git tag -d v4.0.0 && git tag v4.0.0
 - [GitHub Actions Documentation](https://docs.github.com/en/actions) - CI/CD automation
 
 **SuperGemini-Specific Support:**
-- **GitHub Issues**: https://github.com/SuperGemini-Org/SuperGemini_Framework/issues
+- **GitHub Issues**: https://github.com/SuperClaude-Org/SuperGemini_Framework/issues
 - **Maintainer Contact**: For urgent publishing issues
 - **Community Discussions**: General publishing questions and experiences
 - **Documentation**: [Contributing Guide](CONTRIBUTING.md) for development setup
@@ -884,8 +884,8 @@ gh release create v4.0.1 \
 **Publishing Support Contacts:**
 
 **Primary Maintainers:**
-- **GitHub**: @SuperGemini-Org maintainer team
-- **Issues**: https://github.com/SuperGemini-Org/SuperGemini_Framework/issues
+- **GitHub**: @SuperClaude-Org maintainer team
+- **Issues**: https://github.com/SuperClaude-Org/SuperGemini_Framework/issues
 - **Email**: maintainers@superclaude.org (for urgent publishing issues)
 
 **Specific Support Areas:**

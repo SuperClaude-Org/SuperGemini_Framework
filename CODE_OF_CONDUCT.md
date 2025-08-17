@@ -421,7 +421,7 @@ SuperGemini Framework prioritizes education and growth over punishment when addr
 
 ### Project Leadership
 **Project Leadership:**
-- **Maintainers**: @SuperGemini-Org maintainer team on GitHub
+- **Maintainers**: @SuperClaude-Org maintainer team on GitHub
 - **Issues**: GitHub Issues with `conduct` or `community` labels for public policy discussions
 - **Email**: maintainers@superclaude.org for general leadership questions
 
@@ -543,7 +543,7 @@ SuperGemini Framework's inclusive and professional community culture benefits fr
 - Advocates who promote the framework and community in external venues
 
 **Positive Impact Recognition:**
-- [GitHub Contributors](https://github.com/SuperGemini-Org/SuperGemini_Framework/graphs/contributors) - Technical and community contributions
+- [GitHub Contributors](https://github.com/SuperClaude-Org/SuperGemini_Framework/graphs/contributors) - Technical and community contributions
 - Community discussions highlight helpful guidance, mentorship, and collaborative problem-solving
 - Regular appreciation for inclusive behavior and professional communication
 - Annual community recognition for outstanding contributions to community culture

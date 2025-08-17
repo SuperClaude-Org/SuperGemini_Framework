@@ -497,7 +497,7 @@ git clone https://github.com/YOUR_USERNAME/SuperGemini_Framework.git
 cd SuperGemini_Framework
 
 # 3. Add upstream remote
-git remote add upstream https://github.com/SuperGemini-Org/SuperGemini_Framework.git
+git remote add upstream https://github.com/SuperClaude-Org/SuperGemini_Framework.git
 
 # 4. Create feature branch
 git checkout -b feature/your-feature-name
@@ -631,7 +631,7 @@ Complete this checklist to ensure you're ready to contribute effectively to Supe
   - [ ] GitHub account configured with SSH key
   - [ ] SuperGemini_Framework repository forked to your account
   - [ ] Local clone created: `git clone https://github.com/YOUR_USERNAME/SuperGemini_Framework.git`
-  - [ ] Upstream remote added: `git remote add upstream https://github.com/SuperGemini-Org/SuperGemini_Framework.git`
+  - [ ] Upstream remote added: `git remote add upstream https://github.com/SuperClaude-Org/SuperGemini_Framework.git`
   - [ ] Development branch created: `git checkout -b feature/your-first-contribution`
 
 - [ ] **Development Environment**

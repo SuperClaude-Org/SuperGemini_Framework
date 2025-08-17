@@ -1456,8 +1456,8 @@ Day 3: /sg:load "day2-catalog" && /sg:implement "shopping cart" && /sg:save "day
 ### Support Resources
 
 **Community Support:**
-- [GitHub Discussions](https://github.com/SuperGemini-Org/SuperGemini_Framework/discussions) - Ask questions and share experiences
-- [GitHub Issues](https://github.com/SuperGemini-Org/SuperGemini_Framework/issues) - Report bugs and request features
+- [GitHub Discussions](https://github.com/SuperClaude-Org/SuperGemini_Framework/discussions) - Ask questions and share experiences
+- [GitHub Issues](https://github.com/SuperClaude-Org/SuperGemini_Framework/issues) - Report bugs and request features
 
 **Advanced Learning:**
 - [Troubleshooting Guide](troubleshooting.md) - Common issues and solutions

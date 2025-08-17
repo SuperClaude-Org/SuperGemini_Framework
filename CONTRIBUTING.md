@@ -408,7 +408,7 @@ The MIT License explicitly allows commercial use of SuperGemini Framework, inclu
 SuperGemini Framework benefits from community contributions across documentation, code development, testing, and user experience improvements. 
 
 **Recognition:**
-- [GitHub Contributors Graph](https://github.com/SuperGemini-Org/SuperGemini_Framework/graphs/contributors) - Complete contributor list
+- [GitHub Contributors Graph](https://github.com/SuperClaude-Org/SuperGemini_Framework/graphs/contributors) - Complete contributor list
 - Release notes acknowledge significant contributions
 - Documentation contributors credited in relevant guides
 - Community discussions highlight helpful patterns and solutions

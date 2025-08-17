@@ -17,18 +17,18 @@
     "LICENSE"
   ],
   "author": {
-    "name": "SuperGemini Org",
-    "url": "https://github.com/SuperGemini-Org"
+    "name": "SuperClaude Org",
+    "url": "https://github.com/SuperClaude-Org"
   },
 
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SuperGemini-Org/SuperGemini_Framework.git"
+    "url": "git+https://github.com/SuperClaude-Org/SuperGemini_Framework.git"
   },
   "bugs": {
-    "url": "https://github.com/SuperGemini-Org/SuperGemini_Framework/issues"
+    "url": "https://github.com/SuperClaude-Org/SuperGemini_Framework/issues"
   },
-  "homepage": "https://github.com/SuperGemini-Org/SuperGemini_Framework#readme",
+  "homepage": "https://github.com/SuperClaude-Org/SuperGemini_Framework#readme",
   "license": "MIT",
   "keywords": [
     "supergemini",
@@ -54,7 +54,7 @@
   ],
   "funding": {
     "type": "github",
-    "url": "https://github.com/sponsors/SuperGemini-Org"
+    "url": "https://github.com/sponsors/SuperClaude-Org"
   },
   "publishConfig": {
     "access": "public",

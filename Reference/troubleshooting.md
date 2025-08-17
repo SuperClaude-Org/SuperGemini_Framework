@@ -1033,12 +1033,12 @@ SuperGemini debug --comprehensive > debug-report.txt
 **Primary Support Channels:**
 
 1. **GitHub Issues** (Technical Problems)
-   - URL: https://github.com/SuperGemini-Org/SuperGemini_Framework/issues
+   - URL: https://github.com/SuperClaude-Org/SuperGemini_Framework/issues
    - Use for: Bug reports, installation issues, feature requests
    - Response time: 24-48 hours for critical issues
 
 2. **GitHub Discussions** (General Help)
-   - URL: https://github.com/SuperGemini-Org/SuperGemini_Framework/discussions
+   - URL: https://github.com/SuperClaude-Org/SuperGemini_Framework/discussions
    - Use for: Usage questions, best practices, community support
    - Response time: Community-driven, usually <24 hours
 
@@ -1054,7 +1054,7 @@ SuperGemini debug --comprehensive > debug-report.txt
 
 **Enterprise Support:**
 - Available for organizations requiring dedicated support
-- Contact: [GitHub repository maintainers](https://github.com/SuperGemini-Org/SuperGemini_Framework)
+- Contact: [GitHub repository maintainers](https://github.com/SuperClaude-Org/SuperGemini_Framework)
 
 ## Frequently Asked Questions
 
@@ -1221,8 +1221,8 @@ export SUPERCLAUDE_PROFILE=true
 - [Testing & Debugging](../Developer-Guide/testing-debugging.md) - Advanced debugging techniques and testing procedures
 
 **Community Support:**
-- [GitHub Issues](https://github.com/SuperGemini-Org/SuperGemini_Framework/issues) - Bug reports and technical support
-- [GitHub Discussions](https://github.com/SuperGemini-Org/SuperGemini_Framework/discussions) - Community help and best practices
+- [GitHub Issues](https://github.com/SuperClaude-Org/SuperGemini_Framework/issues) - Bug reports and technical support
+- [GitHub Discussions](https://github.com/SuperClaude-Org/SuperGemini_Framework/discussions) - Community help and best practices
 - [Contributing Guidelines](../CONTRIBUTING.md) - How to contribute fixes and improvements
 
 ### Quick Reference Links
@@ -1245,4 +1245,4 @@ If SuperGemini is completely non-functional:
 1. Backup current configuration: `cp -r ~/.claude ~/.claude.backup`
 2. Complete reset: `rm -rf ~/.claude && SuperGemini install --fresh`
 3. Restore custom configurations gradually from backup
-4. If issues persist, report to [GitHub Issues](https://github.com/SuperGemini-Org/SuperGemini_Framework/issues) with diagnostic information
+4. If issues persist, report to [GitHub Issues](https://github.com/SuperClaude-Org/SuperGemini_Framework/issues) with diagnostic information

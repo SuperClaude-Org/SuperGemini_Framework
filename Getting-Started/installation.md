@@ -20,7 +20,7 @@ superclaude install
 
 **Method 3: Development**
 ```bash
-git clone https://github.com/SuperGemini-Org/SuperGemini_Framework.git
+git clone https://github.com/SuperClaude-Org/SuperGemini_Framework.git
 cd SuperGemini_Framework
 pip install -e ".[dev]"
 SuperGemini install --dry-run
@@ -125,7 +125,7 @@ npm install -g superclaude
 
 **Development/Contributors:**
 ```bash
-git clone https://github.com/SuperGemini-Org/SuperGemini_Framework.git
+git clone https://github.com/SuperClaude-Org/SuperGemini_Framework.git
 cd SuperGemini_Framework
 pip install -e ".[dev]"
 ```
@@ -362,7 +362,7 @@ python3.9 -m pip install SuperGemini
 - Check PATH configuration
 
 **Get Help:**
-- GitHub Issues: https://github.com/SuperGemini-Org/SuperGemini_Framework/issues
+- GitHub Issues: https://github.com/SuperClaude-Org/SuperGemini_Framework/issues
 - Include: OS, Python version, error message, steps to reproduce
 
 ## Advanced Options ⚙️
@@ -380,7 +380,7 @@ SuperGemini install
 **Development Setup:**
 ```bash
 # Clone repository
-git clone https://github.com/SuperGemini-Org/SuperGemini_Framework.git
+git clone https://github.com/SuperClaude-Org/SuperGemini_Framework.git
 cd SuperGemini_Framework
 
 # Create virtual environment
@@ -404,7 +404,7 @@ python scripts/validate_pypi_ready.py
 2. **Try Examples**: Explore [Examples Cookbook](../Reference/examples-cookbook.md)
 3. **Configure MCP**: Set up [MCP Servers](../User-Guide/mcp-servers.md)
 4. **Understand Modes**: Read [Behavioral Modes](../User-Guide/modes.md)
-5. **Join Community**: Follow development on [GitHub](https://github.com/SuperGemini-Org/SuperGemini_Framework)
+5. **Join Community**: Follow development on [GitHub](https://github.com/SuperClaude-Org/SuperGemini_Framework)
 
 **Essential Guides:**
 - 🚀 [Quick Start Guide](quick-start.md) - 5-minute setup

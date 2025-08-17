@@ -3835,8 +3835,8 @@ for solution in solutions:
 "
 
 # Step 3: Community support
-# Search existing issues: https://github.com/SuperGemini-Org/SuperGemini_Framework/issues
-# Join discussions: https://github.com/SuperGemini-Org/SuperGemini_Framework/discussions
+# Search existing issues: https://github.com/SuperClaude-Org/SuperGemini_Framework/issues
+# Join discussions: https://github.com/SuperClaude-Org/SuperGemini_Framework/discussions
 
 # Step 4: Create detailed issue report
 # Include:
@@ -4671,8 +4671,8 @@ jobs:
 ### Community Resources
 
 **Development Community:**
-- [GitHub Discussions](https://github.com/SuperGemini-Org/SuperGemini_Framework/discussions) - Technical discussions
-- [GitHub Issues](https://github.com/SuperGemini-Org/SuperGemini_Framework/issues) - Bug reports and feature requests
+- [GitHub Discussions](https://github.com/SuperClaude-Org/SuperGemini_Framework/discussions) - Technical discussions
+- [GitHub Issues](https://github.com/SuperClaude-Org/SuperGemini_Framework/issues) - Bug reports and feature requests
 - [Contributing Guidelines](../CONTRIBUTING.md) - Contribution process
 
 **Learning Resources:**
@@ -4683,7 +4683,7 @@ jobs:
 **Advanced Topics:**
 - [Session Management](../User-Guide/session-management.md) - Persistent workflows
 - [Flags Guide](../User-Guide/flags.md) - Behavioral control
-- [Technical Roadmap](https://github.com/SuperGemini-Org/SuperGemini_Framework/projects) - Future development
+- [Technical Roadmap](https://github.com/SuperClaude-Org/SuperGemini_Framework/projects) - Future development
 
 ---
 

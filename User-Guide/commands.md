@@ -705,8 +705,8 @@ SuperGemini commands are actively developed with regular improvements. Core comm
 **Getting Help:**
 - In-app: `/sg:index --help` or `/sg:explain "command name"`
 - Documentation: [SuperGemini Guides](../README.md)
-- Issues: [GitHub Repository](https://github.com/SuperGemini-Org/SuperGemini_Framework/issues)
-- Community: [Discussions](https://github.com/SuperGemini-Org/SuperGemini_Framework/discussions)
+- Issues: [GitHub Repository](https://github.com/SuperClaude-Org/SuperGemini_Framework/issues)
+- Community: [Discussions](https://github.com/SuperClaude-Org/SuperGemini_Framework/discussions)
 
 ## Related Guides
 

@@ -1311,7 +1311,7 @@ Production: /sg:deploy . --production-optimized --security-first --monitoring
 
 **Learning and Development:**
 - [Examples Cookbook](examples-cookbook.md) - Practical scenarios and copy-paste solutions
-- [GitHub Discussions](https://github.com/SuperGemini-Org/SuperGemini_Framework/discussions) - Community best practices sharing
+- [GitHub Discussions](https://github.com/SuperClaude-Org/SuperGemini_Framework/discussions) - Community best practices sharing
 - [Troubleshooting Guide](troubleshooting.md) - Problem resolution and optimization
 
 **Advanced Learning:**
