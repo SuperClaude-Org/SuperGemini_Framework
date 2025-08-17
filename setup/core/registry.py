@@ -224,7 +224,23 @@ class ComponentRegistry:
                 self.logger.debug(f"Skipping {name} - already installed")
                 return
                 
+            # If component is not in graph but is installed, just skip it
+            if name not in self.dependency_graph and name in installed_components:
+                self.logger.debug(f"Skipping {name} - already installed but not in graph")
+                return
+                
+            # If component is not in graph and not installed, it's an error
             if name not in self.dependency_graph:
+                # Check if it's actually an installed component (e.g., "core" might be registered differently)
+                if install_dir:
+                    try:
+                        from ..services.settings import SettingsService
+                        settings_manager = SettingsService(install_dir)
+                        if settings_manager.is_component_installed(name):
+                            self.logger.debug(f"Component {name} is installed, skipping")
+                            return
+                    except Exception:
+                        pass
                 raise ValueError(f"Unknown component: {name}")
                 
             resolving.add(name)

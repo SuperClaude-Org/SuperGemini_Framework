@@ -447,7 +447,7 @@ def perform_installation(components: List[str], args: argparse.Namespace, config
         installer.register_components(list(component_instances.values()))
         
         # Resolve dependencies
-        ordered_components = registry.resolve_dependencies(components, install_dir)
+        ordered_components = registry.resolve_dependencies(components, args.install_dir)
         
         # Setup progress tracking
         progress = ProgressBar(
