@@ -5,7 +5,7 @@ description: "Task reflection and validation using Serena MCP analysis capabilit
 category: special
 complexity: standard
 mcp-servers: [serena]
-personas: []
+agents: []
 ---
 
 # /sc:reflect - Task Reflection and Validation

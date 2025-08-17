@@ -5,7 +5,7 @@ description: "Generate comprehensive project documentation and knowledge base wi
 category: special
 complexity: standard
 mcp-servers: [sequential, context7]
-personas: [architect, scribe, quality]
+agents: ["@Agents/system-architect.md"]
 ---
 
 # /sc:index - Project Documentation

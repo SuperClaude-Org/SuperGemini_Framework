@@ -5,7 +5,7 @@ description: "Provide development estimates for tasks, features, or projects wit
 category: special
 complexity: standard
 mcp-servers: [sequential, context7]
-personas: [architect, performance, project-manager]
+agents: ["@Agents/system-architect.md", "@Agents/devops-engineer.md"]
 ---
 
 # /sc:estimate - Development Estimation

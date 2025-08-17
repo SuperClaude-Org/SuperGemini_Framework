@@ -5,7 +5,7 @@ description: "Intelligent MCP tool selection based on complexity scoring and ope
 category: special
 complexity: high
 mcp-servers: [serena, morphllm]
-personas: []
+agents: []
 ---
 
 # /sc:select-tool - Intelligent MCP Tool Selection

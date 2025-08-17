@@ -5,7 +5,7 @@ description: "Systematically clean up code, remove dead code, and optimize proje
 category: workflow
 complexity: standard
 mcp-servers: [sequential, context7]
-personas: [architect, quality, security]
+agents: ["@Agents/code-refactorer.md", "@Agents/performance-optimizer.md"]
 ---
 
 # /sc:cleanup - Code and Project Cleanup

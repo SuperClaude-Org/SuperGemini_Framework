@@ -5,7 +5,7 @@ description: "Session lifecycle management with Serena MCP integration for sessi
 category: session
 complexity: standard
 mcp-servers: [serena]
-personas: []
+agents: []
 ---
 
 # /sc:save - Session Context Persistence

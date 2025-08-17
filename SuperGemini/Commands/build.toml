@@ -5,7 +5,7 @@ description: "Build, compile, and package projects with intelligent error handli
 category: utility
 complexity: enhanced
 mcp-servers: [playwright]
-personas: [devops-engineer]
+agents: ["@Agents/backend-engineer.md", "@Agents/frontend-architect.md", "@Agents/database-specialist.md", "@Agents/devops-engineer.md"]
 ---
 
 # /sc:build - Project Building and Packaging

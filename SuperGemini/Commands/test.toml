@@ -5,7 +5,7 @@ description: "Execute tests with coverage analysis and automated quality reporti
 category: utility
 complexity: enhanced
 mcp-servers: [playwright]
-personas: [qa-specialist]
+agents: ["@Agents/qa-specialist.md", "@Agents/security-engineer.md"]
 ---
 
 # /sc:test - Testing and Quality Assurance
