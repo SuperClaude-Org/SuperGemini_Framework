@@ -154,6 +154,60 @@ class ModesComponent(Component):
         
         return modes_dir
     
+    def _discover_component_files(self) -> List[str]:
+        """
+        Discover MODE files, excluding Gemini CLI incompatible ones
+        
+        Filters out MODE files that require parallel agents or features not supported by Gemini CLI
+        """
+        source_dir = self._get_source_dir()
+        
+        if not source_dir:
+            return []
+        
+        # Gemini CLI compatible MODE files only
+        gemini_compatible_modes = [
+            'MODE_Brainstorming.md',      # Uses dialogue patterns only
+            'MODE_Introspection.md',      # Uses self-analysis only  
+            'MODE_Task_Management.md',    # Uses MCP memory (works)
+            'MODE_Token_Efficiency.md'   # Uses compression patterns only
+        ]
+        
+        # Gemini CLI incompatible MODE files (require parallel agents)
+        gemini_incompatible_modes = [
+            'MODE_Orchestration.md'       # Requires parallel execution, delegation
+        ]
+        
+        discovered_files = []
+        
+        try:
+            if not source_dir.exists():
+                self.logger.warning(f"Modes source directory not found: {source_dir}")
+                return []
+            
+            # Check which compatible files actually exist
+            for mode_file in gemini_compatible_modes:
+                file_path = source_dir / mode_file
+                if file_path.exists():
+                    discovered_files.append(mode_file)
+                    self.logger.debug(f"Found compatible MODE file: {mode_file}")
+                else:
+                    self.logger.warning(f"Compatible MODE file not found: {mode_file}")
+            
+            # Log excluded files for transparency
+            for mode_file in gemini_incompatible_modes:
+                file_path = source_dir / mode_file
+                if file_path.exists():
+                    self.logger.info(f"Excluding incompatible MODE file: {mode_file} (requires parallel agents)")
+            
+            self.logger.info(f"Selected {len(discovered_files)} Gemini CLI compatible MODE files")
+            
+            return sorted(discovered_files)
+            
+        except Exception as e:
+            self.logger.error(f"Error discovering MODE files: {e}")
+            return []
+
     def get_size_estimate(self) -> int:
         """Get estimated installation size"""
         source_dir = self._get_source_dir()
