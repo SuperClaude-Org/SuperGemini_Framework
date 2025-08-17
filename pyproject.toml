@@ -44,6 +44,7 @@ GitHub = "https://github.com/SuperClaude-Org/SuperGemini_Framework"
 [project.scripts]
 SuperGemini = "SuperGemini.__main__:main"
 supergemini = "SuperGemini.__main__:main"
+sg = "SuperGemini.__main__:main"
 
 [project.optional-dependencies]
 dev = [
@@ -63,12 +64,12 @@ include-package-data = true
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["SuperClaude*", "setup*"]
+include = ["SuperGemini*", "setup*"]
 exclude = ["tests*", "*.tests*", "*.tests", ".git*", ".venv*", "*.egg-info*"]
 
 [tool.setuptools.package-data]
 "setup" = ["data/*.json", "data/*.yaml", "data/*.yml", "components/*.py", "**/*.py"]
-"SuperClaude" = ["*.md", "*.txt", "**/*.md", "**/*.txt", "**/*.json", "**/*.yaml", "**/*.yml"]
+"SuperGemini" = ["*.md", "*.txt", "**/*.md", "**/*.txt", "**/*.json", "**/*.yaml", "**/*.yml"]
 
 [tool.black]
 line-length = 88

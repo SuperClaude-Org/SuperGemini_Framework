@@ -64,6 +64,7 @@ setuptools.setup(
         "console_scripts": [
             "SuperGemini=SuperGemini.__main__:main",
             "supergemini=SuperGemini.__main__:main",
+            "sg=SuperGemini.__main__:main",
         ],
     },
     python_requires=">=3.8",

@@ -272,7 +272,11 @@ def display_uninstall_info(info: Dict[str, Any]) -> None:
     if info["components"]:
         print(f"{Colors.BLUE}Installed Components:{Colors.RESET}")
         for component, version in info["components"].items():
-            print(f"  {component}: v{version}")
+            if isinstance(version, dict):
+                version_str = version.get('version', 'unknown')
+            else:
+                version_str = str(version)
+            print(f"  {component}: v{version_str}")
     
     print(f"{Colors.BLUE}Files:{Colors.RESET} {len(info['files'])}")
     print(f"{Colors.BLUE}Directories:{Colors.RESET} {len(info['directories'])}")
@@ -746,7 +750,8 @@ def cleanup_installation_directory(install_dir: Path, args: argparse.Namespace) 
                 should_preserve = False
                 
                 for pattern in preserve_patterns:
-                    if item.match(pattern):
+                    from pathlib import PurePath
+                    if PurePath(item).match(pattern):
                         should_preserve = True
                         break
                 

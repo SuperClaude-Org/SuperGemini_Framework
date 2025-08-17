@@ -78,8 +78,16 @@ class OperationBase:
     
     def handle_operation_error(self, operation: str, error: Exception):
         """Standard error handling for operations"""
+        try:
+            error_msg = str(error)
+        except:
+            error_msg = repr(error)
+        
         if self.logger:
-            self.logger.exception(f"Error in {operation} operation: {error}")
+            self.logger.error(f"Error in {operation} operation: {error_msg}")
+            if hasattr(error, '__traceback__'):
+                import traceback
+                self.logger.debug(traceback.format_exc())
         else:
-            print(f"Error in {operation} operation: {error}")
+            print(f"Error in {operation} operation: {error_msg}")
         return 1
