@@ -180,12 +180,13 @@ class ComponentRegistry:
                 return None
         return None
     
-    def resolve_dependencies(self, component_names: List[str]) -> List[str]:
+    def resolve_dependencies(self, component_names: List[str], install_dir: Optional[Path] = None) -> List[str]:
         """
         Resolve component dependencies in correct installation order
         
         Args:
             component_names: List of component names to install
+            install_dir: Installation directory to check for already installed components
             
         Returns:
             Ordered list of component names including dependencies
@@ -194,6 +195,19 @@ class ComponentRegistry:
             ValueError: If circular dependencies detected or unknown component
         """
         self.discover_components()
+        
+        # Check for already installed components if install_dir provided
+        installed_components = set()
+        if install_dir:
+            try:
+                from ..services.settings import SettingsService
+                settings_manager = SettingsService(install_dir)
+                for comp_name in self.component_instances.keys():
+                    if settings_manager.is_component_installed(comp_name):
+                        installed_components.add(comp_name)
+                        self.logger.debug(f"Component {comp_name} is already installed")
+            except Exception as e:
+                self.logger.debug(f"Could not check installed components: {e}")
         
         resolved = []
         resolving = set()
@@ -204,6 +218,11 @@ class ComponentRegistry:
                 
             if name in resolving:
                 raise ValueError(f"Circular dependency detected involving {name}")
+                
+            # Skip dependency check for already installed components
+            if name in installed_components:
+                self.logger.debug(f"Skipping {name} - already installed")
+                return
                 
             if name not in self.dependency_graph:
                 raise ValueError(f"Unknown component: {name}")

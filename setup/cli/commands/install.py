@@ -337,7 +337,7 @@ def display_installation_plan(components: List[str], registry: ComponentRegistry
     
     # Resolve dependencies
     try:
-        ordered_components = registry.resolve_dependencies(components)
+        ordered_components = registry.resolve_dependencies(components, install_dir)
         
         print(f"{Colors.BLUE}Installation Directory:{Colors.RESET} {install_dir}")
         print(f"{Colors.BLUE}Components to install:{Colors.RESET}")
@@ -447,7 +447,7 @@ def perform_installation(components: List[str], args: argparse.Namespace, config
         installer.register_components(list(component_instances.values()))
         
         # Resolve dependencies
-        ordered_components = registry.resolve_dependencies(components)
+        ordered_components = registry.resolve_dependencies(components, install_dir)
         
         # Setup progress tracking
         progress = ProgressBar(
@@ -560,7 +560,7 @@ def run(args: argparse.Namespace) -> int:
         # Display header
         if not args.quiet:
             display_header(
-                "SuperGemini Installation v3.0",
+                "SuperGemini Installation v4.0.0",
                 "Installing SuperGemini framework components"
             )
         
