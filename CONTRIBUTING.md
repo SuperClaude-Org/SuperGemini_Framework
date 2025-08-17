@@ -1,250 +1,438 @@
 # Contributing to SuperGemini Framework
 
-Thanks for your interest in contributing! 🙏
+SuperGemini Framework transforms Claude Code into a structured development platform through behavioral instruction injection and intelligent workflow orchestration. We welcome contributions that enhance the framework's capabilities, improve documentation, and expand the ecosystem of specialized agents and MCP server integrations.
 
-SuperClaude is a community-driven project that enhances Claude Code through intelligent orchestration, specialized agents, and behavioral modes. Every contribution helps make the framework more useful for developers.
+**Project Mission**: Enable systematic software development workflows with automated expert coordination, quality gates, and session persistence for Claude Code users.
 
-## 🚀 Quick Start
-
-### Prerequisites
-- Python 3.12+ (standard library only)
-- Node.js 18+ (for MCP servers)
-- Gemini CLI installed and authenticated
-- uv package manager (recommended for development)
-
-### Development Setup
-
-```bash
-# Clone the repository
-git clone https://github.com/SuperClaude-Org/SuperClaude_Framework.git
-cd SuperClaude_Framework
-
-# Install SuperGemini V4 Beta
-python -m pip install -e .
-
-# Run tests
-python Tests/comprehensive_test.py
-python Tests/v4_integration_test.py
-```
+**Community Approach**: Open development with focus on practical utility, educational value, and professional development workflows. All contributions undergo review to ensure alignment with framework principles and quality standards.
 
 ## 🎯 Ways to Contribute
 
 ### 🐛 Bug Reports
-- Use GitHub Issues with the "bug" label
-- Include system info (OS, Python/Node versions)
-- Provide minimal reproduction steps
-- Include relevant logs from `~/.claude/`
+**Before Reporting:**
+- Search existing issues to avoid duplicates
+- Test with latest SuperGemini version
+- Verify issue isn't covered in [Troubleshooting Guide](Reference/troubleshooting.md)
+
+**Required Information:**
+- SuperGemini version: `SuperGemini --version`
+- Operating system and version
+- Claude Code version: `claude --version`
+- Python version: `python3 --version`
+- Exact steps to reproduce the issue
+- Expected vs actual behavior
+- Error messages or logs
+- Minimal code example (if applicable)
+
+**Good Bug Report Example:**
+```
+**Environment:**
+- SuperGemini: 4.0.0
+- OS: Ubuntu 22.04
+- Claude Code: 1.5.2
+- Python: 3.9.7
+
+**Issue:** `/sg:implement` command fails with ModuleNotFoundError
+
+**Steps to Reproduce:**
+1. Run `SuperGemini install --components core`
+2. Execute `/sg:implement "user login"`
+3. Error appears: ModuleNotFoundError: No module named 'requests'
+
+**Expected:** Command should execute implementation workflow
+**Actual:** Import error prevents execution
+```
+
+**Issue Labels:**
+- `bug`: Confirmed software defects
+- `enhancement`: Feature improvements
+- `documentation`: Documentation issues
+- `question`: Support requests
+- `good-first-issue`: Beginner-friendly contributions
 
 ### 💡 Feature Requests
-- Check existing issues and roadmap first
-- Use GitHub Issues with the "enhancement" label
-- Describe the use case and expected behavior
-- Consider if it fits the framework's modular philosophy
+**Feature Evaluation Criteria:**
+- Aligns with SuperGemini's systematic development workflow mission
+- Provides clear utility for software development tasks
+- Integrates well with existing command/agent/mode architecture
+- Maintains framework simplicity and discoverability
+
+**High-Priority Features:**
+- New specialized agents for emerging domains (mobile, ML, blockchain)
+- Additional MCP server integrations for enhanced capabilities
+- Workflow automation improvements and quality gates
+- Cross-session project management enhancements
+
+**Feature Request Template:**
+```markdown
+**Feature Description:**
+Clear summary of the proposed functionality
+
+**Use Case:**
+Specific development scenarios where this feature adds value
+
+**Integration Approach:**
+How this feature fits with existing commands/agents/modes
+
+**Implementation Ideas:**
+Technical approach or reference implementations
+
+**Priority Level:**
+Low/Medium/High based on development impact
+```
+
+**Enhancement Process:**
+1. Open GitHub issue with `enhancement` label
+2. Community discussion and feedback
+3. Design review by maintainers
+4. Implementation planning and assignment
+5. Code development with tests
+6. Documentation updates
+7. Release integration
+
+**Current Focus Areas:**
+- Documentation improvements and examples
+- MCP server configurations and troubleshooting
+- Command workflow optimization
+- Agent coordination patterns
+- Quality assurance automation
 
 ### 📝 Documentation
-- Fix typos or unclear explanations
-- Add examples and use cases
-- Improve installation guides
-- Translate documentation (especially for Scribe persona)
+**High-Impact Documentation Needs:**
+
+**User Experience Improvements:**
+- Real-world workflow examples and case studies
+- Video tutorials for complex command sequences
+- Interactive command discovery and learning paths
+- Troubleshooting guides for common configuration issues
+
+**Technical Documentation:**
+- MCP server setup and configuration guides
+- Agent coordination patterns and best practices
+- Custom behavioral mode development
+- Framework extension and customization
+
+**Community Resources:**
+- Contributing guides for different skill levels
+- Code review standards and processes
+- Testing procedures and quality gates
+- Release notes and changelog maintenance
+
+**Documentation Standards:**
+- Clear, actionable instructions with examples
+- Progressive complexity (beginner → advanced)
+- Cross-references between related concepts
+- Regular testing of documented procedures
+
+**Easy Contributions:**
+- Fix typos and grammar issues
+- Add missing code examples
+- Improve existing explanations
+- Create new cookbook recipes
+- Update outdated screenshots or commands
+
+**Documentation Structure:**
+```
+Getting-Started/     # Installation and first steps
+User-Guide/         # Feature usage and workflows
+Developer-Guide/    # Technical implementation
+Reference/          # Best practices and troubleshooting
+```
+
+**Contribution Process:**
+1. Fork repository and create feature branch
+2. Make documentation changes with examples
+3. Test all commands and procedures
+4. Submit pull request with clear description
+5. Address review feedback promptly
 
 ### 🔧 Code Contributions
-- Focus on commands, agents, modes, or core framework components
-- Follow existing patterns and conventions
-- Include tests for new functionality
-- Update documentation as needed
+**Current Development Priorities:**
 
-### 🤖 Agents & Modes
-- Create specialized agents for domain expertise
-- Develop behavioral modes for enhanced workflow patterns
-- Ensure proper integration with MCP servers
-- Follow the SuperGemini orchestration principles
+**Framework Core:**
+- Command parser improvements and error handling
+- Agent routing optimization and coordination
+- Session management and persistence enhancements
+- Quality gate implementation and validation
 
-## 🏗️ Architecture Overview
+**MCP Integration:**
+- New server configurations and troubleshooting
+- Protocol optimization and error recovery
+- Cross-server coordination patterns
+- Performance monitoring and optimization
 
-### Core Components
-```
-SuperGemini_Framework/
-├── SuperGemini/
-│   ├── Agents/         # 13 specialized domain agents
-│   ├── Commands/       # 21 slash commands (/sg:load, /sg:save, etc.)
-│   ├── Core/          # Framework documentation and rules
-│   ├── Config/        # Configuration management
-│   ├── MCP/           # 6 MCP server integrations
-│   └── Modes/         # 5 behavioral modes
-├── Guides/           # User guides and documentation
-└── Tests/            # Comprehensive test suite
-```
+**Agent Development:**
+- Specialized domain agents (mobile, ML, DevSecOps)
+- Agent collaboration patterns and workflows
+- Context-aware activation improvements
+- Multi-agent task decomposition
 
-### V4 Beta Architecture
+**User Experience:**
+- Command discoverability and help systems
+- Progressive complexity and learning paths
+- Error messages and user guidance
+- Workflow automation and shortcuts
 
-#### Agents System
-Domain-specialized agents for expert capabilities:
-- **system-architect.md**: System design and architecture
-- **performance-engineer.md**: Performance analysis and optimization
-- **security-engineer.md**: Security assessment and hardening
-- **frontend-architect.md**: UI/UX and frontend development
-- **requirements-analyst.md**: Requirements discovery and analysis
+**Code Contribution Guidelines:**
+- Follow existing code style and patterns
+- Include comprehensive tests for new features
+- Document all public APIs and interfaces
+- Ensure backward compatibility where possible
+- Add examples and usage documentation
 
-#### Modes System
-Behavioral modes that modify Claude's operational approach:
-- **MODE_Task_Management.md**: Multi-layer task orchestration
-- **MODE_Token_Efficiency.md**: Intelligent compression and optimization
-- **MODE_Introspection.md**: Meta-cognitive analysis and troubleshooting
+**Technical Standards:**
+- Python 3.8+ compatibility
+- Cross-platform support (Linux, macOS, Windows)
+- Comprehensive error handling and logging
+- Performance optimization for large projects
+- Security best practices for external integrations
 
-#### MCP Integration
-Advanced server coordination for enhanced capabilities:
-- **MCP_Serena.md**: Semantic code analysis and memory management
-- **MCP_Sequential.md**: Multi-step problem solving
-- **MCP_Magic.md**: UI component generation
-- **MCP_Context7.md**: Library documentation lookup
-- **MCP_Morphllm.md**: Intelligent file editing
-- **MCP_Playwright.md**: Browser automation and testing
+**Development Workflow:**
+1. Review [Technical Architecture](Developer-Guide/technical-architecture.md)
+2. Study [Contributing Code Guide](Developer-Guide/contributing-code.md)
+3. Set up development environment
+4. Create feature branch from `master`
+5. Implement changes with tests
+6. Update documentation
+7. Submit pull request with detailed description
 
-## 📝 Contribution Guidelines
+**Code Review Focus:**
+- Functionality correctness and edge cases
+- Integration with existing framework components
+- Performance impact and resource usage
+- Documentation completeness and clarity
+- Test coverage and quality
 
-### Documentation (Markdown)
-- Use clear headings and structure with V4 component organization
-- Include code examples for agents, modes, and MCP integration
-- Add emoji sparingly for clarity 🎯
-- Keep language humble and developer-focused
-- Follow YAML frontmatter standards for agents and modes
-- Document integration points and behavioral patterns
-
-### Commit Messages
-```
-type(scope): brief description
-
-Longer explanation if needed.
-
-- Specific changes made
-- Why the change was needed
-- Any breaking changes noted
-- V4 component impacts (agents, modes, core components)
-```
-
-Types: `feat`, `fix`, `docs`, `test`, `refactor`, `perf`, `chore`
-Scopes: `agents`, `modes`, `mcp`, `core`, `commands`, `lifecycle`
-
-## 🔄 Development Workflow
-
-### 1. Fork & Branch
-```bash
-git checkout -b feature/your-feature-name
-```
-
-### 2. Develop & Test
-- Make focused, atomic changes aligned with V4 architecture
-- Test locally with V4 Beta installation (`python -m pip install -e .`)
-- Ensure agents and modes don't break existing functionality
-- Test session lifecycle operations (/sc:load, /sc:save)
-- Validate MCP server integration and coordination
-
-### 3. Submit Pull Request
-- Clear title and description with V4 component impact
-- Reference related issues and architectural decisions
-- Include test results for affected components (agents, modes, framework)
-- Update documentation for new features and integration points
-- Demonstrate compatibility with existing V4 systems
-
-### 4. Code Review
-- Address feedback promptly
-- Keep discussions focused and respectful
-- Be open to suggestions and improvements
-
-## 📦 Release Process
-
-### Version Management
-- Follow [Semantic Versioning](https://semver.org/)
-- Update `VERSION` file and `pyproject.toml`
-- Document changes in `CHANGELOG.md` with V4 component impacts
-- Tag releases: `git tag v4.0.0-beta.1`
-- Consider V4 Beta stability and migration path
-
-### Release Checklist
-- [ ] All V4 tests pass (comprehensive, integration, component-specific)
-- [ ] Documentation updated for new agents, modes, and features
-- [ ] CHANGELOG.md updated with V4 component changes
-- [ ] Version bumped in `VERSION` and `pyproject.toml`
-- [ ] V4 Beta installation tested on clean system
-- [ ] Session lifecycle operations validated
-- [ ] MCP server coordination tested
-- [ ] Agent and mode integration verified
+For detailed development guidelines, see [Contributing Code Guide](Developer-Guide/contributing-code.md).
 
 ## 🤝 Community Guidelines
 
 ### Be Respectful
-- Welcome newcomers and different experience levels
-- Focus on the code and ideas, not personal attributes
-- Help others learn and improve
+All community interactions should embody professional software development standards:
+
+**Professional Communication:**
+- Use clear, technical language appropriate for software development
+- Provide specific, actionable feedback with examples
+- Focus discussions on technical merit and project goals
+- Respect different experience levels and learning approaches
+
+**Constructive Collaboration:**
+- Assume positive intent in all interactions
+- Ask clarifying questions before making assumptions
+- Provide helpful context and reasoning for decisions
+- Acknowledge good contributions and helpful community members
+
+**Technical Focus:**
+- Keep discussions centered on software development and framework improvement
+- Base decisions on technical merit, user value, and project alignment
+- Use evidence and examples to support arguments
+- Maintain focus on practical utility over theoretical perfection
+
+**Inclusive Environment:**
+- Welcome contributors of all skill levels and backgrounds
+- Provide mentorship and guidance for new contributors
+- Create learning opportunities through code review and discussion
+- Celebrate diverse perspectives and solution approaches
 
 ### Stay Focused
-- Keep discussions relevant to SuperGemini's goals
-- Avoid scope creep in feature requests
-- Consider if changes fit the modular philosophy
+**Project Focus:**
+SuperGemini Framework enhances Claude Code for systematic software development workflows. Contributions should align with this core mission.
+
+**In Scope:**
+- Software development workflow automation
+- Domain-specific agent development (security, performance, architecture)
+- MCP server integrations for enhanced capabilities
+- Quality assurance and validation systems
+- Session management and project persistence
+- Educational content for software development practices
+
+**Out of Scope:**
+- General-purpose AI applications unrelated to software development
+- Features that significantly increase complexity without clear developer value
+- Platform-specific implementations that don't support cross-platform usage
+- Commercial or proprietary integrations without open alternatives
+
+**Decision Framework:**
+1. **Developer Value**: Does this help software developers build better systems?
+2. **Framework Integration**: Does this work well with existing commands/agents/modes?
+3. **Maintenance Burden**: Can this be maintained with available resources?
+4. **Educational Merit**: Does this teach good software development practices?
+
+**Scope Boundaries:**
+- Focus on software development, not general productivity
+- Enhance existing workflows rather than creating entirely new paradigms
+- Maintain simplicity while adding powerful capabilities
+- Support professional development practices and quality standards
 
 ### Quality First
-- Test your changes thoroughly
-- Consider performance impact
-- Think about maintainability
+**Code Quality Standards:**
+
+**Technical Excellence:**
+- All code must pass existing test suites
+- New features require comprehensive test coverage (>90%)
+- Follow established coding patterns and architectural principles
+- Include proper error handling and edge case management
+- Optimize for performance and resource efficiency
+
+**Documentation Requirements:**
+- All public APIs must have clear documentation with examples
+- User-facing features need usage guides and cookbook recipes
+- Code changes require updated relevant documentation
+- Breaking changes must include migration guides
+
+**User Experience Standards:**
+- Commands should be discoverable and self-explanatory
+- Error messages must be actionable and helpful
+- Features should follow progressive complexity principles
+- Maintain consistency with existing interface patterns
+
+**Quality Gates:**
+- Automated testing for all core functionality
+- Manual testing for user workflows and integration scenarios
+- Code review by at least one maintainer
+- Documentation review for clarity and completeness
+- Performance impact assessment for changes
+
+**Professional Standards:**
+- Code should be production-ready, not prototype quality
+- Follow security best practices for external integrations
+- Ensure cross-platform compatibility and proper dependency management
+- Maintain backward compatibility or provide clear migration paths
 
 ## 💬 Getting Help
 
 ### Channels
-- **GitHub Issues**: Bug reports and feature requests
-- **GitHub Discussions**: General questions and ideas
-- **Documentation**: Check existing guides first
+**GitHub Issues** (Primary Support)
+- Bug reports and technical issues
+- Feature requests and enhancement proposals
+- Documentation improvements and clarifications
+- General troubleshooting with community help
+
+**GitHub Discussions**
+- General questions about usage and best practices
+- Sharing workflows and success stories
+- Community-driven tips and patterns
+- Design discussions for major features
+
+**Documentation Resources**
+- [Troubleshooting Guide](Reference/troubleshooting.md) - Common issues and solutions
+- [Examples Cookbook](Reference/examples-cookbook.md) - Practical usage patterns
+- [Best Practices](Reference/best-practices.md) - Optimization strategies
+- [Technical Architecture](Developer-Guide/technical-architecture.md) - Framework design
+
+**Development Support**
+- [Contributing Code Guide](Developer-Guide/contributing-code.md) - Development setup
+- [Testing & Debugging](Developer-Guide/testing-debugging.md) - Quality procedures
+- Code review process through pull requests
+- Maintainer guidance on complex contributions
+
+**Response Expectations:**
+- Bug reports: 1-3 business days
+- Feature requests: Review within 1 week
+- Pull requests: Initial review within 3-5 days
+- Documentation issues: Quick turnaround when straightforward
+
+**Self-Help First:**
+Before seeking support, please:
+1. Check existing documentation and troubleshooting guides
+2. Search GitHub issues for similar problems
+3. Verify you're using the latest SuperGemini version
+4. Test with minimal reproduction case
 
 ### Common Questions
 
-**Q: How do I debug V4 framework execution and session lifecycle?**
-A: Check logs in `~/.claude/` and use verbose logging. Monitor session state with `/sc:load` and `/sc:save` operations.
+**Development Environment Issues:**
 
-**Q: Can I add new MCP servers or agents?**
-A: Yes! Follow the patterns in `SuperGemini/MCP/` for servers and `SuperGemini/Agents/` for domain specialists. Include proper YAML frontmatter and integration points.
+**Q: "SuperGemini install fails with permission errors"**
+A: Use `pip install --user SuperGemini` or create virtual environment. See [Installation Guide](Getting-Started/installation.md) for details.
 
-**Q: How do I test V4 changes without affecting my global setup?**
-A: Use a separate test environment with `python -m pip install -e .` for development installation. Backup your `~/.claude` directory and test session operations.
+**Q: "Commands not recognized after installation"**
+A: Restart Claude Code session. Verify installation with `SuperGemini install --list-components`. Check ~/.claude directory exists.
 
-**Q: How do I create a new behavioral mode?**
-A: Follow the pattern in `SuperGemini/Modes/` with proper YAML frontmatter, activation patterns, and framework integration configuration.
+**Q: "MCP servers not connecting"**
+A: Check Node.js installation for MCP servers. Verify ~/.claude/.claude.json configuration. Try `SuperGemini install --components mcp --force`.
 
-**Q: What's the difference between agents and modes?**
-A: Agents provide domain expertise (system-architect, performance-engineer), while modes modify Claude's behavioral approach (brainstorming, task management, token efficiency).
+**Code Development:**
 
-## 🚀 Contributing to V4 Components
+**Q: "How do I add a new agent?"**
+A: Follow agent patterns in setup/components/agents.py. Include trigger keywords, capabilities description, and integration tests.
 
-### Creating New Agents
-1. **Domain Research**: Identify specific expertise area and common patterns
-2. **Template Usage**: Use existing agents as templates (e.g., `system-architect.md`)
-3. **YAML Configuration**: Include proper frontmatter with integration points
-4. **Capability Documentation**: Define core capabilities and integration patterns
-5. **Testing**: Create agent-specific tests and validate MCP coordination
+**Q: "Testing framework setup?"**
+A: See [Testing & Debugging Guide](Developer-Guide/testing-debugging.md). Use pytest for Python tests, include component validation.
 
-### Developing Behavioral Modes
-1. **Behavioral Analysis**: Define how the mode modifies Claude's approach
-2. **Activation Patterns**: Specify automatic and manual triggers
-3. **Framework Integration**: Document MCP servers, commands, and quality gates
-4. **Performance Profiling**: Define lightweight/standard/intensive characteristics
-5. **Mode Coordination**: Ensure compatibility with existing modes
+**Q: "Documentation structure?"**
+A: Follow existing patterns: Getting-Started → User-Guide → Developer-Guide → Reference. Include examples and progressive complexity.
 
-### Enhancing Session Lifecycle
-1. **Framework Integration**: Understand session lifecycle patterns
-2. **Performance Targets**: Meet <500ms load times and <200ms memory operations
-3. **Context Management**: Implement proper session state preservation
-4. **Error Recovery**: Handle checkpoint failures and session restoration
-5. **Memory Optimization**: Follow selective compression patterns
+**Feature Development:**
 
-### MCP Server Integration
-1. **Server Capabilities**: Understand server specializations and coordination
-2. **Performance Benchmarks**: Meet server-specific performance targets
-3. **Fallback Strategies**: Implement graceful degradation patterns
-4. **Quality Gates**: Integrate with validation frameworks
-5. **Cross-Server Coordination**: Enable hybrid intelligence patterns
+**Q: "How do I propose a new command?"**
+A: Open GitHub issue with use case, integration approach, and technical design. Reference similar existing commands.
+
+**Q: "MCP server integration process?"**
+A: Study existing MCP configurations in setup/components/mcp.py. Include server documentation, configuration examples, and troubleshooting.
+
+**Q: "Performance optimization guidelines?"**
+A: Profile before optimizing. Focus on common workflows. Maintain cross-platform compatibility. Document performance characteristics.
 
 ## 📄 License
 
-By contributing, you agree that your contributions will be licensed under the MIT License.
+**MIT License Agreement:**
+
+By contributing to SuperGemini Framework, you agree that your contributions will be licensed under the same MIT License that covers the project. This ensures the framework remains open and accessible for educational and commercial use.
+
+**Contribution Terms:**
+- All contributions become part of the SuperGemini Framework under MIT License
+- Contributors retain copyright to their original work
+- No contributor license agreement (CLA) required for simple contributions
+- Complex contributions may require explicit license confirmation
+
+**Third-Party Content:**
+- Do not include copyrighted code without proper attribution and compatible licensing
+- External libraries must use MIT-compatible licenses (Apache 2.0, BSD, etc.)
+- Document any third-party dependencies in requirements and documentation
+- Respect intellectual property and attribution requirements
+
+**Original Work:**
+- Ensure all contributed code is your original work or properly attributed
+- Reference external sources, algorithms, or patterns appropriately
+- Include proper attribution for adapted or derived code
+- Document any patent or licensing considerations
+
+**Commercial Usage:**
+The MIT License explicitly allows commercial use of SuperGemini Framework, including contributions. This supports the project's goal of enabling professional software development workflows.
 
 ## 🙏 Acknowledgments
 
-Thanks to all contributors who help make SuperGemini V4 Beta better for the development community! Special recognition for those contributing to the new agents system, behavioral modes, session lifecycle, and MCP server coordination that make V4's intelligent orchestration possible.
+**Project Contributors:**
+
+SuperGemini Framework benefits from community contributions across documentation, code development, testing, and user experience improvements. 
+
+**Recognition:**
+- [GitHub Contributors Graph](https://github.com/SuperGemini-Org/SuperGemini_Framework/graphs/contributors) - Complete contributor list
+- Release notes acknowledge significant contributions
+- Documentation contributors credited in relevant guides
+- Community discussions highlight helpful patterns and solutions
+
+**Community Impact:**
+- Enhanced developer productivity through systematic workflows
+- Educational value for software development practices
+- Open-source contribution to AI-assisted development tools
+- Cross-platform compatibility and accessibility
+
+**Contribution Types:**
+- **Code Development**: Framework features, agents, MCP integrations
+- **Documentation**: Guides, examples, troubleshooting resources  
+- **Testing**: Quality assurance, edge case discovery, platform validation
+- **Community**: Support, pattern sharing, feedback, and usage examples
+
+**Special Thanks:**
+- Early adopters providing feedback and real-world usage patterns
+- Documentation contributors improving clarity and completeness
+- Testers identifying platform-specific issues and edge cases
+- Community members sharing workflows and best practices
+
+**Growth:**
+The SuperGemini Framework community continues growing through shared commitment to systematic software development and AI-assisted workflows. Every contribution, from typo fixes to major features, strengthens the framework for all users.
+
+**Join Us:**
+Whether you're fixing documentation, adding features, or sharing usage patterns, your contributions help build better software development tools for the entire community.
