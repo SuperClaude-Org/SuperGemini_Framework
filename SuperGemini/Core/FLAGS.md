@@ -1,6 +1,6 @@
-# SuperClaude Framework Flags
+# SuperGemini Framework Flags
 
-Behavioral flags for Claude Code to enable specific execution modes and tool selection patterns.
+Behavioral flags for Gemini CLI to enable specific execution modes and tool selection patterns.
 
 ## Mode Activation Flags
 
@@ -14,11 +14,11 @@ Behavioral flags for Claude Code to enable specific execution modes and tool sel
 
 **--task-manage**
 - Trigger: Multi-step operations (>3 steps), complex scope (>2 directories OR >3 files)
-- Behavior: Orchestrate through delegation, progressive enhancement, systematic organization
+- Behavior: Orchestrate through systematic organization and progressive enhancement
 
 **--orchestrate**
-- Trigger: Multi-tool operations, performance constraints, parallel execution opportunities
-- Behavior: Optimize tool selection matrix, enable parallel thinking, adapt to resource constraints
+- Trigger: Multi-tool operations, performance constraints, optimization opportunities
+- Behavior: Optimize tool selection matrix, sequential execution planning, adapt to resource constraints
 
 **--token-efficient**
 - Trigger: Context usage >75%, large-scale operations, --uc flag
@@ -58,29 +58,7 @@ Behavioral flags for Claude Code to enable specific execution modes and tool sel
 - Trigger: Native-only execution needs, performance priority
 - Behavior: Disable all MCP servers, use native tools with WebSearch fallback
 
-## Analysis Depth Flags
-
-**--think**
-- Trigger: Multi-component analysis needs, moderate complexity
-- Behavior: Standard structured analysis (~4K tokens), enables Sequential
-
-**--think-hard**
-- Trigger: Architectural analysis, system-wide dependencies
-- Behavior: Deep analysis (~10K tokens), enables Sequential + Context7
-
-**--ultrathink**
-- Trigger: Critical system redesign, legacy modernization, complex debugging
-- Behavior: Maximum depth analysis (~32K tokens), enables all MCP servers
-
 ## Execution Control Flags
-
-**--delegate [auto|files|folders]**
-- Trigger: >7 directories OR >50 files OR complexity >0.8
-- Behavior: Enable sub-agent parallel processing with intelligent routing
-
-**--concurrency [n]**
-- Trigger: Resource optimization needs, parallel operation control
-- Behavior: Control max concurrent operations (range: 1-15)
 
 **--loop**
 - Trigger: Improvement keywords (polish, refine, enhance, improve)
@@ -116,6 +94,5 @@ Behavioral flags for Claude Code to enable specific execution modes and tool sel
 
 **Safety First**: --safe-mode > --validate > optimization flags
 **Explicit Override**: User flags > auto-detection
-**Depth Hierarchy**: --ultrathink > --think-hard > --think  
 **MCP Control**: --no-mcp overrides all individual MCP flags
 **Scope Precedence**: system > project > module > file

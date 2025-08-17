@@ -870,7 +870,7 @@ export SUPERCLAUDE_PROFILE=true
 
 # Analysis and optimization
 # Based on monitoring results:
-# - High CPU: Use --concurrency flags to limit parallel operations
+# - High CPU: Use --orchestrate flags to control operations
 # - High Memory: Use --memory-efficient modes and cleanup
 # - High I/O: Use --cache and reduce file operations
 # - High Network: Minimize MCP server usage or use local alternatives

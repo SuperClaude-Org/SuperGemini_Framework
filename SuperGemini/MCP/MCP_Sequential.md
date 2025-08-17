@@ -5,7 +5,7 @@
 ## Triggers
 - Complex debugging scenarios with multiple layers
 - Architectural analysis and system design questions
-- `--think`, `--think-hard`, `--ultrathink` flags
+- `--seq` flag for structured analysis
 - Problems requiring hypothesis testing and validation
 - Multi-component failure investigation
 - Performance bottleneck identification requiring methodical approach
@@ -28,6 +28,6 @@
 "design a microservices architecture" → Sequential (structured system design)
 "debug this authentication flow" → Sequential (multi-component investigation)
 "analyze security vulnerabilities" → Sequential (comprehensive threat modeling)
-"explain this function" → Native Claude (simple explanation)
-"fix this typo" → Native Claude (straightforward change)
+"explain this function" → Native Gemini (simple explanation)
+"fix this typo" → Native Gemini (straightforward change)
 ```

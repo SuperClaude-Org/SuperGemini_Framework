@@ -6,7 +6,7 @@
 - Operations with >3 steps requiring coordination
 - Multiple file/directory scope (>2 directories OR >3 files)
 - Complex dependencies requiring phases
-- Manual flags: `--task-manage`, `--delegate`
+- Manual flags: `--task-manage`, `--orchestrate`
 - Quality improvement requests: polish, refine, enhance
 
 ## Task Hierarchy with Memory
@@ -29,7 +29,7 @@
 ```
 1. write_memory("task_2.1", "completed: auth middleware")
 2. think_about_task_adherence() → Verify on track
-3. Update TodoWrite status in parallel
+3. Update TodoWrite status sequentially
 4. write_memory("checkpoint", current_state) every 30min
 ```
 
@@ -44,7 +44,7 @@
 
 1. **Load**: list_memories() → read_memory() → Resume state
 2. **Plan**: Create hierarchy → write_memory() for each level  
-3. **Track**: TodoWrite + memory updates in parallel
+3. **Track**: TodoWrite + memory updates sequentially
 4. **Execute**: Update memories as tasks complete
 5. **Checkpoint**: Periodic write_memory() for state preservation
 6. **Complete**: Final memory update with outcomes

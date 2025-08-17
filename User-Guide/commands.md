@@ -1,12 +1,12 @@
-# SuperClaude Commands Guide 🛠️
+# SuperGemini Commands Guide 🛠️
 
-## 💡 Don't Overthink It - SuperClaude Tries to Help
+## 💡 Don't Overthink It - SuperGemini Tries to Help
 
-SuperClaude provides 21 specialized commands that automatically coordinate domain experts, MCP servers, and behavioral modes based on context. The system intelligently routes tasks to appropriate specialists while maintaining a simple, discoverable interface.
+SuperGemini provides 21 specialized commands that automatically coordinate domain experts, MCP servers, and behavioral modes based on context. The system intelligently routes tasks to appropriate specialists while maintaining a simple, discoverable interface.
 
-**Auto-Activation Philosophy**: Type `/sc:implement "user auth"` and watch as the security specialist activates, Context7 provides authentication patterns, and quality gates ensure completeness.
+**Auto-Activation Philosophy**: Type `/sg:implement "user auth"` and watch as the security specialist activates, Context7 provides authentication patterns, and quality gates ensure completeness.
 
-**Progressive Discovery**: Use `/sc:index` to explore commands relevant to your current context.
+**Progressive Discovery**: Use `/sg:index` to explore commands relevant to your current context.
 
 ## Core Philosophy
 
@@ -30,18 +30,18 @@ SuperClaude provides 21 specialized commands that automatically coordinate domai
 
 **Essential Commands (Start Here):**
 ```bash
-/sc:brainstorm "mobile app idea"     # Interactive discovery
-/sc:analyze src/                      # Code analysis
-/sc:implement "user login"           # Feature implementation
-/sc:troubleshoot "API not working"   # Problem solving
-/sc:test --coverage                   # Quality assurance
+/sg:brainstorm "mobile app idea"     # Interactive discovery
+/sg:analyze src/                      # Code analysis
+/sg:implement "user login"           # Feature implementation
+/sg:troubleshoot "API not working"   # Problem solving
+/sg:test --coverage                   # Quality assurance
 ```
 
 **Discovery Pattern:**
-1. Use `/sc:index` to explore available commands
-2. Try `/sc:brainstorm` for project planning
-3. Progress to `/sc:implement` for development
-4. Use `/sc:reflect` to validate completion
+1. Use `/sg:index` to explore available commands
+2. Try `/sg:brainstorm` for project planning
+3. Progress to `/sg:implement` for development
+4. Use `/sg:reflect` to validate completion
 
 ---
 
@@ -83,19 +83,19 @@ SuperClaude provides 21 specialized commands that automatically coordinate domai
 | **reflect** | Session | - | serena | Task validation |
 | **select-tool** | Meta | - | all | Tool optimization |
 
-**Selection Strategy**: Commands auto-activate based on keywords, file types, and project context. Use `/sc:select-tool` for optimization recommendations.
+**Selection Strategy**: Commands auto-activate based on keywords, file types, and project context. Use `/sg:select-tool` for optimization recommendations.
 
 ## Development Commands 🔨
 
-### /sc:workflow - Implementation Planning
+### /sg:workflow - Implementation Planning
 
 **Purpose**: Generate structured implementation workflows from PRDs and feature requirements
 
 **Usage**:
 ```bash
-/sc:workflow "user authentication system"
-/sc:workflow --strategy agile --format markdown
-/sc:workflow "payment integration" --depth detailed
+/sg:workflow "user authentication system"
+/sg:workflow --strategy agile --format markdown
+/sg:workflow "payment integration" --depth detailed
 ```
 
 **Expert Activation**: Architect + Project Manager
@@ -104,26 +104,26 @@ SuperClaude provides 21 specialized commands that automatically coordinate domai
 **Examples**:
 ```bash
 # Basic workflow generation
-/sc:workflow "real-time chat feature"
+/sg:workflow "real-time chat feature"
 
 # Agile sprint planning
-/sc:workflow "e-commerce cart" --strategy agile --format sprint
+/sg:workflow "e-commerce cart" --strategy agile --format sprint
 
 # Enterprise architecture
-/sc:workflow "microservices migration" --strategy enterprise
+/sg:workflow "microservices migration" --strategy enterprise
 ```
 
 **Output**: Structured tasks, dependency mapping, time estimates, risk assessment
 
-### /sc:implement - Feature Implementation
+### /sg:implement - Feature Implementation
 
 **Purpose**: Feature and code implementation with intelligent persona activation and MCP integration
 
 **Usage**:
 ```bash
-/sc:implement "user login with JWT"
-/sc:implement --type frontend --framework react
-/sc:implement "REST API" --focus security --validate
+/sg:implement "user login with JWT"
+/sg:implement --type frontend --framework react
+/sg:implement "REST API" --focus security --validate
 ```
 
 **Expert Activation**: Context-dependent (frontend, backend, security, database)
@@ -132,16 +132,16 @@ SuperClaude provides 21 specialized commands that automatically coordinate domai
 **Examples**:
 ```bash
 # Full-stack feature
-/sc:implement "user registration with email verification"
+/sg:implement "user registration with email verification"
 
 # Frontend focus
-/sc:implement "responsive dashboard" --type frontend
+/sg:implement "responsive dashboard" --type frontend
 
 # Security-focused
-/sc:implement "OAuth integration" --focus security
+/sg:implement "OAuth integration" --focus security
 
 # API development
-/sc:implement "GraphQL mutations" --type backend --validate
+/sg:implement "GraphQL mutations" --type backend --validate
 ```
 
 **Auto-Activation Patterns**:
@@ -152,15 +152,15 @@ SuperClaude provides 21 specialized commands that automatically coordinate domai
 
 ---
 
-### /sc:build - Project Building
+### /sg:build - Project Building
 
 **Purpose**: Build, compile, and package projects with intelligent error handling and optimization
 
 **Usage**:
 ```bash
-/sc:build
-/sc:build --optimize --parallel
-/sc:build --target production --fix-errors
+/sg:build
+/sg:build --optimize --parallel
+/sg:build --target production --fix-errors
 ```
 
 **Expert Activation**: DevOps specialist
@@ -169,16 +169,16 @@ SuperClaude provides 21 specialized commands that automatically coordinate domai
 **Examples**:
 ```bash
 # Basic build
-/sc:build
+/sg:build
 
 # Production optimization
-/sc:build --target production --optimize
+/sg:build --target production --optimize
 
 # Parallel compilation
-/sc:build --parallel --jobs 4
+/sg:build --parallel --jobs 4
 
 # Error fixing
-/sc:build --fix-errors --verbose
+/sg:build --fix-errors --verbose
 ```
 
 **Common Issues & Solutions**:
@@ -189,15 +189,15 @@ SuperClaude provides 21 specialized commands that automatically coordinate domai
 
 ---
 
-### /sc:design - System Design
+### /sg:design - System Design
 
 **Purpose**: Design system architecture, APIs, and component interfaces with comprehensive specifications
 
 **Usage**:
 ```bash
-/sc:design "microservices architecture"
-/sc:design --type api --format openapi
-/sc:design "database schema" --focus performance
+/sg:design "microservices architecture"
+/sg:design --type api --format openapi
+/sg:design "database schema" --focus performance
 ```
 
 **Expert Activation**: Architect + UX Designer (for UI)
@@ -206,16 +206,16 @@ SuperClaude provides 21 specialized commands that automatically coordinate domai
 **Examples**:
 ```bash
 # System architecture
-/sc:design "e-commerce platform architecture"
+/sg:design "e-commerce platform architecture"
 
 # API specification
-/sc:design "REST API for blog" --type api --format openapi
+/sg:design "REST API for blog" --type api --format openapi
 
 # Database design
-/sc:design "user management schema" --type database
+/sg:design "user management schema" --type database
 
 # Component architecture
-/sc:design "React component hierarchy" --type frontend
+/sg:design "React component hierarchy" --type frontend
 ```
 
 **Design Types**:
@@ -227,15 +227,15 @@ SuperClaude provides 21 specialized commands that automatically coordinate domai
 
 ## Analysis Commands 🔍
 
-### /sc:analyze - Code Analysis
+### /sg:analyze - Code Analysis
 
 **Purpose**: Comprehensive code analysis across quality, security, performance, and architecture domains
 
 **Usage**:
 ```bash
-/sc:analyze src/
-/sc:analyze --focus security --depth deep
-/sc:analyze . --format report --export html
+/sg:analyze src/
+/sg:analyze --focus security --depth deep
+/sg:analyze . --format report --export html
 ```
 
 **Expert Activation**: Analyzer + domain specialists based on focus
@@ -244,16 +244,16 @@ SuperClaude provides 21 specialized commands that automatically coordinate domai
 **Examples**:
 ```bash
 # Full project analysis
-/sc:analyze .
+/sg:analyze .
 
 # Security audit
-/sc:analyze src/ --focus security --depth deep
+/sg:analyze src/ --focus security --depth deep
 
 # Performance bottlenecks
-/sc:analyze --focus performance --profile
+/sg:analyze --focus performance --profile
 
 # Architecture review
-/sc:analyze --focus architecture --dependencies
+/sg:analyze --focus architecture --dependencies
 ```
 
 **Focus Areas**:
@@ -264,15 +264,15 @@ SuperClaude provides 21 specialized commands that automatically coordinate domai
 
 ---
 
-### /sc:troubleshoot - Problem Diagnosis
+### /sg:troubleshoot - Problem Diagnosis
 
 **Purpose**: Diagnose and resolve issues in code, builds, deployments, and system behavior
 
 **Usage**:
 ```bash
-/sc:troubleshoot "API returns 500 error"
-/sc:troubleshoot --logs server.log --focus performance
-/sc:troubleshoot --type build --verbose
+/sg:troubleshoot "API returns 500 error"
+/sg:troubleshoot --logs server.log --focus performance
+/sg:troubleshoot --type build --verbose
 ```
 
 **Expert Activation**: Analyzer + DevOps (for deployment issues)
@@ -281,16 +281,16 @@ SuperClaude provides 21 specialized commands that automatically coordinate domai
 **Examples**:
 ```bash
 # General issue diagnosis
-/sc:troubleshoot "users can't login"
+/sg:troubleshoot "users can't login"
 
 # Build failures
-/sc:troubleshoot --type build --fix-suggestions
+/sg:troubleshoot --type build --fix-suggestions
 
 # Performance issues
-/sc:troubleshoot "slow page load" --logs access.log
+/sg:troubleshoot "slow page load" --logs access.log
 
 # Database problems
-/sc:troubleshoot "connection timeout" --focus database
+/sg:troubleshoot "connection timeout" --focus database
 ```
 
 **Systematic Methodology**:
@@ -302,15 +302,15 @@ SuperClaude provides 21 specialized commands that automatically coordinate domai
 
 ---
 
-### /sc:explain - Code & Concept Explanation
+### /sg:explain - Code & Concept Explanation
 
 **Purpose**: Provide clear explanations of code, concepts, and system behavior with educational clarity
 
 **Usage**:
 ```bash
-/sc:explain "async/await in JavaScript"
-/sc:explain src/auth.py --level beginner
-/sc:explain --concept "dependency injection" --examples
+/sg:explain "async/await in JavaScript"
+/sg:explain src/auth.py --level beginner
+/sg:explain --concept "dependency injection" --examples
 ```
 
 **Teaching Approaches**: Beginner, intermediate, expert levels with progressive detail
@@ -319,16 +319,16 @@ SuperClaude provides 21 specialized commands that automatically coordinate domai
 **Examples**:
 ```bash
 # Code explanation
-/sc:explain src/components/UserAuth.jsx
+/sg:explain src/components/UserAuth.jsx
 
 # Concept clarification
-/sc:explain "microservices vs monolith" --pros-cons
+/sg:explain "microservices vs monolith" --pros-cons
 
 # Pattern explanation
-/sc:explain "observer pattern" --examples react
+/sg:explain "observer pattern" --examples react
 
 # Beginner-friendly
-/sc:explain "what is REST API" --level beginner --examples
+/sg:explain "what is REST API" --level beginner --examples
 ```
 
 **Explanation Styles**:
@@ -340,15 +340,15 @@ SuperClaude provides 21 specialized commands that automatically coordinate domai
 
 ## Quality Commands ✨
 
-### /sc:improve - Code Enhancement
+### /sg:improve - Code Enhancement
 
 **Purpose**: Apply systematic improvements to code quality, performance, and maintainability
 
 **Usage**:
 ```bash
-/sc:improve src/components/
-/sc:improve --type performance --preview
-/sc:improve . --focus maintainability --safe-mode
+/sg:improve src/components/
+/sg:improve --type performance --preview
+/sg:improve . --focus maintainability --safe-mode
 ```
 
 **Expert Activation**: Analyzer + Performance Engineer (for performance focus)
@@ -357,16 +357,16 @@ SuperClaude provides 21 specialized commands that automatically coordinate domai
 **Examples**:
 ```bash
 # General improvements
-/sc:improve src/
+/sg:improve src/
 
 # Performance optimization
-/sc:improve --type performance --measure-impact
+/sg:improve --type performance --measure-impact
 
 # Code quality enhancement
-/sc:improve --focus quality --preview --backup
+/sg:improve --focus quality --preview --backup
 
 # Safe refactoring
-/sc:improve legacy/ --safe-mode --tests-required
+/sg:improve legacy/ --safe-mode --tests-required
 ```
 
 **Improvement Types**:
@@ -378,15 +378,15 @@ SuperClaude provides 21 specialized commands that automatically coordinate domai
 
 ---
 
-### /sc:cleanup - Technical Debt Reduction
+### /sg:cleanup - Technical Debt Reduction
 
 **Purpose**: Systematically clean up code, remove dead code, and optimize project structure
 
 **Usage**:
 ```bash
-/sc:cleanup
-/sc:cleanup --type imports --organize
-/sc:cleanup --dead-code --confirm-before-delete
+/sg:cleanup
+/sg:cleanup --type imports --organize
+/sg:cleanup --dead-code --confirm-before-delete
 ```
 
 **Expert Activation**: Analyzer
@@ -395,16 +395,16 @@ SuperClaude provides 21 specialized commands that automatically coordinate domai
 **Examples**:
 ```bash
 # Full project cleanup
-/sc:cleanup --comprehensive --backup
+/sg:cleanup --comprehensive --backup
 
 # Import optimization
-/sc:cleanup --type imports --sort --remove-unused
+/sg:cleanup --type imports --sort --remove-unused
 
 # Dead code removal
-/sc:cleanup --dead-code --analyze-usage
+/sg:cleanup --dead-code --analyze-usage
 
 # File organization
-/sc:cleanup --organize-files --follow-conventions
+/sg:cleanup --organize-files --follow-conventions
 ```
 
 **Cleanup Operations**:
@@ -416,15 +416,15 @@ SuperClaude provides 21 specialized commands that automatically coordinate domai
 
 ---
 
-### /sc:test - Testing & Quality Assurance
+### /sg:test - Testing & Quality Assurance
 
 **Purpose**: Execute tests with coverage analysis and automated quality reporting
 
 **Usage**:
 ```bash
-/sc:test
-/sc:test --type e2e --coverage
-/sc:test --fix --watch
+/sg:test
+/sg:test --type e2e --coverage
+/sg:test --fix --watch
 ```
 
 **Expert Activation**: QA Specialist
@@ -433,16 +433,16 @@ SuperClaude provides 21 specialized commands that automatically coordinate domai
 **Examples**:
 ```bash
 # Run all tests
-/sc:test --coverage --report
+/sg:test --coverage --report
 
 # Unit tests only
-/sc:test --type unit --watch
+/sg:test --type unit --watch
 
 # E2E browser testing
-/sc:test --type e2e --browsers chrome,firefox
+/sg:test --type e2e --browsers chrome,firefox
 
 # Fix failing tests
-/sc:test --fix --preview-changes
+/sg:test --fix --preview-changes
 ```
 
 **Test Types**:
@@ -454,15 +454,15 @@ SuperClaude provides 21 specialized commands that automatically coordinate domai
 
 ## Documentation Commands 📝
 
-### /sc:document - Documentation Generation
+### /sg:document - Documentation Generation
 
 **Purpose**: Generate focused documentation for components, functions, APIs, and features
 
 **Usage**:
 ```bash
-/sc:document src/api/
-/sc:document --type api --format openapi
-/sc:document . --style technical --audience developers
+/sg:document src/api/
+/sg:document --type api --format openapi
+/sg:document . --style technical --audience developers
 ```
 
 **Expert Activation**: Documentation Specialist
@@ -471,16 +471,16 @@ SuperClaude provides 21 specialized commands that automatically coordinate domai
 **Examples**:
 ```bash
 # Component documentation
-/sc:document src/components/ --inline-comments
+/sg:document src/components/ --inline-comments
 
 # API documentation
-/sc:document --type api --format swagger
+/sg:document --type api --format swagger
 
 # User documentation
-/sc:document --type user-guide --audience end-users
+/sg:document --type user-guide --audience end-users
 
 # Technical documentation
-/sc:document --style technical --diagrams
+/sg:document --style technical --diagrams
 ```
 
 **Documentation Styles**:
@@ -492,11 +492,11 @@ SuperClaude provides 21 specialized commands that automatically coordinate domai
 
 ## Project Management Commands 📊
 
-### /sc:estimate - Project Estimation
+### /sg:estimate - Project Estimation
 
 **Purpose**: Provide development estimates for tasks, features, or projects with intelligent analysis
 
-**Usage**: `/sc:estimate "user authentication system"`, `/sc:estimate --detailed --team-size 3`
+**Usage**: `/sg:estimate "user authentication system"`, `/sg:estimate --detailed --team-size 3`
 
 **Expert Activation**: Project Manager
 **Features**: Time estimates, complexity analysis, resource allocation, risk assessment
@@ -505,11 +505,11 @@ SuperClaude provides 21 specialized commands that automatically coordinate domai
 
 ---
 
-### /sc:task - Project Management
+### /sg:task - Project Management
 
 **Purpose**: Execute complex tasks with intelligent workflow management and delegation
 
-**Usage**: `/sc:task "implement payment system"`, `/sc:task --breakdown --priority high`
+**Usage**: `/sg:task "implement payment system"`, `/sg:task --breakdown --priority high`
 
 **Expert Activation**: Project Manager
 **MCP Integration**: Serena for task persistence
@@ -517,22 +517,22 @@ SuperClaude provides 21 specialized commands that automatically coordinate domai
 
 ---
 
-### /sc:spawn - Meta-System Orchestration
+### /sg:spawn - Meta-System Orchestration
 
 **Purpose**: Meta-system task orchestration with intelligent breakdown and delegation
 
-**Usage**: `/sc:spawn "full-stack e-commerce platform"`, `/sc:spawn --parallel --monitor`
+**Usage**: `/sg:spawn "full-stack e-commerce platform"`, `/sg:spawn --parallel --monitor`
 
 **Expert Activation**: Project Manager + Multiple domain specialists
 **Features**: Complex workflow orchestration, parallel execution, progress monitoring, resource management
 
 ## Version Control Commands 🔄
 
-### /sc:git - Version Control
+### /sg:git - Version Control
 
 **Purpose**: Git operations with intelligent commit messages and workflow optimization
 
-**Usage**: `/sc:git commit "add user auth"`, `/sc:git --smart-messages --conventional`
+**Usage**: `/sg:git commit "add user auth"`, `/sg:git --smart-messages --conventional`
 
 **Expert Activation**: DevOps specialist
 **Features**: Smart commit messages, branch management, conflict resolution, workflow optimization
@@ -541,11 +541,11 @@ SuperClaude provides 21 specialized commands that automatically coordinate domai
 
 ## Utility Commands 🔧
 
-### /sc:index - Command Discovery
+### /sg:index - Command Discovery
 
 **Purpose**: Generate comprehensive project documentation and knowledge base with intelligent organization
 
-**Usage**: `/sc:index`, `/sc:index --category development`, `/sc:index --search "testing"`
+**Usage**: `/sg:index`, `/sg:index --category development`, `/sg:index --search "testing"`
 
 **Features**: Command discovery, capability exploration, contextual recommendations, usage patterns
 
@@ -553,11 +553,11 @@ SuperClaude provides 21 specialized commands that automatically coordinate domai
 
 ---
 
-### /sc:load - Session Context Loading
+### /sg:load - Session Context Loading
 
 **Purpose**: Session lifecycle management with Serena MCP integration for project context loading
 
-**Usage**: `/sc:load src/`, `/sc:load --focus architecture`, `/sc:load "previous session"`
+**Usage**: `/sg:load src/`, `/sg:load --focus architecture`, `/sg:load "previous session"`
 
 **Expert Activation**: Context analysis
 **MCP Integration**: Serena for project memory
@@ -565,11 +565,11 @@ SuperClaude provides 21 specialized commands that automatically coordinate domai
 
 ## Session & Intelligence Commands 🧠
 
-### /sc:brainstorm - Interactive Requirements Discovery
+### /sg:brainstorm - Interactive Requirements Discovery
 
 **Purpose**: Interactive requirements discovery through Socratic dialogue and systematic exploration
 
-**Usage**: `/sc:brainstorm "mobile app idea"`, `/sc:brainstorm --strategy systematic --depth deep`
+**Usage**: `/sg:brainstorm "mobile app idea"`, `/sg:brainstorm --strategy systematic --depth deep`
 
 **Expert Activation**: Architect + Analyst + PM
 **MCP Integration**: Sequential for structured reasoning, Context7 for patterns
@@ -578,11 +578,11 @@ SuperClaude provides 21 specialized commands that automatically coordinate domai
 
 ---
 
-### /sc:reflect - Task Reflection & Validation
+### /sg:reflect - Task Reflection & Validation
 
 **Purpose**: Task reflection and validation using Serena MCP analysis capabilities
 
-**Usage**: `/sc:reflect`, `/sc:reflect --type completion`, `/sc:reflect "payment integration"`
+**Usage**: `/sg:reflect`, `/sg:reflect --type completion`, `/sg:reflect "payment integration"`
 
 **Expert Activation**: Context analysis
 **MCP Integration**: Serena for intelligence analysis
@@ -591,11 +591,11 @@ SuperClaude provides 21 specialized commands that automatically coordinate domai
 
 ---
 
-### /sc:save - Session Persistence
+### /sg:save - Session Persistence
 
 **Purpose**: Session lifecycle management with Serena MCP integration for session context persistence
 
-**Usage**: `/sc:save "payment-integration-complete"`, `/sc:save --checkpoint --description "auth module done"`
+**Usage**: `/sg:save "payment-integration-complete"`, `/sg:save --checkpoint --description "auth module done"`
 
 **Expert Activation**: Session management
 **MCP Integration**: Serena for context persistence
@@ -604,11 +604,11 @@ SuperClaude provides 21 specialized commands that automatically coordinate domai
 
 ---
 
-### /sc:select-tool - Intelligent Tool Selection
+### /sg:select-tool - Intelligent Tool Selection
 
 **Purpose**: Intelligent MCP tool selection based on complexity scoring and operation analysis
 
-**Usage**: `/sc:select-tool "implement user auth"`, `/sc:select-tool --analyze-complexity --recommend`
+**Usage**: `/sg:select-tool "implement user auth"`, `/sg:select-tool --analyze-complexity --recommend`
 
 **Expert Activation**: Meta-analysis
 **MCP Integration**: All servers for capability assessment
@@ -620,16 +620,16 @@ SuperClaude provides 21 specialized commands that automatically coordinate domai
 **Effective Flag Combinations:**
 ```bash
 # Development workflow
-/sc:analyze --focus quality && /sc:improve --preview && /sc:test --coverage
+/sg:analyze --focus quality && /sg:improve --preview && /sg:test --coverage
 
 # Production preparation
-/sc:build --optimize --target production && /sc:test --type e2e
+/sg:build --optimize --target production && /sg:test --type e2e
 
 # Deep analysis
-/sc:analyze --focus security --depth deep --export report
+/sg:analyze --focus security --depth deep --export report
 
 # Safe refactoring
-/sc:improve --safe-mode --backup --tests-required
+/sg:improve --safe-mode --backup --tests-required
 ```
 
 **Command Chaining Strategies:**
@@ -642,44 +642,44 @@ SuperClaude provides 21 specialized commands that automatically coordinate domai
 
 **New Project Onboarding:**
 ```bash
-/sc:load . → /sc:analyze --comprehensive → /sc:document --type overview → /sc:save "project-analyzed"
+/sg:load . → /sg:analyze --comprehensive → /sg:document --type overview → /sg:save "project-analyzed"
 ```
 
 **Feature Development:**
 ```bash
-/sc:brainstorm "feature idea" → /sc:design → /sc:implement → /sc:test → /sc:document
+/sg:brainstorm "feature idea" → /sg:design → /sg:implement → /sg:test → /sg:document
 ```
 
 **Bug Investigation:**
 ```bash
-/sc:troubleshoot "issue description" → /sc:analyze --focus problem-area → /sc:improve --fix
+/sg:troubleshoot "issue description" → /sg:analyze --focus problem-area → /sg:improve --fix
 ```
 
 **Pre-Deployment:**
 ```bash
-/sc:test --comprehensive → /sc:analyze --focus security → /sc:build --production → /sc:git commit
+/sg:test --comprehensive → /sg:analyze --focus security → /sg:build --production → /sg:git commit
 ```
 
 **Quality Improvement:**
 ```bash
-/sc:analyze --focus quality → /sc:cleanup → /sc:improve → /sc:test → /sc:reflect
+/sg:analyze --focus quality → /sg:cleanup → /sg:improve → /sg:test → /sg:reflect
 ```
 
 **Common Issues & Solutions:**
 
 **Command Not Found:**
-- Verify SuperClaude installation: `SuperClaude --version`
-- Check component installation: `SuperClaude install --list-components`
+- Verify SuperGemini installation: `SuperGemini --version`
+- Check component installation: `SuperGemini install --list-components`
 - Restart Claude Code session
 
 **Slow Performance:**
 - Use `--scope file` to limit analysis scope
 - Enable specific MCP servers only: `--c7 --seq` instead of `--all-mcp`
-- Use `--concurrency 2` to limit parallel operations
+- Use `--scope module` to limit analysis scope
 
 **MCP Server Issues:**
 - Check server status: `ls ~/.claude/.claude.json`
-- Restart with: `SuperClaude install --components mcp --force`
+- Restart with: `SuperGemini install --components mcp --force`
 - Use `--no-mcp` for native-only execution
 
 **Scope Management:**
@@ -693,20 +693,20 @@ SuperClaude provides 21 specialized commands that automatically coordinate domai
 
 **Command Reliability & Evolution:**
 
-SuperClaude commands are actively developed with regular improvements. Core commands (brainstorm, analyze, implement) are production-ready, while emerging commands (spawn, estimate) are rapidly maturing.
+SuperGemini commands are actively developed with regular improvements. Core commands (brainstorm, analyze, implement) are production-ready, while emerging commands (spawn, estimate) are rapidly maturing.
 
 **Discovery-Based Learning:**
-1. Start with `/sc:index` to explore available commands
-2. Use `/sc:brainstorm` for project-specific guidance
+1. Start with `/sg:index` to explore available commands
+2. Use `/sg:brainstorm` for project-specific guidance
 3. Try commands in `--dry-run` mode first
 4. Progress from simple to complex commands naturally
-5. Save successful patterns with `/sc:save`
+5. Save successful patterns with `/sg:save`
 
 **Getting Help:**
-- In-app: `/sc:index --help` or `/sc:explain "command name"`
-- Documentation: [SuperClaude Guides](../README.md)
-- Issues: [GitHub Repository](https://github.com/SuperClaude-Org/SuperClaude_Framework/issues)
-- Community: [Discussions](https://github.com/SuperClaude-Org/SuperClaude_Framework/discussions)
+- In-app: `/sg:index --help` or `/sg:explain "command name"`
+- Documentation: [SuperGemini Guides](../README.md)
+- Issues: [GitHub Repository](https://github.com/SuperClaude-Org/SuperGemini_Framework/issues)
+- Community: [Discussions](https://github.com/SuperClaude-Org/SuperGemini_Framework/discussions)
 
 ## Related Guides
 
@@ -739,7 +739,7 @@ SuperClaude commands are actively developed with regular improvements. Core comm
 **Focus Areas**: `--focus quality|security|performance|architecture`
 **Output Control**: `--format text|json|html|markdown`
 **Safety**: `--dry-run`, `--backup`, `--safe-mode`
-**Performance**: `--parallel`, `--concurrency N`
+**Performance**: `--scope`, `--uc`
 **MCP Control**: `--c7`, `--seq`, `--magic`, `--morph`, `--serena`, `--play`
 
 **Expert Activation System:**
@@ -758,10 +758,10 @@ SuperClaude commands are actively developed with regular improvements. Core comm
 
 ---
 
-**Your SuperClaude Journey:**
+**Your SuperGemini Journey:**
 
-SuperClaude grows with you. Start simple with `/sc:brainstorm` and `/sc:analyze`, then discover advanced capabilities naturally. Each command learns from your usage patterns and becomes more helpful over time.
+SuperGemini grows with you. Start simple with `/sg:brainstorm` and `/sg:analyze`, then discover advanced capabilities naturally. Each command learns from your usage patterns and becomes more helpful over time.
 
-🚀 **The magic happens when you stop thinking about tools and start focusing on your goals.** SuperClaude handles the orchestration, expert coordination, and quality gates automatically.
+🚀 **The magic happens when you stop thinking about tools and start focusing on your goals.** SuperGemini handles the orchestration, expert coordination, and quality gates automatically.
 
-**Remember**: There's no wrong way to explore. Use `/sc:index` whenever you need guidance, and don't hesitate to experiment with new commands and flag combinations.
+**Remember**: There's no wrong way to explore. Use `/sg:index` whenever you need guidance, and don't hesitate to experiment with new commands and flag combinations.

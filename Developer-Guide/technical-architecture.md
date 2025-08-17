@@ -1,16 +1,16 @@
-# SuperClaude Technical Architecture Guide 🏗️
+# SuperGemini Technical Architecture Guide 🏗️
 
 ## Overview
 
-This technical architecture guide documents SuperClaude Framework's V4 orchestrator system - a sophisticated meta-programming framework that transforms Claude Code into a structured development platform through behavioral instruction injection and intelligent component orchestration.
+This technical architecture guide documents SuperGemini Framework's V4 orchestrator system - a sophisticated meta-programming framework that transforms Claude Code into a structured development platform through behavioral instruction injection and intelligent component orchestration.
 
-**Target Audience**: Framework developers, system architects, contributors, and advanced users requiring deep technical understanding of SuperClaude's internal architecture and extension patterns.
+**Target Audience**: Framework developers, system architects, contributors, and advanced users requiring deep technical understanding of SuperGemini's internal architecture and extension patterns.
 
-**Architecture Philosophy**: SuperClaude operates as a **meta-framework** that enhances Claude Code through configuration-driven behavioral programming, intelligent task routing, and dynamic tool coordination rather than replacing core functionality.
+**Architecture Philosophy**: SuperGemini operates as a **meta-framework** that enhances Claude Code through configuration-driven behavioral programming, intelligent task routing, and dynamic tool coordination rather than replacing core functionality.
 
 ## Table of Contents
 
-**For Screen Readers**: This document contains 14 main sections covering SuperClaude Framework architecture. Use heading navigation to jump between sections. Complex architectural diagrams are accompanied by detailed text descriptions.
+**For Screen Readers**: This document contains 14 main sections covering SuperGemini Framework architecture. Use heading navigation to jump between sections. Complex architectural diagrams are accompanied by detailed text descriptions.
 
 1. [Architecture Overview](#architecture-overview) - Multi-layered orchestration pattern with visual diagrams
 2. [Detection Engine](#detection-engine) - Intelligent task classification and context analysis
@@ -43,7 +43,7 @@ This technical architecture guide documents SuperClaude Framework's V4 orchestra
 
 ### System Design Principles
 
-**Meta-Framework Architecture**: SuperClaude enhances Claude Code through instruction injection rather than code modification, maintaining compatibility while adding sophisticated orchestration capabilities.
+**Meta-Framework Architecture**: SuperGemini enhances Claude Code through instruction injection rather than code modification, maintaining compatibility while adding sophisticated orchestration capabilities.
 
 **Configuration-Driven Behavior**: Behavioral programming through structured `.md` files enables AI behavior modification without code changes, providing unprecedented flexibility in AI system customization.
 
@@ -68,15 +68,15 @@ This technical architecture guide documents SuperClaude Framework's V4 orchestra
 
 ### System Overview Architecture
 
-**Accessibility Description**: This diagram shows SuperClaude Framework's five-layer architecture flowing top to bottom. The User Interaction Layer receives natural language inputs, slash commands, and flag modifiers. The Detection & Routing Engine analyzes context, matches patterns, and scores complexity. The Orchestration Layer handles agent selection, MCP activation, and mode control. The Execution Framework manages tasks, quality gates, and session memory. The Foundation Layer contains Claude Code base, configuration system, and MCP integration.
+**Accessibility Description**: This diagram shows SuperGemini Framework's five-layer architecture flowing top to bottom. The User Interaction Layer receives natural language inputs, slash commands, and flag modifiers. The Detection & Routing Engine analyzes context, matches patterns, and scores complexity. The Orchestration Layer handles agent selection, MCP activation, and mode control. The Execution Framework manages tasks, quality gates, and session memory. The Foundation Layer contains Claude Code base, configuration system, and MCP integration.
 
 ```
-                        SuperClaude Framework V4 Architecture
+                        SuperGemini Framework V4 Architecture
 
 ┌──────────────────── USER INTERACTION LAYER ────────────────────┐
 │ Natural Language Input  │  Slash Commands    │   Flag Modifiers │
-│ "build auth system"     │  /sc:load project  │   --think-hard   │
-│ "optimize performance"  │  /sc:save state    │   --uc --delegate│
+│ "build auth system"     │  /sc:load project  │   --seq   │
+│ "optimize performance"  │  /sc:save state    │   --uc --orchestrate│
 └─────────────────────────┬───────────────────────────────────────┘
                           │
 ┌──────────────────── DETECTION & ROUTING ENGINE ────────────────┐
@@ -114,10 +114,10 @@ This technical architecture guide documents SuperClaude Framework's V4 orchestra
 
 ### Agent Coordination Flow Diagram
 
-**Accessibility Description**: This flowchart shows how SuperClaude coordinates multiple agents for complex tasks. It flows top to bottom through four stages: Task Input (example authentication task), Detection Engine (analyzes triggers and complexity), Agent Selection (selects four agents based on complexity and domain), and Coordination Pattern (shows how four agents collaborate with the system-architect as strategic lead, security-engineer as critical reviewer, backend-architect as implementation expert, and performance-engineer as optimization specialist, all feeding into collaborative synthesis).
+**Accessibility Description**: This flowchart shows how SuperGemini coordinates multiple agents for complex tasks. It flows top to bottom through four stages: Task Input (example authentication task), Detection Engine (analyzes triggers and complexity), Agent Selection (selects four agents based on complexity and domain), and Coordination Pattern (shows how four agents collaborate with the system-architect as strategic lead, security-engineer as critical reviewer, backend-architect as implementation expert, and performance-engineer as optimization specialist, all feeding into collaborative synthesis).
 
 ```
-        SuperClaude V4 Agent Coordination Architecture
+        SuperGemini V4 Agent Coordination Architecture
 
 ┌─ TASK INPUT ─────────────────────────────────────────────────────┐
 │ "Implement secure authentication with performance optimization"   │
@@ -179,7 +179,7 @@ This technical architecture guide documents SuperClaude Framework's V4 orchestra
 ### MCP Integration Architecture
 
 ```
-        SuperClaude MCP Server Integration Architecture
+        SuperGemini MCP Server Integration Architecture
 
 ┌─ CLAUDE CODE CORE ──────────────────────────────────────────────┐
 │ Native Tools: Read, Write, Edit, Bash, LS, Grep, Glob          │
@@ -260,12 +260,12 @@ This technical architecture guide documents SuperClaude Framework's V4 orchestra
 ### Intelligent Task Classification
 
 **Context Analysis Configuration:**
-SuperClaude's detection engine operates through structured markdown configuration files that define trigger patterns and routing logic:
+SuperGemini's detection engine operates through structured markdown configuration files that define trigger patterns and routing logic:
 
 ```markdown
 # Pattern Recognition Configuration (RULES.md)
 TRIGGER_PATTERNS:
-- brainstorming: ['brainstorm', 'explore', 'maybe', 'not sure', 'thinking about']
+- brainstorming: ['brainstorm', 'explore', 'maybe', 'not sure', 'considering']
 - security: ['auth', 'security', 'vulnerability', 'encryption', 'compliance']
 - ui_generation: ['component', 'UI', 'interface', 'dashboard', 'responsive']
 - performance: ['slow', 'optimization', 'bottleneck', 'latency', 'performance']
@@ -308,7 +308,7 @@ TASK_MANAGEMENT_MODE:
 # Mode Auto-Activation Rules (FLAGS.md)
 MODE_TRIGGERS:
 - task-management: complexity > 0.7 OR multi_step OR file_count > 3
-- brainstorming: uncertainty keywords OR vague requirements OR "maybe/thinking"
+- brainstorming: uncertainty keywords OR vague requirements OR "maybe/considering"
 - orchestration: tool_count > 3 OR parallel_opportunities OR performance_constraints
 - token-efficiency: context_usage > 75% OR --uc flag OR large_operations
 - introspection: error_recovery OR meta_analysis OR framework_debugging
@@ -336,7 +336,7 @@ COMPLEXITY_AGENTS:
 # MCP Activation Rules (MCP_*.md configuration)
 SERVER_TRIGGERS:
 - context7: import statements, framework queries, official docs needed
-- sequential: --think flags, complex analysis, multi-step reasoning
+- sequential: --seq flag, complex analysis, multi-step reasoning
 - magic: /ui commands, component requests, frontend development  
 - playwright: browser testing, e2e scenarios, visual validation
 - morphllm: bulk edits, pattern transformations, style enforcement
@@ -659,7 +659,7 @@ class TestingFramework:
 
 **🎯 Skill Level: Intermediate to Advanced**
 
-Systematic performance evaluation framework for SuperClaude Framework components and integrations:
+Systematic performance evaluation framework for SuperGemini Framework components and integrations:
 
 #### Benchmarking Framework Architecture
 
@@ -947,7 +947,7 @@ class TestComponentPerformance:
         # Analyze concurrent performance
         concurrent_metrics = benchmarker._generate_benchmark_report("concurrent_mcp", benchmarker.metrics_history)
         
-        # Verify no significant performance degradation under concurrency
+        # Verify no significant performance degradation under parallelism
         assert concurrent_metrics['average_execution_time'] < 10.0, \
             "Concurrent MCP operations taking too long"
         assert concurrent_metrics['error_rate'] == 0, \
@@ -966,7 +966,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 class ScalabilityTester:
-    """Framework for testing SuperClaude Framework scalability"""
+    """Framework for testing SuperGemini Framework scalability"""
     
     def __init__(self, test_name: str):
         self.test_name = test_name
@@ -975,15 +975,15 @@ class ScalabilityTester:
     async def test_concurrent_workflows(self, max_concurrent: int = 50, step_size: int = 5):
         """Test framework performance under increasing concurrent load"""
         
-        concurrency_levels = range(1, max_concurrent + 1, step_size)
+        parallelism_levels = range(1, max_concurrent + 1, step_size)
         
-        for concurrency in concurrency_levels:
-            print(f"Testing concurrency level: {concurrency}")
+        for parallelism in parallelism_levels:
+            print(f"Testing parallelism level: {parallelism}")
             
             # Create concurrent workflows
-            tasks = [self._create_test_workflow(i) for i in range(concurrency)]
+            tasks = [self._create_test_workflow(i) for i in range(parallelism)]
             
-            # Measure performance under this concurrency level
+            # Measure performance under this parallelism level
             start_time = time.time()
             
             try:
@@ -992,29 +992,29 @@ class ScalabilityTester:
                 
                 # Analyze results
                 successful_tasks = sum(1 for r in results if not isinstance(r, Exception))
-                error_rate = (concurrency - successful_tasks) / concurrency
-                avg_response_time = execution_time / concurrency
+                error_rate = (parallelism - successful_tasks) / parallelism
+                avg_response_time = execution_time / parallelism
                 
                 self.results.append({
-                    'concurrency': concurrency,
+                    'parallelism': parallelism,
                     'execution_time': execution_time,
                     'avg_response_time': avg_response_time,
-                    'success_rate': successful_tasks / concurrency,
+                    'success_rate': successful_tasks / parallelism,
                     'error_rate': error_rate,
                     'throughput': successful_tasks / execution_time
                 })
                 
             except Exception as e:
-                print(f"Failed at concurrency level {concurrency}: {e}")
+                print(f"Failed at parallelism level {parallelism}: {e}")
                 break
         
         return self._generate_scalability_report()
     
     async def _create_test_workflow(self, workflow_id: int):
         """Create a representative test workflow"""
-        from setup.core.orchestrator import SuperClaudeOrchestrator
+        from setup.core.orchestrator import SuperGeminiOrchestrator
         
-        orchestrator = SuperClaudeOrchestrator()
+        orchestrator = SuperGeminiOrchestrator()
         
         # Simulate typical workflow
         test_task = {
@@ -1035,7 +1035,7 @@ class ScalabilityTester:
         
         # Calculate scalability metrics
         max_throughput = max(r['throughput'] for r in self.results)
-        optimal_concurrency = next(r['concurrency'] for r in self.results if r['throughput'] == max_throughput)
+        optimal_parallelism = next(r['parallelism'] for r in self.results if r['throughput'] == max_throughput)
         
         # Identify performance cliff (where performance degrades significantly)
         performance_cliff = self._identify_performance_cliff()
@@ -1045,7 +1045,7 @@ class ScalabilityTester:
         
         return {
             'max_throughput': max_throughput,
-            'optimal_concurrency': optimal_concurrency,
+            'optimal_parallelism': optimal_parallelism,
             'performance_cliff': performance_cliff,
             'scalability_factor': self._calculate_scalability_factor(),
             'recommendations': self._generate_scalability_recommendations()
@@ -1054,7 +1054,7 @@ class ScalabilityTester:
     def _generate_scalability_plots(self):
         """Generate visual scalability analysis plots"""
         
-        concurrency_levels = [r['concurrency'] for r in self.results]
+        parallelism_levels = [r['parallelism'] for r in self.results]
         throughput = [r['throughput'] for r in self.results]
         response_times = [r['avg_response_time'] for r in self.results]
         error_rates = [r['error_rate'] for r in self.results]
@@ -1062,31 +1062,31 @@ class ScalabilityTester:
         fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, figsize=(15, 12))
         
         # Throughput vs Concurrency
-        ax1.plot(concurrency_levels, throughput, 'b-o')
+        ax1.plot(parallelism_levels, throughput, 'b-o')
         ax1.set_xlabel('Concurrency Level')
         ax1.set_ylabel('Throughput (tasks/sec)')
         ax1.set_title('Throughput Scalability')
         ax1.grid(True)
         
         # Response Time vs Concurrency
-        ax2.plot(concurrency_levels, response_times, 'r-o')
+        ax2.plot(parallelism_levels, response_times, 'r-o')
         ax2.set_xlabel('Concurrency Level')
         ax2.set_ylabel('Average Response Time (sec)')
         ax2.set_title('Response Time Scalability')
         ax2.grid(True)
         
         # Error Rate vs Concurrency
-        ax3.plot(concurrency_levels, error_rates, 'g-o')
+        ax3.plot(parallelism_levels, error_rates, 'g-o')
         ax3.set_xlabel('Concurrency Level')
         ax3.set_ylabel('Error Rate (%)')
         ax3.set_title('Error Rate Analysis')
         ax3.grid(True)
         
-        # Efficiency Analysis (Throughput per unit of concurrency)
-        efficiency = [t/c for t, c in zip(throughput, concurrency_levels)]
-        ax4.plot(concurrency_levels, efficiency, 'm-o')
+        # Efficiency Analysis (Throughput per unit of parallelism)
+        efficiency = [t/c for t, c in zip(throughput, parallelism_levels)]
+        ax4.plot(parallelism_levels, efficiency, 'm-o')
         ax4.set_xlabel('Concurrency Level')
-        ax4.set_ylabel('Efficiency (throughput/concurrency)')
+        ax4.set_ylabel('Efficiency (throughput/parallelism)')
         ax4.set_title('Resource Efficiency')
         ax4.grid(True)
         
@@ -1526,7 +1526,7 @@ CONTEXT7_MCP:
 
 SEQUENTIAL_MCP:
 - Purpose: Multi-step reasoning engine for complex analysis
-- Triggers: --think flags, debugging scenarios, architectural analysis  
+- Triggers: --seq flag, debugging scenarios, architectural analysis  
 - Choose Over: native reasoning for 3+ interconnected components
 - Integration: Sequential → Context7 (analysis + patterns), Sequential → Magic (logic + UI)
 
@@ -1800,7 +1800,7 @@ class BackupManager:
 **Component Extension Framework:**
 ```python
 class BaseComponent:
-    """Base class for all SuperClaude components"""
+    """Base class for all SuperGemini components"""
     
     def get_metadata(self):
         """Return component metadata including dependencies"""
@@ -2074,7 +2074,7 @@ Complete API reference with request/response examples and integration patterns:
 # API: setup.core.component_manager.ComponentManager
 
 class ComponentManager:
-    """Primary interface for managing SuperClaude Framework components"""
+    """Primary interface for managing SuperGemini Framework components"""
     
     def install_component(self, component_id: str, options: InstallOptions) -> InstallResult:
         """
@@ -2309,9 +2309,9 @@ class MCPManager:
 
 **Orchestration API:**
 ```python
-# API: setup.core.orchestrator.SuperClaudeOrchestrator
+# API: setup.core.orchestrator.SuperGeminiOrchestrator
 
-class SuperClaudeOrchestrator:
+class SuperGeminiOrchestrator:
     """Central orchestration engine for complex multi-component tasks"""
     
     def execute_workflow(self, workflow: WorkflowDefinition) -> WorkflowResult:
@@ -2325,7 +2325,7 @@ class SuperClaudeOrchestrator:
             WorkflowResult with execution status, outputs, and performance metrics
             
         Example:
-            >>> orchestrator = SuperClaudeOrchestrator()
+            >>> orchestrator = SuperGeminiOrchestrator()
             >>> workflow = WorkflowDefinition(
             ...     name="secure_api_development",
             ...     description="Design and implement secure REST API",
@@ -2531,8 +2531,8 @@ class MCPResponse:
 ```python
 # Exception classes for API error handling
 
-class SuperClaudeException(Exception):
-    """Base exception for all SuperClaude Framework errors"""
+class SuperGeminiException(Exception):
+    """Base exception for all SuperGemini Framework errors"""
     
     def __init__(self, message: str, error_code: str = None, context: Dict = None):
         super().__init__(message)
@@ -2540,16 +2540,16 @@ class SuperClaudeException(Exception):
         self.context = context or {}
         self.timestamp = datetime.now()
 
-class ComponentInstallationError(SuperClaudeException):
+class ComponentInstallationError(SuperGeminiException):
     """Raised when component installation fails"""
     
-class AgentCoordinationError(SuperClaudeException):
+class AgentCoordinationError(SuperGeminiException):
     """Raised when agent coordination fails"""
     
-class MCPConnectionError(SuperClaudeException):
+class MCPConnectionError(SuperGeminiException):
     """Raised when MCP server connection fails"""
     
-class ValidationError(SuperClaudeException):
+class ValidationError(SuperGeminiException):
     """Raised when validation criteria are not met"""
 
 # Usage example with error handling
@@ -2565,7 +2565,7 @@ except ComponentInstallationError as e:
     print(f"Installation error [{e.error_code}]: {e}")
     print(f"Context: {e.context}")
     # Handle specific installation errors
-except SuperClaudeException as e:
+except SuperGeminiException as e:
     print(f"Framework error: {e}")
     # Handle general framework errors
 except Exception as e:
@@ -2580,13 +2580,13 @@ except Exception as e:
 # Example: Complete integration workflow for custom development
 
 async def implement_secure_feature(feature_description: str, security_requirements: Dict):
-    """Complete example of SuperClaude Framework integration"""
+    """Complete example of SuperGemini Framework integration"""
     
     # Initialize framework components
     component_manager = ComponentManager()
     agent_manager = AgentManager()
     mcp_manager = MCPManager()
-    orchestrator = SuperClaudeOrchestrator()
+    orchestrator = SuperGeminiOrchestrator()
     quality_manager = QualityManager()
     
     try:
@@ -2694,7 +2694,7 @@ async def implement_secure_feature(feature_description: str, security_requiremen
             'recommendations': validation_result.recommendations
         }
         
-    except SuperClaudeException as e:
+    except SuperGeminiException as e:
         print(f"Framework error during implementation: {e}")
         return {'success': False, 'error': str(e), 'error_code': e.error_code}
     
@@ -2828,7 +2828,7 @@ class PluginManager:
             return PluginLoadResult.DEPENDENCY_ERROR
 
 class Plugin:
-    """Base class for SuperClaude plugins"""
+    """Base class for SuperGemini plugins"""
     
     def get_manifest(self) -> PluginManifest:
         """Return plugin metadata and capabilities"""
@@ -2974,7 +2974,7 @@ class ErrorRecoveryManager:
 
 ### Technical Innovation Summary
 
-SuperClaude Framework V4 represents a paradigm shift in AI system architecture through its configuration-driven behavioral programming approach. Key technical innovations include:
+SuperGemini Framework V4 represents a paradigm shift in AI system architecture through its configuration-driven behavioral programming approach. Key technical innovations include:
 
 **Meta-Framework Design**: Enhancement of Claude Code through instruction injection rather than code modification, maintaining full compatibility while adding sophisticated orchestration capabilities.
 
@@ -3013,19 +3013,19 @@ SuperClaude Framework V4 represents a paradigm shift in AI system architecture t
 **Advanced Security**: Enhanced threat detection and response automation
 **Cross-Platform Expansion**: Architecture patterns for other AI development environments
 
-This technical architecture establishes SuperClaude as a production-ready meta-framework for advanced AI system orchestration, providing both immediate utility and a foundation for future innovation in AI development tooling.
+This technical architecture establishes SuperGemini as a production-ready meta-framework for advanced AI system orchestration, providing both immediate utility and a foundation for future innovation in AI development tooling.
 
 ---
 
 ## Architecture Glossary
 
-**For Screen Readers**: This glossary contains alphabetically ordered architectural and technical terms specific to SuperClaude Framework's system design. Each term includes detailed technical definitions and system context.
+**For Screen Readers**: This glossary contains alphabetically ordered architectural and technical terms specific to SuperGemini Framework's system design. Each term includes detailed technical definitions and system context.
 
 ### A
 
 **Agent Coordination Protocol**: The communication and collaboration framework that enables multiple specialized AI agents to work together on complex tasks, including role assignment, authority hierarchies, and consensus mechanisms.
 
-**Architectural Patterns**: Established design patterns used throughout SuperClaude including meta-framework injection, orchestration layers, detection engines, and plugin architectures.
+**Architectural Patterns**: Established design patterns used throughout SuperGemini including meta-framework injection, orchestration layers, detection engines, and plugin architectures.
 
 **Auto-Activation System**: Intelligent trigger system that automatically activates appropriate agents, MCP servers, and behavioral modes based on context analysis and pattern matching.
 
@@ -3063,7 +3063,7 @@ This technical architecture establishes SuperClaude as a production-ready meta-f
 
 **Foundation Layer**: Base system layer containing Claude Code integration, configuration management, and MCP protocol handling that provides core capabilities for higher-level orchestration.
 
-**Framework Meta-Architecture**: Overall design approach where SuperClaude functions as an enhancement layer for Claude Code rather than a replacement, maintaining compatibility while adding orchestration.
+**Framework Meta-Architecture**: Overall design approach where SuperGemini functions as an enhancement layer for Claude Code rather than a replacement, maintaining compatibility while adding orchestration.
 
 ### I
 
@@ -3075,7 +3075,7 @@ This technical architecture establishes SuperClaude as a production-ready meta-f
 
 **MCP Protocol Integration**: Implementation of Model Context Protocol for external tool coordination, including connection management, health monitoring, and error recovery for enhanced capabilities.
 
-**Meta-Framework Design**: Architectural approach where SuperClaude enhances existing AI systems through instruction injection and orchestration rather than replacing core functionality.
+**Meta-Framework Design**: Architectural approach where SuperGemini enhances existing AI systems through instruction injection and orchestration rather than replacing core functionality.
 
 **Multi-Agent Orchestration**: Coordination system that manages simultaneous activation and collaboration of multiple specialized AI agents with defined roles, authorities, and communication patterns.
 
@@ -3119,7 +3119,7 @@ This technical architecture establishes SuperClaude as a production-ready meta-f
 
 ### V
 
-**V4 Architecture**: Current SuperClaude Framework version featuring 13 specialized agents, 6 MCP servers, 5 behavioral modes, enhanced orchestration capabilities, and production-ready stability.
+**V4 Architecture**: Current SuperGemini Framework version featuring 13 specialized agents, 6 MCP servers, 5 behavioral modes, enhanced orchestration capabilities, and production-ready stability.
 
 **Validation Framework**: Comprehensive system for ensuring framework reliability including component validation, integration testing, performance benchmarking, and security verification.
 

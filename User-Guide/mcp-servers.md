@@ -1,10 +1,10 @@
-# SuperClaude MCP Servers Guide 🔌
+# SuperGemini MCP Servers Guide 🔌
 
 ## 🎯 The Simple Truth About MCP Servers
 
-MCP (Model Context Protocol) servers are specialized tools that extend Claude Code's capabilities beyond native functionality. SuperClaude integrates 6 carefully selected MCP servers that automatically activate based on your tasks, providing enhanced documentation access, advanced reasoning, UI generation, browser automation, code transformation, and project memory.
+MCP (Model Context Protocol) servers are specialized tools that extend Gemini CLI's capabilities beyond native functionality. SuperGemini integrates 6 carefully selected MCP servers that automatically activate based on your tasks, providing enhanced documentation access, advanced reasoning, UI generation, browser automation, code transformation, and project memory.
 
-**Seamless Integration**: Type `/sc:implement "React dashboard"` → Magic MCP activates for UI generation. Type `/sc:analyze --think-hard` → Sequential MCP enables structured reasoning. The system intelligently selects the right tools for your context.
+**Seamless Integration**: Type `/sg:implement "React dashboard"` → Magic MCP activates for UI generation. Type `/sg:analyze --seq` → Sequential MCP enables structured reasoning. The system intelligently selects the right tools for your context.
 
 ## Overview
 
@@ -16,7 +16,7 @@ MCP (Model Context Protocol) servers are specialized tools that extend Claude Co
 - **Morphllm**: Efficient pattern-based code transformations
 - **Serena**: Semantic code understanding with project memory
 
-**How They Enhance SuperClaude:**
+**How They Enhance SuperGemini:**
 - **Automatic Activation**: Intelligent context-based server selection
 - **Parallel Coordination**: Multiple servers working together on complex tasks
 - **Quality Enhancement**: Specialized tools for specific domains
@@ -44,11 +44,11 @@ MCP (Model Context Protocol) servers are specialized tools that extend Claude Co
 **Usage Examples:**
 ```bash
 # Automatic activation
-/sc:implement "React useEffect for data fetching"
+/sg:implement "React useEffect for data fetching"
 # → Context7 provides official React hooks documentation
 
 # Manual activation
-/sc:analyze auth-system/ --c7
+/sg:analyze auth-system/ --c7
 # → Access authentication pattern libraries
 ```
 
@@ -73,17 +73,17 @@ MCP (Model Context Protocol) servers are specialized tools that extend Claude Co
 **Auto-Activation Triggers:**
 - Complex debugging scenarios with multiple layers
 - Architectural analysis and system design
-- `--think`, `--think-hard`, `--ultrathink` flags
+- `--seq` flag for structured analysis
 - Multi-component failure investigation
 
 **Usage Examples:**
 ```bash
 # Automatic activation
-/sc:troubleshoot "API performance degrading under load"
+/sg:troubleshoot "API performance degrading under load"
 # → Sequential enables systematic root cause analysis
 
 # Manual activation  
-/sc:analyze --think-hard microservices-architecture/
+/sg:analyze --seq microservices-architecture/
 # → Deep architectural analysis with structured reasoning
 ```
 
@@ -114,11 +114,11 @@ MCP (Model Context Protocol) servers are specialized tools that extend Claude Co
 **Usage Examples:**
 ```bash
 # Automatic activation
-/sc:implement "responsive dashboard with data visualization" 
+/sg:implement "responsive dashboard with data visualization" 
 # → Magic generates modern UI components with accessibility
 
 # Manual activation
-/sc:design "e-commerce checkout flow" --magic
+/sg:design "e-commerce checkout flow" --magic
 # → UI-focused design with component generation
 ```
 
@@ -149,11 +149,11 @@ MCP (Model Context Protocol) servers are specialized tools that extend Claude Co
 **Usage Examples:**
 ```bash
 # Automatic activation
-/sc:test --type e2e "user registration flow"
+/sg:test --type e2e "user registration flow"
 # → Playwright automates browser testing
 
 # Manual activation
-/sc:validate "form accessibility compliance" --play
+/sg:validate "form accessibility compliance" --play
 # → Browser-based accessibility testing
 ```
 
@@ -184,11 +184,11 @@ MCP (Model Context Protocol) servers are specialized tools that extend Claude Co
 **Usage Examples:**
 ```bash
 # Automatic activation
-/sc:improve legacy-codebase/ --focus maintainability
+/sg:improve legacy-codebase/ --focus maintainability
 # → Morphllm applies consistent patterns across files
 
 # Manual activation
-/sc:cleanup src/ --morph
+/sg:cleanup src/ --morph
 # → Pattern-based code organization
 ```
 
@@ -213,17 +213,17 @@ MCP (Model Context Protocol) servers are specialized tools that extend Claude Co
 **Auto-Activation Triggers:**
 - Symbol operations: rename, extract, move functions
 - Project-wide code navigation
-- Session management: `/sc:load`, `/sc:save`
+- Session management: `/sg:load`, `/sg:save`
 - Large codebase analysis requirements
 
 **Usage Examples:**
 ```bash
 # Automatic activation  
-/sc:load existing-project/
+/sg:load existing-project/
 # → Serena builds project understanding and memory
 
 # Manual activation
-/sc:refactor "extract UserService class" --serena
+/sg:refactor "extract UserService class" --serena
 # → Semantic-aware code restructuring
 ```
 
@@ -306,26 +306,26 @@ SuperClaude analyzes your request and automatically selects optimal MCP servers:
 
 ```bash
 # Frontend development → Magic + Context7
-/sc:implement "responsive navigation component"
+/sg:implement "responsive navigation component"
 
 # Performance investigation → Sequential + Playwright  
-/sc:troubleshoot "page load time >3 seconds"
+/sg:troubleshoot "page load time >3 seconds"
 
 # Large refactoring → Serena + Morphllm + Sequential
-/sc:improve legacy-authentication-system/
+/sg:improve legacy-authentication-system/
 
 # Documentation lookup → Context7
-/sc:explain "React useCallback best practices"
+/sg:explain "React useCallback best practices"
 
 # Browser testing → Playwright + Sequential
-/sc:test --type e2e user-checkout-flow/
+/sg:test --type e2e user-checkout-flow/
 ```
 
 **Intelligence Behind Selection:**
 - **Keywords**: "component", "UI" → Magic activation
 - **File types**: `.jsx`, `.vue` → Magic + Context7
 - **Complexity**: Multi-file operations → Serena + Morphllm
-- **Analysis depth**: `--think-hard` → Sequential + Context7
+- **Analysis depth**: `--seq` → Sequential for structured reasoning
 - **Testing scope**: E2E workflows → Playwright + Sequential
 
 ### Manual Server Control
@@ -333,35 +333,35 @@ SuperClaude analyzes your request and automatically selects optimal MCP servers:
 **Force Specific Servers:**
 ```bash
 # Enable specific servers
-/sc:analyze codebase/ --c7 --seq --serena
+/sg:analyze codebase/ --c7 --seq --serena
 
 # Disable all MCP servers
-/sc:implement "simple function" --no-mcp
+/sg:implement "simple function" --no-mcp
 
 # Enable all servers for maximum capability
-/sc:design "complex system architecture" --all-mcp
+/sg:design "complex system architecture" --all-mcp
 
 # Lightweight execution
-/sc:explain "function purpose" --no-mcp
+/sg:explain "function purpose" --no-mcp
 ```
 
 **Server Combination Strategies:**
 
 **Documentation + Analysis:**
 ```bash
-/sc:analyze security-patterns/ --c7 --seq
+/sg:analyze security-patterns/ --c7 --seq
 # → Context7 provides security patterns + Sequential analyzes implementation
 ```
 
 **UI Development:**
 ```bash
-/sc:implement "dashboard interface" --magic --c7 --play
+/sg:implement "dashboard interface" --magic --c7 --play
 # → Magic generates components + Context7 patterns + Playwright testing
 ```
 
 **Code Transformation:**
 ```bash
-/sc:improve legacy-code/ --serena --morph --seq
+/sg:improve legacy-code/ --serena --morph --seq
 # → Serena analyzes structure + Morphllm transforms + Sequential validates
 ```
 
@@ -369,7 +369,7 @@ SuperClaude analyzes your request and automatically selects optimal MCP servers:
 
 **Complex Workflow Example:**
 ```bash
-/sc:implement "e-commerce checkout system"
+/sg:implement "e-commerce checkout system"
 ```
 
 **Automatic Coordination:**
@@ -394,7 +394,7 @@ SuperClaude orchestrates multiple MCP servers for complex tasks:
 
 **Full-Stack Development Workflow:**
 ```bash
-/sc:implement "real-time chat application"
+/sg:implement "real-time chat application"
 ```
 1. **Sequential**: Analyzes requirements and architecture
 2. **Context7**: Provides WebSocket and React patterns  
@@ -405,7 +405,7 @@ SuperClaude orchestrates multiple MCP servers for complex tasks:
 
 **Performance Optimization Workflow:**
 ```bash
-/sc:analyze --focus performance --ultrathink
+/sg:analyze --focus performance --seq
 ```
 1. **Sequential**: Systematic performance analysis methodology
 2. **Serena**: Code structure and bottleneck identification
@@ -432,13 +432,13 @@ SuperClaude orchestrates multiple MCP servers for complex tasks:
 **Concurrency Control:**
 ```bash
 # Limit concurrent server operations
-/sc:implement "complex feature" --concurrency 2
+/sg:implement "complex feature" --scope module
 
 # Maximum performance mode
-/sc:analyze large-codebase/ --all-mcp --concurrency 6
+/sg:analyze large-codebase/ --all-mcp --orchestrate
 
 # Resource-constrained mode  
-/sc:troubleshoot issue/ --c7 --seq --concurrency 1
+/sg:troubleshoot issue/ --c7 --seq --scope file
 ```
 
 ### Advanced Configuration
@@ -524,10 +524,10 @@ npm cache clean --force
 **Performance Issues:**
 ```bash
 # Reduce server load
-/sc:command --concurrency 1
+/sg:command --scope file
 
 # Use selective servers
-/sc:command --c7 --seq  # Instead of --all-mcp
+/sg:command --c7 --seq  # Instead of --all-mcp
 
 # Check system resources
 top | grep node
@@ -789,7 +789,7 @@ test_suite.test_integration_workflow(["custom-server", "sequential"])
 **Performance Control:**
 - `--all-mcp`: Enable all servers (max capability)
 - `--no-mcp`: Disable all servers (lightweight)
-- `--concurrency N`: Control parallel operations
+- `--scope`: Control analysis boundary
 - Resource awareness: Auto-scaling based on system load
 
 ---

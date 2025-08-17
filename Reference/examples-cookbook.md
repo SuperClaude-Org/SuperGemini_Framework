@@ -1,8 +1,8 @@
-# SuperClaude Examples Cookbook 🍳
+# SuperGemini Examples Cookbook 🍳
 
-**Practical SuperClaude Usage**: Real-world examples, working code, and hands-on scenarios that you can copy, paste, and modify for your projects. Each example includes expected outputs, common variations, and troubleshooting tips.
+**Practical SuperGemini Usage**: Real-world examples, working code, and hands-on scenarios that you can copy, paste, and modify for your projects. Each example includes expected outputs, common variations, and troubleshooting tips.
 
-**Real-World Focus**: These examples come from actual development scenarios - building web applications, API systems, mobile apps, DevOps pipelines, and data analysis projects using SuperClaude's intelligent orchestration.
+**Real-World Focus**: These examples come from actual development scenarios - building web applications, API systems, mobile apps, DevOps pipelines, and data analysis projects using SuperGemini's intelligent orchestration.
 
 ## How to Use This Cookbook
 
@@ -10,14 +10,14 @@
 - **Copy & Adapt**: All examples are production-ready - copy them and modify for your needs
 - **Progressive Complexity**: Start with Quick Examples, progress to Real-World Scenarios
 - **Working Examples**: Every command shown has been tested and produces the expected results
-- **Immediate Trial**: Most examples can be tried immediately after SuperClaude installation
+- **Immediate Trial**: Most examples can be tried immediately after SuperGemini installation
 
 **Example Structure:**
 ```bash
 # What it does: Brief description of the example's purpose
-/sc:command "description"
+/sg:command "description"
 
-# Expected: What SuperClaude will do
+# Expected: What SuperGemini will do
 # Activates: Which agents/modes/MCP servers activate
 # Output: What you'll see and receive
 
@@ -26,7 +26,7 @@
 ```
 
 **Navigation Guide:**
-- **New to SuperClaude**: Start with [Quick Examples](#quick-examples)
+- **New to SuperGemini**: Start with [Quick Examples](#quick-examples)
 - **Learning Project Workflows**: Jump to [Project Workflow Examples](#project-workflow-examples)
 - **Specific Commands**: Use [Command Examples by Category](#command-examples-by-category)
 - **Complex Scenarios**: Skip to [Real-World Scenarios](#real-world-scenarios)
@@ -37,27 +37,27 @@
 
 ```bash
 # Interactive project discovery and requirements gathering
-/sc:brainstorm "mobile app for fitness tracking"
+/sg:brainstorm "mobile app for fitness tracking"
 # Activates: Brainstorming mode + system-architect + requirements-analyst + Context7
 # Expected: Socratic dialogue, requirement elicitation, feasibility analysis
 
 # Analyze existing codebase for issues and improvements
-/sc:analyze src/ --focus security
+/sg:analyze src/ --focus security
 # Activates: security-engineer + quality-engineer + performance-engineer
 # Expected: Comprehensive security audit, vulnerability report, improvement suggestions
 
 # Implement a complete feature with best practices
-/sc:implement "user authentication with JWT and rate limiting"
+/sg:implement "user authentication with JWT and rate limiting"
 # Activates: security-engineer + backend-architect + Context7 + quality gates
 # Expected: Complete auth implementation, security validation, tests included
 
 # Troubleshoot and fix a problem systematically
-/sc:troubleshoot "API returns 500 error on user login"
+/sg:troubleshoot "API returns 500 error on user login"
 # Activates: root-cause-analyst + Sequential reasoning + systematic debugging
 # Expected: Step-by-step diagnosis, root cause identification, solution ranking
 
 # Generate comprehensive tests for existing code
-/sc:test --type e2e --coverage
+/sg:test --type e2e --coverage
 # Activates: quality-engineer + Playwright MCP + test automation
 # Expected: End-to-end test suite, coverage report, quality metrics
 ```
@@ -65,26 +65,26 @@
 **Basic Usage Patterns:**
 ```bash
 # Discovery Pattern: From idea to requirements
-/sc:brainstorm → /sc:workflow → /sc:design
+/sg:brainstorm → /sg:workflow → /sg:design
 
 # Development Pattern: From requirements to code  
-/sc:design → /sc:implement → /sc:test
+/sg:design → /sg:implement → /sg:test
 
 # Quality Pattern: From code to production-ready
-/sc:analyze → /sc:improve → /sc:cleanup → /sc:test
+/sg:analyze → /sg:improve → /sg:cleanup → /sg:test
 
 # Learning Pattern: From confusion to understanding
-/sc:explain → /sc:document → /sc:examples
+/sg:explain → /sg:document → /sg:examples
 ```
 
 ## Getting Started Examples
 
-### First Day with SuperClaude
+### First Day with SuperGemini
 
 **Example 1: Your First Project Analysis**
 ```bash
 # What it does: Understand an existing project structure and codebase
-/sc:load . && /sc:analyze --comprehensive
+/sg:load . && /sg:analyze --comprehensive
 
 # Expected: 
 # - Project structure analysis and documentation
@@ -96,15 +96,15 @@
 # Output: Comprehensive project report with actionable insights
 
 # Common variations:
-/sc:analyze src/ --focus quality          # Focus on code quality only
-/sc:analyze . --scope file --depth shallow  # Quick analysis of specific files
-/sc:analyze backend/ --focus security --export html  # Security report for backend
+/sg:analyze src/ --focus quality          # Focus on code quality only
+/sg:analyze . --scope file --depth shallow  # Quick analysis of specific files
+/sg:analyze backend/ --focus security --export html  # Security report for backend
 ```
 
 **Example 2: Interactive Requirements Discovery**
 ```bash
 # What it does: Transform a vague idea into concrete requirements
-/sc:brainstorm "productivity app for remote teams"
+/sg:brainstorm "productivity app for remote teams"
 
 # Expected:
 # - Socratic questioning about user needs and pain points
@@ -116,8 +116,8 @@
 # Output: Product Requirements Document (PRD) with clear specifications
 
 # Follow-up commands:
-/sc:workflow "team collaboration features"  # Generate implementation plan
-/sc:design "real-time messaging system"     # Design system architecture
+/sg:workflow "team collaboration features"  # Generate implementation plan
+/sg:design "real-time messaging system"     # Design system architecture
 ```
 
 ### Learning Progression Examples
@@ -125,17 +125,17 @@
 **Beginner Level: Single Commands**
 ```bash
 # Explain code concepts clearly
-/sc:explain "async/await in JavaScript" --level beginner --examples
+/sg:explain "async/await in JavaScript" --level beginner --examples
 # Activates: learning-guide + educational focus
 # Expected: Step-by-step explanation with practical examples
 
 # Document existing code
-/sc:document src/components/ --style user-guide --audience developers
+/sg:document src/components/ --style user-guide --audience developers
 # Activates: technical-writer + documentation generation
 # Expected: Comprehensive API documentation with usage examples
 
 # Simple code improvements
-/sc:improve utils.py --type readability --preview
+/sg:improve utils.py --type readability --preview
 # Activates: refactoring-expert + code quality focus
 # Expected: Readability improvements with preview before applying
 ```
@@ -143,25 +143,25 @@
 **Intermediate Level: Command Combinations**
 ```bash
 # Complete feature development workflow
-/sc:design "payment processing system" && /sc:implement "Stripe integration" && /sc:test --coverage
+/sg:design "payment processing system" && /sg:implement "Stripe integration" && /sg:test --coverage
 
 # Quality assurance workflow  
-/sc:analyze --focus quality && /sc:improve --safe-mode && /sc:cleanup --comprehensive
+/sg:analyze --focus quality && /sg:improve --safe-mode && /sg:cleanup --comprehensive
 
 # Debugging workflow
-/sc:troubleshoot "slow database queries" && /sc:analyze db/ --focus performance && /sc:improve --type performance
+/sg:troubleshoot "slow database queries" && /sg:analyze db/ --focus performance && /sg:improve --type performance
 ```
 
 **Advanced Level: Session Management**
 ```bash
 # Long-term project development with session persistence
-/sc:load "ecommerce-project" && /sc:save "checkpoint-auth-complete"
+/sg:load "ecommerce-project" && /sg:save "checkpoint-auth-complete"
 
 # Cross-session context building
-/sc:reflect "payment integration completed" && /sc:workflow "shipping system next"
+/sg:reflect "payment integration completed" && /sg:workflow "shipping system next"
 
 # Multi-agent coordination
-/sc:spawn "complete microservices platform" --parallel --monitor
+/sg:implement "complete microservices platform" --orchestrate --monitor
 ```
 
 ## Project Workflow Examples
@@ -171,38 +171,38 @@
 **Phase 1: Discovery & Planning**
 ```bash
 # Initial project brainstorming
-/sc:brainstorm "e-commerce platform for small businesses"
+/sg:brainstorm "e-commerce platform for small businesses"
 # Expected: Requirements discovery, feature prioritization, technical scope
 
 # Save initial session context
-/sc:save "ecommerce-requirements-complete"
+/sg:save "ecommerce-requirements-complete"
 
 # Generate implementation workflow
-/sc:workflow "MVP e-commerce with user management, product catalog, and payments"
+/sg:workflow "MVP e-commerce with user management, product catalog, and payments"
 # Expected: Structured development plan with phases, dependencies, and timelines
 
 # System architecture design
-/sc:design "microservices architecture for e-commerce" --type system --format mermaid
+/sg:design "microservices architecture for e-commerce" --type system --format mermaid
 # Expected: Service boundaries, data flow diagrams, technology recommendations
 ```
 
 **Phase 2: Core Implementation**
 ```bash
 # Load previous session
-/sc:load "ecommerce-requirements-complete"
+/sg:load "ecommerce-requirements-complete"
 
 # User management system
-/sc:implement "user registration and authentication with JWT"
+/sg:implement "user registration and authentication with JWT"
 # Activates: security-engineer + backend-architect + Context7
 # Expected: Complete auth system with security best practices
 
 # Product catalog implementation
-/sc:implement "product management REST API with search and filtering"
+/sg:implement "product management REST API with search and filtering"
 # Activates: backend-architect + database specialist + API design patterns
 # Expected: Scalable product API with performance optimization
 
 # Frontend development
-/sc:implement "React product catalog with responsive design"
+/sg:implement "React product catalog with responsive design"
 # Activates: frontend-architect + Magic MCP + accessibility compliance
 # Expected: Modern React components with accessibility and responsive design
 ```
@@ -210,16 +210,16 @@
 **Phase 3: Integration & Testing**
 ```bash
 # Integration testing
-/sc:test --type integration --focus api-frontend
+/sg:test --type integration --focus api-frontend
 # Activates: quality-engineer + Playwright MCP + integration scenarios
 # Expected: Comprehensive integration test suite with API-frontend validation
 
 # Performance optimization
-/sc:analyze . --focus performance && /sc:improve --type performance --measure-impact
+/sg:analyze . --focus performance && /sg:improve --type performance --measure-impact
 # Expected: Performance bottleneck identification and optimization with impact measurement
 
 # Security audit
-/sc:analyze . --focus security --depth deep --export report
+/sg:analyze . --focus security --depth deep --export report
 # Expected: Comprehensive security assessment with vulnerability reporting
 ```
 
@@ -228,26 +228,26 @@
 **Complete REST API with Authentication**
 ```bash
 # Project initialization and design
-/sc:brainstorm "REST API for task management" && /sc:design "RESTful task API" --type api --format openapi
+/sg:brainstorm "REST API for task management" && /sg:design "RESTful task API" --type api --format openapi
 
 # Core API implementation
-/sc:implement "Express.js REST API with CRUD operations for tasks"
+/sg:implement "Express.js REST API with CRUD operations for tasks"
 # Expected: Complete Express.js API with proper routing, validation, error handling
 
 # Authentication layer
-/sc:implement "JWT authentication middleware with rate limiting"
+/sg:implement "JWT authentication middleware with rate limiting"
 # Expected: Secure authentication with rate limiting and token management
 
 # Database integration
-/sc:implement "PostgreSQL integration with connection pooling"
+/sg:implement "PostgreSQL integration with connection pooling"
 # Expected: Database layer with connection management and query optimization
 
 # API documentation
-/sc:document api/ --type api --format swagger --include-examples
+/sg:document api/ --type api --format swagger --include-examples
 # Expected: Comprehensive API documentation with examples and usage guidelines
 
 # Testing and validation
-/sc:test --type unit --coverage && /sc:test --type integration --api-validation
+/sg:test --type unit --coverage && /sg:test --type integration --api-validation
 # Expected: Complete test suite with unit and integration coverage
 ```
 
@@ -256,23 +256,23 @@
 **React Dashboard Development**
 ```bash
 # Design system planning
-/sc:design "admin dashboard component architecture" --type frontend
+/sg:design "admin dashboard component architecture" --type frontend
 
 # Component implementation
-/sc:implement "React dashboard with charts and data tables"
+/sg:implement "React dashboard with charts and data tables"
 # Activates: frontend-architect + Magic MCP + data visualization patterns
 # Expected: Modern dashboard with interactive components
 
 # State management
-/sc:implement "Redux state management for dashboard data"
+/sg:implement "Redux state management for dashboard data"
 # Expected: Proper state management with actions, reducers, and selectors
 
 # Accessibility compliance
-/sc:improve src/components/ --focus accessibility --validate-wcag
+/sg:improve src/components/ --focus accessibility --validate-wcag
 # Expected: Accessibility improvements with WCAG compliance validation
 
 # Performance optimization
-/sc:analyze src/ --focus performance && /sc:improve --type performance --bundle-analysis
+/sg:analyze src/ --focus performance && /sg:improve --type performance --bundle-analysis
 # Expected: Bundle optimization and performance improvements
 ```
 
@@ -281,23 +281,23 @@
 **CI/CD Pipeline Setup**
 ```bash
 # Infrastructure design
-/sc:design "CI/CD pipeline for Node.js microservices" --type infrastructure
+/sg:design "CI/CD pipeline for Node.js microservices" --type infrastructure
 
 # Docker containerization
-/sc:implement "Docker containers for microservices deployment"
+/sg:implement "Docker containers for microservices deployment"
 # Activates: devops-architect + containerization best practices
 # Expected: Production-ready Docker setup with multi-stage builds
 
 # GitHub Actions workflow
-/sc:implement "GitHub Actions pipeline with testing and deployment"
+/sg:implement "GitHub Actions pipeline with testing and deployment"
 # Expected: Automated CI/CD pipeline with quality gates
 
 # Monitoring setup
-/sc:implement "application monitoring with Prometheus and Grafana"
+/sg:implement "application monitoring with Prometheus and Grafana"
 # Expected: Comprehensive monitoring and alerting system
 
 # Security hardening
-/sc:analyze infrastructure/ --focus security && /sc:improve --type security --compliance
+/sg:analyze infrastructure/ --focus security && /sg:improve --type security --compliance
 # Expected: Security hardening with compliance validation
 ```
 
@@ -306,19 +306,19 @@
 **Quality-First Development Pattern:**
 ```bash
 # Every feature follows this pattern:
-/sc:design "feature specification" → /sc:implement "feature code" → /sc:test --comprehensive → /sc:analyze --focus quality → /sc:improve --safe-mode → /sc:document "feature documentation"
+/sg:design "feature specification" → /sg:implement "feature code" → /sg:test --comprehensive → /sg:analyze --focus quality → /sg:improve --safe-mode → /sg:document "feature documentation"
 ```
 
 **Security-Focused Development Pattern:**
 ```bash
 # Security considerations at every step:
-/sc:brainstorm "feature with security focus" → /sc:design --security-first → /sc:implement --security-validation → /sc:analyze --focus security → /sc:test --security-scenarios
+/sg:brainstorm "feature with security focus" → /sg:design --security-first → /sg:implement --security-validation → /sg:analyze --focus security → /sg:test --security-scenarios
 ```
 
 **Performance-Oriented Development Pattern:**
 ```bash
 # Performance optimization workflow:
-/sc:analyze --focus performance --baseline → /sc:implement "optimized solution" → /sc:test --performance-benchmarks → /sc:improve --type performance --measure-impact
+/sg:analyze --focus performance --baseline → /sg:implement "optimized solution" → /sg:test --performance-benchmarks → /sg:improve --type performance --measure-impact
 ```
 
 ## Command Examples by Category
@@ -328,25 +328,25 @@
 **Code Quality Analysis:**
 ```bash
 # Comprehensive codebase analysis
-/sc:analyze . --comprehensive --export html
+/sg:analyze . --comprehensive --export html
 # Activates: quality-engineer + security-engineer + performance-engineer
 # Output: Multi-domain analysis report in HTML format
 # Use case: Pre-deployment quality review, code review preparation
 
 # Focused security audit
-/sc:analyze src/ --focus security --depth deep --include-dependencies
+/sg:analyze src/ --focus security --depth deep --include-dependencies
 # Activates: security-engineer + vulnerability assessment + dependency analysis
 # Output: Security vulnerabilities, compliance issues, dependency risks
 # Use case: Security compliance review, penetration testing preparation
 
 # Performance bottleneck identification
-/sc:analyze api/ --focus performance --profile --memory-analysis
+/sg:analyze api/ --focus performance --profile --memory-analysis
 # Activates: performance-engineer + profiling tools + memory analysis
 # Output: Performance hotspots, memory usage patterns, optimization opportunities
 # Use case: Performance optimization, scalability planning
 
 # Architecture review
-/sc:analyze . --focus architecture --dependencies --coupling-analysis
+/sg:analyze . --focus architecture --dependencies --coupling-analysis
 # Activates: system-architect + dependency analysis + design pattern assessment
 # Output: Architecture overview, coupling metrics, design pattern usage
 # Use case: Technical debt assessment, refactoring planning
@@ -355,15 +355,15 @@
 **Language-Specific Analysis:**
 ```bash
 # Python-specific analysis
-/sc:analyze **/*.py --focus quality --include-type-hints --pep8-compliance
+/sg:analyze **/*.py --focus quality --include-type-hints --pep8-compliance
 # Expected: Python code quality with type safety and style compliance
 
 # JavaScript/TypeScript analysis
-/sc:analyze src/ --focus quality --include-bundle-analysis --dependencies
+/sg:analyze src/ --focus quality --include-bundle-analysis --dependencies
 # Expected: Frontend code quality with bundle size and dependency analysis
 
 # Multi-language project analysis
-/sc:analyze . --focus architecture --cross-language-dependencies
+/sg:analyze . --focus architecture --cross-language-dependencies
 # Expected: Cross-language architecture analysis with interface compatibility
 ```
 
@@ -372,19 +372,19 @@
 **Full-Stack Feature Implementation:**
 ```bash
 # Complete authentication system
-/sc:implement "full-stack authentication with React frontend and Node.js backend"
+/sg:implement "full-stack authentication with React frontend and Node.js backend"
 # Activates: frontend-architect + backend-architect + security-engineer + Context7 + Magic
 # Expected: Complete auth system with frontend components, backend API, security validation
 # Output: React login/register components, JWT middleware, password security, session management
 
 # Real-time chat feature
-/sc:implement "real-time chat with WebSocket and message persistence"
+/sg:implement "real-time chat with WebSocket and message persistence"
 # Activates: backend-architect + frontend-architect + database specialist + real-time patterns
 # Expected: WebSocket implementation, message storage, real-time UI updates
 # Output: Socket.io server, React chat interface, message history API
 
 # Payment processing integration
-/sc:implement "Stripe payment integration with subscription management"
+/sg:implement "Stripe payment integration with subscription management"
 # Activates: backend-architect + security-engineer + Context7 (Stripe patterns)
 # Expected: Secure payment processing with webhook handling and subscription logic
 # Output: Payment API, webhook handlers, subscription management, security compliance
@@ -393,19 +393,19 @@
 **API Development:**
 ```bash
 # RESTful API with documentation
-/sc:implement "REST API for blog management with OpenAPI documentation"
+/sg:implement "REST API for blog management with OpenAPI documentation"
 # Activates: backend-architect + technical-writer + API design patterns
 # Expected: Complete REST API with proper HTTP methods, status codes, documentation
 # Output: Express.js routes, validation middleware, OpenAPI spec, API documentation
 
 # GraphQL API implementation
-/sc:implement "GraphQL API with schema-first design and resolvers"
+/sg:implement "GraphQL API with schema-first design and resolvers"
 # Activates: backend-architect + Context7 (GraphQL patterns) + type safety
 # Expected: GraphQL schema, resolvers, type definitions, query optimization
 # Output: GraphQL server, schema definitions, resolver functions, type safety
 
 # Microservices communication
-/sc:implement "microservices communication with message queues and service discovery"
+/sg:implement "microservices communication with message queues and service discovery"
 # Activates: system-architect + devops-architect + distributed systems patterns
 # Expected: Inter-service communication, message queuing, service registration
 # Output: RabbitMQ/Redis setup, service discovery, API gateway configuration
@@ -414,19 +414,19 @@
 **Frontend Implementation:**
 ```bash
 # Modern React application
-/sc:implement "React application with TypeScript, state management, and routing"
+/sg:implement "React application with TypeScript, state management, and routing"
 # Activates: frontend-architect + Magic MCP + TypeScript patterns + Context7
 # Expected: Complete React setup with modern patterns and tooling
 # Output: TypeScript configuration, Redux/Zustand setup, React Router, component structure
 
 # Responsive design system
-/sc:implement "component library with Storybook and accessibility compliance"
+/sg:implement "component library with Storybook and accessibility compliance"
 # Activates: frontend-architect + Magic MCP + accessibility validation + design systems
 # Expected: Reusable component library with documentation and accessibility
 # Output: Styled components, Storybook stories, accessibility tests, design tokens
 
 # Progressive Web App
-/sc:implement "PWA with offline capabilities and push notifications"
+/sg:implement "PWA with offline capabilities and push notifications"
 # Activates: frontend-architect + PWA patterns + service worker implementation
 # Expected: Service worker setup, offline functionality, notification system
 # Output: PWA manifest, service worker, offline storage, notification handlers
@@ -437,25 +437,25 @@
 **Testing Implementation:**
 ```bash
 # Comprehensive test suite
-/sc:test --type all --coverage --report
+/sg:test --type all --coverage --report
 # Activates: quality-engineer + Playwright MCP + test automation
 # Expected: Unit, integration, and E2E tests with coverage reporting
 # Output: Jest unit tests, Cypress E2E tests, coverage reports, quality metrics
 
 # Performance testing
-/sc:test --type performance --load-testing --benchmark
+/sg:test --type performance --load-testing --benchmark
 # Activates: performance-engineer + load testing tools + benchmarking
 # Expected: Load testing scenarios with performance benchmarks
 # Output: Load test results, performance metrics, bottleneck identification
 
 # Security testing
-/sc:test --type security --penetration --vulnerability-scan
+/sg:test --type security --penetration --vulnerability-scan
 # Activates: security-engineer + security testing tools + vulnerability assessment
 # Expected: Security test scenarios with vulnerability scanning
 # Output: Security test results, vulnerability reports, compliance validation
 
 # Accessibility testing
-/sc:test --type accessibility --wcag-compliance --screen-reader
+/sg:test --type accessibility --wcag-compliance --screen-reader
 # Activates: quality-engineer + accessibility validation + compliance testing
 # Expected: Accessibility test scenarios with WCAG compliance validation
 # Output: Accessibility reports, compliance status, remediation suggestions
@@ -464,19 +464,19 @@
 **Code Quality Improvement:**
 ```bash
 # Systematic code improvement
-/sc:improve src/ --type comprehensive --safe-mode --backup
+/sg:improve src/ --type comprehensive --safe-mode --backup
 # Activates: refactoring-expert + quality-engineer + safety validation
 # Expected: Code quality improvements with safety guarantees
 # Output: Refactored code, improvement reports, backup creation
 
 # Performance optimization
-/sc:improve api/ --type performance --measure-impact --before-after
+/sg:improve api/ --type performance --measure-impact --before-after
 # Activates: performance-engineer + benchmarking + impact measurement
 # Expected: Performance improvements with measurable impact
 # Output: Optimized code, performance comparisons, impact analysis
 
 # Security hardening
-/sc:improve . --type security --compliance-check --vulnerability-fix
+/sg:improve . --type security --compliance-check --vulnerability-fix
 # Activates: security-engineer + compliance validation + vulnerability remediation
 # Expected: Security improvements with compliance validation
 # Output: Hardened code, security reports, compliance status
@@ -487,19 +487,19 @@
 **Systematic Problem Diagnosis:**
 ```bash
 # API performance issues
-/sc:troubleshoot "API response time increased from 200ms to 2 seconds"
+/sg:troubleshoot "API response time increased from 200ms to 2 seconds"
 # Activates: root-cause-analyst + performance-engineer + Sequential reasoning
 # Expected: Systematic diagnosis with hypothesis testing and root cause identification
 # Output: Problem analysis, root cause, solution ranking, implementation plan
 
 # Database connection problems
-/sc:troubleshoot "database connection pool exhausted under load"
+/sg:troubleshoot "database connection pool exhausted under load"
 # Activates: root-cause-analyst + database specialist + performance analysis
 # Expected: Connection pool analysis, load testing, configuration recommendations
 # Output: Database diagnostics, configuration fixes, scaling recommendations
 
 # Frontend rendering issues
-/sc:troubleshoot "React components causing memory leaks and slow rendering"
+/sg:troubleshoot "React components causing memory leaks and slow rendering"
 # Activates: root-cause-analyst + frontend-architect + performance analysis
 # Expected: Memory leak detection, rendering optimization, component analysis
 # Output: Memory analysis, component fixes, performance improvements
@@ -508,19 +508,19 @@
 **Build and Deployment Issues:**
 ```bash
 # Build pipeline failures
-/sc:troubleshoot "CI/CD pipeline failing at Docker build stage"
+/sg:troubleshoot "CI/CD pipeline failing at Docker build stage"
 # Activates: root-cause-analyst + devops-architect + build system analysis
 # Expected: Build process analysis, dependency resolution, configuration fixes
 # Output: Build diagnostics, Dockerfile fixes, pipeline optimization
 
 # Production deployment problems
-/sc:troubleshoot "application crashes after deployment with 502 errors"
+/sg:troubleshoot "application crashes after deployment with 502 errors"
 # Activates: root-cause-analyst + devops-architect + system diagnostics
 # Expected: Production environment analysis, log analysis, system configuration
 # Output: Deployment diagnostics, configuration fixes, monitoring setup
 
 # Performance degradation after deployment
-/sc:troubleshoot "application performance degraded 300% after latest deployment"
+/sg:troubleshoot "application performance degraded 300% after latest deployment"
 # Activates: root-cause-analyst + performance-engineer + deployment analysis
 # Expected: Performance regression analysis, code comparison, optimization plan
 # Output: Performance analysis, regression identification, rollback/fix plan
@@ -533,7 +533,7 @@
 **Full-Stack Development Team:**
 ```bash
 # E-commerce platform requiring multiple specialists
-/sc:implement "secure e-commerce platform with payment processing and admin dashboard"
+/sg:implement "secure e-commerce platform with payment processing and admin dashboard"
 
 # Automatic agent activation:
 # - frontend-architect: Dashboard UI components and user interface
@@ -553,7 +553,7 @@
 **Performance Optimization Team:**
 ```bash
 # Complex performance problem requiring systematic analysis
-/sc:troubleshoot "microservices platform experiencing latency spikes under load"
+/sg:troubleshoot "microservices platform experiencing latency spikes under load"
 
 # Automatic agent activation:
 # - root-cause-analyst: Systematic problem investigation and hypothesis testing
@@ -571,7 +571,7 @@
 **Learning and Documentation Team:**
 ```bash
 # Complex technical documentation requiring multiple perspectives
-/sc:document "microservices architecture guide" --audience mixed --comprehensive
+/sg:document "microservices architecture guide" --audience mixed --comprehensive
 
 # Automatic agent activation:
 # - technical-writer: Documentation structure, clarity, audience targeting
@@ -591,7 +591,7 @@
 **Security-Focused Development:**
 ```bash
 # Security agent leading with other agents supporting
-/sc:implement "OAuth 2.0 authentication with PKCE and security best practices"
+/sg:implement "OAuth 2.0 authentication with PKCE and security best practices"
 
 # Primary: security-engineer
 # - Threat modeling and security requirement specification
@@ -611,7 +611,7 @@
 **Performance-Centric Development:**
 ```bash
 # Performance engineer leading optimization effort
-/sc:improve api/ --focus performance --measure-impact
+/sg:improve api/ --focus performance --measure-impact
 
 # Primary: performance-engineer
 # - Performance profiling and bottleneck identification
@@ -636,7 +636,7 @@
 **Interactive Requirements Discovery:**
 ```bash
 # Vague project idea triggering brainstorming mode
-/sc:brainstorm "something for team productivity"
+/sg:brainstorm "something for team productivity"
 
 # Mode activation: Brainstorming mode automatically detected
 # Behavioral changes:
@@ -656,7 +656,7 @@
 **Creative Problem Solving:**
 ```bash
 # Uncertainty keywords triggering exploration mode
-/sc:brainstorm "maybe we could improve our deployment process somehow"
+/sg:brainstorm "maybe we could improve our deployment process somehow"
 
 # Mode characteristics:
 # - Exploration-focused questioning
@@ -674,7 +674,7 @@
 **Complex Multi-Step Projects:**
 ```bash
 # Large scope triggering task management mode
-/sc:implement "complete microservices platform with authentication, API gateway, service mesh, and monitoring"
+/sg:implement "complete microservices platform with authentication, API gateway, service mesh, and monitoring"
 
 # Mode activation: >3 steps, multiple domains, complex dependencies
 # Behavioral changes:
@@ -694,7 +694,7 @@
 **Long-Term Project Development:**
 ```bash
 # Multi-session project requiring persistent memory
-/sc:load "ecommerce-platform" && /sc:task "implement shopping cart functionality"
+/sg:load "ecommerce-platform" && /sg:task "implement shopping cart functionality"
 
 # Mode characteristics:
 # - Session context restoration and building
@@ -714,7 +714,7 @@
 **High-Complexity Coordination:**
 ```bash
 # Complex task requiring multiple tools and parallel execution
-/sc:spawn "full-stack application with React frontend, Node.js API, PostgreSQL database, Redis caching, Docker deployment, and comprehensive testing"
+/sg:implement "full-stack application with React frontend, Node.js API, PostgreSQL database, Redis caching, Docker deployment, and comprehensive testing"
 
 # Mode activation: Complexity score >0.8, multiple domains, parallel opportunities
 # Behavioral changes:
@@ -736,7 +736,7 @@
 **Large-Scale Analysis with Resource Constraints:**
 ```bash
 # Context usage >75% triggering efficiency mode
-/sc:analyze large-codebase/ --comprehensive --uc
+/sg:analyze large-codebase/ --comprehensive --uc
 
 # Mode activation: --uc flag or resource pressure detected
 # Behavioral changes:
@@ -759,31 +759,31 @@
 **Project Initialization and Context Building:**
 ```bash
 # Starting new project with context establishment
-/sc:load new-project/ --initialize
+/sg:load new-project/ --initialize
 # Expected: Project structure analysis, initial context creation, session establishment
 
 # Building project context through analysis
-/sc:analyze . --comprehensive && /sc:save "initial-analysis-complete"
+/sg:analyze . --comprehensive && /sg:save "initial-analysis-complete"
 # Expected: Complete project understanding saved for future sessions
 
 # Resuming work with context restoration
-/sc:load "initial-analysis-complete" && /sc:reflect
+/sg:load "initial-analysis-complete" && /sg:reflect
 # Expected: Context restoration, progress assessment, next steps identification
 ```
 
 **Long-Term Development Sessions:**
 ```bash
 # Phase-based development with checkpointing
-/sc:load "ecommerce-project" 
+/sg:load "ecommerce-project" 
 
 # Authentication phase
-/sc:implement "JWT authentication system" && /sc:save "auth-phase-complete"
+/sg:implement "JWT authentication system" && /sg:save "auth-phase-complete"
 
 # Product catalog phase  
-/sc:load "auth-phase-complete" && /sc:implement "product catalog API" && /sc:save "catalog-phase-complete"
+/sg:load "auth-phase-complete" && /sg:implement "product catalog API" && /sg:save "catalog-phase-complete"
 
 # Payment integration phase
-/sc:load "catalog-phase-complete" && /sc:implement "Stripe payment integration" && /sc:save "payment-phase-complete"
+/sg:load "catalog-phase-complete" && /sg:implement "Stripe payment integration" && /sg:save "payment-phase-complete"
 
 # Each phase builds on previous context while maintaining session continuity
 ```
@@ -791,7 +791,7 @@
 **Cross-Session Learning and Adaptation:**
 ```bash
 # Session with decision tracking and learning
-/sc:load "microservices-project" && /sc:reflect "previous payment integration decisions"
+/sg:load "microservices-project" && /sg:reflect "previous payment integration decisions"
 
 # Expected behavior:
 # - Recall previous architectural decisions about payment processing
@@ -805,19 +805,19 @@
 **Decision Memory and Consistency:**
 ```bash
 # Architectural decision recording
-/sc:design "authentication system" && /sc:save "auth-architecture-decided"
+/sg:design "authentication system" && /sg:save "auth-architecture-decided"
 
 # Later consistency checking
-/sc:load "auth-architecture-decided" && /sc:implement "user registration endpoint"
+/sg:load "auth-architecture-decided" && /sg:implement "user registration endpoint"
 # Expected: Implementation consistent with previously decided architecture patterns
 ```
 
 **Progress Tracking and Continuity:**
 ```bash
 # Multi-day development with progress tracking
-Day 1: /sc:implement "user management" && /sc:save "day1-user-mgmt"
-Day 2: /sc:load "day1-user-mgmt" && /sc:implement "product catalog" && /sc:save "day2-catalog" 
-Day 3: /sc:load "day2-catalog" && /sc:implement "shopping cart" && /sc:save "day3-cart"
+Day 1: /sg:implement "user management" && /sg:save "day1-user-mgmt"
+Day 2: /sg:load "day1-user-mgmt" && /sg:implement "product catalog" && /sg:save "day2-catalog" 
+Day 3: /sg:load "day2-catalog" && /sg:implement "shopping cart" && /sg:save "day3-cart"
 
 # Each day builds on previous work with full context awareness
 ```
@@ -829,33 +829,33 @@ Day 3: /sc:load "day2-catalog" && /sc:implement "shopping cart" && /sc:save "day
 **Resource Optimization:**
 ```bash
 # Ultra-compressed mode for large operations
-/sc:analyze massive-codebase/ --uc --scope project
+/sg:analyze massive-codebase/ --uc --scope project
 # Activates: Token efficiency mode, symbol communication, 30-50% token reduction
 # Expected: Compressed but complete analysis with symbol-enhanced communication
 
 # Concurrency control for parallel operations
-/sc:implement "microservices suite" --concurrency 3 --parallel
+/sg:implement "microservices suite" --orchestrate
 # Expected: Maximum 3 concurrent operations, intelligent parallel execution
 
 # Focus area limitation for targeted analysis
-/sc:analyze . --focus security --scope module
+/sg:analyze . --focus security --scope module
 # Expected: Security-focused analysis limited to module scope for efficiency
 ```
 
 **Analysis Depth Control:**
 ```bash
 # Standard analysis with moderate depth
-/sc:analyze src/ --think
+/sg:analyze src/ --seq
 # Activates: Sequential MCP for structured analysis (~4K tokens)
 # Expected: Comprehensive but focused analysis with clear structure
 
 # Deep analysis for complex problems
-/sc:analyze architecture/ --think-hard --focus architecture
+/sg:analyze architecture/ --seq --focus architecture
 # Activates: Sequential + Context7 for deep analysis (~10K tokens)
 # Expected: Detailed architectural analysis with pattern recognition
 
 # Maximum depth for critical system analysis
-/sc:analyze . --ultrathink --all-mcp
+/sg:analyze . --seq --all-mcp
 # Activates: All MCP servers, maximum analysis depth (~32K tokens)
 # Expected: Comprehensive system analysis with all available intelligence
 ```
@@ -865,17 +865,17 @@ Day 3: /sc:load "day2-catalog" && /sc:implement "shopping cart" && /sc:save "day
 **MCP Server Coordination:**
 ```bash
 # Documentation-focused development
-/sc:implement "React component library" --c7 --magic
+/sg:implement "React component library" --c7 --magic
 # Activates: Context7 for official patterns + Magic for UI generation
 # Expected: React components following official patterns with modern UI
 
 # Complex analysis requiring multiple reasoning approaches
-/sc:troubleshoot "distributed system performance" --seq --c7 --serena
+/sg:troubleshoot "distributed system performance" --seq --c7 --serena
 # Activates: Sequential reasoning + Context7 docs + Serena memory
 # Expected: Systematic analysis with official patterns and session memory
 
 # Comprehensive development with all capabilities
-/sc:implement "enterprise application" --all-mcp
+/sg:implement "enterprise application" --all-mcp
 # Activates: All MCP servers for maximum capability
 # Expected: Full-featured implementation with all available intelligence
 ```
@@ -883,17 +883,17 @@ Day 3: /sc:load "day2-catalog" && /sc:implement "shopping cart" && /sc:save "day
 **Safety and Validation Flags:**
 ```bash
 # Safe development with comprehensive validation
-/sc:improve legacy-code/ --safe-mode --validate --backup
+/sg:improve legacy-code/ --safe-mode --validate --backup
 # Activates: Maximum safety, validation gates, automatic backups
 # Expected: Risk-assessed improvements with rollback capability
 
 # Production-ready development with quality gates
-/sc:implement "payment processing" --validate --safe-mode --test-required
+/sg:implement "payment processing" --validate --safe-mode --test-required
 # Activates: Pre-execution validation, safety checks, mandatory testing
 # Expected: Production-ready implementation with comprehensive validation
 
 # Development with risk assessment
-/sc:spawn "system redesign" --validate --iterations 3 --safe-mode
+/sg:implement "system redesign" --validate --iterations 3 --safe-mode
 # Activates: Risk assessment, iterative improvement, conservative execution
 # Expected: Systematic redesign with risk mitigation and iterative validation
 ```
@@ -907,51 +907,51 @@ Day 3: /sc:load "day2-catalog" && /sc:implement "shopping cart" && /sc:save "day
 **Complete Workflow:**
 ```bash
 # Week 1: Discovery and Architecture
-/sc:brainstorm "social media platform for creators" --strategy systematic
+/sg:brainstorm "social media platform for creators" --strategy systematic
 # Expected: Requirements discovery, user personas, feature prioritization
 
-/sc:design "social media platform architecture" --type system --scalable
+/sg:design "social media platform architecture" --type system --scalable
 # Expected: Microservices architecture, technology stack, deployment strategy
 
-/sc:workflow "MVP social platform" --strategy agile --timeline 6weeks
+/sg:workflow "MVP social platform" --strategy agile --timeline 6weeks
 # Expected: Sprint planning, development phases, milestone definitions
 
-/sc:save "mvp-planning-complete"
+/sg:save "mvp-planning-complete"
 
 # Week 2-3: Core Implementation
-/sc:load "mvp-planning-complete"
+/sg:load "mvp-planning-complete"
 
-/sc:implement "user authentication and profiles with social login"
+/sg:implement "user authentication and profiles with social login"
 # Activates: security-engineer + backend-architect + frontend-architect + Context7
 # Expected: OAuth integration, user profiles, secure authentication
 
-/sc:implement "content posting and feed with real-time updates"
+/sg:implement "content posting and feed with real-time updates"
 # Activates: backend-architect + frontend-architect + real-time patterns
 # Expected: Content management, real-time feed, WebSocket implementation
 
-/sc:test --type integration --coverage && /sc:save "core-features-complete"
+/sg:test --type integration --coverage && /sg:save "core-features-complete"
 
 # Week 4-5: Advanced Features and Polish
-/sc:load "core-features-complete"
+/sg:load "core-features-complete"
 
-/sc:implement "content recommendation algorithm and social interactions"
+/sg:implement "content recommendation algorithm and social interactions"
 # Expected: Recommendation engine, likes/comments, user engagement features
 
-/sc:improve . --focus performance --mobile-optimization
+/sg:improve . --focus performance --mobile-optimization
 # Expected: Mobile-responsive design, performance optimization
 
-/sc:analyze . --focus security --deployment-ready
+/sg:analyze . --focus security --deployment-ready
 # Expected: Security audit, production readiness assessment
 
 # Week 6: Deployment and Launch
-/sc:implement "production deployment with monitoring and analytics"
+/sg:implement "production deployment with monitoring and analytics"
 # Activates: devops-architect + monitoring setup + analytics integration
 # Expected: Production deployment, monitoring dashboards, user analytics
 
-/sc:test --type e2e --production-simulation
+/sg:test --type e2e --production-simulation
 # Expected: End-to-end testing in production-like environment
 
-/sc:document . --type user-guide --launch-ready
+/sg:document . --type user-guide --launch-ready
 # Expected: User documentation, API docs, deployment guides
 ```
 
@@ -962,73 +962,73 @@ Day 3: /sc:load "day2-catalog" && /sc:implement "shopping cart" && /sc:save "day
 **Comprehensive Modernization Workflow:**
 ```bash
 # Phase 1: Legacy System Analysis
-/sc:load legacy-system/ --comprehensive-analysis
+/sg:load legacy-system/ --comprehensive-analysis
 
-/sc:analyze . --focus architecture --legacy-assessment --technical-debt
+/sg:analyze . --focus architecture --legacy-assessment --technical-debt
 # Activates: system-architect + refactoring-expert + technical debt analysis
 # Expected: Legacy architecture analysis, technical debt assessment, modernization roadmap
 
-/sc:troubleshoot "performance bottlenecks and scalability issues"
+/sg:troubleshoot "performance bottlenecks and scalability issues"
 # Expected: Performance analysis, scalability constraints, optimization opportunities
 
-/sc:save "legacy-analysis-complete"
+/sg:save "legacy-analysis-complete"
 
 # Phase 2: Modernization Strategy
-/sc:load "legacy-analysis-complete"
+/sg:load "legacy-analysis-complete"
 
-/sc:design "microservices architecture migration strategy" --type system --enterprise
+/sg:design "microservices architecture migration strategy" --type system --enterprise
 # Activates: system-architect + enterprise patterns + migration strategies
 # Expected: Service decomposition plan, data migration strategy, API design
 
-/sc:workflow "legacy to microservices migration" --strategy enterprise --risk-management
+/sg:workflow "legacy to microservices migration" --strategy enterprise --risk-management
 # Expected: Phased migration plan, risk mitigation, rollback strategies
 
-/sc:save "modernization-strategy-complete"
+/sg:save "modernization-strategy-complete"
 
 # Phase 3: Incremental Migration
-/sc:load "modernization-strategy-complete"
+/sg:load "modernization-strategy-complete"
 
 # Extract first microservice
-/sc:implement "user management microservice extraction" --legacy-integration
+/sg:implement "user management microservice extraction" --legacy-integration
 # Expected: User service extraction, API compatibility, data synchronization
 
-/sc:test --type integration --legacy-compatibility
+/sg:test --type integration --legacy-compatibility
 # Expected: Integration testing with legacy system, compatibility validation
 
 # Extract second microservice
-/sc:implement "payment processing microservice" --security-focus --legacy-data-migration
+/sg:implement "payment processing microservice" --security-focus --legacy-data-migration
 # Expected: Payment service extraction, secure data migration, transaction integrity
 
 # Continue incremental extraction
-/sc:implement "product catalog microservice" --data-consistency --api-versioning
+/sg:implement "product catalog microservice" --data-consistency --api-versioning
 # Expected: Catalog service, data consistency, API versioning strategy
 
-/sc:save "microservices-phase1-complete"
+/sg:save "microservices-phase1-complete"
 
 # Phase 4: Infrastructure Modernization
-/sc:load "microservices-phase1-complete"
+/sg:load "microservices-phase1-complete"
 
-/sc:implement "containerization and orchestration with Kubernetes"
+/sg:implement "containerization and orchestration with Kubernetes"
 # Activates: devops-architect + containerization + orchestration patterns
 # Expected: Docker containers, Kubernetes deployment, service mesh
 
-/sc:implement "CI/CD pipeline for microservices" --enterprise-grade
+/sg:implement "CI/CD pipeline for microservices" --enterprise-grade
 # Expected: Automated pipeline, quality gates, deployment automation
 
-/sc:implement "monitoring and observability stack"
+/sg:implement "monitoring and observability stack"
 # Expected: Distributed tracing, metrics collection, log aggregation
 
 # Phase 5: Performance and Security
-/sc:analyze microservices/ --focus performance --distributed-systems
+/sg:analyze microservices/ --focus performance --distributed-systems
 # Expected: Performance analysis, distributed system optimization
 
-/sc:analyze . --focus security --enterprise-compliance
+/sg:analyze . --focus security --enterprise-compliance
 # Expected: Security audit, compliance validation, vulnerability assessment
 
-/sc:improve . --type performance --distributed-optimization
+/sg:improve . --type performance --distributed-optimization
 # Expected: Performance optimization for distributed architecture
 
-/sc:test --type performance --load-testing --enterprise-scale
+/sg:test --type performance --load-testing --enterprise-scale
 # Expected: Load testing, scalability validation, performance benchmarks
 ```
 
@@ -1039,40 +1039,40 @@ Day 3: /sc:load "day2-catalog" && /sc:implement "shopping cart" && /sc:save "day
 **Open Source Contribution Workflow:**
 ```bash
 # Understanding the Project
-/sc:load open-source-project/ --contributor-onboarding
+/sg:load open-source-project/ --contributor-onboarding
 
-/sc:analyze . --focus architecture --contributing-guidelines
+/sg:analyze . --focus architecture --contributing-guidelines
 # Expected: Architecture understanding, contribution guidelines, code standards
 
-/sc:explain "project architecture and patterns" --contributor-perspective
+/sg:explain "project architecture and patterns" --contributor-perspective
 # Expected: Architecture explanation, pattern documentation, contribution guidance
 
 # Feature Planning
-/sc:brainstorm "new feature proposal" --community-focused --open-source
+/sg:brainstorm "new feature proposal" --community-focused --open-source
 # Expected: Community-oriented feature planning, RFC preparation
 
-/sc:design "feature implementation" --open-source-standards --backward-compatible
+/sg:design "feature implementation" --open-source-standards --backward-compatible
 # Expected: Feature design following project standards, compatibility considerations
 
 # Implementation with Quality Focus
-/sc:implement "feature implementation" --open-source-quality --comprehensive-testing
+/sg:implement "feature implementation" --open-source-quality --comprehensive-testing
 # Activates: All quality agents + comprehensive validation + community standards
 # Expected: High-quality implementation with thorough testing
 
-/sc:test --type comprehensive --coverage-100 --edge-cases
+/sg:test --type comprehensive --coverage-100 --edge-cases
 # Expected: Complete test coverage, edge case handling, quality validation
 
-/sc:document feature/ --type contributor --community-guidelines
+/sg:document feature/ --type contributor --community-guidelines
 # Expected: Comprehensive documentation following community standards
 
 # Community Integration
-/sc:analyze . --focus compatibility --breaking-changes --community-impact
+/sg:analyze . --focus compatibility --breaking-changes --community-impact
 # Expected: Compatibility analysis, impact assessment, community considerations
 
-/sc:improve . --type maintainability --long-term-support
+/sg:improve . --type maintainability --long-term-support
 # Expected: Maintainability improvements, long-term support considerations
 
-/sc:test --type integration --ecosystem-compatibility
+/sg:test --type integration --ecosystem-compatibility
 # Expected: Ecosystem integration testing, compatibility validation
 ```
 
@@ -1083,7 +1083,7 @@ Day 3: /sc:load "day2-catalog" && /sc:implement "shopping cart" && /sc:save "day
 **Complex System Performance Optimization:**
 ```bash
 # Advanced performance optimization requiring all capabilities
-/sc:analyze distributed-system/ --ultrathink --all-mcp --focus performance
+/sg:analyze distributed-system/ --seq --all-mcp --focus performance
 
 # Activates comprehensive analysis:
 # - Sequential MCP: Multi-step reasoning for complex performance analysis
@@ -1101,14 +1101,14 @@ Day 3: /sc:load "day2-catalog" && /sc:implement "shopping cart" && /sc:save "day
 # 5. Performance testing scenarios and validation
 # 6. UI performance improvements if frontend components exist
 
-/sc:improve . --type performance --measure-impact --all-mcp --validate
+/sg:improve . --type performance --measure-impact --all-mcp --validate
 # Expected: Coordinated optimization across all system layers with impact measurement
 ```
 
 **Enterprise-Scale Security Audit:**
 ```bash
 # Comprehensive security analysis with all available intelligence
-/sc:analyze enterprise-app/ --focus security --ultrathink --all-mcp --enterprise-compliance
+/sg:analyze enterprise-app/ --focus security --seq --all-mcp --enterprise-compliance
 
 # Multi-layer security analysis:
 # - Sequential: Systematic threat modeling and security analysis
@@ -1131,7 +1131,7 @@ Day 3: /sc:load "day2-catalog" && /sc:implement "shopping cart" && /sc:save "day
 **Parallel Development Coordination:**
 ```bash
 # Complex project requiring parallel development streams
-/sc:spawn "enterprise platform development" --parallel --concurrency 5 --orchestrate
+/sg:implement "enterprise platform development" --orchestrate
 
 # Intelligent parallel coordination:
 # Stream 1: Frontend development (frontend-architect + Magic MCP)
@@ -1151,7 +1151,7 @@ Day 3: /sc:load "day2-catalog" && /sc:implement "shopping cart" && /sc:save "day
 **Adaptive Learning and Optimization:**
 ```bash
 # Advanced session management with learning and adaptation
-/sc:load "long-term-project" --adaptive-learning --pattern-recognition
+/sg:load "long-term-project" --adaptive-learning --pattern-recognition
 
 # Advanced session capabilities:
 # - Pattern recognition across development sessions
@@ -1160,7 +1160,7 @@ Day 3: /sc:load "day2-catalog" && /sc:implement "shopping cart" && /sc:save "day
 # - Quality prediction and proactive issue prevention
 # - Performance optimization based on historical bottlenecks
 
-/sc:reflect "development patterns and optimization opportunities" --learning-analysis
+/sg:reflect "development patterns and optimization opportunities" --learning-analysis
 
 # Expected analysis:
 # 1. Development pattern analysis and efficiency opportunities
@@ -1175,7 +1175,7 @@ Day 3: /sc:load "day2-catalog" && /sc:implement "shopping cart" && /sc:save "day
 **Context-Aware Resource Management:**
 ```bash
 # Advanced resource optimization with intelligent adaptation
-/sc:implement "high-complexity feature" --adaptive-resources --smart-optimization
+/sg:implement "high-complexity feature" --adaptive-resources --smart-optimization
 
 # Adaptive behavior:
 # - Dynamic tool selection based on real-time complexity assessment
@@ -1188,7 +1188,7 @@ Day 3: /sc:load "day2-catalog" && /sc:implement "shopping cart" && /sc:save "day
 **Predictive Quality Management:**
 ```bash
 # Advanced quality management with predictive capabilities
-/sc:analyze . --quality-prediction --risk-assessment --preventive-optimization
+/sg:analyze . --quality-prediction --risk-assessment --preventive-optimization
 
 # Predictive capabilities:
 # - Quality degradation prediction based on code changes
@@ -1212,46 +1212,46 @@ Day 3: /sc:load "day2-catalog" && /sc:implement "shopping cart" && /sc:save "day
 **Quick Project Setup:**
 ```bash
 # New React project with best practices
-/sc:implement "React TypeScript project with routing, state management, and testing setup"
+/sg:implement "React TypeScript project with routing, state management, and testing setup"
 
 # New Node.js API with authentication
-/sc:implement "Express.js REST API with JWT authentication and PostgreSQL integration"
+/sg:implement "Express.js REST API with JWT authentication and PostgreSQL integration"
 
 # Python FastAPI with async support
-/sc:implement "FastAPI application with async PostgreSQL and authentication middleware"
+/sg:implement "FastAPI application with async PostgreSQL and authentication middleware"
 
 # Next.js full-stack application
-/sc:implement "Next.js 14 application with App Router, TypeScript, and Tailwind CSS"
+/sg:implement "Next.js 14 application with App Router, TypeScript, and Tailwind CSS"
 ```
 
 **Common Development Tasks:**
 ```bash
 # Code quality improvement
-/sc:analyze . --focus quality && /sc:improve --safe-mode && /sc:test --coverage
+/sg:analyze . --focus quality && /sg:improve --safe-mode && /sg:test --coverage
 
 # Security audit and fixes
-/sc:analyze . --focus security --depth deep && /sc:improve --type security
+/sg:analyze . --focus security --depth deep && /sg:improve --type security
 
 # Performance optimization workflow
-/sc:analyze . --focus performance && /sc:improve --type performance --measure-impact
+/sg:analyze . --focus performance && /sg:improve --type performance --measure-impact
 
 # Documentation generation
-/sc:document . --type comprehensive --include-examples --audience developers
+/sg:document . --type comprehensive --include-examples --audience developers
 ```
 
 **Quick Troubleshooting:**
 ```bash
 # API performance issues
-/sc:troubleshoot "API response time slow" && /sc:analyze api/ --focus performance
+/sg:troubleshoot "API response time slow" && /sg:analyze api/ --focus performance
 
 # Build failures
-/sc:troubleshoot "build failing with dependency errors" && /sc:cleanup --dependencies
+/sg:troubleshoot "build failing with dependency errors" && /sg:cleanup --dependencies
 
 # Database connection issues
-/sc:troubleshoot "database connection timeout" && /sc:analyze db/ --focus configuration
+/sg:troubleshoot "database connection timeout" && /sg:analyze db/ --focus configuration
 
 # Frontend rendering problems
-/sc:troubleshoot "React components not rendering correctly" && /sc:analyze src/components/ --focus debugging
+/sg:troubleshoot "React components not rendering correctly" && /sg:analyze src/components/ --focus debugging
 ```
 
 ### Ready-to-Execute Workflows
@@ -1259,35 +1259,35 @@ Day 3: /sc:load "day2-catalog" && /sc:implement "shopping cart" && /sc:save "day
 **Full-Stack Development (Copy & Paste):**
 ```bash
 # Complete e-commerce development workflow
-/sc:brainstorm "e-commerce platform for small business" && /sc:save "ecommerce-requirements"
-/sc:load "ecommerce-requirements" && /sc:design "e-commerce architecture" --type system
-/sc:implement "user authentication with social login" && /sc:test --type integration
-/sc:implement "product catalog with search and filtering" && /sc:test --type unit
-/sc:implement "shopping cart and checkout with Stripe" && /sc:test --type e2e
-/sc:implement "admin dashboard with analytics" && /sc:test --comprehensive
-/sc:implement "production deployment with monitoring" && /sc:save "ecommerce-complete"
+/sg:brainstorm "e-commerce platform for small business" && /sg:save "ecommerce-requirements"
+/sg:load "ecommerce-requirements" && /sg:design "e-commerce architecture" --type system
+/sg:implement "user authentication with social login" && /sg:test --type integration
+/sg:implement "product catalog with search and filtering" && /sg:test --type unit
+/sg:implement "shopping cart and checkout with Stripe" && /sg:test --type e2e
+/sg:implement "admin dashboard with analytics" && /sg:test --comprehensive
+/sg:implement "production deployment with monitoring" && /sg:save "ecommerce-complete"
 ```
 
 **API Development (Copy & Paste):**
 ```bash
 # Complete REST API development
-/sc:design "blog management API" --type api --format openapi
-/sc:implement "Express.js blog API with CRUD operations" && /sc:test --type unit
-/sc:implement "JWT authentication middleware" && /sc:test --type security
-/sc:implement "PostgreSQL integration with migrations" && /sc:test --type integration
-/sc:document api/ --type api --format swagger && /sc:test --type e2e
-/sc:implement "rate limiting and security middleware" && /sc:analyze . --focus security
+/sg:design "blog management API" --type api --format openapi
+/sg:implement "Express.js blog API with CRUD operations" && /sg:test --type unit
+/sg:implement "JWT authentication middleware" && /sg:test --type security
+/sg:implement "PostgreSQL integration with migrations" && /sg:test --type integration
+/sg:document api/ --type api --format swagger && /sg:test --type e2e
+/sg:implement "rate limiting and security middleware" && /sg:analyze . --focus security
 ```
 
 **Mobile App Development (Copy & Paste):**
 ```bash
 # React Native app development workflow
-/sc:brainstorm "fitness tracking mobile app" && /sc:design "mobile app architecture"
-/sc:implement "React Native app with navigation and state management"
-/sc:implement "user authentication and profile management"
-/sc:implement "fitness tracking features with device integration"
-/sc:implement "social features and progress sharing"
-/sc:test --type mobile --comprehensive && /sc:improve --focus performance
+/sg:brainstorm "fitness tracking mobile app" && /sg:design "mobile app architecture"
+/sg:implement "React Native app with navigation and state management"
+/sg:implement "user authentication and profile management"
+/sg:implement "fitness tracking features with device integration"
+/sg:implement "social features and progress sharing"
+/sg:test --type mobile --comprehensive && /sg:improve --focus performance
 ```
 
 ### Common Problem Solutions (Copy & Paste)
@@ -1295,32 +1295,32 @@ Day 3: /sc:load "day2-catalog" && /sc:implement "shopping cart" && /sc:save "day
 **Performance Issues:**
 ```bash
 # Web application performance optimization
-/sc:analyze . --focus performance --comprehensive
-/sc:improve frontend/ --type performance --bundle-optimization
-/sc:improve backend/ --type performance --database-optimization
-/sc:test --type performance --load-testing
-/sc:implement "caching strategy with Redis" && /sc:test --performance-impact
+/sg:analyze . --focus performance --comprehensive
+/sg:improve frontend/ --type performance --bundle-optimization
+/sg:improve backend/ --type performance --database-optimization
+/sg:test --type performance --load-testing
+/sg:implement "caching strategy with Redis" && /sg:test --performance-impact
 ```
 
 **Security Hardening:**
 ```bash
 # Complete security hardening workflow
-/sc:analyze . --focus security --depth deep --compliance
-/sc:implement "security headers and CORS configuration"
-/sc:implement "input validation and sanitization middleware"
-/sc:implement "rate limiting and DDoS protection"
-/sc:test --type security --penetration-testing
-/sc:document security/ --type security-guide --compliance-ready
+/sg:analyze . --focus security --depth deep --compliance
+/sg:implement "security headers and CORS configuration"
+/sg:implement "input validation and sanitization middleware"
+/sg:implement "rate limiting and DDoS protection"
+/sg:test --type security --penetration-testing
+/sg:document security/ --type security-guide --compliance-ready
 ```
 
 **Code Quality Improvement:**
 ```bash
 # Code quality enhancement workflow
-/sc:analyze . --focus quality --comprehensive
-/sc:cleanup --dead-code --organize-imports --format-code
-/sc:improve . --type maintainability --refactor-patterns
-/sc:test --type unit --coverage-target-90
-/sc:document . --type inline --docstring-coverage
+/sg:analyze . --focus quality --comprehensive
+/sg:cleanup --dead-code --organize-imports --format-code
+/sg:improve . --type maintainability --refactor-patterns
+/sg:test --type unit --coverage-target-90
+/sg:document . --type inline --docstring-coverage
 ```
 
 ### Development Environment Setup (Copy & Paste)
@@ -1328,31 +1328,31 @@ Day 3: /sc:load "day2-catalog" && /sc:implement "shopping cart" && /sc:save "day
 **Frontend Development Environment:**
 ```bash
 # Complete frontend setup with best practices
-/sc:implement "Vite React TypeScript project with ESLint, Prettier, and Tailwind"
-/sc:implement "component library setup with Storybook"
-/sc:implement "testing setup with Vitest and React Testing Library"
-/sc:implement "CI/CD pipeline for frontend deployment"
-/sc:document frontend/ --type developer-guide --setup-instructions
+/sg:implement "Vite React TypeScript project with ESLint, Prettier, and Tailwind"
+/sg:implement "component library setup with Storybook"
+/sg:implement "testing setup with Vitest and React Testing Library"
+/sg:implement "CI/CD pipeline for frontend deployment"
+/sg:document frontend/ --type developer-guide --setup-instructions
 ```
 
 **Backend Development Environment:**
 ```bash
 # Complete backend setup with monitoring
-/sc:implement "Node.js TypeScript project with Express and Prisma"
-/sc:implement "Docker containerization with multi-stage builds"
-/sc:implement "PostgreSQL setup with migrations and seeding"
-/sc:implement "monitoring setup with Prometheus and Grafana"
-/sc:implement "logging and error tracking with Winston and Sentry"
+/sg:implement "Node.js TypeScript project with Express and Prisma"
+/sg:implement "Docker containerization with multi-stage builds"
+/sg:implement "PostgreSQL setup with migrations and seeding"
+/sg:implement "monitoring setup with Prometheus and Grafana"
+/sg:implement "logging and error tracking with Winston and Sentry"
 ```
 
 **DevOps Pipeline Setup:**
 ```bash
 # Complete CI/CD pipeline setup
-/sc:implement "GitHub Actions workflow with testing and deployment"
-/sc:implement "Docker multi-stage builds for production optimization"
-/sc:implement "Kubernetes deployment with ingress and monitoring"
-/sc:implement "Infrastructure as Code with Terraform"
-/sc:implement "monitoring and alerting with DataDog/New Relic"
+/sg:implement "GitHub Actions workflow with testing and deployment"
+/sg:implement "Docker multi-stage builds for production optimization"
+/sg:implement "Kubernetes deployment with ingress and monitoring"
+/sg:implement "Infrastructure as Code with Terraform"
+/sg:implement "monitoring and alerting with DataDog/New Relic"
 ```
 
 ## Related Guides
@@ -1364,7 +1364,7 @@ Day 3: /sc:load "day2-catalog" && /sc:implement "shopping cart" && /sc:save "day
 **Essential Foundation:**
 - [Quick Start Guide](../Getting-Started/quick-start.md) - 5-minute setup and first commands
 - [Installation Guide](../Getting-Started/installation.md) - Complete installation and configuration
-- [Commands Reference](../User-Guide/commands.md) - Master core commands (/sc:brainstorm, /sc:analyze, /sc:implement)
+- [Commands Reference](../User-Guide/commands.md) - Master core commands (/sg:brainstorm, /sg:analyze, /sg:implement)
 
 **First Steps Practice:**
 - Try [Quick Examples](#quick-examples) from this cookbook
@@ -1372,7 +1372,7 @@ Day 3: /sc:load "day2-catalog" && /sc:implement "shopping cart" && /sc:save "day
 - Complete simple [Project Workflow Examples](#project-workflow-examples)
 
 **Success Criteria:**
-- Can install and configure SuperClaude successfully
+- Can install and configure SuperGemini successfully
 - Comfortable with 5-10 core commands
 - Can complete simple workflows independently
 
@@ -1429,7 +1429,7 @@ Day 3: /sc:load "day2-catalog" && /sc:implement "shopping cart" && /sc:save "day
 - Develop new patterns and share advanced techniques
 
 **Success Criteria:**
-- Contributes to SuperClaude framework development
+- Contributes to SuperGemini framework development
 - Mentors other users and solves complex problems
 - Innovates new usage patterns and optimizations
 
@@ -1456,8 +1456,8 @@ Day 3: /sc:load "day2-catalog" && /sc:implement "shopping cart" && /sc:save "day
 ### Support Resources
 
 **Community Support:**
-- [GitHub Discussions](https://github.com/SuperClaude-Org/SuperClaude_Framework/discussions) - Ask questions and share experiences
-- [GitHub Issues](https://github.com/SuperClaude-Org/SuperClaude_Framework/issues) - Report bugs and request features
+- [GitHub Discussions](https://github.com/SuperClaude-Org/SuperGemini_Framework/discussions) - Ask questions and share experiences
+- [GitHub Issues](https://github.com/SuperClaude-Org/SuperGemini_Framework/issues) - Report bugs and request features
 
 **Advanced Learning:**
 - [Troubleshooting Guide](troubleshooting.md) - Common issues and solutions
@@ -1471,6 +1471,6 @@ Day 3: /sc:load "day2-catalog" && /sc:implement "shopping cart" && /sc:save "day
 
 **Your Learning Journey:**
 
-Start with the [Quick Examples](#quick-examples), progress through real-world scenarios, and eventually master advanced coordination patterns. SuperClaude grows with you - from simple commands to sophisticated development orchestration.
+Start with the [Quick Examples](#quick-examples), progress through real-world scenarios, and eventually master advanced coordination patterns. SuperGemini grows with you - from simple commands to sophisticated development orchestration.
 
 **Remember:** Every expert was once a beginner. Focus on practical application, experiment with different approaches, and don't hesitate to ask the community for help when needed.

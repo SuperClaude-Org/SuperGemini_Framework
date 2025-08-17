@@ -1,16 +1,16 @@
-# SuperClaude Session Management Guide 🧠
+# SuperGemini Session Management Guide 🧠
 
 ## Introduction
 
-SuperClaude transforms Claude Code from a stateless assistant into a **persistent development partner** through intelligent session management. Sessions preserve project context, accumulated insights, and development progress across interruptions, creating continuity that builds expertise over time.
+SuperGemini transforms Gemini CLI from a stateless assistant into a **persistent development partner** through intelligent session management. Sessions preserve project context, accumulated insights, and development progress across interruptions, creating continuity that builds expertise over time.
 
-**Persistent Intelligence**: Load project context with `/sc:load`, work naturally with accumulated understanding, save progress with `/sc:save`, and resume exactly where you left off. SuperClaude remembers your codebase structure, decisions made, patterns discovered, and project goals.
+**Persistent Intelligence**: Load project context with `/sg:load`, work naturally with accumulated understanding, save progress with `/sg:save`, and resume exactly where you left off. SuperGemini remembers your codebase structure, decisions made, patterns discovered, and project goals.
 
 **Cross-Session Learning**: Each session builds on previous understanding, creating a development partner that becomes more effective with your specific project over time.
 
 ## Session Fundamentals
 
-**What is a SuperClaude Session?**
+**What is a SuperGemini Session?**
 A session is a persistent development context that includes:
 - **Project Understanding**: Codebase structure, architecture patterns, dependencies
 - **Development History**: Decisions made, problems solved, patterns applied
@@ -19,7 +19,7 @@ A session is a persistent development context that includes:
 
 **Session Intelligence vs Standard Claude:**
 - **Standard Claude**: Each conversation starts fresh, no project memory
-- **SuperClaude Sessions**: Cumulative understanding that builds over time
+- **SuperGemini Sessions**: Cumulative understanding that builds over time
 
 **Session Types:**
 
@@ -40,29 +40,29 @@ A session is a persistent development context that includes:
 
 **Session Persistence Powered by Serena MCP:**
 - Semantic code understanding with symbol-level navigation
-- Project memory that survives Claude Code restarts
+- Project memory that survives Gemini CLI restarts
 - Intelligent context loading based on current work
 - Cross-session insight accumulation and pattern recognition
 
 ## Session Commands
 
-### /sc:load - Session Initialization
+### /sg:load - Session Initialization
 
 **Purpose**: Load project context and initialize persistent development session
 
 **Usage Patterns:**
 ```bash
 # Load existing project context
-/sc:load src/
+/sg:load src/
 
 # Load with specific focus
-/sc:load --focus architecture existing-project/
+/sg:load --focus architecture existing-project/
 
 # Load previous session by name
-/sc:load "payment-integration-session"
+/sg:load "payment-integration-session"
 
 # Load with fresh analysis
-/sc:load --refresh large-codebase/
+/sg:load --refresh large-codebase/
 ```
 
 **What Happens During Load:**
@@ -76,7 +76,7 @@ A session is a persistent development context that includes:
 
 **Smart Load (Default):**
 ```bash
-/sc:load project-directory/
+/sg:load project-directory/
 ```
 - Automatically detects project type and structure
 - Loads relevant previous session context
@@ -84,9 +84,9 @@ A session is a persistent development context that includes:
 
 **Focused Load:**
 ```bash
-/sc:load --focus security payment-system/
-/sc:load --focus performance api-endpoints/
-/sc:load --focus architecture microservices/
+/sg:load --focus security payment-system/
+/sg:load --focus performance api-endpoints/
+/sg:load --focus architecture microservices/
 ```
 - Specialized analysis for specific concerns
 - Activates domain experts and relevant tools
@@ -94,7 +94,7 @@ A session is a persistent development context that includes:
 
 **Fresh Load:**
 ```bash
-/sc:load --refresh --comprehensive legacy-system/
+/sg:load --refresh --comprehensive legacy-system/
 ```
 - Re-analyzes project from scratch
 - Updates understanding with latest changes
@@ -102,7 +102,7 @@ A session is a persistent development context that includes:
 
 **Example Load Experience:**
 ```bash
-/sc:load e-commerce-platform/
+/sg:load e-commerce-platform/
 
 → 🔍 Analyzing project structure...
 → 📂 Detected: React frontend + Node.js API + PostgreSQL
@@ -112,23 +112,23 @@ A session is a persistent development context that includes:
 → 💡 Next: Complete payment validation implementation
 ```
 
-### /sc:save - Session Persistence
+### /sg:save - Session Persistence
 
 **Purpose**: Preserve session context and development progress for future continuation
 
 **Usage Patterns:**
 ```bash
 # Save current session with automatic naming
-/sc:save
+/sg:save
 
 # Save with descriptive name
-/sc:save "authentication-module-complete"
+/sg:save "authentication-module-complete"
 
 # Save checkpoint during long work
-/sc:save --checkpoint "api-endpoints-analysis-done"
+/sg:save --checkpoint "api-endpoints-analysis-done"
 
 # Save with summary
-/sc:save --description "Completed user registration flow, ready for testing"
+/sg:save --description "Completed user registration flow, ready for testing"
 ```
 
 **What Gets Saved:**
@@ -142,7 +142,7 @@ A session is a persistent development context that includes:
 
 **Milestone Save:**
 ```bash
-/sc:save "payment-integration-complete"
+/sg:save "payment-integration-complete"
 ```
 - Major feature completion or phase end
 - Comprehensive context preservation
@@ -150,7 +150,7 @@ A session is a persistent development context that includes:
 
 **Checkpoint Save:**
 ```bash
-/sc:save --checkpoint "database-schema-analysis"
+/sg:save --checkpoint "database-schema-analysis"
 ```
 - Periodic progress preservation
 - Intermediate work state capture
@@ -167,7 +167,7 @@ A session is a persistent development context that includes:
 
 **Save Output Example:**
 ```bash
-/sc:save "user-dashboard-feature-complete"
+/sg:save "user-dashboard-feature-complete"
 
 → 💾 Saving session context...
 → 📊 Progress summary:
@@ -183,30 +183,30 @@ A session is a persistent development context that includes:
 → 🔄 Ready for future continuation
 ```
 
-### /sc:reflect - Session Validation
+### /sg:reflect - Session Validation
 
 **Purpose**: Analyze session progress, validate task completion, and assess development quality
 
 **Usage Patterns:**
 ```bash
 # General session reflection
-/sc:reflect
+/sg:reflect
 
 # Specific task validation
-/sc:reflect "payment-processing-implementation"
+/sg:reflect "payment-processing-implementation"
 
 # Quality assessment
-/sc:reflect --type quality-review
+/sg:reflect --type quality-review
 
 # Completion verification
-/sc:reflect --type completion-check
+/sg:reflect --type completion-check
 ```
 
 **Reflection Types:**
 
 **Progress Analysis:**
 ```bash
-/sc:reflect --type progress
+/sg:reflect --type progress
 ```
 - Current task status and completion percentage
 - Blockers and dependencies identified
@@ -215,7 +215,7 @@ A session is a persistent development context that includes:
 
 **Quality Review:**
 ```bash
-/sc:reflect --type quality
+/sg:reflect --type quality
 ```
 - Code quality assessment and improvements needed
 - Test coverage and validation gaps
@@ -224,7 +224,7 @@ A session is a persistent development context that includes:
 
 **Completion Verification:**
 ```bash
-/sc:reflect --type completion
+/sg:reflect --type completion
 ```
 - Task completion criteria assessment
 - Integration and testing verification
@@ -233,7 +233,7 @@ A session is a persistent development context that includes:
 
 **Learning Assessment:**
 ```bash
-/sc:reflect --type learning
+/sg:reflect --type learning
 ```
 - Insights gained and patterns discovered
 - Decision rationale and trade-offs made
@@ -242,7 +242,7 @@ A session is a persistent development context that includes:
 
 **Example Reflection Output:**
 ```bash
-/sc:reflect --type completion "user-authentication-system"
+/sg:reflect --type completion "user-authentication-system"
 
 → 🎯 Task Completion Analysis:
   ✅ JWT authentication implemented
@@ -273,60 +273,60 @@ A session is a persistent development context that includes:
 ### Phase 1: Session Initialization
 ```bash
 # 1. Project Discovery and Loading
-/sc:load new-project/
+/sg:load new-project/
 → Project analysis and context establishment
 
 # 2. Goal Setting and Planning  
-/sc:brainstorm "improve user onboarding experience"
+/sg:brainstorm "improve user onboarding experience"
 → Requirements discovery and strategic planning
 
 # 3. Initial Analysis
-/sc:analyze --focus user-experience --think-hard
+/sg:analyze --focus user-experience --seq
 → Comprehensive system understanding
 ```
 
 ### Phase 2: Active Development
 ```bash
 # 4. Implementation Planning
-/sc:workflow "streamlined-onboarding-flow"
+/sg:workflow "streamlined-onboarding-flow"
 → Systematic implementation strategy
 
 # 5. Feature Development (Iterative)
-/sc:implement "progressive-user-registration"
+/sg:implement "progressive-user-registration"
 → Coordinated development with automatic progress tracking
 
 # 6. Regular Checkpoints
-/sc:save --checkpoint "registration-flow-complete"
+/sg:save --checkpoint "registration-flow-complete"
 → Periodic progress preservation
 ```
 
 ### Phase 3: Validation and Quality
 ```bash
 # 7. Progress Review
-/sc:reflect --type progress
+/sg:reflect --type progress
 → Status assessment and next steps
 
 # 8. Quality Assurance
-/sc:test --comprehensive user-onboarding/
+/sg:test --comprehensive user-onboarding/
 → Testing and validation workflows
 
 # 9. Quality Review
-/sc:reflect --type quality
+/sg:reflect --type quality
 → Code review and improvement identification
 ```
 
 ### Phase 4: Completion and Handoff
 ```bash
 # 10. Completion Verification
-/sc:reflect --type completion
+/sg:reflect --type completion
 → Task completion criteria validation
 
 # 11. Final Documentation
-/sc:document --type user-guide onboarding-system/
+/sg:document --type user-guide onboarding-system/
 → Documentation and knowledge transfer
 
 # 12. Session Archive
-/sc:save "onboarding-improvement-complete"
+/sg:save "onboarding-improvement-complete"
 → Final context preservation and handoff preparation
 ```
 
@@ -359,20 +359,20 @@ A session is a persistent development context that includes:
 **Memory Accumulation:**
 ```bash
 # As you work, memory automatically builds:
-/sc:analyze user-service/
+/sg:analyze user-service/
 → Records: Service patterns, data flows, API contracts
 
-/sc:implement "user-preferences"  
+/sg:implement "user-preferences"  
 → Records: Implementation patterns, coding conventions, integration points
 
-/sc:troubleshoot "performance-issue"
+/sg:troubleshoot "performance-issue"
 → Records: Problem patterns, solution strategies, optimization techniques
 ```
 
 **Memory Recall:**
 ```bash
 # Previous insights automatically inform current work:
-/sc:implement "user-notifications"
+/sg:implement "user-notifications"
 → Recalls: User service patterns, preference storage, communication flows
 → Applies: Established conventions, tested patterns, integration strategies
 ```
@@ -433,94 +433,94 @@ A session is a persistent development context that includes:
 ### Daily Development Session
 ```bash
 # Morning: Resume previous work
-/sc:load project/
+/sg:load project/
 → Context restoration and progress review
 
 # Planning: Review and plan day's work
-/sc:reflect --type progress
+/sg:reflect --type progress
 → Status assessment and priority setting
 
 # Work: Active development with periodic saves
-/sc:implement "current-feature"
-/sc:save --checkpoint "feature-milestone"
+/sg:implement "current-feature"
+/sg:save --checkpoint "feature-milestone"
 
 # Evening: End-of-day preservation
-/sc:reflect --type completion
-/sc:save "end-of-day-progress"
+/sg:reflect --type completion
+/sg:save "end-of-day-progress"
 ```
 
 ### Feature Development Cycle
 ```bash
 # Discovery Phase
-/sc:load project/
-/sc:brainstorm "new-feature-requirements"
-/sc:save --checkpoint "requirements-complete"
+/sg:load project/
+/sg:brainstorm "new-feature-requirements"
+/sg:save --checkpoint "requirements-complete"
 
 # Planning Phase  
-/sc:workflow "feature-implementation-plan"
-/sc:design "feature-architecture"
-/sc:save --checkpoint "planning-complete"
+/sg:workflow "feature-implementation-plan"
+/sg:design "feature-architecture"
+/sg:save --checkpoint "planning-complete"
 
 # Implementation Phase
-/sc:implement "feature-core-functionality"
-/sc:save --checkpoint "core-complete"
+/sg:implement "feature-core-functionality"
+/sg:save --checkpoint "core-complete"
 
-/sc:implement "feature-integration"
-/sc:save --checkpoint "integration-complete"
+/sg:implement "feature-integration"
+/sg:save --checkpoint "integration-complete"
 
 # Validation Phase
-/sc:test --comprehensive feature/
-/sc:reflect --type quality
-/sc:save "feature-complete"
+/sg:test --comprehensive feature/
+/sg:reflect --type quality
+/sg:save "feature-complete"
 ```
 
 ### Bug Investigation Session
 ```bash
 # Load with focus on problem area
-/sc:load --focus debugging problematic-module/
+/sg:load --focus debugging problematic-module/
 
 # Systematic investigation
-/sc:troubleshoot "specific-bug-description"
-/sc:analyze --focus root-cause affected-components/
+/sg:troubleshoot "specific-bug-description"
+/sg:analyze --focus root-cause affected-components/
 
 # Solution implementation
-/sc:implement "bug-fix-solution"
-/sc:test --focus regression bug-area/
+/sg:implement "bug-fix-solution"
+/sg:test --focus regression bug-area/
 
 # Validation and documentation
-/sc:reflect --type completion
-/sc:document --type bug-report "issue-resolution"
-/sc:save "bug-fix-complete"
+/sg:reflect --type completion
+/sg:document --type bug-report "issue-resolution"
+/sg:save "bug-fix-complete"
 ```
 
 ### Learning and Exploration Session
 ```bash
 # Focused learning context
-/sc:load --focus architecture new-codebase/
+/sg:load --focus architecture new-codebase/
 
 # Systematic exploration
-/sc:analyze --introspect --think-hard codebase-structure/
-/sc:explain "complex-architectural-patterns"
+/sg:analyze --introspect --seq codebase-structure/
+/sg:explain "complex-architectural-patterns"
 
 # Knowledge consolidation
-/sc:reflect --type learning
-/sc:document --type architecture-notes findings/
-/sc:save "architecture-understanding-session"
+/sg:reflect --type learning
+/sg:document --type architecture-notes findings/
+/sg:save "architecture-understanding-session"
 ```
 
 ### Code Review Session
 ```bash
 # Load changes context
-/sc:load --focus quality pending-changes/
+/sg:load --focus quality pending-changes/
 
 # Comprehensive review
-/sc:analyze --focus quality --think-hard changes/
-/sc:test --focus regression change-areas/
+/sg:analyze --focus quality --seq changes/
+/sg:test --focus regression change-areas/
 
 # Quality assessment
-/sc:reflect --type quality
-/sc:document --type review-notes quality-assessment/
-/sc:save "code-review-complete"
+/sg:reflect --type quality
+/sg:document --type review-notes quality-assessment/
+/sg:save "code-review-complete"
 ```
 
 **Session Optimization Patterns:**
@@ -547,16 +547,16 @@ A session is a persistent development context that includes:
 ### Project Session Architecture
 ```bash
 # Master Project Session
-/sc:load enterprise-platform/
+/sg:load enterprise-platform/
 → Maintains overall project context and architecture understanding
 
 # Feature Branch Sessions  
-/sc:load --branch feature/user-management user-service/
-/sc:load --branch feature/payment-integration payment-service/
+/sg:load --branch feature/user-management user-service/
+/sg:load --branch feature/payment-integration payment-service/
 → Focused context for specific feature development
 
 # Integration Sessions
-/sc:load --integration-focus platform-services/
+/sg:load --integration-focus platform-services/
 → Cross-service integration and system-level concerns
 ```
 
@@ -582,16 +582,16 @@ A session is a persistent development context that includes:
 **Team Coordination:**
 ```bash
 # Shared Project Context
-/sc:load --shared team-project/
+/sg:load --shared team-project/
 → Common understanding accessible to all team members
 
 # Individual Developer Sessions
-/sc:load --developer alice team-project/user-auth/
-/sc:load --developer bob team-project/payment-system/
+/sg:load --developer alice team-project/user-auth/
+/sg:load --developer bob team-project/payment-system/
 → Personal development context within shared project
 
 # Integration Sessions
-/sc:load --integration team-project/
+/sg:load --integration team-project/
 → Cross-developer integration and system-level work
 ```
 
@@ -600,21 +600,21 @@ A session is a persistent development context that includes:
 **Session Handoff:**
 ```bash
 # End of developer session
-/sc:save --handoff "alice-user-auth-complete" --next-developer bob
+/sg:save --handoff "alice-user-auth-complete" --next-developer bob
 
 # New developer pickup
-/sc:load --handoff "alice-user-auth-complete"
+/sg:load --handoff "alice-user-auth-complete"
 → Complete context transfer with work continuation
 ```
 
 **Progress Synchronization:**
 ```bash
 # Daily standup preparation
-/sc:reflect --type team-progress
+/sg:reflect --type team-progress
 → Team-level progress summary and coordination
 
 # Sprint planning context
-/sc:load --sprint-context team-project/
+/sg:load --sprint-context team-project/
 → Sprint-level understanding and planning context
 ```
 
@@ -635,26 +635,26 @@ A session is a persistent development context that includes:
 **Common Session Issues:**
 
 ### Session Context Lost
-**Problem**: `/sc:load` doesn't restore expected context
+**Problem**: `/sg:load` doesn't restore expected context
 ```bash
 # Symptoms
-/sc:load project/
+/sg:load project/
 → "No previous session found" or minimal context restored
 ```
 
 **Solutions:**
 ```bash
 # 1. Check available sessions
-/sc:load --list-sessions
+/sg:load --list-sessions
 
 # 2. Load by specific session name
-/sc:load "session-name"
+/sg:load "session-name"
 
 # 3. Fresh analysis if needed
-/sc:load --refresh --comprehensive project/
+/sg:load --refresh --comprehensive project/
 
 # 4. Check Serena MCP status
-SuperClaude status --mcp serena
+SuperGemini status --mcp serena
 ```
 
 ### Memory Fragmentation
@@ -669,15 +669,15 @@ SuperClaude status --mcp serena
 **Solutions:**
 ```bash
 # 1. Memory consolidation
-/sc:reflect --type memory-health
-/sc:save --consolidate "clean-session-state"
+/sg:reflect --type memory-health
+/sg:save --consolidate "clean-session-state"
 
 # 2. Selective memory refresh
-/sc:load --refresh-memory specific-area/
+/sg:load --refresh-memory specific-area/
 
 # 3. Clean session restart
-/sc:save --archive "old-session"
-/sc:load --fresh project/
+/sg:save --archive "old-session"
+/sg:load --fresh project/
 ```
 
 ### Session Performance Issues
@@ -692,16 +692,16 @@ SuperClaude status --mcp serena
 **Solutions:**
 ```bash
 # 1. Optimize session scope
-/sc:load --scope module target-area/
+/sg:load --scope module target-area/
 
 # 2. Use focused loading
-/sc:load --focus performance specific-concern/
+/sg:load --focus performance specific-concern/
 
 # 3. Memory cleanup
-/sc:save --cleanup "optimized-session"
+/sg:save --cleanup "optimized-session"
 
 # 4. Check system resources
-SuperClaude diagnose --memory
+SuperGemini diagnose --memory
 ```
 
 ### Integration Conflicts
@@ -716,14 +716,14 @@ SuperClaude diagnose --memory
 **Solutions:**
 ```bash
 # 1. Sync with master session
-/sc:load --sync-master project/
+/sg:load --sync-master project/
 
 # 2. Resolve conflicts explicitly
-/sc:reflect --type integration-conflicts
-/sc:resolve-conflicts --strategy team-lead-wins
+/sg:reflect --type integration-conflicts
+/sg:resolve-conflicts --strategy team-lead-wins
 
 # 3. Re-establish shared context
-/sc:load --shared-refresh team-project/
+/sg:load --shared-refresh team-project/
 ```
 
 **Session Recovery Procedures:**
@@ -731,30 +731,30 @@ SuperClaude diagnose --memory
 ### Emergency Session Recovery
 ```bash
 # 1. Check session backups
-/sc:load --list-backups
+/sg:load --list-backups
 
 # 2. Restore from backup
-/sc:load --restore-backup "backup-timestamp"
+/sg:load --restore-backup "backup-timestamp"
 
 # 3. Partial recovery if needed
-/sc:load --partial-restore specific-components/
+/sg:load --partial-restore specific-components/
 
 # 4. Rebuild from artifacts
-/sc:load --rebuild-from git-history project/
+/sg:load --rebuild-from git-history project/
 ```
 
 ### Session Health Monitoring
 ```bash
 # Regular health checks
-/sc:reflect --type session-health
+/sg:reflect --type session-health
 → Memory consistency, context completeness, performance metrics
 
 # Memory optimization
-/sc:save --optimize "clean-session"
+/sg:save --optimize "clean-session"
 → Consolidate insights, remove redundant context
 
 # Performance tuning
-/sc:load --performance-mode project/
+/sg:load --performance-mode project/
 → Optimized loading for resource-constrained environments
 ```
 
@@ -773,7 +773,7 @@ SuperClaude diagnose --memory
 
 **🌱 Essential (Week 1)**
 - [Quick Start Guide](../Getting-Started/quick-start.md) - First session experience
-- [Commands Reference](commands.md) - Session commands (/sc:load, /sc:save, /sc:reflect)
+- [Commands Reference](commands.md) - Session commands (/sg:load, /sg:save, /sg:reflect)
 - [Installation Guide](../Getting-Started/installation.md) - Serena MCP setup for sessions
 
 **🌿 Intermediate (Week 2-3)**
@@ -793,7 +793,7 @@ SuperClaude diagnose --memory
 **Session-Specific Learning:**
 
 **🎯 Session Command Mastery:**
-- **Load Patterns**: `/sc:load` variations for different contexts
+- **Load Patterns**: `/sg:load` variations for different contexts
 - **Save Strategies**: Checkpoint vs milestone vs completion saves
 - **Reflection Types**: Progress, quality, completion, learning assessments
 

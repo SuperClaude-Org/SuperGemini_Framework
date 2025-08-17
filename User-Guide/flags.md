@@ -1,12 +1,12 @@
-# SuperClaude Framework Flags User Guide 🏁
+# SuperGemini Framework Flags User Guide 🏁
 
 ## 🤖 Most Flags Activate Automatically - Don't Stress About It!
 
-SuperClaude's intelligent flag system automatically detects task complexity and context, then activates appropriate flags behind the scenes. You get optimized performance without memorizing flag combinations.
+SuperGemini's intelligent flag system automatically detects task complexity and context, then activates appropriate flags behind the scenes. You get optimized performance without memorizing flag combinations.
 
-**Intelligent Auto-Activation**: Type `/sc:analyze large-codebase/` → `--think-hard` + `--serena` + `--orchestrate` activate automatically. Type complex multi-file operations → `--task-manage` + `--delegate` optimize execution. Work under resource pressure → `--uc` compresses output.
+**Intelligent Auto-Activation**: Type `/sg:analyze large-codebase/` → `--seq` + `--serena` + `--orchestrate` activate automatically. Type complex multi-file operations → `--task-manage` optimizes execution. Work under resource pressure → `--uc` compresses output.
 
-**Manual Override Available**: When you want specific behavior, flags provide precise control. But in most cases, SuperClaude's automatic selection delivers optimal results.
+**Manual Override Available**: When you want specific behavior, flags provide precise control. But in most cases, SuperGemini's automatic selection delivers optimal results.
 
 ---
 
@@ -15,19 +15,19 @@ SuperClaude's intelligent flag system automatically detects task complexity and 
 **Commands Work Great Without Flags:**
 ```bash
 # These automatically get optimal flags
-/sc:brainstorm "mobile fitness app"
-# → Auto-activates: --brainstorm, --think, --context7
+/sg:brainstorm "mobile fitness app"
+# → Auto-activates: --brainstorm, --seq, --context7
 
-/sc:analyze src/ --focus security  
-# → Auto-activates: --think-hard, --serena, --orchestrate
+/sg:analyze src/ --focus security  
+# → Auto-activates: --seq, --serena, --orchestrate
 
-/sc:implement "user authentication system"
+/sg:implement "user authentication system"
 # → Auto-activates: --task-manage, --c7, --magic, --validate
 
-/sc:troubleshoot "API performance issues"
-# → Auto-activates: --think-hard, --seq, --serena, --introspect
+/sg:troubleshoot "API performance issues"
+# → Auto-activates: --seq, --serena, --introspect
 
-/sc:improve legacy-code/ --focus maintainability
+/sg:improve legacy-code/ --focus maintainability
 # → Auto-activates: --task-manage, --morph, --serena, --safe-mode
 ```
 
@@ -42,7 +42,7 @@ SuperClaude's intelligent flag system automatically detects task complexity and 
 - Override automatic detection: `--no-mcp` for lightweight execution
 - Force specific behavior: `--uc` for compressed output
 - Learning and exploration: `--introspect` to see reasoning
-- Resource control: `--concurrency 2` to limit parallel operations
+- Resource control: `--scope file` to limit analysis scope
 
 ---
 
@@ -52,61 +52,44 @@ SuperClaude's intelligent flag system automatically detects task complexity and 
 
 **Flag Syntax:**
 ```bash
-/sc:command [args] --flag-name [value]
+/sg:command [args] --flag-name [value]
 
 # Examples
-/sc:analyze src/ --focus security --depth deep
-/sc:implement "auth" --brainstorm --task-manage --validate
-/sc:troubleshoot issue/ --think-hard --uc --concurrency 3
+/sg:analyze src/ --focus security --scope module
+/sg:implement "auth" --brainstorm --task-manage --validate
+/sg:troubleshoot issue/ --seq --uc --scope project
 ```
 
 **Two Types of Activation:**
-1. **Automatic** (90% of use): SuperClaude detects context and activates optimal flags
+1. **Automatic** (90% of use): SuperGemini detects context and activates optimal flags
 2. **Manual** (10% of use): You override or specify exact behavior needed
 
 **Flag Functions:**
 - **Behavioral Modes**: `--brainstorm`, `--introspect`, `--task-manage`
 - **Tool Selection**: `--c7`, `--seq`, `--magic`, `--morph`, `--serena`, `--play`
-- **Analysis Depth**: `--think`, `--think-hard`, `--ultrathink`
-- **Efficiency Control**: `--uc`, `--concurrency`, `--scope`
+- **Analysis Control**: `--seq`, `--scope`, `--focus`
+- **Efficiency Control**: `--uc`, `--scope`, `--iterations`
 - **Safety & Quality**: `--safe-mode`, `--validate`, `--dry-run`
 
 **Auto-Activation vs Manual Override:**
-- **Auto**: `/sc:implement "React dashboard"` → Magic + Context7 + task coordination
-- **Manual**: `/sc:implement "simple function" --no-mcp` → Native-only execution
+- **Auto**: `/sg:implement "React dashboard"` → Magic + Context7 + task coordination
+- **Manual**: `/sg:implement "simple function" --no-mcp` → Native-only execution
 
 ## Flag Categories 📂
 
 ### Planning & Analysis Flags 🧠
 
-**Thinking Depth Control:**
+**Analysis Control:**
 
-**`--think`** - Standard Analysis (~4K tokens)
-- **Auto-Triggers**: Multi-component analysis, moderate complexity
-- **Manual Use**: Force structured thinking for simple tasks
-- **Enables**: Sequential MCP for systematic reasoning
+**`--seq`** / **`--sequential`** - Structured Multi-Step Reasoning
+- **Auto-Triggers**: Complex debugging, system design, multi-component analysis
+- **Manual Use**: Force systematic analysis for any task
+- **Enables**: Sequential MCP for hypothesis testing and reasoning
 ```bash
-/sc:analyze auth-system/ --think
+/sg:analyze auth-system/ --seq
 # → Structured analysis with evidence-based reasoning
 ```
 
-**`--think-hard`** - Deep Analysis (~10K tokens)  
-- **Auto-Triggers**: Architectural analysis, system-wide dependencies
-- **Manual Use**: Force comprehensive analysis
-- **Enables**: Sequential + Context7 for deep understanding
-```bash
-/sc:troubleshoot "performance degradation" --think-hard
-# → Comprehensive root cause analysis with framework patterns
-```
-
-**`--ultrathink`** - Maximum Analysis (~32K tokens)
-- **Auto-Triggers**: Critical system redesign, legacy modernization
-- **Manual Use**: Force maximum analytical depth
-- **Enables**: All MCP servers for comprehensive capability
-```bash
-/sc:analyze enterprise-architecture/ --ultrathink
-# → Maximum depth with all tools and reasoning capacity
-```
 
 **Mode Activation Flags:**
 
@@ -114,7 +97,7 @@ SuperClaude's intelligent flag system automatically detects task complexity and 
 - **Auto-Triggers**: Vague requests, exploration keywords
 - **Manual Use**: Force collaborative requirement discovery
 ```bash
-/sc:implement "better user experience" --brainstorm
+/sg:implement "better user experience" --brainstorm
 # → Socratic questions to clarify requirements before implementation
 ```
 
@@ -122,7 +105,7 @@ SuperClaude's intelligent flag system automatically detects task complexity and 
 - **Auto-Triggers**: Error recovery, learning contexts
 - **Manual Use**: Expose decision-making process for learning
 ```bash
-/sc:analyze complex-algorithm/ --introspect
+/sg:analyze complex-algorithm/ --introspect
 # → Transparent reasoning with 🤔, 🎯, ⚡ markers
 ```
 
@@ -135,7 +118,7 @@ SuperClaude's intelligent flag system automatically detects task complexity and 
 - **Manual Use**: Force compressed communication
 - **Effect**: Symbol-enhanced output while preserving ≥95% information quality
 ```bash
-/sc:analyze large-project/ --uc
+/sg:analyze large-project/ --uc
 # → "auth.js:45 → 🛡️ sec risk in user val()" vs verbose explanations
 ```
 
@@ -143,25 +126,17 @@ SuperClaude's intelligent flag system automatically detects task complexity and 
 - **Auto-Triggers**: Medium resource pressure, efficiency requirements
 - **Manual Use**: Balance between detail and efficiency
 ```bash
-/sc:troubleshoot "memory leak" --token-efficient
+/sg:troubleshoot "memory leak" --token-efficient
 # → Structured but concise problem analysis
 ```
 
 **Execution Control:**
 
-**`--concurrency [n]`** - Parallel Operation Control (1-15)
-- **Auto-Triggers**: Resource optimization needs
-- **Manual Use**: Control system load and parallel processing
-```bash
-/sc:improve large-codebase/ --concurrency 3
-# → Limit to 3 parallel operations for resource management
-```
-
 **`--scope [file|module|project|system]`** - Analysis Boundary
 - **Auto-Triggers**: Analysis boundary detection
 - **Manual Use**: Explicitly define operational scope
 ```bash
-/sc:analyze src/auth/ --scope module
+/sg:analyze src/auth/ --scope module
 # → Focus analysis on authentication module only
 ```
 
@@ -169,7 +144,7 @@ SuperClaude's intelligent flag system automatically detects task complexity and 
 - **Auto-Triggers**: "polish", "refine", "enhance", "improve" keywords
 - **Manual Use**: Force iterative improvement cycles
 ```bash
-/sc:improve user-interface/ --loop --iterations 3
+/sg:improve user-interface/ --loop --iterations 3
 # → 3 improvement cycles with validation gates
 ```
 
@@ -184,38 +159,30 @@ SuperClaude's intelligent flag system automatically detects task complexity and 
 
 ```bash
 # Security-focused analysis
-/sc:analyze payment-system/ --focus security
+/sg:analyze payment-system/ --focus security
 # → Security specialist + vulnerability assessment + compliance validation
 
 # Performance optimization focus  
-/sc:improve api-endpoints/ --focus performance
+/sg:improve api-endpoints/ --focus performance
 # → Performance engineer + bottleneck analysis + optimization patterns
 
 # Architecture evaluation
-/sc:analyze microservices/ --focus architecture
+/sg:analyze microservices/ --focus architecture
 # → System architect + design pattern analysis + scalability assessment
 
 # Quality improvement
-/sc:review codebase/ --focus quality
+/sg:review codebase/ --focus quality
 # → Quality engineer + code smell detection + maintainability analysis
 ```
 
 **Task Management:**
 
-**`--task-manage`** / **`--delegate`** - Complex Coordination
+**`--task-manage`** - Complex Task Coordination
 - **Auto-Triggers**: >3 steps, >2 directories, >3 files
 - **Manual Use**: Force hierarchical task organization for simple tasks
 ```bash
-/sc:implement "simple feature" --task-manage
+/sg:implement "simple feature" --task-manage
 # → Phase-based approach with progress tracking even for simple tasks
-```
-
-**`--delegate [auto|files|folders]`** - Orchestration Strategy
-- **Auto-Triggers**: >7 directories OR >50 files OR complexity >0.8
-- **Manual Use**: Control delegation strategy
-```bash
-/sc:refactor enterprise-codebase/ --delegate folders
-# → Delegate by directory structure for systematic organization
 ```
 
 ### Tool Integration Flags 🛠️
@@ -232,13 +199,13 @@ SuperClaude's intelligent flag system automatically detects task complexity and 
 
 ```bash
 # Specific server combinations
-/sc:implement "dashboard" --magic --c7
+/sg:implement "dashboard" --magic --c7
 # → UI generation + framework patterns
 
-/sc:analyze complex-issue/ --seq --serena  
+/sg:analyze complex-issue/ --seq --serena  
 # → Structured reasoning + project context
 
-/sc:improve legacy-code/ --morph --serena --seq
+/sg:improve legacy-code/ --morph --serena --seq
 # → Pattern transformation + context + systematic analysis
 ```
 
@@ -248,7 +215,7 @@ SuperClaude's intelligent flag system automatically detects task complexity and 
 - **Auto-Triggers**: Maximum complexity scenarios, multi-domain problems
 - **Manual Use**: Force all tools for comprehensive capability
 ```bash
-/sc:implement "enterprise-platform" --all-mcp
+/sg:implement "enterprise-platform" --all-mcp
 # → All 6 MCP servers coordinated for maximum capability
 ```
 
@@ -256,7 +223,7 @@ SuperClaude's intelligent flag system automatically detects task complexity and 
 - **Auto-Triggers**: Performance priority, simple tasks
 - **Manual Use**: Force lightweight execution without MCP overhead
 ```bash
-/sc:explain "simple function" --no-mcp
+/sg:explain "simple function" --no-mcp
 # → Fast native response without MCP server coordination
 ```
 
@@ -266,7 +233,7 @@ SuperClaude's intelligent flag system automatically detects task complexity and 
 - **Auto-Triggers**: Multi-tool operations, performance constraints, >3 files
 - **Manual Use**: Force optimal tool coordination
 ```bash
-/sc:refactor components/ --orchestrate
+/sg:refactor components/ --orchestrate
 # → Optimal tool selection and parallel execution coordination
 ```
 
@@ -278,7 +245,7 @@ SuperClaude's intelligent flag system automatically detects task complexity and 
 - **Auto-Triggers**: Risk score >0.7, resource usage >75%, production environment
 - **Manual Use**: Force validation gates for any operation
 ```bash
-/sc:implement "payment-processing" --validate
+/sg:implement "payment-processing" --validate
 # → Risk assessment + validation gates before implementation
 ```
 
@@ -287,7 +254,7 @@ SuperClaude's intelligent flag system automatically detects task complexity and 
 - **Manual Use**: Force maximum safety protocols
 - **Auto-Enables**: `--uc` for efficiency, `--validate` for safety
 ```bash
-/sc:improve production-database/ --safe-mode
+/sg:improve production-database/ --safe-mode
 # → Conservative execution + auto-backup + rollback planning
 ```
 
@@ -296,7 +263,7 @@ SuperClaude's intelligent flag system automatically detects task complexity and 
 **`--dry-run`** - Preview Without Execution
 - **Manual Use**: Preview changes without applying them
 ```bash
-/sc:cleanup legacy-code/ --dry-run
+/sg:cleanup legacy-code/ --dry-run
 # → Show what would be cleaned up without making changes
 ```
 
@@ -304,7 +271,7 @@ SuperClaude's intelligent flag system automatically detects task complexity and 
 - **Auto-Triggers**: Risky operations, file modifications
 - **Manual Use**: Ensure backup creation before operations
 ```bash
-/sc:refactor critical-module/ --backup
+/sg:refactor critical-module/ --backup
 # → Create backup before refactoring operations
 ```
 
@@ -312,7 +279,7 @@ SuperClaude's intelligent flag system automatically detects task complexity and 
 - **Auto-Triggers**: Critical code changes, production modifications
 - **Manual Use**: Force test execution before proceeding
 ```bash
-/sc:improve auth-system/ --tests-required
+/sg:improve auth-system/ --tests-required
 # → Run tests and require passing before improvement application
 ```
 
@@ -324,14 +291,14 @@ SuperClaude's intelligent flag system automatically detects task complexity and 
 - **Auto-Triggers**: Independent operations, >3 files, multi-tool scenarios
 - **Manual Use**: Force parallel processing for eligible operations
 ```bash
-/sc:analyze multiple-modules/ --parallel
+/sg:analyze multiple-modules/ --parallel
 # → Analyze modules concurrently instead of sequentially
 ```
 
 **`--sequential`** - Force Sequential Execution  
 - **Manual Use**: Override parallel processing for dependency reasons
 ```bash
-/sc:implement "multi-step-feature" --sequential
+/sg:implement "multi-step-feature" --sequential
 # → Force step-by-step execution with dependencies
 ```
 
@@ -341,7 +308,7 @@ SuperClaude's intelligent flag system automatically detects task complexity and 
 - **Auto-Triggers**: Large operations, resource constraints
 - **Manual Use**: Explicit memory management
 ```bash
-/sc:analyze large-dataset/ --memory-limit 2048
+/sg:analyze large-dataset/ --memory-limit 2048
 # → Limit analysis to 2GB memory usage
 ```
 
@@ -349,7 +316,7 @@ SuperClaude's intelligent flag system automatically detects task complexity and 
 - **Auto-Triggers**: Complex operations, MCP server timeouts
 - **Manual Use**: Set explicit timeout boundaries
 ```bash
-/sc:troubleshoot "complex-performance-issue" --timeout 300
+/sg:troubleshoot "complex-performance-issue" --timeout 300
 # → 5-minute timeout for troubleshooting analysis
 ```
 
@@ -359,17 +326,17 @@ SuperClaude's intelligent flag system automatically detects task complexity and 
 - **Auto-Triggers**: Analysis export, documentation generation
 - **Manual Use**: Specify exact output format
 ```bash
-/sc:analyze api-performance/ --format json --export report.json
+/sg:analyze api-performance/ --format json --export report.json
 # → JSON-formatted analysis results for processing
 ```
 
 **`--verbose`** / **`--quiet`** - Verbosity Control
 - **Manual Use**: Override automatic verbosity decisions
 ```bash
-/sc:build project/ --verbose
+/sg:build project/ --verbose
 # → Detailed build output and progress information
 
-/sc:test suite/ --quiet  
+/sg:test suite/ --quiet  
 # → Minimal output, results only
 ```
 
@@ -379,61 +346,61 @@ SuperClaude's intelligent flag system automatically detects task complexity and 
 
 **Full Analysis & Improvement:**
 ```bash
-/sc:analyze codebase/ --think-hard --all-mcp --orchestrate
+/sg:analyze codebase/ --seq --all-mcp --orchestrate
 # → Deep analysis + all tools + optimal coordination
 ```
 
 **Safe Production Changes:**
 ```bash
-/sc:improve production-api/ --safe-mode --validate --backup --tests-required
+/sg:improve production-api/ --safe-mode --validate --backup --tests-required
 # → Maximum safety protocols for production modifications
 ```
 
 **Rapid Prototyping:**
 ```bash
-/sc:implement "quick-feature" --magic --c7 --no-validate
+/sg:implement "quick-feature" --magic --c7 --no-validate
 # → Fast UI generation + patterns without safety overhead
 ```
 
 **Large-Scale Refactoring:**
 ```bash
-/sc:refactor legacy-system/ --task-manage --serena --morph --parallel --backup
+/sg:refactor legacy-system/ --task-manage --serena --morph --parallel --backup
 # → Systematic coordination + context + transformation + safety
 ```
 
 **Performance Investigation:**
 ```bash
-/sc:troubleshoot "slow-performance" --think-hard --focus performance --seq --play
+/sg:troubleshoot "slow-performance" --seq --focus performance --seq --play
 # → Deep analysis + performance focus + reasoning + browser testing
 ```
 
 **Learning & Understanding:**
 ```bash
-/sc:analyze new-codebase/ --introspect --brainstorm --c7 --think
+/sg:analyze new-codebase/ --introspect --brainstorm --c7 --seq
 # → Transparent reasoning + discovery + documentation + analysis
 ```
 
 **Resource-Constrained Environments:**
 ```bash
-/sc:implement "feature" --uc --concurrency 1 --no-mcp --scope file
+/sg:implement "feature" --uc --concurrency 1 --no-mcp --scope file
 # → Compressed output + limited resources + lightweight execution
 ```
 
 **Quality Assurance Workflow:**
 ```bash
-/sc:review code-changes/ --focus quality --validate --tests-required --think
+/sg:review code-changes/ --focus quality --validate --tests-required --seq
 # → Quality analysis + validation + testing + structured reasoning
 ```
 
 **Documentation Generation:**
 ```bash
-/sc:document api/ --c7 --magic --format markdown --focus accessibility
+/sg:document api/ --c7 --magic --format markdown --focus accessibility
 # → Documentation patterns + UI examples + accessible format
 ```
 
 **Complex Architecture Design:**
 ```bash
-/sc:design "microservices-platform" --ultrathink --brainstorm --all-mcp --orchestrate
+/sg:design "microservices-platform" --brainstorm --all-mcp --orchestrate
 # → Maximum analysis + discovery + all tools + optimal coordination
 ```
 
@@ -442,9 +409,7 @@ SuperClaude's intelligent flag system automatically detects task complexity and 
 ### 🧠 Analysis & Thinking Flags
 | Flag | Purpose | Auto-Trigger | Token Impact |
 |------|---------|--------------|--------------|
-| `--think` | Standard analysis | Multi-component tasks | ~4K tokens |
-| `--think-hard` | Deep analysis | Architectural tasks | ~10K tokens |
-| `--ultrathink` | Maximum analysis | Critical system work | ~32K tokens |
+| `--seq` | Sequential analysis | Complex tasks and reasoning | Optimized |
 | `--brainstorm` | Interactive discovery | Vague requirements | Variable |
 | `--introspect` | Reasoning transparency | Learning contexts | +10% detail |
 
@@ -506,33 +471,33 @@ SuperClaude's intelligent flag system automatically detects task complexity and 
 **React/Frontend Projects:**
 ```bash
 # Automatically optimized for React development
-/sc:implement "user-dashboard" 
+/sg:implement "user-dashboard" 
 # → Auto-flags: --magic --c7 --focus accessibility --orchestrate
 
 # Manual optimization for specific needs
-/sc:implement "dashboard" --magic --c7 --play --focus accessibility
+/sg:implement "dashboard" --magic --c7 --play --focus accessibility
 # → UI generation + patterns + testing + accessibility validation
 ```
 
 **Backend/API Projects:**
 ```bash
 # Automatically optimized for backend development  
-/sc:implement "payment-api"
+/sg:implement "payment-api"
 # → Auto-flags: --focus security --validate --c7 --seq
 
 # Manual security-first approach
-/sc:implement "api" --focus security --validate --backup --tests-required
+/sg:implement "api" --focus security --validate --backup --tests-required
 # → Security analysis + validation + safety protocols
 ```
 
 **Legacy Modernization:**
 ```bash
 # Complex legacy work gets automatic coordination
-/sc:improve legacy-monolith/
-# → Auto-flags: --task-manage --serena --morph --think-hard --backup
+/sg:improve legacy-monolith/
+# → Auto-flags: --task-manage --serena --morph --seq --backup
 
 # Manual control for specific modernization strategy  
-/sc:improve legacy/ --ultrathink --task-manage --serena --morph --safe-mode
+/sg:improve legacy/ --task-manage --serena --morph --safe-mode
 # → Maximum analysis + coordination + transformation + safety
 ```
 
@@ -541,22 +506,22 @@ SuperClaude's intelligent flag system automatically detects task complexity and 
 **Priority Hierarchy:**
 1. **Safety First**: `--safe-mode` > `--validate` > optimization flags
 2. **Explicit Override**: User flags > auto-detection  
-3. **Depth Hierarchy**: `--ultrathink` > `--think-hard` > `--think`
+3. **MCP Hierarchy**: `--all-mcp` > individual server flags
 4. **MCP Control**: `--no-mcp` overrides all individual MCP flags
 5. **Scope Precedence**: `system` > `project` > `module` > `file`
 
 **Conflict Resolution Examples:**
 ```bash
 # Safety overrides efficiency
-/sc:implement "critical-feature" --uc --safe-mode
+/sg:implement "critical-feature" --uc --safe-mode
 # → Result: Safe mode wins, auto-enables backup and validation
 
 # Explicit scope overrides auto-detection
-/sc:analyze large-project/ --scope file target.js
+/sg:analyze large-project/ --scope file target.js
 # → Result: Only analyzes target.js despite project size
 
 # No-MCP overrides individual server flags
-/sc:implement "feature" --magic --c7 --no-mcp  
+/sg:implement "feature" --magic --c7 --no-mcp  
 # → Result: No MCP servers used, native execution only
 ```
 
@@ -565,20 +530,20 @@ SuperClaude's intelligent flag system automatically detects task complexity and 
 **Resource-Responsive Flagging:**
 ```bash
 # System automatically adapts based on available resources
-/sc:analyze enterprise-codebase/
-# → High resources: --all-mcp --parallel --think-hard
-# → Medium resources: --c7 --seq --serena --think  
+/sg:analyze enterprise-codebase/
+# → High resources: --all-mcp --parallel --seq
+# → Medium resources: --c7 --seq --serena --seq  
 # → Low resources: --no-mcp --uc --scope module
 ```
 
 **Complexity-Driven Selection:**
 ```bash
 # Flags scale with detected complexity
-/sc:implement "simple helper function"
+/sg:implement "simple helper function"
 # → Auto-flags: minimal, fast execution
 
-/sc:implement "microservices authentication"  
-# → Auto-flags: --ultrathink --all-mcp --task-manage --validate --orchestrate
+/sg:implement "microservices authentication"  
+# → Auto-flags: --all-mcp --task-manage --validate --orchestrate
 ```
 
 ### Expert Flag Patterns
@@ -586,25 +551,25 @@ SuperClaude's intelligent flag system automatically detects task complexity and 
 **Security-First Development:**
 ```bash
 # Progressive security validation
-/sc:implement "auth-system" --focus security --validate --tests-required
-/sc:review "payment-code" --focus security --think-hard --backup
-/sc:analyze "user-data" --focus security --all-mcp --safe-mode
+/sg:implement "auth-system" --focus security --validate --tests-required
+/sg:review "payment-code" --focus security --seq --backup
+/sg:analyze "user-data" --focus security --all-mcp --safe-mode
 ```
 
 **Performance Optimization Workflow:**
 ```bash
 # Systematic performance improvement
-/sc:analyze --focus performance --think-hard --seq --play
-/sc:improve --focus performance --morph --parallel --validate  
-/sc:test --focus performance --play --format json --export metrics.json
+/sg:analyze --focus performance --seq --seq --play
+/sg:improve --focus performance --morph --parallel --validate  
+/sg:test --focus performance --play --format json --export metrics.json
 ```
 
 **Learning & Discovery Patterns:**
 ```bash
 # Understanding complex systems
-/sc:load new-codebase/ --introspect --brainstorm --serena
-/sc:analyze architecture/ --introspect --think-hard --c7 --all-mcp
-/sc:explain concepts/ --introspect --c7 --focus accessibility
+/sg:load new-codebase/ --introspect --brainstorm --serena
+/sg:analyze architecture/ --introspect --seq --c7 --all-mcp
+/sg:explain concepts/ --introspect --c7 --focus accessibility
 ```
 
 ## Flag Troubleshooting 🔧
@@ -614,37 +579,37 @@ SuperClaude's intelligent flag system automatically detects task complexity and 
 **Flag Not Recognized:**
 ```bash
 # Problem: Unknown flag error
-/sc:analyze code/ --unknown-flag
+/sg:analyze code/ --unknown-flag
 
 # Solution: Check flag spelling and availability
 SuperClaude --help flags
-/sc:help --flags
+/sg:help --flags
 ```
 
 **Conflicting Flags:**
 ```bash
 # Problem: Contradictory flags
-/sc:implement "feature" --all-mcp --no-mcp
+/sg:implement "feature" --all-mcp --no-mcp
 
 # Solution: Use flag priority rules
 # --no-mcp overrides --all-mcp (explicit override wins)
-# Use: /sc:implement "feature" --no-mcp
+# Use: /sg:implement "feature" --no-mcp
 ```
 
 **Resource Issues:**
 ```bash
-# Problem: System overload with --all-mcp --ultrathink
-/sc:analyze large-project/ --all-mcp --ultrathink
+# Problem: System overload with --all-mcp
+/sg:analyze large-project/ --all-mcp
 
 # Solution: Reduce resource usage
-/sc:analyze large-project/ --c7 --seq --think --concurrency 2
-# Or let auto-detection handle it: /sc:analyze large-project/
+/sg:analyze large-project/ --c7 --seq
+# Or let auto-detection handle it: /sg:analyze large-project/
 ```
 
 **MCP Server Connection Problems:**
 ```bash
 # Problem: MCP flags not working
-/sc:implement "dashboard" --magic  # Magic server not responding
+/sg:implement "dashboard" --magic  # Magic server not responding
 
 # Solutions:
 # 1. Check MCP installation
@@ -652,7 +617,7 @@ SuperClaude install --list-components | grep mcp
 
 # 2. Restart Claude Code session (MCP connections refresh)
 # 3. Use fallback approach
-/sc:implement "dashboard" --no-mcp  # Native execution
+/sg:implement "dashboard" --no-mcp  # Native execution
 
 # 4. Reinstall MCP servers
 SuperClaude install --components mcp --force
@@ -661,17 +626,17 @@ SuperClaude install --components mcp --force
 **Performance Problems:**
 ```bash
 # Problem: Slow execution with complex flags
-/sc:analyze codebase/ --ultrathink --all-mcp --parallel
+/sg:analyze codebase/ --seq --all-mcp
 
 # Solutions:
 # 1. Reduce complexity
-/sc:analyze codebase/ --think --c7 --seq
+/sg:analyze codebase/ --seq --c7 --seq
 
 # 2. Use scope limiting
-/sc:analyze codebase/ --scope module --focus quality
+/sg:analyze codebase/ --scope module --focus quality
 
 # 3. Enable efficiency mode
-/sc:analyze codebase/ --uc --concurrency 1
+/sg:analyze codebase/ --uc --concurrency 1
 ```
 
 ### Flag Debugging
@@ -679,21 +644,21 @@ SuperClaude install --components mcp --force
 **Check Auto-Activated Flags:**
 ```bash
 # Add --verbose to see which flags were auto-activated
-/sc:analyze project/ --verbose
-# → Output shows: "Auto-activated: --think-hard, --serena, --orchestrate"
+/sg:analyze project/ --verbose
+# → Output shows: "Auto-activated: --seq, --serena, --orchestrate"
 ```
 
 **Test Flag Combinations:**
 ```bash
 # Use --dry-run to test flag effects without execution
-/sc:improve code/ --task-manage --morph --dry-run
+/sg:improve code/ --task-manage --morph --dry-run
 # → Shows planned execution without making changes
 ```
 
 **Validate Flag Usage:**
 ```bash
 # Check flag compatibility
-SuperClaude validate-flags --think-hard --no-mcp --magic
+SuperClaude validate-flags --seq --no-mcp --magic
 # → Reports conflicts and suggests corrections
 ```
 
@@ -708,19 +673,19 @@ SuperClaude validate-flags --think-hard --no-mcp --magic
 **Progressive Enhancement:**
 ```bash
 # Week 1: Use commands without flags
-/sc:analyze src/
-/sc:implement "feature"
+/sg:analyze src/
+/sg:implement "feature"
 
 # Week 2: Add specific focus
-/sc:analyze src/ --focus security
-/sc:implement "feature" --magic
+/sg:analyze src/ --focus security
+/sg:implement "feature" --magic
 
 # Week 3: Combine for workflows  
-/sc:analyze src/ --focus security --think-hard
-/sc:implement "feature" --magic --c7 --validate
+/sg:analyze src/ --focus security --seq
+/sg:implement "feature" --magic --c7 --validate
 
 # Month 2+: Advanced patterns
-/sc:improve legacy/ --task-manage --serena --morph --safe-mode
+/sg:improve legacy/ --task-manage --serena --morph --safe-mode
 ```
 
 **Flag Selection Strategy:**
@@ -762,9 +727,8 @@ SuperClaude validate-flags --think-hard --no-mcp --magic
 
 **🧠 Analysis Depth Progression:**
 - **Basic**: No flags → automatic detection
-- **Structured**: `--think` → systematic analysis
-- **Deep**: `--think-hard` → comprehensive investigation  
-- **Maximum**: `--ultrathink` → complete analytical capability
+- **Structured**: `--seq` → systematic analysis
+- **Deep**: `--seq` → comprehensive investigation  
 
 **🛠️ Tool Integration Journey:**
 - **Single Tools**: `--c7`, `--magic` → specific capabilities
