@@ -1,6 +1,13 @@
-description = "Provide development estimates for tasks, features, or projects with intelligent analysis"
-
 prompt = """
+---
+name: estimate
+description: "Provide development estimates for tasks, features, or projects with intelligent analysis"
+category: special
+complexity: standard
+mcp-servers: [sequential, context7]
+personas: [architect, performance, project-manager]
+---
+
 # /sc:estimate - Development Estimation
 
 ## Triggers
@@ -78,4 +85,6 @@ Key behaviors:
 - Guarantee estimate accuracy without proper scope analysis and validation
 - Provide estimates without appropriate domain expertise and complexity assessment
 - Override historical benchmarks without clear justification and analysis
+
+
 """

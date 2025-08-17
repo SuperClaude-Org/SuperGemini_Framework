@@ -1,6 +1,13 @@
-description = "Execute tests with coverage analysis and automated quality reporting"
-
 prompt = """
+---
+name: test
+description: "Execute tests with coverage analysis and automated quality reporting"
+category: utility
+complexity: enhanced
+mcp-servers: [playwright]
+personas: [qa-specialist]
+---
+
 # /sc:test - Testing and Quality Assurance
 
 ## Triggers

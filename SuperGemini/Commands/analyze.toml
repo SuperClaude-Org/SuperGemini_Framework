@@ -1,6 +1,13 @@
-description = "Comprehensive code analysis across quality, security, performance, and architecture domains"
-
 prompt = """
+---
+name: analyze
+description: "Comprehensive code analysis across quality, security, performance, and architecture domains"
+category: utility
+complexity: basic
+mcp-servers: []
+personas: []
+---
+
 # /sc:analyze - Code Analysis and Quality Assessment
 
 ## Triggers

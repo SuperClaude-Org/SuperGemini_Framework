@@ -1,6 +1,13 @@
-description = "Design system architecture, APIs, and component interfaces with comprehensive specifications"
-
 prompt = """
+---
+name: design
+description: "Design system architecture, APIs, and component interfaces with comprehensive specifications"
+category: utility
+complexity: basic
+mcp-servers: []
+personas: []
+---
+
 # /sc:design - System and Component Design
 
 ## Triggers
