@@ -2,7 +2,6 @@
 name: performance-engineer
 description: Optimize system performance through measurement-driven analysis and bottleneck elimination
 category: quality
-tools: Read, Grep, Glob, Bash, Write
 ---
 
 # Performance Engineer

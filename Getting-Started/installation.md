@@ -1,15 +1,15 @@
-# SuperClaude Installation Guide 📦
+# SuperGemini Installation Guide 📦
 
 ## 🎯 It's Easier Than It Looks!
 
-SuperClaude installs in under 2 minutes with an interactive installer. The process involves installing the Python package and running the component installer to configure your Claude Code environment.
+SuperGemini installs in under 2 minutes with an interactive installer. The process involves installing the Python package and running the component installer to configure your Claude Code environment.
 
 ## Quick Start 🚀
 
 **Method 1: Python (Recommended)**
 ```bash
-pip install SuperClaude
-SuperClaude install
+pip install SuperGemini
+SuperGemini install
 ```
 
 **Method 2: NPM (Cross-platform)**
@@ -20,16 +20,16 @@ superclaude install
 
 **Method 3: Development**
 ```bash
-git clone https://github.com/SuperClaude-Org/SuperClaude_Framework.git
-cd SuperClaude_Framework
+git clone https://github.com/SuperClaude-Org/SuperGemini_Framework.git
+cd SuperGemini_Framework
 pip install -e ".[dev]"
-SuperClaude install --dry-run
+SuperGemini install --dry-run
 ```
 
 ---
 
 **What Gets Installed:**
-- 21 slash commands (/sc:*) for workflow automation
+- 21 slash commands (SuperGemini *) for workflow automation
 - 13 specialized AI agents with domain expertise
 - 6 behavioral modes for different contexts
 - 6 MCP server configurations for enhanced capabilities
@@ -37,7 +37,7 @@ SuperClaude install --dry-run
 
 **Dry-run Preview:**
 ```bash
-SuperClaude install --dry-run  # Preview changes without installing
+SuperGemini install --dry-run  # Preview changes without installing
 ```
 
 ## Before You Start 🔍
@@ -109,13 +109,13 @@ winget install OpenJS.NodeJS
 # Or download from https://nodejs.org/
 ```
 
-### Getting SuperClaude 📥
+### Getting SuperGemini 📥
 
 **Choose Your Preferred Method:**
 
 **Python Users:**
 ```bash
-pip install SuperClaude
+pip install SuperGemini
 ```
 
 **JavaScript/Node.js Users:**
@@ -125,8 +125,8 @@ npm install -g superclaude
 
 **Development/Contributors:**
 ```bash
-git clone https://github.com/SuperClaude-Org/SuperClaude_Framework.git
-cd SuperClaude_Framework
+git clone https://github.com/SuperClaude-Org/SuperGemini_Framework.git
+cd SuperGemini_Framework
 pip install -e ".[dev]"
 ```
 
@@ -134,7 +134,7 @@ pip install -e ".[dev]"
 
 **Interactive Installation (Default):**
 ```bash
-SuperClaude install
+SuperGemini install
 ```
 The installer will:
 1. Detect your system configuration
@@ -145,10 +145,10 @@ The installer will:
 
 **Command-line Options:**
 ```bash
-SuperClaude install --components core mcp modes  # Specific components
-SuperClaude install --dry-run                    # Preview only
-SuperClaude install --force --yes                # Skip confirmations
-SuperClaude install --install-dir /custom/path   # Custom location
+SuperGemini install --components core mcp modes  # Specific components
+SuperGemini install --dry-run                    # Preview only
+SuperGemini install --force --yes                # Skip confirmations
+SuperGemini install --install-dir /custom/path   # Custom location
 ```
 
 ### During Installation 📱
@@ -175,15 +175,15 @@ SuperClaude install --install-dir /custom/path   # Custom location
 
 **Verify Installation:**
 ```bash
-# Check SuperClaude version
-SuperClaude --version
+# Check SuperGemini version
+SuperGemini --version
 
 # List installed components
-SuperClaude install --list-components
+SuperGemini install --list-components
 
 # Test basic functionality
 echo "Test analysis" | claude
-# Then try: /sc:analyze README.md
+# Then try: /sg:analyze README.md
 
 # Verify MCP servers (if installed)
 ls ~/.claude/.claude.json
@@ -222,45 +222,42 @@ ls ~/.claude/.claude.json
 
 **Try These Commands:**
 ```bash
-# Interactive requirements discovery
-/sc:brainstorm "mobile app idea"
-
 # Analyze existing code
-/sc:analyze src/
+/sg:analyze src/
 
 # Generate implementation workflow
-/sc:workflow "user authentication system"
+/sg:workflow "user authentication system"
 
 # Get command help
-/sc:index
+/sg:index
 ```
 
 **Learning Path:**
-1. Start with `/sc:brainstorm` for project discovery
-2. Use `/sc:analyze` to understand existing code
-3. Try `/sc:implement` for feature development
-4. Explore `/sc:index` for command discovery
+1. Use `/sg:analyze` to understand existing code
+2. Try `/sg:implement` for feature development
+3. Use `/sg:workflow` for systematic planning
+4. Explore `/sg:index` for command discovery
 
 ## Managing Your Installation 🛠️
 
 ### Updates 📅
 
-**Update SuperClaude:**
+**Update SuperGemini:**
 ```bash
 # Update core package
-pip install --upgrade SuperClaude
+pip install --upgrade SuperGemini
 # or: npm update -g superclaude
 
 # Update components
-SuperClaude update
+SuperGemini update
 
 # Update specific components
-SuperClaude install --components mcp modes --force
+SuperGemini install --components mcp modes --force
 ```
 
 **Version Management:**
 - Updates preserve user customizations
-- New components available via `SuperClaude install --list-components`
+- New components available via `SuperGemini install --list-components`
 - Selective updates possible for individual components
 
 ### Backups 💾
@@ -273,13 +270,13 @@ SuperClaude install --components mcp modes --force
 **Manual Backup Management:**
 ```bash
 # Create backup
-SuperClaude backup --create
+SuperGemini backup --create
 
 # List available backups
-SuperClaude backup --list
+SuperGemini backup --list
 
 # Restore from backup
-SuperClaude backup --restore ~/.claude.backup.20241201_143022
+SuperGemini backup --restore ~/.claude.backup.20241201_143022
 
 # Manual backup (alternative)
 cp -r ~/.claude ~/.claude.backup.manual
@@ -289,11 +286,11 @@ cp -r ~/.claude ~/.claude.backup.manual
 
 **Complete Removal:**
 ```bash
-# Remove SuperClaude components (preserves user files)
-SuperClaude uninstall
+# Remove SuperGemini components (preserves user files)
+SuperGemini uninstall
 
 # Remove Python package
-pip uninstall SuperClaude
+pip uninstall SuperGemini
 # or: npm uninstall -g superclaude
 
 # Manual cleanup (if needed)
@@ -324,7 +321,7 @@ winget install python
 
 **Missing Claude Code?**
 - Visit https://claude.ai/code for installation instructions
-- SuperClaude enhances Claude Code, so you need it first
+- SuperGemini enhances Claude Code, so you need it first
 
 **MCP Server Requirements:**
 Some MCP servers require Node.js for optimal functionality:
@@ -341,7 +338,7 @@ Install Node.js 16+ for full MCP capabilities.
 **Permission Denied:**
 ```bash
 # Linux/macOS: Use --user flag
-pip install --user SuperClaude
+pip install --user SuperGemini
 
 # Or fix permissions
 sudo chown -R $USER ~/.claude
@@ -353,7 +350,7 @@ sudo chown -R $USER ~/.claude
 python3 --version
 
 # Use specific Python version
-python3.9 -m pip install SuperClaude
+python3.9 -m pip install SuperGemini
 ```
 
 **Claude Code Not Found:**
@@ -362,7 +359,7 @@ python3.9 -m pip install SuperClaude
 - Check PATH configuration
 
 **Get Help:**
-- GitHub Issues: https://github.com/SuperClaude-Org/SuperClaude_Framework/issues
+- GitHub Issues: https://github.com/SuperClaude-Org/SuperGemini_Framework/issues
 - Include: OS, Python version, error message, steps to reproduce
 
 ## Advanced Options ⚙️
@@ -370,18 +367,18 @@ python3.9 -m pip install SuperClaude
 **Custom Installation Directory:**
 ```bash
 # Install to custom location
-SuperClaude install --install-dir /path/to/custom/claude
+SuperGemini install --install-dir /path/to/custom/claude
 
 # Set environment variable
 export CLAUDE_CONFIG_DIR=/path/to/custom/claude
-SuperClaude install
+SuperGemini install
 ```
 
 **Development Setup:**
 ```bash
 # Clone repository
-git clone https://github.com/SuperClaude-Org/SuperClaude_Framework.git
-cd SuperClaude_Framework
+git clone https://github.com/SuperClaude-Org/SuperGemini_Framework.git
+cd SuperGemini_Framework
 
 # Create virtual environment
 python -m venv venv
@@ -392,7 +389,7 @@ venv\Scripts\activate     # Windows
 pip install -e ".[dev]"
 
 # Run tests
-SuperClaude install --dry-run
+SuperGemini install --dry-run
 python scripts/validate_pypi_ready.py
 ```
 
@@ -404,7 +401,7 @@ python scripts/validate_pypi_ready.py
 2. **Try Examples**: Explore [Examples Cookbook](../Reference/examples-cookbook.md)
 3. **Configure MCP**: Set up [MCP Servers](../User-Guide/mcp-servers.md)
 4. **Understand Modes**: Read [Behavioral Modes](../User-Guide/modes.md)
-5. **Join Community**: Follow development on [GitHub](https://github.com/SuperClaude-Org/SuperClaude_Framework)
+5. **Join Community**: Follow development on [GitHub](https://github.com/SuperClaude-Org/SuperGemini_Framework)
 
 **Essential Guides:**
 - 🚀 [Quick Start Guide](quick-start.md) - 5-minute setup
@@ -423,7 +420,7 @@ python scripts/validate_pypi_ready.py
 - **Platform**: Linux, macOS, Windows supported
 - **Usage**: Immediate access to 21 commands and 6 behavioral modes
 
-**What's Next**: Your Claude Code now has enhanced capabilities. Try `/sc:brainstorm` for your first SuperClaude experience!
+**What's Next**: Your Gemini CLI now has enhanced capabilities with SuperGemini Framework!
 
 ---
 

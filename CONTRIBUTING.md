@@ -1,6 +1,6 @@
-# Contributing to SuperClaude Framework
+# Contributing to SuperGemini Framework
 
-SuperClaude Framework transforms Claude Code into a structured development platform through behavioral instruction injection and intelligent workflow orchestration. We welcome contributions that enhance the framework's capabilities, improve documentation, and expand the ecosystem of specialized agents and MCP server integrations.
+SuperGemini Framework transforms Claude Code into a structured development platform through behavioral instruction injection and intelligent workflow orchestration. We welcome contributions that enhance the framework's capabilities, improve documentation, and expand the ecosystem of specialized agents and MCP server integrations.
 
 **Project Mission**: Enable systematic software development workflows with automated expert coordination, quality gates, and session persistence for Claude Code users.
 
@@ -11,11 +11,11 @@ SuperClaude Framework transforms Claude Code into a structured development platf
 ### 🐛 Bug Reports
 **Before Reporting:**
 - Search existing issues to avoid duplicates
-- Test with latest SuperClaude version
+- Test with latest SuperGemini version
 - Verify issue isn't covered in [Troubleshooting Guide](Reference/troubleshooting.md)
 
 **Required Information:**
-- SuperClaude version: `SuperClaude --version`
+- SuperGemini version: `SuperGemini --version`
 - Operating system and version
 - Claude Code version: `claude --version`
 - Python version: `python3 --version`
@@ -27,16 +27,16 @@ SuperClaude Framework transforms Claude Code into a structured development platf
 **Good Bug Report Example:**
 ```
 **Environment:**
-- SuperClaude: 4.0.0
+- SuperGemini: 4.0.0
 - OS: Ubuntu 22.04
 - Claude Code: 1.5.2
 - Python: 3.9.7
 
-**Issue:** `/sc:implement` command fails with ModuleNotFoundError
+**Issue:** `/sg:implement` command fails with ModuleNotFoundError
 
 **Steps to Reproduce:**
-1. Run `SuperClaude install --components core`
-2. Execute `/sc:implement "user login"`
+1. Run `SuperGemini install --components core`
+2. Execute `/sg:implement "user login"`
 3. Error appears: ModuleNotFoundError: No module named 'requests'
 
 **Expected:** Command should execute implementation workflow
@@ -52,7 +52,7 @@ SuperClaude Framework transforms Claude Code into a structured development platf
 
 ### 💡 Feature Requests
 **Feature Evaluation Criteria:**
-- Aligns with SuperClaude's systematic development workflow mission
+- Aligns with SuperGemini's systematic development workflow mission
 - Provides clear utility for software development tasks
 - Integrates well with existing command/agent/mode architecture
 - Maintains framework simplicity and discoverability
@@ -236,7 +236,7 @@ All community interactions should embody professional software development stand
 
 ### Stay Focused
 **Project Focus:**
-SuperClaude Framework enhances Claude Code for systematic software development workflows. Contributions should align with this core mission.
+SuperGemini Framework enhances Claude Code for systematic software development workflows. Contributions should align with this core mission.
 
 **In Scope:**
 - Software development workflow automation
@@ -336,21 +336,21 @@ SuperClaude Framework enhances Claude Code for systematic software development w
 Before seeking support, please:
 1. Check existing documentation and troubleshooting guides
 2. Search GitHub issues for similar problems
-3. Verify you're using the latest SuperClaude version
+3. Verify you're using the latest SuperGemini version
 4. Test with minimal reproduction case
 
 ### Common Questions
 
 **Development Environment Issues:**
 
-**Q: "SuperClaude install fails with permission errors"**
-A: Use `pip install --user SuperClaude` or create virtual environment. See [Installation Guide](Getting-Started/installation.md) for details.
+**Q: "SuperGemini install fails with permission errors"**
+A: Use `pip install --user SuperGemini` or create virtual environment. See [Installation Guide](Getting-Started/installation.md) for details.
 
 **Q: "Commands not recognized after installation"**
-A: Restart Claude Code session. Verify installation with `SuperClaude install --list-components`. Check ~/.claude directory exists.
+A: Restart Claude Code session. Verify installation with `SuperGemini install --list-components`. Check ~/.claude directory exists.
 
 **Q: "MCP servers not connecting"**
-A: Check Node.js installation for MCP servers. Verify ~/.claude/.claude.json configuration. Try `SuperClaude install --components mcp --force`.
+A: Check Node.js installation for MCP servers. Verify ~/.claude/.claude.json configuration. Try `SuperGemini install --components mcp --force`.
 
 **Code Development:**
 
@@ -378,10 +378,10 @@ A: Profile before optimizing. Focus on common workflows. Maintain cross-platform
 
 **MIT License Agreement:**
 
-By contributing to SuperClaude Framework, you agree that your contributions will be licensed under the same MIT License that covers the project. This ensures the framework remains open and accessible for educational and commercial use.
+By contributing to SuperGemini Framework, you agree that your contributions will be licensed under the same MIT License that covers the project. This ensures the framework remains open and accessible for educational and commercial use.
 
 **Contribution Terms:**
-- All contributions become part of the SuperClaude Framework under MIT License
+- All contributions become part of the SuperGemini Framework under MIT License
 - Contributors retain copyright to their original work
 - No contributor license agreement (CLA) required for simple contributions
 - Complex contributions may require explicit license confirmation
@@ -399,16 +399,16 @@ By contributing to SuperClaude Framework, you agree that your contributions will
 - Document any patent or licensing considerations
 
 **Commercial Usage:**
-The MIT License explicitly allows commercial use of SuperClaude Framework, including contributions. This supports the project's goal of enabling professional software development workflows.
+The MIT License explicitly allows commercial use of SuperGemini Framework, including contributions. This supports the project's goal of enabling professional software development workflows.
 
 ## 🙏 Acknowledgments
 
 **Project Contributors:**
 
-SuperClaude Framework benefits from community contributions across documentation, code development, testing, and user experience improvements. 
+SuperGemini Framework benefits from community contributions across documentation, code development, testing, and user experience improvements. 
 
 **Recognition:**
-- [GitHub Contributors Graph](https://github.com/SuperClaude-Org/SuperClaude_Framework/graphs/contributors) - Complete contributor list
+- [GitHub Contributors Graph](https://github.com/SuperClaude-Org/SuperGemini_Framework/graphs/contributors) - Complete contributor list
 - Release notes acknowledge significant contributions
 - Documentation contributors credited in relevant guides
 - Community discussions highlight helpful patterns and solutions
@@ -432,7 +432,7 @@ SuperClaude Framework benefits from community contributions across documentation
 - Community members sharing workflows and best practices
 
 **Growth:**
-The SuperClaude Framework community continues growing through shared commitment to systematic software development and AI-assisted workflows. Every contribution, from typo fixes to major features, strengthens the framework for all users.
+The SuperGemini Framework community continues growing through shared commitment to systematic software development and AI-assisted workflows. Every contribution, from typo fixes to major features, strengthens the framework for all users.
 
 **Join Us:**
 Whether you're fixing documentation, adding features, or sharing usage patterns, your contributions help build better software development tools for the entire community.

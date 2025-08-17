@@ -7,7 +7,7 @@ mcp-servers: []
 personas: []
 ---
 
-# /sc:document - Focused Documentation Generation
+# /sg:document - Focused Documentation Generation
 
 ## Triggers
 - Documentation requests for specific components, functions, or features
@@ -17,7 +17,7 @@ personas: []
 
 ## Usage
 ```
-/sc:document [target] [--type inline|external|api|guide] [--style brief|detailed]
+/sg:document [target] [--type inline|external|api|guide] [--style brief|detailed]
 ```
 
 ## Behavioral Flow
@@ -49,28 +49,28 @@ Key behaviors:
 
 ### Inline Code Documentation
 ```
-/sc:document src/auth/login.js --type inline
+/sg:document src/auth/login.js --type inline
 # Generates JSDoc comments with parameter and return descriptions
 # Adds comprehensive inline documentation for functions and classes
 ```
 
 ### API Reference Generation
 ```
-/sc:document src/api --type api --style detailed
+/sg:document src/api --type api --style detailed
 # Creates comprehensive API documentation with endpoints and schemas
 # Generates usage examples and integration guidelines
 ```
 
 ### User Guide Creation
 ```
-/sc:document payment-module --type guide --style brief
+/sg:document payment-module --type guide --style brief
 # Creates user-focused documentation with practical examples
 # Focuses on implementation patterns and common use cases
 ```
 
 ### Component Documentation
 ```
-/sc:document components/ --type external
+/sg:document components/ --type external
 # Generates external documentation files for component library
 # Includes props, usage examples, and integration patterns
 ```

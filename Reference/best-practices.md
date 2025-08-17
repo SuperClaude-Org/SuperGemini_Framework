@@ -1221,7 +1221,7 @@ Production: /sg:deploy . --production-optimized --security-first --monitoring
 - Apply basic [Flag Optimization](#flag-optimization) - Performance and efficiency basics
 
 **Success Criteria:**
-- Comfortable with daily SuperGemini workflow
+- Comfortable with daily /sg:workflow
 - Understands basic optimization principles
 - Can complete simple projects efficiently
 

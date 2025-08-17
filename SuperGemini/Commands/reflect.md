@@ -7,7 +7,7 @@ mcp-servers: [serena]
 personas: []
 ---
 
-# /sc:reflect - Task Reflection and Validation
+# /sg:reflect - Task Reflection and Validation
 
 ## Triggers
 - Task completion requiring validation and quality assessment
@@ -17,7 +17,7 @@ personas: []
 
 ## Usage
 ```
-/sc:reflect [--type task|session|completion] [--analyze] [--validate]
+/sg:reflect [--type task|session|completion] [--analyze] [--validate]
 ```
 
 ## Behavioral Flow
@@ -55,21 +55,21 @@ Key behaviors:
 
 ### Task Adherence Reflection
 ```
-/sc:reflect --type task --analyze
+/sg:reflect --type task --analyze
 # Validates current approach against project goals
 # Identifies deviations and provides course correction recommendations
 ```
 
 ### Session Progress Analysis
 ```
-/sc:reflect --type session --validate
+/sg:reflect --type session --validate
 # Comprehensive analysis of session work and information gathering
 # Quality assessment and gap identification for project improvement
 ```
 
 ### Completion Validation
 ```
-/sc:reflect --type completion
+/sg:reflect --type completion
 # Evaluates task completion criteria against actual progress
 # Determines readiness for task completion and identifies remaining blockers
 ```

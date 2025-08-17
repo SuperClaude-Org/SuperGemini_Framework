@@ -6,7 +6,7 @@ from typing import Dict, List, Tuple, Optional, Any
 from pathlib import Path
 
 from ..core.base import Component
-from ..services.claude_md import CLAUDEMdService
+from ..services.gemini_md import GEMINIMdService
 
 
 class ModesComponent(Component):
@@ -78,13 +78,13 @@ class ModesComponent(Component):
             self.settings_manager.update_metadata(metadata_mods)
             self.logger.info("Updated metadata with modes component registration")
             
-            # Update CLAUDE.md with mode imports
+            # Update GEMINI.md with mode imports
             try:
-                manager = CLAUDEMdService(self.install_dir)
+                manager = GEMINIMdService(self.install_dir)
                 manager.add_imports(self.component_files, category="Behavioral Modes")
-                self.logger.info("Updated CLAUDE.md with mode imports")
+                self.logger.info("Updated GEMINI.md with mode imports")
             except Exception as e:
-                self.logger.warning(f"Failed to update CLAUDE.md with mode imports: {e}")
+                self.logger.warning(f"Failed to update GEMINI.md with mode imports: {e}")
                 # Don't fail the whole installation for this
             
             return True

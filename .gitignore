@@ -164,6 +164,7 @@ pyrightconfig.json
 PYPI_SETUP_COMPLETE.md
 release-notes/
 changelog-temp/
+CHANGELOG.md
 
 # Build artifacts (additional)
 *.deb

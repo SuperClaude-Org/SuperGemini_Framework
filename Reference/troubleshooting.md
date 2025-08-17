@@ -140,7 +140,7 @@ pip install --user SuperClaude
 **Issue: Command Not Found**
 ```bash
 # Error message
-ERROR: Command '/sc:analyze' not recognized
+ERROR: Command '/sg:analyze' not recognized
 
 # Diagnosis
 # Check if SuperClaude is properly installed
@@ -176,12 +176,12 @@ df -h
 ps aux | grep claude
 
 # Solution 1: Reduce scope
-/sc:analyze src/ --scope file    # Instead of entire project
-/sc:implement "simple task"      # Instead of complex features
+/sg:analyze src/ --scope file    # Instead of entire project
+/sg:implement "simple task"      # Instead of complex features
 
 # Solution 2: Use timeout flags
-/sc:analyze . --timeout 300      # 5-minute timeout
-/sc:implement "feature" --quick  # Faster implementation mode
+/sg:analyze . --timeout 300      # 5-minute timeout
+/sg:implement "feature" --quick  # Faster implementation mode
 
 # Solution 3: Clear cache and restart
 rm -rf ~/.claude/cache/
@@ -200,19 +200,19 @@ rm -rf ~/.claude/cache/
 # Check current directory and context
 pwd
 ls -la
-/sc:reflect  # Check current session context
+/sg:reflect  # Check current session context
 
 # Solution 1: Reset session context
-/sc:save "backup-session"  # Backup current state
+/sg:save "backup-session"  # Backup current state
 # Restart Claude Code and reload if needed
 
 # Solution 2: Use explicit scope
-/sc:analyze ./specific-folder/  # Explicit path
-/sc:implement "specific task" --focus area
+/sg:analyze ./specific-folder/  # Explicit path
+/sg:implement "specific task" --focus area
 
 # Solution 3: Debug mode
 export SUPERCLAUDE_DEBUG=true
-/sc:analyze . --verbose
+/sg:analyze . --verbose
 
 # Prevention
 # Use explicit paths and clear task descriptions
@@ -226,22 +226,22 @@ export SUPERCLAUDE_DEBUG=true
 # Symptoms: Wrong specialist activated for the task
 
 # Example problem
-/sc:implement "database optimization"
+/sg:implement "database optimization"
 # Activates frontend-architect instead of database specialist
 
 # Diagnosis
 # Check keyword patterns and triggers
-/sc:explain "why was frontend-architect selected for database work?"
+/sg:explain "why was frontend-architect selected for database work?"
 
 # Solution 1: Use explicit keywords
-/sc:implement "PostgreSQL database performance optimization"
+/sg:implement "PostgreSQL database performance optimization"
 # More specific keywords trigger correct specialist
 
 # Solution 2: Use focus flags
-/sc:implement "database optimization" --focus backend --database
+/sg:implement "database optimization" --focus backend --database
 
 # Solution 3: Manual agent specification
-/sc:implement "database optimization" --agent database-specialist
+/sg:implement "database optimization" --agent database-specialist
 
 # Prevention
 # Use domain-specific terminology
@@ -254,21 +254,21 @@ export SUPERCLAUDE_DEBUG=true
 
 # Diagnosis
 # Check complexity score and mode thresholds
-/sc:reflect "task complexity analysis"
+/sg:reflect "task complexity analysis"
 
 # Example: Task management mode not activating for complex project
-/sc:implement "entire microservices platform"
+/sg:implement "entire microservices platform"
 # Should activate task management mode but doesn't
 
 # Solution 1: Explicit mode activation
-/sc:implement "microservices platform" --task-manage
+/sg:implement "microservices platform" --task-manage
 
 # Solution 2: Break down complexity
-/sc:workflow "microservices platform"  # Plan first
-/sc:implement "authentication service"  # Then implement pieces
+/sg:workflow "microservices platform"  # Plan first
+/sg:implement "authentication service"  # Then implement pieces
 
 # Solution 3: Use complexity flags
-/sc:implement "platform" --complex --multi-step
+/sg:implement "platform" --complex --multi-step
 
 # Prevention
 # Describe task complexity explicitly
@@ -282,27 +282,27 @@ export SUPERCLAUDE_DEBUG=true
 **Issue: Expected Agent Not Activating**
 ```bash
 # Example: Security agent not activating for security-related tasks
-/sc:implement "user login system"
+/sg:implement "user login system"
 # Expected: security-engineer activation
 # Actual: Only backend-architect activates
 
 # Diagnosis
 # Check agent trigger patterns
-/sc:explain "agent activation patterns for security tasks"
+/sg:explain "agent activation patterns for security tasks"
 
 # Solution 1: Use explicit security keywords
-/sc:implement "secure user authentication with JWT and encryption"
+/sg:implement "secure user authentication with JWT and encryption"
 # Keywords: "secure", "authentication", "encryption" trigger security-engineer
 
 # Solution 2: Explicit security focus
-/sc:implement "user login" --focus security
+/sg:implement "user login" --focus security
 
 # Solution 3: Multi-keyword approach
-/sc:implement "user login with security best practices and vulnerability protection"
+/sg:implement "user login with security best practices and vulnerability protection"
 
 # Verification
 # Check which agents activated in response
-/sc:reflect "which agents were activated for the last task?"
+/sg:reflect "which agents were activated for the last task?"
 ```
 
 **Issue: Too Many Agents Activating**
@@ -310,18 +310,18 @@ export SUPERCLAUDE_DEBUG=true
 # Symptoms: Overwhelming agent coordination, slow performance
 
 # Example: Simple task activating multiple agents
-/sc:implement "add console.log statement"
+/sg:implement "add console.log statement"
 # Multiple agents activate unnecessarily
 
 # Solution 1: Reduce task scope
-/sc:implement "add debug logging to user.js line 45"
+/sg:implement "add debug logging to user.js line 45"
 # More specific, simpler task
 
 # Solution 2: Use scope limiting
-/sc:implement "logging" --scope file --simple
+/sg:implement "logging" --scope file --simple
 
 # Solution 3: Agent limitation
-/sc:implement "logging" --max-agents 2
+/sg:implement "logging" --max-agents 2
 
 # Prevention
 # Use specific, focused task descriptions
@@ -334,19 +334,19 @@ export SUPERCLAUDE_DEBUG=true
 
 # Diagnosis
 # Review agent recommendations and conflicts
-/sc:reflect "agent coordination issues in last task"
+/sg:reflect "agent coordination issues in last task"
 
 # Solution 1: Establish priority hierarchy
-/sc:implement "payment system" --lead-agent security-engineer
+/sg:implement "payment system" --lead-agent security-engineer
 # Security-engineer leads, others support
 
 # Solution 2: Sequential agent consultation
-/sc:design "payment architecture" --agent system-architect
-/sc:implement "payment security" --agent security-engineer
-/sc:implement "payment UI" --agent frontend-architect
+/sg:design "payment architecture" --agent system-architect
+/sg:implement "payment security" --agent security-engineer
+/sg:implement "payment UI" --agent frontend-architect
 
 # Solution 3: Single-domain focus
-/sc:implement "payment backend only" --focus backend
+/sg:implement "payment backend only" --focus backend
 
 # Prevention
 # Break complex tasks into domain-specific subtasks
@@ -357,26 +357,26 @@ export SUPERCLAUDE_DEBUG=true
 
 **Issue: Brainstorming Mode Not Activating**
 ```bash
-# Expected: Interactive discovery for vague requests
-/sc:brainstorm "build something for productivity"
-# Should activate brainstorming mode but doesn't
+# Expected: Project analysis and planning
+/sg:analyze "productivity tool project"
+# Activates analysis mode for project understanding
 
 # Diagnosis
-# Check for explicit brainstorming keywords
-echo "Requirements: vague project, needs discovery"
+# Check for project structure and requirements
+echo "Requirements: clear project scope, needs analysis"
 
-# Solution 1: Use uncertainty indicators
-/sc:brainstorm "maybe we could build some kind of productivity tool"
-# Keywords: "maybe", "some kind of" trigger exploration
+# Solution 1: Use analyze command
+/sg:analyze "productivity application requirements"
+# Provides structured analysis of the project
 
-# Solution 2: Explicit mode activation
-/sc:brainstorm "productivity tool" --mode brainstorming
+# Solution 2: Use workflow command
+/sg:workflow "productivity tool implementation"
 
-# Solution 3: Question-based approach
-/sc:brainstorm "not sure what kind of productivity solution we need"
+# Solution 3: Direct implementation planning
+/sg:implement "task management features"
 
 # Verification
-# Mode should respond with Socratic questions
+# Should provide structured analysis and planning
 ```
 
 **Issue: Task Management Mode Overwhelming Simple Tasks**
@@ -384,17 +384,17 @@ echo "Requirements: vague project, needs discovery"
 # Symptoms: Simple task gets complex project management treatment
 
 # Example
-/sc:implement "fix typo in README"
+/sg:implement "fix typo in README"
 # Activates task management mode unnecessarily
 
 # Solution 1: Use simple language
-/sc:implement "correct spelling error in README.md"
+/sg:implement "correct spelling error in README.md"
 
 # Solution 2: Scope limitation
-/sc:implement "typo fix" --scope file --simple
+/sg:implement "typo fix" --scope file --simple
 
 # Solution 3: Single-step indication
-/sc:implement "one-line fix in README" --quick
+/sg:implement "one-line fix in README" --quick
 
 # Prevention
 # Use simple, direct language for simple tasks
@@ -431,7 +431,7 @@ node -e "console.log('Node.js working')"
 npm test @context7/mcp-server
 
 # Verification
-/sc:implement "React component" --c7
+/sg:implement "React component" --c7
 # Should connect to Context7 for React patterns
 ```
 
@@ -451,15 +451,15 @@ free -h
 
 # Solution 1: Increase timeout
 export SUPERCLAUDE_MCP_TIMEOUT=60
-/sc:implement "complex task" --timeout 60
+/sg:implement "complex task" --timeout 60
 
 # Solution 2: Restart MCP servers
 SuperClaude debug --mcp-restart
 
 # Solution 3: Disable problematic server temporarily
-/sc:implement "task" --no-mcp
+/sg:implement "task" --no-mcp
 # or
-/sc:implement "task" --seq --magic  # Enable specific servers only
+/sg:implement "task" --seq --magic  # Enable specific servers only
 
 # Prevention
 # Monitor system resources before large operations
@@ -482,7 +482,7 @@ SuperClaude debug --mcp-versions
 SuperClaude debug --mcp-restart sequential
 
 # Solution 2: Use alternative reasoning approach
-/sc:analyze complex-problem --native-reasoning
+/sg:analyze complex-problem --native-reasoning
 # Fall back to native analysis
 
 # Solution 3: Reinstall Sequential MCP
@@ -490,7 +490,7 @@ npm uninstall -g @sequential/mcp-server
 npm install -g @sequential/mcp-server@latest
 
 # Verification
-/sc:troubleshoot "test complex debugging scenario" --seq
+/sg:troubleshoot "test complex debugging scenario" --seq
 # Should activate Sequential reasoning successfully
 ```
 
@@ -510,10 +510,10 @@ npm list -g @magic/ui-generator
 npm install -g @magic/ui-generator@latest
 
 # Solution 2: Use explicit Magic activation
-/sc:implement "React button component" --magic --ui
+/sg:implement "React button component" --magic --ui
 
 # Solution 3: Check component request format
-/sc:implement "modern responsive navigation component with accessibility"
+/sg:implement "modern responsive navigation component with accessibility"
 # More descriptive request for better Magic activation
 
 # Verification
@@ -534,13 +534,13 @@ npx playwright install
 npx playwright install-deps
 
 # Solution 2: Specify browser explicitly
-/sc:test "login flow" --browser chromium --playwright
+/sg:test "login flow" --browser chromium --playwright
 
 # Solution 3: Fallback to headless mode
-/sc:test "ui validation" --headless --playwright
+/sg:test "ui validation" --headless --playwright
 
 # Verification
-/sc:test "simple page load test" --play
+/sg:test "simple page load test" --play
 # Should successfully run browser automation
 ```
 
@@ -555,10 +555,10 @@ npx playwright install-deps
 # Diagnosis
 # Check session persistence
 ls ~/.claude/sessions/
-/sc:load  # Lists available sessions
+/sg:load  # Lists available sessions
 
 # Solution 1: Save session before closing
-/sc:save "current-work-session"
+/sg:save "current-work-session"
 # Before closing Claude Code
 
 # Solution 2: Auto-save configuration
@@ -566,8 +566,8 @@ export SUPERCLAUDE_AUTO_SAVE=true
 # Enables automatic session saving
 
 # Solution 3: Manual session recovery
-/sc:load "last-session"
-/sc:reflect "previous work context"
+/sg:load "last-session"
+/sg:reflect "previous work context"
 
 # Prevention
 # Always save important session state
@@ -585,14 +585,14 @@ ls -la ~/.claude/sessions/
 file ~/.claude/sessions/session-*.json
 
 # Solution 1: Restore from backup
-/sc:load "backup-session-20241201"  # Use backup session
+/sg:load "backup-session-20241201"  # Use backup session
 
 # Solution 2: Partial context recovery
-/sc:reflect "what do I remember about the project?"
+/sg:reflect "what do I remember about the project?"
 # Manually rebuild context
 
 # Solution 3: Fresh session with project analysis
-/sc:load project-directory/ --fresh-analysis
+/sg:load project-directory/ --fresh-analysis
 # Start fresh with project re-analysis
 
 # Prevention
@@ -606,22 +606,22 @@ file ~/.claude/sessions/session-*.json
 
 # Diagnosis
 # Compare session contexts
-/sc:load "session-1" && /sc:reflect "project understanding"
-/sc:load "session-2" && /sc:reflect "project understanding"
+/sg:load "session-1" && /sg:reflect "project understanding"
+/sg:load "session-2" && /sg:reflect "project understanding"
 
 # Solution 1: Consolidate session contexts
-/sc:load "session-1"
-/sc:save "consolidated-session"
-/sc:load "session-2"
-/sc:save "consolidated-session" --merge
+/sg:load "session-1"
+/sg:save "consolidated-session"
+/sg:load "session-2"
+/sg:save "consolidated-session" --merge
 
 # Solution 2: Rebuild authoritative context
-/sc:load project/ --comprehensive-analysis
-/sc:save "authoritative-project-context"
+/sg:load project/ --comprehensive-analysis
+/sg:save "authoritative-project-context"
 
 # Solution 3: Use session hierarchy
-/sc:load "main-project-session"  # Primary context
-/sc:load "feature-branch-session" --inherit-context
+/sg:load "main-project-session"  # Primary context
+/sg:load "feature-branch-session" --inherit-context
 
 # Prevention
 # Maintain single authoritative session per project
@@ -636,18 +636,18 @@ file ~/.claude/sessions/session-*.json
 
 # Diagnosis
 # Check session size and memory usage
-/sc:debug --memory-usage
+SuperGemini debug --memory-usage
 du -sh ~/.claude/sessions/
 
 # Solution 1: Clean session memory
-/sc:cleanup --session-memory --preserve-important
+/sg:cleanup --session-memory --preserve-important
 
 # Solution 2: Archive old context
-/sc:save "archived-context-$(date +%Y%m%d)"
-/sc:cleanup --session-reset
+/sg:save "archived-context-$(date +%Y%m%d)"
+/sg:cleanup --session-reset
 
 # Solution 3: Selective memory cleanup
-/sc:cleanup --memory-threshold 100MB --keep-recent 30days
+/sg:cleanup --memory-threshold 100MB --keep-recent 30days
 
 # Prevention
 # Regular session maintenance and archiving
@@ -778,16 +778,16 @@ iostat 1 5
 
 # Check SuperClaude resource usage
 ps aux | grep -i superclaude
-/sc:debug --performance-metrics
+SuperGemini debug --performance-metrics
 
 # Solution 1: Reduce operation scope
-/sc:analyze src/ --scope file          # Instead of entire project
-/sc:implement "simple task" --quick    # Use quick mode
+/sg:analyze src/ --scope file          # Instead of entire project
+/sg:implement "simple task" --quick    # Use quick mode
 
 # Solution 2: Optimize resource allocation
 export SUPERCLAUDE_MAX_MEMORY=2GB
 export SUPERCLAUDE_CONCURRENCY=2
-/sc:analyze . --parallel 2
+/sg:analyze . --parallel 2
 
 # Solution 3: Clear caches and restart
 rm -rf ~/.claude/cache/
@@ -806,17 +806,17 @@ rm -rf ~/.claude/cache/
 # Check memory usage
 free -h
 ps aux --sort=-%mem | head -10
-/sc:debug --memory-analysis
+SuperGemini debug --memory-analysis
 
 # Solution 1: Enable memory optimization
 export SUPERCLAUDE_MEMORY_OPTIMIZE=true
-/sc:analyze . --memory-efficient
+/sg:analyze . --memory-efficient
 
 # Solution 2: Use streaming mode for large operations
-/sc:analyze large-project/ --stream --chunk-size 10MB
+/sg:analyze large-project/ --stream --chunk-size 10MB
 
 # Solution 3: Cleanup and optimization
-/sc:cleanup --memory --cache --sessions
+/sg:cleanup --memory --cache --sessions
 # Remove unnecessary cached data
 
 # Prevention
@@ -831,11 +831,11 @@ export SUPERCLAUDE_MEMORY_OPTIMIZE=true
 
 # Diagnosis
 # Check MCP server performance
-/sc:debug --mcp-performance
+SuperGemini debug --mcp-performance
 tail -f ~/.claude/logs/mcp-*.log
 
 # Solution 1: Selective MCP server usage
-/sc:implement "task" --c7 --seq  # Use only needed servers
+/sg:implement "task" --c7 --seq  # Use only needed servers
 # Instead of --all-mcp
 
 # Solution 2: MCP server optimization
@@ -843,7 +843,7 @@ SuperClaude debug --mcp-optimize
 # Optimize server configurations
 
 # Solution 3: Local fallback mode
-/sc:implement "task" --no-mcp --native-mode
+/sg:implement "task" --no-mcp --native-mode
 # Use native capabilities when MCP servers slow
 
 # Prevention
@@ -864,9 +864,9 @@ iotop
 netstat -i
 
 # SuperClaude-specific monitoring
-/sc:debug --comprehensive-performance
+SuperGemini debug --comprehensive-performance
 export SUPERCLAUDE_PROFILE=true
-/sc:analyze . --profile
+/sg:analyze . --profile
 
 # Analysis and optimization
 # Based on monitoring results:
@@ -887,7 +887,7 @@ crontab -e
 **Error: "Command not recognized"**
 ```bash
 # Full error message
-ERROR: Command '/sc:analyze' not recognized by Claude Code
+ERROR: Command '/sg:analyze' not recognized by Claude Code
 
 # Meaning: SuperClaude instructions not loaded into Claude Code session
 # Resolution:
@@ -919,7 +919,7 @@ ERROR: MCP server 'context7' connection failed - server not responding
 1. Check Node.js installation: node --version (should be 16+)
 2. Reinstall MCP servers: SuperClaude install --components mcp --force
 3. Verify server status: SuperClaude debug --mcp-servers
-4. Test without MCP: /sc:command --no-mcp
+4. Test without MCP: SuperGemini command --no-mcp
 ```
 
 **Error: "Session context corrupted"**
@@ -929,10 +929,10 @@ ERROR: Cannot load session - data corruption detected
 
 # Meaning: Session file damaged or incompatible format
 # Resolution:
-1. Try backup session: /sc:load "backup-session-name"
-2. List available sessions: /sc:load (shows all sessions)
-3. Start fresh: /sc:load project-directory/ --fresh-analysis
-4. Rebuild context: /sc:analyze . --comprehensive && /sc:save "new-session"
+1. Try backup session: /sg:load "backup-session-name"
+2. List available sessions: /sg:load (shows all sessions)
+3. Start fresh: /sg:load project-directory/ --fresh-analysis
+4. Rebuild context: /sg:analyze . --comprehensive && /sg:save "new-session"
 ```
 
 **Error: "Agent activation failed"**
@@ -942,9 +942,9 @@ ERROR: No suitable agent found for task complexity
 
 # Meaning: Task description insufficient for agent selection
 # Resolution:
-1. Add specific keywords: /sc:implement "React TypeScript component with security validation"
-2. Use explicit focus: /sc:implement "task" --focus frontend --agent frontend-architect
-3. Break down complex tasks: /sc:workflow "complex task" first, then implement pieces
+1. Add specific keywords: /sg:implement "React TypeScript component with security validation"
+2. Use explicit focus: /sg:implement "task" --focus frontend --agent frontend-architect
+3. Break down complex tasks: /sg:workflow "complex task" first, then implement pieces
 ```
 
 ### Error Interpretation Strategies
@@ -1081,15 +1081,15 @@ A: Use descriptive keywords related to your domain (e.g., "secure" for security-
 A: Yes, use server-specific flags like `--c7` (Context7), `--seq` (Sequential), `--magic` (Magic UI), or `--no-mcp` for none.
 
 **Q: How do I save and resume work sessions?**
-A: Use `/sc:save "session-name"` to save and `/sc:load "session-name"` to resume. See [Session Management](../User-Guide/session-management.md) for details.
+A: Use `/sg:save "session-name"` to save and `/sg:load "session-name"` to resume. See [Session Management](../User-Guide/session-management.md) for details.
 
 **Q: What's the difference between modes and agents?**
-A: Modes control behavior style (brainstorming, task management, etc.). Agents provide domain expertise (security, frontend, etc.). They work together automatically.
+A: Modes control behavior style (task management, introspection, etc.). Agents provide domain expertise (security, frontend, etc.). They work together automatically.
 
 ### Troubleshooting
 
 **Q: Commands are slow or hanging - what should I do?**
-A: 1) Check system resources with `top`, 2) Reduce scope with `--scope file`, 3) Use `--quick` flag, 4) Clear cache with `/sc:cleanup`.
+A: 1) Check system resources with `top`, 2) Reduce scope with `--scope file`, 3) Use `--quick` flag, 4) Clear cache with `/sg:cleanup`.
 
 **Q: How do I reset SuperClaude to default configuration?**
 A: `SuperClaude install --reset-config --backup` creates backup and resets to defaults.
@@ -1124,7 +1124,7 @@ SuperClaude debug --quick               # Quick health check
 
 # Test core functionality
 echo "Test SuperClaude functionality" | claude
-# Then try: /sc:analyze README.md
+# Then try: /sg:analyze README.md
 ```
 
 **Component-Specific Diagnostics:**
@@ -1180,12 +1180,12 @@ free -h                    # Check available memory (1GB+ recommended)
 ```bash
 # Establish performance baselines
 time SuperClaude install --dry-run       # Installation speed test
-time /sc:analyze small-file.py           # Analysis speed test  
-/sc:debug --benchmark                     # Performance benchmarks
+time /sg:analyze small-file.py           # Analysis speed test  
+SuperGemini debug --benchmark                     # Performance benchmarks
 
 # Create performance profile for troubleshooting
 export SUPERCLAUDE_PROFILE=true
-/sc:analyze . --profile > performance-profile.txt
+/sg:analyze . --profile > performance-profile.txt
 ```
 
 ---

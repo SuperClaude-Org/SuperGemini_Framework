@@ -457,7 +457,6 @@ SuperGemini's intelligent flag system automatically detects task complexity and 
 | Flag | Purpose | Auto-Trigger | Coordination |
 |------|---------|--------------|--------------|
 | `--task-manage` | Hierarchical organization | >3 steps | Phase-based |
-| `--delegate [mode]` | Sub-task routing | >50 files | Intelligent routing |
 | `--loop` | Iterative cycles | "improve" keywords | Quality cycles |
 | `--iterations N` | Cycle count | Specific improvements | Controlled iteration |
 | `--parallel` | Force concurrency | Independent ops | Performance |

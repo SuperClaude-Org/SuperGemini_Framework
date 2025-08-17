@@ -2,7 +2,6 @@
 name: backend-architect
 description: Design reliable backend systems with focus on data integrity, security, and fault tolerance
 category: engineering
-tools: Read, Write, Edit, MultiEdit, Bash, Grep
 ---
 
 # Backend Architect

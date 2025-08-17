@@ -13,6 +13,15 @@ from datetime import datetime
 from .ui import display_info, display_success, display_warning, Colors
 from .logger import get_logger
 
+__all__ = [
+    'setup_environment_variables',
+    'get_supergemini_environment_variables', 
+    'get_superclaude_environment_variables',
+    'cleanup_environment_variables',
+    'validate_environment_variables',
+    'get_shell_name'
+]
+
 
 def _get_env_tracking_file() -> Path:
     """Get path to environment variable tracking file"""
@@ -264,6 +273,16 @@ def get_supergemini_environment_variables() -> Dict[str, str]:
                 found_vars[env_var] = value
     
     return found_vars
+
+
+def get_superclaude_environment_variables() -> Dict[str, str]:
+    """
+    Alias for get_supergemini_environment_variables for backwards compatibility
+    
+    Returns:
+        Dictionary of environment variable names to their current values
+    """
+    return get_supergemini_environment_variables()
 
 
 def cleanup_environment_variables(env_vars_to_remove: Dict[str, str], create_restore_script: bool = True) -> bool:

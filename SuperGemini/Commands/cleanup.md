@@ -7,7 +7,7 @@ mcp-servers: [sequential, context7]
 personas: [architect, quality, security]
 ---
 
-# /sc:cleanup - Code and Project Cleanup
+# /sg:cleanup - Code and Project Cleanup
 
 ## Triggers
 - Code maintenance and technical debt reduction requests
@@ -17,7 +17,7 @@ personas: [architect, quality, security]
 
 ## Usage
 ```
-/sc:cleanup [target] [--type code|imports|files|all] [--safe|--aggressive] [--interactive]
+/sg:cleanup [target] [--type code|imports|files|all] [--safe|--aggressive] [--interactive]
 ```
 
 ## Behavioral Flow
@@ -54,28 +54,28 @@ Key behaviors:
 
 ### Safe Code Cleanup
 ```
-/sc:cleanup src/ --type code --safe
+/sg:cleanup src/ --type code --safe
 # Conservative cleanup with automatic safety validation
 # Removes dead code while preserving all functionality
 ```
 
 ### Import Optimization
 ```
-/sc:cleanup --type imports --preview
+/sg:cleanup --type imports --preview
 # Analyzes and shows unused import cleanup without execution
 # Framework-aware optimization via Context7 patterns
 ```
 
 ### Comprehensive Project Cleanup
 ```
-/sc:cleanup --type all --interactive
+/sg:cleanup --type all --interactive
 # Multi-domain cleanup with user guidance for complex decisions
 # Activates all personas for comprehensive analysis
 ```
 
 ### Framework-Specific Cleanup
 ```
-/sc:cleanup components/ --aggressive
+/sg:cleanup components/ --aggressive
 # Thorough cleanup with Context7 framework patterns
 # Sequential analysis for complex dependency management
 ```

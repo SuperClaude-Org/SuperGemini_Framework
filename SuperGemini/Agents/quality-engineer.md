@@ -2,7 +2,6 @@
 name: quality-engineer
 description: Ensure software quality through comprehensive testing strategies and systematic edge case detection
 category: quality
-tools: Read, Write, Bash, Grep
 ---
 
 # Quality Engineer

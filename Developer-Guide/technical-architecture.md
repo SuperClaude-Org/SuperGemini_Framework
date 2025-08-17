@@ -75,8 +75,8 @@ This technical architecture guide documents SuperGemini Framework's V4 orchestra
 
 ┌──────────────────── USER INTERACTION LAYER ────────────────────┐
 │ Natural Language Input  │  Slash Commands    │   Flag Modifiers │
-│ "build auth system"     │  /sc:load project  │   --seq   │
-│ "optimize performance"  │  /sc:save state    │   --uc --orchestrate│
+│ "build auth system"     │  /sg:load project  │   --seq   │
+│ "optimize performance"  │  /sg:save state    │   --uc --orchestrate│
 └─────────────────────────┬───────────────────────────────────────┘
                           │
 ┌──────────────────── DETECTION & ROUTING ENGINE ────────────────┐
@@ -97,9 +97,9 @@ This technical architecture guide documents SuperGemini Framework's V4 orchestra
                           │
 ┌──────────────────── EXECUTION FRAMEWORK ────────────────────────┐
 │ ┌─ Task Management ─┐ ┌─ Quality Gates ──┐ ┌─ Session Memory ──┐│
-│ │• TodoWrite system │ │• Pre-execution   │ │• /sc:load state   ││
+│ │• TodoWrite system │ │• Pre-execution   │ │• /sg:load state   ││
 │ │• Progress track   │ │• Real-time check │ │• Context persist  ││
-│ │• Agent coordinate │ │• Post-validation │ │• /sc:save results ││
+│ │• Agent coordinate │ │• Post-validation │ │• /sg:save results ││
 │ └───────────────────┘ └──────────────────┘ └───────────────────┘│
 └─────────────────────────┬───────────────────────────────────────┘
                           │
@@ -1550,7 +1550,7 @@ MORPHLLM_MCP:
 
 SERENA_MCP:
 - Purpose: Semantic code understanding with project memory and LSP integration
-- Triggers: symbol operations, /sc:load, /sc:save, large codebase navigation
+- Triggers: symbol operations, /sg:load, /sg:save, large codebase navigation
 - Choose Over: Morphllm for symbol operations and dependency tracking
 - Integration: Serena → Sequential (project context + architectural analysis)
 ```
@@ -2018,7 +2018,7 @@ class CustomCommandExtension:
         
     def register_command(self):
         command_registry = CommandRegistry()
-        command_registry.register_command(f'/sc:{self.command_name}', {
+        command_registry.register_command(f'SuperGemini {self.command_name}', {
             'handler': self.command_config['handler'],
             'description': self.command_config['description'],
             'flags': self.command_config.get('flags', []),
@@ -2045,9 +2045,9 @@ validate_command = CustomCommandExtension('validate', {
     'handler': 'ValidationCommandHandler',
     'description': 'Multi-layer validation including security, performance, and quality',
     'usage': [
-        '/sc:validate codebase/',
-        '/sc:validate --focus security auth-system/',
-        '/sc:validate --comprehensive --report project/'
+        'SuperGemini validate codebase/',
+        'SuperGemini validate --focus security auth-system/',
+        'SuperGemini validate --comprehensive --report project/'
     ],
     'flags': ['focus', 'comprehensive', 'report', 'fix'],
     'capabilities': ['code_analysis', 'security_scanning', 'performance_testing'],

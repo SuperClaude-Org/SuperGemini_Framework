@@ -7,7 +7,7 @@ from pathlib import Path
 import shutil
 
 from ..core.base import Component
-from ..services.claude_md import CLAUDEMdService
+from ..services.gemini_md import GEMINIMdService
 
 class CoreComponent(Component):
     """Core SuperGemini framework files component"""
@@ -79,13 +79,13 @@ class CoreComponent(Component):
             if not self.file_manager.ensure_directory(dir_path):
                 self.logger.warning(f"Could not create directory: {dir_path}")
         
-        # Update CLAUDE.md with core framework imports
+        # Update GEMINI.md with core framework imports
         try:
-            manager = CLAUDEMdService(self.install_dir)
+            manager = GEMINIMdService(self.install_dir)
             manager.add_imports(self.component_files, category="Core Framework")
-            self.logger.info("Updated CLAUDE.md with core framework imports")
+            self.logger.info("Updated GEMINI.md with core framework imports")
         except Exception as e:
-            self.logger.warning(f"Failed to update CLAUDE.md with core framework imports: {e}")
+            self.logger.warning(f"Failed to update GEMINI.md with core framework imports: {e}")
             # Don't fail the whole installation for this
 
         return True

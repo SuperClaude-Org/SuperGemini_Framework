@@ -1,10 +1,10 @@
-# SuperClaude Framework Developer Guide
+# SuperGemini Framework Developer Guide
 
-A comprehensive documentation suite for SuperClaude Framework development, testing, and architecture.
+A comprehensive documentation suite for SuperGemini Framework development, testing, and architecture.
 
 ## Documentation Overview
 
-This Developer Guide provides complete technical documentation for SuperClaude Framework development, organized into three interconnected documents:
+This Developer Guide provides complete technical documentation for SuperGemini Framework development, organized into three interconnected documents:
 
 ### [Contributing Code Guide](contributing-code.md)
 **Purpose**: Development workflows, contribution guidelines, and coding standards  
@@ -46,7 +46,7 @@ This Developer Guide provides complete technical documentation for SuperClaude F
 ## Key Framework Concepts
 
 ### Meta-Framework Architecture
-SuperClaude operates as an enhancement layer for Claude Code through instruction injection rather than code modification, maintaining compatibility while adding sophisticated orchestration capabilities.
+SuperGemini operates as an enhancement layer for Claude Code through instruction injection rather than code modification, maintaining compatibility while adding sophisticated orchestration capabilities.
 
 ### Agent Orchestration
 Intelligent coordination of 13 specialized AI agents through communication protocols, decision hierarchies, and collaborative synthesis patterns.
@@ -107,8 +107,8 @@ Security considerations are embedded throughout all documentation, from developm
 ### Quick Setup
 ```bash
 # Clone and setup development environment
-git clone https://github.com/SuperClaude-Org/SuperClaude_Framework.git
-cd SuperClaude_Framework
+git clone https://github.com/SuperClaude-Org/SuperGemini_Framework.git
+cd SuperGemini_Framework
 
 # Follow setup instructions in Contributing Code Guide
 python -m venv venv
@@ -116,7 +116,7 @@ source venv/bin/activate
 pip install -e ".[dev]"
 
 # Verify installation
-python -m SuperClaude --version
+python -m SuperGemini --version
 ```
 
 ### Development Workflow
@@ -161,6 +161,6 @@ We welcome contributions to improve documentation quality, accuracy, and complet
 
 ---
 
-**SuperClaude Framework**: Building the future of AI-assisted development through intelligent orchestration and behavioral programming.
+**SuperGemini Framework**: Building the future of AI-assisted development through intelligent orchestration and behavioral programming.
 
-For the latest updates and community discussions, visit our [GitHub repository](https://github.com/SuperClaude-Org/SuperClaude_Framework).
+For the latest updates and community discussions, visit our [GitHub repository](https://github.com/SuperClaude-Org/SuperGemini_Framework).

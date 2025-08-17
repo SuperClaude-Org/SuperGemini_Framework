@@ -15,7 +15,7 @@ SuperGemini doesn't call external agents. Instead, Gemini **becomes** the agent 
 ### Traditional SuperClaude (Not Supported)
 ```yaml
 # SuperClaude would delegate to actual sub-agents
---delegate → spawn sub-agent → parallel execution
+SuperGemini persona mode → sequential execution
 ```
 
 ### SuperGemini Approach (Agent Mode)

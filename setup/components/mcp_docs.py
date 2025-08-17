@@ -6,7 +6,7 @@ from typing import Dict, List, Tuple, Optional, Any
 from pathlib import Path
 
 from ..core.base import Component
-from ..services.claude_md import CLAUDEMdService
+from ..services.gemini_md import GEMINIMdService
 
 
 class MCPDocsComponent(Component):
@@ -145,13 +145,13 @@ class MCPDocsComponent(Component):
             self.settings_manager.update_metadata(metadata_mods)
             self.logger.info("Updated metadata with MCP docs component registration")
             
-            # Update CLAUDE.md with MCP documentation imports
+            # Update GEMINI.md with MCP documentation imports
             try:
-                manager = CLAUDEMdService(self.install_dir)
+                manager = GEMINIMdService(self.install_dir)
                 manager.add_imports(self.component_files, category="MCP Documentation")
-                self.logger.info("Updated CLAUDE.md with MCP documentation imports")
+                self.logger.info("Updated GEMINI.md with MCP documentation imports")
             except Exception as e:
-                self.logger.warning(f"Failed to update CLAUDE.md with MCP documentation imports: {e}")
+                self.logger.warning(f"Failed to update GEMINI.md with MCP documentation imports: {e}")
                 # Don't fail the whole installation for this
             
             return True

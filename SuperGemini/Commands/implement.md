@@ -7,7 +7,7 @@ mcp-servers: [context7, sequential, magic, playwright]
 personas: [architect, frontend, backend, security, qa-specialist]
 ---
 
-# /sc:implement - Feature Implementation
+# /sg:implement - Feature Implementation
 
 ## Triggers
 - Feature development requests for components, APIs, or complete functionality
@@ -17,7 +17,7 @@ personas: [architect, frontend, backend, security, qa-specialist]
 
 ## Usage
 ```
-/sc:implement [feature-description] [--type component|api|service|feature] [--framework react|vue|express] [--safe] [--with-tests]
+/sg:implement [feature-description] [--type component|api|service|feature] [--framework react|vue|express] [--safe] [--with-tests]
 ```
 
 ## Behavioral Flow
@@ -55,28 +55,28 @@ Key behaviors:
 
 ### React Component Implementation
 ```
-/sc:implement user profile component --type component --framework react
+/sg:implement user profile component --type component --framework react
 # Magic MCP generates UI component with design system integration
 # Frontend persona ensures best practices and accessibility
 ```
 
 ### API Service Implementation
 ```
-/sc:implement user authentication API --type api --safe --with-tests
+/sg:implement user authentication API --type api --safe --with-tests
 # Backend persona handles server-side logic and data processing
 # Security persona ensures authentication best practices
 ```
 
 ### Full-Stack Feature
 ```
-/sc:implement payment processing system --type feature --with-tests
+/sg:implement payment processing system --type feature --with-tests
 # Multi-persona coordination: architect, frontend, backend, security
 # Sequential MCP breaks down complex implementation steps
 ```
 
 ### Framework-Specific Implementation
 ```
-/sc:implement dashboard widget --framework vue
+/sg:implement dashboard widget --framework vue
 # Context7 MCP provides Vue-specific patterns and documentation
 # Framework-appropriate implementation with official best practices
 ```

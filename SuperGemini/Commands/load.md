@@ -7,7 +7,7 @@ mcp-servers: [serena]
 personas: []
 ---
 
-# /sc:load - Project Context Loading
+# /sg:load - Project Context Loading
 
 ## Triggers
 - Session initialization and project context loading requests
@@ -17,7 +17,7 @@ personas: []
 
 ## Usage
 ```
-/sc:load [target] [--type project|config|deps|checkpoint] [--refresh] [--analyze]
+/sg:load [target] [--type project|config|deps|checkpoint] [--refresh] [--analyze]
 ```
 
 ## Behavioral Flow
@@ -54,28 +54,28 @@ Key behaviors:
 
 ### Basic Project Loading
 ```
-/sc:load
+/sg:load
 # Loads current directory project context with Serena memory integration
 # Establishes session context and prepares for development workflow
 ```
 
 ### Specific Project Loading
 ```
-/sc:load /path/to/project --type project --analyze
+/sg:load /path/to/project --type project --analyze
 # Loads specific project with comprehensive analysis
 # Activates project context and retrieves cross-session memories
 ```
 
 ### Checkpoint Restoration
 ```
-/sc:load --type checkpoint --checkpoint session_123
+/sg:load --type checkpoint --checkpoint session_123
 # Restores specific checkpoint with session context
 # Continues previous work session with full context preservation
 ```
 
 ### Dependency Context Loading
 ```
-/sc:load --type deps --refresh
+/sg:load --type deps --refresh
 # Loads dependency context with fresh analysis
 # Updates project understanding and dependency mapping
 ```

@@ -1,28 +1,25 @@
-# SuperClaude Quick Start Guide
+# SuperGemini Quick Start Guide
 
 ## The Simple Truth
 
-SuperClaude transforms Claude Code into a structured development framework with just one installation command. Behind the simple interface, intelligent routing automatically selects the right tools, activates domain experts, and coordinates complex workflows.
+SuperGemini transforms Claude Code into a structured development framework with just one installation command. Behind the simple interface, intelligent routing automatically selects the right tools, activates domain experts, and coordinates complex workflows.
 
-**5-Minute Start**: Install → Try `/sc:brainstorm` → Watch the magic happen.
+**5-Minute Start**: Install → Start using SuperGemini Framework → Watch the magic happen.
 
 ## Just Start Here
 
 **Installation (2 minutes):**
 ```bash
-pip install SuperClaude && SuperClaude install
+pip install SuperGemini && SuperGemini install
 ```
 
 **First Commands (3 minutes):**
 ```bash
-# Interactive project discovery
-/sc:brainstorm "web app for task management"
-
 # Analyze existing code
-/sc:analyze src/
+SuperGemini $1 src/
 
 # Generate implementation plan
-/sc:workflow "add user authentication"
+SuperGemini $1 "add user authentication"
 ```
 
 **What Happens Automatically:**
@@ -33,13 +30,13 @@ pip install SuperClaude && SuperClaude install
 
 ---
 
-## What is SuperClaude Really?
+## What is SuperGemini Really?
 
-SuperClaude is a meta-programming framework that enhances Claude Code with:
+SuperGemini is a meta-programming framework that enhances Claude Code with:
 
-**21 Slash Commands** for workflow automation (/sc:brainstorm, /sc:implement, /sc:analyze)
+**21 Slash Commands** for workflow automation (/sg:analyze, /sg:implement, /sg:workflow)
 **13 AI Specialists** with domain expertise (architect, security, frontend, backend)
-**6 Behavioral Modes** for different contexts (brainstorming, introspection, orchestration)
+**6 Behavioral Modes** for different contexts (introspection, orchestration, task management)
 **6 MCP Servers** for enhanced capabilities (Context7, Sequential, Magic, Playwright)
 
 **Version 4.0** delivers production-ready workflow orchestration with intelligent agent coordination and session persistence.
@@ -47,7 +44,7 @@ SuperClaude is a meta-programming framework that enhances Claude Code with:
 ## How It Works
 
 **User Experience:**
-You type `/sc:implement "user login"` → SuperClaude analyzes requirements → activates security specialist → connects to Context7 for authentication patterns → generates complete implementation with tests.
+You type `SuperGemini $1 "user login"` → /sg:analyzes requirements → activates security specialist → connects to Context7 for authentication patterns → generates complete implementation with tests.
 
 **Technical Workflow:**
 1. **Command Parser** analyzes intent and complexity
@@ -63,25 +60,24 @@ You type `/sc:implement "user login"` → SuperClaude analyzes requirements → 
 **First Session Pattern:**
 ```bash
 # 1. Project Discovery
-/sc:brainstorm "e-commerce mobile app"
 
 # 2. Load Context (existing projects)
-/sc:load src/
+SuperGemini $1 src/
 
 # 3. Analyze Current State
-/sc:analyze --focus architecture
+SuperGemini $1 --focus architecture
 
 # 4. Plan Implementation
-/sc:workflow "add payment integration"
+SuperGemini $1 "add payment integration"
 
 # 5. Implement Features
-/sc:implement "Stripe payment flow"
+SuperGemini $1 "Stripe payment flow"
 
 # 6. Validate Quality
-/sc:test --coverage
+SuperGemini $1 --coverage
 
 # 7. Save Session
-/sc:save "payment-integration-complete"
+SuperGemini $1 "payment-integration-complete"
 ```
 
 **Domain-Specific Workflows:**
@@ -94,9 +90,9 @@ You type `/sc:implement "user login"` → SuperClaude analyzes requirements → 
 
 ## Key Takeaways
 
-### SuperClaude's Core Value
+### SuperGemini's Core Value
 
-SuperClaude transforms Claude Code from a general-purpose AI assistant into a **specialized development framework** with:
+SuperGemini transforms Claude Code from a general-purpose AI assistant into a **specialized development framework** with:
 
 - **Systematic Workflows** instead of ad-hoc requests
 - **Domain Expertise** through specialized agents
@@ -118,20 +114,20 @@ SuperClaude transforms Claude Code from a general-purpose AI assistant into a **
 
 **Learning Path:**
 
-**Week 1**: Master core commands (`/sc:brainstorm`, `/sc:analyze`, `/sc:implement`)
+**Week 1**: Master core commands (`/sg:analyze`, `/sg:implement`, `/sg:workflow`)
 **Week 2**: Explore behavioral modes and flag combinations
 **Week 3**: Configure MCP servers for enhanced capabilities
 **Week 4**: Create custom workflows and session management patterns
 
 **Usage Recommendations:**
 - Start with simple commands and let complexity emerge naturally
-- Use `/sc:index` to discover relevant commands for your context
+- Use `SuperGemini $1` to discover relevant commands for your context
 - Enable MCP servers gradually as you understand their benefits
-- Save successful patterns with `/sc:save` for reuse
+- Save successful patterns with `SuperGemini $1` for reuse
 
-### When to Use SuperClaude
+### When to Use SuperGemini
 
-**Use SuperClaude When:**
+**Use SuperGemini When:**
 - Building software projects (any language/framework)
 - Need systematic workflows and quality gates
 - Working on complex, multi-component systems
@@ -144,7 +140,7 @@ SuperClaude transforms Claude Code from a general-purpose AI assistant into a **
 - Learning programming concepts
 - Quick prototypes or experiments
 
-**SuperClaude Excellence**: Multi-step development workflows with quality requirements
+**SuperGemini Excellence**: Multi-step development workflows with quality requirements
 
 ---
 

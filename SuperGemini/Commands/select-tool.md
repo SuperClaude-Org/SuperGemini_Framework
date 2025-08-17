@@ -7,7 +7,7 @@ mcp-servers: [serena, morphllm]
 personas: []
 ---
 
-# /sc:select-tool - Intelligent MCP Tool Selection
+# SuperGemini select-tool - Intelligent MCP Tool Selection
 
 ## Triggers
 - Operations requiring optimal MCP tool selection between Serena and Morphllm
@@ -17,7 +17,7 @@ personas: []
 
 ## Usage
 ```
-/sc:select-tool [operation] [--analyze] [--explain]
+SuperGemini select-tool [operation] [--analyze] [--explain]
 ```
 
 ## Behavioral Flow
@@ -54,21 +54,21 @@ Key behaviors:
 
 ### Complex Refactoring Operation
 ```
-/sc:select-tool "rename function across 10 files" --analyze
+SuperGemini select-tool "rename function across 10 files" --analyze
 # Analysis: High complexity (multi-file, symbol operations)
 # Selection: Serena MCP (LSP capabilities, semantic understanding)
 ```
 
 ### Pattern-Based Bulk Edit
 ```
-/sc:select-tool "update console.log to logger.info across project" --explain
+SuperGemini select-tool "update console.log to logger.info across project" --explain
 # Analysis: Pattern-based transformation, speed priority
 # Selection: Morphllm MCP (pattern matching, bulk operations)
 ```
 
 ### Memory Management Operation
 ```
-/sc:select-tool "save project context and discoveries"
+SuperGemini select-tool "save project context and discoveries"
 # Direct mapping: Memory operations → Serena MCP
 # Rationale: Project context and cross-session persistence
 ```

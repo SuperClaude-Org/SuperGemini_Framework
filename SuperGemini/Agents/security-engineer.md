@@ -2,7 +2,6 @@
 name: security-engineer
 description: Identify security vulnerabilities and ensure compliance with security standards and best practices
 category: quality
-tools: Read, Grep, Glob, Bash, Write
 ---
 
 # Security Engineer

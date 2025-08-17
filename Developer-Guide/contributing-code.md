@@ -1,8 +1,8 @@
-# Contributing Code to SuperClaude Framework 🛠️
+# Contributing Code to SuperGemini Framework 🛠️
 
-Welcome to SuperClaude Framework development! This guide provides everything you need to contribute to the meta-programming framework that transforms Claude Code into a structured development platform.
+Welcome to SuperGemini Framework development! This guide provides everything you need to contribute to the meta-programming framework that transforms Claude Code into a structured development platform.
 
-**Project Purpose**: SuperClaude enhances Claude Code through behavioral instruction injection, intelligent agent coordination, and MCP server integration. We're building the next generation of AI-assisted development tools.
+**Project Purpose**: SuperGemini enhances Claude Code through behavioral instruction injection, intelligent agent coordination, and MCP server integration. We're building the next generation of AI-assisted development tools.
 
 **Community Approach**: Open collaboration focused on expanding capabilities, improving user experience, and maintaining high-quality code standards. Every contribution, from bug fixes to new features, helps advance AI-assisted development.
 
@@ -52,7 +52,7 @@ Before starting development, validate your environment meets all requirements:
 #!/bin/bash
 # validate_environment.sh
 
-echo "🔍 Validating SuperClaude Development Environment..."
+echo "🔍 Validating SuperGemini Development Environment..."
 
 # Check Python version
 python_version=$(python3 --version 2>&1 | grep -o '[0-9]\+\.[0-9]\+')
@@ -142,9 +142,9 @@ which claude-code || echo "Claude Code not found in PATH"
 
 **1. Fork and Clone Repository:**
 ```bash
-# Fork SuperClaude_Framework on GitHub first
-git clone https://github.com/YOUR_USERNAME/SuperClaude_Framework.git
-cd SuperClaude_Framework
+# Fork SuperGemini_Framework on GitHub first
+git clone https://github.com/YOUR_USERNAME/SuperGemini_Framework.git
+cd SuperGemini_Framework
 ```
 
 **2. Set Up Python Environment:**
@@ -221,7 +221,7 @@ CMD ["/bin/bash"]
 **VS Code DevContainer Setup:**
 ```json
 {
-  "name": "SuperClaude Development",
+  "name": "SuperGemini Development",
   "dockerFile": "../docker/Dockerfile.dev",
   "mounts": [
     "source=${localWorkspaceFolder},target=/workspace,type=bind",
@@ -247,14 +247,14 @@ export CLAUDE_CONFIG_DIR=~/.claude
 mkdir -p ~/.claude
 
 # Copy core configuration files to Claude config directory
-cp -r SuperClaude/Core/* ~/.claude/
+cp -r SuperGemini/Core/* ~/.claude/
 ```
 
 **4. Verify Installation:**
 ```bash
 # Test installation
-python3 -m SuperClaude --version
-python3 -m SuperClaude install --dry-run --install-dir ~/.claude
+python3 -m SuperGemini --version
+python3 -m SuperGemini install --dry-run --install-dir ~/.claude
 
 # Run tests
 python3 -m pytest tests/
@@ -279,13 +279,13 @@ cp .vscode/settings.json.template .vscode/settings.json
 
 ### Core Components
 
-**SuperClaude Framework Structure:**
+**SuperGemini Framework Structure:**
 
-**Accessibility Description**: This is a hierarchical directory tree showing the organization of SuperClaude Framework components. The main directory contains four major subdirectories: SuperClaude (framework components), setup (installation system), documentation directories, and tests.
+**Accessibility Description**: This is a hierarchical directory tree showing the organization of SuperGemini Framework components. The main directory contains four major subdirectories: SuperGemini (framework components), setup (installation system), documentation directories, and tests.
 
 ```
-SuperClaude_Framework/
-├── SuperClaude/                 # Framework components
+SuperGemini_Framework/
+├── SuperGemini/                 # Framework components
 │   ├── Core/                   # Core behavioral instructions
 │   │   ├── FLAGS.md            # Behavioral flags system
 │   │   ├── RULES.md            # Development rules
@@ -335,7 +335,7 @@ SuperClaude_Framework/
 from setup.components.base import BaseComponent
 
 class AgentComponent(BaseComponent):
-    """Base class for SuperClaude agent components"""
+    """Base class for SuperGemini agent components"""
     
     def get_agent_definitions(self):
         return {
@@ -434,17 +434,17 @@ class MCPComponent(BaseComponent):
 `code` for inline code and commands
 ```code blocks``` for examples
 **Flags**: Use consistent flag notation (--flag-name)
-**Commands**: Use consistent command notation (/sc:command)
+**Commands**: Use consistent command notation (SuperGemini command)
 ```
 
 **Code Example Standards:**
 ```bash
 # Good: Complete, runnable examples
-/sc:implement "user authentication system"
+/sg:implement "user authentication system"
 # → Auto-activates: security-engineer + backend-architect
 
 # Bad: Incomplete or non-functional examples
-/sc:implement auth  # Not descriptive enough
+/sg:implement auth  # Not descriptive enough
 ```
 
 ### Commit Messages
@@ -493,11 +493,11 @@ changes
 ```bash
 # 1. Fork repository on GitHub
 # 2. Clone your fork
-git clone https://github.com/YOUR_USERNAME/SuperClaude_Framework.git
-cd SuperClaude_Framework
+git clone https://github.com/YOUR_USERNAME/SuperGemini_Framework.git
+cd SuperGemini_Framework
 
 # 3. Add upstream remote
-git remote add upstream https://github.com/SuperClaude-Org/SuperClaude_Framework.git
+git remote add upstream https://github.com/SuperClaude-Org/SuperGemini_Framework.git
 
 # 4. Create feature branch
 git checkout -b feature/your-feature-name
@@ -520,7 +520,7 @@ python3 -m pytest tests/
 python3 scripts/validate_pypi_ready.py
 
 # 3. Test installation
-python3 -m SuperClaude install --dry-run --components your-component
+python3 -m SuperGemini install --dry-run --components your-component
 
 # 4. Run linting and formatting
 python3 -m black .
@@ -616,7 +616,7 @@ git push origin feature/your-feature-name
 
 **🎯 Skill Level: Beginner to Intermediate**
 
-Complete this checklist to ensure you're ready to contribute effectively to SuperClaude Framework:
+Complete this checklist to ensure you're ready to contribute effectively to SuperGemini Framework:
 
 #### Phase 1: Environment Setup ⏱️ **15 minutes**
 - [ ] **Prerequisites Validated**
@@ -629,9 +629,9 @@ Complete this checklist to ensure you're ready to contribute effectively to Supe
 
 - [ ] **Repository Setup**
   - [ ] GitHub account configured with SSH key
-  - [ ] SuperClaude_Framework repository forked to your account
-  - [ ] Local clone created: `git clone https://github.com/YOUR_USERNAME/SuperClaude_Framework.git`
-  - [ ] Upstream remote added: `git remote add upstream https://github.com/SuperClaude-Org/SuperClaude_Framework.git`
+  - [ ] SuperGemini_Framework repository forked to your account
+  - [ ] Local clone created: `git clone https://github.com/YOUR_USERNAME/SuperGemini_Framework.git`
+  - [ ] Upstream remote added: `git remote add upstream https://github.com/SuperClaude-Org/SuperGemini_Framework.git`
   - [ ] Development branch created: `git checkout -b feature/your-first-contribution`
 
 - [ ] **Development Environment**
@@ -650,8 +650,8 @@ Complete this checklist to ensure you're ready to contribute effectively to Supe
 - [ ] **Component System Knowledge**
   - [ ] Review component installation system in `setup/components/`
   - [ ] Understand dependency resolution patterns
-  - [ ] Examine existing agent definitions in `SuperClaude/Agents/`
-  - [ ] Review behavioral mode files in `SuperClaude/Modes/`
+  - [ ] Examine existing agent definitions in `SuperGemini/Agents/`
+  - [ ] Review behavioral mode files in `SuperGemini/Modes/`
 
 - [ ] **Development Patterns**
   - [ ] Review contribution guidelines in this document
@@ -678,7 +678,7 @@ Choose your contribution path based on interest and skill level:
 
 #### 🤖 **Agent Development Path** - *Intermediate Level*
 **Time Investment: 2-4 hours**
-- [ ] Study existing agent patterns in `SuperClaude/Agents/`
+- [ ] Study existing agent patterns in `SuperGemini/Agents/`
 - [ ] Review agent activation triggers and capabilities
 - [ ] Understand agent coordination protocols
 - [ ] **First Contribution Ideas:**
@@ -689,7 +689,7 @@ Choose your contribution path based on interest and skill level:
 #### 🎯 **Behavioral Mode Path** - *Intermediate Level*  
 **Time Investment: 1-3 hours**
 - [ ] Understand mode activation triggers and behavioral changes
-- [ ] Review existing modes in `SuperClaude/Modes/`
+- [ ] Review existing modes in `SuperGemini/Modes/`
 - [ ] Study mode integration with other systems
 - [ ] **First Contribution Ideas:**
   - [ ] Create specialized behavioral mode (research, academic)
@@ -783,7 +783,7 @@ git commit -m "docs: improve onboarding example for new contributors
 Closes #XXX (if applicable)"
 ```
 
-**🎉 Welcome to the SuperClaude Framework contributor community!**
+**🎉 Welcome to the SuperGemini Framework contributor community!**
 
 ## 📈 Performance Testing Requirements
 
@@ -958,7 +958,7 @@ Maintain backward compatibility to ensure smooth upgrades for existing users:
 ```python
 # setup/core/compatibility.py
 class CompatibilityManager:
-    """Manages backward compatibility for SuperClaude Framework"""
+    """Manages backward compatibility for SuperGemini Framework"""
     
     SUPPORTED_VERSIONS = ['3.0', '3.1', '3.2', '4.0-beta']
     MIGRATION_PATHS = {
@@ -1068,7 +1068,7 @@ git push upstream v4.0.1
 
 **Release Branches:**
 - **master**: Stable releases
-- **SuperClaude_V4_Beta**: V4 Beta releases and development
+- **SuperGemini_V4_Beta**: V4 Beta releases and development
 - **hotfix/***: Critical fixes for production
 
 ### Enhanced Release Process Documentation ⏱️ **45-60 minutes**
@@ -1080,7 +1080,7 @@ git push upstream v4.0.1
 **Code Quality Gates:**
 - [ ] All tests pass with >95% coverage: `python3 -m pytest tests/ --cov=setup --cov-fail-under=95`
 - [ ] Installation validation passes: `python3 scripts/validate_pypi_ready.py`
-- [ ] Security scan passes: `python3 -m bandit -r setup/ SuperClaude/`
+- [ ] Security scan passes: `python3 -m bandit -r setup/ SuperGemini/`
 - [ ] Performance benchmarks within thresholds: `python3 scripts/performance_regression.py`
 - [ ] Documentation builds without errors: `python3 scripts/build_docs.py`
 - [ ] Linting and formatting clean: `python3 -m black --check . && python3 -m pylint setup/`
@@ -1112,7 +1112,7 @@ set -e  # Exit on any error
 VERSION=${1:?"Version parameter required (e.g., 4.0.1)"}
 RELEASE_TYPE=${2:-"patch"}  # major, minor, patch
 
-echo "🚀 Starting SuperClaude Framework Release Pipeline v${VERSION}"
+echo "🚀 Starting SuperGemini Framework Release Pipeline v${VERSION}"
 
 # Step 1: Validate environment
 echo "📋 Step 1: Environment Validation"
@@ -1122,7 +1122,7 @@ python3 scripts/validate_release_environment.py --version ${VERSION}
 echo "🧪 Step 2: Comprehensive Testing"
 python3 -m pytest tests/ --cov=setup --cov-fail-under=95 --junit-xml=test-results.xml
 python3 scripts/performance_regression.py
-python3 -m bandit -r setup/ SuperClaude/ -f json -o security-report.json
+python3 -m bandit -r setup/ SuperGemini/ -f json -o security-report.json
 
 # Step 3: Version management
 echo "📦 Step 3: Version Management"
@@ -1172,7 +1172,7 @@ def update_version(version: str, release_type: str):
     
     files_to_update = [
         'setup.py',
-        'SuperClaude/__init__.py',
+        'SuperGemini/__init__.py',
         'setup/core/__init__.py',
         'docs/conf.py'
     ]
@@ -1254,7 +1254,7 @@ class ReleaseNotesGenerator:
         return '\n\n'.join(filter(None, sections))
     
     def _generate_header(self) -> str:
-        return f"""# SuperClaude Framework {self.version}
+        return f"""# SuperGemini Framework {self.version}
 
 **Release Date**: {datetime.now().strftime('%Y-%m-%d')}
 **Previous Version**: {self.previous_version}
@@ -1320,7 +1320,7 @@ class ReleaseNotesGenerator:
 
 VERSION=${1:?"Version parameter required"}
 
-echo "🚀 Deploying SuperClaude Framework v${VERSION} to Production"
+echo "🚀 Deploying SuperGemini Framework v${VERSION} to Production"
 
 # Final safety checks
 read -p "⚠️  Are you sure you want to deploy v${VERSION} to production? (yes/no): " confirm
@@ -1340,7 +1340,7 @@ npm publish
 # Update GitHub release
 echo "📝 Creating GitHub release..."
 gh release create v${VERSION} \
-    --title "SuperClaude Framework v${VERSION}" \
+    --title "SuperGemini Framework v${VERSION}" \
     --notes-file RELEASE_NOTES.md \
     --latest
 
@@ -1361,7 +1361,7 @@ echo "📢 Sending release notifications..."
 python3 scripts/notify_release.py --version ${VERSION}
 
 echo "✅ Production deployment completed successfully!"
-echo "🎉 SuperClaude Framework v${VERSION} is now live!"
+echo "🎉 SuperGemini Framework v${VERSION} is now live!"
 ```
 
 #### Post-Release Monitoring
@@ -1405,7 +1405,7 @@ class ReleaseMonitor:
     def _check_pypi_availability(self) -> dict:
         """Check if package is available on PyPI"""
         try:
-            response = requests.get(f"https://pypi.org/project/SuperClaude/{self.version}/")
+            response = requests.get(f"https://pypi.org/project/SuperGemini/{self.version}/")
             return {
                 'status': 'available' if response.status_code == 200 else 'unavailable',
                 'response_time': response.elapsed.total_seconds()
@@ -1598,7 +1598,7 @@ class SessionEnhancement:
 **MCP Server Development Process:**
 1. **Capability Definition**: Clear server purpose and functions
 2. **Protocol Implementation**: Standard MCP protocol compliance
-3. **SuperClaude Integration**: Auto-activation and coordination
+3. **SuperGemini Integration**: Auto-activation and coordination
 4. **Testing**: Server functionality and integration testing
 5. **Documentation**: Usage patterns and examples
 
@@ -1646,13 +1646,13 @@ class DatabaseAnalyzerMCPComponent(BaseComponent):
 
 **Installation Problems:**
 
-*Issue: `ModuleNotFoundError: No module named 'SuperClaude'`*
+*Issue: `ModuleNotFoundError: No module named 'SuperGemini'`*
 ```bash
 # Solution: Install in development mode
 python3 -m pip install -e ".[dev]"
 
 # Verify installation
-python3 -c "import SuperClaude; print(SuperClaude.__version__)"
+python3 -c "import SuperGemini; print(SuperGemini.__version__)"
 ```
 
 *Issue: `Permission denied` when copying configuration files*
@@ -1663,7 +1663,7 @@ mkdir -p ~/.claude
 chmod 755 ~/.claude
 
 # Copy with explicit permissions
-cp -r SuperClaude/Core/* ~/.claude/
+cp -r SuperGemini/Core/* ~/.claude/
 chmod -R 644 ~/.claude/*.md
 ```
 
@@ -1677,7 +1677,7 @@ python3 -m pip install pytest
 
 **Configuration Issues:**
 
-*Issue: Claude Code not detecting SuperClaude configuration*
+*Issue: Claude Code not detecting SuperGemini configuration*
 ```bash
 # Verify configuration location
 echo $CLAUDE_CONFIG_DIR
@@ -1696,12 +1696,12 @@ print('Configuration files:', files)
 ```bash
 # Check Node.js and server paths
 node --version
-ls -la SuperClaude/MCP/configs/
+ls -la SuperGemini/MCP/configs/
 
 # Verify MCP server configuration
 python3 -c "
 import json
-with open('SuperClaude/MCP/configs/mcp_servers.json') as f:
+with open('SuperGemini/MCP/configs/mcp_servers.json') as f:
     config = json.load(f)
     print('MCP servers configured:', list(config.keys()))
 "
@@ -1736,7 +1736,7 @@ python3 -m pip install twine check-manifest
 #!/bin/bash
 # debug_environment.sh
 
-echo "🔍 SuperClaude Development Environment Diagnostics"
+echo "🔍 SuperGemini Development Environment Diagnostics"
 echo "================================================"
 
 echo "📍 Current Directory: $(pwd)"
@@ -1758,14 +1758,14 @@ fi
 echo -e "\n📋 Environment Variables:"
 env | grep -E "(CLAUDE|SUPERCLAUDE|PYTHON)" | sort
 
-echo -e "\n🎯 SuperClaude Installation:"
+echo -e "\n🎯 SuperGemini Installation:"
 python3 -c "
 try:
-    import SuperClaude
-    print(f'✅ SuperClaude {SuperClaude.__version__} installed')
-    print(f'📁 Location: {SuperClaude.__file__}')
+    import SuperGemini
+    print(f'✅ SuperGemini {SuperGemini.__version__} installed')
+    print(f'📁 Location: {SuperGemini.__file__}')
 except ImportError as e:
-    print(f'❌ SuperClaude not found: {e}')
+    print(f'❌ SuperGemini not found: {e}')
 "
 
 echo -e "\n🗂️ Configuration Files:"
@@ -1813,7 +1813,7 @@ ps aux | grep python3 | head -5
 #!/bin/bash
 # reset_dev_environment.sh
 
-echo "🔄 Resetting SuperClaude Development Environment..."
+echo "🔄 Resetting SuperGemini Development Environment..."
 
 # Remove virtual environment
 rm -rf venv/
@@ -1838,7 +1838,7 @@ python3 -m pip install --upgrade pip
 python3 -m pip install -e ".[dev]"
 
 # Recopy configuration
-cp -r SuperClaude/Core/* ~/.claude/
+cp -r SuperGemini/Core/* ~/.claude/
 
 echo "✅ Development environment reset complete!"
 ```
@@ -1860,7 +1860,7 @@ tar -xzf superclaude_config_backup_*.tar.gz -C /
 python3 -c "
 import sys, platform, subprocess, os
 
-print('# SuperClaude Development Environment Report')
+print('# SuperGemini Development Environment Report')
 print(f'**Date:** {__import__('datetime').datetime.now().isoformat()}')
 print(f'**Platform:** {platform.platform()}')
 print(f'**Python:** {sys.version.split()[0]}')
@@ -1875,10 +1875,10 @@ print(f'**Working Directory:** {os.getcwd()}')
 print(f'**Virtual Environment:** {os.environ.get("VIRTUAL_ENV", "None")}')
 
 try:
-    import SuperClaude
-    print(f'**SuperClaude Version:** {SuperClaude.__version__}')
+    import SuperGemini
+    print(f'**SuperGemini Version:** {SuperGemini.__version__}')
 except:
-    print('**SuperClaude Version:** Not installed')
+    print('**SuperGemini Version:** Not installed')
 "
 ```
 
@@ -1954,7 +1954,7 @@ echo "**/.env*" >> .gitignore
 **Automated Security Checks:**
 ```bash
 # Add to CI/CD pipeline
-python3 -m bandit -r setup/ SuperClaude/
+python3 -m bandit -r setup/ SuperGemini/
 python3 -m pip-audit
 python3 -m safety check
 ```
@@ -2003,7 +2003,7 @@ python3 -m safety check
 python3 -m pip install -e ".[dev]"
 
 # Test specific component
-python3 -m SuperClaude install --dry-run --components your-component
+python3 -m SuperGemini install --dry-run --components your-component
 
 # Run test suite
 python3 -m pytest tests/test_your_component.py
@@ -2012,7 +2012,7 @@ python3 -m pytest tests/test_your_component.py
 **Q: Where should I add my custom agent?**
 ```
 # Agent files go in:
-SuperClaude/Agents/AGENT_YourAgent.md
+SuperGemini/Agents/AGENT_YourAgent.md
 
 # Component definition goes in:
 setup/components/your_agent.py
@@ -2055,10 +2055,10 @@ Check:
 
 ## 📄 License
 
-**MIT License**: SuperClaude Framework is licensed under the MIT License, providing maximum freedom for use, modification, and distribution.
+**MIT License**: SuperGemini Framework is licensed under the MIT License, providing maximum freedom for use, modification, and distribution.
 
 **Contribution License Agreement:**
-By contributing to SuperClaude Framework, you agree that your contributions will be licensed under the same MIT License. You retain copyright to your contributions while granting the project perpetual rights to use, modify, and distribute your code.
+By contributing to SuperGemini Framework, you agree that your contributions will be licensed under the same MIT License. You retain copyright to your contributions while granting the project perpetual rights to use, modify, and distribute your code.
 
 **Third-Party Dependencies:**
 Ensure any dependencies you add are compatible with MIT License. Common compatible licenses: MIT, Apache 2.0, BSD. Avoid GPL and other copyleft licenses.
@@ -2072,7 +2072,7 @@ Ensure any dependencies you add are compatible with MIT License. Common compatib
 - Testing and quality assurance
 
 **Community Impact:**
-SuperClaude Framework exists because of the collaborative effort of developers, users, and contributors who believe in advancing AI-assisted development. Every bug report, feature suggestion, documentation improvement, and code contribution makes the framework better for everyone.
+SuperGemini Framework exists because of the collaborative effort of developers, users, and contributors who believe in advancing AI-assisted development. Every bug report, feature suggestion, documentation improvement, and code contribution makes the framework better for everyone.
 
 **Special Recognition:**
 - **Early Adopters**: Testing and feedback during beta development
@@ -2084,7 +2084,7 @@ SuperClaude Framework exists because of the collaborative effort of developers, 
 All contributors are recognized in our GitHub contributors page and release notes. Significant contributions may be highlighted in project announcements and community updates.
 
 **Join the Community:**
-Your expertise and perspective make SuperClaude Framework better. Whether you're fixing typos, adding features, or helping other users, every contribution advances the goal of more effective AI-assisted development.
+Your expertise and perspective make SuperGemini Framework better. Whether you're fixing typos, adding features, or helping other users, every contribution advances the goal of more effective AI-assisted development.
 
 **Thank you for contributing to the future of AI-enhanced development tools! 🚀**
 
@@ -2092,15 +2092,15 @@ Your expertise and perspective make SuperClaude Framework better. Whether you're
 
 ## Glossary
 
-**For Screen Readers**: This glossary contains alphabetically ordered technical terms used throughout SuperClaude Framework documentation. Each term includes a clear definition and relevant context.
+**For Screen Readers**: This glossary contains alphabetically ordered technical terms used throughout SuperGemini Framework documentation. Each term includes a clear definition and relevant context.
 
 ### A
 
-**Agent**: A specialized AI persona with domain expertise (e.g., system-architect, security-engineer) that coordinates with other agents to solve complex development tasks. Agents have defined roles, triggers, and capabilities within the SuperClaude orchestration system.
+**Agent**: A specialized AI persona with domain expertise (e.g., system-architect, security-engineer) that coordinates with other agents to solve complex development tasks. Agents have defined roles, triggers, and capabilities within the SuperGemini orchestration system.
 
 **Agent Coordination**: The intelligent orchestration of multiple specialized AI agents working together on complex tasks, with clear communication patterns, decision hierarchies, and collaborative synthesis.
 
-**Architecture Overview**: A high-level view of SuperClaude's system design, including the meta-framework approach, component relationships, and orchestration patterns.
+**Architecture Overview**: A high-level view of SuperGemini's system design, including the meta-framework approach, component relationships, and orchestration patterns.
 
 ### B
 
@@ -2110,9 +2110,9 @@ Your expertise and perspective make SuperClaude Framework better. Whether you're
 
 ### C
 
-**Claude Code**: The base AI development assistant that SuperClaude enhances through instruction injection and orchestration capabilities.
+**Claude Code**: The base AI development assistant that SuperGemini enhances through instruction injection and orchestration capabilities.
 
-**Component System**: Modular installation architecture with dependency resolution, allowing selective installation and configuration of SuperClaude features.
+**Component System**: Modular installation architecture with dependency resolution, allowing selective installation and configuration of SuperGemini features.
 
 **Configuration-Driven Behavior**: System behavior modification through structured configuration files rather than code changes, enabling flexible AI customization.
 
@@ -2130,7 +2130,7 @@ Your expertise and perspective make SuperClaude Framework better. Whether you're
 
 ### F
 
-**Framework Components**: Modular parts of SuperClaude including Core (behavioral instructions), Modes (interaction patterns), MCP integrations, Commands, and Agents.
+**Framework Components**: Modular parts of SuperGemini including Core (behavioral instructions), Modes (interaction patterns), MCP integrations, Commands, and Agents.
 
 ### I
 
@@ -2170,7 +2170,7 @@ Your expertise and perspective make SuperClaude Framework better. Whether you're
 
 **Session Management**: Context preservation and cross-session learning capabilities that maintain project memory and enable intelligent adaptation over time.
 
-**System Architecture**: The overall design of SuperClaude Framework including detection engine, orchestration layer, execution framework, and foundation components.
+**System Architecture**: The overall design of SuperGemini Framework including detection engine, orchestration layer, execution framework, and foundation components.
 
 ### T
 
@@ -2180,11 +2180,11 @@ Your expertise and perspective make SuperClaude Framework better. Whether you're
 
 ### U
 
-**User Experience**: Design focus on making SuperClaude accessible to developers of all skill levels through clear documentation, intuitive workflows, and comprehensive support resources.
+**User Experience**: Design focus on making SuperGemini accessible to developers of all skill levels through clear documentation, intuitive workflows, and comprehensive support resources.
 
 ### V
 
-**V4 Architecture**: The latest SuperClaude Framework version featuring 13 specialized agents, 6 MCP servers, 5 behavioral modes, and enhanced orchestration capabilities.
+**V4 Architecture**: The latest SuperGemini Framework version featuring 13 specialized agents, 6 MCP servers, 5 behavioral modes, and enhanced orchestration capabilities.
 
 **Validation Gates**: Automated quality checkpoints throughout development workflows that ensure code quality, security compliance, and performance standards.
 

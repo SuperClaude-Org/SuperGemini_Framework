@@ -7,7 +7,7 @@ mcp-servers: []
 personas: []
 ---
 
-# /sc:troubleshoot - Issue Diagnosis and Resolution
+# /sg:troubleshoot - Issue Diagnosis and Resolution
 
 ## Triggers
 - Code defects and runtime error investigation requests
@@ -17,7 +17,7 @@ personas: []
 
 ## Usage
 ```
-/sc:troubleshoot [issue] [--type bug|build|performance|deployment] [--trace] [--fix]
+/sg:troubleshoot [issue] [--type bug|build|performance|deployment] [--trace] [--fix]
 ```
 
 ## Behavioral Flow
@@ -49,28 +49,28 @@ Key behaviors:
 
 ### Code Bug Investigation
 ```
-/sc:troubleshoot "Null pointer exception in user service" --type bug --trace
+/sg:troubleshoot "Null pointer exception in user service" --type bug --trace
 # Systematic analysis of error context and stack traces
 # Identifies root cause and provides targeted fix recommendations
 ```
 
 ### Build Failure Analysis
 ```
-/sc:troubleshoot "TypeScript compilation errors" --type build --fix
+/sg:troubleshoot "TypeScript compilation errors" --type build --fix
 # Analyzes build logs and TypeScript configuration
 # Automatically applies safe fixes for common compilation issues
 ```
 
 ### Performance Issue Diagnosis
 ```
-/sc:troubleshoot "API response times degraded" --type performance
+/sg:troubleshoot "API response times degraded" --type performance
 # Performance metrics analysis and bottleneck identification
 # Provides optimization recommendations and monitoring guidance
 ```
 
 ### Deployment Problem Resolution
 ```
-/sc:troubleshoot "Service not starting in production" --type deployment --trace
+/sg:troubleshoot "Service not starting in production" --type deployment --trace
 # Environment and configuration analysis
 # Systematic verification of deployment requirements and dependencies
 ```

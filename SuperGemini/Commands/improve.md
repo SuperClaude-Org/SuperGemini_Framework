@@ -7,7 +7,7 @@ mcp-servers: [sequential, context7]
 personas: [architect, performance, quality, security]
 ---
 
-# /sc:improve - Code Improvement
+# /sg:improve - Code Improvement
 
 ## Triggers
 - Code quality enhancement and refactoring requests
@@ -17,7 +17,7 @@ personas: [architect, performance, quality, security]
 
 ## Usage
 ```
-/sc:improve [target] [--type quality|performance|maintainability|style] [--safe] [--interactive]
+/sg:improve [target] [--type quality|performance|maintainability|style] [--safe] [--interactive]
 ```
 
 ## Behavioral Flow
@@ -54,28 +54,28 @@ Key behaviors:
 
 ### Code Quality Enhancement
 ```
-/sc:improve src/ --type quality --safe
+/sg:improve src/ --type quality --safe
 # Systematic quality analysis with safe refactoring application
 # Improves code structure, reduces technical debt, enhances readability
 ```
 
 ### Performance Optimization
 ```
-/sc:improve api-endpoints --type performance --interactive
+/sg:improve api-endpoints --type performance --interactive
 # Performance persona analyzes bottlenecks and optimization opportunities
 # Interactive guidance for complex performance improvement decisions
 ```
 
 ### Maintainability Improvements
 ```
-/sc:improve legacy-modules --type maintainability --preview
+/sg:improve legacy-modules --type maintainability --preview
 # Architect persona analyzes structure and suggests maintainability improvements
 # Preview mode shows changes before application for review
 ```
 
 ### Security Hardening
 ```
-/sc:improve auth-service --type security --validate
+/sg:improve auth-service --type security --validate
 # Security persona identifies vulnerabilities and applies security patterns
 # Comprehensive validation ensures security improvements are effective
 ```

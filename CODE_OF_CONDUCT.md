@@ -2,7 +2,7 @@
 
 ## 🤝 Our Commitment
 
-SuperClaude Framework is committed to fostering an inclusive, professional, and collaborative community focused on advancing AI-assisted software development. We welcome contributors of all backgrounds, experience levels, and perspectives to participate in building better development tools and workflows.
+SuperGemini Framework is committed to fostering an inclusive, professional, and collaborative community focused on advancing AI-assisted software development. We welcome contributors of all backgrounds, experience levels, and perspectives to participate in building better development tools and workflows.
 
 **Our Mission**: Create a supportive environment where software developers can learn, contribute, and innovate together while maintaining the highest standards of technical excellence and professional conduct.
 
@@ -272,27 +272,27 @@ SuperClaude Framework is committed to fostering an inclusive, professional, and 
 ## 🌍 Scope
 
 **GitHub Repositories:**
-- SuperClaude Framework main repository and all related repositories
+- SuperGemini Framework main repository and all related repositories
 - Issues, pull requests, discussions, and code review interactions
 - Repository wikis, documentation, and project boards
 - Release notes, commit messages, and repository metadata
 
 **Communication Platforms:**
 - GitHub Discussions and Issues for project-related communication
-- Any official SuperClaude social media accounts or announcements
+- Any official SuperGemini social media accounts or announcements
 - Community forums, chat channels, or messaging platforms
 - Video calls, meetings, or webinars related to the project
 
 **Events and Conferences:**
-- SuperClaude-sponsored events, meetups, or conference presentations
+- SuperGemini-sponsored events, meetups, or conference presentations
 - Community workshops, training sessions, or educational events
-- Online events, webinars, or live streams featuring SuperClaude
+- Online events, webinars, or live streams featuring SuperGemini
 - Informal gatherings or meetups organized by community members
 
 **External Platforms:**
-- Stack Overflow, Reddit, or other platforms when discussing SuperClaude
+- Stack Overflow, Reddit, or other platforms when discussing SuperGemini
 - Social media interactions related to the project or community
-- Blog posts, articles, or publications about SuperClaude Framework
+- Blog posts, articles, or publications about SuperGemini Framework
 - Professional networking platforms when representing the community
 
 **Private Communications:**
@@ -302,7 +302,7 @@ SuperClaude Framework is committed to fostering an inclusive, professional, and 
 - Mentorship relationships formed through community participation
 
 **Representation Guidelines:**
-When representing SuperClaude Framework in any capacity:
+When representing SuperGemini Framework in any capacity:
 - Professional behavior expected regardless of platform or context
 - Community standards apply even in informal settings
 - Consider impact on project reputation and community relationships
@@ -354,7 +354,7 @@ When representing SuperClaude Framework in any capacity:
 
 **Educational Philosophy:**
 
-SuperClaude Framework prioritizes education and growth over punishment when addressing community issues. We believe most conflicts arise from misunderstandings, different experience levels, or lack of context rather than malicious intent.
+SuperGemini Framework prioritizes education and growth over punishment when addressing community issues. We believe most conflicts arise from misunderstandings, different experience levels, or lack of context rather than malicious intent.
 
 **Learning-Focused Enforcement:**
 - First response focuses on education and clarification of expectations
@@ -516,7 +516,7 @@ This code of conduct draws inspiration from several established community standa
 
 **Policy Maintenance:**
 
-**Last Updated**: December 2024 (SuperClaude Framework v4.0)
+**Last Updated**: December 2024 (SuperGemini Framework v4.0)
 **Next Review**: June 2025 (Semi-annual review cycle)
 **Version**: 4.0.0 (Updated for v4 community structure and governance)
 
@@ -534,7 +534,7 @@ This code of conduct draws inspiration from several established community standa
 
 **Community Acknowledgments:**
 
-SuperClaude Framework's inclusive and professional community culture benefits from the active participation of contributors who embody these values in their daily interactions and technical contributions.
+SuperGemini Framework's inclusive and professional community culture benefits from the active participation of contributors who embody these values in their daily interactions and technical contributions.
 
 **Community Contributors:**
 - Community members who model professional communication and inclusive participation
@@ -543,13 +543,13 @@ SuperClaude Framework's inclusive and professional community culture benefits fr
 - Advocates who promote the framework and community in external venues
 
 **Positive Impact Recognition:**
-- [GitHub Contributors](https://github.com/SuperClaude-Org/SuperClaude_Framework/graphs/contributors) - Technical and community contributions
+- [GitHub Contributors](https://github.com/SuperClaude-Org/SuperGemini_Framework/graphs/contributors) - Technical and community contributions
 - Community discussions highlight helpful guidance, mentorship, and collaborative problem-solving
 - Regular appreciation for inclusive behavior and professional communication
 - Annual community recognition for outstanding contributions to community culture
 
 **Growing Community:**
-The SuperClaude community continues to grow through shared commitment to technical excellence, inclusive collaboration, and continuous learning. Community-focused contributions, from welcoming newcomers to facilitating productive discussions, strengthen the environment for all participants.
+The SuperGemini community continues to grow through shared commitment to technical excellence, inclusive collaboration, and continuous learning. Community-focused contributions, from welcoming newcomers to facilitating productive discussions, strengthen the environment for all participants.
 
 **Join Our Community:**
 Whether you're contributing code, improving documentation, helping others learn, or participating in discussions, your commitment to professional and inclusive behavior helps build a better software development community for everyone. Every positive interaction contributes to our collective success and the advancement of AI-assisted development tools.

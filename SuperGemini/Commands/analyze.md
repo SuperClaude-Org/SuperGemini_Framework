@@ -7,7 +7,7 @@ mcp-servers: []
 personas: []
 ---
 
-# /sc:analyze - Code Analysis and Quality Assessment
+# /sg:analyze - Code Analysis and Quality Assessment
 
 ## Triggers
 - Code quality assessment requests for projects or specific components
@@ -17,7 +17,7 @@ personas: []
 
 ## Usage
 ```
-/sc:analyze [target] [--focus quality|security|performance|architecture] [--depth quick|deep] [--format text|json|report]
+/sg:analyze [target] [--focus quality|security|performance|architecture] [--depth quick|deep] [--format text|json|report]
 ```
 
 ## Behavioral Flow
@@ -50,28 +50,28 @@ Key behaviors:
 
 ### Comprehensive Project Analysis
 ```
-/sc:analyze
+/sg:analyze
 # Multi-domain analysis of entire project
 # Generates comprehensive report with key findings and roadmap
 ```
 
 ### Focused Security Assessment
 ```
-/sc:analyze src/auth --focus security --depth deep
+/sg:analyze src/auth --focus security --depth deep
 # Deep security analysis of authentication components
 # Vulnerability assessment with detailed remediation guidance
 ```
 
 ### Performance Optimization Analysis
 ```
-/sc:analyze --focus performance --format report
+/sg:analyze --focus performance --format report
 # Performance bottleneck identification
 # Generates HTML report with optimization recommendations
 ```
 
 ### Quick Quality Check
 ```
-/sc:analyze src/components --focus quality --depth quick
+/sg:analyze src/components --focus quality --depth quick
 # Rapid quality assessment of component directory
 # Identifies code smells and maintainability issues
 ```
