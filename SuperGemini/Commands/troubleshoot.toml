@@ -5,7 +5,7 @@ description: "Diagnose and resolve issues in code, builds, deployments, and syst
 category: utility
 complexity: basic
 mcp-servers: []
-agents: ["root-cause-analyzer", "performance-optimizer"]
+agents: ["root-cause-analyst", "performance-engineer"]
 ---
 
 # /sc:troubleshoot - Issue Diagnosis and Resolution

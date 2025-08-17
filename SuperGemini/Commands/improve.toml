@@ -5,7 +5,7 @@ description: "Apply systematic improvements to code quality, performance, and ma
 category: workflow
 complexity: standard
 mcp-servers: [sequential, context7]
-agents: ["code-refactorer", "performance-optimizer", "security-engineer"]
+agents: ["refactoring-expert", "performance-engineer", "security-engineer"]
 ---
 
 # /sc:improve - Code Improvement

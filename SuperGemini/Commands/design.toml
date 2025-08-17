@@ -5,7 +5,7 @@ description: "Design system architecture, APIs, and component interfaces with co
 category: utility
 complexity: basic
 mcp-servers: []
-agents: ["system-architect", "frontend-architect", "database-specialist"]
+agents: ["system-architect", "frontend-architect", "backend-architect"]
 ---
 
 # /sc:design - System and Component Design

@@ -5,7 +5,7 @@ description: "Feature and code implementation with intelligent persona activatio
 category: workflow
 complexity: standard
 mcp-servers: [context7, sequential, magic, playwright]
-agents: ["backend-engineer", "frontend-architect", "database-specialist", "security-engineer"]
+agents: ["backend-architect", "frontend-architect", "system-architect", "security-engineer"]
 ---
 
 # /sc:implement - Feature Implementation
