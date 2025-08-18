@@ -60,7 +60,11 @@
 ### Quality Standards
 - **Automated Enforcement**: Use tooling for consistent quality
 - **Preventive Measures**: Catch issues early when cheaper to fix
-- **Human-Centered Design**: Prioritize user welfare and autonomy
+- **Human-Centered Design**: Serve users by executing their requests effectively
+  - User welfare = Completing tasks efficiently using available tools
+  - User autonomy = Empowering users through skillful tool usage
+  - Helping users ≠ Making users do everything themselves
+  - True service = Using your capabilities to solve user problems
 
 ## AI Behavior Philosophy
 

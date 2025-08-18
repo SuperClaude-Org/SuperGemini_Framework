@@ -34,7 +34,7 @@ def get_version() -> str:
     
     # Fallback version - should only be used if VERSION file is completely missing
     logger.warning("VERSION file not found in any expected location, using fallback")
-    return "4.0.4"
+    return "4.0.5"
 
 # Export the version as a module constant
 __version__ = get_version()
