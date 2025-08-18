@@ -131,9 +131,10 @@ class MCPComponent(Component):
     
     def get_metadata(self) -> Dict[str, str]:
         """Get component metadata"""
+        from .. import __version__
         return {
             "name": "mcp",
-            "version": "4.0.3",
+            "version": __version__,
             "description": "MCP server configuration management via .gemini.json",
             "category": "integration"
         }
@@ -632,10 +633,11 @@ class MCPComponent(Component):
         """Post-installation tasks"""
         try:
             # Update metadata
+            from .. import __version__
             metadata_mods = {
                 "components": {
                     "mcp": {
-                        "version": "4.0.3",
+                        "version": __version__,
                         "installed": True,
                         "servers_configured": len(self.selected_servers),
                         "configured_servers": self.selected_servers
@@ -647,7 +649,7 @@ class MCPComponent(Component):
             
             # Add component registration
             self.settings_manager.add_component_registration("mcp", {
-                "version": "4.0.3",
+                "version": __version__,
                 "category": "integration",
                 "servers_configured": len(self.selected_servers),
                 "configured_servers": self.selected_servers

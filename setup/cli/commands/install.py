@@ -19,6 +19,7 @@ from ...utils.ui import (
 )
 from ...utils.environment import setup_environment_variables
 from ...utils.logger import get_logger
+from ...utils.paths import get_safe_components_directory
 from ... import DEFAULT_INSTALL_DIR, PROJECT_ROOT, DATA_DIR
 from ..base import OperationBase
 
@@ -49,644 +50,796 @@ Examples:
         parents=parents
     )
     
-    # Installation mode options
-    
+    # Component selection
     parser.add_argument(
-        "--components",
-        type=str,
+        "--components", "-c",
         nargs="+",
-        help="Specific components to install"
+        choices=["core", "mcp", "modes", "commands", "agents", "mcp_docs"],
+        help="Specific components to install (default: interactive selection)"
     )
     
-    # Installation options
+    # MCP Server selection
+    parser.add_argument(
+        "--mcp-servers", "--mcp",
+        nargs="+",
+        choices=["context7", "sequential", "magic", "playwright", "serena", "morphllm", "semantic-prompt"],
+        help="MCP servers to configure (default: interactive selection)"
+    )
+    
+    # Installation profiles
+    parser.add_argument(
+        "--profile", "-p",
+        choices=["minimal", "standard", "full", "custom"],
+        default="standard",
+        help="Installation profile (default: standard)"
+    )
+    
+    # Force overwrite options
+    parser.add_argument(
+        "--force-overwrite",
+        action="store_true",
+        help="Force overwrite of existing files"
+    )
+    
+    parser.add_argument(
+        "--skip-validation",
+        action="store_true", 
+        help="Skip post-installation validation"
+    )
+
     parser.add_argument(
         "--no-backup",
         action="store_true",
-        help="Skip backup creation"
+        help="Skip backup creation during installation"
     )
-    
+
     parser.add_argument(
-        "--list-components",
+        "--skip-gemini-md",
         action="store_true",
-        help="List available components and exit"
+        help="Skip GEMINI.md management during installation"
     )
     
-    parser.add_argument(
-        "--diagnose",
-        action="store_true",
-        help="Run system diagnostics and show installation help"
-    )
-    
+    parser.set_defaults(func=run_install)
     return parser
 
 
-def validate_system_requirements(validator: Validator, component_names: List[str]) -> bool:
-    """Validate system requirements"""
+def get_components_to_install(args: argparse.Namespace, registry: ComponentRegistry, config_manager: ConfigService) -> Optional[List[str]]:
+    """
+    Determine which components to install based on arguments and user input.
+    
+    Args:
+        args: Command line arguments
+        registry: Component registry
+        config_manager: Configuration manager
+        
+    Returns:
+        List of component names to install, or None if cancelled
+    """
     logger = get_logger()
     
-    logger.info("Validating system requirements...")
+    # Check if components specified via command line
+    if hasattr(args, 'components') and args.components:
+        logger.info(f"Using command-line specified components: {args.components}")
+        return args.components
     
-    try:
-        # Load requirements configuration
-        config_manager = ConfigService(DATA_DIR)
-        requirements = config_manager.get_requirements_for_components(component_names)
+    # Interactive selection
+    logger.info("Starting interactive component selection...")
+    components = interactive_component_selection(registry, config_manager)
+    
+    if components is None:
+        logger.info("Installation cancelled by user during component selection")
+        return None
+    
+    return components
+
+
+def handle_existing_installation(install_dir: Path, args: argparse.Namespace) -> bool:
+    """
+    Handle case where installation directory already exists.
+    
+    Args:
+        install_dir: Installation directory path
+        args: Command line arguments
         
-        # Validate requirements
-        success, errors = validator.validate_component_requirements(component_names, requirements)
+    Returns:
+        True to continue, False to cancel
+    """
+    logger = get_logger()
+    
+    if not install_dir.exists():
+        return True
         
-        if success:
-            logger.success("All system requirements met")
-            return True
-        else:
-            logger.error("System requirements not met:")
-            for error in errors:
-                logger.error(f"  - {error}")
-            
-            # Provide additional guidance
-            print(f"\n{Colors.CYAN}💡 Installation Help:{Colors.RESET}")
-            print("  Run 'SuperGemini install --diagnose' for detailed system diagnostics")
-            print("  and step-by-step installation instructions.")
-            
-            return False
-            
-    except Exception as e:
-        logger.error(f"Could not validate system requirements: {e}")
+    # Check if forced
+    if args.force:
+        logger.info("Continuing with existing installation (--force specified)")
+        return True
+        
+    # Interactive confirmation
+    display_warning(f"Installation directory already exists: {install_dir}")
+    
+    if args.yes or confirm("Continue and update existing installation?"):
+        return True
+    else:
+        display_info("Installation cancelled by user")
         return False
 
 
-def get_components_to_install(args: argparse.Namespace, registry: ComponentRegistry, config_manager: ConfigService) -> Optional[List[str]]:
-    """Determine which components to install"""
-    logger = get_logger()
-    
-    # Explicit components specified
-    if args.components:
-        if 'all' in args.components:
-            return ["core", "commands", "agents", "modes", "mcp", "mcp_docs"]
-        return args.components
-    
-    # Auto-select defaults when --yes flag is used
-    if getattr(args, 'yes', False):
-        logger.info("Auto-selecting default components and MCP servers (--yes flag)")
-        
-        # Get default active MCP servers
-        try:
-            mcp_instance = registry.get_component_instance("mcp", Path.home() / ".gemini")
-            if mcp_instance and hasattr(mcp_instance, 'mcp_servers'):
-                default_servers = []
-                for server_key, server_info in mcp_instance.mcp_servers.items():
-                    if not server_info.get("disabled_by_default", False):
-                        default_servers.append(server_key)
-                
-                logger.info(f"Auto-selected MCP servers: {', '.join(default_servers)}")
-                
-                # Store selected MCP servers for components to use
-                if not hasattr(config_manager, '_installation_context'):
-                    config_manager._installation_context = {}
-                config_manager._installation_context["selected_mcp_servers"] = default_servers
-                
-                # Return default components with MCP included
-                return ["core", "commands", "agents", "modes", "mcp", "mcp_docs"]
-            else:
-                logger.warning("Could not access MCP server information for auto-selection")
-                return ["core", "commands", "agents", "modes"]
-        except Exception as e:
-            logger.error(f"Error during auto-selection: {e}")
-            return ["core", "commands", "agents", "modes"]
-    
-    # Interactive two-stage selection
-    return interactive_component_selection(registry, config_manager)
-
-
-def collect_api_keys_for_servers(selected_servers: List[str], mcp_instance) -> Dict[str, str]:
+def validate_prerequisites(args: argparse.Namespace) -> bool:
     """
-    Collect API keys for servers that require them
+    Validate system prerequisites for installation.
     
     Args:
-        selected_servers: List of selected server keys
-        mcp_instance: MCP component instance
+        args: Command line arguments
         
     Returns:
-        Dictionary of environment variable names to API key values
+        True if all prerequisites met, False otherwise
     """
-    # Filter servers needing keys
-    servers_needing_keys = [
-        (server_key, mcp_instance.mcp_servers[server_key])
-        for server_key in selected_servers
-        if server_key in mcp_instance.mcp_servers and
-           mcp_instance.mcp_servers[server_key].get("requires_api_key", False)
-    ]
+    logger = get_logger()
+    logger.info("Validating system requirements...")
     
-    if not servers_needing_keys:
-        return {}
-    
-    # Display API key configuration header
-    print(f"\n{Colors.CYAN}{Colors.BRIGHT}═══ API Key Configuration ═══{Colors.RESET}")
-    print(f"{Colors.YELLOW}The following servers require API keys for full functionality:{Colors.RESET}\n")
-    
-    collected_keys = {}
-    for server_key, server_info in servers_needing_keys:
-        api_key_env = server_info.get("api_key_env")
-        service_name = server_info["name"]
+    try:
+        validator = Validator()
         
-        if api_key_env:
-            key = prompt_api_key(service_name, api_key_env)
-            if key:
-                collected_keys[api_key_env] = key
+        # Check Python version
+        if not validator.check_python_version():
+            display_error("Python version requirements not met")
+            return False
+            
+        # Check disk space
+        if not validator.check_disk_space(args.install_dir):
+            display_error("Insufficient disk space")
+            return False
+            
+        # Check permissions
+        if not validator.check_write_permissions(args.install_dir):
+            display_error(f"No write permissions for {args.install_dir}")
+            return False
+            
+        display_success("All system requirements met")
+        return True
+        
+    except Exception as e:
+        logger.error(f"Prerequisites validation failed: {e}")
+        display_error(f"Prerequisites validation failed: {e}")
+        return False
+
+
+def setup_install_environment(args: argparse.Namespace) -> bool:
+    """
+    Setup environment variables and paths for installation.
     
-    return collected_keys
-
-
-def select_mcp_servers(registry: ComponentRegistry) -> List[str]:
-    """Stage 1: MCP Server Selection with API Key Collection"""
+    Args:
+        args: Command line arguments
+        
+    Returns:
+        True if setup successful, False otherwise  
+    """
     logger = get_logger()
     
     try:
-        # Get MCP component to access server list
-        mcp_instance = registry.get_component_instance("mcp", Path.home() / ".claude")
-        if not mcp_instance or not hasattr(mcp_instance, 'mcp_servers'):
-            logger.error("Could not access MCP server information")
-            return []
+        # Setup environment variables
+        env_vars = setup_environment_variables(args.install_dir)
+        logger.debug(f"Environment variables set: {list(env_vars.keys())}")
         
-        # Create MCP server menu
-        mcp_servers = mcp_instance.mcp_servers
-        server_options = []
+        # Ensure install directory exists
+        args.install_dir.mkdir(parents=True, exist_ok=True)
         
-        for server_key, server_info in mcp_servers.items():
-            description = server_info["description"]
-            api_key_note = " (requires API key)" if server_info.get("requires_api_key", False) else ""
-            server_options.append(f"{server_key} - {description}{api_key_note}")
-        
-        print(f"\n{Colors.CYAN}{Colors.BRIGHT}═══════════════════════════════════════════════════{Colors.RESET}")
-        print(f"{Colors.CYAN}{Colors.BRIGHT}Stage 1: MCP Server Selection (Optional){Colors.RESET}")
-        print(f"{Colors.CYAN}{Colors.BRIGHT}═══════════════════════════════════════════════════{Colors.RESET}")
-        print(f"\n{Colors.BLUE}MCP servers extend Gemini CLI with specialized capabilities.{Colors.RESET}")
-        print(f"{Colors.BLUE}Select servers to configure (you can always add more later):{Colors.RESET}")
-        
-        # Add option to skip MCP
-        server_options.append("Skip MCP Server installation")
-        
-        menu = Menu("Select MCP servers to configure:", server_options, multi_select=True)
-        selections = menu.display()
-        
-        if not selections:
-            logger.info("No MCP servers selected")
-            return []
-        
-        # Filter out the "skip" option and return server keys
-        server_keys = list(mcp_servers.keys())
-        selected_servers = []
-        
-        for i in selections:
-            if i < len(server_keys):  # Not the "skip" option
-                selected_servers.append(server_keys[i])
-        
-        if selected_servers:
-            logger.info(f"Selected MCP servers: {', '.join(selected_servers)}")
-            
-            # NEW: Collect API keys for selected servers
-            collected_keys = collect_api_keys_for_servers(selected_servers, mcp_instance)
-            
-            # Set up environment variables
-            if collected_keys:
-                setup_environment_variables(collected_keys)
-                
-                # Store keys for MCP component to use during installation
-                mcp_instance.collected_api_keys = collected_keys
-        else:
-            logger.info("No MCP servers selected")
-        
-        return selected_servers
+        return True
         
     except Exception as e:
-        logger.error(f"Error in MCP server selection: {e}")
+        logger.error(f"Environment setup failed: {e}")
+        display_error(f"Environment setup failed: {e}")
+        return False
+
+
+def select_mcp_servers(registry: ComponentRegistry) -> List[str]:
+    """
+    Interactive MCP server selection.
+    
+    Args:
+        registry: Component registry
+        
+    Returns:
+        List of selected MCP server names
+    """
+    logger = get_logger()
+    
+    display_info("\n" + "═" * 63)
+    display_info("Stage 1: MCP Server Selection (Optional)")
+    display_info("═" * 63)
+    display_info("")
+    display_info("MCP servers extend Gemini CLI with specialized capabilities.")
+    display_info("Select servers to configure (you can always add more later):")
+    display_info("")
+    
+    # MCP server options with descriptions
+    mcp_options = [
+        ("context7", "Official library documentation and code examples"),
+        ("sequential", "Multi-step problem solving and systematic analysis"),
+        ("magic", "Modern UI component generation and design systems (requires API key)"),
+        ("playwright", "Cross-browser E2E testing and automation"),
+        ("serena", "Semantic code analysis and intelligent editing"),
+        ("morphllm", "Fast Apply capability for context-aware code modifications (requires API key)"),
+        ("semantic-prompt", "Intelligent prompt enhancement and chain-of-thought reasoning"),
+        ("Skip MCP Server installation", "")
+    ]
+    
+    print("Select MCP servers to configure:")
+    print("================================")
+    for i, (name, desc) in enumerate(mcp_options, 1):
+        display_text = f"{name} - {desc}" if desc else name
+        print(f" {i}. [ ] {display_text}")
+    
+    print("\nEnter numbers separated by commas (e.g., 1,3,5) or 'all' for all options: ")
+    
+    try:
+        user_input = input("> ").strip().lower()
+        
+        if not user_input:
+            display_info("EOF detected, cancelling operation.")
+            logger.info("No MCP servers selected")
+            return []
+        
+        # Handle 'all' option
+        if user_input == 'all':
+            selected = [opt[0] for opt in mcp_options[:-1]]  # Exclude "Skip" option
+            logger.info(f"Selected all MCP servers: {selected}")
+            return selected
+        
+        # Handle skip option
+        if user_input in ['8', 'skip']:
+            logger.info("No MCP servers selected")
+            return []
+        
+        # Parse selection
+        selected_indices = []
+        for item in user_input.replace(',', ' ').split():
+            try:
+                idx = int(item) - 1
+                if 0 <= idx < len(mcp_options) - 1:  # Exclude "Skip" option
+                    selected_indices.append(idx)
+                elif idx == len(mcp_options) - 1:  # Skip option
+                    logger.info("No MCP servers selected")
+                    return []
+            except ValueError:
+                continue
+        
+        selected = [mcp_options[i][0] for i in selected_indices]
+        logger.info(f"Selected MCP servers: {selected}")
+        return selected
+        
+    except (EOFError, KeyboardInterrupt):
+        display_info("EOF detected, cancelling operation.")
+        logger.info("No MCP servers selected")
         return []
 
 
 def select_framework_components(registry: ComponentRegistry, config_manager: ConfigService, selected_mcp_servers: List[str]) -> List[str]:
-    """Stage 2: Framework Component Selection"""
+    """
+    Interactive framework component selection.
+    
+    Args:
+        registry: Component registry  
+        config_manager: Configuration manager
+        selected_mcp_servers: Previously selected MCP servers
+        
+    Returns:
+        List of selected component names
+    """
     logger = get_logger()
     
-    try:
-        # Framework components (excluding MCP-related ones)
-        framework_components = ["core", "modes", "commands", "agents"]
-        
-        # Create component menu
-        component_options = []
-        component_info = {}
-        
-        for component_name in framework_components:
-            metadata = registry.get_component_metadata(component_name)
+    display_info("\n" + "═" * 63)
+    display_info("Stage 2: Framework Component Selection")
+    display_info("═" * 63)
+    display_info("")
+    
+    # Get available components
+    available_components = registry.list_components()
+    
+    # Prepare component options with descriptions
+    component_options = []
+    for comp_name in ["core", "modes", "commands", "agents", "mcp_docs"]:
+        if comp_name in available_components:
+            metadata = registry.get_component_metadata(comp_name)
             if metadata:
-                description = metadata.get("description", "No description")
-                component_options.append(f"{component_name} - {description}")
-                component_info[component_name] = metadata
+                desc = metadata.get("description", "No description available")
+                
+                # Special handling for mcp_docs
+                if comp_name == "mcp_docs":
+                    if selected_mcp_servers:
+                        desc = f"MCP documentation for {', '.join(selected_mcp_servers)}"
+                    else:
+                        desc = "MCP server documentation (none selected)"
+                
+                component_options.append((comp_name, desc))
+    
+    if not component_options:
+        display_error("No components available for installation")
+        return []
+    
+    display_info("Select components (Core is recommended):")
+    display_info("=" * 40)
+    
+    for i, (name, desc) in enumerate(component_options, 1):
+        print(f" {i}. [ ] {name} - {desc}")
+    
+    print("\nEnter numbers separated by commas (e.g., 1,3,5) or 'all' for all options: ")
+    try:
+        user_input = input("> ").strip().lower()
         
-        # Add MCP documentation option
-        if selected_mcp_servers:
-            mcp_docs_desc = f"MCP documentation for {', '.join(selected_mcp_servers)} (auto-selected)"
-            component_options.append(f"mcp_docs - {mcp_docs_desc}")
-            auto_selected_mcp_docs = True
-        else:
-            component_options.append("mcp_docs - MCP server documentation (none selected)")
-            auto_selected_mcp_docs = False
-        
-        print(f"\n{Colors.CYAN}{Colors.BRIGHT}═══════════════════════════════════════════════════{Colors.RESET}")
-        print(f"{Colors.CYAN}{Colors.BRIGHT}Stage 2: Framework Component Selection{Colors.RESET}")
-        print(f"{Colors.CYAN}{Colors.BRIGHT}═══════════════════════════════════════════════════{Colors.RESET}")
-        print(f"\n{Colors.BLUE}Select SuperGemini framework components to install:{Colors.RESET}")
-        
-        menu = Menu("Select components (Core is recommended):", component_options, multi_select=True)
-        selections = menu.display()
-        
-        if not selections:
-            # Default to core if nothing selected
+        if not user_input:
+            display_info("EOF detected, cancelling operation.")
             logger.info("No components selected, defaulting to core")
-            selected_components = ["core"]
-        else:
-            selected_components = []
-            all_components = framework_components + ["mcp_docs"]
-            
-            for i in selections:
-                if i < len(all_components):
-                    selected_components.append(all_components[i])
+            return ["core"]
         
-        # Auto-select MCP docs if not explicitly deselected and we have MCP servers
-        if auto_selected_mcp_docs and "mcp_docs" not in selected_components:
-            # Check if user explicitly deselected it
-            mcp_docs_index = len(framework_components)  # Index of mcp_docs in the menu
-            if mcp_docs_index not in selections:
-                # User didn't select it, but we auto-select it
-                selected_components.append("mcp_docs")
-                logger.info("Auto-selected MCP documentation for configured servers")
+        # Handle 'all' option
+        if user_input == 'all':
+            selected = [opt[0] for opt in component_options]
+            logger.info(f"Selected all components: {selected}")
+            return selected
         
-        # Always include MCP component if servers were selected
-        if selected_mcp_servers and "mcp" not in selected_components:
-            selected_components.append("mcp")
+        # Parse selection
+        selected_indices = []
+        for item in user_input.replace(',', ' ').split():
+            try:
+                idx = int(item) - 1
+                if 0 <= idx < len(component_options):
+                    selected_indices.append(idx)
+            except ValueError:
+                continue
         
-        logger.info(f"Selected framework components: {', '.join(selected_components)}")
-        return selected_components
+        if not selected_indices:
+            logger.info("No valid selection, defaulting to core")
+            return ["core"]
         
-    except Exception as e:
-        logger.error(f"Error in framework component selection: {e}")
-        return ["core"]  # Fallback to core
+        selected = [component_options[i][0] for i in selected_indices]
+        logger.info(f"Selected framework components: {selected}")
+        return selected
+        
+    except (EOFError, KeyboardInterrupt):
+        display_info("EOF detected, cancelling operation.")
+        logger.info("No components selected, defaulting to core")
+        return ["core"]
 
 
 def interactive_component_selection(registry: ComponentRegistry, config_manager: ConfigService) -> Optional[List[str]]:
-    """Two-stage interactive component selection"""
+    """
+    Interactive component selection workflow.
+    
+    Args:
+        registry: Component registry
+        config_manager: Configuration manager
+        
+    Returns:
+        List of selected components, or None if cancelled
+    """
     logger = get_logger()
     
-    try:
-        print(f"\n{Colors.CYAN}SuperGemini Interactive Installation{Colors.RESET}")
-        print(f"{Colors.BLUE}Select components to install using the two-stage process:{Colors.RESET}")
-        
-        # Stage 1: MCP Server Selection
-        selected_mcp_servers = select_mcp_servers(registry)
-        
-        # Stage 2: Framework Component Selection
-        selected_components = select_framework_components(registry, config_manager, selected_mcp_servers)
-        
-        # Store selected MCP servers for components to use
-        if not hasattr(config_manager, '_installation_context'):
-            config_manager._installation_context = {}
-        config_manager._installation_context["selected_mcp_servers"] = selected_mcp_servers
-        
-        return selected_components
-        
-    except Exception as e:
-        logger.error(f"Error in component selection: {e}")
-        return None
+    # Stage 1: MCP Server Selection
+    selected_mcp_servers = select_mcp_servers(registry)
+    
+    # Stage 2: Framework Component Selection  
+    selected_components = select_framework_components(registry, config_manager, selected_mcp_servers)
+    
+    # Auto-add MCP component if MCP servers were selected
+    if selected_mcp_servers and "mcp" not in selected_components:
+        selected_components.append("mcp")
+        logger.info("Auto-selected MCP component for configured servers")
+    
+    # Auto-add mcp_docs if MCP servers were selected
+    if selected_mcp_servers and "mcp_docs" not in selected_components:
+        selected_components.append("mcp_docs")
+        logger.info("Auto-selected MCP documentation for configured servers")
+    
+    if selected_components:
+        logger.info(f"Final selection: {selected_components}")
+    
+    return selected_components
 
 
 def display_installation_plan(components: List[str], registry: ComponentRegistry, install_dir: Path) -> None:
-    """Display installation plan"""
+    """
+    Display installation plan to user.
+    
+    Args:
+        components: List of components to install
+        registry: Component registry
+        install_dir: Installation directory
+    """
+    display_info("\nInstallation Plan")
+    display_info("=" * 50)
+    display_info(f"Installation Directory: {install_dir}")
+    display_info("Components to install:")
+    
+    total_size = 0
+    for i, comp_name in enumerate(components, 1):
+        metadata = registry.get_component_metadata(comp_name)
+        if metadata:
+            desc = metadata.get("description", "No description available")
+            display_info(f"  {i}. {comp_name} - {desc}")
+            
+            # Try to get size estimate if component supports it
+            try:
+                instance = registry.get_component_instance(comp_name, install_dir)
+                if instance and hasattr(instance, 'get_size_estimate'):
+                    size = instance.get_size_estimate()
+                    total_size += size
+            except Exception:
+                pass
+    
+    if total_size > 0:
+        display_info(f"\nEstimated size: {format_size(total_size)}")
+
+
+def execute_installation(components: List[str], installer: Installer, registry: ComponentRegistry, 
+                        component_instances: Dict[str, Any], args: argparse.Namespace) -> bool:
+    """
+    Execute the actual installation process.
+    
+    Args:
+        components: List of component names to install
+        installer: Installer instance
+        registry: Component registry
+        component_instances: Component instances
+        args: Command line arguments
+        
+    Returns:
+        True if installation successful, False otherwise
+    """
     logger = get_logger()
     
-    print(f"\n{Colors.CYAN}{Colors.BRIGHT}Installation Plan{Colors.RESET}")
-    print("=" * 50)
-    
-    # Resolve dependencies
     try:
-        ordered_components = registry.resolve_dependencies(components, install_dir)
+        # Create backup if not disabled
+        if not args.no_backup:
+            logger.info("Creating backup of existing installation...")
+            backup_path = installer.create_backup()
+            if backup_path:
+                logger.info(f"Backup created: {backup_path}")
         
-        print(f"{Colors.BLUE}Installation Directory:{Colors.RESET} {install_dir}")
-        print(f"{Colors.BLUE}Components to install:{Colors.RESET}")
+        # Execute installation
+        logger.info(f"Installing {len(components)} components...")
         
-        total_size = 0
-        for i, component_name in enumerate(ordered_components, 1):
-            metadata = registry.get_component_metadata(component_name)
-            if metadata:
-                description = metadata.get("description", "No description")
-                print(f"  {i}. {component_name} - {description}")
-                
-                # Get size estimate if component supports it
-                try:
-                    instance = registry.get_component_instance(component_name, install_dir)
-                    if instance and hasattr(instance, 'get_size_estimate'):
-                        size = instance.get_size_estimate()
-                        total_size += size
-                except Exception:
-                    pass
+        # Setup progress bar
+        progress = ProgressBar(len(components), prefix="Installing")
+        
+        installed_components = []
+        
+        for i, component_name in enumerate(components):
+            instance = component_instances.get(component_name)
+            if not instance:
+                logger.warning(f"No instance available for component: {component_name}")
+                continue
+            
+            logger.info(f"Installing {component_name}...")
+            
+            # Install component
+            config = {
+                "force_overwrite": args.force_overwrite,
+                "skip_gemini_md": args.skip_gemini_md,
+                "dry_run": args.dry_run
+            }
+            
+            # Add MCP server selection if installing MCP component
+            if component_name == "mcp" and hasattr(args, "mcp_servers") and args.mcp_servers:
+                config["selected_mcp_servers"] = args.mcp_servers
+                logger.info(f"Configuring MCP servers: {args.mcp_servers}")
+            
+            success = instance.install(config)
+            
+            if success:
+                installed_components.append(component_name)
+                logger.info(f"✓ {instance} component installed successfully")
             else:
-                print(f"  {i}. {component_name} - Unknown component")
+                logger.error(f"✗ Failed to install component: {component_name}")
+                display_error(f"Failed to install component: {component_name}")
+                
+                # Continue with remaining components
+                continue
+            
+            progress.update(i + 1)
         
-        if total_size > 0:
-            print(f"\n{Colors.BLUE}Estimated size:{Colors.RESET} {format_size(total_size)}")
+        progress.finish()
         
-        print()
+        if not installed_components:
+            logger.error("No components were installed successfully")
+            return False
+        
+        # Post-installation validation
+        if not args.skip_validation:
+            logger.info("Running post-installation validation...")
+            validation_success = True
+            
+            for component_name in installed_components:
+                instance = component_instances.get(component_name)
+                if instance:
+                    is_valid, errors = instance.validate_installation()
+                    if is_valid:
+                        logger.info(f"  ✓ {component_name}: Valid")
+                    else:
+                        logger.warning(f"  ✗ {component_name}: {', '.join(errors)}")
+                        validation_success = False
+            
+            if validation_success:
+                logger.info("All components validated successfully!")
+            else:
+                logger.warning("Some components failed validation")
+        
+        logger.info(f"Installed components: {', '.join(installed_components)}")
+        return True
         
     except Exception as e:
-        logger.error(f"Could not resolve dependencies: {e}")
-        raise
+        logger.exception(f"Installation execution failed: {e}")
+        display_error(f"Installation failed: {e}")
+        return False
 
 
-def run_system_diagnostics(validator: Validator) -> None:
-    """Run comprehensive system diagnostics"""
+def run_install(args: argparse.Namespace) -> bool:
+    """
+    Execute SuperGemini installation operation.
+    
+    Args:
+        args: Command line arguments
+        
+    Returns:
+        True if installation successful, False otherwise
+    """
+    logger = get_logger()
+    logger.info("Executing operation: install")
+    logger.info("Starting install operation")
+    
+    # Security validation
+    from ...utils.security import SecurityValidator
+    security = SecurityValidator()
+    if not security.validate_gemini_directory_installation(args.install_dir):
+        display_error("Security validation failed for installation directory")
+        return False
+    
+    # Display header
+    display_header("SuperGemini Installation v4.0.4", 
+                  "Installing SuperGemini framework components")
+    
+    # Handle existing installation
+    if not handle_existing_installation(args.install_dir, args):
+        return False
+    
+    # Validate prerequisites  
+    if not validate_prerequisites(args):
+        return False
+        
+    # Setup environment
+    if not setup_install_environment(args):
+        return False
+        
+    logger.info("Initializing installation system...")
+    
+    # Use validate_and_install to handle component selection and installation
+    return validate_and_install(args)
+
+
+def install_with_profile(args: argparse.Namespace) -> bool:
+    """
+    Install SuperGemini with a predefined profile.
+    
+    Args:
+        args: Command line arguments with profile specified
+        
+    Returns:
+        True if installation successful, False otherwise
+    """
     logger = get_logger()
     
-    print(f"\n{Colors.CYAN}{Colors.BRIGHT}SuperGemini System Diagnostics{Colors.RESET}")
-    print("=" * 50)
+    profile_components = {
+        "minimal": ["core"],
+        "standard": ["core", "modes", "commands"],
+        "full": ["core", "modes", "commands", "agents", "mcp"],
+        "custom": None  # Will use interactive selection
+    }
     
-    # Run diagnostics
-    diagnostics = validator.diagnose_system()
-    
-    # Display platform info
-    print(f"{Colors.BLUE}Platform:{Colors.RESET} {diagnostics['platform']}")
-    
-    # Display check results
-    print(f"\n{Colors.BLUE}System Checks:{Colors.RESET}")
-    all_passed = True
-    
-    for check_name, check_info in diagnostics['checks'].items():
-        status = check_info['status']
-        message = check_info['message']
+    if args.profile == "custom":
+        logger.info("Using custom profile - falling back to interactive selection")
+        # Get registry for custom selection
+        try:
+            components_dir = get_safe_components_directory()
+            registry = ComponentRegistry(components_dir)
+            registry.discover_components()
+        except FileNotFoundError as e:
+            logger.error(f"Component discovery failed: {e}")
+            display_error(f"Cannot locate components: {e}")
+            return False
         
-        if status == 'pass':
-            print(f"  ✅ {check_name}: {message}")
-        else:
-            print(f"  ❌ {check_name}: {message}")
-            all_passed = False
-    
-    # Display issues and recommendations
-    if diagnostics['issues']:
-        print(f"\n{Colors.YELLOW}Issues Found:{Colors.RESET}")
-        for issue in diagnostics['issues']:
-            print(f"  ⚠️  {issue}")
+        config_manager = ConfigService(args.install_dir)
+        components = get_components_to_install(args, registry, config_manager)
+        if components is None:
+            return False
+    else:
+        components = profile_components.get(args.profile, ["core"])
+        logger.info(f"Installing with {args.profile} profile: {components}")
         
-        print(f"\n{Colors.CYAN}Recommendations:{Colors.RESET}")
-        for recommendation in diagnostics['recommendations']:
-            print(recommendation)
+        # Get registry for installation
+        try:
+            components_dir = get_safe_components_directory()
+            registry = ComponentRegistry(components_dir)
+            registry.discover_components()
+        except FileNotFoundError as e:
+            logger.error(f"Component discovery failed: {e}")
+            display_error(f"Cannot locate components: {e}")
+            return False
     
-    # Summary
-    if all_passed:
-        print(f"\n{Colors.GREEN}✅ All system checks passed! Your system is ready for SuperGemini.{Colors.RESET}")
-    else:
-        print(f"\n{Colors.YELLOW}⚠️  Some issues found. Please address the recommendations above.{Colors.RESET}")
-    
-    print(f"\n{Colors.BLUE}Next steps:{Colors.RESET}")
-    if all_passed:
-        print("  1. Run 'SuperGemini install' to proceed with installation")
-        print("  2. Choose your preferred installation mode (quick, minimal, or custom)")
-    else:
-        print("  1. Install missing dependencies using the commands above")
-        print("  2. Restart your terminal after installing tools")
-        print("  3. Run 'SuperGemini install --diagnose' again to verify")
+    # Run the actual installation
+    return execute_install_workflow(args, components, registry)
 
 
-def perform_installation(components: List[str], args: argparse.Namespace, config_manager: ConfigService = None) -> bool:
-    """Perform the actual installation"""
+def validate_and_install(args: argparse.Namespace) -> bool:
+    """
+    Validate arguments and run installation.
+    
+    Args:
+        args: Command line arguments
+        
+    Returns:
+        True if installation successful, False otherwise
+    """
     logger = get_logger()
-    start_time = time.time()
     
     try:
+        # Create component registry to validate component names
+        try:
+            components_dir = get_safe_components_directory()
+            registry = ComponentRegistry(components_dir)
+            registry.discover_components()
+        except FileNotFoundError as e:
+            logger.error(f"Component validation failed: {e}")
+            display_error(f"Cannot validate components: {e}")
+            return False
+        
+        available_components = registry.list_components()
+        
+        # Validate specified components
+        if hasattr(args, 'components') and args.components:
+            invalid_components = [c for c in args.components if c not in available_components]
+            if invalid_components:
+                display_error(f"Invalid components specified: {invalid_components}")
+                display_info(f"Available components: {available_components}")
+                return False
+        
+        # Install with profile if specified
+        if args.profile != "standard":
+            return install_with_profile(args)
+        
+        # Standard installation - DO NOT call run_install here to avoid recursion
+        # Just determine components and continue
+        config_manager = ConfigService(args.install_dir)
+        components = get_components_to_install(args, registry, config_manager)
+        if components is None:
+            return False
+            
+        # Run the actual installation
+        return execute_install_workflow(args, components, registry)
+        
+    except Exception as e:
+        logger.exception(f"Validation and installation failed: {e}")
+        display_error(f"Installation failed: {e}")
+        return False
+
+
+# Components determination
+def determine_components_to_install(args: argparse.Namespace) -> Optional[List[str]]:
+    """
+    Determine components to install based on arguments.
+    
+    Args:
+        args: Command line arguments
+        
+    Returns:
+        List of component names, or None if cancelled
+    """
+    logger = get_logger()
+    
+    try:
+        # Create registry to get available components
+        try:
+            components_dir = get_safe_components_directory()
+            registry = ComponentRegistry(components_dir)
+            registry.discover_components()
+        except FileNotFoundError as e:
+            logger.error(f"Component discovery failed: {e}")
+            return None
+        
+        # Create config manager
+        config_manager = ConfigService(args.install_dir)
+        
+        # Get components to install
+        components = get_components_to_install(args, registry, config_manager)
+        
+        if components is None:
+            return None
+            
+        # Resolve dependencies
+        try:
+            resolved_components = registry.resolve_dependencies(components, args.install_dir)
+            logger.info(f"Resolved component dependencies: {resolved_components}")
+            return resolved_components
+        except ValueError as e:
+            logger.error(f"Dependency resolution failed: {e}")
+            display_error(f"Component dependency error: {e}")
+            return None
+            
+    except Exception as e:
+        logger.exception(f"Component determination failed: {e}")
+        return None
+
+
+def execute_install_workflow(args: argparse.Namespace, components: List[str], registry: ComponentRegistry) -> bool:
+    """
+    Execute the actual installation workflow
+    
+    Args:
+        args: Command line arguments
+        components: List of components to install
+        registry: Component registry instance
+        
+    Returns:
+        True if installation successful, False otherwise
+    """
+    logger = get_logger()
+    
+    try:
+        # Resolve dependencies
+        resolved_components = registry.resolve_dependencies(components)
+        logger.info(f"Resolved component dependencies: {resolved_components}")
+        
         # Create installer
         installer = Installer(args.install_dir, dry_run=args.dry_run)
         
-        # Create component registry
-        registry = ComponentRegistry(PROJECT_ROOT / "setup" / "components")
-        registry.discover_components()
-        
         # Create component instances
-        component_instances = registry.create_component_instances(components, args.install_dir)
+        component_instances = registry.create_component_instances(resolved_components, args.install_dir)
         
         if not component_instances:
             logger.error("No valid component instances created")
             return False
+            
+        # Display installation plan
+        display_installation_plan(resolved_components, registry, args.install_dir)
         
-        # Register components with installer
-        installer.register_components(list(component_instances.values()))
+        # Confirm installation
+        if not args.dry_run and not args.yes:
+            if not confirm("Proceed with installation?"):
+                display_info("Installation cancelled by user")
+                return False
         
-        # Resolve dependencies
-        ordered_components = registry.resolve_dependencies(components, args.install_dir)
-        
-        # Setup progress tracking
-        progress = ProgressBar(
-            total=len(ordered_components),
-            prefix="Installing: ",
-            suffix=""
-        )
-        
-        # Install components
-        logger.info(f"Installing {len(ordered_components)} components...")
-        
-        config = {
-            "force": args.force,
-            "backup": not args.no_backup,
-            "dry_run": args.dry_run,
-            "selected_mcp_servers": getattr(config_manager, '_installation_context', {}).get("selected_mcp_servers", [])
-        }
-        
-        success = installer.install_components(ordered_components, config)
-        
-        # Update progress
-        for i, component_name in enumerate(ordered_components):
-            if component_name in installer.installed_components:
-                progress.update(i + 1, f"Installed {component_name}")
-            else:
-                progress.update(i + 1, f"Failed {component_name}")
-            time.sleep(0.1)  # Brief pause for visual effect
-        
-        progress.finish("Installation complete")
-        
-        # Show results
-        duration = time.time() - start_time
+        # Execute installation
+        start_time = time.time()
+        success = execute_installation(resolved_components, installer, registry, component_instances, args)
+        elapsed_time = time.time() - start_time
         
         if success:
-            logger.success(f"Installation completed successfully in {duration:.1f} seconds")
+            display_success(f"Installation completed successfully in {elapsed_time:.1f} seconds")
             
-            # Show summary
-            summary = installer.get_installation_summary()
-            if summary['installed']:
-                logger.info(f"Installed components: {', '.join(summary['installed'])}")
+            # Display next steps
+            display_info("\nNext steps:")
+            display_info("1. Restart your Claude Code session")
+            display_info(f"2. Framework files are now available in {args.install_dir}")
+            display_info("3. Use SuperGemini commands and features in Claude Code")
             
-            if summary['backup_path']:
-                logger.info(f"Backup created: {summary['backup_path']}")
-                
+            return True
         else:
-            logger.error(f"Installation completed with errors in {duration:.1f} seconds")
+            display_error("Installation failed")
+            return False
             
-            summary = installer.get_installation_summary()
-            if summary['failed']:
-                logger.error(f"Failed components: {', '.join(summary['failed'])}")
-        
-        return success
-        
     except Exception as e:
-        logger.exception(f"Unexpected error during installation: {e}")
+        logger.exception(f"Installation workflow failed: {e}")
+        display_error(f"Installation failed: {e}")
         return False
 
 
 def run(args: argparse.Namespace) -> int:
-    """Execute installation operation with parsed arguments"""
-    operation = InstallOperation()
-    operation.setup_operation_logging(args)
-    logger = get_logger()
-    # ✅ Enhanced security validation with symlink protection
-    expected_home = Path.home().resolve()
-    install_dir_original = args.install_dir
-    install_dir_resolved = args.install_dir.resolve()
-
-    # Check for symlink attacks - compare original vs resolved paths
+    """Entry point for install operation"""
     try:
-        # Verify the resolved path is still within user home
-        install_dir_resolved.relative_to(expected_home)
-        
-        # Additional check: if there's a symlink in the path, verify it doesn't escape user home
-        if install_dir_original != install_dir_resolved:
-            # Path contains symlinks - verify each component stays within user home
-            current_path = expected_home
-            parts = install_dir_original.parts
-            home_parts = expected_home.parts
-            
-            # Skip home directory parts
-            if len(parts) >= len(home_parts) and parts[:len(home_parts)] == home_parts:
-                relative_parts = parts[len(home_parts):]
-                
-                for part in relative_parts:
-                    current_path = current_path / part
-                    if current_path.is_symlink():
-                        symlink_target = current_path.resolve()
-                        # Ensure symlink target is also within user home
-                        symlink_target.relative_to(expected_home)
-    except ValueError:
-        print(f"\n[✗] Installation must be inside your user profile directory.")
-        print(f"    Expected prefix: {expected_home}")
-        print(f"    Provided path:   {install_dir_resolved}")
-        print(f"    Security: Symlinks outside user directory are not allowed.")
-        sys.exit(1)
+        success = validate_and_install(args)
+        return 0 if success else 1
     except Exception as e:
-        print(f"\n[✗] Security validation failed: {e}")
-        print(f"    Please use a standard directory path within your user profile.")
-        sys.exit(1)
-    
-    try:
-        # Validate global arguments
-        success, errors = operation.validate_global_args(args)
-        if not success:
-            for error in errors:
-                logger.error(error)
-            return 1
-        
-        # Display header
-        if not args.quiet:
-            display_header(
-                "SuperGemini Installation v4.0.3",
-                "Installing SuperGemini framework components"
-            )
-        
-        # Handle special modes
-        if args.list_components:
-            registry = ComponentRegistry(PROJECT_ROOT / "setup" / "components")
-            registry.discover_components()
-            
-            components = registry.list_components()
-            if components:
-                print(f"\n{Colors.CYAN}Available Components:{Colors.RESET}")
-                for component_name in components:
-                    metadata = registry.get_component_metadata(component_name)
-                    if metadata:
-                        desc = metadata.get("description", "No description")
-                        category = metadata.get("category", "unknown")
-                        print(f"  {component_name} ({category}) - {desc}")
-                    else:
-                        print(f"  {component_name} - Unknown component")
-            else:
-                print("No components found")
-            return 0
-        
-        # Handle diagnostic mode
-        if args.diagnose:
-            validator = Validator()
-            run_system_diagnostics(validator)
-            return 0
-        
-        # Create component registry and load configuration
-        logger.info("Initializing installation system...")
-        
-        registry = ComponentRegistry(PROJECT_ROOT / "setup" / "components")
-        registry.discover_components()
-        
-        config_manager = ConfigService(DATA_DIR)
-        validator = Validator()
-        
-        # Validate configuration
-        config_errors = config_manager.validate_config_files()
-        if config_errors:
-            logger.error("Configuration validation failed:")
-            for error in config_errors:
-                logger.error(f"  - {error}")
-            return 1
-        
-        # Get components to install
-        components = get_components_to_install(args, registry, config_manager)
-        if not components:
-            logger.error("No components selected for installation")
-            return 1
-        
-        # Validate system requirements
-        if not validate_system_requirements(validator, components):
-            if not args.force:
-                logger.error("System requirements not met. Use --force to override.")
-                return 1
-            else:
-                logger.warning("System requirements not met, but continuing due to --force flag")
-        
-        # Check for existing installation
-        if args.install_dir.exists() and not args.force:
-            if not args.dry_run:
-                logger.warning(f"Installation directory already exists: {args.install_dir}")
-                if not args.yes and not confirm("Continue and update existing installation?", default=False):
-                    logger.info("Installation cancelled by user")
-                    return 0
-        
-        # Display installation plan
-        if not args.quiet:
-            display_installation_plan(components, registry, args.install_dir)
-            
-            if not args.dry_run:
-                if not args.yes and not confirm("Proceed with installation?", default=True):
-                    logger.info("Installation cancelled by user")
-                    return 0
-        
-        # Perform installation
-        success = perform_installation(components, args, config_manager)
-        
-        if success:
-            if not args.quiet:
-                display_success("SuperGemini installation completed successfully!")
-                
-                if not args.dry_run:
-                    print(f"\n{Colors.CYAN}Next steps:{Colors.RESET}")
-                    print(f"1. Restart your Claude Code session")
-                    print(f"2. Framework files are now available in {args.install_dir}")
-                    print(f"3. Use SuperGemini commands and features in Claude Code")
-                    
-            return 0
-        else:
-            display_error("Installation failed. Check logs for details.")
-            return 1
-            
-    except KeyboardInterrupt:
-        print(f"\n{Colors.YELLOW}Installation cancelled by user{Colors.RESET}")
-        return 130
-    except Exception as e:
-        return operation.handle_operation_error("install", e)
+        logger = get_logger()
+        if logger:
+            logger.exception(f"Install operation failed: {e}")
+        display_error(f"Install operation failed: {e}")
+        return 1

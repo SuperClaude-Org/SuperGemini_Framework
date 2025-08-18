@@ -14,8 +14,8 @@ class CommandsComponent(Component):
     def __init__(self, install_dir: Optional[Path] = None):
         """Initialize commands component"""
         super().__init__(install_dir, Path("commands/sg"))
-        # Explicitly set component files for commands
-        self.component_files = self._get_command_files()
+        # Explicitly set component files for commands (use internal variable)
+        self._component_files = self._get_command_files()
     
     def _get_command_files(self) -> List[str]:
         """Get list of command files to install"""

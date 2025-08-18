@@ -18,18 +18,20 @@ class CoreComponent(Component):
     
     def get_metadata(self) -> Dict[str, str]:
         """Get component metadata"""
+        from .. import __version__
         return {
             "name": "core",
-            "version": "4.0.3",
+            "version": __version__,
             "description": "SuperGemini framework documentation and core files",
             "category": "core"
         }
     
     def get_metadata_modifications(self) -> Dict[str, Any]:
         """Get metadata modifications for SuperGemini"""
+        from .. import __version__
         return {
             "framework": {
-                "version": "4.0.3",
+                "version": __version__,
                 "name": "SuperGemini",
                 "description": "AI-enhanced development framework for Claude Code",
                 "installation_type": "global",
@@ -37,7 +39,7 @@ class CoreComponent(Component):
             },
             "supergemini": {
                 "enabled": True,
-                "version": "4.0.3",
+                "version": __version__,
                 "profile": "default",
                 "auto_update": False
             }
@@ -52,13 +54,14 @@ class CoreComponent(Component):
     def _post_install(self) -> bool:
         # Create or update metadata
         try:
+            from .. import __version__
             metadata_mods = self.get_metadata_modifications()
             self.settings_manager.update_metadata(metadata_mods)
             self.logger.info("Updated metadata with framework configuration")
             
             # Add component registration to metadata
             self.settings_manager.add_component_registration("core", {
-                "version": "4.0.3",
+                "version": __version__,
                 "category": "core",
                 "files_count": len(self.component_files)
             })

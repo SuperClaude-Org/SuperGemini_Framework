@@ -22,7 +22,6 @@ class ComponentRegistry:
         """
         self.components_dir = components_dir
         self.component_classes: Dict[str, Type[Component]] = {}
-        self.component_instances: Dict[str, Component] = {}
         self.dependency_graph: Dict[str, Set[str]] = {}
         self._discovered = False
         self.logger = get_logger()
@@ -38,7 +37,6 @@ class ComponentRegistry:
             return
         
         self.component_classes.clear()
-        self.component_instances.clear()
         self.dependency_graph.clear()
         
         if not self.components_dir.exists():
@@ -88,14 +86,15 @@ class ComponentRegistry:
                     issubclass(obj, Component) and 
                     obj is not Component):
                     
-                    # Create instance to get metadata
+                    # Create temporary instance to get metadata, then store class only
                     try:
-                        instance = obj()
-                        metadata = instance.get_metadata()
+                        temp_instance = obj()
+                        metadata = temp_instance.get_metadata()
                         component_name = metadata["name"]
                         
                         self.component_classes[component_name] = obj
-                        self.component_instances[component_name] = instance
+                        # Don't store instances during discovery to avoid circular dependencies
+                        # Instances will be created on-demand when needed
                         
                     except Exception as e:
                         self.logger.warning(f"Could not instantiate component {name}: {e}")
@@ -105,9 +104,11 @@ class ComponentRegistry:
     
     def _build_dependency_graph(self) -> None:
         """Build dependency graph for all discovered components"""
-        for name, instance in self.component_instances.items():
+        for name, component_class in self.component_classes.items():
             try:
-                dependencies = instance.get_dependencies()
+                # Create temporary instance to get dependencies
+                temp_instance = component_class()
+                dependencies = temp_instance.get_dependencies()
                 self.dependency_graph[name] = set(dependencies)
             except Exception as e:
                 self.logger.warning(f"Could not get dependencies for {name}: {e}")
@@ -139,17 +140,16 @@ class ComponentRegistry:
         """
         self.discover_components()
         
-        if install_dir is not None:
-            # Create new instance with specified install directory
-            component_class = self.component_classes.get(component_name)
-            if component_class:
-                try:
-                    return component_class(install_dir)
-                except Exception as e:
-                    self.logger.error(f"Error creating component instance {component_name}: {e}")
-                    return None
+        # Always create new instance (avoid caching to prevent circular references)
+        component_class = self.component_classes.get(component_name)
+        if component_class:
+            try:
+                return component_class(install_dir) if install_dir else component_class()
+            except Exception as e:
+                self.logger.error(f"Error creating component instance {component_name}: {e}")
+                return None
         
-        return self.component_instances.get(component_name)
+        return None
     
     def list_components(self) -> List[str]:
         """
@@ -172,10 +172,12 @@ class ComponentRegistry:
             Component metadata dict or None if not found
         """
         self.discover_components()
-        instance = self.component_instances.get(component_name)
-        if instance:
+        # Create temporary instance to get metadata
+        component_class = self.component_classes.get(component_name)
+        if component_class:
             try:
-                return instance.get_metadata()
+                temp_instance = component_class()
+                return temp_instance.get_metadata()
             except Exception:
                 return None
         return None

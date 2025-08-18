@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "SuperGemini"
-version = "4.0.3"
+dynamic = ["version"]
 authors = [
     {name = "hyunjae-labs", email = "thecurrent.lim@gmail.com"},
     {name = "NomenAK", email = "anton.knoery@gmail.com"},
@@ -61,6 +61,9 @@ test = [
 
 [tool.setuptools]
 include-package-data = true
+
+[tool.setuptools.dynamic]
+version = {file = "VERSION"}
 
 [tool.setuptools.packages.find]
 where = ["."]

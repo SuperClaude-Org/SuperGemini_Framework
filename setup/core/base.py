@@ -28,9 +28,21 @@ class Component(ABC):
         # Resolve path safely
         self.install_dir = self._resolve_path_safely(install_dir or DEFAULT_INSTALL_DIR)
         self.settings_manager = SettingsService(self.install_dir)
-        self.component_files = self._discover_component_files()
+        # Defer component file discovery to avoid infinite recursion during registry initialization
+        self._component_files = None
         self.file_manager = FileService()
         self.install_component_subdir = self.install_dir / component_subdir
+    
+    @property
+    def component_files(self) -> List[str]:
+        """Lazy-loaded component files to avoid infinite recursion during registry initialization"""
+        if self._component_files is None:
+            try:
+                self._component_files = self._discover_component_files()
+            except Exception as e:
+                self.logger.warning(f"Failed to discover component files: {e}")
+                self._component_files = []  # Return empty list to prevent further recursion
+        return self._component_files
     
     @abstractmethod
     def get_metadata(self) -> Dict[str, str]:

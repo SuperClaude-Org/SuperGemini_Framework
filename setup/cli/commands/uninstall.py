@@ -19,6 +19,7 @@ from ...utils.ui import (
 from ...utils.environment import get_supergemini_environment_variables, cleanup_environment_variables
 from ...utils.logger import get_logger
 from ... import DEFAULT_INSTALL_DIR, PROJECT_ROOT
+from ...utils.paths import get_safe_components_directory
 from ..base import OperationBase
 
 
@@ -685,7 +686,7 @@ def perform_uninstall(components: List[str], args: argparse.Namespace, info: Dic
     try:
         # Create component registry with recursion protection
         try:
-            registry = ComponentRegistry(PROJECT_ROOT / "setup" / "components")
+            registry = ComponentRegistry(get_safe_components_directory())
             registry.discover_components()
             
             # Create component instances with error handling
@@ -847,8 +848,9 @@ def run(args: argparse.Namespace) -> int:
         
         # Display header
         if not args.quiet:
+            from setup import __version__
             display_header(
-                "SuperGemini Uninstall v4.0.3",
+                f"SuperGemini Uninstall v{__version__}",
                 "Removing SuperGemini framework components"
             )
         

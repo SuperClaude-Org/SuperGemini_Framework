@@ -91,13 +91,13 @@ class MCPDocsComponent(Component):
             # Still register component even if no servers selected
             self.set_selected_servers([])
             # Update component files based on selection (empty)
-            self.component_files = self._discover_component_files()
+            self._component_files = self._discover_component_files()
             return self._post_install()
         
         self.set_selected_servers(selected_servers)
         
         # Update component files based on selection
-        self.component_files = self._discover_component_files()
+        self._component_files = self._discover_component_files()
 
         # Validate installation
         success, errors = self.validate_prerequisites()

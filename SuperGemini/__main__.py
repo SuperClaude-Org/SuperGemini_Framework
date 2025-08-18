@@ -18,6 +18,13 @@ import difflib
 from pathlib import Path
 from typing import Dict, Callable
 
+# Import version from SSOT
+try:
+    from .version import __version__
+except ImportError:
+    # Fallback if module structure is broken
+    __version__ = "4.0.4"
+
 # Add the 'setup' directory to the Python import path (modern approach)
 
 try:
@@ -114,7 +121,7 @@ Examples:
         parents=[global_parser]
     )
 
-    parser.add_argument("--version", action="version", version="SuperGemini 4.0.3")
+    parser.add_argument("--version", action="version", version=f"SuperGemini {__version__}")
 
     subparsers = parser.add_subparsers(
         dest="operation",
@@ -222,7 +229,7 @@ def main() -> int:
         # No operation provided? Show help manually unless in quiet mode
         if not args.operation:
             if not args.quiet:
-                display_header("SuperGemini Framework v4.0.3", "Unified CLI for all operations")
+                display_header(f"SuperGemini Framework v{__version__}", "Unified CLI for all operations")
                 print(f"{Colors.CYAN}Available operations:{Colors.RESET}")
                 for op, desc in get_operation_modules().items():
                     print(f"  {op:<12} {desc}")

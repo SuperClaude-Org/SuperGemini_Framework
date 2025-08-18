@@ -20,6 +20,7 @@ from ...utils.ui import (
 from ...utils.environment import setup_environment_variables
 from ...utils.logger import get_logger
 from ... import DEFAULT_INSTALL_DIR, PROJECT_ROOT
+from ...utils.paths import get_safe_components_directory
 from ..base import OperationBase
 
 
@@ -285,7 +286,7 @@ def perform_update(components: List[str], args: argparse.Namespace) -> bool:
         installer = Installer(args.install_dir, dry_run=args.dry_run)
         
         # Create component registry
-        registry = ComponentRegistry(PROJECT_ROOT / "setup" / "components")
+        registry = ComponentRegistry(get_safe_components_directory())
         registry.discover_components()
         
         # Create component instances
@@ -404,8 +405,9 @@ def run(args: argparse.Namespace) -> int:
         
         # Display header
         if not args.quiet:
+            from setup import __version__
             display_header(
-                "SuperGemini Update v4.0.3",
+                f"SuperGemini Update v{__version__}",
                 "Updating SuperGemini framework components"
             )
         

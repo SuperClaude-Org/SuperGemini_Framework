@@ -233,8 +233,9 @@ def display_backup_list(backups: List[Dict[str, Any]]) -> None:
 
 def create_backup_metadata(install_dir: Path) -> Dict[str, Any]:
     """Create metadata for the backup"""
+    from setup import __version__
     metadata = {
-        "backup_version": "4.0.3",
+        "backup_version": __version__,
         "created": datetime.now().isoformat(),
         "install_dir": str(install_dir),
         "components": {},
@@ -508,8 +509,9 @@ def run(args: argparse.Namespace) -> int:
         
         # Display header
         if not args.quiet:
+            from setup import __version__
             display_header(
-                "SuperGemini Backup v4.0.3",
+                f"SuperGemini Backup v{__version__}",
                 "Backup and restore SuperGemini installations"
             )
         
