@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "SuperGemini"
 dynamic = ["version"]
 authors = [
-    {name = "hyunjae-labs", email = "thecurrent.lim@gmail.com"},
+    {name = "SuperGemini-Team", email = "support@supergemini.org"},
     {name = "NomenAK", email = "anton.knoery@gmail.com"},
     {name = "Mithun Gowda B", email = "mithungowda.b7411@gmail.com"}
 ]
