@@ -58,6 +58,9 @@ try:
     from setup import DEFAULT_INSTALL_DIR
 except ImportError:
     # Provide minimal fallback functions and constants if imports fail
+    from pathlib import Path
+    DEFAULT_INSTALL_DIR = Path.home() / ".gemini"
+    
     class Colors:
         RED = YELLOW = GREEN = CYAN = RESET = ""
 

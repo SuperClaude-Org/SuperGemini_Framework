@@ -57,7 +57,7 @@ setuptools.setup(
     long_description=get_long_description(),
     long_description_content_type="text/markdown",
     url="https://github.com/SuperClaude-Org/SuperGemini_Framework",
-    packages=setuptools.find_packages(),
+    packages=setuptools.find_packages() + setuptools.find_packages(where=".", include=["setup*"]),
     include_package_data=True,
     install_requires=get_install_requires(),
     entry_points={
