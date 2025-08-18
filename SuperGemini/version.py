@@ -11,17 +11,16 @@ logger = logging.getLogger(__name__)
 def get_version() -> str:
     """
     Get the version from VERSION file (Single Source of Truth).
-    
-    Returns:
-        str: Version string from VERSION file, or fallback if not found
     """
-    # Try multiple paths to find VERSION file
+    # Base project root (two levels up from this file: pd/SuperGemini/version.py → pd/)
+    project_root = Path(__file__).resolve().parent.parent
+
     possible_paths = [
-        Path(__file__).parent.parent / "VERSION",  # From installed package
-        Path.cwd() / "VERSION",  # From current directory
-        Path(__file__).parent / "VERSION",  # From package directory
+        project_root / "VERSION",        # Correct: pd/VERSION
+        Path.cwd() / "VERSION",          # Current working directory
+        Path(__file__).resolve().parent / "VERSION",  # Local fallback
     ]
-    
+
     for version_path in possible_paths:
         if version_path.exists():
             try:
@@ -31,10 +30,9 @@ def get_version() -> str:
             except Exception as e:
                 logger.warning(f"Failed to read VERSION file at {version_path}: {e}")
                 continue
-    
-    # Fallback version - should only be used if VERSION file is completely missing
+
+    # Fallback
     logger.warning("VERSION file not found in any expected location, using fallback")
     return "4.0.5"
 
-# Export the version as a module constant
 __version__ = get_version()
