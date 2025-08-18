@@ -51,8 +51,8 @@ def get_install_requires():
 setuptools.setup(
     name="SuperGemini",
     version=get_version(),
-    author="SuperGemini-Team, NomenAK, Mithun Gowda B",
-    author_email="support@supergemini.org",
+    author="hyunjae-labs, NomenAK, Mithun Gowda B",
+    author_email="thecurrent.lim@gmail.com",
     description="SuperGemini Framework Management Hub",
     long_description=get_long_description(),
     long_description_content_type="text/markdown",
