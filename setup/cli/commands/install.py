@@ -664,6 +664,14 @@ def install_with_profile(args: argparse.Namespace) -> bool:
             logger.error(f"Component discovery failed: {e}")
             display_error(f"Cannot locate components: {e}")
             return False
+        
+        # If full profile and MCP component included, set default MCP servers
+        if args.profile == "full" and "mcp" in components:
+            if not hasattr(args, 'mcp_servers') or not args.mcp_servers:
+                # Set default MCP servers for full installation (all servers)
+                # serena and morphllm will be automatically installed as disabled
+                args.mcp_servers = ["semantic-prompt", "sequential", "context7", "magic", "serena", "morphllm", "playwright"]
+                logger.info(f"Full installation - automatically including all MCP servers: {args.mcp_servers}")
     
     # Run the actual installation
     return execute_install_workflow(args, components, registry)
@@ -701,6 +709,12 @@ def validate_and_install(args: argparse.Namespace) -> bool:
                 display_error(f"Invalid components specified: {invalid_components}")
                 display_info(f"Available components: {available_components}")
                 return False
+        
+        # If no components specified and using standard profile, automatically use full installation
+        if (not hasattr(args, 'components') or not args.components) and args.profile == "standard":
+            args.profile = "full"
+            logger.info("No components specified - using full installation profile")
+            return install_with_profile(args)
         
         # Install with profile if specified
         if args.profile != "standard":
