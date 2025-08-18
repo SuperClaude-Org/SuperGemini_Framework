@@ -15,7 +15,20 @@ Available operations:
 - backup: Backup and restore SuperGemini installations
 """
 
-__version__ = "4.0.3"
+# Import version from SSOT
+try:
+    from setup import __version__
+except ImportError:
+    # Fallback if main setup module is not available
+    from pathlib import Path
+    try:
+        version_file = Path(__file__).parent.parent.parent / "VERSION"
+        if version_file.exists():
+            __version__ = version_file.read_text().strip()
+        else:
+            __version__ = "4.0.4"  # Fallback
+    except Exception:
+        __version__ = "4.0.4"  # Final fallback
 __all__ = ["install", "update", "uninstall", "backup"]
 
 
