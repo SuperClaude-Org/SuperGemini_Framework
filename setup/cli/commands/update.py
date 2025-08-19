@@ -467,7 +467,7 @@ def run(args: argparse.Namespace) -> int:
                 
                 if not args.dry_run:
                     print(f"\n{Colors.CYAN}Next steps:{Colors.RESET}")
-                    print(f"1. Restart your Claude Code session")
+                    print(f"1. Restart your Gemini CLI session")
                     print(f"2. Updated components are now available")
                     print(f"3. Check for any breaking changes in documentation")
                     

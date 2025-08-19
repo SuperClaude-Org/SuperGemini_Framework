@@ -30,13 +30,13 @@ Before using this guide, verify session commands work:
 
 ### Common Issues (< 2 minutes)
 - **Session won't load**: Check Serena MCP server connection: `SuperGemini status --mcp serena`
-- **Save fails**: Verify write permissions to `~/.claude/` directory
+- **Save fails**: Verify write permissions to `~/.gemini/` directory
 - **Memory issues**: Clear old sessions with `/sc:reflect --type session-cleanup`
 - **Slow loading**: Use `--scope file` for large projects or `--fast` flag
 
 ### Immediate Fixes
-- **Reset session**: Restart Claude Code to refresh session system
-- **Clear cache**: Remove `~/.claude/sessions/` directory if corrupted
+- **Reset session**: Restart Gemini CLI to refresh session system
+- **Clear cache**: Remove `~/.gemini/sessions/` directory if corrupted
 - **Check dependencies**: Verify Python/uv installation for Serena MCP
 - **Test basic functions**: Try `/sc:load .` and `/sc:save "test"` with simple project
 
@@ -84,7 +84,7 @@ SuperGemini status --mcp serena
 
 ### What is a Session?
 
-A **session** is a persistent development conversation that remembers your project, decisions, and progress across interruptions. Unlike standard Claude conversations that start fresh each time, SuperGemini sessions build cumulative understanding.
+A **session** is a persistent development conversation that remembers your project, decisions, and progress across interruptions. Unlike standard Gemini conversations that start fresh each time, SuperGemini sessions build cumulative understanding.
 
 **Key Concepts:**
 
@@ -94,9 +94,9 @@ A **session** is a persistent development conversation that remembers your proje
 
 **Memory**: Long-term storage of insights, patterns, and project knowledge that survives restarts
 
-### Session vs Standard Claude
+### Session vs Standard Gemini
 
-| Standard Claude | SuperGemini Sessions |
+| Standard Gemini | SuperGemini Sessions |
 |-----------------|---------------------|
 | Starts fresh each conversation | Remembers previous work |
 | No project memory | Builds cumulative understanding |
@@ -183,7 +183,7 @@ cd /path/to/your/project
 - [ ] Load time under 30 seconds for projects <100 files
 - [ ] Project analysis identifies framework and key patterns
 - [ ] Code changes follow existing project conventions  
-- [ ] Session persistence works across Claude Code restarts
+- [ ] Session persistence works across Gemini CLI restarts
 
 **Verify:** `/sc:load .` should complete without errors and show project summary  
 **Test:** Session should remember changes when resumed later  
@@ -528,9 +528,9 @@ SuperGemini status --mcp serena          # Verify Serena MCP
 ```bash
 # Problem: "/sc:save fails with permission error"
 # Quick Fix: Check permissions and storage
-ls -la ~/.claude/                        # Check directory permissions
-chmod -R 755 ~/.claude/                  # Fix permissions
-df -h ~/.claude/                         # Check disk space
+ls -la ~/.gemini/                        # Check directory permissions
+chmod -R 755 ~/.gemini/                  # Fix permissions
+df -h ~/.gemini/                         # Check disk space
 /sc:save --compress "test-session"       # Try compressed save
 ```
 
@@ -558,7 +558,7 @@ df -h ~/.claude/                         # Check disk space
 | Session Error | Meaning | Quick Fix |
 |---------------|---------|-----------|
 | **S001** | Load timeout | Reduce scope with `--scope module` or use `--fast` |
-| **S002** | Save permission denied | Check `chmod -R 755 ~/.claude/` |
+| **S002** | Save permission denied | Check `chmod -R 755 ~/.gemini/` |
 | **S003** | Serena MCP unavailable | Verify `uv run serena --help` works |
 | **S004** | Memory limit exceeded | Use `/sc:save --cleanup` and `--compress` |
 | **S005** | Project structure invalid | Verify you're in a valid project directory |
@@ -570,7 +570,7 @@ df -h ~/.claude/                         # Check disk space
 
 **Level 1: Quick Fix (< 2 min)**
 - Use the Common Issues section above
-- Try restarting Claude Code session
+- Try restarting Gemini CLI session
 - Use `--no-mcp` to test without Serena
 
 **Level 2: Detailed Help (5-15 min)**
@@ -578,7 +578,7 @@ df -h ~/.claude/                         # Check disk space
 # Session-specific diagnostics
 /sc:reflect --type sessions-list         # List all sessions
 /sc:reflect --type memory                # Check memory usage
-cat ~/.claude/logs/serena.log | tail -50 # Check Serena logs
+cat ~/.gemini/logs/serena.log | tail -50 # Check Serena logs
 ```
 - See [Common Issues Guide](../Reference/common-issues.md) for session installation problems
 
@@ -586,7 +586,7 @@ cat ~/.claude/logs/serena.log | tail -50 # Check Serena logs
 ```bash
 # Deep session analysis
 SuperGemini diagnose --sessions
-ls -la ~/.claude/serena/                 # Check Serena state
+ls -la ~/.gemini/serena/                 # Check Serena state
 uv run serena diagnose                   # Serena diagnostics
 # Reset session system completely
 ```
@@ -603,7 +603,7 @@ After applying session fixes, test with:
 - [ ] `/sc:load .` (should complete without errors for current directory)
 - [ ] `/sc:save "test-session"` (should save successfully)
 - [ ] `/sc:reflect` (should show session status accurately)
-- [ ] Session persistence works across Claude Code restarts
+- [ ] Session persistence works across Gemini CLI restarts
 - [ ] Memory usage is reasonable for your project size
 
 ## Performance and Security

@@ -69,7 +69,7 @@ class SecurityValidator:
         r'^c:[/\\]windows[/\\]',        # Windows system directory
         r'^c:[/\\]program files[/\\]',  # Program Files directory
         # Note: Removed c:\\users\\ to allow installation in user directories
-        # Claude Code installs to user home directory by default
+        # Gemini CLI installs to user home directory by default
     ]
     
     # Combined dangerous patterns for backward compatibility

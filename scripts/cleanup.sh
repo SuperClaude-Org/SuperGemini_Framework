@@ -1,5 +1,5 @@
 #!/bin/bash
-# SuperClaude Project Cleanup Script
+# SuperGemini Project Cleanup Script
 # Removes build artifacts, cache files, and temporary files
 
 set -e
@@ -15,7 +15,7 @@ NC='\033[0m' # No Color
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
 
-echo -e "${BLUE}🧹 SuperClaude Project Cleanup${NC}"
+echo -e "${BLUE}🧹 SuperGemini Project Cleanup${NC}"
 echo -e "📁 Project root: $PROJECT_ROOT"
 
 cd "$PROJECT_ROOT"

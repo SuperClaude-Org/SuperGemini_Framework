@@ -240,7 +240,7 @@ For organizations requiring extended security support:
 - Configuration file integrity validation
 
 **Configuration Security:**
-- ~/.claude directory permission validation (user-only access)
+- ~/.gemini directory permission validation (user-only access)
 - Configuration file schema validation and sanitization
 - Backup creation before configuration changes
 - Rollback capabilities for configuration corruption
@@ -305,7 +305,7 @@ For organizations requiring extended security support:
 
 ### Configuration Security
 **Configuration File Security:**
-- ~/.claude directory with user-only permissions (700)
+- ~/.gemini directory with user-only permissions (700)
 - Configuration files with restricted access (600)
 - Schema validation for all configuration content
 - Atomic configuration updates to prevent corruption
@@ -351,7 +351,7 @@ For organizations requiring extended security support:
 - Keep Python, Node.js, and system packages updated
 
 **Configuration Security:**
-- Use secure file permissions for ~/.claude directory (user-only access)
+- Use secure file permissions for ~/.gemini directory (user-only access)
 - Store API credentials in system credential managers, not configuration files
 - Regularly review and audit MCP server configurations
 - Enable only needed MCP servers to minimize attack surface

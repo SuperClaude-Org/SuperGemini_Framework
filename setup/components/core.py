@@ -33,7 +33,7 @@ class CoreComponent(Component):
             "framework": {
                 "version": __version__,
                 "name": "SuperGemini",
-                "description": "AI-enhanced development framework for Claude Code",
+                "description": "AI-enhanced development framework for Gemini CLI",
                 "installation_type": "global",
                 "components": ["core"]
             },

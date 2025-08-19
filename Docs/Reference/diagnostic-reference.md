@@ -35,7 +35,7 @@ ss -tuln | grep -E ":8000|:8001|:8002"
 
 # Process analysis
 echo "=== SuperGemini Processes ==="
-ps aux | grep -E "python.*SuperGemini|node.*mcp|claude"
+ps aux | grep -E "python.*SuperGemini|node.*mcp|gemini"
 ```
 
 **Real-time Performance Monitoring:**
@@ -59,8 +59,8 @@ echo "watch df -h       # Disk space updates"
 # Performance baseline establishment
 echo "=== Establishing performance baselines ==="
 time python3 -m SuperGemini --version
-time ls ~/.claude/
-time cat ~/.claude/CLAUDE.md | wc -l
+time ls ~/.gemini/
+time cat ~/.gemini/CLAUDE.md | wc -l
 ```
 
 **Performance Bottleneck Identification:**
@@ -81,7 +81,7 @@ echo "Memory Analysis:"
 MEM_USAGE=$(free | grep Mem | awk '{printf "%.0f", $3/$2 * 100}')
 if [ $MEM_USAGE -gt 85 ]; then
     echo "⚠️ High memory usage: ${MEM_USAGE}%"
-    echo "Solutions: Clear sessions, restart Claude Code"
+    echo "Solutions: Clear sessions, restart Gemini CLI"
 fi
 
 # Disk I/O bottleneck detection
@@ -108,7 +108,7 @@ echo "CPU Optimization Actions:"
 echo "1. Use scope limiting: --scope file instead of --scope project"
 echo "2. Break complex tasks into smaller operations"
 echo "3. Use selective MCP servers: --c7 --seq instead of --all-mcp"
-echo "4. Restart Claude Code session to clear accumulated processes"
+echo "4. Restart Gemini CLI session to clear accumulated processes"
 
 # CPU monitoring during operations
 echo "Monitor CPU during operations:"
@@ -129,8 +129,8 @@ ps aux --sort=-%mem | head -10
 
 # Session memory cleanup
 echo "Session cleanup commands:"
-echo "rm -rf ~/.claude/sessions/old-*     # Remove old sessions"
-echo "rm -rf ~/.claude/temp/              # Clear temporary files"
+echo "rm -rf ~/.gemini/sessions/old-*     # Remove old sessions"
+echo "rm -rf ~/.gemini/temp/              # Clear temporary files"
 echo "rm -rf /tmp/superclaude-*           # Clear system temp files"
 
 # Memory monitoring
@@ -144,14 +144,14 @@ echo "watch 'free -h && echo && ps aux --sort=-%mem | head -5'"
 echo "=== Disk I/O Optimization ==="
 
 # Disk usage analysis
-du -sh ~/.claude/
-du -sh ~/.claude/sessions/ 2>/dev/null || echo "No sessions directory"
-df -h ~/.claude/
+du -sh ~/.gemini/
+du -sh ~/.gemini/sessions/ 2>/dev/null || echo "No sessions directory"
+df -h ~/.gemini/
 
 # I/O optimization actions
 echo "I/O Optimization Actions:"
 echo "1. Focus on specific files instead of entire projects"
-echo "2. Use faster storage (SSD) for ~/.claude directory"
+echo "2. Use faster storage (SSD) for ~/.gemini directory"
 echo "3. Regular cleanup of session files"
 echo "4. Move large projects to faster storage"
 
@@ -171,12 +171,12 @@ echo "=== Session State Diagnostics ==="
 
 # Session directory analysis
 echo "Session Directory Analysis:"
-ls -la ~/.claude/sessions/ 2>/dev/null || echo "No sessions directory found"
-du -sh ~/.claude/sessions/ 2>/dev/null || echo "No sessions to analyze"
+ls -la ~/.gemini/sessions/ 2>/dev/null || echo "No sessions directory found"
+du -sh ~/.gemini/sessions/ 2>/dev/null || echo "No sessions to analyze"
 
 # Session file integrity check
 echo "Session File Integrity:"
-find ~/.claude/sessions/ -name "*.json" -type f 2>/dev/null | while read file; do
+find ~/.gemini/sessions/ -name "*.json" -type f 2>/dev/null | while read file; do
     if python3 -c "import json; json.load(open('$file'))" 2>/dev/null; then
         echo "✅ Valid: $(basename $file)"
     else
@@ -186,7 +186,7 @@ done
 
 # Session memory usage analysis
 echo "Session Memory Usage:"
-find ~/.claude/sessions/ -name "*.json" -type f -exec du -h {} \; 2>/dev/null | sort -hr | head -10
+find ~/.gemini/sessions/ -name "*.json" -type f -exec du -h {} \; 2>/dev/null | sort -hr | head -10
 ```
 
 **Session Performance Analysis:**
@@ -196,11 +196,11 @@ echo "=== Session Performance Analysis ==="
 
 # Session load time testing
 echo "Session Load Performance:"
-time ls ~/.claude/sessions/ >/dev/null 2>&1
+time ls ~/.gemini/sessions/ >/dev/null 2>&1
 
 # Session access pattern analysis
 echo "Session Access Patterns:"
-find ~/.claude/sessions/ -type f -printf "%T@ %p\n" 2>/dev/null | sort -n | tail -10 | while read timestamp file; do
+find ~/.gemini/sessions/ -type f -printf "%T@ %p\n" 2>/dev/null | sort -n | tail -10 | while read timestamp file; do
     date -d @${timestamp} "+%Y-%m-%d %H:%M:%S"
     basename "$file"
     echo "---"
@@ -208,8 +208,8 @@ done
 
 # Session storage efficiency
 echo "Session Storage Efficiency:"
-total_sessions=$(find ~/.claude/sessions/ -name "*.json" 2>/dev/null | wc -l)
-total_size=$(du -sb ~/.claude/sessions/ 2>/dev/null | cut -f1)
+total_sessions=$(find ~/.gemini/sessions/ -name "*.json" 2>/dev/null | wc -l)
+total_size=$(du -sb ~/.gemini/sessions/ 2>/dev/null | cut -f1)
 if [ "$total_sessions" -gt 0 ] && [ "$total_size" -gt 0 ]; then
     avg_size=$((total_size / total_sessions))
     echo "Total sessions: $total_sessions"
@@ -227,7 +227,7 @@ echo "=== Session Corruption Recovery ==="
 
 # Identify corrupted sessions
 echo "Identifying corrupted sessions:"
-find ~/.claude/sessions/ -name "*.json" -type f 2>/dev/null | while read file; do
+find ~/.gemini/sessions/ -name "*.json" -type f 2>/dev/null | while read file; do
     if ! python3 -c "import json; json.load(open('$file'))" 2>/dev/null; then
         echo "Corrupted: $file"
         mv "$file" "$file.corrupted.$(date +%s)"
@@ -237,9 +237,9 @@ done
 
 # Session backup creation
 echo "Creating session backups:"
-if [ -d ~/.claude/sessions/ ]; then
-    backup_dir=~/.claude/sessions.backup.$(date +%Y%m%d_%H%M%S)
-    cp -r ~/.claude/sessions/ "$backup_dir"
+if [ -d ~/.gemini/sessions/ ]; then
+    backup_dir=~/.gemini/sessions.backup.$(date +%Y%m%d_%H%M%S)
+    cp -r ~/.gemini/sessions/ "$backup_dir"
     echo "Sessions backed up to: $backup_dir"
 fi
 
@@ -277,7 +277,7 @@ if __name__ == "__main__":
     print(f"{'✅' if is_valid else '❌'} {filepath}: {message}")
 EOF
 
-find ~/.claude/sessions/ -name "*.json" -type f 2>/dev/null | while read file; do
+find ~/.gemini/sessions/ -name "*.json" -type f 2>/dev/null | while read file; do
     python3 /tmp/validate_session.py "$file"
 done
 
@@ -291,8 +291,8 @@ echo "=== Session Optimization ==="
 
 # Archive old sessions
 echo "Archiving old sessions (>30 days):"
-find ~/.claude/sessions/ -name "*.json" -type f -mtime +30 2>/dev/null | while read file; do
-    archive_dir=~/.claude/sessions.archive/$(date +%Y-%m)
+find ~/.gemini/sessions/ -name "*.json" -type f -mtime +30 2>/dev/null | while read file; do
+    archive_dir=~/.gemini/sessions.archive/$(date +%Y-%m)
     mkdir -p "$archive_dir"
     mv "$file" "$archive_dir/"
     echo "Archived: $(basename $file)"
@@ -300,21 +300,21 @@ done
 
 # Compress large sessions
 echo "Compressing large sessions (>1MB):"
-find ~/.claude/sessions/ -name "*.json" -type f -size +1M 2>/dev/null | while read file; do
+find ~/.gemini/sessions/ -name "*.json" -type f -size +1M 2>/dev/null | while read file; do
     gzip "$file"
     echo "Compressed: $(basename $file).gz"
 done
 
 # Session defragmentation
 echo "Session defragmentation:"
-if [ -d ~/.claude/sessions/ ]; then
+if [ -d ~/.gemini/sessions/ ]; then
     # Sort sessions by access time and reorganize
     temp_dir=$(mktemp -d)
-    find ~/.claude/sessions/ -name "*.json" -type f -printf "%A@ %p\n" 2>/dev/null | sort -n | while read atime file; do
+    find ~/.gemini/sessions/ -name "*.json" -type f -printf "%A@ %p\n" 2>/dev/null | sort -n | while read atime file; do
         cp "$file" "$temp_dir/$(basename $file)"
     done
     echo "Sessions reorganized in: $temp_dir"
-    echo "Replace sessions directory with: mv $temp_dir ~/.claude/sessions.optimized"
+    echo "Replace sessions directory with: mv $temp_dir ~/.gemini/sessions.optimized"
 fi
 ```
 
@@ -330,13 +330,13 @@ echo "=== SuperGemini System Health Assessment ==="
 # Core component verification
 echo "Core Component Status:"
 python3 -m SuperGemini --version && echo "✅ SuperGemini installed" || echo "❌ SuperGemini not found"
-ls ~/.claude/CLAUDE.md >/dev/null 2>&1 && echo "✅ Configuration exists" || echo "❌ Configuration missing"
-grep -q "SuperGemini" ~/.claude/CLAUDE.md 2>/dev/null && echo "✅ Configuration valid" || echo "❌ Configuration invalid"
+ls ~/.gemini/CLAUDE.md >/dev/null 2>&1 && echo "✅ Configuration exists" || echo "❌ Configuration missing"
+grep -q "SuperGemini" ~/.gemini/CLAUDE.md 2>/dev/null && echo "✅ Configuration valid" || echo "❌ Configuration invalid"
 
 # Dependency verification
 echo "Dependency Status:"
 python3 --version | grep -E "3\.[8-9]|3\.[1-9][0-9]" >/dev/null && echo "✅ Python version OK" || echo "❌ Python version incompatible"
-which claude >/dev/null 2>&1 && echo "✅ Claude Code available" || echo "❌ Claude Code not found"
+which gemini >/dev/null 2>&1 && echo "✅ Gemini CLI available" || echo "❌ Gemini CLI not found"
 
 # MCP server verification
 echo "MCP Server Status:"
@@ -345,8 +345,8 @@ npm list -g 2>/dev/null | grep -E "context7|sequential|magic" >/dev/null && echo
 
 # File system verification
 echo "File System Status:"
-[ -w ~/.claude/ ] && echo "✅ Configuration directory writable" || echo "❌ Configuration directory not writable"
-df -h ~/.claude/ | tail -1 | awk '{if($5+0 < 90) print "✅ Sufficient disk space: " $5 " used"; else print "⚠️ Low disk space: " $5 " used"}'
+[ -w ~/.gemini/ ] && echo "✅ Configuration directory writable" || echo "❌ Configuration directory not writable"
+df -h ~/.gemini/ | tail -1 | awk '{if($5+0 < 90) print "✅ Sufficient disk space: " $5 " used"; else print "⚠️ Low disk space: " $5 " used"}'
 
 # Network verification (if MCP servers require internet)
 echo "Network Status:"
@@ -360,8 +360,8 @@ echo "=== Configuration Integrity Analysis ==="
 
 # CLAUDE.md structure analysis
 echo "CLAUDE.md Analysis:"
-if [ -f ~/.claude/CLAUDE.md ]; then
-    line_count=$(wc -l ~/.claude/CLAUDE.md | cut -d' ' -f1)
+if [ -f ~/.gemini/CLAUDE.md ]; then
+    line_count=$(wc -l ~/.gemini/CLAUDE.md | cut -d' ' -f1)
     if [ $line_count -gt 100 ]; then
         echo "✅ Configuration size appropriate: $line_count lines"
     else
@@ -369,7 +369,7 @@ if [ -f ~/.claude/CLAUDE.md ]; then
     fi
     
     # Check for required imports
-    import_count=$(grep -c "^@" ~/.claude/CLAUDE.md 2>/dev/null)
+    import_count=$(grep -c "^@" ~/.gemini/CLAUDE.md 2>/dev/null)
     if [ $import_count -gt 5 ]; then
         echo "✅ Import structure OK: $import_count imports"
     else
@@ -378,7 +378,7 @@ if [ -f ~/.claude/CLAUDE.md ]; then
     
     # Check for circular imports
     echo "Circular import check:"
-    if grep -q "@CLAUDE.md" ~/.claude/CLAUDE.md 2>/dev/null; then
+    if grep -q "@CLAUDE.md" ~/.gemini/CLAUDE.md 2>/dev/null; then
         echo "❌ Circular import detected"
     else
         echo "✅ No circular imports"
@@ -390,8 +390,8 @@ fi
 # Component file analysis
 echo "Component Files Analysis:"
 for component in FLAGS RULES PRINCIPLES; do
-    if [ -f ~/.claude/${component}.md ]; then
-        size=$(wc -l ~/.claude/${component}.md | cut -d' ' -f1)
+    if [ -f ~/.gemini/${component}.md ]; then
+        size=$(wc -l ~/.gemini/${component}.md | cut -d' ' -f1)
         echo "✅ ${component}.md: $size lines"
     else
         echo "❌ ${component}.md missing"
@@ -437,9 +437,9 @@ classify_error() {
 
 # Error log analysis (if logs exist)
 echo "Error Log Analysis:"
-if [ -f ~/.claude/error.log ]; then
+if [ -f ~/.gemini/error.log ]; then
     echo "Recent errors:"
-    tail -20 ~/.claude/error.log | while read line; do
+    tail -20 ~/.gemini/error.log | while read line; do
         error_type=$(classify_error "$line")
         echo "$error_type: $line"
     done
@@ -449,7 +449,7 @@ fi
 
 # System log analysis for SuperGemini-related errors
 echo "System Log Analysis:"
-journalctl --since "1 day ago" 2>/dev/null | grep -i -E "superclaude|claude|python.*error" | tail -10 || echo "No system logs available"
+journalctl --since "1 day ago" 2>/dev/null | grep -i -E "superclaude|gemini|python.*error" | tail -10 || echo "No system logs available"
 ```
 
 **Root Cause Analysis Procedures:**
@@ -500,7 +500,7 @@ test_isolation() {
     python3 -m SuperGemini --version >/dev/null 2>&1 && echo "✅ SuperGemini installed" || echo "❌ SuperGemini issue"
     
     # Test configuration loading
-    [ -f ~/.claude/CLAUDE.md ] && echo "✅ Configuration exists" || echo "❌ Configuration missing"
+    [ -f ~/.gemini/CLAUDE.md ] && echo "✅ Configuration exists" || echo "❌ Configuration missing"
     
     # Test MCP servers (if applicable)
     if which node >/dev/null 2>&1; then
@@ -540,8 +540,8 @@ time_basic() {
 }
 
 echo "SuperGemini version check: $(time_basic 'python3 -m SuperGemini --version')"
-echo "Configuration read: $(time_basic 'cat ~/.claude/CLAUDE.md | wc -l')"
-echo "Session directory list: $(time_basic 'ls ~/.claude/sessions/')"
+echo "Configuration read: $(time_basic 'cat ~/.gemini/CLAUDE.md | wc -l')"
+echo "Session directory list: $(time_basic 'ls ~/.gemini/sessions/')"
 
 # File operation benchmarks
 echo "File Operation Benchmarks:"
@@ -603,9 +603,9 @@ def run_performance_tests():
     """Run suite of performance tests"""
     tests = [
         ('python3 -m SuperGemini --version', 'Version check'),
-        ('ls ~/.claude/', 'Config directory list'),
-        ('cat ~/.claude/CLAUDE.md | wc -l', 'Config file read'),
-        ('find ~/.claude/ -name "*.md" | wc -l', 'Config file search'),
+        ('ls ~/.gemini/', 'Config directory list'),
+        ('cat ~/.gemini/CLAUDE.md | wc -l', 'Config file read'),
+        ('find ~/.gemini/ -name "*.md" | wc -l', 'Config file search'),
     ]
     
     results = []
@@ -684,8 +684,8 @@ analyze_memory_usage() {
     if [ $mem_percent -gt 80 ]; then
         echo "⚠️ High memory usage detected"
         echo "Recommendations:"
-        echo "  - Clear old session files: rm -rf ~/.claude/sessions/old-*"
-        echo "  - Restart Claude Code session"
+        echo "  - Clear old session files: rm -rf ~/.gemini/sessions/old-*"
+        echo "  - Restart Gemini CLI session"
         echo "  - Use scope limiting: --scope file"
         echo "  - Close unused applications"
     elif [ $mem_percent -gt 60 ]; then
@@ -700,7 +700,7 @@ analyze_memory_usage
 
 # Memory cleanup procedures
 echo "Memory Cleanup Procedures:"
-echo "1. Session cleanup: find ~/.claude/sessions/ -mtime +7 -delete"
+echo "1. Session cleanup: find ~/.gemini/sessions/ -mtime +7 -delete"
 echo "2. Temporary file cleanup: rm -rf /tmp/superclaude-*"
 echo "3. System cache cleanup: sync && echo 3 > /proc/sys/vm/drop_caches (requires sudo)"
 echo "4. Browser cache cleanup (if using Playwright MCP)"
@@ -771,9 +771,9 @@ echo "SuperGemini installation: $(python3 -m SuperGemini --version 2>/dev/null |
 
 # Layer 3: SuperGemini configuration
 echo "Layer 3 - SuperGemini Configuration:"
-echo "Configuration directory: $(ls -ld ~/.claude/ 2>/dev/null || echo 'Not found')"
-echo "Configuration files: $(find ~/.claude/ -name "*.md" 2>/dev/null | wc -l) files"
-echo "Session files: $(find ~/.claude/sessions/ -name "*.json" 2>/dev/null | wc -l) sessions"
+echo "Configuration directory: $(ls -ld ~/.gemini/ 2>/dev/null || echo 'Not found')"
+echo "Configuration files: $(find ~/.gemini/ -name "*.md" 2>/dev/null | wc -l) files"
+echo "Session files: $(find ~/.gemini/sessions/ -name "*.json" 2>/dev/null | wc -l) sessions"
 
 # Layer 4: MCP servers
 echo "Layer 4 - MCP Servers:"
@@ -784,12 +784,12 @@ else
     echo "Node.js: Not installed"
 fi
 
-# Layer 5: Claude Code integration
-echo "Layer 5 - Claude Code Integration:"
-if which claude >/dev/null 2>&1; then
-    echo "Claude Code: $(claude --version 2>/dev/null || echo 'Version unknown')"
+# Layer 5: Gemini CLI integration
+echo "Layer 5 - Gemini CLI Integration:"
+if which gemini >/dev/null 2>&1; then
+    echo "Gemini CLI: $(gemini --version 2>/dev/null || echo 'Version unknown')"
 else
-    echo "Claude Code: Not found in PATH"
+    echo "Gemini CLI: Not found in PATH"
 fi
 ```
 
@@ -833,7 +833,7 @@ verify_dependency_chain() {
     
     # Level 4: Configuration files
     echo -n "4. Configuration files: "
-    if [ -f ~/.claude/CLAUDE.md ] && [ -s ~/.claude/CLAUDE.md ]; then
+    if [ -f ~/.gemini/CLAUDE.md ] && [ -s ~/.gemini/CLAUDE.md ]; then
         echo "✅ Present and non-empty"
     else
         echo "❌ Missing or empty"
@@ -853,12 +853,12 @@ verify_dependency_chain() {
         echo "⚠️ Not installed (MCP servers unavailable)"
     fi
     
-    # Level 6: Claude Code integration
-    echo -n "6. Claude Code integration: "
-    if which claude >/dev/null 2>&1; then
-        echo "✅ Claude Code available"
+    # Level 6: Gemini CLI integration
+    echo -n "6. Gemini CLI integration: "
+    if which gemini >/dev/null 2>&1; then
+        echo "✅ Gemini CLI available"
     else
-        echo "⚠️ Claude Code not found"
+        echo "⚠️ Gemini CLI not found"
     fi
     
     return $status
@@ -889,7 +889,7 @@ backup_timestamp=$(date +%Y%m%d_%H%M%S)
 backup_dir=~/superclaude_recovery_$backup_timestamp
 
 mkdir -p "$backup_dir"
-[ -d ~/.claude/ ] && cp -r ~/.claude/ "$backup_dir/claude_config/"
+[ -d ~/.gemini/ ] && cp -r ~/.gemini/ "$backup_dir/claude_config/"
 [ -d ~/.npm/ ] && cp -r ~/.npm/  "$backup_dir/npm_config/" 2>/dev/null || true
 env | grep -E "CLAUDE|PYTHON|NODE" > "$backup_dir/environment_vars.txt"
 python3 -m pip list > "$backup_dir/python_packages.txt" 2>/dev/null || true
@@ -899,7 +899,7 @@ echo "Backup created in: $backup_dir"
 
 # Step 2: Complete cleanup
 echo "Step 2: Performing complete cleanup..."
-rm -rf ~/.claude/
+rm -rf ~/.gemini/
 npm cache clean --force 2>/dev/null || true
 python3 -m pip uninstall SuperGemini -y 2>/dev/null || true
 
@@ -938,7 +938,7 @@ fi
 
 # Step 6: Verification
 echo "Step 6: Installation verification..."
-if python3 -m SuperGemini --version && [ -f ~/.claude/CLAUDE.md ]; then
+if python3 -m SuperGemini --version && [ -f ~/.gemini/CLAUDE.md ]; then
     echo "✅ Recovery completed successfully"
     echo "Backup available at: $backup_dir"
 else
@@ -963,7 +963,7 @@ PRE-RECOVERY ASSESSMENT:
 
 RECOVERY STEPS:
 □ Create system state backup
-□ Stop all Claude Code sessions
+□ Stop all Gemini CLI sessions
 □ Clear corrupted configurations
 □ Perform fresh installation
 □ Verify basic functionality
@@ -975,7 +975,7 @@ RECOVERY STEPS:
 POST-RECOVERY VERIFICATION:
 □ Test SuperGemini version command
 □ Verify configuration file integrity
-□ Test basic operations in Claude Code
+□ Test basic operations in Gemini CLI
 □ Validate MCP server functionality
 □ Document recovery process and lessons learned
 

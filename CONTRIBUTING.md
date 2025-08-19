@@ -347,10 +347,10 @@ Before seeking support, please:
 A: Use `pip install --user SuperGemini` or create virtual environment. See [Installation Guide](Getting-Started/installation.md) for details.
 
 **Q: "Commands not recognized after installation"**
-A: Restart Gemini CLI session. Verify installation with `SuperGemini install --list-components`. Check ~/.claude directory exists.
+A: Restart Gemini CLI session. Verify installation with `SuperGemini install --list-components`. Check ~/.gemini directory exists.
 
 **Q: "MCP servers not connecting"**
-A: Check Node.js installation for MCP servers. Verify ~/.claude/.claude.json configuration. Try `SuperGemini install --components mcp --force`.
+A: Check Node.js installation for MCP servers. Verify ~/.gemini/.gemini.json configuration. Try `SuperGemini install --components mcp --force`.
 
 **Code Development:**
 

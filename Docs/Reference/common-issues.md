@@ -4,16 +4,16 @@
 
 **For Detailed Help**: If these quick fixes don't work, see the [Comprehensive Troubleshooting Guide](troubleshooting.md) for detailed solutions.
 
-> **Command Context**: **🖥️ Terminal Commands** (for installation) vs **💬 Claude Code Commands** (`/sc:` for development)
+> **Command Context**: **🖥️ Terminal Commands** (for installation) vs **💬 Gemini CLI Commands** (`/sc:` for development)
 
 ## Top 10 Quick Fixes
 
 ### 1. 🖥️ Permission Denied During Installation
-**Error**: `ERROR: Permission denied: '/home/user/.claude/CLAUDE.md'`
+**Error**: `ERROR: Permission denied: '/home/user/.gemini/CLAUDE.md'`
 
 **Quick Fix**:
 ```bash
-sudo chown -R $USER ~/.claude && chmod 755 ~/.claude
+sudo chown -R $USER ~/.gemini && chmod 755 ~/.gemini
 ```
 
 **Alternative**: Use user installation: `pip install --user SuperGemini`
@@ -50,12 +50,12 @@ python3 -m SuperGemini install --components mcp --force
 
 ---
 
-### 4. 💬 Commands Not Working in Claude Code
+### 4. 💬 Commands Not Working in Gemini CLI
 **Error**: `/sc:help` command not recognized
 
 **Quick Fix**:
-1. Restart Claude Code completely
-2. Verify installation: `cat ~/.claude/CLAUDE.md | head -5`
+1. Restart Gemini CLI completely
+2. Verify installation: `cat ~/.gemini/CLAUDE.md | head -5`
 3. If empty, reinstall: `python3 -m SuperGemini install --force`
 
 [Detailed Help →](troubleshooting.md#command-execution-problems)
@@ -78,11 +78,11 @@ python3 -m SuperGemini --version
 ---
 
 ### 6. 🖥️ Windows Path Problems
-**Error**: `Cannot find file 'C:\Users\name\.claude\CLAUDE.md'`
+**Error**: `Cannot find file 'C:\Users\name\.gemini\CLAUDE.md'`
 
 **Quick Fix**:
 ```cmd
-set CLAUDE_CONFIG_DIR=C:\Users\%USERNAME%\.claude
+set CLAUDE_CONFIG_DIR=C:\Users\%USERNAME%\.gemini
 python -m SuperGemini install --install-dir "%CLAUDE_CONFIG_DIR%"
 ```
 
@@ -96,7 +96,7 @@ python -m SuperGemini install --install-dir "%CLAUDE_CONFIG_DIR%"
 **Quick Fix**:
 1. Press Ctrl+C to cancel
 2. Try smaller scope: `/sc:analyze src/` instead of entire project
-3. Restart Claude Code session
+3. Restart Gemini CLI session
 
 [Detailed Help →](troubleshooting.md#command-timeout-or-hanging)
 
@@ -123,7 +123,7 @@ winget install OpenJS.NodeJS
 **Quick Fix**:
 ```bash
 # Clear temporary data:
-rm -rf ~/.claude/tmp/ ~/.claude/cache/
+rm -rf ~/.gemini/tmp/ ~/.gemini/cache/
 # Work with smaller projects
 # Close other applications
 ```
@@ -137,7 +137,7 @@ rm -rf ~/.claude/tmp/ ~/.claude/cache/
 
 **Quick Fix**:
 ```bash
-rm -rf ~/.claude/
+rm -rf ~/.gemini/
 pip uninstall SuperGemini
 pip install SuperGemini
 python3 -m SuperGemini install --fresh
@@ -151,7 +151,7 @@ python3 -m SuperGemini install --fresh
 
 **Complete Reset** (when everything is broken):
 ```bash
-rm -rf ~/.claude/ && pip uninstall SuperGemini && pip install SuperGemini && python3 -m SuperGemini install --fresh
+rm -rf ~/.gemini/ && pip uninstall SuperGemini && pip install SuperGemini && python3 -m SuperGemini install --fresh
 ```
 
 **Test Installation**:
@@ -159,8 +159,8 @@ rm -rf ~/.claude/ && pip uninstall SuperGemini && pip install SuperGemini && pyt
 python3 -m SuperGemini --version && echo "✅ Installation OK"
 ```
 
-**Test Claude Code Integration**:
-Type `/sc:help` in Claude Code - should show available commands.
+**Test Gemini CLI Integration**:
+Type `/sc:help` in Gemini CLI - should show available commands.
 
 ---
 

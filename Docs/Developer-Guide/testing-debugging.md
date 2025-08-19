@@ -692,7 +692,7 @@ export SUPERCLAUDE_DEBUG_COORDINATION=true
 export SUPERCLAUDE_LOG_LEVEL=debug
 
 # Create log directory if it doesn't exist
-mkdir -p ~/.claude/logs
+mkdir -p ~/.gemini/logs
 
 # Run with agent tracing (corrected command)
 python -m setup.main install --debug-agents --dry-run --verbose
@@ -701,11 +701,11 @@ python -m setup.main install --debug-agents --dry-run --verbose
 SuperGemini install core --debug --trace-agents --dry-run
 
 # Monitor agent activation in real-time
-tail -f ~/.claude/logs/superclaude-debug.log | grep -E "(AGENT|COORDINATION)"
+tail -f ~/.gemini/logs/superclaude-debug.log | grep -E "(AGENT|COORDINATION)"
 
 # Check specific agent logs
-ls ~/.claude/logs/agent-*.log
-tail -f ~/.claude/logs/agent-activation.log
+ls ~/.gemini/logs/agent-*.log
+tail -f ~/.gemini/logs/agent-activation.log
 
 # Debug agent selection with Python
 python -c "
@@ -935,8 +935,8 @@ export SUPERCLAUDE_DEBUG_MODE_TRANSITIONS=true
 export SUPERCLAUDE_LOG_LEVEL=debug
 
 # Create debugging environment
-mkdir -p ~/.claude/logs
-mkdir -p ~/.claude/debug
+mkdir -p ~/.gemini/logs
+mkdir -p ~/.gemini/debug
 
 # Inspect current mode state
 python -c "
@@ -976,17 +976,17 @@ debug_state = {
     'test_selection': selected_modes
 }
 
-with open(os.path.expanduser('~/.claude/debug/mode_state.json'), 'w') as f:
+with open(os.path.expanduser('~/.gemini/debug/mode_state.json'), 'w') as f:
     json.dump(debug_state, f, indent=2)
     
-print('Debug state saved to ~/.claude/debug/mode_state.json')
+print('Debug state saved to ~/.gemini/debug/mode_state.json')
 "
 
 # Monitor mode transitions in real-time
-tail -f ~/.claude/logs/superclaude-debug.log | grep -E "(MODE|TRANSITION)"
+tail -f ~/.gemini/logs/superclaude-debug.log | grep -E "(MODE|TRANSITION)"
 
 # Check mode-specific logs
-ls ~/.claude/logs/mode-*.log
+ls ~/.gemini/logs/mode-*.log
 
 # Debug mode configuration
 python -c "
@@ -1115,7 +1115,7 @@ class MCPDebugger:
         default_config = self.server_configs.get(server_name, {})
         
         # Check user configuration
-        claude_config_path = Path.home() / '.claude.json'
+        claude_config_path = Path.home() / '.gemini.json'
         user_config = {}
         
         if claude_config_path.exists():
@@ -1290,7 +1290,7 @@ def debug_all_mcp_servers():
         result = debugger.debug_server_connection(server_name)
         
         # Save debug results
-        debug_file = Path.home() / '.claude' / 'debug' / f'mcp_{server_name}_debug.json'
+        debug_file = Path.home() / '.gemini' / 'debug' / f'mcp_{server_name}_debug.json'
         debug_file.parent.mkdir(parents=True, exist_ok=True)
         
         with open(debug_file, 'w') as f:
@@ -1317,7 +1317,7 @@ export SUPERCLAUDE_TRACE_MCP=true
 export SUPERCLAUDE_MCP_LOG_LEVEL=debug
 
 # Create MCP log directory
-mkdir -p ~/.claude/logs/mcp
+mkdir -p ~/.gemini/logs/mcp
 
 # Trace MCP requests and responses (fixed commands)
 python -m setup.main debug --mcp-trace --verbose
@@ -1346,11 +1346,11 @@ except Exception as e:
 "
 
 # Monitor MCP communication in real-time
-tail -f ~/.claude/logs/superclaude-debug.log | grep -E "(MCP|REQUEST|RESPONSE)"
+tail -f ~/.gemini/logs/superclaude-debug.log | grep -E "(MCP|REQUEST|RESPONSE)"
 
 # Check individual MCP server logs
-ls ~/.claude/logs/mcp-*.log
-tail -f ~/.claude/logs/mcp-context7.log
+ls ~/.gemini/logs/mcp-*.log
+tail -f ~/.gemini/logs/mcp-context7.log
 
 # Debug specific MCP server issues
 python -c "
@@ -1367,17 +1367,17 @@ debugger.debug_all_mcp_servers()
 **Issue: Component Installation Fails**
 ```bash
 # Problem: Permission denied or file conflicts
-ERROR: Permission denied: '/home/user/.claude/CLAUDE.md'
+ERROR: Permission denied: '/home/user/.gemini/CLAUDE.md'
 
 # Diagnosis
-ls -la ~/.claude/
+ls -la ~/.gemini/
 whoami
 groups
 
 # Solution
-sudo chown -R $USER:$USER ~/.claude
-chmod 755 ~/.claude
-chmod 644 ~/.claude/*.md
+sudo chown -R $USER:$USER ~/.gemini
+chmod 755 ~/.gemini
+chmod 644 ~/.gemini/*.md
 
 # Verification
 python -c "
@@ -1386,7 +1386,7 @@ from setup.core.installation import InstallOptions
 from pathlib import Path
 
 component = CoreComponent()
-install_dir = Path.home() / '.claude'
+install_dir = Path.home() / '.gemini'
 options = InstallOptions(install_dir=install_dir, force=True)
 result = component.install(options)
 print(f'Installation result: {result.success}')
@@ -1405,7 +1405,7 @@ python -c "
 from setup.mcp.debugging import MCPDebugger
 debugger = MCPDebugger()
 result = debugger.debug_server_connection('context7')
-print('Debug complete. Check ~/.claude/debug/mcp_context7_debug.json')
+print('Debug complete. Check ~/.gemini/debug/mcp_context7_debug.json')
 "
 
 # Common fixes
@@ -1452,14 +1452,14 @@ print(f'Coordination: {pattern}')
 
 # Common solutions
 # 1. Check trigger keywords
-cat ~/.claude/AGENT_SecurityEngineer.md | grep -i "trigger"
+cat ~/.gemini/AGENT_SecurityEngineer.md | grep -i "trigger"
 
 # 2. Update agent triggers
-# Edit ~/.claude/AGENT_SecurityEngineer.md
+# Edit ~/.gemini/AGENT_SecurityEngineer.md
 # Add keywords: auth, authentication, secure, login
 
 # 3. Clear agent cache
-rm -f ~/.claude/cache/agent_*.cache
+rm -f ~/.gemini/cache/agent_*.cache
 
 # 4. Verify agent installation
 python -c "
@@ -1549,15 +1549,15 @@ except Exception as e:
 
 # Common fixes
 # 1. Check permissions
-chmod 755 ~/.claude/sessions/
-chmod 644 ~/.claude/sessions/*.json
+chmod 755 ~/.gemini/sessions/
+chmod 644 ~/.gemini/sessions/*.json
 
 # 2. Clear corrupted sessions
-rm ~/.claude/sessions/corrupted_session_*.json
+rm ~/.gemini/sessions/corrupted_session_*.json
 
 # 3. Reset session storage
-mv ~/.claude/sessions ~/.claude/sessions_backup
-mkdir -p ~/.claude/sessions
+mv ~/.gemini/sessions ~/.gemini/sessions_backup
+mkdir -p ~/.gemini/sessions
 ```
 
 ### Performance and Memory Issues
@@ -1637,7 +1637,7 @@ from setup.mcp.debugging import MCPDebugger
 
 class ComprehensiveDebugger:
     def __init__(self):
-        self.debug_dir = Path.home() / '.claude' / 'debug'
+        self.debug_dir = Path.home() / '.gemini' / 'debug'
         self.debug_dir.mkdir(parents=True, exist_ok=True)
         
         self.agent_debugger = AgentDebugger()
@@ -1763,14 +1763,14 @@ class ComprehensiveDebugger:
         agent_health = diagnosis_results['components']['agents']['overall_health']
         if agent_health != 'healthy':
             recommendations.append("Reinstall agent components: SuperGemini install agents --force")
-            recommendations.append("Check agent trigger keywords in ~/.claude/AGENT_*.md files")
+            recommendations.append("Check agent trigger keywords in ~/.gemini/AGENT_*.md files")
             
         # MCP system recommendations
         mcp_health = diagnosis_results['components']['mcp']['overall_health']
         if mcp_health != 'healthy':
             recommendations.append("Check Node.js version: node --version (requires 16+)")
             recommendations.append("Reinstall MCP servers: SuperGemini install mcp --force")
-            recommendations.append("Check MCP server logs: ~/.claude/logs/mcp-*.log")
+            recommendations.append("Check MCP server logs: ~/.gemini/logs/mcp-*.log")
             
         # General recommendations
         if not recommendations:
@@ -2046,7 +2046,7 @@ def debug_session_example():
     result = debugger.debug_session_state('current-session')
     
     # Save debug results
-    debug_file = Path.home() / '.claude' / 'debug' / 'session_debug.json'
+    debug_file = Path.home() / '.gemini' / 'debug' / 'session_debug.json'
     debug_file.parent.mkdir(parents=True, exist_ok=True)
     
     with open(debug_file, 'w') as f:
@@ -2068,8 +2068,8 @@ export SUPERCLAUDE_DEBUG_SESSION_LIFECYCLE=true
 export SUPERCLAUDE_LOG_LEVEL=debug
 
 # Create session debug environment
-mkdir -p ~/.claude/debug/sessions
-mkdir -p ~/.claude/logs
+mkdir -p ~/.gemini/debug/sessions
+mkdir -p ~/.gemini/logs
 
 # Trace session operations with enhanced debugging
 python -c "
@@ -2141,24 +2141,24 @@ except Exception as e:
 
 # Check session storage and metadata
 echo -e "\n📂 Session Storage Analysis:"
-ls -la ~/.claude/sessions/ 2>/dev/null || echo "Session directory not found"
+ls -la ~/.gemini/sessions/ 2>/dev/null || echo "Session directory not found"
 
 # Check for session metadata
-if [ -f ~/.claude/sessions/session-metadata.json ]; then
+if [ -f ~/.gemini/sessions/session-metadata.json ]; then
     echo -e "\n📄 Session Metadata:"
-    cat ~/.claude/sessions/session-metadata.json | python -m json.tool
+    cat ~/.gemini/sessions/session-metadata.json | python -m json.tool
 else
     echo "No session metadata file found"
 fi
 
 # Check session logs
 echo -e "\n📋 Session Logs:"
-ls -la ~/.claude/logs/*session*.log 2>/dev/null || echo "No session logs found"
+ls -la ~/.gemini/logs/*session*.log 2>/dev/null || echo "No session logs found"
 
 # Monitor session activity in real-time
 echo -e "\n🔍 Monitoring Session Activity:"
 echo "Run this in a separate terminal:"
-echo "tail -f ~/.claude/logs/superclaude-debug.log | grep -E '(SESSION|MEMORY|CONTEXT)'"
+echo "tail -f ~/.gemini/logs/superclaude-debug.log | grep -E '(SESSION|MEMORY|CONTEXT)'"
 ```
 
 **Memory Debugging:**
@@ -2567,7 +2567,7 @@ class TestComponentIntegration:
         result = mcp_component.install(self.test_dir)
         
         # Verify MCP configuration
-        mcp_config = self.test_dir / '.claude.json'
+        mcp_config = self.test_dir / '.gemini.json'
         assert mcp_config.exists()
         
         config_data = json.loads(mcp_config.read_text())
@@ -3620,8 +3620,8 @@ class LogAnalyzer:
 
 # Usage
 analyzer = LogAnalyzer()
-issues = analyzer.analyze_installation_logs('~/.claude/logs/installation.log')
-metrics = analyzer.extract_performance_metrics('~/.claude/logs/performance.log')
+issues = analyzer.analyze_installation_logs('~/.gemini/logs/installation.log')
+metrics = analyzer.extract_performance_metrics('~/.gemini/logs/performance.log')
 ```
 
 ## Common Development Issues
@@ -3637,11 +3637,11 @@ ERROR: Component 'mcp' requires 'core' but it's not installed
 SuperGemini install --components core mcp --resolve-dependencies
 
 # Issue: Permission denied during installation
-ERROR: Permission denied: '/home/user/.claude/CLAUDE.md'
+ERROR: Permission denied: '/home/user/.gemini/CLAUDE.md'
 
 # Solution: Fix permissions
-sudo chown -R $USER ~/.claude
-chmod 755 ~/.claude
+sudo chown -R $USER ~/.gemini
+chmod 755 ~/.gemini
 ```
 
 **MCP Server Connection Issues:**
@@ -3665,14 +3665,14 @@ ERROR: Circular import detected: CLAUDE.md -> FLAGS.md -> CLAUDE.md
 
 # Debug: Check import structure
 def debug_import_structure():
-    with open('~/.claude/CLAUDE.md', 'r') as f:
+    with open('~/.gemini/CLAUDE.md', 'r') as f:
         content = f.read()
         imports = re.findall(r'@(\w+\.md)', content)
         print(f"Imports detected: {imports}")
         
     # Check for circular references
     for import_file in imports:
-        import_path = Path('~/.claude') / import_file
+        import_path = Path('~/.gemini') / import_file
         if import_path.exists():
             with open(import_path, 'r') as f:
                 nested_imports = re.findall(r'@(\w+\.md)', f.read())

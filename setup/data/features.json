@@ -21,7 +21,7 @@
     "mcp": {
       "name": "mcp",
       "version": "4.0.2",
-      "description": "MCP server configuration management via .claude.json",
+      "description": "MCP server configuration management via .gemini.json",
       "category": "integration",
       "dependencies": ["core"],
       "enabled": true,

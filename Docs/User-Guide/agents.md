@@ -24,7 +24,7 @@ Before using this guide, verify agent selection works:
 # Expected: Root-cause analyst + performance engineer activation
 ```
 
-**If tests fail**: Check agent activation patterns in this guide or restart Claude Code session
+**If tests fail**: Check agent activation patterns in this guide or restart Gemini CLI session
 
 ## Core Concepts
 
@@ -448,7 +448,7 @@ Task Analysis →
 
 ### Immediate Fixes
 - **Force agent activation**: Use explicit domain keywords in requests
-- **Reset agent selection**: Restart Claude Code session to reset agent state
+- **Reset agent selection**: Restart Gemini CLI session to reset agent state
 - **Check agent patterns**: Review trigger keywords in agent documentation
 - **Test basic activation**: Try `/sc:implement "security auth"` to test security-engineer
 
@@ -494,7 +494,7 @@ Task Analysis →
 
 **Level 1: Quick Fix (< 2 min)**
 - Use explicit domain keywords from agent trigger table
-- Try restarting Claude Code session
+- Try restarting Gemini CLI session
 - Focus on single domain to avoid confusion
 
 **Level 2: Detailed Help (5-15 min)**

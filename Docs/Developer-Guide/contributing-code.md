@@ -86,7 +86,7 @@ else
 fi
 
 # Check Gemini Code
-if command -v claude-code >/dev/null 2>&1; then
+if command -v gemini-code >/dev/null 2>&1; then
     echo "✅ Gemini Code available in PATH (OK)"
 elif [ -f "$HOME/.vscode/extensions" ] && ls "$HOME/.vscode/extensions" | grep -q gemini; then
     echo "✅ Gemini Code VS Code extension detected (OK)"
@@ -241,20 +241,20 @@ CMD ["/bin/bash"]
 ```bash
 # Set up development configuration
 export SUPERCLAUDE_DEV=true
-export CLAUDE_CONFIG_DIR=~/.claude
+export CLAUDE_CONFIG_DIR=~/.gemini
 
 # Create development configuration directory if it doesn't exist
-mkdir -p ~/.claude
+mkdir -p ~/.gemini
 
 # Copy core configuration files to Gemini config directory
-cp -r SuperGemini/Core/* ~/.claude/
+cp -r SuperGemini/Core/* ~/.gemini/
 ```
 
 **4. Verify Installation:**
 ```bash
 # Test installation
 python3 -m SuperGemini --version
-python3 -m SuperGemini install --dry-run --install-dir ~/.claude
+python3 -m SuperGemini install --dry-run --install-dir ~/.gemini
 
 # Run tests
 python3 -m pytest tests/
@@ -1651,13 +1651,13 @@ python3 -c "import SuperGemini; print(SuperGemini.__version__)"
 *Issue: `Permission denied` when copying configuration files*
 ```bash
 # Solution: Check directory permissions
-ls -la ~/.claude/
-mkdir -p ~/.claude
-chmod 755 ~/.claude
+ls -la ~/.gemini/
+mkdir -p ~/.gemini
+chmod 755 ~/.gemini
 
 # Copy with explicit permissions
-cp -r SuperGemini/Core/* ~/.claude/
-chmod -R 644 ~/.claude/*.md
+cp -r SuperGemini/Core/* ~/.gemini/
+chmod -R 644 ~/.gemini/*.md
 ```
 
 *Issue: `pytest` command not found*
@@ -1674,12 +1674,12 @@ python3 -m pip install pytest
 ```bash
 # Verify configuration location
 echo $CLAUDE_CONFIG_DIR
-ls -la ~/.claude/
+ls -la ~/.gemini/
 
 # Verify files are in correct format
 python3 -c "
 import os
-claude_dir = os.path.expanduser('~/.claude')
+claude_dir = os.path.expanduser('~/.gemini')
 files = os.listdir(claude_dir)
 print('Configuration files:', files)
 "
@@ -1762,11 +1762,11 @@ except ImportError as e:
 "
 
 echo -e "\n🗂️ Configuration Files:"
-if [ -d ~/.claude ]; then
-    echo "✅ Config directory exists: ~/.claude"
-    ls -la ~/.claude/ | head -5
+if [ -d ~/.gemini ]; then
+    echo "✅ Config directory exists: ~/.gemini"
+    ls -la ~/.gemini/ | head -5
 else
-    echo "❌ Config directory not found: ~/.claude"
+    echo "❌ Config directory not found: ~/.gemini"
 fi
 
 echo -e "\n🧪 Test Environment:"
@@ -1819,8 +1819,8 @@ find . -name "*.pyc" -delete
 rm -rf build/ dist/ *.egg-info/
 
 # Reset configuration
-rm -rf ~/.claude/
-mkdir -p ~/.claude
+rm -rf ~/.gemini/
+mkdir -p ~/.gemini
 
 # Recreate virtual environment
 python3 -m venv venv
@@ -1831,7 +1831,7 @@ python3 -m pip install --upgrade pip
 python3 -m pip install -e ".[dev]"
 
 # Recopy configuration
-cp -r SuperGemini/Core/* ~/.claude/
+cp -r SuperGemini/Core/* ~/.gemini/
 
 echo "✅ Development environment reset complete!"
 ```
@@ -1839,7 +1839,7 @@ echo "✅ Development environment reset complete!"
 **Backup and Restore Configuration:**
 ```bash
 # Backup current configuration
-tar -czf superclaude_config_backup_$(date +%Y%m%d_%H%M%S).tar.gz ~/.claude/
+tar -czf superclaude_config_backup_$(date +%Y%m%d_%H%M%S).tar.gz ~/.gemini/
 
 # Restore from backup
 tar -xzf superclaude_config_backup_*.tar.gz -C /

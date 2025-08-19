@@ -70,7 +70,7 @@ def verify_supergemini_file(file_path: Path, component: str) -> bool:
             filename = file_path.name
             return filename in supergemini_patterns[component]
         
-        # For MCP component, it doesn't remove files but modifies .claude.json
+        # For MCP component, it doesn't remove files but modifies .gemini.json
         if component == 'mcp':
             return True  # MCP component has its own safety logic
         
@@ -474,7 +474,7 @@ def _ask_mcp_cleanup_options(env_vars: Dict[str, str]) -> Dict[str, bool]:
     cleanup_options = {}
     
     # Ask about MCP server configurations
-    remove_configs = confirm("Remove MCP server configurations from .claude.json?", default=True)
+    remove_configs = confirm("Remove MCP server configurations from .gemini.json?", default=True)
     cleanup_options['remove_mcp_configs'] = remove_configs
     
     # Ask about API key environment variables
@@ -517,9 +517,9 @@ def display_preservation_info() -> None:
     print(f"\n{Colors.GREEN}{Colors.BRIGHT}Files that will be preserved:{Colors.RESET}")
     print(f"{Colors.GREEN}✓ User's custom commands (not in commands/sc/){Colors.RESET}")
     print(f"{Colors.GREEN}✓ User's custom agents (not SuperGemini agents){Colors.RESET}")
-    print(f"{Colors.GREEN}✓ User's custom .claude.json configurations{Colors.RESET}")
+    print(f"{Colors.GREEN}✓ User's custom .gemini.json configurations{Colors.RESET}")
     print(f"{Colors.GREEN}✓ User's custom files in shared directories{Colors.RESET}")
-    print(f"{Colors.GREEN}✓ Claude Code settings and other tools' configurations{Colors.RESET}")
+    print(f"{Colors.GREEN}✓ Gemini CLI settings and other tools' configurations{Colors.RESET}")
 
 
 def display_component_details(component: str, info: Dict[str, Any]) -> Dict[str, Any]:
@@ -536,18 +536,18 @@ def display_component_details(component: str, info: Dict[str, Any]) -> Dict[str,
     component_paths = {
         'core': {
             'files': ['CLAUDE.md', 'FLAGS.md', 'PRINCIPLES.md', 'RULES.md', 'ORCHESTRATOR.md', 'SESSION_LIFECYCLE.md'],
-            'description': 'Core framework files in ~/.claude/'
+            'description': 'Core framework files in ~/.gemini/'
         },
         'commands': {
             'files': 'commands/sc/*.md',
-            'description': 'SuperGemini commands in ~/.claude/commands/sc/'
+            'description': 'SuperGemini commands in ~/.gemini/commands/sc/'
         },
         'agents': {
             'files': 'agents/*.md',
-            'description': 'Specialized AI agents in ~/.claude/agents/'
+            'description': 'Specialized AI agents in ~/.gemini/agents/'
         },
         'mcp': {
-            'files': 'MCP server configurations in .claude.json',
+            'files': 'MCP server configurations in .gemini.json',
             'description': 'MCP server configurations'
         },
         'mcp_docs': {
@@ -610,8 +610,8 @@ def display_uninstall_plan(components: List[str], args: argparse.Namespace, info
     print(f"\n{Colors.GREEN}{Colors.BRIGHT}Safety Guarantees - Will Preserve:{Colors.RESET}")
     print(f"{Colors.GREEN}✓ User's custom commands (not in commands/sc/){Colors.RESET}")
     print(f"{Colors.GREEN}✓ User's custom agents (not SuperGemini agents){Colors.RESET}")
-    print(f"{Colors.GREEN}✓ User's .claude.json customizations{Colors.RESET}")
-    print(f"{Colors.GREEN}✓ Claude Code settings and other tools' configurations{Colors.RESET}")
+    print(f"{Colors.GREEN}✓ User's .gemini.json customizations{Colors.RESET}")
+    print(f"{Colors.GREEN}✓ Gemini CLI settings and other tools' configurations{Colors.RESET}")
     
     # Show additional preserved items
     preserved = []

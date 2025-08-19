@@ -28,12 +28,12 @@ SuperGemini status --mcp
 
 ## 🚀 MCP in 5 Minutes - Quick Success Path
 
-**What are MCP Servers?** Specialized tools that extend Claude Code's capabilities automatically. No manual configuration needed - just start coding.
+**What are MCP Servers?** Specialized tools that extend Gemini CLI's capabilities automatically. No manual configuration needed - just start coding.
 
 **Instant Validation:**
 ```bash
 # 1. Verify MCP servers are working (takes 30 seconds)
-echo "Test Context7 server" | claude --test-mcp
+echo "Test Context7 server" | gemini --test-mcp
 
 # 2. Quick success indicators you'll see:
 ✅ "context7: Connected" 
@@ -52,7 +52,7 @@ echo "Test Context7 server" | claude --test-mcp
 
 ## 🎯 The Simple Truth About MCP Servers
 
-MCP (Model Context Protocol) servers are specialized tools that extend Claude Code's capabilities beyond native functionality. SuperGemini integrates 6 carefully selected MCP servers that automatically activate based on your tasks, providing enhanced documentation access, advanced reasoning, UI generation, browser automation, code transformation, and project memory.
+MCP (Model Context Protocol) servers are specialized tools that extend Gemini CLI's capabilities beyond native functionality. SuperGemini integrates 6 carefully selected MCP servers that automatically activate based on your tasks, providing enhanced documentation access, advanced reasoning, UI generation, browser automation, code transformation, and project memory.
 
 **Seamless Integration**: Type `/sc:implement "React dashboard"` → Magic MCP activates for UI generation. Type `/sc:analyze --think-hard` → Sequential MCP enables structured reasoning. The system intelligently selects the right tools for your context.
 
@@ -385,7 +385,7 @@ export MORPH_API_KEY="your_key_here"
 - **Dependencies**: Python 3.9+, uv package manager
 - **API Key**: Not required - runs locally
 - **Memory Usage**: ~150MB + project index (varies by codebase size)
-- **Working Directory**: `$HOME/.claude/serena`
+- **Working Directory**: `$HOME/.gemini/serena`
 
 **Capabilities:**
 - Symbol-level code navigation with LSP integration
@@ -418,7 +418,7 @@ export MORPH_API_KEY="your_key_here"
 **Installation Verification:**
 ```bash
 # Check if serena is properly installed
-ls -la ~/.claude/serena/
+ls -la ~/.gemini/serena/
 # Should show serena installation directory
 
 # Test serena server
@@ -440,7 +440,7 @@ uv run serena --help
 ```bash
 SuperGemini install
 # → Interactive installer offers MCP server selection
-# → Automatically configures selected servers in ~/.claude.json
+# → Automatically configures selected servers in ~/.gemini.json
 # → Downloads and configures NPM packages automatically
 ```
 
@@ -460,7 +460,7 @@ SuperGemini install
 ✅ @morph-llm/morph-fast-apply (0.6.8) - requires MORPH_API_KEY
 
 # Local Python package:
-✅ serena (installed via uv in ~/.claude/serena)
+✅ serena (installed via uv in ~/.gemini/serena)
 ```
 
 ### Manual Configuration
@@ -474,10 +474,10 @@ SuperGemini install --components mcp
 SuperGemini install --components mcp --force
 
 # Validate current configuration
-cat ~/.claude.json | jq '.mcpServers'
+cat ~/.gemini.json | jq '.mcpServers'
 ```
 
-**Configuration File (`~/.claude.json`):**
+**Configuration File (`~/.gemini.json`):**
 ```json
 {
   "mcpServers": {
@@ -500,7 +500,7 @@ cat ~/.claude.json | jq '.mcpServers'
     "serena": {
       "command": "uv",
       "args": ["run", "serena", "start-mcp-server", "--context", "ide-assistant"],
-      "cwd": "$HOME/.claude/serena"
+      "cwd": "$HOME/.gemini/serena"
     }
   }
 }
@@ -721,11 +721,11 @@ SuperGemini orchestrates multiple MCP servers for complex tasks:
 - **No servers connected**: Check Node.js installation: `node --version` (need v16+)
 - **Context7 server fails**: Clear NPM cache: `npm cache clean --force`
 - **Magic/Morphllm errors**: Expected if no API keys configured (paid services)
-- **Server timeouts**: Restart Claude Code session to reset connections
+- **Server timeouts**: Restart Gemini CLI session to reset connections
 - **Performance issues**: Use `--no-mcp` for lightweight execution
 
 ### Immediate Fixes
-- **Reset MCP**: Restart Claude Code session to refresh server connections
+- **Reset MCP**: Restart Gemini CLI session to refresh server connections
 - **Check dependencies**: Verify Node.js v16+ with `node --version`
 - **Clear cache**: Run `npm cache clean --force` for package issues
 - **Bypass servers**: Use `--no-mcp` flag to test without MCP servers
@@ -737,8 +737,8 @@ SuperGemini orchestrates multiple MCP servers for complex tasks:
 **Step 1: Quick Health Check (30 seconds)**
 ```bash
 # Check if configuration exists
-ls ~/.claude/.claude.json
-# Should show: /home/user/.claude/.claude.json
+ls ~/.gemini/.gemini.json
+# Should show: /home/user/.gemini/.gemini.json
 
 # Check Node.js version (critical dependency)
 node --version  
@@ -762,7 +762,7 @@ npm cache clean --force
 SuperGemini install --components mcp --force
 
 # Permissions issue? Fix MCP directory:
-chmod -R 755 ~/.claude/
+chmod -R 755 ~/.gemini/
 ```
 
 **Step 3: Server-Specific Validation (2-3 minutes)**
@@ -785,7 +785,7 @@ chmod -R 755 ~/.claude/
 **Step 4: Advanced Diagnostics (5+ minutes)**
 ```bash
 # Detailed MCP server logs
-tail -f ~/.claude/logs/mcp-*.log
+tail -f ~/.gemini/logs/mcp-*.log
 
 # Test individual server connections
 SuperGemini test-mcp --server context7
@@ -843,7 +843,7 @@ npx playwright install                        # Install browsers
 ```bash
 # Problem: "Serena server startup failed"
 # Quick Fix: Python environment
-ls ~/.claude/serena/                         # Verify installation
+ls ~/.gemini/serena/                         # Verify installation
 uv run serena --help                         # Test serena command
 /sc:load project/ --serena                   # Test server directly
 ```
@@ -853,13 +853,13 @@ uv run serena --help                         # Test serena command
 | MCP Error | Server | Meaning | Quick Fix |
 |-----------|--------|---------|-----------|
 | **M001** | context7 | Package not found | Run `npm cache clean --force` |
-| **M002** | sequential | Connection timeout | Restart Claude Code session |
+| **M002** | sequential | Connection timeout | Restart Gemini CLI session |
 | **M003** | magic | API key missing | Set `TWENTYFIRST_API_KEY` or use `--no-mcp` |
 | **M004** | playwright | Browser missing | Run `npx playwright install` |
 | **M005** | morphllm | API key missing | Set `MORPH_API_KEY` or use `--no-mcp` |
 | **M006** | serena | Python/uv issue | Check `uv run serena --help` |
 | **M007** | * | Node.js version | Upgrade to Node.js v16+ |
-| **M008** | * | Permission denied | Run `chmod -R 755 ~/.claude/` |
+| **M008** | * | Permission denied | Run `chmod -R 755 ~/.gemini/` |
 
 ### Performance Issues
 
@@ -886,13 +886,13 @@ SuperGemini restart --mcp                    # Restart MCP system
 **Level 1: Quick Fix (< 2 min)**
 - Use the Common Issues section above
 - Try `--no-mcp` to bypass MCP servers
-- Restart Claude Code session
+- Restart Gemini CLI session
 
 **Level 2: Detailed Help (5-15 min)**
 ```bash
 # MCP-specific diagnostics
 SuperGemini diagnose --mcp
-tail -f ~/.claude/logs/mcp-*.log
+tail -f ~/.gemini/logs/mcp-*.log
 SuperGemini test-mcp --all-servers
 ```
 - See [Common Issues Guide](../Reference/common-issues.md) for MCP installation problems
@@ -940,26 +940,26 @@ SuperGemini diagnose --verbose
 **Log Analysis:**
 ```bash
 # View MCP server logs
-tail -f ~/.claude/logs/mcp-context7.log
-tail -f ~/.claude/logs/mcp-sequential.log
+tail -f ~/.gemini/logs/mcp-context7.log
+tail -f ~/.gemini/logs/mcp-sequential.log
 
 # SuperGemini operation logs  
-tail -f ~/.claude/logs/superclaude.log
+tail -f ~/.gemini/logs/superclaude.log
 
-# Claude Code MCP logs
-tail -f ~/.claude/logs/claude-mcp.log
+# Gemini CLI MCP logs
+tail -f ~/.gemini/logs/gemini-mcp.log
 ```
 
 **Manual Testing:**
 ```bash
 # Test Context7 documentation lookup
-echo "Test React hooks documentation" | claude --mcp context7
+echo "Test React hooks documentation" | gemini --mcp context7
 
 # Test Sequential reasoning
-echo "Analyze this complex problem" | claude --mcp sequential
+echo "Analyze this complex problem" | gemini --mcp sequential
 
 # Test server combination
-echo "Complex analysis task" | claude --mcp context7,sequential
+echo "Complex analysis task" | gemini --mcp context7,sequential
 ```
 
 ### Resolution Steps
@@ -968,10 +968,10 @@ echo "Complex analysis task" | claude --mcp context7,sequential
 1. Check SuperGemini installation: `SuperGemini --version`
 2. Verify MCP component: `SuperGemini install --list-components`
 3. Check Node.js: `node --version` (should be 16+)
-4. Restart Claude Code session
+4. Restart Gemini CLI session
 
 **Step 2: Configuration Check**
-1. Verify `.claude.json` exists: `ls ~/.claude/.claude.json`
+1. Verify `.gemini.json` exists: `ls ~/.gemini/.gemini.json`
 2. Check server paths and permissions
 3. Test configuration syntax: `SuperGemini validate-config`
 
@@ -986,7 +986,7 @@ echo "Complex analysis task" | claude --mcp context7,sequential
 **Step 4: Full Reset (Last Resort)**
 ```bash
 # Backup existing configuration
-cp ~/.claude/.claude.json ~/.claude/.claude.json.backup
+cp ~/.gemini/.gemini.json ~/.gemini/.gemini.json.backup
 
 # Remove and reinstall MCP
 SuperGemini uninstall --components mcp
@@ -1051,9 +1051,9 @@ class CustomMCPComponent(BaseComponent):
 ### Communication Protocols
 
 **MCP Protocol Flow:**
-1. **Initialization**: Claude Code connects to MCP server via JSON-RPC
+1. **Initialization**: Gemini CLI connects to MCP server via JSON-RPC
 2. **Capability Exchange**: Server announces available tools and resources
-3. **Request/Response**: Claude sends requests, server processes and responds
+3. **Request/Response**: Gemini sends requests, server processes and responds
 4. **Session Management**: Maintain context across multiple interactions
 
 **Message Structure:**

@@ -1,10 +1,10 @@
 # SuperGemini Installation Guide 📦
 
-> **Command Context**: This guide uses **Terminal Commands** for installation and setup. These run in your terminal/command prompt, not inside Claude Code.
+> **Command Context**: This guide uses **Terminal Commands** for installation and setup. These run in your terminal/command prompt, not inside Gemini CLI.
 
 ## 🎯 It's Easier Than It Looks!
 
-SuperGemini installs in under 2 minutes with an interactive installer. The process involves installing the Python package and running the component installer to configure your Claude Code environment.
+SuperGemini installs in under 2 minutes with an interactive installer. The process involves installing the Python package and running the component installer to configure your Gemini CLI environment.
 
 ## Quick Start 🚀
 
@@ -34,10 +34,10 @@ SuperGemini install --dry-run
 |-------------|--------------|--------|----------|
 | **🖥️ Installation** | Terminal/CMD | `SuperGemini [command]` | `SuperGemini install` |
 | **🔧 Configuration** | Terminal/CMD | `python3 -m SuperGemini` | `python3 -m SuperGemini --version` |
-| **💬 Development** | Claude Code | `/sc:[command]` | `/sc:brainstorm "idea"` |
-| **⚡ Workflow** | Claude Code | `/sc:[command] --flags` | `/sc:test --coverage` |
+| **💬 Development** | Gemini CLI | `/sc:[command]` | `/sc:brainstorm "idea"` |
+| **⚡ Workflow** | Gemini CLI | `/sc:[command] --flags` | `/sc:test --coverage` |
 
-> **Important**: Installation commands run in your terminal. Once installed, you'll use `/sc:` commands inside Claude Code for development tasks.
+> **Important**: Installation commands run in your terminal. Once installed, you'll use `/sc:` commands inside Gemini CLI for development tasks.
 
 ---
 
@@ -46,7 +46,7 @@ SuperGemini install --dry-run
 - 13 specialized AI agents with domain expertise
 - 6 behavioral modes for different contexts
 - 6 MCP server configurations for enhanced capabilities
-- Core instruction files in ~/.claude directory
+- Core instruction files in ~/.gemini directory
 
 **Dry-run Preview:**
 ```bash
@@ -59,7 +59,7 @@ SuperGemini install --dry-run  # Preview changes without installing
 
 **Required:**
 - Python 3.8+ with pip
-- Claude Code installed and working
+- Gemini CLI installed and working
 - 50MB free space for components
 
 **Optional but Recommended:**
@@ -75,8 +75,8 @@ Run these commands to verify your system is ready:
 # Verify Python (should be 3.8+)
 python3 --version
 
-# Verify Claude Code availability
-claude --version
+# Verify Gemini CLI availability
+gemini --version
 
 # Optional: Check Node.js for MCP servers
 node --version
@@ -155,12 +155,12 @@ SuperGemini install --install-dir /custom/path   # Custom location
 
 **Installation Steps:**
 
-1. **System Check** - Validates Python, Claude Code, permissions
+1. **System Check** - Validates Python, Gemini CLI, permissions
 2. **Component Discovery** - Scans available components and dependencies
 3. **User Selection** - Interactive menu for component choices
-4. **Backup Creation** - Saves existing ~/.claude configuration
+4. **Backup Creation** - Saves existing ~/.gemini configuration
 5. **File Installation** - Copies framework files with merge logic
-6. **MCP Configuration** - Sets up .claude.json for selected servers
+6. **MCP Configuration** - Sets up .gemini.json for selected servers
 7. **Verification** - Tests installation and provides next steps
 
 **Progress Indicators:**
@@ -182,31 +182,31 @@ SuperGemini --version
 SuperGemini install --list-components
 
 # Test basic functionality
-echo "Test analysis" | claude
+echo "Test analysis" | gemini
 # Then try: /sc:analyze README.md
 
 # Verify MCP servers (if installed)
-ls ~/.claude/.claude.json
+ls ~/.gemini/.gemini.json
 ```
 
 **Expected Results:**
 - ✅ Version number displays correctly
 - ✅ Components list shows installed items
-- ✅ Slash commands available in Claude Code
+- ✅ Slash commands available in Gemini CLI
 - ✅ MCP servers connect successfully
 
 ### What Got Installed 📂
 
-**Files in ~/.claude:**
+**Files in ~/.gemini:**
 ```
-~/.claude/
+~/.gemini/
 ├── CLAUDE.md           # Main instruction file with @imports
 ├── FLAGS.md            # Behavioral flags system
 ├── RULES.md            # Development rules
 ├── PRINCIPLES.md       # Engineering principles
 ├── MCP_*.md            # MCP server instructions
 ├── MODE_*.md           # Behavioral modes
-├── .claude.json        # MCP server configurations
+├── .gemini.json        # MCP server configurations
 └── [your files]        # Preserved customizations
 ```
 
@@ -267,7 +267,7 @@ SuperGemini install --components mcp modes --force
 
 **Automatic Backups:**
 - Created before every installation/update
-- Stored in ~/.claude.backup.YYYYMMDD_HHMMSS
+- Stored in ~/.gemini.backup.YYYYMMDD_HHMMSS
 - Include all customizations and configurations
 
 **Manual Backup Management:**
@@ -279,10 +279,10 @@ SuperGemini backup --create
 SuperGemini backup --list
 
 # Restore from backup
-SuperGemini backup --restore ~/.claude.backup.20241201_143022
+SuperGemini backup --restore ~/.gemini.backup.20241201_143022
 
 # Manual backup (alternative)
-cp -r ~/.claude ~/.claude.backup.manual
+cp -r ~/.gemini ~/.gemini.backup.manual
 ```
 
 ### Uninstallation 🗑️
@@ -297,7 +297,7 @@ pip uninstall SuperGemini
 # or: npm uninstall -g superclaude
 
 # Manual cleanup (if needed)
-rm -rf ~/.claude/FLAGS.md ~/.claude/RULES.md ~/.claude/MODE_*.md
+rm -rf ~/.gemini/FLAGS.md ~/.gemini/RULES.md ~/.gemini/MODE_*.md
 ```
 
 **What Gets Preserved:**
@@ -322,9 +322,9 @@ brew install python3
 winget install python
 ```
 
-**Missing Claude Code?**
-- Visit https://claude.ai/code for installation instructions
-- SuperGemini enhances Claude Code, so you need it first
+**Missing Gemini CLI?**
+- Visit https://gemini.ai/code for installation instructions
+- SuperGemini enhances Gemini CLI, so you need it first
 
 **MCP Server Requirements:**
 Some MCP servers require Node.js for optimal functionality:
@@ -344,7 +344,7 @@ Install Node.js 16+ for full MCP capabilities.
 pip install --user SuperGemini
 
 # Or fix permissions
-sudo chown -R $USER ~/.claude
+sudo chown -R $USER ~/.gemini
 ```
 
 **Python Version Issues:**
@@ -356,9 +356,9 @@ python3 --version
 python3.9 -m pip install SuperGemini
 ```
 
-**Claude Code Not Found:**
-- Install Claude Code from https://claude.ai/code
-- Verify with: `claude --version`
+**Gemini CLI Not Found:**
+- Install Gemini CLI from https://gemini.ai/code
+- Verify with: `gemini --version`
 - Check PATH configuration
 
 **Get Help:**
@@ -370,10 +370,10 @@ python3.9 -m pip install SuperGemini
 **Custom Installation Directory:**
 ```bash
 # Install to custom location
-SuperGemini install --install-dir /path/to/custom/claude
+SuperGemini install --install-dir /path/to/custom/gemini
 
 # Set environment variable
-export CLAUDE_CONFIG_DIR=/path/to/custom/claude
+export CLAUDE_CONFIG_DIR=/path/to/custom/gemini
 SuperGemini install
 ```
 
@@ -419,11 +419,11 @@ python scripts/validate_pypi_ready.py
 **Installation Summary:**
 - **Time**: 2-5 minutes typical installation
 - **Space**: 50MB for full installation
-- **Requirements**: Python 3.8+, Claude Code, 1GB RAM recommended
+- **Requirements**: Python 3.8+, Gemini CLI, 1GB RAM recommended
 - **Platform**: Linux, macOS, Windows supported
 - **Usage**: Immediate access to 21 commands and 6 behavioral modes
 
-**What's Next**: Your Claude Code now has enhanced capabilities. Try `/sc:brainstorm` for your first SuperGemini experience!
+**What's Next**: Your Gemini CLI now has enhanced capabilities. Try `/sc:brainstorm` for your first SuperGemini experience!
 
 ---
 

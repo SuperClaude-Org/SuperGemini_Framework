@@ -1,6 +1,6 @@
 #!/bin/bash
 """
-SuperClaude PyPI Publishing Helper Script
+SuperGemini PyPI Publishing Helper Script
 Easy-to-use wrapper for the Python build and upload script
 """
 
@@ -18,7 +18,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
 BUILD_SCRIPT="$SCRIPT_DIR/build_and_upload.py"
 
-echo -e "${BLUE}🚀 SuperClaude PyPI Publishing Helper${NC}"
+echo -e "${BLUE}🚀 SuperGemini PyPI Publishing Helper${NC}"
 echo -e "📁 Project root: $PROJECT_ROOT"
 
 # Function to show usage
@@ -49,7 +49,7 @@ case "${1:-}" in
         echo -e "${YELLOW}📦 Building and uploading to TestPyPI...${NC}"
         python3 "$BUILD_SCRIPT" --testpypi
         echo -e "${GREEN}✅ Uploaded to TestPyPI! Test with:${NC}"
-        echo -e "   pip install --index-url https://test.pypi.org/simple/ SuperClaude"
+        echo -e "   pip install --index-url https://test.pypi.org/simple/ SuperGemini"
         ;;
     
     "test-install")
@@ -62,7 +62,7 @@ case "${1:-}" in
         echo -e "${RED}⚠️  This cannot be undone!${NC}"
         python3 "$BUILD_SCRIPT"
         echo -e "${GREEN}✅ Uploaded to PyPI! Install with:${NC}"
-        echo -e "   pip install SuperClaude"
+        echo -e "   pip install SuperGemini"
         ;;
     
     "build")

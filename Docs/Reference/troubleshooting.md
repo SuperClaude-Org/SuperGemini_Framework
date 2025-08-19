@@ -2,7 +2,7 @@
 
 > **Need a Quick Fix?** For the top 10 most common issues with rapid 2-minute solutions, see the [Common Issues Quick Reference](common-issues.md) first.
 
-> **Command Context**: This guide covers both **Terminal Commands** (for installation issues) and **Claude Code Commands** (`/sc:` for development issues). Look for section headers to know which type to use.
+> **Command Context**: This guide covers both **Terminal Commands** (for installation issues) and **Gemini CLI Commands** (`/sc:` for development issues). Look for section headers to know which type to use.
 
 **Comprehensive Problem Resolution**: Step-by-step solutions for complex SuperGemini issues, from installation problems to advanced configuration challenges. Each solution includes diagnosis steps, resolution procedures, and prevention strategies.
 
@@ -54,8 +54,8 @@ pipx ensurepath
 
 # Advanced Diagnosis
 python3 -m SuperGemini install --dry-run --verbose
-cat ~/.claude/CLAUDE.md | grep -E "@|import"
-ls -la ~/.claude/
+cat ~/.gemini/CLAUDE.md | grep -E "@|import"
+ls -la ~/.gemini/
 
 # Component dependency validation
 python3 -c "
@@ -73,7 +73,7 @@ for component in core agents modes mcp; do
     echo "Installing $component..."
     python3 -m SuperGemini install --components $component
     # Validate after each component
-    if ! cat ~/.claude/CLAUDE.md | grep -q "@"; then
+    if ! cat ~/.gemini/CLAUDE.md | grep -q "@"; then
         echo "❌ Component $component failed"
         break
     fi
@@ -89,10 +89,10 @@ done
 **Windows Platform Issues:**
 ```cmd
 # Issue: Path separator problems
-ERROR: Cannot find file 'C:\Users\name\.claude\CLAUDE.md'
+ERROR: Cannot find file 'C:\Users\name\.gemini\CLAUDE.md'
 
 # Solution: Use proper Windows paths
-set CLAUDE_CONFIG_DIR=C:\Users\%USERNAME%\.claude
+set CLAUDE_CONFIG_DIR=C:\Users\%USERNAME%\.gemini
 python -m SuperGemini install --install-dir "%CLAUDE_CONFIG_DIR%"
 
 # Issue: Node.js not found for MCP servers
@@ -140,7 +140,7 @@ pip install --user SuperGemini
 
 ## Command Issues
 
-> **🚀 Quick Fix**: For command recognition problems, timeouts, or basic execution issues, try the [Common Issues Quick Reference](common-issues.md#4--commands-not-working-in-claude-code) first.
+> **🚀 Quick Fix**: For command recognition problems, timeouts, or basic execution issues, try the [Common Issues Quick Reference](common-issues.md#4--commands-not-working-in-gemini-code) first.
 
 ### Advanced Command Diagnosis
 
@@ -152,7 +152,7 @@ pip install --user SuperGemini
 # Check system resources
 top
 df -h
-ps aux | grep claude
+ps aux | grep gemini
 
 # Solution 1: Reduce scope
 /sc:analyze src/ --scope file    # Instead of entire project
@@ -164,8 +164,8 @@ ps aux | grep claude
 
 # Solution 3: Clear session data and restart
 # Remove old session files if they exist
-rm -rf ~/.claude/sessions/old-*
-# Restart Claude Code session
+rm -rf ~/.gemini/sessions/old-*
+# Restart Gemini CLI session
 
 # Prevention
 # Use appropriate scope for large projects
@@ -184,7 +184,7 @@ ls -la
 
 # Solution 1: Reset session context
 /sc:save "backup-session"  # Backup current state
-# Restart Claude Code and reload if needed
+# Restart Gemini CLI and reload if needed
 
 # Solution 2: Use explicit scope
 /sc:analyze ./specific-folder/  # Explicit path
@@ -192,7 +192,7 @@ ls -la
 
 # Solution 3: Verification check
 # Verify CLAUDE.md contains SuperGemini framework instructions
-grep "SuperGemini" ~/.claude/CLAUDE.md
+grep "SuperGemini" ~/.gemini/CLAUDE.md
 # Check for proper command imports
 
 # Prevention
@@ -258,7 +258,7 @@ grep "SuperGemini" ~/.claude/CLAUDE.md
 
 ## Agent & Mode Issues
 
-> **🚀 Quick Fix**: For basic agent and mode issues, most problems can be resolved by restarting Claude Code and checking component installation with `python3 -m SuperGemini install --components agents modes --force`.
+> **🚀 Quick Fix**: For basic agent and mode issues, most problems can be resolved by restarting Gemini CLI and checking component installation with `python3 -m SuperGemini install --components agents modes --force`.
 
 ### Advanced Agent Diagnosis
 
@@ -401,7 +401,7 @@ node --version  # Should be 16.0.0 or higher
 npm list -g @context7/mcp-server
 
 # Check server configuration
-cat ~/.claude/.claude.json | grep context7
+cat ~/.gemini/.gemini.json | grep context7
 
 # Solution 1: Install/reinstall Node.js and server
 curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
@@ -437,8 +437,8 @@ free -h
 # Solution 1: Reduce operation complexity
 /sc:implement "simpler task breakdown"  # Break complex task into smaller parts
 
-# Solution 2: Restart Claude Code session
-# MCP servers restart with Claude Code session restart
+# Solution 2: Restart Gemini CLI session
+# MCP servers restart with Gemini CLI session restart
 
 # Solution 3: Disable problematic server temporarily
 /sc:implement "task" --no-mcp
@@ -457,17 +457,17 @@ ERROR: Sequential reasoning server encountered internal error
 
 # Diagnosis
 # Check Sequential server logs
-tail -f ~/.claude/logs/sequential-mcp.log
+tail -f ~/.gemini/logs/sequential-mcp.log
 
 # Check server installation
 npm list -g @sequential/mcp-server
 
-# Solution 1: Restart Claude Code session
+# Solution 1: Restart Gemini CLI session
 # This restarts all MCP servers including Sequential
 
 # Solution 2: Use alternative reasoning approach
 /sc:analyze complex-problem
-# Use native Claude reasoning without MCP servers
+# Use native Gemini reasoning without MCP servers
 
 # Solution 3: Reinstall Sequential MCP
 npm uninstall -g @sequential/mcp-server
@@ -487,7 +487,7 @@ npm install -g @sequential/mcp-server@latest
 # Diagnosis
 # Check Magic server installation
 npm list -g @magic/ui-generator
-cat ~/.claude/config.json | grep -i magic
+cat ~/.gemini/config.json | grep -i magic
 
 # Solution 1: Verify Magic server installation
 npm list -g @magic/ui-generator
@@ -534,16 +534,16 @@ npx playwright install-deps
 
 **Issue: Session Context Lost After Restart**
 ```bash
-# Symptoms: Previous work context not available after Claude Code restart
+# Symptoms: Previous work context not available after Gemini CLI restart
 
 # Diagnosis
 # Check session persistence
-ls ~/.claude/sessions/
+ls ~/.gemini/sessions/
 /sc:load  # Lists available sessions
 
 # Solution 1: Save session before closing
 /sc:save "current-work-session"
-# Before closing Claude Code
+# Before closing Gemini CLI
 
 # Solution 2: Enable regular session saving
 # Use /sc:save periodically during long sessions
@@ -564,8 +564,8 @@ ERROR: Session data corrupted - cannot restore context
 
 # Diagnosis
 # Check session file integrity
-ls -la ~/.claude/sessions/
-file ~/.claude/sessions/session-*.json
+ls -la ~/.gemini/sessions/
+file ~/.gemini/sessions/session-*.json
 
 # Solution 1: Restore from backup
 /sc:load "backup-session-20241201"  # Use backup session
@@ -580,7 +580,7 @@ file ~/.claude/sessions/session-*.json
 
 # Prevention
 # Regular session backups with meaningful names
-# Avoid force-closing Claude Code during session operations
+# Avoid force-closing Gemini CLI during session operations
 ```
 
 **Issue: Cross-Session Context Inconsistency**
@@ -619,19 +619,19 @@ file ~/.claude/sessions/session-*.json
 
 # Diagnosis
 # Check session size and memory usage
-du -sh ~/.claude/sessions/
-ls -la ~/.claude/sessions/
+du -sh ~/.gemini/sessions/
+ls -la ~/.gemini/sessions/
 
 # Solution 1: Clean old sessions manually
 # Remove old session files manually
-rm ~/.claude/sessions/old-session-*.json
+rm ~/.gemini/sessions/old-session-*.json
 
 # Solution 2: Archive current context and start fresh
 /sc:save "archived-context-$(date +%Y%m%d)"
-# Start a new Claude Code session for fresh memory
+# Start a new Gemini CLI session for fresh memory
 
 # Solution 3: Regular session maintenance
-# Save important sessions and restart Claude Code periodically
+# Save important sessions and restart Gemini CLI periodically
 
 # Prevention
 # Regular session maintenance and archiving
@@ -649,24 +649,24 @@ ERROR: Circular import detected in CLAUDE.md
 
 # Diagnosis
 # Check import structure
-grep -n "@" ~/.claude/CLAUDE.md
+grep -n "@" ~/.gemini/CLAUDE.md
 # Look for circular references
 
 # Solution 1: Fix circular imports
-# Edit ~/.claude/CLAUDE.md to remove problematic @imports
+# Edit ~/.gemini/CLAUDE.md to remove problematic @imports
 # Remove any @CLAUDE.md references from imported files
 
 # Solution 2: Reset to default configuration
-cp ~/.claude/CLAUDE.md ~/.claude/CLAUDE.md.backup
+cp ~/.gemini/CLAUDE.md ~/.gemini/CLAUDE.md.backup
 python3 -m SuperGemini install --reset-config
 
 # Solution 3: Manual configuration repair
-cp ~/.claude/CLAUDE.md ~/.claude/CLAUDE.md.backup
+cp ~/.gemini/CLAUDE.md ~/.gemini/CLAUDE.md.backup
 python3 -m SuperGemini install --components core --force
 
 # Verification
 # Check that imports work correctly
-grep "@" ~/.claude/CLAUDE.md
+grep "@" ~/.gemini/CLAUDE.md
 # Verify no circular references
 ```
 
@@ -676,18 +676,18 @@ grep "@" ~/.claude/CLAUDE.md
 
 # Diagnosis
 # Check component installation status
-cat ~/.claude/CLAUDE.md
-ls ~/.claude/
+cat ~/.gemini/CLAUDE.md
+ls ~/.gemini/
 
 # Solution 1: Reinstall in correct order
 python3 -m SuperGemini install --components core agents modes mcp --force
 
 # Solution 2: Fresh installation
-rm -rf ~/.claude/
+rm -rf ~/.gemini/
 python3 -m SuperGemini install --fresh
 
 # Solution 3: Verify installation integrity
-cat ~/.claude/CLAUDE.md | grep -E "@|SuperGemini"
+cat ~/.gemini/CLAUDE.md | grep -E "@|SuperGemini"
 
 # Prevention
 # Install components in dependency order
@@ -700,15 +700,15 @@ cat ~/.claude/CLAUDE.md | grep -E "@|SuperGemini"
 
 # Diagnosis
 # Check file syntax and structure
-cat ~/.claude/CLAUDE.md
+cat ~/.gemini/CLAUDE.md
 # Look for syntax errors
 
 # Solution 1: Check configuration syntax
 # Look for syntax errors in CLAUDE.md
-cat ~/.claude/CLAUDE.md | grep -E "error|Error|invalid"
+cat ~/.gemini/CLAUDE.md | grep -E "error|Error|invalid"
 
 # Solution 2: Backup and reset
-cp ~/.claude/CLAUDE.md ~/.claude/CLAUDE.md.custom
+cp ~/.gemini/CLAUDE.md ~/.gemini/CLAUDE.md.custom
 python3 -m SuperGemini install --reset-config
 # Manually merge custom content back
 
@@ -729,15 +729,15 @@ python3 -m SuperGemini install --components core  # Base installation
 
 # Emergency Recovery Procedure
 # Step 1: Backup current state
-cp -r ~/.claude ~/.claude.corrupted.$(date +%Y%m%d)
+cp -r ~/.gemini ~/.gemini.corrupted.$(date +%Y%m%d)
 
 # Step 2: Complete reset
-rm -rf ~/.claude/
+rm -rf ~/.gemini/
 python3 -m SuperGemini install --fresh
 
 # Step 3: Selective recovery
 # Restore specific custom files from backup if needed
-cp ~/.claude.corrupted.*/custom-file.md ~/.claude/
+cp ~/.gemini.corrupted.*/custom-file.md ~/.gemini/
 
 # Step 4: Gradual reconfiguration
 python3 -m SuperGemini install --components core agents modes
@@ -765,8 +765,8 @@ df -h
 iostat 1 5
 
 # Check process resource usage
-ps aux | grep -i claude
-top | grep -i claude
+ps aux | grep -i gemini
+top | grep -i gemini
 
 # Solution 1: Reduce operation scope
 /sc:analyze src/ --scope file          # Instead of entire project
@@ -778,8 +778,8 @@ top | grep -i claude
 
 # Solution 3: Clear session data and restart
 # Remove old session files if they exist
-rm -rf ~/.claude/sessions/old-*
-# Restart Claude Code session
+rm -rf ~/.gemini/sessions/old-*
+# Restart Gemini CLI session
 
 # Prevention
 # Monitor system resources before large operations
@@ -799,10 +799,10 @@ ps aux --sort=-%mem | head -10
 /sc:analyze . --scope module  # Instead of entire project
 
 # Solution 2: Clear session cache
-rm -rf ~/.claude/sessions/old-*
+rm -rf ~/.gemini/sessions/old-*
 # Remove old session files
 
-# Solution 3: Restart Claude Code session
+# Solution 3: Restart Gemini CLI session
 # This clears memory and resets context
 
 # Prevention
@@ -823,7 +823,7 @@ npm list -g | grep -E "context7|sequential|magic|playwright"
 /sc:implement "task" --c7 --seq  # Use only needed servers
 # Instead of --all-mcp
 
-# Solution 2: Restart Claude Code session
+# Solution 2: Restart Gemini CLI session
 # This restarts all MCP servers
 
 # Solution 3: Local fallback mode
@@ -847,13 +847,13 @@ htop
 iotop
 netstat -i
 
-# Monitor Claude Code performance
+# Monitor Gemini CLI performance
 time /sc:analyze small-file.py  # Time simple operations
 
 # Analysis and optimization
 # Based on monitoring results:
 # - High CPU: Reduce operation scope with --scope flags
-# - High Memory: Clear old sessions and restart Claude Code
+# - High Memory: Clear old sessions and restart Gemini CLI
 # - High I/O: Focus on specific files instead of entire projects
 # - High Network: Use --no-mcp for local operations
 ```
@@ -865,13 +865,13 @@ time /sc:analyze small-file.py  # Time simple operations
 **Error: "Command not recognized"**
 ```bash
 # Full error message
-ERROR: Command '/sc:analyze' not recognized by Claude Code
+ERROR: Command '/sc:analyze' not recognized by Gemini CLI
 
-# Meaning: SuperGemini instructions not loaded into Claude Code session
+# Meaning: SuperGemini instructions not loaded into Gemini CLI session
 # Resolution:
 1. Verify SuperGemini installation: python3 -m SuperGemini --version
-2. Check ~/.claude/CLAUDE.md exists and contains SuperGemini instructions
-3. Restart Claude Code completely
+2. Check ~/.gemini/CLAUDE.md exists and contains SuperGemini instructions
+3. Restart Gemini CLI completely
 4. If persistent: python3 -m SuperGemini install --components core --force
 ```
 
@@ -959,8 +959,8 @@ python3 --version                        # Python version
 node --version                           # Node.js version (if using MCP)
 
 # SuperGemini-specific diagnostics
-ls -la ~/.claude/
-cat ~/.claude/CLAUDE.md | head -20
+ls -la ~/.gemini/
+cat ~/.gemini/CLAUDE.md | head -20
 
 # Error reproduction
 # 1. Exact command that caused the issue
@@ -979,7 +979,7 @@ cat ~/.claude/CLAUDE.md | head -20
 - OS: [Linux/macOS/Windows + version]
 - Python: [Output of `python --version`]
 - Node.js: [Output of `node --version`] (if using MCP servers)
-- Claude Code Version: [Output of `claude --version`]
+- Gemini CLI Version: [Output of `gemini --version`]
 
 **Description:**
 [Clear description of the issue]
@@ -1001,7 +1001,7 @@ cat ~/.claude/CLAUDE.md | head -20
 ```
 
 **Debug Information:**
-[Attach output of `ls -la ~/.claude/` and first 20 lines of CLAUDE.md]
+[Attach output of `ls -la ~/.gemini/` and first 20 lines of CLAUDE.md]
 
 **Additional Context:**
 [Any other relevant information]
@@ -1068,10 +1068,10 @@ A: Modes control behavior style (brainstorming, task management, etc.). Agents p
 ### Troubleshooting
 
 **Q: Commands are slow or hanging - what should I do?**
-A: 1) Check system resources with `top`, 2) Reduce scope with `--scope file`, 3) Focus on specific tasks, 4) Restart Claude Code session to clear cache.
+A: 1) Check system resources with `top`, 2) Reduce scope with `--scope file`, 3) Focus on specific tasks, 4) Restart Gemini CLI session to clear cache.
 
 **Q: How do I reset SuperGemini to default configuration?**
-A: `cp ~/.claude/CLAUDE.md ~/.claude/CLAUDE.md.backup && python3 -m SuperGemini install --reset-config` creates backup and resets to defaults.
+A: `cp ~/.gemini/CLAUDE.md ~/.gemini/CLAUDE.md.backup && python3 -m SuperGemini install --reset-config` creates backup and resets to defaults.
 
 **Q: Can I contribute to SuperGemini development?**
 A: Yes! See [Contributing Guide](../Developer-Guide/contributing-code.md) for development setup and contribution process.
@@ -1084,11 +1084,11 @@ A: Yes! See [Contributing Guide](../Developer-Guide/contributing-code.md) for de
 ```bash
 # Complete SuperGemini diagnostics
 python3 -m SuperGemini --version
-ls -la ~/.claude/
-cat ~/.claude/CLAUDE.md | head -10
+ls -la ~/.gemini/
+cat ~/.gemini/CLAUDE.md | head -10
 
 # Verify core functionality
-grep "SuperGemini" ~/.claude/CLAUDE.md
+grep "SuperGemini" ~/.gemini/CLAUDE.md
 # Should show SuperGemini framework instructions
 
 # Check MCP server installations (if using)
@@ -1100,24 +1100,24 @@ npm list -g | grep -E "context7|sequential|magic|playwright"
 ```bash
 # Basic functionality test
 python3 -m SuperGemini --version        # Version verification
-ls ~/.claude/                           # Check installation
-cat ~/.claude/CLAUDE.md | grep "@"      # Check imports
+ls ~/.gemini/                           # Check installation
+cat ~/.gemini/CLAUDE.md | grep "@"      # Check imports
 
-# Test core functionality in Claude Code
+# Test core functionality in Gemini CLI
 # Try: /sc:analyze README.md
 ```
 
 **Component-Specific Diagnostics:**
 ```bash
 # Test specific components
-cat ~/.claude/CLAUDE.md | grep -E "FLAGS|RULES|PRINCIPLES"  # Core components
-cat ~/.claude/CLAUDE.md | grep -E "MODE_|MCP_"              # Modes and MCP
+cat ~/.gemini/CLAUDE.md | grep -E "FLAGS|RULES|PRINCIPLES"  # Core components
+cat ~/.gemini/CLAUDE.md | grep -E "MODE_|MCP_"              # Modes and MCP
 
 # Check MCP server installations
 npm list -g | grep -E "context7|sequential|magic|playwright"
 
 # Test session functionality
-ls ~/.claude/sessions/ 2>/dev/null || echo "No sessions directory found"
+ls ~/.gemini/sessions/ 2>/dev/null || echo "No sessions directory found"
 ```
 
 ### System Requirement Validation
@@ -1126,15 +1126,15 @@ ls ~/.claude/sessions/ 2>/dev/null || echo "No sessions directory found"
 ```bash
 # System requirements validation
 python3 --version  # Should be 3.8+
-which claude       # Should return path to Claude Code
+which gemini       # Should return path to Gemini CLI
 df -h ~            # Check disk space (50MB+ available)
-touch ~/.claude/test && rm ~/.claude/test  # Test write permissions
+touch ~/.gemini/test && rm ~/.gemini/test  # Test write permissions
 
 # Expected validations:
 # ✅ Python 3.8+ detected
-# ✅ Claude Code installation verified  
+# ✅ Gemini CLI installation verified  
 # ✅ Sufficient disk space (50MB minimum)
-# ✅ Write permissions to ~/.claude directory
+# ✅ Write permissions to ~/.gemini directory
 # ⚠️  Node.js 16+ recommended for MCP servers
 ```
 
@@ -1144,13 +1144,13 @@ touch ~/.claude/test && rm ~/.claude/test  # Test write permissions
 python3 --version
 # Should be 3.8.0 or higher
 
-# Claude Code availability
-claude --version
+# Gemini CLI availability
+gemini --version
 # Should return version number without error
 
 # Directory permissions
-ls -la ~/.claude/
-touch ~/.claude/test-write && rm ~/.claude/test-write
+ls -la ~/.gemini/
+touch ~/.gemini/test-write && rm ~/.gemini/test-write
 # Should succeed without permission errors
 
 # Optional: Node.js for MCP servers
@@ -1227,13 +1227,13 @@ time /sc:analyze . --scope module        # Module-scoped analysis
 
 **Emergency Recovery:**
 If SuperGemini is completely non-functional:
-1. Backup current configuration: `cp -r ~/.claude ~/.claude.backup`
-2. Complete reset: `rm -rf ~/.claude && python3 -m SuperGemini install --fresh`
+1. Backup current configuration: `cp -r ~/.gemini ~/.gemini.backup`
+2. Complete reset: `rm -rf ~/.gemini && python3 -m SuperGemini install --fresh`
 3. Restore custom configurations gradually from backup
 4. If issues persist, report to [GitHub Issues](https://github.com/SuperGemini-Org/SuperGemini_Framework/issues) with diagnostic information
 
 **Verification Steps:**
 After every solution, verify with these commands:
 - ✅ `python3 -m SuperGemini --version` - Should return version number
-- ✅ `cat ~/.claude/CLAUDE.md | grep SuperGemini` - Should show framework content
-- ✅ Try `/sc:analyze README.md` in Claude Code - Should work without errors
+- ✅ `cat ~/.gemini/CLAUDE.md | grep SuperGemini` - Should show framework content
+- ✅ Try `/sc:analyze README.md` in Gemini CLI - Should work without errors

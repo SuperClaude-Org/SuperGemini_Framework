@@ -411,8 +411,8 @@ class CommandsComponent(Component):
                             tools_str = tools_match.group(1)
                             allowed_tools = [tool.strip() for tool in tools_str.split(',')]
                     
-                    # Clean up content - remove Claude Code specific sections
-                    main_content = re.sub(r'## Claude Code Integration.*', '', main_content, flags=re.DOTALL)
+                    # Clean up content - remove Gemini CLI specific sections
+                    main_content = re.sub(r'## Gemini CLI Integration.*', '', main_content, flags=re.DOTALL)
                     
                     # Build enhanced prompt with flag handling
                     command_name = md_file.stem

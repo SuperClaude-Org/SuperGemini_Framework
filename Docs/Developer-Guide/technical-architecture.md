@@ -1647,7 +1647,7 @@ class ConfigurationManager:
     def __init__(self):
         self.config_sources = [
             EnvironmentConfigSource(),
-            FileConfigSource('~/.claude/config.json'),
+            FileConfigSource('~/.gemini/config.json'),
             DefaultConfigSource()
         ]
         self.config_cache = ConfigCache()
@@ -1856,7 +1856,7 @@ class CustomMCPComponent(BaseComponent):
         
     def install(self, install_dir):
         # Add server to MCP configuration
-        mcp_config_path = install_dir / '.claude.json'
+        mcp_config_path = install_dir / '.gemini.json'
         mcp_config = self._load_mcp_config(mcp_config_path)
         
         mcp_config['mcpServers'][self.server_name] = {
@@ -2090,7 +2090,7 @@ class ComponentManager:
         Example:
             >>> manager = ComponentManager()
             >>> options = InstallOptions(
-            ...     install_dir=Path("~/.claude"),
+            ...     install_dir=Path("~/.gemini"),
             ...     merge_strategy="smart_merge",
             ...     backup_existing=True,
             ...     validate_dependencies=True
@@ -2596,7 +2596,7 @@ async def implement_secure_feature(feature_description: str, security_requiremen
             status = component_manager.get_component_status(component)
             if status.state != ComponentState.INSTALLED:
                 install_options = InstallOptions(
-                    install_dir=Path("~/.claude"),
+                    install_dir=Path("~/.gemini"),
                     validate_dependencies=True
                 )
                 result = component_manager.install_component(component, install_options)

@@ -10,7 +10,7 @@ Usage:
     
 Requirements:
     - SuperGemini Framework installed
-    - Active Claude Code session
+    - Active Gemini CLI session
     - MCP servers configured (for full validation)
 """
 
@@ -112,13 +112,13 @@ class SuperGeminiValidator:
         Attempt to run a SuperGemini command in a controlled way.
         
         Note: This simulates command execution since actual SuperGemini commands
-        require active Claude Code session context.
+        require active Gemini CLI session context.
         """
         start_time = time.time()
         
         try:
             # For validation purposes, we'll check command syntax and structure
-            # In a real deployment, this would interface with Claude Code
+            # In a real deployment, this would interface with Gemini CLI
             
             if not command.startswith("/sc:"):
                 return False, "Invalid command format - must start with /sc:", time.time() - start_time

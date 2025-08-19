@@ -20,7 +20,7 @@ class Component(ABC):
         Initialize component with installation directory
         
         Args:
-            install_dir: Target installation directory (defaults to ~/.claude)
+            install_dir: Target installation directory (defaults to ~/.gemini)
         """
         from .. import DEFAULT_INSTALL_DIR
         # Initialize logger first
@@ -131,12 +131,12 @@ class Component(ABC):
     def get_settings_modifications(self) -> Dict[str, Any]:
         """
         Return settings.json modifications to apply
-        (now only Claude Code compatible settings)
+        (now only Gemini CLI compatible settings)
 
         Returns:
             Dict of settings to merge into settings.json
         """
-        # Return empty dict as we don't modify Claude Code settings
+        # Return empty dict as we don't modify Gemini CLI settings
         return {}
     
     def install(self, config: Dict[str, Any]) -> bool:

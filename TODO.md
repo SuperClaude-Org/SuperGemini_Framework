@@ -11,11 +11,11 @@ Missing @agent mention tutorial
   ---
   1. Command Syntax Inconsistencies
 
-  Issue: Mixed usage of "SuperClaude install" vs "superclaude install"
+  Issue: Mixed usage of "SuperGemini install" vs "superclaude install"
 
   - Files Affected: installation.md, multiple reference files
   - Pattern: Inconsistent capitalization of the command
-    - Line 12: SuperClaude install
+    - Line 12: SuperGemini install
     - Line 18: superclaude install (lowercase)
     - Throughout: Mixed usage creates confusion
 
@@ -64,7 +64,7 @@ Missing @agent mention tutorial
 
   ✅ All invalid @superclaude.org emails replaced with
   anton.knoery@gmail.com
-  ✅ Non-existent @SuperClaude-Security team reference removed
+  ✅ Non-existent @SuperGemini-Security team reference removed
 
   ---
   5. Cross-Reference Issues
@@ -107,7 +107,7 @@ Missing @agent mention tutorial
 
   Issue: No clear version consistency
 
-  - Documentation doesn't consistently reference SuperClaude version 4.0.0
+  - Documentation doesn't consistently reference SuperGemini version 4.0.0
   - Some examples may be from older versions
 
   Issue: Component installation order

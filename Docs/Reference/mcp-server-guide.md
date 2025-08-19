@@ -170,10 +170,10 @@ node --version  # Should be 16.0.0 or higher
 npm list -g @context7/mcp-server
 
 # Check server configuration
-cat ~/.claude/CLAUDE.md | grep -i context7
+cat ~/.gemini/CLAUDE.md | grep -i context7
 
-# Solution 1: Restart Claude Code session
-# MCP servers restart with Claude Code session restart
+# Solution 1: Restart Gemini CLI session
+# MCP servers restart with Gemini CLI session restart
 
 # Solution 2: Reconfigure MCP servers
 python3 -m SuperGemini install --components mcp --force
@@ -187,7 +187,7 @@ ping context7-server.example.com  # If server requires network
 curl -I https://context7-api.example.com/health  # Health check
 
 # Verification
-# Try Context7 functionality in Claude Code
+# Try Context7 functionality in Gemini CLI
 # Should respond to documentation requests
 ```
 
@@ -208,8 +208,8 @@ free -h
 # Solution 1: Reduce operation complexity
 # Break complex tasks into smaller parts
 
-# Solution 2: Restart Claude Code session
-# MCP servers restart with Claude Code session restart
+# Solution 2: Restart Gemini CLI session
+# MCP servers restart with Gemini CLI session restart
 
 # Solution 3: Disable problematic server temporarily
 # Use --no-mcp flag for operations
@@ -232,11 +232,11 @@ netstat -tlnp | grep :8000  # Check port usage
 ps aux | grep -E "context7|sequential|magic"
 
 # Solution 1: Sequential server restart
-# Restart Claude Code to reset all MCP servers
+# Restart Gemini CLI to reset all MCP servers
 
 # Solution 2: Configure different ports
 # Edit MCP server configuration files
-# Usually in ~/.claude/ or server-specific directories
+# Usually in ~/.gemini/ or server-specific directories
 
 # Solution 3: Use selective server activation
 # Use specific server flags instead of --all-mcp
@@ -286,7 +286,7 @@ npm install -g @context7/mcp-server@latest
 rm -rf ~/.context7/  # Clear cache if exists
 
 # Solution 3: Force documentation refresh
-# Restart Claude Code session completely
+# Restart Gemini CLI session completely
 
 # Verification
 # Check documentation dates in responses
@@ -302,16 +302,16 @@ ERROR: Sequential reasoning server encountered internal error
 
 # Diagnosis
 # Check Sequential server logs
-tail -f ~/.claude/logs/sequential-mcp.log  # If logs exist
+tail -f ~/.gemini/logs/sequential-mcp.log  # If logs exist
 
 # Check server installation
 npm list -g @sequential/mcp-server
 
-# Solution 1: Restart Claude Code session
+# Solution 1: Restart Gemini CLI session
 # This restarts all MCP servers including Sequential
 
 # Solution 2: Use alternative reasoning approach
-# Use native Claude reasoning without MCP servers
+# Use native Gemini reasoning without MCP servers
 
 # Solution 3: Reinstall Sequential MCP
 npm uninstall -g @sequential/mcp-server
@@ -355,7 +355,7 @@ ps aux | grep sequential  # Check process status
 # Diagnosis
 # Check Magic server installation
 npm list -g @magic/ui-generator
-cat ~/.claude/CLAUDE.md | grep -i magic
+cat ~/.gemini/CLAUDE.md | grep -i magic
 
 # Solution 1: Verify Magic server installation
 npm list -g @magic/ui-generator
@@ -472,22 +472,22 @@ ls -la target-files/  # Ensure write permissions
 # Symptoms: Project context not persisting between sessions
 
 # Diagnosis
-ls ~/.claude/sessions/  # Check session storage
+ls ~/.gemini/sessions/  # Check session storage
 ls ~/.serena/  # Check Serena-specific storage
 
 # Solution 1: Verify session save operations
 # Ensure proper session saving before closing
 
 # Solution 2: Check storage permissions
-ls -la ~/.claude/sessions/
-chmod 755 ~/.claude/sessions/
+ls -la ~/.gemini/sessions/
+chmod 755 ~/.gemini/sessions/
 
 # Solution 3: Reinstall Serena server
 npm uninstall -g @serena/mcp-server
 npm install -g @serena/mcp-server@latest
 
 # Verification
-# Session context should persist across Claude Code restarts
+# Session context should persist across Gemini CLI restarts
 ```
 
 ## Performance and Optimization
@@ -506,7 +506,7 @@ top | grep node
 # Solution 1: Selective MCP server usage
 # Use only needed servers for specific tasks
 
-# Solution 2: Restart Claude Code session
+# Solution 2: Restart Gemini CLI session
 # This restarts all MCP servers fresh
 
 # Solution 3: Local fallback mode
@@ -528,7 +528,7 @@ time node -e "console.log('Node.js speed test')"
 top | grep node  # Monitor Node.js processes
 ps aux --sort=-%mem | head -10
 
-# Solution 1: Regular Claude Code session restarts
+# Solution 1: Regular Gemini CLI session restarts
 # Restart sessions every few hours during heavy usage
 
 # Solution 2: Monitor specific servers
@@ -576,12 +576,12 @@ top  # Monitor resource usage during operations
 # Symptoms: MCP servers not performing optimally for specific use cases
 
 # Solution 1: Locate configuration files
-find ~/.claude/ -name "*mcp*" -type f
+find ~/.gemini/ -name "*mcp*" -type f
 find ~/.config/ -name "*mcp*" -type f
 
 # Solution 2: Customize server settings
 # Edit server-specific configuration files
-# Common locations: ~/.claude/mcp-config.json
+# Common locations: ~/.gemini/mcp-config.json
 
 # Solution 3: Environment variable configuration
 export MCP_CONTEXT7_TIMEOUT=60
@@ -682,7 +682,7 @@ fi
 echo "=== MCP Server Logs ==="
 
 # Check common log locations
-find ~/.claude/ -name "*.log" -type f 2>/dev/null
+find ~/.gemini/ -name "*.log" -type f 2>/dev/null
 find /tmp/ -name "*mcp*.log" -type f 2>/dev/null
 find /var/log/ -name "*mcp*.log" -type f 2>/dev/null
 
@@ -703,11 +703,11 @@ journalctl -u node* --since "1 hour ago" 2>/dev/null | tail -10
 # Emergency MCP Reset
 echo "=== Emergency MCP Server Reset ==="
 
-# Step 1: Stop all Claude Code sessions
-echo "Stop all Claude Code sessions and wait 30 seconds"
+# Step 1: Stop all Gemini CLI sessions
+echo "Stop all Gemini CLI sessions and wait 30 seconds"
 
 # Step 2: Backup current state
-cp -r ~/.claude ~/.claude.mcp.backup.$(date +%Y%m%d)
+cp -r ~/.gemini ~/.gemini.mcp.backup.$(date +%Y%m%d)
 
 # Step 3: Remove all MCP servers
 npm list -g | grep -E "context7|sequential|magic|playwright|morphllm|serena" | awk '{print $2}' | xargs npm uninstall -g
@@ -722,7 +722,7 @@ python3 -m SuperGemini install --components mcp --force
 npm list -g | grep -E "context7|sequential|magic|playwright|morphllm|serena"
 
 # Step 7: Test functionality
-echo "Test MCP servers in Claude Code after restart"
+echo "Test MCP servers in Gemini CLI after restart"
 ```
 
 ## Related Resources
@@ -743,9 +743,9 @@ echo "Test MCP servers in Claude Code after restart"
 
 ---
 
-**MCP Server Priority**: When troubleshooting, address servers in order of dependency: Node.js → npm → individual servers → Claude Code integration. Most MCP issues resolve with proper Node.js setup and server reinstallation.
+**MCP Server Priority**: When troubleshooting, address servers in order of dependency: Node.js → npm → individual servers → Gemini CLI integration. Most MCP issues resolve with proper Node.js setup and server reinstallation.
 
 **Verification Pattern**: After MCP solutions, always verify with:
 - ✅ `node --version` - Should be 16.0.0+
 - ✅ `npm list -g | grep mcp` - Should show installed servers
-- ✅ Test server functionality in Claude Code - Should respond without errors
+- ✅ Test server functionality in Gemini CLI - Should respond without errors

@@ -23,12 +23,12 @@
 
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SuperClaude-Org/SuperClaude_Framework.git"
+    "url": "git+https://github.com/SuperClaude-Org/SuperGemini_Framework.git"
   },
   "bugs": {
-    "url": "https://github.com/SuperClaude-Org/SuperClaude_Framework/issues"
+    "url": "https://github.com/SuperClaude-Org/SuperGemini_Framework/issues"
   },
-  "homepage": "https://github.com/SuperClaude-Org/SuperClaude_Framework#readme",
+  "homepage": "https://github.com/SuperClaude-Org/SuperGemini_Framework#readme",
   "license": "MIT",
   "keywords": [
     "superclaude",

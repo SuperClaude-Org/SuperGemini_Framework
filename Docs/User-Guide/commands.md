@@ -1,6 +1,6 @@
 # SuperGemini Commands Guide
 
-> **Command Context**: This guide covers **Claude Code Commands** (`/sc:` commands). These run inside Claude Code chat, not in your terminal. For installation commands, see [Installation Guide](../Getting-Started/installation.md).
+> **Command Context**: This guide covers **Gemini CLI Commands** (`/sc:` commands). These run inside Gemini CLI chat, not in your terminal. For installation commands, see [Installation Guide](../Getting-Started/installation.md).
 
 ## ✅ Verification Status
 - **SuperGemini Version**: v4.0+ Compatible
@@ -23,7 +23,7 @@ SuperGemini status --mcp
 # Expected: At least context7 and sequential-thinking connected
 ```
 
-### 💬 Claude Code Testing (Type in Claude Code Chat)
+### 💬 Gemini CLI Testing (Type in Gemini CLI Chat)
 ```
 # Test basic /sc: command
 /sc:brainstorm "test project"
@@ -42,10 +42,10 @@ SuperGemini status --mcp
 |-------------|--------------|--------|---------|
 | **🖥️ Installation** | Terminal/CMD | `SuperGemini [command]` | Setup and maintenance |
 | **🔧 Configuration** | Terminal/CMD | `python3 -m SuperGemini` | Advanced configuration |
-| **💬 Development** | Claude Code | `/sc:[command]` | AI-enhanced development |
-| **⚡ Workflow** | Claude Code | `/sc:[command] --flags` | Enhanced automation |
+| **💬 Development** | Gemini CLI | `/sc:[command]` | AI-enhanced development |
+| **⚡ Workflow** | Gemini CLI | `/sc:[command] --flags` | Enhanced automation |
 
-> **Remember**: All `/sc:` commands work inside Claude Code chat, not your terminal.
+> **Remember**: All `/sc:` commands work inside Gemini CLI chat, not your terminal.
 
 ## Table of Contents
 
@@ -459,8 +459,8 @@ SuperGemini status --mcp
 
 ### Immediate Fixes
 - **Reset session**: `/sc:load` to reinitialize
-- **Clear cache**: Remove `~/.claude/cache/` directory
-- **Restart Claude Code**: Exit and restart application
+- **Clear cache**: Remove `~/.gemini/cache/` directory
+- **Restart Gemini CLI**: Exit and restart application
 - **Check status**: `python3 -m SuperGemini --version`
 
 ## Troubleshooting
@@ -561,7 +561,7 @@ killall node                         # Reset MCP servers
 # Comprehensive diagnostics
 SuperGemini diagnose --verbose
 /sc:help troubleshoot
-cat ~/.claude/logs/superclaude.log | tail -50
+cat ~/.gemini/logs/superclaude.log | tail -50
 ```
 - See [Common Issues Guide](../Reference/common-issues.md) for detailed troubleshooting
 
@@ -593,7 +593,7 @@ After applying fixes, test with:
 - **Command not found** → Check installation: `SuperGemini --version`
 - **Flag error** → Verify against [FLAGS.md](flags.md)  
 - **MCP error** → Check server configuration: `SuperGemini status --mcp`
-- **No output** → Restart Claude Code session
+- **No output** → Restart Gemini CLI session
 - **Slow performance** → Use `--scope file` or `--no-mcp`
 
 ### Common Issues
@@ -606,7 +606,7 @@ SuperGemini --version
 # Verify component installation  
 SuperGemini install --list-components
 
-# Restart Claude Code session
+# Restart Gemini CLI session
 ```
 
 **Slow Performance**
@@ -624,7 +624,7 @@ SuperGemini install --list-components
 **MCP Server Connection Issues**
 ```bash
 # Check server status
-ls ~/.claude/.claude.json
+ls ~/.gemini/.gemini.json
 
 # Reinstall MCP components
 SuperGemini install --components mcp --force

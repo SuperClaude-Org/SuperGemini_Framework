@@ -41,7 +41,7 @@ Before using this guide, verify modes activate correctly:
 
 ## Getting Started (2-Minute Overview)
 
-**Modes activate automatically** - you don't need to think about them. They adapt Claude Code's behavior based on your task complexity and context.
+**Modes activate automatically** - you don't need to think about them. They adapt Gemini CLI's behavior based on your task complexity and context.
 
 **Quick Examples:**
 ```bash
@@ -265,7 +265,7 @@ Token Efficient Approach:
 **Behavioral Changes:**
 - **Professional Communication**: Clear, concise technical language without compression
 - **Moderate Detail**: Balanced information depth suitable for most development tasks
-- **Standard Tool Selection**: Uses native Claude capabilities and basic tools
+- **Standard Tool Selection**: Uses native Gemini capabilities and basic tools
 - **Quality Focus**: Maintains code quality without complex orchestration overhead
 - **Responsive Adaptation**: Ready to switch to specialized modes when complexity increases
 
@@ -436,7 +436,7 @@ Standard Approach: Consistent, professional baseline for all tasks
 
 ### Immediate Fixes
 - **Force specific mode**: Use explicit flags like `--brainstorm` or `--task-manage`
-- **Reset mode behavior**: Restart Claude Code session to reset mode state
+- **Reset mode behavior**: Restart Gemini CLI session to reset mode state
 - **Check mode indicators**: Look for 🤔, 🎯, 📋 symbols in responses
 - **Verify complexity**: Simple tasks use Standard mode, complex tasks auto-switch
 
@@ -504,7 +504,7 @@ Standard Approach: Consistent, professional baseline for all tasks
 **Level 1: Quick Fix (< 2 min)**
 - Use manual flags to override automatic mode selection
 - Check if task complexity matches expected mode behavior
-- Try restarting Claude Code session
+- Try restarting Gemini CLI session
 
 **Level 2: Detailed Help (5-15 min)**
 ```bash

@@ -831,9 +831,9 @@ def execute_install_workflow(args: argparse.Namespace, components: List[str], re
             
             # Display next steps
             display_info("\nNext steps:")
-            display_info("1. Restart your Claude Code session")
+            display_info("1. Restart your Gemini CLI session")
             display_info(f"2. Framework files are now available in {args.install_dir}")
-            display_info("3. Use SuperGemini commands and features in Claude Code")
+            display_info("3. Use SuperGemini commands and features in Gemini CLI")
             
             return True
         else:

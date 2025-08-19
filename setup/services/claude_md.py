@@ -16,7 +16,7 @@ class CLAUDEMdService:
         Initialize CLAUDEMdService
         
         Args:
-            install_dir: Installation directory (typically ~/.claude)
+            install_dir: Installation directory (typically ~/.gemini)
         """
         self.install_dir = install_dir
         self.claude_md_path = install_dir / "CLAUDE.md"

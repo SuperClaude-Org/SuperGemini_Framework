@@ -1,10 +1,10 @@
 # SuperGemini Quick Start Guide
 
-> **Command Context**: This guide uses both **Terminal Commands** (for installation) and **Claude Code Commands** (`/sc:` for development). See sections below for where to run each type.
+> **Command Context**: This guide uses both **Terminal Commands** (for installation) and **Gemini CLI Commands** (`/sc:` for development). See sections below for where to run each type.
 
 ## The Simple Truth
 
-SuperGemini transforms Claude Code into a structured development framework with just one installation command. Behind the simple interface, intelligent routing automatically selects the right tools, activates domain experts, and coordinates complex workflows.
+SuperGemini transforms Gemini CLI into a structured development framework with just one installation command. Behind the simple interface, intelligent routing automatically selects the right tools, activates domain experts, and coordinates complex workflows.
 
 **5-Minute Start**: Install → Try `/sc:brainstorm` → Watch the magic happen.
 
@@ -15,7 +15,7 @@ SuperGemini transforms Claude Code into a structured development framework with 
 pip install SuperGemini && SuperGemini install
 ```
 
-### 💬 First Commands (3 minutes) - Type in Claude Code
+### 💬 First Commands (3 minutes) - Type in Gemini CLI
 ```
 # Interactive project discovery
 /sc:brainstorm "web app for task management"
@@ -37,7 +37,7 @@ pip install SuperGemini && SuperGemini install
 
 ## What is SuperGemini Really?
 
-SuperGemini is a meta-programming framework that enhances Claude Code with:
+SuperGemini is a meta-programming framework that enhances Gemini CLI with:
 
 **21 Slash Commands** for workflow automation (/sc:brainstorm, /sc:implement, /sc:analyze)
 **13 AI Specialists** with domain expertise (architect, security, frontend, backend)
@@ -98,7 +98,7 @@ You type `/sc:implement "user login"` → SuperGemini analyzes requirements → 
 
 ### SuperGemini's Core Value
 
-SuperGemini transforms Claude Code from a general-purpose AI assistant into a **specialized development framework** with:
+SuperGemini transforms Gemini CLI from a general-purpose AI assistant into a **specialized development framework** with:
 
 - **Systematic Workflows** instead of ad-hoc requests
 - **Domain Expertise** through specialized agents
@@ -140,7 +140,7 @@ SuperGemini transforms Claude Code from a general-purpose AI assistant into a **
 - Require session persistence across development cycles
 - Want specialized domain expertise (security, performance, etc.)
 
-**Use Standard Claude Code When:**
+**Use Standard Gemini CLI When:**
 - Simple questions or explanations
 - One-off coding tasks
 - Learning programming concepts

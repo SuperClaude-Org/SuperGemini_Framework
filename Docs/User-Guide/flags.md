@@ -658,7 +658,7 @@ SuperGemini's intelligent flag system automatically detects task complexity and 
 ### Immediate Fixes
 - **Reset flags**: Remove all flags and let auto-detection work
 - **Check compatibility**: Use `/sc:help flags` for valid combinations
-- **Restart session**: Exit and restart Claude Code to reset flag state
+- **Restart session**: Exit and restart Gemini CLI to reset flag state
 - **Verify setup**: Run `SuperGemini status --flags` to check flag system
 
 ### Flag-Specific Troubleshooting
@@ -767,7 +767,7 @@ SuperGemini install --components mcp --force  # Reinstall MCP
 # Flag-specific diagnostics
 SuperGemini diagnose --flags
 /sc:help flags --verbose
-cat ~/.claude/logs/flag-system.log
+cat ~/.gemini/logs/flag-system.log
 # Test individual flags one at a time
 ```
 - See [Common Issues Guide](../Reference/common-issues.md) for flag installation problems
@@ -844,7 +844,7 @@ SuperGemini --help flags
 # 1. Check MCP installation
 SuperGemini install --list-components | grep mcp
 
-# 2. Restart Claude Code session (MCP connections refresh)
+# 2. Restart Gemini CLI session (MCP connections refresh)
 # 3. Use fallback approach
 /sc:implement "dashboard" --no-mcp  # Native execution
 
