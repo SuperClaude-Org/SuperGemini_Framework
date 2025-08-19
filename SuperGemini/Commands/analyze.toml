@@ -1,4 +1,4 @@
-description: "Comprehensive code analysis across quality, security, performance, and architecture domains"
+description = "Comprehensive code analysis across quality, security, performance, and architecture domains"
 
 prompt = """
 ---
