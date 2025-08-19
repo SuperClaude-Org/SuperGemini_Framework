@@ -1,6 +1,6 @@
-# SuperClaude Troubleshooting Guide 🔧
+# SuperGemini Troubleshooting Guide 🔧
 
-**Comprehensive Problem Resolution**: Step-by-step solutions for common SuperClaude issues, from installation problems to advanced configuration challenges. Each solution includes diagnosis steps, resolution procedures, and prevention strategies.
+**Comprehensive Problem Resolution**: Step-by-step solutions for common SuperGemini issues, from installation problems to advanced configuration challenges. Each solution includes diagnosis steps, resolution procedures, and prevention strategies.
 
 **Quick Resolution Focus**: Most issues can be resolved in under 5 minutes with the right diagnostic approach. This guide provides systematic troubleshooting methods to get you back to productive development quickly.
 
@@ -22,17 +22,17 @@ sudo chown -R $USER ~/.claude
 chmod 755 ~/.claude
 
 # Solution 2: Use --user installation
-pip install --user SuperClaude
-SuperClaude install --install-dir ~/superclaude
+pip install --user SuperGemini
+SuperGemini install --install-dir ~/superclaude
 
 # Prevention
-# Always install SuperClaude in user space, avoid sudo for installation
+# Always install SuperGemini in user space, avoid sudo for installation
 ```
 
 **Issue: Python Version Compatibility**
 ```bash
 # Error message
-ERROR: SuperClaude requires Python 3.8+ but found Python 3.7
+ERROR: SuperGemini requires Python 3.8+ but found Python 3.7
 
 # Diagnosis
 python3 --version
@@ -41,18 +41,18 @@ which python3
 # Solution 1: Update Python (Linux/Ubuntu)
 sudo apt update
 sudo apt install python3.8 python3.8-pip
-python3.8 -m pip install SuperClaude
+python3.8 -m pip install SuperGemini
 
 # Solution 2: Use pyenv for version management
 curl https://pyenv.run | bash
 pyenv install 3.9.0
 pyenv global 3.9.0
-pip install SuperClaude
+pip install SuperGemini
 
 # Solution 3: Virtual environment with specific Python
 python3.9 -m venv superclaude-env
 source superclaude-env/bin/activate
-pip install SuperClaude
+pip install SuperGemini
 ```
 
 **Issue: Component Installation Failures**
@@ -61,19 +61,19 @@ pip install SuperClaude
 ERROR: Component 'mcp' installation failed - dependency not met
 
 # Diagnosis
-SuperClaude install --dry-run --components mcp
-SuperClaude debug --components
+SuperGemini install --dry-run --components mcp
+SuperGemini debug --components
 
 # Solution 1: Install dependencies first
-SuperClaude install --components core  # Install core first
-SuperClaude install --components mcp   # Then install MCP
+SuperGemini install --components core  # Install core first
+SuperGemini install --components mcp   # Then install MCP
 
 # Solution 2: Force reinstallation
-SuperClaude install --components mcp --force
+SuperGemini install --components mcp --force
 
 # Solution 3: Clean installation
 rm -rf ~/.claude/
-SuperClaude install --fresh
+SuperGemini install --fresh
 
 # Prevention
 # Always install components in dependency order: core → agents → modes → mcp
@@ -88,7 +88,7 @@ ERROR: Cannot find file 'C:\Users\name\.claude\CLAUDE.md'
 
 # Solution: Use proper Windows paths
 set CLAUDE_CONFIG_DIR=C:\Users\%USERNAME%\.claude
-SuperClaude install --install-dir "%CLAUDE_CONFIG_DIR%"
+SuperGemini install --install-dir "%CLAUDE_CONFIG_DIR%"
 
 # Issue: Node.js not found for MCP servers
 # Solution: Install Node.js from official source
@@ -125,12 +125,12 @@ sudo apt install python3-dev python3-pip build-essential
 # CentOS/RHEL
 # Issue: Python 3.8+ not available
 sudo yum install python39 python39-pip
-python3.9 -m pip install SuperClaude
+python3.9 -m pip install SuperGemini
 
 # Arch Linux
 # Issue: Package conflicts
 sudo pacman -S python python-pip
-pip install --user SuperClaude
+pip install --user SuperGemini
 ```
 
 ## Command Issues
@@ -143,26 +143,26 @@ pip install --user SuperClaude
 ERROR: Command '/sg:analyze' not recognized
 
 # Diagnosis
-# Check if SuperClaude is properly installed
-SuperClaude --version
+# Check if SuperGemini is properly installed
+SuperGemini --version
 ls ~/.claude/
 
-# Check Claude Code session
-claude --version
+# Check Gemini Code session
+gemini --version
 
-# Solution 1: Restart Claude Code session
-# Exit and restart Claude Code completely
+# Solution 1: Restart Gemini Code session
+# Exit and restart Gemini Code completely
 
 # Solution 2: Verify installation
-SuperClaude install --list-components
-SuperClaude install --components core --force
+SuperGemini install --list-components
+SuperGemini install --components core --force
 
 # Solution 3: Manual verification
 cat ~/.claude/CLAUDE.md
-# Should contain SuperClaude instructions and imports
+# Should contain SuperGemini instructions and imports
 
 # Prevention
-# Always restart Claude Code after SuperClaude installation
+# Always restart Gemini Code after SuperGemini installation
 ```
 
 **Issue: Command Timeout or Hanging**
@@ -173,7 +173,7 @@ cat ~/.claude/CLAUDE.md
 # Check system resources
 top
 df -h
-ps aux | grep claude
+ps aux | grep gemini
 
 # Solution 1: Reduce scope
 /sg:analyze src/ --scope file    # Instead of entire project
@@ -185,7 +185,7 @@ ps aux | grep claude
 
 # Solution 3: Clear cache and restart
 rm -rf ~/.claude/cache/
-# Restart Claude Code session
+# Restart Gemini Code session
 
 # Prevention
 # Use appropriate scope for large projects
@@ -204,7 +204,7 @@ ls -la
 
 # Solution 1: Reset session context
 /sg:save "backup-session"  # Backup current state
-# Restart Claude Code and reload if needed
+# Restart Gemini Code and reload if needed
 
 # Solution 2: Use explicit scope
 /sg:analyze ./specific-folder/  # Explicit path
@@ -424,7 +424,7 @@ sudo apt-get install -y nodejs
 npm install -g @context7/mcp-server
 
 # Solution 2: Reconfigure MCP servers
-SuperClaude install --components mcp --force
+SuperGemini install --components mcp --force
 
 # Solution 3: Manual server testing
 node -e "console.log('Node.js working')"
@@ -454,7 +454,7 @@ export SUPERCLAUDE_MCP_TIMEOUT=60
 /sg:implement "complex task" --timeout 60
 
 # Solution 2: Restart MCP servers
-SuperClaude debug --mcp-restart
+SuperGemini debug --mcp-restart
 
 # Solution 3: Disable problematic server temporarily
 /sg:implement "task" --no-mcp
@@ -476,10 +476,10 @@ ERROR: Sequential reasoning server encountered internal error
 tail -f ~/.claude/logs/sequential-mcp.log
 
 # Check server version compatibility
-SuperClaude debug --mcp-versions
+SuperGemini debug --mcp-versions
 
 # Solution 1: Restart Sequential server
-SuperClaude debug --mcp-restart sequential
+SuperGemini debug --mcp-restart sequential
 
 # Solution 2: Use alternative reasoning approach
 /sg:analyze complex-problem --native-reasoning
@@ -502,7 +502,7 @@ npm install -g @sequential/mcp-server@latest
 
 # Diagnosis
 # Check Magic server status and configuration
-SuperClaude debug --mcp-servers
+SuperGemini debug --mcp-servers
 grep "magic" ~/.claude/.claude.json
 
 # Solution 1: Verify Magic server installation
@@ -526,7 +526,7 @@ npm install -g @magic/ui-generator@latest
 ERROR: Playwright browser automation failed - browser not installed
 
 # Diagnosis
-SuperClaude debug --mcp-servers playwright
+SuperGemini debug --mcp-servers playwright
 npx playwright --version
 
 # Solution 1: Install Playwright browsers
@@ -550,7 +550,7 @@ npx playwright install-deps
 
 **Issue: Session Context Lost After Restart**
 ```bash
-# Symptoms: Previous work context not available after Claude Code restart
+# Symptoms: Previous work context not available after Gemini Code restart
 
 # Diagnosis
 # Check session persistence
@@ -559,7 +559,7 @@ ls ~/.claude/sessions/
 
 # Solution 1: Save session before closing
 /sg:save "current-work-session"
-# Before closing Claude Code
+# Before closing Gemini Code
 
 # Solution 2: Auto-save configuration
 export SUPERCLAUDE_AUTO_SAVE=true
@@ -597,7 +597,7 @@ file ~/.claude/sessions/session-*.json
 
 # Prevention
 # Regular session backups with meaningful names
-# Avoid force-closing Claude Code during session operations
+# Avoid force-closing Gemini Code during session operations
 ```
 
 **Issue: Cross-Session Context Inconsistency**
@@ -673,11 +673,11 @@ grep -n "@" ~/.claude/CLAUDE.md
 # Remove any @CLAUDE.md references from imported files
 
 # Solution 2: Reset to default configuration
-SuperClaude install --reset-config --backup
+SuperGemini install --reset-config --backup
 
 # Solution 3: Manual configuration repair
 cp ~/.claude/CLAUDE.md ~/.claude/CLAUDE.md.backup
-SuperClaude install --components core --force
+SuperGemini install --components core --force
 
 # Verification
 # Check that imports work correctly
@@ -691,18 +691,18 @@ grep "@" ~/.claude/CLAUDE.md
 
 # Diagnosis
 # Check component installation order and dependencies
-SuperClaude install --list-components
-SuperClaude debug --component-conflicts
+SuperGemini install --list-components
+SuperGemini debug --component-conflicts
 
 # Solution 1: Reinstall in correct order
-SuperClaude install --components core agents modes mcp --force
+SuperGemini install --components core agents modes mcp --force
 
 # Solution 2: Selective component installation
-SuperClaude uninstall --components mcp
-SuperClaude install --components mcp --clean
+SuperGemini uninstall --components mcp
+SuperGemini install --components mcp --clean
 
 # Solution 3: Configuration validation
-SuperClaude install --validate-config --fix-conflicts
+SuperGemini install --validate-config --fix-conflicts
 
 # Prevention
 # Install components in dependency order
@@ -719,15 +719,15 @@ cat ~/.claude/CLAUDE.md
 # Look for syntax errors
 
 # Solution 1: Validate configuration syntax
-SuperClaude debug --validate-config
+SuperGemini debug --validate-config
 
 # Solution 2: Backup and reset
 cp ~/.claude/CLAUDE.md ~/.claude/CLAUDE.md.custom
-SuperClaude install --reset-config
+SuperGemini install --reset-config
 # Manually merge custom content back
 
 # Solution 3: Step-by-step integration
-SuperClaude install --components core  # Base installation
+SuperGemini install --components core  # Base installation
 # Add custom content gradually and test
 
 # Prevention
@@ -739,7 +739,7 @@ SuperClaude install --components core  # Base installation
 
 **Issue: Complete Configuration Corruption**
 ```bash
-# Symptoms: SuperClaude completely non-functional after configuration changes
+# Symptoms: SuperGemini completely non-functional after configuration changes
 
 # Emergency Recovery Procedure
 # Step 1: Backup current state
@@ -747,14 +747,14 @@ cp -r ~/.claude ~/.claude.corrupted.$(date +%Y%m%d)
 
 # Step 2: Complete reset
 rm -rf ~/.claude/
-SuperClaude install --fresh
+SuperGemini install --fresh
 
 # Step 3: Selective recovery
 # Restore specific custom files from backup if needed
 cp ~/.claude.corrupted.*/custom-file.md ~/.claude/
 
 # Step 4: Gradual reconfiguration
-SuperClaude install --components core agents modes
+SuperGemini install --components core agents modes
 # Test after each component
 
 # Prevention
@@ -776,7 +776,7 @@ top
 df -h
 iostat 1 5
 
-# Check SuperClaude resource usage
+# Check SuperGemini resource usage
 ps aux | grep -i superclaude
 SuperGemini debug --performance-metrics
 
@@ -791,7 +791,7 @@ export SUPERCLAUDE_CONCURRENCY=2
 
 # Solution 3: Clear caches and restart
 rm -rf ~/.claude/cache/
-# Restart Claude Code session
+# Restart Gemini Code session
 
 # Prevention
 # Monitor system resources before large operations
@@ -839,7 +839,7 @@ tail -f ~/.claude/logs/mcp-*.log
 # Instead of --all-mcp
 
 # Solution 2: MCP server optimization
-SuperClaude debug --mcp-optimize
+SuperGemini debug --mcp-optimize
 # Optimize server configurations
 
 # Solution 3: Local fallback mode
@@ -863,7 +863,7 @@ htop
 iotop
 netstat -i
 
-# SuperClaude-specific monitoring
+# SuperGemini-specific monitoring
 SuperGemini debug --comprehensive-performance
 export SUPERCLAUDE_PROFILE=true
 /sg:analyze . --profile
@@ -887,14 +887,14 @@ crontab -e
 **Error: "Command not recognized"**
 ```bash
 # Full error message
-ERROR: Command '/sg:analyze' not recognized by Claude Code
+ERROR: Command '/sg:analyze' not recognized by Gemini Code
 
-# Meaning: SuperClaude instructions not loaded into Claude Code session
+# Meaning: SuperGemini instructions not loaded into Gemini Code session
 # Resolution:
-1. Verify SuperClaude installation: SuperClaude --version
-2. Check ~/.claude/CLAUDE.md exists and contains SuperClaude instructions
-3. Restart Claude Code completely
-4. If persistent: SuperClaude install --components core --force
+1. Verify SuperGemini installation: SuperGemini --version
+2. Check ~/.claude/CLAUDE.md exists and contains SuperGemini instructions
+3. Restart Gemini Code completely
+4. If persistent: SuperGemini install --components core --force
 ```
 
 **Error: "Component dependency not met"**
@@ -904,9 +904,9 @@ ERROR: Component 'mcp' installation failed - dependency 'core' not met
 
 # Meaning: Attempting to install component without required dependencies
 # Resolution:
-1. Install dependencies first: SuperClaude install --components core
-2. Then install desired component: SuperClaude install --components mcp
-3. Or use automatic dependency resolution: SuperClaude install --components mcp --resolve-dependencies
+1. Install dependencies first: SuperGemini install --components core
+2. Then install desired component: SuperGemini install --components mcp
+3. Or use automatic dependency resolution: SuperGemini install --components mcp --resolve-dependencies
 ```
 
 **Error: "MCP server connection failed"**
@@ -917,8 +917,8 @@ ERROR: MCP server 'context7' connection failed - server not responding
 # Meaning: MCP server unavailable or misconfigured
 # Resolution:
 1. Check Node.js installation: node --version (should be 16+)
-2. Reinstall MCP servers: SuperClaude install --components mcp --force
-3. Verify server status: SuperClaude debug --mcp-servers
+2. Reinstall MCP servers: SuperGemini install --components mcp --force
+3. Verify server status: SuperGemini debug --mcp-servers
 4. Test without MCP: SuperGemini command --no-mcp
 ```
 
@@ -975,13 +975,13 @@ ERROR: MCP context7 connection failed - timeout after 30s [E001]
 **Required Information for Bug Reports:**
 ```bash
 # Essential diagnostic information
-SuperClaude --version                    # Version information
+SuperGemini --version                    # Version information
 uname -a                                 # System information  
 python --version                         # Python version
 node --version                           # Node.js version (if using MCP)
 
-# SuperClaude-specific diagnostics
-SuperClaude debug --comprehensive > debug-report.txt
+# SuperGemini-specific diagnostics
+SuperGemini debug --comprehensive > debug-report.txt
 
 # Error reproduction
 # 1. Exact command that caused the issue
@@ -994,13 +994,13 @@ SuperClaude debug --comprehensive > debug-report.txt
 ```markdown
 ## Bug Report
 
-**SuperClaude Version:** [Output of `SuperClaude --version`]
+**SuperGemini Version:** [Output of `SuperGemini --version`]
 
 **Environment:**
 - OS: [Linux/macOS/Windows + version]
 - Python: [Output of `python --version`]
 - Node.js: [Output of `node --version`] (if using MCP servers)
-- Claude Code Version: [Output of `claude --version`]
+- Gemini Code Version: [Output of `gemini --version`]
 
 **Description:**
 [Clear description of the issue]
@@ -1022,7 +1022,7 @@ SuperClaude debug --comprehensive > debug-report.txt
 ```
 
 **Debug Information:**
-[Attach output of `SuperClaude debug --comprehensive`]
+[Attach output of `SuperGemini debug --comprehensive`]
 
 **Additional Context:**
 [Any other relevant information]
@@ -1060,17 +1060,17 @@ SuperClaude debug --comprehensive > debug-report.txt
 
 ### Installation and Setup
 
-**Q: Can I use SuperClaude without Node.js?**
-A: Yes, but with limited functionality. Core SuperClaude works with Python only. MCP servers (Context7, Magic, Sequential) require Node.js 16+ for enhanced capabilities.
+**Q: Can I use SuperGemini without Node.js?**
+A: Yes, but with limited functionality. Core SuperGemini works with Python only. MCP servers (Context7, Magic, Sequential) require Node.js 16+ for enhanced capabilities.
 
-**Q: Does SuperClaude work on Windows?**
-A: Yes, SuperClaude supports Windows 10/11. Use PowerShell or Command Prompt for installation. Some features may require WSL for optimal compatibility.
+**Q: Does SuperGemini work on Windows?**
+A: Yes, SuperGemini supports Windows 10/11. Use PowerShell or Command Prompt for installation. Some features may require WSL for optimal compatibility.
 
-**Q: How much disk space does SuperClaude require?**
+**Q: How much disk space does SuperGemini require?**
 A: Core installation: ~50MB. With all MCP servers: ~200MB. Session storage grows over time but can be managed with cleanup commands.
 
-**Q: Can I install SuperClaude in a virtual environment?**
-A: Yes, recommended for isolation. Use `python -m venv superclaude-env && source superclaude-env/bin/activate && pip install SuperClaude`.
+**Q: Can I install SuperGemini in a virtual environment?**
+A: Yes, recommended for isolation. Use `python -m venv superclaude-env && source superclaude-env/bin/activate && pip install SuperGemini`.
 
 ### Usage and Features
 
@@ -1091,10 +1091,10 @@ A: Modes control behavior style (task management, introspection, etc.). Agents p
 **Q: Commands are slow or hanging - what should I do?**
 A: 1) Check system resources with `top`, 2) Reduce scope with `--scope file`, 3) Use `--quick` flag, 4) Clear cache with `/sg:cleanup`.
 
-**Q: How do I reset SuperClaude to default configuration?**
-A: `SuperClaude install --reset-config --backup` creates backup and resets to defaults.
+**Q: How do I reset SuperGemini to default configuration?**
+A: `SuperGemini install --reset-config --backup` creates backup and resets to defaults.
 
-**Q: Can I contribute to SuperClaude development?**
+**Q: Can I contribute to SuperGemini development?**
 A: Yes! See [Contributing Guide](../Developer-Guide/contributing-code.md) for development setup and contribution process.
 
 ## System Diagnostics
@@ -1103,8 +1103,8 @@ A: Yes! See [Contributing Guide](../Developer-Guide/contributing-code.md) for de
 
 **Comprehensive System Health Check:**
 ```bash
-# Complete SuperClaude diagnostics
-SuperClaude debug --comprehensive
+# Complete SuperGemini diagnostics
+SuperGemini debug --comprehensive
 
 # Expected output includes:
 # - Installation status and component health
@@ -1118,22 +1118,22 @@ SuperClaude debug --comprehensive
 **Quick Health Verification:**
 ```bash
 # Basic functionality test
-SuperClaude --version                    # Version verification
-SuperClaude install --list-components    # Component status
-SuperClaude debug --quick               # Quick health check
+SuperGemini --version                    # Version verification
+SuperGemini install --list-components    # Component status
+SuperGemini debug --quick               # Quick health check
 
 # Test core functionality
-echo "Test SuperClaude functionality" | claude
+echo "Test SuperGemini functionality" | claude
 # Then try: /sg:analyze README.md
 ```
 
 **Component-Specific Diagnostics:**
 ```bash
 # Test specific components
-SuperClaude debug --components core agents modes mcp
-SuperClaude debug --mcp-servers         # MCP server health
-SuperClaude debug --sessions           # Session management
-SuperClaude debug --performance        # Performance metrics
+SuperGemini debug --components core agents modes mcp
+SuperGemini debug --mcp-servers         # MCP server health
+SuperGemini debug --sessions           # Session management
+SuperGemini debug --performance        # Performance metrics
 ```
 
 ### System Requirement Validation
@@ -1141,11 +1141,11 @@ SuperClaude debug --performance        # Performance metrics
 **Automated Compatibility Check:**
 ```bash
 # System requirements validation
-SuperClaude install --check-requirements
+SuperGemini install --check-requirements
 
 # Expected validations:
 # ✅ Python 3.8+ detected
-# ✅ Claude Code installation verified  
+# ✅ Gemini Code installation verified  
 # ✅ Sufficient disk space (50MB minimum)
 # ✅ Write permissions to ~/.claude directory
 # ⚠️  Node.js 16+ recommended for MCP servers
@@ -1158,8 +1158,8 @@ SuperClaude install --check-requirements
 python3 --version
 # Should be 3.8.0 or higher
 
-# Claude Code availability
-claude --version
+# Gemini Code availability
+gemini --version
 # Should return version number without error
 
 # Directory permissions
@@ -1179,7 +1179,7 @@ free -h                    # Check available memory (1GB+ recommended)
 **Performance Baseline Testing:**
 ```bash
 # Establish performance baselines
-time SuperClaude install --dry-run       # Installation speed test
+time SuperGemini install --dry-run       # Installation speed test
 time /sg:analyze small-file.py           # Analysis speed test  
 SuperGemini debug --benchmark                     # Performance benchmarks
 
@@ -1241,8 +1241,8 @@ export SUPERCLAUDE_PROFILE=true
 ---
 
 **Emergency Recovery:**
-If SuperClaude is completely non-functional:
+If SuperGemini is completely non-functional:
 1. Backup current configuration: `cp -r ~/.claude ~/.claude.backup`
-2. Complete reset: `rm -rf ~/.claude && SuperClaude install --fresh`
+2. Complete reset: `rm -rf ~/.claude && SuperGemini install --fresh`
 3. Restore custom configurations gradually from backup
 4. If issues persist, report to [GitHub Issues](https://github.com/SuperClaude-Org/SuperClaude_Framework/issues) with diagnostic information

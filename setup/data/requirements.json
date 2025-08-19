@@ -9,7 +9,7 @@
   "disk_space_mb": 500,
   "external_tools": {
     "claude_cli": {
-      "command": "claude --version",
+      "command": "gemini --version",
       "min_version": "0.1.0",
       "required_for": ["mcp"],
       "optional": false
@@ -36,7 +36,7 @@
     },
     "claude_cli": {
       "all": "Visit https://claude.ai/code for installation instructions",
-      "description": "Claude CLI is required for MCP server management"
+      "description": "Gemini CLI is required for MCP server management"
     },
     "git": {
       "linux": "sudo apt update && sudo apt install git",

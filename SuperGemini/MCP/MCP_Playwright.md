@@ -27,6 +27,6 @@
 "check if form validation works" → Playwright (real user interaction)
 "take screenshots of responsive design" → Playwright (visual testing)
 "validate accessibility compliance" → Playwright (automated WCAG testing)
-"review this function's logic" → Native Claude (static analysis)
-"explain the authentication code" → Native Claude (code review)
+"review this function's logic" → Native Gemini (static analysis)
+"explain the authentication code" → Native Gemini (code review)
 ```

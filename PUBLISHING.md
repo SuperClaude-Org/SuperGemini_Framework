@@ -244,7 +244,7 @@ SuperGemini/
 - **License**: MIT License
 - **Python Requires**: >=3.8
 - **Classifiers**: Development Status :: 5 - Production/Stable
-- **Keywords**: claude, ai, development, automation, mcp, agents
+- **Keywords**: gemini, ai, development, automation, mcp, agents
 
 ## 🔧 Available Scripts
 
@@ -577,8 +577,8 @@ docker run -v $(pwd):/app python:3.9 /bin/bash -c "
 
 **Integration Testing:**
 ```bash
-# Test with real Claude Code environment
-claude --version
+# Test with real Gemini Code environment
+gemini --version
 SuperGemini install --components core
 # Verify slash commands work: SuperGemini help
 ```
@@ -700,7 +700,7 @@ For organizations requiring dedicated packaging support:
 - [ ] Local installation test successful
 - [ ] TestPyPI upload and installation successful
 - [ ] Cross-platform compatibility verified (Linux, macOS, Windows)
-- [ ] Integration testing with Claude Code environment
+- [ ] Integration testing with Gemini Code environment
 - [ ] MCP server integrations functional
 
 **Security:**

@@ -1,8 +1,8 @@
 # Contributing Code to SuperGemini Framework 🛠️
 
-Welcome to SuperGemini Framework development! This guide provides everything you need to contribute to the meta-programming framework that transforms Claude Code into a structured development platform.
+Welcome to SuperGemini Framework development! This guide provides everything you need to contribute to the meta-programming framework that transforms Gemini Code into a structured development platform.
 
-**Project Purpose**: SuperGemini enhances Claude Code through behavioral instruction injection, intelligent agent coordination, and MCP server integration. We're building the next generation of AI-assisted development tools.
+**Project Purpose**: SuperGemini enhances Gemini Code through behavioral instruction injection, intelligent agent coordination, and MCP server integration. We're building the next generation of AI-assisted development tools.
 
 **Community Approach**: Open collaboration focused on expanding capabilities, improving user experience, and maintaining high-quality code standards. Every contribution, from bug fixes to new features, helps advance AI-assisted development.
 
@@ -34,7 +34,7 @@ Welcome to SuperGemini Framework development! This guide provides everything you
 **Required:**
 - Python 3.8+ with pip
 - Git for version control
-- Claude Code installed and working
+- Gemini Code installed and working
 - Node.js 16+ (for MCP server development)
 
 **Recommended:**
@@ -85,13 +85,13 @@ else
     exit 1
 fi
 
-# Check Claude Code
+# Check Gemini Code
 if command -v claude-code >/dev/null 2>&1; then
-    echo "✅ Claude Code available in PATH (OK)"
-elif [ -f "$HOME/.vscode/extensions" ] && ls "$HOME/.vscode/extensions" | grep -q claude; then
-    echo "✅ Claude Code VS Code extension detected (OK)"
+    echo "✅ Gemini Code available in PATH (OK)"
+elif [ -f "$HOME/.vscode/extensions" ] && ls "$HOME/.vscode/extensions" | grep -q gemini; then
+    echo "✅ Gemini Code VS Code extension detected (OK)"
 else
-    echo "⚠️ Claude Code not detected - verify installation"
+    echo "⚠️ Gemini Code not detected - verify installation"
 fi
 
 # Check disk space (requires at least 2GB)
@@ -132,9 +132,9 @@ python3 --version    # Should be 3.8+
 node --version       # Should be 16+
 git --version        # Any recent version
 
-# Verify Claude Code is properly installed and working
-# Check if Claude Code CLI is available in PATH
-which claude-code || echo "Claude Code not found in PATH"
+# Verify Gemini Code is properly installed and working
+# Check if Gemini Code CLI is available in PATH
+which gemini-code || echo "Gemini Code not found in PATH"
 # Or verify through IDE integration (VS Code extension, etc.)
 ```
 
@@ -246,7 +246,7 @@ export CLAUDE_CONFIG_DIR=~/.claude
 # Create development configuration directory if it doesn't exist
 mkdir -p ~/.claude
 
-# Copy core configuration files to Claude config directory
+# Copy core configuration files to Gemini config directory
 cp -r SuperGemini/Core/* ~/.claude/
 ```
 
@@ -314,7 +314,7 @@ SuperGemini_Framework/
 ```
 
 **Key Architectural Concepts:**
-- **Meta-Framework**: Enhances Claude Code through configuration injection
+- **Meta-Framework**: Enhances Gemini Code through configuration injection
 - **Component System**: Modular installation with dependency resolution
 - **Behavioral Programming**: AI behavior modification through .md files
 - **Intelligent Orchestration**: Dynamic coordination of agents and tools
@@ -369,7 +369,7 @@ class AgentComponent(BaseComponent):
 - Manual flags: --custom-mode, --cm
 
 ## Behavioral Changes
-- **Change 1**: Description and impact on Claude Code behavior
+- **Change 1**: Description and impact on Gemini Code behavior
 - **Change 2**: Description and impact on tool selection
 
 ## Outcomes
@@ -623,7 +623,7 @@ Complete this checklist to ensure you're ready to contribute effectively to Supe
   - [ ] Python 3.8+ installed and accessible
   - [ ] Node.js 16+ installed for MCP development
   - [ ] Git configured with your name and email
-  - [ ] Claude Code installed and working
+  - [ ] Gemini Code installed and working
   - [ ] 8GB+ RAM available for development
   - [ ] 2GB+ disk space available
 
@@ -1677,7 +1677,7 @@ python3 -m pip install pytest
 
 **Configuration Issues:**
 
-*Issue: Claude Code not detecting SuperGemini configuration*
+*Issue: Gemini Code not detecting SuperGemini configuration*
 ```bash
 # Verify configuration location
 echo $CLAUDE_CONFIG_DIR
@@ -2036,7 +2036,7 @@ def get_metadata(self) -> Dict[str, Any]:
 ```
 
 **Q: What's the difference between agents and MCP servers?**
-- **Agents**: Behavioral specializations within Claude Code
+- **Agents**: Behavioral specializations within Gemini Code
 - **MCP Servers**: External tools that extend capabilities
 - **Agents** coordinate; **MCP servers** provide enhanced functionality
 
@@ -2104,13 +2104,13 @@ Your expertise and perspective make SuperGemini Framework better. Whether you're
 
 ### B
 
-**Behavioral Programming**: AI behavior modification through structured configuration files (.md files) that inject instructions into Claude Code without requiring code changes.
+**Behavioral Programming**: AI behavior modification through structured configuration files (.md files) that inject instructions into Gemini Code without requiring code changes.
 
 **Behavioral Modes**: Meta-cognitive frameworks that modify interaction patterns (e.g., brainstorming, introspection, task-management) and influence communication style and tool selection.
 
 ### C
 
-**Claude Code**: The base AI development assistant that SuperGemini enhances through instruction injection and orchestration capabilities.
+**Gemini Code**: The base AI development assistant that SuperGemini enhances through instruction injection and orchestration capabilities.
 
 **Component System**: Modular installation architecture with dependency resolution, allowing selective installation and configuration of SuperGemini features.
 
@@ -2142,9 +2142,9 @@ Your expertise and perspective make SuperGemini Framework better. Whether you're
 
 **MCP Integration**: Model Context Protocol server coordination and management, enabling external tool integration and enhanced capabilities.
 
-**MCP Servers**: External tools that extend Claude Code capabilities (e.g., context7 for documentation, sequential for analysis, magic for UI generation).
+**MCP Servers**: External tools that extend Gemini Code capabilities (e.g., context7 for documentation, sequential for analysis, magic for UI generation).
 
-**Meta-Framework**: Enhancement layer for Claude Code through instruction injection rather than code modification, maintaining compatibility while adding orchestration capabilities.
+**Meta-Framework**: Enhancement layer for Gemini Code through instruction injection rather than code modification, maintaining compatibility while adding orchestration capabilities.
 
 ### O
 

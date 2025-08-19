@@ -1,8 +1,8 @@
-# SuperClaude Framework Developer-Guide Index
+# SuperGemini Framework Developer-Guide Index
 
 ## Document Navigation Guide
 
-This index provides comprehensive access to all SuperClaude Framework development documentation, organized by topic and skill level for efficient information discovery.
+This index provides comprehensive access to all SuperGemini Framework development documentation, organized by topic and skill level for efficient information discovery.
 
 ### Quick Navigation
 
@@ -272,4 +272,4 @@ This index provides comprehensive access to all SuperClaude Framework developmen
 3. **Security Validation**: [Security Testing](testing-debugging.md#security-testing)
 4. **Performance Testing**: [Performance & Optimization](testing-debugging.md#performance-testing--optimization)
 
-This comprehensive index ensures efficient navigation and discovery of SuperClaude Framework development information, supporting contributors at all skill levels and technical requirements.
+This comprehensive index ensures efficient navigation and discovery of SuperGemini Framework development information, supporting contributors at all skill levels and technical requirements.

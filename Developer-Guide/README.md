@@ -46,7 +46,7 @@ This Developer Guide provides complete technical documentation for SuperGemini F
 ## Key Framework Concepts
 
 ### Meta-Framework Architecture
-SuperGemini operates as an enhancement layer for Claude Code through instruction injection rather than code modification, maintaining compatibility while adding sophisticated orchestration capabilities.
+SuperGemini operates as an enhancement layer for Gemini Code through instruction injection rather than code modification, maintaining compatibility while adding sophisticated orchestration capabilities.
 
 ### Agent Orchestration
 Intelligent coordination of 13 specialized AI agents through communication protocols, decision hierarchies, and collaborative synthesis patterns.
@@ -101,7 +101,7 @@ Security considerations are embedded throughout all documentation, from developm
 ### Prerequisites
 - Python 3.8+ with development tools
 - Git for version control  
-- Claude Code installed and working
+- Gemini Code installed and working
 - Node.js 16+ for MCP server development
 
 ### Quick Setup

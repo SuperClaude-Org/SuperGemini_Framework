@@ -98,11 +98,11 @@ Pipfile.lock
 # Poetry
 poetry.lock
 
-# Claude Code
+# Gemini CLI
 .claude/
 CLAUDE.md
 
-# SuperClaude specific
+# SuperGemini specific
 .serena/
 .superclaude/
 *.backup

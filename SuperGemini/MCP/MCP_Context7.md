@@ -26,5 +26,5 @@
 "add authentication with Auth0" → Context7 (official Auth0 docs)
 "migrate to Vue 3" → Context7 (official migration guide)
 "optimize Next.js performance" → Context7 (official optimization patterns)
-"just explain this function" → Native Claude (no external docs needed)
+"just explain this function" → Native Gemini (no external docs needed)
 ```

@@ -1,7 +1,7 @@
 {
   "name": "@superclaude-org/superclaude",
   "version": "4.0.4",
-  "description": "SuperClaude Framework NPM wrapper - Official Node.js wrapper for the Python SuperClaude package. Enhances Claude Code with specialized commands and AI development tools.",
+  "description": "SuperGemini Framework NPM wrapper - Official Node.js wrapper for the Python Gemini package. Enhances Gemini CLI with specialized commands and AI development tools.",
   "bin": {
     "superclaude": "./bin/cli.js"
   },
@@ -17,7 +17,7 @@
     "LICENSE"
   ],
   "author": {
-    "name": "SuperClaude Org",
+    "name": "SuperGemini Org",
     "url": "https://github.com/SuperClaude-Org"
   },
 

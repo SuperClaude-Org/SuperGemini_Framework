@@ -17,8 +17,8 @@ A session is a persistent development context that includes:
 - **Current State**: Active tasks, progress tracking, next steps
 - **Learned Insights**: Code conventions, team preferences, domain knowledge
 
-**Session Intelligence vs Standard Claude:**
-- **Standard Claude**: Each conversation starts fresh, no project memory
+**Session Intelligence vs Standard Gemini:**
+- **Standard Gemini**: Each conversation starts fresh, no project memory
 - **SuperGemini Sessions**: Cumulative understanding that builds over time
 
 **Session Types:**

@@ -118,7 +118,7 @@ markers = [
 ]
 
 [tool.coverage.run]
-source = ["SuperClaude", "setup"]
+source = ["SuperGemini", "setup"]
 omit = [
     "*/tests/*",
     "*/test_*",

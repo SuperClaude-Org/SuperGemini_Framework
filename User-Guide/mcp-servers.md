@@ -237,9 +237,9 @@ MCP (Model Context Protocol) servers are specialized tools that extend Gemini CL
 
 ### Automatic Installation (Recommended)
 
-**During SuperClaude Setup:**
+**During SuperGemini Setup:**
 ```bash
-SuperClaude install
+SuperGemini install
 # → Interactive installer offers MCP server selection
 # → Automatically configures selected servers
 # → Creates .claude.json with server configurations
@@ -256,13 +256,13 @@ SuperClaude install
 **Server-Specific Installation:**
 ```bash
 # Install specific MCP components
-SuperClaude install --components mcp
+SuperGemini install --components mcp
 
 # Individual server configuration
-SuperClaude install --components mcp_context7 mcp_sequential
+SuperGemini install --components mcp_context7 mcp_sequential
 
 # Force reinstall with updated configurations
-SuperClaude install --components mcp --force
+SuperGemini install --components mcp --force
 ```
 
 **Configuration File (`.claude.json`):**
@@ -290,7 +290,7 @@ SuperClaude install --components mcp --force
 
 **Python Required:**
 - Morphllm, Serena work with Python environment
-- Already satisfied by SuperClaude installation
+- Already satisfied by SuperGemini installation
 
 **System Resources:**
 - **Minimal**: 2GB RAM for basic MCP functionality
@@ -302,7 +302,7 @@ SuperClaude install --components mcp --force
 ### Automatic Server Selection
 
 **Context-Based Activation:**
-SuperClaude analyzes your request and automatically selects optimal MCP servers:
+SuperGemini analyzes your request and automatically selects optimal MCP servers:
 
 ```bash
 # Frontend development → Magic + Context7
@@ -390,7 +390,7 @@ SuperClaude analyzes your request and automatically selects optimal MCP servers:
 ### Multi-Server Orchestration
 
 **Intelligent Workflow Coordination:**
-SuperClaude orchestrates multiple MCP servers for complex tasks:
+SuperGemini orchestrates multiple MCP servers for complex tasks:
 
 **Full-Stack Development Workflow:**
 ```bash
@@ -499,13 +499,13 @@ SuperClaude orchestrates multiple MCP servers for complex tasks:
 ls ~/.claude/.claude.json
 
 # Verify server installation
-SuperClaude install --list-components
+SuperGemini install --list-components
 
 # Reinstall MCP configuration
-SuperClaude install --components mcp --force
+SuperGemini install --components mcp --force
 
 # Test specific server
-SuperClaude test-mcp context7
+SuperGemini test-mcp context7
 ```
 
 **Node.js Dependency Issues:**
@@ -545,7 +545,7 @@ ps aux | grep mcp
   }
 }
 
-# Restart Claude Code session
+# Restart Gemini Code session
 # MCP connections refresh on restart
 ```
 
@@ -554,14 +554,14 @@ ps aux | grep mcp
 **MCP Server Status Check:**
 ```bash
 # Check all server health
-SuperClaude status --mcp
+SuperGemini status --mcp
 
 # Test individual servers
-SuperClaude test-mcp --server context7
-SuperClaude test-mcp --server sequential
+SuperGemini test-mcp --server context7
+SuperGemini test-mcp --server sequential
 
 # Detailed diagnostics
-SuperClaude diagnose --verbose
+SuperGemini diagnose --verbose
 ```
 
 **Log Analysis:**
@@ -570,37 +570,37 @@ SuperClaude diagnose --verbose
 tail -f ~/.claude/logs/mcp-context7.log
 tail -f ~/.claude/logs/mcp-sequential.log
 
-# SuperClaude operation logs  
+# SuperGemini operation logs  
 tail -f ~/.claude/logs/superclaude.log
 
-# Claude Code MCP logs
+# Gemini Code MCP logs
 tail -f ~/.claude/logs/claude-mcp.log
 ```
 
 **Manual Testing:**
 ```bash
 # Test Context7 documentation lookup
-echo "Test React hooks documentation" | claude --mcp context7
+echo "Test React hooks documentation" | gemini --mcp context7
 
 # Test Sequential reasoning
-echo "Analyze this complex problem" | claude --mcp sequential
+echo "Analyze this complex problem" | gemini --mcp sequential
 
 # Test server combination
-echo "Complex analysis task" | claude --mcp context7,sequential
+echo "Complex analysis task" | gemini --mcp context7,sequential
 ```
 
 ### Resolution Steps
 
 **Step 1: Basic Verification**
-1. Check SuperClaude installation: `SuperClaude --version`
-2. Verify MCP component: `SuperClaude install --list-components`
+1. Check SuperGemini installation: `SuperGemini --version`
+2. Verify MCP component: `SuperGemini install --list-components`
 3. Check Node.js: `node --version` (should be 16+)
-4. Restart Claude Code session
+4. Restart Gemini Code session
 
 **Step 2: Configuration Check**
 1. Verify `.claude.json` exists: `ls ~/.claude/.claude.json`
 2. Check server paths and permissions
-3. Test configuration syntax: `SuperClaude validate-config`
+3. Test configuration syntax: `SuperGemini validate-config`
 
 **Step 3: Server Specific**
 1. **Context7**: Check documentation server connection
@@ -616,8 +616,8 @@ echo "Complex analysis task" | claude --mcp context7,sequential
 cp ~/.claude/.claude.json ~/.claude/.claude.json.backup
 
 # Remove and reinstall MCP
-SuperClaude uninstall --components mcp
-SuperClaude install --components mcp
+SuperGemini uninstall --components mcp
+SuperGemini install --components mcp
 
 # Restore custom settings if needed
 ```
@@ -657,7 +657,7 @@ server.setRequestHandler(
 );
 ```
 
-**SuperClaude Integration:**
+**SuperGemini Integration:**
 ```python
 # setup/components/custom_mcp.py
 from setup.components.base import BaseComponent
@@ -678,9 +678,9 @@ class CustomMCPComponent(BaseComponent):
 ### Communication Protocols
 
 **MCP Protocol Flow:**
-1. **Initialization**: Claude Code connects to MCP server via JSON-RPC
+1. **Initialization**: Gemini Code connects to MCP server via JSON-RPC
 2. **Capability Exchange**: Server announces available tools and resources
-3. **Request/Response**: Claude sends requests, server processes and responds
+3. **Request/Response**: Gemini sends requests, server processes and responds
 4. **Session Management**: Maintain context across multiple interactions
 
 **Message Structure:**
@@ -699,7 +699,7 @@ class CustomMCPComponent(BaseComponent):
 }
 ```
 
-**SuperClaude MCP Interface:**
+**SuperGemini MCP Interface:**
 ```python
 class MCPCoordinator:
     def select_servers(self, task_context):
@@ -745,7 +745,7 @@ config_service.add_mcp_server({
 
 **Tool Registration:**
 ```python
-# Register server capabilities with SuperClaude
+# Register server capabilities with SuperGemini
 from setup.core.mcp_registry import MCPRegistry
 
 registry = MCPRegistry()

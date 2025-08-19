@@ -660,7 +660,7 @@ SuperGemini's behavioral modes represent a breakthrough in AI framework design: 
 
 **You Don't Need to Think About Modes** - they work transparently in the background, enhancing your experience without adding complexity. Start a vague project idea and watch Brainstorming mode guide discovery. Tackle complex refactoring and see Task Management coordinate phases. Work under resource pressure and observe Token Efficiency compress communication while preserving clarity.
 
-**The Result**: Claude Code transforms from a capable assistant into an **intelligent partner** that matches your needs at every step of the development journey.
+**The Result**: Gemini Code transforms from a capable assistant into an **intelligent partner** that matches your needs at every step of the development journey.
 
 ---
 

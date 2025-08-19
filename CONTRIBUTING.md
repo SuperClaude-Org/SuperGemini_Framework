@@ -1,8 +1,8 @@
 # Contributing to SuperGemini Framework
 
-SuperGemini Framework transforms Claude Code into a structured development platform through behavioral instruction injection and intelligent workflow orchestration. We welcome contributions that enhance the framework's capabilities, improve documentation, and expand the ecosystem of specialized agents and MCP server integrations.
+SuperGemini Framework transforms Gemini CLI into a structured development platform through behavioral instruction injection and intelligent workflow orchestration. We welcome contributions that enhance the framework's capabilities, improve documentation, and expand the ecosystem of specialized agents and MCP server integrations.
 
-**Project Mission**: Enable systematic software development workflows with automated expert coordination, quality gates, and session persistence for Claude Code users.
+**Project Mission**: Enable systematic software development workflows with automated expert coordination, quality gates, and session persistence for Gemini CLI users.
 
 **Community Approach**: Open development with focus on practical utility, educational value, and professional development workflows. All contributions undergo review to ensure alignment with framework principles and quality standards.
 
@@ -17,7 +17,7 @@ SuperGemini Framework transforms Claude Code into a structured development platf
 **Required Information:**
 - SuperGemini version: `SuperGemini --version`
 - Operating system and version
-- Claude Code version: `claude --version`
+- Gemini CLI version: `gemini --version`
 - Python version: `python3 --version`
 - Exact steps to reproduce the issue
 - Expected vs actual behavior
@@ -29,7 +29,7 @@ SuperGemini Framework transforms Claude Code into a structured development platf
 **Environment:**
 - SuperGemini: 4.0.3
 - OS: Ubuntu 22.04
-- Claude Code: 1.5.2
+- Gemini CLI: 1.5.2
 - Python: 3.9.7
 
 **Issue:** `/sg:implement` command fails with ModuleNotFoundError
@@ -236,7 +236,7 @@ All community interactions should embody professional software development stand
 
 ### Stay Focused
 **Project Focus:**
-SuperGemini Framework enhances Claude Code for systematic software development workflows. Contributions should align with this core mission.
+SuperGemini Framework enhances Gemini CLI for systematic software development workflows. Contributions should align with this core mission.
 
 **In Scope:**
 - Software development workflow automation
@@ -347,7 +347,7 @@ Before seeking support, please:
 A: Use `pip install --user SuperGemini` or create virtual environment. See [Installation Guide](Getting-Started/installation.md) for details.
 
 **Q: "Commands not recognized after installation"**
-A: Restart Claude Code session. Verify installation with `SuperGemini install --list-components`. Check ~/.claude directory exists.
+A: Restart Gemini CLI session. Verify installation with `SuperGemini install --list-components`. Check ~/.claude directory exists.
 
 **Q: "MCP servers not connecting"**
 A: Check Node.js installation for MCP servers. Verify ~/.claude/.claude.json configuration. Try `SuperGemini install --components mcp --force`.

@@ -56,8 +56,8 @@ SuperGemini Framework prioritizes security through secure-by-design principles, 
 
 **Vulnerability Report Template:**
 ```
-**SuperClaude Version:** [version]
-**Environment:** [OS, Python version, Claude Code version]
+**SuperGemini Version:** [version]
+**Environment:** [OS, Python version, Gemini Code version]
 
 **Vulnerability Summary:**
 [Brief description of the security issue]
@@ -318,7 +318,7 @@ For organizations requiring extended security support:
 
 **API Key Handling:**
 - User-managed API keys stored in secure system credential stores
-- No framework storage of Claude API credentials
+- No framework storage of Gemini API credentials
 - Clear separation between framework configuration and user credentials
 - Guidance for secure credential rotation
 
@@ -345,7 +345,7 @@ For organizations requiring extended security support:
 ### For Users
 
 **Installation Security:**
-- Download SuperClaude only from official sources (PyPI, npm, GitHub releases)
+- Download SuperGemini only from official sources (PyPI, npm, GitHub releases)
 - Verify package signatures and checksums when available
 - Use virtual environments to isolate dependencies
 - Keep Python, Node.js, and system packages updated
@@ -357,9 +357,9 @@ For organizations requiring extended security support:
 - Enable only needed MCP servers to minimize attack surface
 
 **Project Security:**
-- Never run SuperClaude with elevated privileges unless absolutely necessary
+- Never run SuperGemini with elevated privileges unless absolutely necessary
 - Review generated code before execution, especially for external API calls
-- Use version control to track all SuperClaude-generated changes
+- Use version control to track all SuperGemini-generated changes
 - Regularly backup project configurations and important data
 
 **Network Security:**
@@ -533,7 +533,7 @@ Security researchers who responsibly disclose vulnerabilities are recognized in:
 - Priority review for future security research and contributions
 
 **Current Incentive Structure:**
-SuperClaude Framework currently operates as an open-source project without monetary bug bounty rewards. Recognition focuses on professional acknowledgment and community contribution value.
+SuperGemini Framework currently operates as an open-source project without monetary bug bounty rewards. Recognition focuses on professional acknowledgment and community contribution value.
 
 **Future Incentive Considerations:**
 As the project grows and secures funding:
@@ -624,7 +624,7 @@ For sensitive security discussions requiring encrypted communication:
 
 **Emergency Contact:**
 For critical vulnerabilities requiring immediate attention:
-- **GitHub**: Direct message to @SuperClaude-Security team
+- **GitHub**: Direct message to @SuperGemini-Security team
 - **Priority Email**: security-urgent@superclaude.org (monitored continuously)
 - **Escalation Path**: Direct maintainer contact information provided upon first contact
 
@@ -722,7 +722,7 @@ For organizations requiring dedicated security support:
 
 **Security Policy Maintenance:**
 
-**Last Updated**: December 2024 (SuperClaude Framework v4.0)
+**Last Updated**: December 2025 (SuperGemini Framework v4.0)
 **Next Review**: March 2025 (Quarterly review cycle)
 **Version**: 4.0.0 (Updated for v4 architectural changes)
 
@@ -740,7 +740,7 @@ For organizations requiring dedicated security support:
 
 **Security Contributor Acknowledgments:**
 
-SuperClaude Framework's security posture benefits from community-driven security research, responsible disclosure, and collaborative improvement efforts.
+SuperGemini Framework's security posture benefits from community-driven security research, responsible disclosure, and collaborative improvement efforts.
 
 **Security Contributors:**
 - Security researchers who responsibly disclose vulnerabilities
@@ -755,7 +755,7 @@ SuperClaude Framework's security posture benefits from community-driven security
 - Community discussions celebrate helpful security guidance and support
 
 **Ongoing Security Community:**
-The SuperClaude security community continues growing through shared commitment to secure AI-assisted development workflows. Security-focused contributions, from vulnerability reports to secure coding practices, strengthen the framework for all users.
+The SuperGemini security community continues growing through shared commitment to secure AI-assisted development workflows. Security-focused contributions, from vulnerability reports to secure coding practices, strengthen the framework for all users.
 
 **Join Security Efforts:**
 Whether you're reporting security issues, improving security documentation, or contributing security-focused code, your efforts help build more secure software development tools for the entire community.

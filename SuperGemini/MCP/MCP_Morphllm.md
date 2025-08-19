@@ -27,5 +27,5 @@
 "replace all console.log with logger calls" → Morphllm (bulk text replacement)
 "rename getUserData function everywhere" → Serena (symbol operation)
 "analyze code architecture" → Sequential (complex analysis)
-"explain this algorithm" → Native Claude (simple explanation)
+"explain this algorithm" → Native Gemini (simple explanation)
 ```

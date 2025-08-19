@@ -22,7 +22,7 @@
 ### 3. Terminology Standardization
 **Unified key terms across all documents:**
 
-- **Meta-Framework**: Enhancement layer for Claude Code through instruction injection
+- **Meta-Framework**: Enhancement layer for Gemini Code through instruction injection
 - **Agent Orchestration**: Intelligent coordination of specialized AI agents  
 - **MCP Integration**: Model Context Protocol server coordination and management
 - **Behavioral Programming**: AI behavior modification through structured configuration files

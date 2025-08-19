@@ -33,7 +33,7 @@ SuperGemini employs 13 specialized AI personas through Gemini CLI's Persona Mode
 
 ---
 
-## The SuperClaude Agent Team 👥
+## The SuperGemini Agent Team 👥
 
 ### Architecture & System Design Personas 🏗️
 
@@ -174,7 +174,7 @@ Complex projects automatically activate multiple agents based on scope and requi
 - **Serena**: Provides project memory and context for all agents
 
 **Command Integration:**
-Each SuperClaude command automatically selects appropriate agents:
+Each SuperGemini command automatically selects appropriate agents:
 - `/sg:implement` → domain-specific architects (frontend, backend, security)
 - `/sg:analyze` → quality-engineer + security-engineer + performance-engineer
 - `/sg:troubleshoot` → root-cause-analyst + domain specialists
@@ -222,7 +222,7 @@ Each SuperClaude command automatically selects appropriate agents:
 
 **Getting Started (Simple Approach):**
 1. **Start Simple**: Just describe what you want - agents activate automatically
-2. **Trust the System**: SuperClaude selects the right experts for your context
+2. **Trust the System**: SuperGemini selects the right experts for your context
 3. **Learn from Patterns**: Notice which agents activate for different tasks
 4. **Gradual Complexity**: Add more detail to trigger additional specialist agents
 
@@ -270,7 +270,7 @@ Each SuperClaude command automatically selects appropriate agents:
 
 **The Truth About Agent Usage:**
 
-SuperClaude agents activate automatically based on keywords and context - you don't need to manage them. The system is designed to be sophisticated under the hood while remaining simple to use.
+SuperGemini agents activate automatically based on keywords and context - you don't need to manage them. The system is designed to be sophisticated under the hood while remaining simple to use.
 
 **Agent Knowledge Usefulness:**
 - **Useful**: Understanding why certain agents activate can help you craft better commands
@@ -281,7 +281,7 @@ SuperClaude agents activate automatically based on keywords and context - you do
 **Simple Usage Approach:**
 1. **Focus on Your Goal**: Describe what you want to accomplish clearly
 2. **Use Natural Language**: Include domain keywords naturally ("security", "performance", "UI")
-3. **Trust the System**: Let SuperClaude activate appropriate agents automatically
+3. **Trust the System**: Let SuperGemini activate appropriate agents automatically
 4. **Learn from Results**: Notice which agents activate and why, but don't force it
 
 ---
@@ -311,16 +311,16 @@ SuperClaude agents activate automatically based on keywords and context - you do
 
 ---
 
-**Your SuperClaude Agent Journey:**
+**Your SuperGemini Agent Journey:**
 
-SuperClaude's agent system represents the best of both worlds: sophisticated coordination happening automatically behind a simple, intuitive interface. You get the benefit of 13 specialized experts without the complexity of managing them.
+SuperGemini's agent system represents the best of both worlds: sophisticated coordination happening automatically behind a simple, intuitive interface. You get the benefit of 13 specialized experts without the complexity of managing them.
 
 **The Magic is in the Simplicity:**
 - Type `/sg:implement "secure user login"` and watch security engineers, backend architects, and frontend specialists coordinate seamlessly
 - No agent configuration, no manual routing, no complex setup - just describe your goal and let the system work
-- The more you use SuperClaude, the better you'll understand the patterns, but you never need to micromanage the agents
+- The more you use SuperGemini, the better you'll understand the patterns, but you never need to micromanage the agents
 
 **Start Simple, Stay Simple:**
-Begin with basic commands and let complexity emerge naturally. SuperClaude handles the orchestration so you can focus on building great software. The agent system grows with your needs while maintaining the same straightforward interface.
+Begin with basic commands and let complexity emerge naturally. SuperGemini handles the orchestration so you can focus on building great software. The agent system grows with your needs while maintaining the same straightforward interface.
 
 🚀 **Ready to experience intelligent agent coordination? Try SuperGemini Framework and watch the magic happen.**

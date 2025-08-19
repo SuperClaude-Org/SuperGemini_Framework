@@ -48,7 +48,7 @@ SuperGemini's intelligent flag system automatically detects task complexity and 
 
 ## What Are Flags? 🤔
 
-**Flags are Modifiers** that adjust SuperClaude's behavior for specific contexts and requirements:
+**Flags are Modifiers** that adjust SuperGemini's behavior for specific contexts and requirements:
 
 **Flag Syntax:**
 ```bash
@@ -581,7 +581,7 @@ SuperGemini's intelligent flag system automatically detects task complexity and 
 /sg:analyze code/ --unknown-flag
 
 # Solution: Check flag spelling and availability
-SuperClaude --help flags
+SuperGemini --help flags
 /sg:help --flags
 ```
 
@@ -612,14 +612,14 @@ SuperClaude --help flags
 
 # Solutions:
 # 1. Check MCP installation
-SuperClaude install --list-components | grep mcp
+SuperGemini install --list-components | grep mcp
 
-# 2. Restart Claude Code session (MCP connections refresh)
+# 2. Restart Gemini Code session (MCP connections refresh)
 # 3. Use fallback approach
 /sg:implement "dashboard" --no-mcp  # Native execution
 
 # 4. Reinstall MCP servers
-SuperClaude install --components mcp --force
+SuperGemini install --components mcp --force
 ```
 
 **Performance Problems:**
@@ -657,14 +657,14 @@ SuperClaude install --components mcp --force
 **Validate Flag Usage:**
 ```bash
 # Check flag compatibility
-SuperClaude validate-flags --seq --no-mcp --magic
+SuperGemini validate-flags --seq --no-mcp --magic
 # → Reports conflicts and suggests corrections
 ```
 
 ### Best Practices for Flag Usage
 
 **Start Simple:**
-1. **Trust Auto-Detection**: Let SuperClaude choose flags automatically
+1. **Trust Auto-Detection**: Let SuperGemini choose flags automatically
 2. **Add Specific Flags**: Override only when you need specific behavior
 3. **Use Common Patterns**: Start with proven flag combinations
 4. **Monitor Performance**: Watch for resource usage and adjust accordingly

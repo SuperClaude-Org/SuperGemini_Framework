@@ -2,11 +2,11 @@
 
 ## Overview
 
-This technical architecture guide documents SuperGemini Framework's V4 orchestrator system - a sophisticated meta-programming framework that transforms Claude Code into a structured development platform through behavioral instruction injection and intelligent component orchestration.
+This technical architecture guide documents SuperGemini Framework's V4 orchestrator system - a sophisticated meta-programming framework that transforms Gemini Code into a structured development platform through behavioral instruction injection and intelligent component orchestration.
 
 **Target Audience**: Framework developers, system architects, contributors, and advanced users requiring deep technical understanding of SuperGemini's internal architecture and extension patterns.
 
-**Architecture Philosophy**: SuperGemini operates as a **meta-framework** that enhances Claude Code through configuration-driven behavioral programming, intelligent task routing, and dynamic tool coordination rather than replacing core functionality.
+**Architecture Philosophy**: SuperGemini operates as a **meta-framework** that enhances Gemini Code through configuration-driven behavioral programming, intelligent task routing, and dynamic tool coordination rather than replacing core functionality.
 
 ## Table of Contents
 
@@ -32,7 +32,7 @@ This technical architecture guide documents SuperGemini Framework's V4 orchestra
 - [Testing & Debugging Guide](testing-debugging.md) - Testing frameworks and debugging procedures
 
 **Key Terminology**:
-- **Meta-Framework**: Enhancement layer for Claude Code through instruction injection
+- **Meta-Framework**: Enhancement layer for Gemini Code through instruction injection
 - **Agent Orchestration**: Intelligent coordination of specialized AI agents
 - **MCP Integration**: Model Context Protocol server coordination and management
 - **Behavioral Programming**: AI behavior modification through structured configuration files
@@ -43,7 +43,7 @@ This technical architecture guide documents SuperGemini Framework's V4 orchestra
 
 ### System Design Principles
 
-**Meta-Framework Architecture**: SuperGemini enhances Claude Code through instruction injection rather than code modification, maintaining compatibility while adding sophisticated orchestration capabilities.
+**Meta-Framework Architecture**: SuperGemini enhances Gemini Code through instruction injection rather than code modification, maintaining compatibility while adding sophisticated orchestration capabilities.
 
 **Configuration-Driven Behavior**: Behavioral programming through structured `.md` files enables AI behavior modification without code changes, providing unprecedented flexibility in AI system customization.
 
@@ -58,7 +58,7 @@ This technical architecture guide documents SuperGemini Framework's V4 orchestra
 
 **MCP Servers**: External tool integration layer providing enhanced capabilities
 - 6 core servers: context7, sequential, magic, playwright, morphllm, serena  
-- Protocol-based communication with Claude Code
+- Protocol-based communication with Gemini Code
 - Health monitoring and resource management
 
 **Behavioral Modes**: Meta-cognitive frameworks that modify interaction patterns
@@ -68,7 +68,7 @@ This technical architecture guide documents SuperGemini Framework's V4 orchestra
 
 ### System Overview Architecture
 
-**Accessibility Description**: This diagram shows SuperGemini Framework's five-layer architecture flowing top to bottom. The User Interaction Layer receives natural language inputs, slash commands, and flag modifiers. The Detection & Routing Engine analyzes context, matches patterns, and scores complexity. The Orchestration Layer handles agent selection, MCP activation, and mode control. The Execution Framework manages tasks, quality gates, and session memory. The Foundation Layer contains Claude Code base, configuration system, and MCP integration.
+**Accessibility Description**: This diagram shows SuperGemini Framework's five-layer architecture flowing top to bottom. The User Interaction Layer receives natural language inputs, slash commands, and flag modifiers. The Detection & Routing Engine analyzes context, matches patterns, and scores complexity. The Orchestration Layer handles agent selection, MCP activation, and mode control. The Execution Framework manages tasks, quality gates, and session memory. The Foundation Layer contains Gemini Code base, configuration system, and MCP integration.
 
 ```
                         SuperGemini Framework V4 Architecture
@@ -104,7 +104,7 @@ This technical architecture guide documents SuperGemini Framework's V4 orchestra
 └─────────────────────────┬───────────────────────────────────────┘
                           │
 ┌──────────────────── FOUNDATION LAYER ───────────────────────────┐
-│ ┌─ Claude Code Base ─┐ ┌─ Config System ──┐ ┌─ MCP Integration ─┐│
+│ ┌─ Gemini Code Base ─┐ ┌─ Config System ──┐ ┌─ MCP Integration ─┐│
 │ │• File operations   │ │• CLAUDE.md files │ │• External tools   ││
 │ │• Git integration   │ │• Behavioral rules│ │• Protocol handler ││
 │ │• Native tools      │ │• Agent definitions│ │• Health monitor   ││
@@ -2976,7 +2976,7 @@ class ErrorRecoveryManager:
 
 SuperGemini Framework V4 represents a paradigm shift in AI system architecture through its configuration-driven behavioral programming approach. Key technical innovations include:
 
-**Meta-Framework Design**: Enhancement of Claude Code through instruction injection rather than code modification, maintaining full compatibility while adding sophisticated orchestration capabilities.
+**Meta-Framework Design**: Enhancement of Gemini Code through instruction injection rather than code modification, maintaining full compatibility while adding sophisticated orchestration capabilities.
 
 **Configuration-Driven Intelligence**: Structured `.md` file system enables dynamic AI behavior modification without code changes, providing unprecedented flexibility in AI system customization and extension.
 
@@ -3061,13 +3061,13 @@ This technical architecture establishes SuperGemini as a production-ready meta-f
 
 ### F
 
-**Foundation Layer**: Base system layer containing Claude Code integration, configuration management, and MCP protocol handling that provides core capabilities for higher-level orchestration.
+**Foundation Layer**: Base system layer containing Gemini Code integration, configuration management, and MCP protocol handling that provides core capabilities for higher-level orchestration.
 
-**Framework Meta-Architecture**: Overall design approach where SuperGemini functions as an enhancement layer for Claude Code rather than a replacement, maintaining compatibility while adding orchestration.
+**Framework Meta-Architecture**: Overall design approach where SuperGemini functions as an enhancement layer for Gemini Code rather than a replacement, maintaining compatibility while adding orchestration.
 
 ### I
 
-**Instruction Injection System**: Core mechanism that inserts behavioral instructions into Claude Code sessions through configuration file loading, enabling behavior modification without code changes.
+**Instruction Injection System**: Core mechanism that inserts behavioral instructions into Gemini Code sessions through configuration file loading, enabling behavior modification without code changes.
 
 **Intelligent Routing**: System that determines optimal agent selection, MCP server activation, and resource allocation based on task analysis, complexity scoring, and availability constraints.
 
@@ -3111,7 +3111,7 @@ This technical architecture establishes SuperGemini as a production-ready meta-f
 
 **Task Complexity Analysis**: Algorithm that evaluates incoming tasks for difficulty factors including file count, domain complexity, dependency requirements, and implementation scope.
 
-**Tool Coordination Protocol**: System for managing external tool integration, activation priorities, resource allocation, and communication between Claude Code and MCP servers.
+**Tool Coordination Protocol**: System for managing external tool integration, activation priorities, resource allocation, and communication between Gemini Code and MCP servers.
 
 ### U
 

@@ -1,6 +1,6 @@
-# SuperClaude PyPI Publishing Scripts
+# SuperGemini PyPI Publishing Scripts
 
-This directory contains scripts for building and publishing SuperClaude to PyPI.
+This directory contains scripts for building and publishing SuperGemini to PyPI.
 
 ## Scripts
 
@@ -107,8 +107,8 @@ Set these in your GitHub repository settings → Secrets and variables → Actio
 
 Before publishing, ensure version consistency across:
 - `pyproject.toml`
-- `SuperClaude/__init__.py`
-- `SuperClaude/__main__.py`
+- `SuperGemini/__init__.py`
+- `SuperGemini/__main__.py`
 - `setup/__init__.py`
 
 The build script validates version consistency automatically.

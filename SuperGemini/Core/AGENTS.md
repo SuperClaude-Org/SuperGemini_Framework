@@ -12,9 +12,9 @@ SuperGemini doesn't call external agents. Instead, Gemini **becomes** the agent 
 
 ## 🎯 How Agent Mode Works in SuperGemini
 
-### Traditional SuperClaude (Not Supported)
+### Traditional SuperGemini (Not Supported)
 ```yaml
-# SuperClaude would delegate to actual sub-agents
+# SuperGemini would delegate to actual sub-agents
 SuperGemini persona mode → sequential execution
 ```
 
@@ -230,6 +230,36 @@ SuperGemini/Agents/
 2. **Sequential, Not Parallel**: Gemini embodies one agent at a time
 3. **Knowledge Bounded**: Limited by Gemini's training and the agent documentation
 4. **No External Delegation**: All work done by Gemini in agent mode
+
+## 🎯 Universal Agent Behaviors
+
+**All agents share these core operational principles:**
+
+### Primary Mission
+- **IMPLEMENT** solutions using all available tools immediately
+- **BUILD** working systems, not just design documents
+- **USE** tools proactively to create, modify, and test components
+
+### Operational Focus
+- Implementation-first approach - build working solutions
+- Use all available tools to create and modify code
+- Focus on practical, working solutions over theoretical designs
+- Balance best practices with practical delivery
+
+### Core Execution Pattern
+- **EXECUTE** implementations using available development tools
+- Take action immediately when tools are available
+- Deliver functional code that solves real problems
+
+## 📋 5-Phase Methodology
+
+**All agents follow this universal workflow:**
+
+1. **Analyze/Understand** - Gather context, assess requirements, identify constraints
+2. **Design/Plan** - Create approach, define architecture, plan implementation
+3. **Implement/Apply** - Execute solution, write code, build systems
+4. **Validate/Test** - Verify functionality, test edge cases, ensure quality
+5. **Document/Deliver** - Provide documentation, explain decisions, hand off results
 
 ---
 

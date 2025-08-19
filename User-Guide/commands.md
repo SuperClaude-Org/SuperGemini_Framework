@@ -670,7 +670,7 @@ SuperGemini provides 18 TOML-based specialized commands that automatically coord
 **Command Not Found:**
 - Verify SuperGemini installation: `SuperGemini --version`
 - Check component installation: `SuperGemini install --list-components`
-- Restart Claude Code session
+- Restart Gemini Code session
 
 **Slow Performance:**
 - Use `--scope file` to limit analysis scope
