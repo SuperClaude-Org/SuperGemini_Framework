@@ -192,3 +192,40 @@ ehthumbs.db
 Thumbs.db
 Desktop.ini
 $RECYCLE.BIN/
+
+# TypeScript (from .npmignore)
+*.ts
+!*.d.ts
+tsconfig.json
+tslint.json
+
+# Code quality tools (from .npmignore)
+.prettierrc
+.eslintrc*
+
+# Test files (from .npmignore)
+test/
+tests/
+*.test.js
+*.test.ts
+
+# Build tools and frameworks (from .npmignore)
+.parcel-cache
+.next
+.nuxt
+.vuepress/dist
+.serverless
+.fusebox/
+.dynamodb/
+.tern-port
+.vscode-test
+
+# Node.js specific (from .npmignore)
+.node_repl_history
+*.tgz
+.yarn-integrity
+.npm
+
+# Coverage tools (from .npmignore)
+coverage/
+*.lcov

@@ -1,6 +1,6 @@
 # SemanticPrompt MCP Server
 
-**Purpose**: 4-step SuperGemini Framework thinking engine with automatic sg command integration and agent persona orchestration
+**Purpose**: Core thinking engine for SuperGemini Framework with 4-step systematic reasoning and agent persona orchestration
 
 **Tool Name**: `chain_of_thought`
 
@@ -8,11 +8,11 @@
 
 ## Triggers
 - Complex multi-step problems requiring structured reasoning
-- Tasks needing systematic command selection and agent coordination
+- Tasks needing systematic sg command selection and agent coordination  
 - SuperGemini Framework workflows with TOML-based guidance
-- Chain-of-thought reasoning for Gemini CLI operations
-- Agent persona extraction and embodiment scenarios
+- Problems requiring agent persona extraction and embodiment
 - Document tracking and meta-cognitive attention requirements
+- Single agent architecture needing multi-perspective problem solving
 
 ## Choose When
 - **Over simple responses**: When tasks require 3+ reasoning steps
@@ -34,17 +34,19 @@
 - Identify complexity level and reasoning requirements
 - Determine if systematic execution is needed
 
-### Step 2: Command Selection (MANDATORY - 90% Preference)
+### Step 2: sg Command Selection (MANDATORY - 90% Preference)
 - Strong preference for sg commands over direct responses
 - Automatic TOML document reading and guidance extraction
+- Document caching: never read same TOML twice (system-reminder reference)
 - Skip only when ALL conditions met: ≤2 lines response, no files, no analysis, pure recall
 - Available commands: analyze, build, cleanup, design, document, estimate, explain, git, implement, improve, index, load, reflect, save, select-tool, test, troubleshoot
 
-### Step 3: Agent Persona Extraction
+### Step 3: Agent Persona Extraction & Reading
 - Extract agents array from selected TOML command files
-- Read individual agent definitions from ~/.gemini/agents/{agents}.md
-- Reference AGENTS.md for additional context and coordination
+- Read individual agent definitions from ~/.gemini/agents/{agents}.md  
+- Reference AGENTS.md (system-reminder) for additional context
 - Prevent duplicate agent reads using system-reminder optimization
+- Handle SuperGemini single agent constraint through sequential persona embodiment
 
 ### Step 4: Agent Embodiment & Execution
 - Embody extracted agent personas with specialized knowledge
@@ -54,28 +56,33 @@
 
 ## Configuration Profiles
 
-### SuperGemini Mode (`supergemini.json`)
+### SuperGemini Mode (`supergemini.json`) - Production Default
 - 4-step structured thinking with automatic sg command integration
 - 90% command preference with intelligent skip conditions
 - Agent persona system with TOML extraction and embodiment
 - Document tracking and system-reminder optimization
 - Meta-cognitive attention mechanisms for framework compliance
+- Compatible with SuperGemini single agent architecture
+
+### Other Profiles Available
+- `superclaude.json` - SuperClaude Framework (3-step process)
+- `default.json` - Basic mode (general problem solving)
 
 ### Advanced Features
 - **Thought Revision**: Modify and branch previous reasoning steps
-- **Document Tracking**: Prevents duplicate reads, maintains session context
+- **Document Tracking**: Prevents duplicate reads, maintains session context, caches TOML and agent files
 - **Branch Reasoning**: Alternative reasoning paths with unique identifiers
 - **Error Recovery**: Detailed error messages with context and suggestions
 - **Environment Configuration**: Full customization via environment variables
 
 ## Examples
 ```
-"analyze this authentication system" → SemanticPrompt (4-step analysis with agent coordination)
-"implement user registration" → SemanticPrompt (TOML-guided implementation with personas)
-"debug performance issues" → SemanticPrompt (systematic debugging with specialized agents)
-"design API architecture" → SemanticPrompt (multi-agent design coordination)
-"what time is it?" → Native response (simple recall, skip conditions met)
-"hello" → Native response (greeting, no reasoning needed)
+"analyze this authentication system" → SemanticPrompt (4-step: Intent → sg:analyze → security-engineer → execution)
+"implement user registration" → SemanticPrompt (4-step: Intent → sg:implement → [backend-architect, security-engineer] → execution)
+"debug performance issues" → SemanticPrompt (4-step: Intent → sg:troubleshoot → [performance-engineer, root-cause-analyst] → execution)
+"design API architecture" → SemanticPrompt (4-step: Intent → sg:design → [system-architect, backend-architect] → execution)
+"what time is it?" → Native response (skip: simple recall, ≤2 lines, no analysis)
+"hello" → Native response (skip: greeting, no files, pure interaction)
 ```
 
 ## Integration Benefits
