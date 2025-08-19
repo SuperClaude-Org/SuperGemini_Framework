@@ -611,7 +611,7 @@ As the project grows and secures funding:
 - **Community Security Liaisons**: Interface with security researchers and community
 
 **GitHub Security Integration:**
-- **Security Advisories**: https://github.com/SuperClaude-Org/SuperClaude_Framework/security/advisories
+- **Security Advisories**: https://github.com/SuperGemini-Org/SuperGemini_Framework/security/advisories
 - **Security Policy**: Available in repository security tab
 - **Vulnerability Reporting**: GitHub's private vulnerability reporting system
 - **Security Team**: GitHub team with security focus and escalation procedures
@@ -630,7 +630,7 @@ For critical vulnerabilities requiring immediate attention:
 
 ### General Security Questions
 **General Security Questions:**
-- **GitHub Discussions**: https://github.com/SuperClaude-Org/SuperClaude_Framework/discussions
+- **GitHub Discussions**: https://github.com/SuperGemini-Org/SuperGemini_Framework/discussions
 - **Community Forums**: Security-focused discussion threads
 - **Documentation**: [Security Best Practices](Reference/best-practices.md#security-practices)
 - **Issue Tracker**: Non-sensitive security configuration questions
@@ -749,7 +749,7 @@ SuperGemini Framework's security posture benefits from community-driven security
 - Documentation contributors who improve security guidance and best practices
 
 **Recognition:**
-- [GitHub Contributors](https://github.com/SuperClaude-Org/SuperClaude_Framework/graphs/contributors) - Complete contributor recognition
+- [GitHub Contributors](https://github.com/SuperGemini-Org/SuperGemini_Framework/graphs/contributors) - Complete contributor recognition
 - Security advisories include researcher acknowledgment and credit
 - Annual security report highlights significant security contributions
 - Community discussions celebrate helpful security guidance and support

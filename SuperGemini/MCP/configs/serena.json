@@ -1,13 +1,11 @@
 {
   "serena": {
-    "command": "uv",
-    "args": [
-      "tool",
-      "run",
-      "serena-agent",
-      "start-mcp-server",
-      "--context",
-      "ide-assistant"
-    ]
+      "command": "uvx",
+      "args": [
+        "--from",
+        "git+https://github.com/oraios/serena",
+        "serena",
+        "start-mcp-server"
+      ]
+    }
   }
-}

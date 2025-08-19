@@ -497,7 +497,7 @@ git clone https://github.com/YOUR_USERNAME/SuperGemini_Framework.git
 cd SuperGemini_Framework
 
 # 3. Add upstream remote
-git remote add upstream https://github.com/SuperClaude-Org/SuperGemini_Framework.git
+git remote add upstream https://github.com/SuperGemini-Org/SuperGemini_Framework.git
 
 # 4. Create feature branch
 git checkout -b feature/your-feature-name
@@ -597,18 +597,11 @@ Brief description of changes and motivation
 - **Performance**: No significant performance degradation
 
 **Addressing Feedback:**
-```bash
-# 1. Make requested changes
-# 2. Commit with clear messages
-git add .
-git commit -m "address review: improve error handling in component loader"
-
-# 3. Push updates
-git push origin feature/your-feature-name
-
-# 4. Respond to review comments
-# 5. Request re-review when ready
-```
+1. Make requested changes to your code
+2. Commit with clear messages describing the fixes
+3. Push updates to your feature branch
+4. Respond to review comments explaining your changes
+5. Request re-review when ready
 
 ## 📋 Comprehensive Contributor Onboarding Checklist
 
@@ -631,7 +624,7 @@ Complete this checklist to ensure you're ready to contribute effectively to Supe
   - [ ] GitHub account configured with SSH key
   - [ ] SuperGemini_Framework repository forked to your account
   - [ ] Local clone created: `git clone https://github.com/YOUR_USERNAME/SuperGemini_Framework.git`
-  - [ ] Upstream remote added: `git remote add upstream https://github.com/SuperClaude-Org/SuperGemini_Framework.git`
+  - [ ] Upstream remote added: `git remote add upstream https://github.com/SuperGemini-Org/SuperGemini_Framework.git`
   - [ ] Development branch created: `git checkout -b feature/your-first-contribution`
 
 - [ ] **Development Environment**

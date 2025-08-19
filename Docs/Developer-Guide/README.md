@@ -107,7 +107,7 @@ Security considerations are embedded throughout all documentation, from developm
 ### Quick Setup
 ```bash
 # Clone and setup development environment
-git clone https://github.com/SuperClaude-Org/SuperGemini_Framework.git
+git clone https://github.com/SuperGemini-Org/SuperGemini_Framework.git
 cd SuperGemini_Framework
 
 # Follow setup instructions in Contributing Code Guide
@@ -139,9 +139,7 @@ python -m SuperGemini --version
 - **Feature Requests**: Propose enhancements through GitHub issues
 
 ### Community Resources
-- **GitHub Repository**: Main development and collaboration hub
-- **Documentation**: Comprehensive guides and reference materials
-- **Issue Tracker**: Bug reports and feature requests
+- **[GitHub Repository](https://github.com/SuperGemini-Org/SuperGemini_Framework)**: Main development and collaboration hub
 
 ## Contributing to Documentation
 
@@ -163,4 +161,4 @@ We welcome contributions to improve documentation quality, accuracy, and complet
 
 **SuperGemini Framework**: Building the future of AI-assisted development through intelligent orchestration and behavioral programming.
 
-For the latest updates and community discussions, visit our [GitHub repository](https://github.com/SuperClaude-Org/SuperGemini_Framework).
+For the latest updates and community discussions, visit our [GitHub repository](https://github.com/SuperGemini-Org/SuperGemini_Framework).

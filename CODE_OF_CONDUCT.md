@@ -145,7 +145,7 @@ SuperGemini Framework is committed to fostering an inclusive, professional, and 
 **Reporting Channels:**
 
 **Primary Contact:**
-- **Email**: conduct@superclaude.org (monitored by conduct team)
+- **Email**: anton.knoery@gmail.com (monitored by conduct team)
 - **Response Time**: 48-72 hours for initial acknowledgment
 - **Confidentiality**: All reports treated with appropriate discretion
 
@@ -390,7 +390,7 @@ SuperGemini Framework prioritizes education and growth over punishment when addr
 
 ### Conduct Team
 **Conduct Team:**
-- **Primary Contact**: conduct@superclaude.org
+- **Primary Contact**: anton.knoery@gmail.com
 - **Team Composition**: Selected maintainers and community members with training in conflict resolution
 - **Response Time**: 48-72 hours for initial acknowledgment
 - **Availability**: Monitored continuously with escalation procedures for urgent issues
@@ -414,7 +414,7 @@ SuperGemini Framework prioritizes education and growth over punishment when addr
 - Regular training updates on best practices for community management
 
 **Contact Preferences:**
-- **Email**: conduct@superclaude.org for all formal reports and inquiries
+- **Email**: anton.knoery@gmail.com for all formal reports and inquiries
 - **Anonymous**: Anonymous reporting form available for sensitive situations
 - **Urgent**: Emergency contact procedures for immediate safety concerns
 - **Follow-up**: Scheduled check-ins for ongoing cases and policy discussions
@@ -423,7 +423,7 @@ SuperGemini Framework prioritizes education and growth over punishment when addr
 **Project Leadership:**
 - **Maintainers**: @SuperClaude-Org maintainer team on GitHub
 - **Issues**: GitHub Issues with `conduct` or `community` labels for public policy discussions
-- **Email**: maintainers@superclaude.org for general leadership questions
+- **Email**: anton.knoery@gmail.com for general leadership questions
 
 **Leadership Responsibilities:**
 - **Policy Development**: Creating and updating community standards and enforcement procedures

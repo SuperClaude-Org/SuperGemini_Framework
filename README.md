@@ -40,24 +40,30 @@ Unlike traditional tools, SuperGemini uses **Persona Mode** where Gemini CLI emb
 ## Documentation
 
 ### Getting Started
-- [Quick Start Guide](Getting-Started/quick-start.md)
-- [Installation Guide](Getting-Started/installation.md)
+- [Quick Start Guide](Docs/Getting-Started/quick-start.md)
+- [Installation Guide](Docs/Getting-Started/installation.md)
 
 ### User Guides
 - [Commands Reference](User-Guide/commands.md) - 18 TOML-based slash commands
 - [Agents Guide](User-Guide/agents.md) - 13 specialized AI personas
 - [Behavioral Modes](User-Guide/modes.md) - Context-aware operation modes
 - [Flags Guide](User-Guide/flags.md) - Command flags and options
+- [Commands Reference](Docs/User-Guide/commands.md)
+- [Agents Guide](Docs/User-Guide/agents.md)
+- [Behavioral Modes](Docs/User-Guide/modes.md)
+- [Flags Guide](Docs/User-Guide/flags.md)
+- [MCP Servers](Docs/User-Guide/mcp-servers.md)
+- [Session Management](Docs/User-Guide/session-management.md)
 
 ### Developer Resources
-- [Technical Architecture](Developer-Guide/technical-architecture.md)
-- [Contributing Code](Developer-Guide/contributing-code.md)
-- [Testing & Debugging](Developer-Guide/testing-debugging.md)
+- [Technical Architecture](Docs/Developer-Guide/technical-architecture.md)
+- [Contributing Code](Docs/Developer-Guide/contributing-code.md)
+- [Testing & Debugging](Docs/Developer-Guide/testing-debugging.md)
 
 ### Reference
-- [Best Practices](Reference/best-practices.md)
-- [Examples Cookbook](Reference/examples-cookbook.md)
-- [Troubleshooting](Reference/troubleshooting.md)
+- [Quick Start Practices](Docs/Reference/quick-start-practices.md)
+- [Examples Cookbook](Docs/Reference/examples-cookbook.md)
+- [Troubleshooting](Docs/Reference/troubleshooting.md)
 
 ## Contributing
 
