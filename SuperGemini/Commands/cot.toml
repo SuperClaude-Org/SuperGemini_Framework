@@ -1,86 +1,20 @@
 description = "Orchestrates systematic task analysis and execution using the Chain of Thought framework."
 
 prompt = """
----
-name: cot
-category: utility
-complexity: basic
-mcp-servers: []
-agents: []
----
-
 # /sc:cot - Chain of Thought Orchestration
 
-## Triggers
-- All user requests, as it's the mandatory initial task analysis protocol.
-- When systematic task orchestration is required.
-- To ensure comprehensive analysis and proper resource allocation.
+Execute systematic 4-step analysis using the chain_of_thought tool:
 
-## Usage
+1. **Intent Analysis** - User request, files involved, expected outcome
+2. **Command Selection** - Appropriate SuperGemini command (90% preference)
+3. **Agent Selection** - Required personas/agents for the task
+4. **Execution Strategy** - Implementation approach and tools
+
+## Parameter Guidelines:
 ```
-/sc:cot [user_request_or_task_description]
-```
-The `chain_of_thought` tool is automatically invoked with the user's request as the initial thought.
-
-## Behavioral Flow
-1. **Analyze User Intent**: Understand the user's request, involved files, and expected outcome.
-2. **Command Selection**: Determine the appropriate SuperGemini command to execute.
-3. **Agent Persona Selection**: Identify and embody relevant AI agent personas.
-4. **Agent Embodiment & Execution**: Apply specialized knowledge and problem-solving methodologies.
-
-Key behaviors:
-- Ensures adherence to the SuperGemini Framework's 4-step methodology.
-- Provides a structured approach to problem-solving.
-- Maximizes cognitive capabilities by guiding systematic task orchestration.
-
-## MCP Integration
-The `chain_of_thought` command itself does not directly integrate with MCP servers. Instead, it orchestrates the selection and invocation of other SuperGemini commands and agents, which may in turn utilize MCP servers.
-
-## Tool Coordination
-- **chain_of_thought**: The primary tool invoked by `/sc:cot` to guide the thinking process.
-- Other SuperGemini commands and tools are coordinated *within* the `chain_of_thought` process based on the task analysis.
-
-## Key Patterns
-- **Systematic Orchestration**: Ensures all tasks follow a defined, repeatable process.
-- **Transparency**: Explicitly shows the thinking process and tool invocations.
-- **Trust Building**: Fosters user confidence by demonstrating structured execution.
-
-## Examples
-
-### Initial Task Analysis
-```
-/sc:cot "Refactor the authentication module in src/auth.py"
-# Expected: Initiates a structured thought process to analyze the request, plan, and execute.
+N=4 (totalThoughts: always use 4-step framework)
+i=1→2→3→4 (thoughtNumber: sequential progression)
+next=true (nextThoughtNeeded: true for steps 1-3, false for step 4)
 ```
 
-### Problem Solving
-```
-/sc:cot "Fix the bug in the payment gateway integration"
-# Expected: Guides through diagnosis, solution planning, and implementation steps.
-```
-
-## Boundaries
-
-**Will:**
-- Initiate and guide the systematic task orchestration for any user request.
-- Ensure adherence to the SuperGemini Framework's core principles.
-- Provide transparency into the thinking and execution process.
-
-**Will Not:**
-- Directly execute complex code modifications or external commands (these are delegated to other SuperGemini commands).
-- Bypass the structured thinking process without explicit instruction.
-
-# Tool Call Mandate
-# The /sg:cot command MUST result in a direct, visible call to the `chain_of_thought` tool.
-# Internal simulation is not permitted. The tool call must be explicit.
-
-[[tool_call]]
-name = "chain_of_thought"
-arguments = """
-{
-  "nextThoughtNeeded": true,
-  "thought": "User wants to understand how to use the /sg:cot command. I need to explain the process.",
-  "thoughtNumber": 1,
-  "totalThoughts": 4
-}
-"""
+Invoke chain_of_thought tool with complete 4-step sequence."""
