@@ -26,5 +26,5 @@ except ImportError:
     except Exception:
         __version__ = "4.0.4"  # Final fallback
 __author__ = "Mithun Gowda B, NomenAK"
-__email__ = "contact@superclaude.dev"
+__email__ = "thecurrent.lim@gmail.com"
 __license__ = "MIT"

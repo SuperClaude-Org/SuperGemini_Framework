@@ -54,7 +54,7 @@ pipx ensurepath
 
 # Advanced Diagnosis
 python3 -m SuperGemini install --dry-run --verbose
-cat ~/.gemini/CLAUDE.md | grep -E "@|import"
+cat ~/.gemini/GEMINI.md | grep -E "@|import"
 ls -la ~/.gemini/
 
 # Component dependency validation
@@ -73,7 +73,7 @@ for component in core agents modes mcp; do
     echo "Installing $component..."
     python3 -m SuperGemini install --components $component
     # Validate after each component
-    if ! cat ~/.gemini/CLAUDE.md | grep -q "@"; then
+    if ! cat ~/.gemini/GEMINI.md | grep -q "@"; then
         echo "❌ Component $component failed"
         break
     fi
@@ -89,7 +89,7 @@ done
 **Windows Platform Issues:**
 ```cmd
 # Issue: Path separator problems
-ERROR: Cannot find file 'C:\Users\name\.gemini\CLAUDE.md'
+ERROR: Cannot find file 'C:\Users\name\.gemini\GEMINI.md'
 
 # Solution: Use proper Windows paths
 set CLAUDE_CONFIG_DIR=C:\Users\%USERNAME%\.gemini
@@ -191,8 +191,8 @@ ls -la
 /sc:implement "specific task in authentication module"
 
 # Solution 3: Verification check
-# Verify CLAUDE.md contains SuperGemini framework instructions
-grep "SuperGemini" ~/.gemini/CLAUDE.md
+# Verify GEMINI.md contains SuperGemini framework instructions
+grep "SuperGemini" ~/.gemini/GEMINI.md
 # Check for proper command imports
 
 # Prevention
@@ -642,31 +642,31 @@ rm ~/.gemini/sessions/old-session-*.json
 
 ### Configuration Problems and Validation
 
-**Issue: CLAUDE.md Import Conflicts**
+**Issue: GEMINI.md Import Conflicts**
 ```bash
 # Error message
-ERROR: Circular import detected in CLAUDE.md
+ERROR: Circular import detected in GEMINI.md
 
 # Diagnosis
 # Check import structure
-grep -n "@" ~/.gemini/CLAUDE.md
+grep -n "@" ~/.gemini/GEMINI.md
 # Look for circular references
 
 # Solution 1: Fix circular imports
-# Edit ~/.gemini/CLAUDE.md to remove problematic @imports
-# Remove any @CLAUDE.md references from imported files
+# Edit ~/.gemini/GEMINI.md to remove problematic @imports
+# Remove any @GEMINI.md references from imported files
 
 # Solution 2: Reset to default configuration
-cp ~/.gemini/CLAUDE.md ~/.gemini/CLAUDE.md.backup
+cp ~/.gemini/GEMINI.md ~/.gemini/GEMINI.md.backup
 python3 -m SuperGemini install --reset-config
 
 # Solution 3: Manual configuration repair
-cp ~/.gemini/CLAUDE.md ~/.gemini/CLAUDE.md.backup
+cp ~/.gemini/GEMINI.md ~/.gemini/GEMINI.md.backup
 python3 -m SuperGemini install --components core --force
 
 # Verification
 # Check that imports work correctly
-grep "@" ~/.gemini/CLAUDE.md
+grep "@" ~/.gemini/GEMINI.md
 # Verify no circular references
 ```
 
@@ -676,7 +676,7 @@ grep "@" ~/.gemini/CLAUDE.md
 
 # Diagnosis
 # Check component installation status
-cat ~/.gemini/CLAUDE.md
+cat ~/.gemini/GEMINI.md
 ls ~/.gemini/
 
 # Solution 1: Reinstall in correct order
@@ -687,7 +687,7 @@ rm -rf ~/.gemini/
 python3 -m SuperGemini install --fresh
 
 # Solution 3: Verify installation integrity
-cat ~/.gemini/CLAUDE.md | grep -E "@|SuperGemini"
+cat ~/.gemini/GEMINI.md | grep -E "@|SuperGemini"
 
 # Prevention
 # Install components in dependency order
@@ -696,19 +696,19 @@ cat ~/.gemini/CLAUDE.md | grep -E "@|SuperGemini"
 
 **Issue: Custom Configuration Not Loading**
 ```bash
-# Symptoms: Personal customizations in CLAUDE.md not taking effect
+# Symptoms: Personal customizations in GEMINI.md not taking effect
 
 # Diagnosis
 # Check file syntax and structure
-cat ~/.gemini/CLAUDE.md
+cat ~/.gemini/GEMINI.md
 # Look for syntax errors
 
 # Solution 1: Check configuration syntax
-# Look for syntax errors in CLAUDE.md
-cat ~/.gemini/CLAUDE.md | grep -E "error|Error|invalid"
+# Look for syntax errors in GEMINI.md
+cat ~/.gemini/GEMINI.md | grep -E "error|Error|invalid"
 
 # Solution 2: Backup and reset
-cp ~/.gemini/CLAUDE.md ~/.gemini/CLAUDE.md.custom
+cp ~/.gemini/GEMINI.md ~/.gemini/GEMINI.md.custom
 python3 -m SuperGemini install --reset-config
 # Manually merge custom content back
 
@@ -870,7 +870,7 @@ ERROR: Command '/sc:analyze' not recognized by Gemini CLI
 # Meaning: SuperGemini instructions not loaded into Gemini CLI session
 # Resolution:
 1. Verify SuperGemini installation: python3 -m SuperGemini --version
-2. Check ~/.gemini/CLAUDE.md exists and contains SuperGemini instructions
+2. Check ~/.gemini/GEMINI.md exists and contains SuperGemini instructions
 3. Restart Gemini CLI completely
 4. If persistent: python3 -m SuperGemini install --components core --force
 ```
@@ -960,7 +960,7 @@ node --version                           # Node.js version (if using MCP)
 
 # SuperGemini-specific diagnostics
 ls -la ~/.gemini/
-cat ~/.gemini/CLAUDE.md | head -20
+cat ~/.gemini/GEMINI.md | head -20
 
 # Error reproduction
 # 1. Exact command that caused the issue
@@ -1001,7 +1001,7 @@ cat ~/.gemini/CLAUDE.md | head -20
 ```
 
 **Debug Information:**
-[Attach output of `ls -la ~/.gemini/` and first 20 lines of CLAUDE.md]
+[Attach output of `ls -la ~/.gemini/` and first 20 lines of GEMINI.md]
 
 **Additional Context:**
 [Any other relevant information]
@@ -1071,7 +1071,7 @@ A: Modes control behavior style (brainstorming, task management, etc.). Agents p
 A: 1) Check system resources with `top`, 2) Reduce scope with `--scope file`, 3) Focus on specific tasks, 4) Restart Gemini CLI session to clear cache.
 
 **Q: How do I reset SuperGemini to default configuration?**
-A: `cp ~/.gemini/CLAUDE.md ~/.gemini/CLAUDE.md.backup && python3 -m SuperGemini install --reset-config` creates backup and resets to defaults.
+A: `cp ~/.gemini/GEMINI.md ~/.gemini/GEMINI.md.backup && python3 -m SuperGemini install --reset-config` creates backup and resets to defaults.
 
 **Q: Can I contribute to SuperGemini development?**
 A: Yes! See [Contributing Guide](../Developer-Guide/contributing-code.md) for development setup and contribution process.
@@ -1085,10 +1085,10 @@ A: Yes! See [Contributing Guide](../Developer-Guide/contributing-code.md) for de
 # Complete SuperGemini diagnostics
 python3 -m SuperGemini --version
 ls -la ~/.gemini/
-cat ~/.gemini/CLAUDE.md | head -10
+cat ~/.gemini/GEMINI.md | head -10
 
 # Verify core functionality
-grep "SuperGemini" ~/.gemini/CLAUDE.md
+grep "SuperGemini" ~/.gemini/GEMINI.md
 # Should show SuperGemini framework instructions
 
 # Check MCP server installations (if using)
@@ -1101,7 +1101,7 @@ npm list -g | grep -E "context7|sequential|magic|playwright"
 # Basic functionality test
 python3 -m SuperGemini --version        # Version verification
 ls ~/.gemini/                           # Check installation
-cat ~/.gemini/CLAUDE.md | grep "@"      # Check imports
+cat ~/.gemini/GEMINI.md | grep "@"      # Check imports
 
 # Test core functionality in Gemini CLI
 # Try: /sc:analyze README.md
@@ -1110,8 +1110,8 @@ cat ~/.gemini/CLAUDE.md | grep "@"      # Check imports
 **Component-Specific Diagnostics:**
 ```bash
 # Test specific components
-cat ~/.gemini/CLAUDE.md | grep -E "FLAGS|RULES|PRINCIPLES"  # Core components
-cat ~/.gemini/CLAUDE.md | grep -E "MODE_|MCP_"              # Modes and MCP
+cat ~/.gemini/GEMINI.md | grep -E "FLAGS|RULES|PRINCIPLES"  # Core components
+cat ~/.gemini/GEMINI.md | grep -E "MODE_|MCP_"              # Modes and MCP
 
 # Check MCP server installations
 npm list -g | grep -E "context7|sequential|magic|playwright"
@@ -1235,5 +1235,5 @@ If SuperGemini is completely non-functional:
 **Verification Steps:**
 After every solution, verify with these commands:
 - ✅ `python3 -m SuperGemini --version` - Should return version number
-- ✅ `cat ~/.gemini/CLAUDE.md | grep SuperGemini` - Should show framework content
+- ✅ `cat ~/.gemini/GEMINI.md | grep SuperGemini` - Should show framework content
 - ✅ Try `/sc:analyze README.md` in Gemini CLI - Should work without errors

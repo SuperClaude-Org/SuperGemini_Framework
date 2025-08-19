@@ -99,12 +99,12 @@ Pipfile.lock
 poetry.lock
 
 # Gemini CLI
-.claude/
-CLAUDE.md
+.gemini/
+GEMINI.md
 
 # SuperGemini specific
 .serena/
-.superclaude/
+.supergemini/
 *.backup
 *.bak
 

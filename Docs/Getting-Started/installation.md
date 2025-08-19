@@ -16,7 +16,7 @@ SuperGemini install
 
 **Method 2: NPM (Cross-platform)**
 ```bash
-npm install -g superclaude
+npm install -g supergemini
 SuperGemini install
 ```
 
@@ -120,7 +120,7 @@ pip install SuperGemini
 
 **JavaScript/Node.js Users:**
 ```bash
-npm install -g superclaude
+npm install -g supergemini
 ```
 
 **Development/Contributors:**
@@ -228,7 +228,7 @@ ls ~/.gemini/.gemini.json
 **Files in ~/.gemini:**
 ```
 ~/.gemini/
-├── CLAUDE.md           # Main instruction file with @imports
+├── GEMINI.md           # Main instruction file with @imports
 ├── FLAGS.md            # Behavioral flags system
 ├── RULES.md            # Development rules
 ├── PRINCIPLES.md       # Engineering principles
@@ -277,7 +277,7 @@ ls ~/.gemini/.gemini.json
 ```bash
 # Update core package
 pip install --upgrade SuperGemini
-# or: npm update -g superclaude
+# or: npm update -g supergemini
 
 # Update components
 SuperGemini update
@@ -322,14 +322,14 @@ SuperGemini uninstall
 
 # Remove Python package
 pip uninstall SuperGemini
-# or: npm uninstall -g superclaude
+# or: npm uninstall -g supergemini
 
 # Manual cleanup (if needed)
 rm -rf ~/.gemini/FLAGS.md ~/.gemini/RULES.md ~/.gemini/MODE_*.md
 ```
 
 **What Gets Preserved:**
-- Your custom CLAUDE.md content
+- Your custom GEMINI.md content
 - Personal configuration files
 - Project-specific customizations
 - Created backups (manual removal required)
@@ -401,7 +401,7 @@ python3.9 -m pip install SuperGemini
 SuperGemini install --install-dir /path/to/custom/gemini
 
 # Set environment variable
-export CLAUDE_CONFIG_DIR=/path/to/custom/gemini
+export GEMINI_CONFIG_DIR=/path/to/custom/gemini
 SuperGemini install
 ```
 

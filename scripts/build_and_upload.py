@@ -17,6 +17,17 @@ PROJECT_ROOT = Path(__file__).parent.parent
 DIST_DIR = PROJECT_ROOT / "dist"
 BUILD_DIR = PROJECT_ROOT / "build"
 
+def update_version_refs():
+    """Update version references from VERSION file"""
+    print("🔄 Updating version references...")
+    try:
+        subprocess.run([sys.executable, "scripts/update_version_refs.py"], 
+                      cwd=PROJECT_ROOT, check=True)
+        print("✅ Version references updated")
+    except subprocess.CalledProcessError as e:
+        print(f"❌ Failed to update version references: {e}")
+        sys.exit(1)
+
 def run_command(cmd: List[str], description: str) -> Tuple[bool, str]:
     """Run a command and return success status and output"""
     print(f"🔄 {description}...")
@@ -193,6 +204,9 @@ def main():
     
     print("🚀 SuperGemini PyPI Build and Upload Script")
     print(f"📁 Working directory: {PROJECT_ROOT}")
+    
+    # Update version references first
+    update_version_refs()
     
     # Step 1: Clean previous builds
     clean_build_artifacts()

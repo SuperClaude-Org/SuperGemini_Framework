@@ -1,9 +1,9 @@
 {
-  "name": "@superclaude-org/superclaude",
-  "version": "4.0.4",
+  "name": "@superclaude-org/supergemini",
+  "version": "4.0.6",
   "description": "SuperGemini Framework NPM wrapper - Official Node.js wrapper for the Python Gemini package. Enhances Gemini CLI with specialized commands and AI development tools.",
   "bin": {
-    "superclaude": "./bin/cli.js"
+    "supergemini": "./bin/cli.js"
   },
   "scripts": {
     "postinstall": "node ./bin/install.js",
@@ -20,7 +20,6 @@
     "name": "SuperGemini Org",
     "url": "https://github.com/SuperClaude-Org"
   },
-
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SuperClaude-Org/SuperGemini_Framework.git"
@@ -31,7 +30,7 @@
   "homepage": "https://github.com/SuperClaude-Org/SuperGemini_Framework#readme",
   "license": "MIT",
   "keywords": [
-    "superclaude",
+    "supergemini",
     "ai",
     "cli",
     "pypi",

@@ -170,7 +170,7 @@ node --version  # Should be 16.0.0 or higher
 npm list -g @context7/mcp-server
 
 # Check server configuration
-cat ~/.gemini/CLAUDE.md | grep -i context7
+cat ~/.gemini/GEMINI.md | grep -i context7
 
 # Solution 1: Restart Gemini CLI session
 # MCP servers restart with Gemini CLI session restart
@@ -355,7 +355,7 @@ ps aux | grep sequential  # Check process status
 # Diagnosis
 # Check Magic server installation
 npm list -g @magic/ui-generator
-cat ~/.gemini/CLAUDE.md | grep -i magic
+cat ~/.gemini/GEMINI.md | grep -i magic
 
 # Solution 1: Verify Magic server installation
 npm list -g @magic/ui-generator

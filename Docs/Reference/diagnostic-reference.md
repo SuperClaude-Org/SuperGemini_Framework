@@ -60,7 +60,7 @@ echo "watch df -h       # Disk space updates"
 echo "=== Establishing performance baselines ==="
 time python3 -m SuperGemini --version
 time ls ~/.gemini/
-time cat ~/.gemini/CLAUDE.md | wc -l
+time cat ~/.gemini/GEMINI.md | wc -l
 ```
 
 **Performance Bottleneck Identification:**
@@ -330,8 +330,8 @@ echo "=== SuperGemini System Health Assessment ==="
 # Core component verification
 echo "Core Component Status:"
 python3 -m SuperGemini --version && echo "✅ SuperGemini installed" || echo "❌ SuperGemini not found"
-ls ~/.gemini/CLAUDE.md >/dev/null 2>&1 && echo "✅ Configuration exists" || echo "❌ Configuration missing"
-grep -q "SuperGemini" ~/.gemini/CLAUDE.md 2>/dev/null && echo "✅ Configuration valid" || echo "❌ Configuration invalid"
+ls ~/.gemini/GEMINI.md >/dev/null 2>&1 && echo "✅ Configuration exists" || echo "❌ Configuration missing"
+grep -q "SuperGemini" ~/.gemini/GEMINI.md 2>/dev/null && echo "✅ Configuration valid" || echo "❌ Configuration invalid"
 
 # Dependency verification
 echo "Dependency Status:"
@@ -358,10 +358,10 @@ ping -c 1 8.8.8.8 >/dev/null 2>&1 && echo "✅ Internet connectivity OK" || echo
 # Configuration file integrity analysis
 echo "=== Configuration Integrity Analysis ==="
 
-# CLAUDE.md structure analysis
-echo "CLAUDE.md Analysis:"
-if [ -f ~/.gemini/CLAUDE.md ]; then
-    line_count=$(wc -l ~/.gemini/CLAUDE.md | cut -d' ' -f1)
+# GEMINI.md structure analysis
+echo "GEMINI.md Analysis:"
+if [ -f ~/.gemini/GEMINI.md ]; then
+    line_count=$(wc -l ~/.gemini/GEMINI.md | cut -d' ' -f1)
     if [ $line_count -gt 100 ]; then
         echo "✅ Configuration size appropriate: $line_count lines"
     else
@@ -369,7 +369,7 @@ if [ -f ~/.gemini/CLAUDE.md ]; then
     fi
     
     # Check for required imports
-    import_count=$(grep -c "^@" ~/.gemini/CLAUDE.md 2>/dev/null)
+    import_count=$(grep -c "^@" ~/.gemini/GEMINI.md 2>/dev/null)
     if [ $import_count -gt 5 ]; then
         echo "✅ Import structure OK: $import_count imports"
     else
@@ -378,13 +378,13 @@ if [ -f ~/.gemini/CLAUDE.md ]; then
     
     # Check for circular imports
     echo "Circular import check:"
-    if grep -q "@CLAUDE.md" ~/.gemini/CLAUDE.md 2>/dev/null; then
+    if grep -q "@GEMINI.md" ~/.gemini/GEMINI.md 2>/dev/null; then
         echo "❌ Circular import detected"
     else
         echo "✅ No circular imports"
     fi
 else
-    echo "❌ CLAUDE.md not found"
+    echo "❌ GEMINI.md not found"
 fi
 
 # Component file analysis
@@ -500,7 +500,7 @@ test_isolation() {
     python3 -m SuperGemini --version >/dev/null 2>&1 && echo "✅ SuperGemini installed" || echo "❌ SuperGemini issue"
     
     # Test configuration loading
-    [ -f ~/.gemini/CLAUDE.md ] && echo "✅ Configuration exists" || echo "❌ Configuration missing"
+    [ -f ~/.gemini/GEMINI.md ] && echo "✅ Configuration exists" || echo "❌ Configuration missing"
     
     # Test MCP servers (if applicable)
     if which node >/dev/null 2>&1; then
@@ -540,7 +540,7 @@ time_basic() {
 }
 
 echo "SuperGemini version check: $(time_basic 'python3 -m SuperGemini --version')"
-echo "Configuration read: $(time_basic 'cat ~/.gemini/CLAUDE.md | wc -l')"
+echo "Configuration read: $(time_basic 'cat ~/.gemini/GEMINI.md | wc -l')"
 echo "Session directory list: $(time_basic 'ls ~/.gemini/sessions/')"
 
 # File operation benchmarks
@@ -604,7 +604,7 @@ def run_performance_tests():
     tests = [
         ('python3 -m SuperGemini --version', 'Version check'),
         ('ls ~/.gemini/', 'Config directory list'),
-        ('cat ~/.gemini/CLAUDE.md | wc -l', 'Config file read'),
+        ('cat ~/.gemini/GEMINI.md | wc -l', 'Config file read'),
         ('find ~/.gemini/ -name "*.md" | wc -l', 'Config file search'),
     ]
     
@@ -833,7 +833,7 @@ verify_dependency_chain() {
     
     # Level 4: Configuration files
     echo -n "4. Configuration files: "
-    if [ -f ~/.gemini/CLAUDE.md ] && [ -s ~/.gemini/CLAUDE.md ]; then
+    if [ -f ~/.gemini/GEMINI.md ] && [ -s ~/.gemini/GEMINI.md ]; then
         echo "✅ Present and non-empty"
     else
         echo "❌ Missing or empty"
@@ -938,7 +938,7 @@ fi
 
 # Step 6: Verification
 echo "Step 6: Installation verification..."
-if python3 -m SuperGemini --version && [ -f ~/.gemini/CLAUDE.md ]; then
+if python3 -m SuperGemini --version && [ -f ~/.gemini/GEMINI.md ]; then
     echo "✅ Recovery completed successfully"
     echo "Backup available at: $backup_dir"
 else

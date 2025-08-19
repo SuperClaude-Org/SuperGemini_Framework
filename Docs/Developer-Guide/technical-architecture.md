@@ -105,7 +105,7 @@ This technical architecture guide documents SuperGemini Framework's V4 orchestra
                           │
 ┌──────────────────── FOUNDATION LAYER ───────────────────────────┐
 │ ┌─ Gemini Code Base ─┐ ┌─ Config System ──┐ ┌─ MCP Integration ─┐│
-│ │• File operations   │ │• CLAUDE.md files │ │• External tools   ││
+│ │• File operations   │ │• GEMINI.md files │ │• External tools   ││
 │ │• Git integration   │ │• Behavioral rules│ │• Protocol handler ││
 │ │• Native tools      │ │• Agent definitions│ │• Health monitor   ││
 │ └────────────────────┘ └──────────────────┘ └───────────────────┘│

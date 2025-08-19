@@ -307,7 +307,7 @@ class Component(ABC):
         Dynamically discover framework .md files in the Core directory
 
         Returns:
-            List of framework filenames (e.g., ['CLAUDE.md', 'COMMANDS.md', ...])
+            List of framework filenames (e.g., ['GEMINI.md', 'COMMANDS.md', ...])
         """
         source_dir = self._get_source_dir()
 

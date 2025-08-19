@@ -65,7 +65,7 @@
 - Compatible with SuperGemini single agent architecture
 
 ### Other Profiles Available
-- `superclaude.json` - SuperClaude Framework (3-step process)
+- `supergemini.json` - SuperGemini Framework (3-step process)
 - `default.json` - Basic mode (general problem solving)
 
 ### Advanced Features

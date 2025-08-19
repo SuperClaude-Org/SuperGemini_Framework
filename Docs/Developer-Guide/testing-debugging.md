@@ -88,12 +88,12 @@ class TestBasicSetup:
         
         # Assertions with clear validation
         assert result.success, f"Installation failed: {result.error}"
-        assert (self.test_dir / 'CLAUDE.md').exists(), "CLAUDE.md not created"
+        assert (self.test_dir / 'GEMINI.md').exists(), "GEMINI.md not created"
         
         # Verify content structure
-        claude_content = (self.test_dir / 'CLAUDE.md').read_text()
-        assert '@FLAGS.md' in claude_content, "FLAGS.md not referenced"
-        assert '@RULES.md' in claude_content, "RULES.md not referenced"
+        gemini_content = (self.test_dir / 'GEMINI.md').read_text()
+        assert '@FLAGS.md' in gemini_content, "FLAGS.md not referenced"
+        assert '@RULES.md' in gemini_content, "RULES.md not referenced"
 ```
 
 ### 3. Run Your Tests
@@ -509,16 +509,16 @@ class TestComponentSystem:
         
         # Comprehensive assertions
         assert result.success, f"Installation failed: {getattr(result, 'error', 'Unknown error')}"
-        assert (self.test_dir / 'CLAUDE.md').exists(), "CLAUDE.md not created"
+        assert (self.test_dir / 'GEMINI.md').exists(), "GEMINI.md not created"
         
         # Verify registry state
         installed_components = self.registry.list_installed()
         assert 'core' in installed_components, f"Core not in registry: {installed_components}"
         
         # Verify file contents
-        claude_content = (self.test_dir / 'CLAUDE.md').read_text()
-        assert '@FLAGS.md' in claude_content, "FLAGS.md reference missing"
-        assert '@RULES.md' in claude_content, "RULES.md reference missing"
+        gemini_content = (self.test_dir / 'GEMINI.md').read_text()
+        assert '@FLAGS.md' in gemini_content, "FLAGS.md reference missing"
+        assert '@RULES.md' in gemini_content, "RULES.md reference missing"
         
     def test_component_validation(self):
         """Test component validation before installation"""
@@ -1367,7 +1367,7 @@ debugger.debug_all_mcp_servers()
 **Issue: Component Installation Fails**
 ```bash
 # Problem: Permission denied or file conflicts
-ERROR: Permission denied: '/home/user/.gemini/CLAUDE.md'
+ERROR: Permission denied: '/home/user/.gemini/GEMINI.md'
 
 # Diagnosis
 ls -la ~/.gemini/
@@ -2553,10 +2553,10 @@ class TestComponentIntegration:
         assert test_config.install_dir.exists()
         
         # Verify core functionality
-        claude_md = test_config.install_dir / 'CLAUDE.md'
-        assert claude_md.exists()
+        gemini_md = test_config.install_dir / 'GEMINI.md'
+        assert gemini_md.exists()
         
-        content = claude_md.read_text()
+        content = gemini_md.read_text()
         assert '@FLAGS.md' in content
         assert '@RULES.md' in content
         
@@ -3637,7 +3637,7 @@ ERROR: Component 'mcp' requires 'core' but it's not installed
 SuperGemini install --components core mcp --resolve-dependencies
 
 # Issue: Permission denied during installation
-ERROR: Permission denied: '/home/user/.gemini/CLAUDE.md'
+ERROR: Permission denied: '/home/user/.gemini/GEMINI.md'
 
 # Solution: Fix permissions
 sudo chown -R $USER ~/.gemini
@@ -3660,12 +3660,12 @@ npm install -g @context7/mcp-server
 
 **Configuration Conflicts:**
 ```python
-# Issue: CLAUDE.md import conflicts
-ERROR: Circular import detected: CLAUDE.md -> FLAGS.md -> CLAUDE.md
+# Issue: GEMINI.md import conflicts
+ERROR: Circular import detected: GEMINI.md -> FLAGS.md -> GEMINI.md
 
 # Debug: Check import structure
 def debug_import_structure():
-    with open('~/.gemini/CLAUDE.md', 'r') as f:
+    with open('~/.gemini/GEMINI.md', 'r') as f:
         content = f.read()
         imports = re.findall(r'@(\w+\.md)', content)
         print(f"Imports detected: {imports}")
@@ -3676,11 +3676,11 @@ def debug_import_structure():
         if import_path.exists():
             with open(import_path, 'r') as f:
                 nested_imports = re.findall(r'@(\w+\.md)', f.read())
-                if 'CLAUDE.md' in nested_imports:
-                    print(f"Warning: Circular import: {import_file} -> CLAUDE.md")
+                if 'GEMINI.md' in nested_imports:
+                    print(f"Warning: Circular import: {import_file} -> GEMINI.md")
 
 # Solution: Remove circular imports
-# Edit problematic files to remove @CLAUDE.md references
+# Edit problematic files to remove @GEMINI.md references
 ```
 
 ### Component Development Issues

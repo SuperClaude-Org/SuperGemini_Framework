@@ -38,7 +38,7 @@ def verify_supergemini_file(file_path: Path, component: str) -> bool:
         # Known SuperGemini file patterns by component
         supergemini_patterns = {
             'core': [
-                'CLAUDE.md', 'FLAGS.md', 'PRINCIPLES.md', 'RULES.md', 
+                'GEMINI.md', 'FLAGS.md', 'PRINCIPLES.md', 'RULES.md', 
                 'ORCHESTRATOR.md', 'SESSION_LIFECYCLE.md'
             ],
             'commands': [
@@ -424,7 +424,7 @@ def _custom_component_selection(installed_components: Dict[str, str], env_vars: 
     component_keys = []
     
     component_descriptions = {
-        'core': 'Core Framework Files (CLAUDE.md, FLAGS.md, PRINCIPLES.md, etc.)',
+        'core': 'Core Framework Files (GEMINI.md, FLAGS.md, PRINCIPLES.md, etc.)',
         'commands': 'SuperGemini Commands (commands/sc/*.md)',
         'agents': 'Specialized Agents (agents/*.md)',
         'mcp': 'MCP Server Configurations',
@@ -535,7 +535,7 @@ def display_component_details(component: str, info: Dict[str, Any]) -> Dict[str,
     
     component_paths = {
         'core': {
-            'files': ['CLAUDE.md', 'FLAGS.md', 'PRINCIPLES.md', 'RULES.md', 'ORCHESTRATOR.md', 'SESSION_LIFECYCLE.md'],
+            'files': ['GEMINI.md', 'FLAGS.md', 'PRINCIPLES.md', 'RULES.md', 'ORCHESTRATOR.md', 'SESSION_LIFECYCLE.md'],
             'description': 'Core framework files in ~/.gemini/'
         },
         'commands': {

@@ -9,7 +9,7 @@
 ## Top 10 Quick Fixes
 
 ### 1. 🖥️ Permission Denied During Installation
-**Error**: `ERROR: Permission denied: '/home/user/.gemini/CLAUDE.md'`
+**Error**: `ERROR: Permission denied: '/home/user/.gemini/GEMINI.md'`
 
 **Quick Fix**:
 ```bash
@@ -55,7 +55,7 @@ python3 -m SuperGemini install --components mcp --force
 
 **Quick Fix**:
 1. Restart Gemini CLI completely
-2. Verify installation: `cat ~/.gemini/CLAUDE.md | head -5`
+2. Verify installation: `cat ~/.gemini/GEMINI.md | head -5`
 3. If empty, reinstall: `python3 -m SuperGemini install --force`
 
 [Detailed Help →](troubleshooting.md#command-execution-problems)
@@ -78,7 +78,7 @@ python3 -m SuperGemini --version
 ---
 
 ### 6. 🖥️ Windows Path Problems
-**Error**: `Cannot find file 'C:\Users\name\.gemini\CLAUDE.md'`
+**Error**: `Cannot find file 'C:\Users\name\.gemini\GEMINI.md'`
 
 **Quick Fix**:
 ```cmd
