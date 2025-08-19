@@ -16,8 +16,10 @@ SuperGemini is a meta-programming configuration framework that enhances Gemini C
 # Install SuperGemini Framework
 pip install SuperGemini
 
-# Setup SuperGemini for Gemini CLI
-SuperGemini install
+# Setup SuperGemini for Gemini CLI (Choose one)
+SuperGemini install --yes                    # Express setup (recommended)
+SuperGemini install --profile minimal --yes  # Fastest (core only)
+SuperGemini install --profile full --yes     # All features
 
 # Use with Gemini CLI
 # Example: /sg:analyze src/

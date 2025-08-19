@@ -8,7 +8,7 @@
   },
   "disk_space_mb": 500,
   "external_tools": {
-    "claude_cli": {
+    "gemini_cli": {
       "command": "gemini --version",
       "min_version": "0.1.0",
       "required_for": ["mcp"],
@@ -34,9 +34,9 @@
       "win32": "Download Node.js from https://nodejs.org/",
       "description": "Node.js 16+ is required for MCP server integration"
     },
-    "claude_cli": {
-      "all": "Visit https://gemini.ai/code for installation instructions",
-      "description": "Gemini CLI is required for MCP server management"
+    "gemini_cli": {
+      "all": "npm install -g @google/gemini-cli",
+      "description": "Gemini CLI is required for AI-powered development assistance. Install via npm with: npm install -g @google/gemini-cli"
     },
     "git": {
       "linux": "sudo apt update && sudo apt install git",

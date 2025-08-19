@@ -1,7 +1,8 @@
+description = "Intelligent MCP tool selection based on complexity scoring and operation analysis"
+
 prompt = """
 ---
 name: select-tool
-description: "Intelligent MCP tool selection based on complexity scoring and operation analysis"
 category: special
 complexity: high
 mcp-servers: [serena, morphllm]

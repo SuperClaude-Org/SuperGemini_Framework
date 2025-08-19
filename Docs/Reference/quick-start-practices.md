@@ -594,8 +594,8 @@ For detailed flag documentation, see [Flags Guide](../User-Guide/flags.md).
 --safe-mode                              # Maximum safety checks
 --coverage                               # Include test coverage
 
-# Performance
---quick                                  # Fast analysis mode
+# Performance (/sc: commands)
+--quick                                  # Fast analysis mode (for /sc:analyze, /sc:test)
 --concurrency 2                         # Basic parallel processing
 ```
 

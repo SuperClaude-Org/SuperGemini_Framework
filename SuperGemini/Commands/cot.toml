@@ -1,11 +1,86 @@
-prompt="""
-# SuperGemini Framework Instructions
+description = "Orchestrates systematic task analysis and execution using the Chain of Thought framework."
 
-## Initial Task Analysis Protocol
-For ALL user requests, you **MUST** begin with the `chain_of_thought` tool for systematic task orchestration.
+prompt = """
+---
+name: cot
+category: utility
+complexity: basic
+mcp-servers: []
+agents: []
+---
 
-### Chain of Thought Tool
-The `chain_of_thought` tool is a powerful guide that maximizes your cognitive capabilities and ensures optimal framework utilization. This tool provides essential instructions and guidance to help you leverage the SuperGemini Framework effectively, building trust with users through systematic task orchestration. Using this tool is highly efficient and absolutely required for all task initiation.
+# /sc:cot - Chain of Thought Orchestration
 
-**Important**: This systematic approach is fundamental to SuperGemini Framework operation. The `chain_of_thought` tool enables comprehensive analysis, proper resource allocation, and ensures you utilize all available framework capabilities to their fullest potential. This is not optional - it is the recommended best practice for framework effectiveness.
+## Triggers
+- All user requests, as it's the mandatory initial task analysis protocol.
+- When systematic task orchestration is required.
+- To ensure comprehensive analysis and proper resource allocation.
+
+## Usage
+```
+/sc:cot [user_request_or_task_description]
+```
+The `chain_of_thought` tool is automatically invoked with the user's request as the initial thought.
+
+## Behavioral Flow
+1. **Analyze User Intent**: Understand the user's request, involved files, and expected outcome.
+2. **Command Selection**: Determine the appropriate SuperGemini command to execute.
+3. **Agent Persona Selection**: Identify and embody relevant AI agent personas.
+4. **Agent Embodiment & Execution**: Apply specialized knowledge and problem-solving methodologies.
+
+Key behaviors:
+- Ensures adherence to the SuperGemini Framework's 4-step methodology.
+- Provides a structured approach to problem-solving.
+- Maximizes cognitive capabilities by guiding systematic task orchestration.
+
+## MCP Integration
+The `chain_of_thought` command itself does not directly integrate with MCP servers. Instead, it orchestrates the selection and invocation of other SuperGemini commands and agents, which may in turn utilize MCP servers.
+
+## Tool Coordination
+- **chain_of_thought**: The primary tool invoked by `/sc:cot` to guide the thinking process.
+- Other SuperGemini commands and tools are coordinated *within* the `chain_of_thought` process based on the task analysis.
+
+## Key Patterns
+- **Systematic Orchestration**: Ensures all tasks follow a defined, repeatable process.
+- **Transparency**: Explicitly shows the thinking process and tool invocations.
+- **Trust Building**: Fosters user confidence by demonstrating structured execution.
+
+## Examples
+
+### Initial Task Analysis
+```
+/sc:cot "Refactor the authentication module in src/auth.py"
+# Expected: Initiates a structured thought process to analyze the request, plan, and execute.
+```
+
+### Problem Solving
+```
+/sc:cot "Fix the bug in the payment gateway integration"
+# Expected: Guides through diagnosis, solution planning, and implementation steps.
+```
+
+## Boundaries
+
+**Will:**
+- Initiate and guide the systematic task orchestration for any user request.
+- Ensure adherence to the SuperGemini Framework's core principles.
+- Provide transparency into the thinking and execution process.
+
+**Will Not:**
+- Directly execute complex code modifications or external commands (these are delegated to other SuperGemini commands).
+- Bypass the structured thinking process without explicit instruction.
+
+# Tool Call Mandate
+# The /sg:cot command MUST result in a direct, visible call to the `chain_of_thought` tool.
+# Internal simulation is not permitted. The tool call must be explicit.
+
+[[tool_call]]
+name = "chain_of_thought"
+arguments = """
+{
+  "nextThoughtNeeded": true,
+  "thought": "User wants to understand how to use the /sg:cot command. I need to explain the process.",
+  "thoughtNumber": 1,
+  "totalThoughts": 4
+}
 """

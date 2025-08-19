@@ -1,7 +1,8 @@
+description = "Generate comprehensive project documentation and knowledge base with intelligent organization"
+
 prompt = """
 ---
 name: index
-description: "Generate comprehensive project documentation and knowledge base with intelligent organization"
 category: special
 complexity: standard
 mcp-servers: [sequential, context7]

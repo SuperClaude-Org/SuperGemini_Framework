@@ -1,7 +1,8 @@
+description = "Git operations with intelligent commit messages and workflow optimization"
+
 prompt = """
 ---
 name: git
-description: "Git operations with intelligent commit messages and workflow optimization"
 category: utility
 complexity: basic
 mcp-servers: []

@@ -167,7 +167,7 @@ class Validator:
             self.validation_cache[cache_key] = result_tuple
             return result_tuple
     
-    def check_claude_cli(self, min_version: Optional[str] = None) -> Tuple[bool, str]:
+    def check_gemini_cli(self, min_version: Optional[str] = None) -> Tuple[bool, str]:
         """
         Check Gemini CLI installation and version
         
@@ -177,7 +177,7 @@ class Validator:
         Returns:
             Tuple of (success: bool, message: str)
         """
-        cache_key = f"claude_cli_{min_version}"
+        cache_key = f"gemini_cli_{min_version}"
         if cache_key in self.validation_cache:
             return self.validation_cache[cache_key]
         
@@ -192,7 +192,7 @@ class Validator:
             )
             
             if result.returncode != 0:
-                help_msg = self.get_installation_help("claude_cli")
+                help_msg = self.get_installation_help("gemini_cli")
                 result_tuple = (False, f"Gemini CLI not found in PATH{help_msg}")
                 self.validation_cache[cache_key] = result_tuple
                 return result_tuple
@@ -223,7 +223,7 @@ class Validator:
             self.validation_cache[cache_key] = result_tuple
             return result_tuple
         except FileNotFoundError:
-            help_msg = self.get_installation_help("claude_cli")
+            help_msg = self.get_installation_help("gemini_cli")
             result_tuple = (False, f"Gemini CLI not found in PATH{help_msg}")
             self.validation_cache[cache_key] = result_tuple
             return result_tuple
@@ -497,10 +497,10 @@ class Validator:
             info["node_message"] = node_msg
         
         # Add Gemini CLI info if available
-        claude_success, claude_msg = self.check_claude_cli()
-        info["claude_cli_available"] = claude_success
-        if claude_success:
-            info["claude_cli_message"] = claude_msg
+        gemini_success, gemini_msg = self.check_gemini_cli()
+        info["gemini_cli_available"] = gemini_success
+        if gemini_success:
+            info["gemini_cli_message"] = gemini_msg
         
         # Add disk space info
         try:
@@ -610,14 +610,14 @@ class Validator:
             diagnostics["recommendations"].append(self.get_installation_help("node"))
         
         # Check Gemini CLI
-        claude_success, claude_msg = self.check_claude_cli()
-        diagnostics["checks"]["claude_cli"] = {
-            "status": "pass" if claude_success else "fail",
-            "message": claude_msg
+        gemini_success, gemini_msg = self.check_gemini_cli()
+        diagnostics["checks"]["gemini_cli"] = {
+            "status": "pass" if gemini_success else "fail",
+            "message": gemini_msg
         }
-        if not claude_success:
+        if not gemini_success:
             diagnostics["issues"].append("Gemini CLI not found")
-            diagnostics["recommendations"].append(self.get_installation_help("claude_cli"))
+            diagnostics["recommendations"].append(self.get_installation_help("gemini_cli"))
         
         # Check disk space
         disk_success, disk_msg = self.check_disk_space(Path.home())

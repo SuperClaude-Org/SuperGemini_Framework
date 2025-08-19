@@ -143,12 +143,40 @@ The installer will:
 4. Configure MCP servers if desired
 5. Create backups before making changes
 
-**Command-line Options:**
+### Installation Profiles 📦
+
+**Choose your installation type:**
+
 ```bash
-SuperGemini install --components core mcp modes  # Specific components
-SuperGemini install --dry-run                    # Preview only
-SuperGemini install --force --yes                # Skip confirmations
-SuperGemini install --install-dir /custom/path   # Custom location
+# 🚀 Express Installation (Recommended for most users)
+SuperGemini install --yes                        # Interactive setup with auto-confirm
+
+# 🎯 Minimal Installation (Fastest - Core features only)
+SuperGemini install --profile minimal --yes      
+
+# 💼 Standard Installation (Balanced - Core + Commands + Modes)
+SuperGemini install --profile standard --yes     
+
+# 🛠️ Full Installation (Complete - All features including MCP servers)
+SuperGemini install --profile full --yes         
+```
+
+### Advanced Options ⚙️
+
+**For specific needs:**
+
+```bash
+# Preview without installing
+SuperGemini install --dry-run                    
+
+# Custom component selection
+SuperGemini install --components core mcp modes  
+
+# Custom installation directory
+SuperGemini install --install-dir /custom/path   
+
+# Speed optimizations (skip checks)
+SuperGemini install --skip-validation --no-backup --yes
 ```
 
 ### During Installation 📱
