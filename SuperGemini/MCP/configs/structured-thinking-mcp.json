@@ -1,9 +1,9 @@
 {
-  "semantic-prompt": {
+  "structured-thinking-mcp": {
     "command": "npx",
     "args": [
       "-y",
-      "semantic-prompt-mcp@latest"
+      "structured-thinking-mcp@latest"
     ],
     "env": {
       "CHAIN_OF_THOUGHT_CONFIG": "supergemini.json"
