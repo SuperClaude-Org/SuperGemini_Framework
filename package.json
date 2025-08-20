@@ -2,9 +2,6 @@
   "name": "@superclaude-org/supergemini",
   "version": "4.0.6",
   "description": "SuperGemini Framework NPM wrapper - Official Node.js wrapper for the Python Gemini package. Enhances Gemini CLI with specialized commands and AI development tools.",
-  "bin": {
-    "supergemini": "./bin/cli.js"
-  },
   "scripts": {
     "postinstall": "node ./bin/install.js",
     "update": "node ./bin/update.js",
@@ -42,15 +39,6 @@
   "engines": {
     "node": ">=16"
   },
-  "os": [
-    "darwin",
-    "linux",
-    "win32"
-  ],
-  "cpu": [
-    "x64",
-    "arm64"
-  ],
   "funding": {
     "type": "github",
     "url": "https://github.com/sponsors/SuperClaude-Org"
@@ -61,4 +49,5 @@
   },
   "preferGlobal": true,
   "type": "commonjs"
+
 }
