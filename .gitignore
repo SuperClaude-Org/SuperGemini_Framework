@@ -231,3 +231,4 @@ tests/
 coverage/
 *.lcov
 /tools/README_완전삭제가이드.md
+/MIGRATION_GUIDE.md

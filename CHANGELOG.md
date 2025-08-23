@@ -7,37 +7,68 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [4.0.7] - 2025-08-24
+
 ### Changed
-- **BREAKING**: Commands now use `/sg:` namespace to avoid conflicts with user custom commands
-- Commands are now installed in `~/.claude/commands/sc/` subdirectory
-- All 16 commands updated: `/analyze` � `/sg:analyze`, `/build` � `/sg:build`, etc.
-- Automatic migration from old command locations to new `sc/` subdirectory
-- **BREAKING**: Documentation reorganization - Docs/ directory renamed to Guides/
+- **BREAKING**: Agent System revolutionized from simple personas to 13 specialized domain experts
+- **BREAKING**: Commands now use `/sg:` namespace optimized for Gemini CLI integration  
+- **BREAKING**: Architecture shifted to single-agent with expert knowledge integration for Gemini optimization
+- Commands expanded from 14 to 17 specialized commands (+3 new commands)
+- Agent expertise now directly integrated into TOML command prompts for Gemini efficiency
+- Enhanced MCP integration from 3 to 6 servers with intelligent tool selection
+- Session management completely redesigned with cross-session persistence capabilities
 
 ### Added
-- **NEW COMMAND**: `/sg:implement` for feature and code implementation (addresses v2 user feedback)
-- Migration logic to move existing commands to new namespace automatically
-- Enhanced uninstaller to handle both old and new command locations
-- Improved command conflict prevention
-- Better command organization and discoverability
-- Comprehensive PyPI publishing infrastructure
-- API key management during SuperClaude MCP setup
+- **NEW AGENTS**: 13 specialized domain experts with deep expertise integration
+  - system-architect, backend-architect, frontend-architect, devops-architect
+  - security-engineer, performance-engineer, quality-engineer, refactoring-expert
+  - requirements-analyst, root-cause-analyst, python-expert, technical-writer, learning-guide
+- **NEW BEHAVIORAL MODES**: 5 intelligent workflow adaptation modes
+  - Brainstorming Mode for collaborative discovery and requirements exploration
+  - Introspection Mode for meta-cognitive analysis and reasoning optimization
+  - Orchestration Mode for intelligent tool selection and resource efficiency
+  - Task Management Mode for hierarchical organization with persistent memory
+  - Token Efficiency Mode for symbol-enhanced communication (30-50% reduction)
+- **NEW COMMANDS**: 3 powerful workflow commands
+  - `/sg:reflect` for task validation using Serena MCP analysis
+  - `/sg:save` for session context persistence with cross-session memory
+  - `/sg:select-tool` for intelligent MCP tool selection system
+- **NEW MCP SERVERS**: 3 advanced integration servers
+  - Serena MCP for semantic code analysis and memory management
+  - Morphllm MCP for pattern-based edits and bulk transformations
+  - Magic MCP for modern UI component generation
+- **SESSION LIFECYCLE**: Complete session management with `/sg:load` → work → checkpoint → `/sg:save`
+- **PERFORMANCE OPTIMIZATION**: Enhanced tool selection and session management efficiency
+- **COMPREHENSIVE DOCUMENTATION**: Complete reorganization with Getting-Started, User-Guide, Developer-Guide, Reference sections
 
-### Removed
-- **BREAKING**: Removed Templates/ directory (legacy templates no longer needed)
-- **BREAKING**: Removed legacy agents and replaced with enhanced 13-agent system
+### Enhanced
+- **Command Intelligence**: All 17 commands completely rewritten with multi-agent perspectives
+- **MCP Decision Matrix**: Intelligent routing between 6 MCP servers based on operation requirements
+- **Cross-Session Persistence**: Memory management preserving context and technical decisions
+- **Agent Coordination**: Multi-persona operations with specialized domain expertise
+- **Performance Optimization**: Tool selection optimization with speed vs accuracy trade-offs
+- **Gemini CLI Integration**: Native optimization for single-agent architecture patterns
 
-### Improved
-- Refactored Modes and MCP documentation for concise behavioral guidance
-- Enhanced project cleanup and gitignore for PyPI publishing
-- Implemented uninstall and update safety enhancements
-- Better agent specialization and domain expertise focus
+### Removed  
+- **BREAKING**: Simple persona system replaced with specialized agent architecture
+- **BREAKING**: Basic MCP integration replaced with advanced 6-server ecosystem
+- Legacy hook system removed (Gemini CLI incompatibility)
+- SuperGemini/Core/ complexity reduced from 9 files to 4 files for streamlined operation
 
 ### Technical Details
-- Commands now accessible as `/sg:analyze`, `/sg:build`, `/sg:improve`, etc.
-- Migration preserves existing functionality while preventing naming conflicts
-- Installation process detects and migrates existing commands automatically
-- Tab completion support for `/sg:` prefix to discover all SuperGemini commands
+- Commands accessible as `/sg:analyze`, `/sg:build`, `/sg:improve`, `/sg:implement`, etc.
+- Agent expertise integrated directly into command execution for Gemini single-agent optimization
+- MCP servers auto-selected based on operation type: Serena (semantic), Morphllm (bulk), Magic (UI)
+- Behavioral modes activate automatically based on context: complexity, scope, performance needs
+- Session workflow: `/sg:load` → work → periodic checkpoints → `/sg:save` for continuity
+- Memory schema supports plan/phase/task/todo hierarchy with cross-session preservation
+
+### Migration Guide
+- **Command Migration**: All `/sg:` commands maintain backward compatibility with enhanced functionality
+- **Agent Learning**: 13 specialized agents replace simple personas - review agent capabilities for optimal usage
+- **Session Workflow**: Adopt `/sg:load` → work → `/sg:save` pattern for cross-session continuity
+- **MCP Integration**: Install Serena and Morphllm MCP servers for advanced semantic and bulk operations
+- **Performance**: Leverage behavioral modes for improved efficiency in complex operations
 
 ## [4.0.0-beta.1] - 2025-02-05
 
