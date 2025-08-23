@@ -12,15 +12,15 @@ Before using this guide, verify session commands work:
 
 ```bash
 # Test session loading
-/sc:load .
+/sg:load .
 # Expected: Analyzes project structure and creates session context
 
 # Test session saving
-/sc:save "test-session"
+/sg:save "test-session"
 # Expected: Saves session with confirmation message
 
 # Test session reflection
-/sc:reflect
+/sg:reflect
 # Expected: Shows current session status and progress
 ```
 
@@ -31,14 +31,14 @@ Before using this guide, verify session commands work:
 ### Common Issues (< 2 minutes)
 - **Session won't load**: Check Serena MCP server connection: `SuperGemini status --mcp serena`
 - **Save fails**: Verify write permissions to `~/.gemini/` directory
-- **Memory issues**: Clear old sessions with `/sc:reflect --type session-cleanup`
+- **Memory issues**: Clear old sessions with `/sg:reflect --type session-cleanup`
 - **Slow loading**: Use `--scope file` for large projects or `--fast` flag
 
 ### Immediate Fixes
 - **Reset session**: Restart Gemini CLI to refresh session system
 - **Clear cache**: Remove `~/.gemini/sessions/` directory if corrupted
 - **Check dependencies**: Verify Python/uv installation for Serena MCP
-- **Test basic functions**: Try `/sc:load .` and `/sc:save "test"` with simple project
+- **Test basic functions**: Try `/sg:load .` and `/sg:save "test"` with simple project
 
 ## Table of Contents
 
@@ -125,7 +125,7 @@ Let's create your first session with a simple project:
 cd /path/to/your/project
 
 # Load the project into a session
-/sc:load .
+/sg:load .
 ```
 
 **What you'll see:**
@@ -159,7 +159,7 @@ cd /path/to/your/project
 ### Step 4: Save Your Session (2 minutes)
 ```bash
 # Save the session for later
-/sc:save "my-first-session"
+/sg:save "my-first-session"
 ```
 
 **What you'll see:**
@@ -185,9 +185,9 @@ cd /path/to/your/project
 - [ ] Code changes follow existing project conventions  
 - [ ] Session persistence works across Gemini CLI restarts
 
-**Verify:** `/sc:load .` should complete without errors and show project summary  
+**Verify:** `/sg:load .` should complete without errors and show project summary  
 **Test:** Session should remember changes when resumed later  
-**Check:** `/sc:reflect` should show accurate progress tracking
+**Check:** `/sg:reflect` should show accurate progress tracking
 
 **Need Help?**: If any step fails, check your setup by running `SuperGemini status --mcp serena` to verify the Serena MCP server is working correctly.
 
@@ -198,24 +198,24 @@ cd /path/to/your/project
 
 | Command | Purpose | Usage Level |
 |---------|---------|-------------|
-| `/sc:load` | Start or resume a session | Beginner |
-| `/sc:save` | Preserve session progress | Beginner |
-| `/sc:reflect` | Analyze session status | Intermediate |
+| `/sg:load` | Start or resume a session | Beginner |
+| `/sg:save` | Preserve session progress | Beginner |
+| `/sg:reflect` | Analyze session status | Intermediate |
 
-### /sc:load - Session Initialization
+### /sg:load - Session Initialization
 
 **Purpose**: Load project context and initialize persistent development session
 
 **Basic Usage (Start Here):**
 ```bash
 # Load current directory
-/sc:load .
+/sg:load .
 
 # Load specific project
-/sc:load /path/to/project/
+/sg:load /path/to/project/
 
 # Resume previous session
-/sc:load "my-session-name"
+/sg:load "my-session-name"
 ```
 
 **What Happens During Load:**
@@ -229,7 +229,7 @@ cd /path/to/your/project
 
 **Real Example Output:**
 ```bash
-/sc:load my-react-app/
+/sg:load my-react-app/
 
 🔍 Scanning project structure...
    ├── src/components/ (12 React components)
@@ -257,28 +257,28 @@ cd /path/to/your/project
 **Beginner Level:**
 ```bash
 # Simple project load
-/sc:load .
+/sg:load .
 
 # Resume by name
-/sc:load "my-work-session"
+/sg:load "my-work-session"
 ```
 
 **Intermediate Level:**
 ```bash
 # Load with focus area
-/sc:load --focus testing project/
+/sg:load --focus testing project/
 
 # Fresh analysis (ignores previous session)
-/sc:load --refresh project/
+/sg:load --refresh project/
 ```
 
 **Advanced Level:**
 ```bash
 # Load specific branch context
-/sc:load --branch feature/auth project/
+/sg:load --branch feature/auth project/
 
 # Load with team context
-/sc:load --shared team-project/
+/sg:load --shared team-project/
 ```
 
 **Serena MCP Integration Details:**
@@ -305,20 +305,20 @@ delete_memory(key)       # Clean up old data
 
 **Note**: Examples showing team features (`--shared`) are illustrative of the intended direction. Current implementation focuses on individual developer sessions.
 
-### /sc:save - Session Persistence
+### /sg:save - Session Persistence
 
 **Purpose**: Preserve session context and development progress for future continuation
 
 **Basic Usage (Start Here):**
 ```bash
 # Save with automatic name
-/sc:save
+/sg:save
 
 # Save with descriptive name
-/sc:save "feature-login-complete"
+/sg:save "feature-login-complete"
 
 # Quick checkpoint save
-/sc:save --checkpoint
+/sg:save --checkpoint
 ```
 
 **What Gets Saved:**
@@ -332,42 +332,42 @@ delete_memory(key)       # Clean up old data
 **Beginner - Save Often:**
 ```bash
 # After any significant work
-/sc:save "added-user-component"
+/sg:save "added-user-component"
 
 # Before trying something risky
-/sc:save "backup-before-refactor"
+/sg:save "backup-before-refactor"
 
 # End of work session
-/sc:save "end-of-day"
+/sg:save "end-of-day"
 ```
 
 **Intermediate - Strategic Saves:**
 ```bash
 # Milestone completion
-/sc:save "authentication-module-complete"
+/sg:save "authentication-module-complete"
 
 # Before major changes
-/sc:save --checkpoint "pre-database-migration"
+/sg:save --checkpoint "pre-database-migration"
 
 # Feature branch completion
-/sc:save "feature-branch-ready-for-review"
+/sg:save "feature-branch-ready-for-review"
 ```
 
 **Advanced - Organized Saves:**
 ```bash
 # Team handoff
-/sc:save "ready-for-alice-review" --handoff
+/sg:save "ready-for-alice-review" --handoff
 
 # Release preparation
-/sc:save "v2.1-release-candidate"
+/sg:save "v2.1-release-candidate"
 
 # Architecture milestone
-/sc:save "microservices-split-complete"
+/sg:save "microservices-split-complete"
 ```
 
 **Real Save Output:**
 ```bash
-/sc:save "login-form-complete"
+/sg:save "login-form-complete"
 
 💾 Saving session: "login-form-complete"
 
@@ -384,7 +384,7 @@ delete_memory(key)       # Clean up old data
    • Next steps: Implement password reset flow
 
 ✅ Session saved successfully!
-   Resume with: /sc:load "login-form-complete"
+   Resume with: /sg:load "login-form-complete"
 ```
 
 **When to Save:**
@@ -399,18 +399,18 @@ delete_memory(key)       # Clean up old data
 - After solving a difficult problem
 - When switching between different parts of the project
 
-### /sc:reflect - Session Analysis
+### /sg:reflect - Session Analysis
 
 **Purpose**: Review progress, identify issues, and plan next steps
 
 **Basic Usage:**
 ```bash
 # Quick progress check
-/sc:reflect
+/sg:reflect
 
 # Specific analysis
-/sc:reflect --type progress
-/sc:reflect --type quality
+/sg:reflect --type progress
+/sg:reflect --type quality
 ```
 
 **When to Reflect:**
@@ -424,39 +424,39 @@ delete_memory(key)       # Clean up old data
 **Beginner - Simple Checks:**
 ```bash
 # Basic progress review
-/sc:reflect
+/sg:reflect
 
 # Check if ready to continue
-/sc:reflect --type ready
+/sg:reflect --type ready
 ```
 
 **Intermediate - Focused Analysis:**
 ```bash
 # Progress with recommendations
-/sc:reflect --type progress
+/sg:reflect --type progress
 
 # Code quality assessment
-/sc:reflect --type quality
+/sg:reflect --type quality
 
 # Completion status
-/sc:reflect --type completion
+/sg:reflect --type completion
 ```
 
 **Advanced - Strategic Reviews:**
 ```bash
 # Architecture review
-/sc:reflect --type architecture
+/sg:reflect --type architecture
 
 # Team handoff preparation
-/sc:reflect --type handoff
+/sg:reflect --type handoff
 
 # Learning consolidation
-/sc:reflect --type learning
+/sg:reflect --type learning
 ```
 
 **Real Reflection Output:**
 ```bash
-/sc:reflect --type progress
+/sg:reflect --type progress
 
 🎯 Session Progress Analysis
 
@@ -489,7 +489,7 @@ delete_memory(key)       # Clean up old data
 
 **"Should I continue or take a break?"**
 ```bash
-/sc:reflect --type energy
+/sg:reflect --type energy
 ```
 - Assesses current progress momentum
 - Identifies good stopping points
@@ -497,7 +497,7 @@ delete_memory(key)       # Clean up old data
 
 **"What should I work on next?"**
 ```bash
-/sc:reflect --type priorities
+/sg:reflect --type priorities
 ```
 - Analyzes available tasks
 - Considers dependencies and blockers
@@ -505,7 +505,7 @@ delete_memory(key)       # Clean up old data
 
 **"Is my code ready for review?"**
 ```bash
-/sc:reflect --type readiness
+/sg:reflect --type readiness
 ```
 - Checks completion criteria
 - Reviews code quality indicators
@@ -516,41 +516,41 @@ delete_memory(key)       # Clean up old data
 
 **Session Load Failures:**
 ```bash
-# Problem: "/sc:load project/ fails with error"
+# Problem: "/sg:load project/ fails with error"
 # Quick Fix: Verify project and dependencies
 ls -la project/                           # Check project exists
 SuperGemini status --mcp serena          # Verify Serena MCP
-/sc:load . --refresh                     # Force fresh analysis
-/sc:load . --scope module                # Reduce load scope
+/sg:load . --refresh                     # Force fresh analysis
+/sg:load . --scope module                # Reduce load scope
 ```
 
 **Session Save Failures:**
 ```bash
-# Problem: "/sc:save fails with permission error"
+# Problem: "/sg:save fails with permission error"
 # Quick Fix: Check permissions and storage
 ls -la ~/.gemini/                        # Check directory permissions
 chmod -R 755 ~/.gemini/                  # Fix permissions
 df -h ~/.gemini/                         # Check disk space
-/sc:save --compress "test-session"       # Try compressed save
+/sg:save --compress "test-session"       # Try compressed save
 ```
 
 **Memory/Performance Issues:**
 ```bash
 # Problem: Sessions using too much memory or loading slowly
 # Quick Fix: Optimize session management
-/sc:reflect --type memory                # Check memory usage
-/sc:save --cleanup                       # Clean old data
-/sc:load project/ --fast                 # Fast loading mode
-/sc:load project/ --scope file           # Limit scope
+/sg:reflect --type memory                # Check memory usage
+/sg:save --cleanup                       # Clean old data
+/sg:load project/ --fast                 # Fast loading mode
+/sg:load project/ --scope file           # Limit scope
 ```
 
 **Session Context Issues:**
 ```bash
 # Problem: Session loses context or gives incorrect information
 # Quick Fix: Context refresh and validation
-/sc:load project/ --refresh              # Rebuild context
-/sc:reflect --type accuracy              # Check context quality
-/sc:save --consolidate "clean-session"   # Consolidate memory
+/sg:load project/ --refresh              # Rebuild context
+/sg:reflect --type accuracy              # Check context quality
+/sg:save --consolidate "clean-session"   # Consolidate memory
 ```
 
 ### Error Code Reference
@@ -560,11 +560,11 @@ df -h ~/.gemini/                         # Check disk space
 | **S001** | Load timeout | Reduce scope with `--scope module` or use `--fast` |
 | **S002** | Save permission denied | Check `chmod -R 755 ~/.gemini/` |
 | **S003** | Serena MCP unavailable | Verify `uv run serena --help` works |
-| **S004** | Memory limit exceeded | Use `/sc:save --cleanup` and `--compress` |
+| **S004** | Memory limit exceeded | Use `/sg:save --cleanup` and `--compress` |
 | **S005** | Project structure invalid | Verify you're in a valid project directory |
 | **S006** | Session corrupted | Use `--refresh` to rebuild from scratch |
-| **S007** | Context mismatch | Use `/sc:load --consolidate` to fix context |
-| **S008** | Disk space insufficient | Clean up with `/sc:reflect --type session-cleanup` |
+| **S007** | Context mismatch | Use `/sg:load --consolidate` to fix context |
+| **S008** | Disk space insufficient | Clean up with `/sg:reflect --type session-cleanup` |
 
 ### Progressive Support Levels
 
@@ -576,8 +576,8 @@ df -h ~/.gemini/                         # Check disk space
 **Level 2: Detailed Help (5-15 min)**
 ```bash
 # Session-specific diagnostics
-/sc:reflect --type sessions-list         # List all sessions
-/sc:reflect --type memory                # Check memory usage
+/sg:reflect --type sessions-list         # List all sessions
+/sg:reflect --type memory                # Check memory usage
 cat ~/.gemini/logs/serena.log | tail -50 # Check Serena logs
 ```
 - See [Common Issues Guide](../Reference/common-issues.md) for session installation problems
@@ -600,9 +600,9 @@ uv run serena diagnose                   # Serena diagnostics
 ### Success Validation
 
 After applying session fixes, test with:
-- [ ] `/sc:load .` (should complete without errors for current directory)
-- [ ] `/sc:save "test-session"` (should save successfully)
-- [ ] `/sc:reflect` (should show session status accurately)
+- [ ] `/sg:load .` (should complete without errors for current directory)
+- [ ] `/sg:save "test-session"` (should save successfully)
+- [ ] `/sg:reflect` (should show session status accurately)
 - [ ] Session persistence works across Gemini CLI restarts
 - [ ] Memory usage is reasonable for your project size
 
@@ -622,7 +622,7 @@ After applying session fixes, test with:
 **Performance Benchmarks:**
 ```bash
 # Measure your session load time
-time /sc:load project/
+time /sg:load project/
 
 # Expected output:
 real    0m12.347s  # Total time
@@ -635,25 +635,25 @@ sys     0m1.123s   # System time
 **For Large Projects:**
 ```bash
 # Load specific area instead of entire project
-/sc:load --scope module src/auth/
+/sg:load --scope module src/auth/
 
 # Focus on current work area
-/sc:load --focus performance api-layer/
+/sg:load --focus performance api-layer/
 
 # Load without heavy analysis
-/sc:load --fast large-project/
+/sg:load --fast large-project/
 ```
 
 **Memory Optimization:**
 ```bash
 # Check current memory usage
-/sc:reflect --type memory
+/sg:reflect --type memory
 
 # Clean up old sessions
-/sc:save --cleanup
+/sg:save --cleanup
 
 # Optimize session storage
-/sc:save --compress "optimized-session"
+/sg:save --compress "optimized-session"
 ```
 
 **Memory Usage Guidelines:**
@@ -689,26 +689,26 @@ All session data is stored locally on your machine using Serena MCP. No data is 
 **Best Practices:**
 ```bash
 # Use descriptive but non-sensitive session names
-/sc:save "user-auth-module"        # Good
-/sc:save "prod-api-key-abc123"     # Avoid
+/sg:save "user-auth-module"        # Good
+/sg:save "prod-api-key-abc123"     # Avoid
 
 # Regular cleanup of old sessions
-/sc:reflect --type session-cleanup
+/sg:reflect --type session-cleanup
 
 # Check what's stored in sessions
-/sc:reflect --type data-summary
+/sg:reflect --type data-summary
 ```
 
 **Privacy Controls:**
 ```bash
 # Create private sessions (not shared)
-/sc:load --private project/
+/sg:load --private project/
 
 # Delete sensitive session data
-/sc:save --exclude-sensitive "clean-session"
+/sg:save --exclude-sensitive "clean-session"
 
 # List all stored sessions
-/sc:reflect --type sessions-list
+/sg:reflect --type sessions-list
 ```
 
 **Enterprise Security:**
@@ -726,10 +726,10 @@ All session data is stored locally on your machine using Serena MCP. No data is 
 **Audit Trail:**
 ```bash
 # View session access history
-/sc:reflect --type access-log
+/sg:reflect --type access-log
 
 # Export session metadata
-/sc:save --export-metadata audit-trail.json
+/sg:save --export-metadata audit-trail.json
 ```
 
 ## Memory and Context
@@ -749,7 +749,7 @@ As you work with SuperGemini, it automatically learns:
 **Project Structure:**
 ```bash
 # When you load a project
-/sc:load my-app/
+/sg:load my-app/
 
 # SuperGemini learns:
 - File organization (components/, utils/, tests/)
@@ -804,7 +804,7 @@ As you work with SuperGemini, it automatically learns:
 
 **Starting New Work:**
 ```bash
-/sc:load project/
+/sg:load project/
 → "I remember you were working on user authentication.
    The login form is complete, but email verification 
    is still pending. Should we continue with that?"
@@ -834,21 +834,21 @@ As you work with SuperGemini, it automatically learns:
 **Viewing Memory:**
 ```bash
 # See what SuperGemini remembers about your project
-/sc:reflect --type memory
+/sg:reflect --type memory
 
 # Check specific areas
-/sc:reflect --type patterns     # Code patterns
-/sc:reflect --type decisions    # Major decisions
-/sc:reflect --type progress     # Current state
+/sg:reflect --type patterns     # Code patterns
+/sg:reflect --type decisions    # Major decisions
+/sg:reflect --type progress     # Current state
 ```
 
 **Cleaning Up Memory:**
 ```bash
 # Remove outdated information
-/sc:save --cleanup "refreshed-session"
+/sg:save --cleanup "refreshed-session"
 
 # Consolidate scattered memories
-/sc:save --consolidate "organized-session"
+/sg:save --consolidate "organized-session"
 ```
 
 **Memory Limits:**
@@ -864,37 +864,37 @@ As you work with SuperGemini, it automatically learns:
 **Your First Week Pattern:**
 ```bash
 # Day 1: Get familiar with sessions
-/sc:load .
+/sg:load .
 "Show me the project structure"
-/sc:save "learned-project-basics"
+/sg:save "learned-project-basics"
 
 # Day 2-3: Small changes
-/sc:load "learned-project-basics"
+/sg:load "learned-project-basics"
 "Add a comment to this function"
 "Fix this small bug"
-/sc:save --checkpoint
+/sg:save --checkpoint
 
 # Day 4-5: Bigger tasks
-/sc:load project/
+/sg:load project/
 "Add a new component for user settings"
-/sc:reflect --type progress
-/sc:save "user-settings-complete"
+/sg:reflect --type progress
+/sg:save "user-settings-complete"
 ```
 
 **Daily Work Pattern:**
 ```bash
 # Morning: Start your day
-/sc:load project/                    # Resume where you left off
-/sc:reflect                          # Quick status check
+/sg:load project/                    # Resume where you left off
+/sg:reflect                          # Quick status check
 "Let's continue with [current work]" # Begin your work
 
 # During work: Stay organized
-/sc:save --checkpoint                # Save every hour or so
-/sc:reflect --type progress          # Check if stuck
+/sg:save --checkpoint                # Save every hour or so
+/sg:reflect --type progress          # Check if stuck
 
 # Evening: Wrap up
-/sc:reflect --type completion        # Review what you accomplished  
-/sc:save "end-of-day"               # Save your progress
+/sg:reflect --type completion        # Review what you accomplished  
+/sg:save "end-of-day"               # Save your progress
 ```
 
 ### Intermediate Workflows
@@ -902,39 +902,39 @@ As you work with SuperGemini, it automatically learns:
 **Feature Development (Multi-day):**
 ```bash
 # Day 1: Planning
-/sc:load project/
+/sg:load project/
 "I need to add user authentication"
-/sc:reflect --type planning
-/sc:save "auth-planning-complete"
+/sg:reflect --type planning
+/sg:save "auth-planning-complete"
 
 # Day 2-3: Implementation
-/sc:load "auth-planning-complete"
+/sg:load "auth-planning-complete"
 "Let's implement the login form"
-/sc:save --checkpoint "login-form-done"
+/sg:save --checkpoint "login-form-done"
 "Now add the backend API"
-/sc:save --checkpoint "api-complete"
+/sg:save --checkpoint "api-complete"
 
 # Day 4: Testing and polish
-/sc:load project/
+/sg:load project/
 "Test the authentication flow"
-/sc:reflect --type quality
-/sc:save "auth-feature-complete"
+/sg:reflect --type quality
+/sg:save "auth-feature-complete"
 ```
 
 **Bug Fixing Session:**
 ```bash
 # Load with focus on the problem
-/sc:load project/
+/sg:load project/
 "The login form isn't working properly"
 
 # Investigate systematically
-/sc:reflect --type debugging
+/sg:reflect --type debugging
 "What could be causing this issue?"
 
 # Fix and verify
 "Let's fix the validation logic"
 "Test that the fix works"
-/sc:save "login-bug-fixed"
+/sg:save "login-bug-fixed"
 ```
 
 ### Advanced Workflows
@@ -942,39 +942,39 @@ As you work with SuperGemini, it automatically learns:
 **Complex Feature Development:**
 ```bash
 # Phase 1: Architecture planning
-/sc:load --focus architecture project/
+/sg:load --focus architecture project/
 "Design a notification system"
-/sc:reflect --type architecture
-/sc:save "notification-architecture"
+/sg:reflect --type architecture
+/sg:save "notification-architecture"
 
 # Phase 2: Core implementation
-/sc:load "notification-architecture"
+/sg:load "notification-architecture"
 "Implement the notification service"
-/sc:save --checkpoint "service-core-done"
+/sg:save --checkpoint "service-core-done"
 
 # Phase 3: Integration
 "Integrate with the user interface"
-/sc:save --checkpoint "ui-integration-done"
+/sg:save --checkpoint "ui-integration-done"
 
 # Phase 4: Testing and optimization
-/sc:reflect --type quality
+/sg:reflect --type quality
 "Optimize for performance"
-/sc:save "notification-system-complete"
+/sg:save "notification-system-complete"
 ```
 
 **Code Review and Refactoring:**
 ```bash
 # Load for quality analysis
-/sc:load --focus quality codebase/
+/sg:load --focus quality codebase/
 "Review the authentication module for improvements"
 
 # Systematic improvements
-/sc:reflect --type quality
+/sg:reflect --type quality
 "Refactor the user service for better maintainability"
 
 # Validation
 "Test that everything still works after refactoring"
-/sc:save "auth-module-refactored"
+/sg:save "auth-module-refactored"
 ```
 
 ### Session Length Guidelines
@@ -1001,28 +1001,28 @@ As you work with SuperGemini, it automatically learns:
 **Not Saving Frequently:**
 ```bash
 # Wrong: Work for hours without saving
-/sc:load project/
+/sg:load project/
 # ... 4 hours of work ...
 # System crash - all progress lost!
 
 # Right: Regular checkpoints
-/sc:load project/
+/sg:load project/
 # ... 1 hour of work ...
-/sc:save --checkpoint "progress-checkpoint"
+/sg:save --checkpoint "progress-checkpoint"
 # ... continue working ...
 ```
 
 **Unclear Session Names:**
 ```bash
 # Wrong: Vague names
-/sc:save "work"
-/sc:save "stuff"
-/sc:save "session1"
+/sg:save "work"
+/sg:save "stuff"
+/sg:save "session1"
 
 # Right: Descriptive names  
-/sc:save "user-login-form-complete"
-/sc:save "api-error-handling-improved"
-/sc:save "database-schema-updated"
+/sg:save "user-login-form-complete"
+/sg:save "api-error-handling-improved"
+/sg:save "database-schema-updated"
 ```
 
 **Not Using Reflection:**
@@ -1033,8 +1033,8 @@ As you work with SuperGemini, it automatically learns:
 
 # Right: Use reflection to get unstuck
 "This isn't working..."
-/sc:reflect --type debugging
-/sc:reflect --type progress
+/sg:reflect --type debugging
+/sg:reflect --type progress
 # Get insights and new approaches
 ```
 
@@ -1045,16 +1045,16 @@ As you work with SuperGemini, it automatically learns:
 ### Project Session Architecture
 ```bash
 # Master Project Session
-/sc:load enterprise-platform/
+/sg:load enterprise-platform/
 → Maintains overall project context and architecture understanding
 
 # Feature Branch Sessions  
-/sc:load --branch feature/user-management user-service/
-/sc:load --branch feature/payment-integration payment-service/
+/sg:load --branch feature/user-management user-service/
+/sg:load --branch feature/payment-integration payment-service/
 → Focused context for specific feature development
 
 # Integration Sessions
-/sc:load --integration-focus platform-services/
+/sg:load --integration-focus platform-services/
 → Cross-service integration and system-level concerns
 ```
 
@@ -1080,16 +1080,16 @@ As you work with SuperGemini, it automatically learns:
 **Team Coordination:**
 ```bash
 # Shared Project Context
-/sc:load --shared team-project/
+/sg:load --shared team-project/
 → Common understanding accessible to all team members
 
 # Individual Developer Sessions
-/sc:load --developer alice team-project/user-auth/
-/sc:load --developer bob team-project/payment-system/
+/sg:load --developer alice team-project/user-auth/
+/sg:load --developer bob team-project/payment-system/
 → Personal development context within shared project
 
 # Integration Sessions
-/sc:load --integration team-project/
+/sg:load --integration team-project/
 → Cross-developer integration and system-level work
 ```
 
@@ -1098,21 +1098,21 @@ As you work with SuperGemini, it automatically learns:
 **Session Handoff:**
 ```bash
 # End of developer session
-/sc:save --handoff "alice-user-auth-complete" --next-developer bob
+/sg:save --handoff "alice-user-auth-complete" --next-developer bob
 
 # New developer pickup
-/sc:load --handoff "alice-user-auth-complete"
+/sg:load --handoff "alice-user-auth-complete"
 → Complete context transfer with work continuation
 ```
 
 **Progress Synchronization:**
 ```bash
 # Daily standup preparation
-/sc:reflect --type team-progress
+/sg:reflect --type team-progress
 → Team-level progress summary and coordination
 
 # Sprint planning context
-/sc:load --sprint-context team-project/
+/sg:load --sprint-context team-project/
 → Sprint-level understanding and planning context
 ```
 
@@ -1169,13 +1169,13 @@ As you work with SuperGemini, it automatically learns:
 
 **Day 1-2: First Session**
 - Complete the [10-minute walkthrough](#your-first-session)
-- Practice: `/sc:load .`, `/sc:save "my-work"`, `/sc:reflect`
+- Practice: `/sg:load .`, `/sg:save "my-work"`, `/sg:reflect`
 - Success criteria: Can load, work, and save a session
 
 **Day 3-4: Daily Workflow**
 - Establish daily load → work → save pattern
 - Practice descriptive session naming
-- Use reflection when stuck: `/sc:reflect --type progress`
+- Use reflection when stuck: `/sg:reflect --type progress`
 
 **Day 5-7: Building Habits**
 - Regular checkpoint saves during work
@@ -1195,7 +1195,7 @@ As you work with SuperGemini, it automatically learns:
 **Week 2: Memory Understanding**
 - Observe how SuperGemini remembers your decisions
 - Practice: Let sessions build knowledge over several days
-- Learn: `/sc:reflect --type memory` to see what's remembered
+- Learn: `/sg:reflect --type memory` to see what's remembered
 
 **Week 3: Strategic Workflows**
 - Multi-day feature development workflows

@@ -19,10 +19,10 @@ Missing @agent mention tutorial
     - Line 18: superclaude install (lowercase)
     - Throughout: Mixed usage creates confusion
 
-  Issue: Inconsistent /sc: command prefix
+  Issue: Inconsistent /sg: command prefix
 
   - Files Affected: commands.md, quick-start-practices.md, modes.md
-  - Pattern: Some examples use /sc:help while documentation references /sc:
+  - Pattern: Some examples use /sg:help while documentation references /sg:
    prefix
   - No clear explanation when to use which format
 

@@ -97,8 +97,8 @@ Advanced Analysis: diagnostic-reference.md
 
 | Command Pattern | Purpose | Example |
 |----------------|---------|---------|
-| `/sc:load` | Restore session context | `/sc:load project_name` |
-| `/sc:save` | Preserve session state | `/sc:save "milestone checkpoint"` |
+| `/sg:load` | Restore session context | `/sg:load project_name` |
+| `/sg:save` | Preserve session state | `/sg:save "milestone checkpoint"` |
 | `--think` | Enable structured analysis | `--think analyze performance bottlenecks` |
 | `--brainstorm` | Collaborative requirement discovery | `--brainstorm new authentication system` |
 | `--task-manage` | Multi-step operation orchestration | `--task-manage refactor user module` |
@@ -160,7 +160,7 @@ Advanced Analysis: diagnostic-reference.md
 
 ### Immediate Issues (< 5 minutes)
 - **Command not working**: Check [common-issues.md](common-issues.md) → Common SuperGemini Problems
-- **Session lost**: Use `/sc:load` → See [quick-start-practices.md](quick-start-practices.md) → Session Management
+- **Session lost**: Use `/sg:load` → See [quick-start-practices.md](quick-start-practices.md) → Session Management
 - **Flag confusion**: Check [basic-examples.md](basic-examples.md) → Flag Usage Examples
 
 ### Development Blockers (15-30 minutes)
@@ -202,7 +202,7 @@ Found outdated information or broken examples?
 ## Expert Tips for Maximum Productivity
 
 ### Daily Workflow Optimization
-1. **Session Management**: Always start with `/sc:load`, end with `/sc:save`
+1. **Session Management**: Always start with `/sg:load`, end with `/sg:save`
 2. **Flag Combinations**: Combine complementary flags: `--think --c7` for documented analysis
 3. **Progressive Complexity**: Start simple, add sophistication incrementally
 4. **Tool Specialization**: Match tools to tasks: Magic for UI, Sequential for analysis

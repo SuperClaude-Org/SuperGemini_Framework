@@ -46,16 +46,12 @@ Unlike traditional tools, SuperGemini uses **Persona Mode** where Gemini CLI emb
 - [Installation Guide](Docs/Getting-Started/installation.md)
 
 ### User Guides
-- [Commands Reference](User-Guide/commands.md) - 18 TOML-based slash commands
-- [Agents Guide](User-Guide/agents.md) - 13 specialized AI personas
-- [Behavioral Modes](User-Guide/modes.md) - Context-aware operation modes
-- [Flags Guide](User-Guide/flags.md) - Command flags and options
-- [Commands Reference](Docs/User-Guide/commands.md)
-- [Agents Guide](Docs/User-Guide/agents.md)
-- [Behavioral Modes](Docs/User-Guide/modes.md)
-- [Flags Guide](Docs/User-Guide/flags.md)
-- [MCP Servers](Docs/User-Guide/mcp-servers.md)
-- [Session Management](Docs/User-Guide/session-management.md)
+- [Commands Reference](Docs/User-Guide/commands.md) - 18 TOML-based slash commands
+- [Agents Guide](Docs/User-Guide/agents.md) - 13 specialized AI personas
+- [Behavioral Modes](Docs/User-Guide/modes.md) - Context-aware operation modes
+- [Flags Guide](Docs/User-Guide/flags.md) - Command flags and options
+- [MCP Servers](Docs/User-Guide/mcp-servers.md) - MCP server integration guide
+- [Session Management](Docs/User-Guide/session-management.md) - Session lifecycle management
 
 ### Developer Resources
 - [Technical Architecture](Docs/Developer-Guide/technical-architecture.md)

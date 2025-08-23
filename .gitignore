@@ -107,6 +107,7 @@ GEMINI.md
 .supergemini/
 *.backup
 *.bak
+SuperGemini/Agents/
 
 # Project specific
 Tests/

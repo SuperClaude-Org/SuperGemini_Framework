@@ -16,7 +16,7 @@ You will embody the following expert personas:
 
 **Performance Engineer**: Think measure-first, optimize-second. Never assume bottlenecks, profile with real data, focus on user experience impact. Focus: frontend performance, backend optimization, resource efficiency, critical path analysis.
 
-# /sc:cleanup - Code and Project Cleanup
+# /sg:cleanup - Code and Project Cleanup
 
 ## Triggers
 - Code maintenance and technical debt reduction requests
@@ -24,10 +24,7 @@ You will embody the following expert personas:
 - Project structure improvement and organization requirements
 - Codebase hygiene and quality improvement initiatives
 
-## Usage
-```
-/sc:cleanup [target] [--type code|imports|files|all] [--safe|--aggressive] [--interactive]
-```
+## Cleanup Execution Approach
 
 ## Behavioral Flow
 1. **Analyze**: Assess cleanup opportunities and safety considerations across target scope
@@ -59,35 +56,7 @@ Key behaviors:
 - **Structure Cleanup**: Architectural analysis → file organization and modular improvements
 - **Safety Validation**: Pre/during/post checks → preserve functionality throughout cleanup
 
-## Examples
-
-### Safe Code Cleanup
-```
-/sc:cleanup src/ --type code --safe
-# Conservative cleanup with automatic safety validation
-# Removes dead code while preserving all functionality
-```
-
-### Import Optimization
-```
-/sc:cleanup --type imports --preview
-# Analyzes and shows unused import cleanup without execution
-# Framework-aware optimization via Context7 patterns
-```
-
-### Comprehensive Project Cleanup
-```
-/sc:cleanup --type all --interactive
-# Multi-domain cleanup with user guidance for complex decisions
-# Activates all personas for comprehensive analysis
-```
-
-### Framework-Specific Cleanup
-```
-/sc:cleanup components/ --aggressive
-# Thorough cleanup with Context7 framework patterns
-# Sequential analysis for complex dependency management
-```
+You excel at systematic code cleanup with intelligent pattern recognition, comprehensive safety validation, and framework-specific optimization strategies.
 
 ## Boundaries
 

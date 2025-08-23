@@ -34,17 +34,17 @@ SuperGemini install --dry-run
 |-------------|--------------|--------|----------|
 | **🖥️ Installation** | Terminal/CMD | `SuperGemini [command]` | `SuperGemini install` |
 | **🔧 Configuration** | Terminal/CMD | `python3 -m SuperGemini` | `python3 -m SuperGemini --version` |
-| **💬 Development** | Gemini CLI | `/sc:[command]` | `/sc:brainstorm "idea"` |
-| **⚡ Workflow** | Gemini CLI | `/sc:[command] --flags` | `/sc:test --coverage` |
+| **💬 Development** | Gemini CLI | `/sg:[command]` | `/sg:brainstorm "idea"` |
+| **⚡ Workflow** | Gemini CLI | `/sg:[command] --flags` | `/sg:test --coverage` |
 
-> **Important**: Installation commands run in your terminal. Once installed, you'll use `/sc:` commands inside Gemini CLI for development tasks.
+> **Important**: Installation commands run in your terminal. Once installed, you'll use `/sg:` commands inside Gemini CLI for development tasks.
 
 ---
 
 **What Gets Installed:**
-- 21 slash commands (/sc:*) for workflow automation
+- 18 slash commands (/sg:*) for workflow automation
 - 13 specialized AI agents with domain expertise
-- 6 behavioral modes for different contexts
+- 5 behavioral modes for different contexts
 - 6 MCP server configurations for enhanced capabilities
 - Core instruction files in ~/.gemini directory
 
@@ -211,7 +211,7 @@ SuperGemini install --list-components
 
 # Test basic functionality
 echo "Test analysis" | gemini
-# Then try: /sc:analyze README.md
+# Then try: /sg:analyze README.md
 
 # Verify MCP servers (if installed)
 ls ~/.gemini/.gemini.json
@@ -240,8 +240,8 @@ ls ~/.gemini/.gemini.json
 
 **Component Breakdown:**
 - **Core**: Essential framework files and behavioral instructions
-- **Commands**: 21 slash commands for workflow automation
-- **Modes**: 6 behavioral modes for different contexts
+- **Commands**: 18 slash commands for workflow automation
+- **Modes**: 5 behavioral modes for different contexts
 - **Agents**: 13 specialized AI personas
 - **MCP**: Configuration for 6 MCP servers
 - **MCP Docs**: Documentation for MCP server usage
@@ -251,23 +251,23 @@ ls ~/.gemini/.gemini.json
 **Try These Commands:**
 ```bash
 # Interactive requirements discovery
-/sc:brainstorm "mobile app idea"
+/sg:brainstorm "mobile app idea"
 
 # Analyze existing code
-/sc:analyze src/
+/sg:analyze src/
 
 # Generate implementation workflow
-/sc:workflow "user authentication system"
+/sg:workflow "user authentication system"
 
 # Get command help
-/sc:index
+/sg:index
 ```
 
 **Learning Path:**
-1. Start with `/sc:brainstorm` for project discovery
-2. Use `/sc:analyze` to understand existing code
-3. Try `/sc:implement` for feature development
-4. Explore `/sc:index` for command discovery
+1. Start with `/sg:brainstorm` for project discovery
+2. Use `/sg:analyze` to understand existing code
+3. Try `/sg:implement` for feature development
+4. Explore `/sg:index` for command discovery
 
 ## Managing Your Installation 🛠️
 
@@ -315,24 +315,44 @@ cp -r ~/.gemini ~/.gemini.backup.manual
 
 ### Uninstallation 🗑️
 
-**Complete Removal:**
+**Complete Removal (Two-Step Process):**
+
+SuperGemini requires a **two-step uninstall process** for complete removal:
+
 ```bash
-# Remove SuperGemini components (preserves user files)
+# Step 1: Remove SuperGemini components from ~/.gemini
 SuperGemini uninstall
 
-# Remove Python package
+# Step 2: Remove the Python/npm package itself  
 pip uninstall SuperGemini
 # or: npm uninstall -g supergemini
+```
 
-# Manual cleanup (if needed)
-rm -rf ~/.gemini/FLAGS.md ~/.gemini/RULES.md ~/.gemini/MODE_*.md
+> **⚠️ Why Two Steps?**  
+> - **Step 1** removes framework files from your ~/.gemini directory while preserving your personal files
+> - **Step 2** removes the SuperGemini command-line tool itself
+> - This design prevents accidental deletion of user customizations
+
+**Interactive Options:**
+```bash
+# Interactive component selection
+SuperGemini uninstall                    # Choose what to remove
+
+# Complete removal (all components)
+SuperGemini uninstall --complete         # Remove all SuperGemini files
+
+# Preserve specific data
+SuperGemini uninstall --keep-backups     # Keep backup files
+SuperGemini uninstall --keep-logs        # Keep log files
+SuperGemini uninstall --keep-settings    # Keep user settings
 ```
 
 **What Gets Preserved:**
-- Your custom GEMINI.md content
-- Personal configuration files
-- Project-specific customizations
-- Created backups (manual removal required)
+- ✅ Your custom GEMINI.md content
+- ✅ Personal configuration files
+- ✅ Project-specific customizations  
+- ✅ Created backups (unless --complete used)
+- ✅ Other tools' files in ~/.gemini
 
 ## Prerequisites Setup 🛠️
 
@@ -357,8 +377,11 @@ winget install python
 **MCP Server Requirements:**
 Some MCP servers require Node.js for optimal functionality:
 - Context7: Library documentation lookup
-- Magic: UI component generation
+- Magic: UI component generation (requires API key)
 - Sequential: Advanced reasoning
+- Playwright: Browser automation
+- Morphllm: Code transformations (requires API key)
+- Serena: Project memory (Python-based)
 
 Install Node.js 16+ for full MCP capabilities.
 
@@ -436,7 +459,7 @@ python scripts/validate_pypi_ready.py
 
 **Essential Guides:**
 - 🚀 [Quick Start Guide](quick-start.md) - 5-minute setup
-- 🔧 [Commands Reference](../User-Guide/commands.md) - All 21 commands
+- 🔧 [Commands Reference](../User-Guide/commands.md) - All 18 commands
 - 🧐 [Best Practices](../Reference/quick-start-practices.md) - Optimization tips
 - 🎆 [Troubleshooting](../Reference/troubleshooting.md) - Problem solving
 
@@ -451,7 +474,7 @@ python scripts/validate_pypi_ready.py
 - **Platform**: Linux, macOS, Windows supported
 - **Usage**: Immediate access to 21 commands and 6 behavioral modes
 
-**What's Next**: Your Gemini CLI now has enhanced capabilities. Try `/sc:brainstorm` for your first SuperGemini experience!
+**What's Next**: Your Gemini CLI now has enhanced capabilities. Try `/sg:brainstorm` for your first SuperGemini experience!
 
 ---
 

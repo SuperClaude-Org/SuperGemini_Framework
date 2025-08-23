@@ -120,10 +120,10 @@ class SuperGeminiValidator:
             # For validation purposes, we'll check command syntax and structure
             # In a real deployment, this would interface with the installed Gemini CLI
             
-            if not command.startswith("/sc:"):
-                return False, "Invalid command format - must start with /sc:", time.time() - start_time
+            if not command.startswith("/sg:"):
+                return False, "Invalid command format - must start with /sg:", time.time() - start_time
             
-            cmd_name = command.split()[0][4:]  # Remove /sc: prefix
+            cmd_name = command.split()[0][4:]  # Remove /sg: prefix
             
             if cmd_name not in self.all_commands:
                 return False, f"Unknown command: {cmd_name}", time.time() - start_time
@@ -224,7 +224,7 @@ class SuperGeminiValidator:
         self.log("Starting command syntax validation...")
         
         for cmd in self.all_commands:
-            test_command = f"/sc:{cmd}"
+            test_command = f"/sg:{cmd}"
             success, message, exec_time = self.run_command_test(test_command)
             
             result = TestResult(
@@ -245,27 +245,27 @@ class SuperGeminiValidator:
         # Test common flag combinations from documentation
         test_combinations = [
             # Analysis combinations
-            ("/sc:analyze src/ --think", "Standard analysis with structured thinking"),
-            ("/sc:analyze --focus security --think-hard", "Deep security analysis"),
-            ("/sc:troubleshoot 'issue' --ultrathink --seq", "Maximum troubleshooting"),
+            ("/sg:analyze src/ --think", "Standard analysis with structured thinking"),
+            ("/sg:analyze --focus security --think-hard", "Deep security analysis"),
+            ("/sg:troubleshoot 'issue' --ultrathink --seq", "Maximum troubleshooting"),
             
             # Development combinations
-            ("/sc:implement 'feature' --magic --c7", "UI feature with patterns"),
-            ("/sc:improve code/ --morph --serena", "Code improvement with context"),
-            ("/sc:build --optimize --validate", "Safe production build"),
+            ("/sg:implement 'feature' --magic --c7", "UI feature with patterns"),
+            ("/sg:improve code/ --morph --serena", "Code improvement with context"),
+            ("/sg:build --optimize --validate", "Safe production build"),
             
             # Workflow combinations
-            ("/sc:brainstorm 'idea' --think --c7", "Structured brainstorming"),
-            ("/sc:task 'complex' --task-manage --delegate", "Complex task coordination"),
-            ("/sc:test --coverage --play", "Comprehensive testing"),
+            ("/sg:brainstorm 'idea' --think --c7", "Structured brainstorming"),
+            ("/sg:task 'complex' --task-manage --delegate", "Complex task coordination"),
+            ("/sg:test --coverage --play", "Comprehensive testing"),
             
             # Safety combinations
-            ("/sc:improve production/ --safe-mode --backup", "Safe production changes"),
-            ("/sc:cleanup legacy/ --dry-run --validate", "Preview cleanup"),
+            ("/sg:improve production/ --safe-mode --backup", "Safe production changes"),
+            ("/sg:cleanup legacy/ --dry-run --validate", "Preview cleanup"),
             
             # Efficiency combinations
-            ("/sc:analyze large/ --uc --scope module", "Efficient scoped analysis"),
-            ("/sc:implement 'simple' --no-mcp", "Lightweight implementation"),
+            ("/sg:analyze large/ --uc --scope module", "Efficient scoped analysis"),
+            ("/sg:implement 'simple' --no-mcp", "Lightweight implementation"),
         ]
         
         for command, description in test_combinations:
@@ -298,7 +298,7 @@ class SuperGeminiValidator:
         ]
         
         for flag, description in mcp_tests:
-            command = f"/sc:analyze test/ {flag}"
+            command = f"/sg:analyze test/ {flag}"
             success, message, exec_time = self.run_command_test(command)
             
             result = TestResult(
@@ -322,7 +322,7 @@ class SuperGeminiValidator:
         ]
         
         for domain in focus_domains:
-            command = f"/sc:analyze code/ --focus {domain}"
+            command = f"/sg:analyze code/ --focus {domain}"
             success, message, exec_time = self.run_command_test(command)
             
             result = TestResult(
@@ -343,26 +343,26 @@ class SuperGeminiValidator:
         workflows = [
             # New Project Setup workflow
             [
-                "/sc:brainstorm 'project concept'",
-                "/sc:design 'system architecture'", 
-                "/sc:workflow 'implementation plan'",
-                "/sc:save 'project-plan'"
+                "/sg:brainstorm 'project concept'",
+                "/sg:design 'system architecture'", 
+                "/sg:workflow 'implementation plan'",
+                "/sg:save 'project-plan'"
             ],
             
             # Feature Development workflow  
             [
-                "/sc:load 'project-context'",
-                "/sc:implement 'feature name'",
-                "/sc:test --coverage",
-                "/sc:document --type api"
+                "/sg:load 'project-context'",
+                "/sg:implement 'feature name'",
+                "/sg:test --coverage",
+                "/sg:document --type api"
             ],
             
             # Bug Investigation workflow
             [
-                "/sc:troubleshoot 'issue description'",
-                "/sc:analyze --focus problem-area",
-                "/sc:improve --fix --safe-mode",
-                "/sc:test --related-tests"
+                "/sg:troubleshoot 'issue description'",
+                "/sg:analyze --focus problem-area",
+                "/sg:improve --fix --safe-mode",
+                "/sg:test --related-tests"
             ]
         ]
         
@@ -399,18 +399,18 @@ class SuperGeminiValidator:
         
         error_tests = [
             # Invalid commands
-            ("/sc:invalid-command", "Should reject unknown commands"),
+            ("/sg:invalid-command", "Should reject unknown commands"),
             ("/invalid:format", "Should reject invalid command format"),
             ("sc:missing-slash", "Should reject missing slash prefix"),
             
             # Invalid flag combinations
-            ("/sc:analyze --all-mcp --no-mcp", "Should handle contradictory flags"),
-            ("/sc:implement --invalid-flag", "Should reject unknown flags"),
-            ("/sc:test --focus invalid-domain", "Should reject invalid focus domains"),
+            ("/sg:analyze --all-mcp --no-mcp", "Should handle contradictory flags"),
+            ("/sg:implement --invalid-flag", "Should reject unknown flags"),
+            ("/sg:test --focus invalid-domain", "Should reject invalid focus domains"),
             
             # Malformed syntax
-            ("/sc:analyze --", "Should handle incomplete flags"),
-            ("/sc:implement ''", "Should handle empty arguments"),
+            ("/sg:analyze --", "Should handle incomplete flags"),
+            ("/sg:implement ''", "Should handle empty arguments"),
         ]
         
         for command, expected_behavior in error_tests:
@@ -474,10 +474,10 @@ class SuperGeminiValidator:
         
         # Test session lifecycle
         session_commands = [
-            "/sc:load test-project/",
-            "/sc:analyze src/ --think",
-            "/sc:implement 'test feature' --magic",
-            "/sc:save 'test-session'"
+            "/sg:load test-project/",
+            "/sg:analyze src/ --think",
+            "/sg:implement 'test feature' --magic",
+            "/sg:save 'test-session'"
         ]
         
         session_valid = True

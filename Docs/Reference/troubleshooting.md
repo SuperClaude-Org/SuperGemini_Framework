@@ -2,7 +2,7 @@
 
 > **Need a Quick Fix?** For the top 10 most common issues with rapid 2-minute solutions, see the [Common Issues Quick Reference](common-issues.md) first.
 
-> **Command Context**: This guide covers both **Terminal Commands** (for installation issues) and **Gemini CLI Commands** (`/sc:` for development issues). Look for section headers to know which type to use.
+> **Command Context**: This guide covers both **Terminal Commands** (for installation issues) and **Gemini CLI Commands** (`/sg:` for development issues). Look for section headers to know which type to use.
 
 **Comprehensive Problem Resolution**: Step-by-step solutions for complex SuperGemini issues, from installation problems to advanced configuration challenges. Each solution includes diagnosis steps, resolution procedures, and prevention strategies.
 
@@ -155,12 +155,12 @@ df -h
 ps aux | grep gemini
 
 # Solution 1: Reduce scope
-/sc:analyze src/ --scope file    # Instead of entire project
-/sc:implement "simple task"      # Instead of complex features
+/sg:analyze src/ --scope file    # Instead of entire project
+/sg:implement "simple task"      # Instead of complex features
 
 # Solution 2: Use scope limiting
-/sc:analyze ./specific-folder/ --scope module  # Limit analysis scope
-/sc:implement "feature" --scope file            # Focus on specific files
+/sg:analyze ./specific-folder/ --scope module  # Limit analysis scope
+/sg:implement "feature" --scope file            # Focus on specific files
 
 # Solution 3: Clear session data and restart
 # Remove old session files if they exist
@@ -180,15 +180,15 @@ rm -rf ~/.gemini/sessions/old-*
 # Check current directory and context
 pwd
 ls -la
-/sc:reflect  # Check current session context
+/sg:reflect  # Check current session context
 
 # Solution 1: Reset session context
-/sc:save "backup-session"  # Backup current state
+/sg:save "backup-session"  # Backup current state
 # Restart Gemini CLI and reload if needed
 
 # Solution 2: Use explicit scope
-/sc:analyze ./specific-folder/  # Explicit path
-/sc:implement "specific task in authentication module"
+/sg:analyze ./specific-folder/  # Explicit path
+/sg:implement "specific task in authentication module"
 
 # Solution 3: Verification check
 # Verify GEMINI.md contains SuperGemini framework instructions
@@ -207,22 +207,22 @@ grep "SuperGemini" ~/.gemini/GEMINI.md
 # Symptoms: Wrong specialist activated for the task
 
 # Example problem
-/sc:implement "database optimization"
+/sg:implement "database optimization"
 # Activates frontend-architect instead of database specialist
 
 # Diagnosis
 # Check keyword patterns and triggers
-/sc:explain "why was frontend-architect selected for database work?"
+/sg:explain "why was frontend-architect selected for database work?"
 
 # Solution 1: Use explicit keywords
-/sc:implement "PostgreSQL database performance optimization"
+/sg:implement "PostgreSQL database performance optimization"
 # More specific keywords trigger correct specialist
 
 # Solution 2: Use specific backend terminology
-/sc:implement "database performance optimization for PostgreSQL queries"
+/sg:implement "database performance optimization for PostgreSQL queries"
 
 # Solution 3: Use domain-specific terminology
-/sc:implement "PostgreSQL performance tuning and query optimization"
+/sg:implement "PostgreSQL performance tuning and query optimization"
 
 # Prevention
 # Use domain-specific terminology
@@ -235,21 +235,21 @@ grep "SuperGemini" ~/.gemini/GEMINI.md
 
 # Diagnosis
 # Check complexity score and mode thresholds
-/sc:reflect "task complexity analysis"
+/sg:reflect "task complexity analysis"
 
 # Example: Task management mode not activating for complex project
-/sc:implement "entire microservices platform"
+/sg:implement "entire microservices platform"
 # Should activate task management mode but doesn't
 
 # Solution 1: Use complex project language
-/sc:implement "multi-service platform with authentication, database, and API gateway"
+/sg:implement "multi-service platform with authentication, database, and API gateway"
 
 # Solution 2: Break down complexity
-/sc:analyze "microservices platform requirements"  # Plan first
-/sc:implement "authentication service"  # Then implement pieces
+/sg:analyze "microservices platform requirements"  # Plan first
+/sg:implement "authentication service"  # Then implement pieces
 
 # Solution 3: Use descriptive complexity language
-/sc:implement "comprehensive microservices platform with authentication, API gateway, and database"
+/sg:implement "comprehensive microservices platform with authentication, API gateway, and database"
 
 # Prevention
 # Describe task complexity explicitly
@@ -265,27 +265,27 @@ grep "SuperGemini" ~/.gemini/GEMINI.md
 **Issue: Expected Agent Not Activating**
 ```bash
 # Example: Security agent not activating for security-related tasks
-/sc:implement "user login system"
+/sg:implement "user login system"
 # Expected: security-engineer activation
 # Actual: Only backend-architect activates
 
 # Diagnosis
 # Check agent trigger patterns
-/sc:explain "agent activation patterns for security tasks"
+/sg:explain "agent activation patterns for security tasks"
 
 # Solution 1: Use explicit security keywords
-/sc:implement "secure user authentication with JWT and encryption"
+/sg:implement "secure user authentication with JWT and encryption"
 # Keywords: "secure", "authentication", "encryption" trigger security-engineer
 
 # Solution 2: Use security terminology
-/sc:implement "secure user authentication with encryption and validation"
+/sg:implement "secure user authentication with encryption and validation"
 
 # Solution 3: Multi-keyword approach
-/sc:implement "user login with security best practices and vulnerability protection"
+/sg:implement "user login with security best practices and vulnerability protection"
 
 # Verification
 # Check which agents activated in response
-/sc:reflect "which agents were activated for the last task?"
+/sg:reflect "which agents were activated for the last task?"
 ```
 
 **Issue: Too Many Agents Activating**
@@ -293,18 +293,18 @@ grep "SuperGemini" ~/.gemini/GEMINI.md
 # Symptoms: Overwhelming agent coordination, slow performance
 
 # Example: Simple task activating multiple agents
-/sc:implement "add console.log statement"
+/sg:implement "add console.log statement"
 # Multiple agents activate unnecessarily
 
 # Solution 1: Reduce task scope
-/sc:implement "add debug logging to user.js line 45"
+/sg:implement "add debug logging to user.js line 45"
 # More specific, simpler task
 
 # Solution 2: Use scope limiting
-/sc:implement "logging" --scope file
+/sg:implement "logging" --scope file
 
 # Solution 3: Use simple task description
-/sc:implement "add console.log to function start"
+/sg:implement "add console.log to function start"
 
 # Prevention
 # Use specific, focused task descriptions
@@ -317,19 +317,19 @@ grep "SuperGemini" ~/.gemini/GEMINI.md
 
 # Diagnosis
 # Review agent recommendations and conflicts
-/sc:reflect "agent coordination issues in last task"
+/sg:reflect "agent coordination issues in last task"
 
 # Solution 1: Use domain-specific language
-/sc:implement "secure payment system with encryption and PCI compliance"
+/sg:implement "secure payment system with encryption and PCI compliance"
 # Use security keywords to activate security expertise
 
 # Solution 2: Sequential task breakdown
-/sc:analyze "payment system architecture requirements"
-/sc:implement "secure payment backend with JWT authentication"
-/sc:implement "responsive payment UI with form validation"
+/sg:analyze "payment system architecture requirements"
+/sg:implement "secure payment backend with JWT authentication"
+/sg:implement "responsive payment UI with form validation"
 
 # Solution 3: Single-domain focus
-/sc:implement "payment backend API with database integration"
+/sg:implement "payment backend API with database integration"
 
 # Prevention
 # Break complex tasks into domain-specific subtasks
@@ -341,7 +341,7 @@ grep "SuperGemini" ~/.gemini/GEMINI.md
 **Issue: Brainstorming Mode Not Activating**
 ```bash
 # Expected: Interactive discovery for vague requests
-/sc:brainstorm "build something for productivity"
+/sg:brainstorm "build something for productivity"
 # Should activate brainstorming mode but doesn't
 
 # Diagnosis
@@ -349,14 +349,14 @@ grep "SuperGemini" ~/.gemini/GEMINI.md
 echo "Requirements: vague project, needs discovery"
 
 # Solution 1: Use uncertainty indicators
-/sc:brainstorm "maybe we could build some kind of productivity tool"
+/sg:brainstorm "maybe we could build some kind of productivity tool"
 # Keywords: "maybe", "some kind of" trigger exploration
 
 # Solution 2: Use brainstorming language patterns
-/sc:brainstorm "let's explore what kind of productivity tool might work best"
+/sg:brainstorm "let's explore what kind of productivity tool might work best"
 
 # Solution 3: Question-based approach
-/sc:brainstorm "not sure what kind of productivity solution we need"
+/sg:brainstorm "not sure what kind of productivity solution we need"
 
 # Verification
 # Mode should respond with Socratic questions
@@ -367,17 +367,17 @@ echo "Requirements: vague project, needs discovery"
 # Symptoms: Simple task gets complex project management treatment
 
 # Example
-/sc:implement "fix typo in README"
+/sg:implement "fix typo in README"
 # Activates task management mode unnecessarily
 
 # Solution 1: Use simple language
-/sc:implement "correct spelling error in README.md"
+/sg:implement "correct spelling error in README.md"
 
 # Solution 2: Scope limitation
-/sc:implement "typo fix" --scope file
+/sg:implement "typo fix" --scope file
 
 # Solution 3: Single-step indication
-/sc:implement "one-line fix in README"
+/sg:implement "one-line fix in README"
 
 # Prevention
 # Use simple, direct language for simple tasks
@@ -416,7 +416,7 @@ node -e "console.log('Node.js working')"
 npm test @context7/mcp-server
 
 # Verification
-/sc:implement "React component" --c7
+/sg:implement "React component" --c7
 # Should connect to Context7 for React patterns
 ```
 
@@ -435,15 +435,15 @@ top
 free -h
 
 # Solution 1: Reduce operation complexity
-/sc:implement "simpler task breakdown"  # Break complex task into smaller parts
+/sg:implement "simpler task breakdown"  # Break complex task into smaller parts
 
 # Solution 2: Restart Gemini CLI session
 # MCP servers restart with Gemini CLI session restart
 
 # Solution 3: Disable problematic server temporarily
-/sc:implement "task" --no-mcp
+/sg:implement "task" --no-mcp
 # or
-/sc:implement "task" --seq --magic  # Enable specific servers only
+/sg:implement "task" --seq --magic  # Enable specific servers only
 
 # Prevention
 # Monitor system resources before large operations
@@ -466,7 +466,7 @@ npm list -g @sequential/mcp-server
 # This restarts all MCP servers including Sequential
 
 # Solution 2: Use alternative reasoning approach
-/sc:analyze complex-problem
+/sg:analyze complex-problem
 # Use native Gemini reasoning without MCP servers
 
 # Solution 3: Reinstall Sequential MCP
@@ -474,7 +474,7 @@ npm uninstall -g @sequential/mcp-server
 npm install -g @sequential/mcp-server@latest
 
 # Verification
-/sc:troubleshoot "test complex debugging scenario" --seq
+/sg:troubleshoot "test complex debugging scenario" --seq
 # Should activate Sequential reasoning successfully
 ```
 
@@ -494,10 +494,10 @@ npm list -g @magic/ui-generator
 npm install -g @magic/ui-generator@latest
 
 # Solution 2: Use explicit Magic activation
-/sc:implement "React button component" --magic --ui
+/sg:implement "React button component" --magic --ui
 
 # Solution 3: Check component request format
-/sc:implement "modern responsive navigation component with accessibility"
+/sg:implement "modern responsive navigation component with accessibility"
 # More descriptive request for better Magic activation
 
 # Verification
@@ -518,13 +518,13 @@ npx playwright install
 npx playwright install-deps
 
 # Solution 2: Specify browser explicitly
-/sc:test "login flow" --browser chromium --playwright
+/sg:test "login flow" --browser chromium --playwright
 
 # Solution 3: Fallback to headless mode
-/sc:test "ui validation" --headless --playwright
+/sg:test "ui validation" --headless --playwright
 
 # Verification
-/sc:test "simple page load test" --play
+/sg:test "simple page load test" --play
 # Should successfully run browser automation
 ```
 
@@ -539,18 +539,18 @@ npx playwright install-deps
 # Diagnosis
 # Check session persistence
 ls ~/.gemini/sessions/
-/sc:load  # Lists available sessions
+/sg:load  # Lists available sessions
 
 # Solution 1: Save session before closing
-/sc:save "current-work-session"
+/sg:save "current-work-session"
 # Before closing Gemini CLI
 
 # Solution 2: Enable regular session saving
-# Use /sc:save periodically during long sessions
+# Use /sg:save periodically during long sessions
 
 # Solution 3: Manual session recovery
-/sc:load "last-session"
-/sc:reflect "previous work context"
+/sg:load "last-session"
+/sg:reflect "previous work context"
 
 # Prevention
 # Always save important session state
@@ -568,14 +568,14 @@ ls -la ~/.gemini/sessions/
 file ~/.gemini/sessions/session-*.json
 
 # Solution 1: Restore from backup
-/sc:load "backup-session-20241201"  # Use backup session
+/sg:load "backup-session-20241201"  # Use backup session
 
 # Solution 2: Partial context recovery
-/sc:reflect "what do I remember about the project?"
+/sg:reflect "what do I remember about the project?"
 # Manually rebuild context
 
 # Solution 3: Fresh session with project analysis
-/sc:analyze project-directory/
+/sg:analyze project-directory/
 # Start fresh with new project analysis
 
 # Prevention
@@ -589,22 +589,22 @@ file ~/.gemini/sessions/session-*.json
 
 # Diagnosis
 # Compare session contexts
-/sc:load "session-1" && /sc:reflect "project understanding"
-/sc:load "session-2" && /sc:reflect "project understanding"
+/sg:load "session-1" && /sg:reflect "project understanding"
+/sg:load "session-2" && /sg:reflect "project understanding"
 
 # Solution 1: Consolidate session contexts
-/sc:load "session-1"
-/sc:save "consolidated-session"
-/sc:load "session-2"
-/sc:save "consolidated-session"
+/sg:load "session-1"
+/sg:save "consolidated-session"
+/sg:load "session-2"
+/sg:save "consolidated-session"
 
 # Solution 2: Rebuild authoritative context
-/sc:analyze project/ --scope project
-/sc:save "authoritative-project-context"
+/sg:analyze project/ --scope project
+/sg:save "authoritative-project-context"
 
 # Solution 3: Use session hierarchy
-/sc:load "main-project-session"  # Primary context
-/sc:load "feature-branch-session"
+/sg:load "main-project-session"  # Primary context
+/sg:load "feature-branch-session"
 
 # Prevention
 # Maintain single authoritative session per project
@@ -627,7 +627,7 @@ ls -la ~/.gemini/sessions/
 rm ~/.gemini/sessions/old-session-*.json
 
 # Solution 2: Archive current context and start fresh
-/sc:save "archived-context-$(date +%Y%m%d)"
+/sg:save "archived-context-$(date +%Y%m%d)"
 # Start a new Gemini CLI session for fresh memory
 
 # Solution 3: Regular session maintenance
@@ -769,12 +769,12 @@ ps aux | grep -i gemini
 top | grep -i gemini
 
 # Solution 1: Reduce operation scope
-/sc:analyze src/ --scope file          # Instead of entire project
-/sc:implement "simple task"            # Focus on simple tasks
+/sg:analyze src/ --scope file          # Instead of entire project
+/sg:implement "simple task"            # Focus on simple tasks
 
 # Solution 2: Use efficient command patterns
 # Focus on specific files instead of entire project
-/sc:analyze specific-file.py --scope file
+/sg:analyze specific-file.py --scope file
 
 # Solution 3: Clear session data and restart
 # Remove old session files if they exist
@@ -796,7 +796,7 @@ free -h
 ps aux --sort=-%mem | head -10
 
 # Solution 1: Limit operation scope
-/sc:analyze . --scope module  # Instead of entire project
+/sg:analyze . --scope module  # Instead of entire project
 
 # Solution 2: Clear session cache
 rm -rf ~/.gemini/sessions/old-*
@@ -820,14 +820,14 @@ rm -rf ~/.gemini/sessions/old-*
 npm list -g | grep -E "context7|sequential|magic|playwright"
 
 # Solution 1: Selective MCP server usage
-/sc:implement "task" --c7 --seq  # Use only needed servers
+/sg:implement "task" --c7 --seq  # Use only needed servers
 # Instead of --all-mcp
 
 # Solution 2: Restart Gemini CLI session
 # This restarts all MCP servers
 
 # Solution 3: Local fallback mode
-/sc:implement "task" --no-mcp
+/sg:implement "task" --no-mcp
 # Use native capabilities when MCP servers slow
 
 # Prevention
@@ -848,7 +848,7 @@ iotop
 netstat -i
 
 # Monitor Gemini CLI performance
-time /sc:analyze small-file.py  # Time simple operations
+time /sg:analyze small-file.py  # Time simple operations
 
 # Analysis and optimization
 # Based on monitoring results:
@@ -865,7 +865,7 @@ time /sc:analyze small-file.py  # Time simple operations
 **Error: "Command not recognized"**
 ```bash
 # Full error message
-ERROR: Command '/sc:analyze' not recognized by Gemini CLI
+ERROR: Command '/sg:analyze' not recognized by Gemini CLI
 
 # Meaning: SuperGemini instructions not loaded into Gemini CLI session
 # Resolution:
@@ -897,7 +897,7 @@ ERROR: MCP server 'context7' connection failed - server not responding
 1. Check Node.js installation: node --version (should be 16+)
 2. Reinstall MCP servers: python3 -m SuperGemini install --components mcp --force
 3. Check server installation: npm list -g | grep -E "context7|sequential|magic"
-4. Test without MCP: /sc:command --no-mcp
+4. Test without MCP: /sg:command --no-mcp
 ```
 
 **Error: "Session context corrupted"**
@@ -907,10 +907,10 @@ ERROR: Cannot load session - data corruption detected
 
 # Meaning: Session file damaged or incompatible format
 # Resolution:
-1. Try backup session: /sc:load "backup-session-name"
-2. List available sessions: /sc:load (shows all sessions)
-3. Start fresh: /sc:analyze project-directory/
-4. Rebuild context: /sc:analyze . && /sc:save "new-session"
+1. Try backup session: /sg:load "backup-session-name"
+2. List available sessions: /sg:load (shows all sessions)
+3. Start fresh: /sg:analyze project-directory/
+4. Rebuild context: /sg:analyze . && /sg:save "new-session"
 ```
 
 **Error: "Agent activation failed"**
@@ -920,9 +920,9 @@ ERROR: No suitable agent found for task complexity
 
 # Meaning: Task description insufficient for agent selection
 # Resolution:
-1. Add specific keywords: /sc:implement "React TypeScript component with security validation"
-2. Use explicit focus: /sc:implement "React component with TypeScript and accessibility"
-3. Break down complex tasks: /sc:analyze "complex task requirements" first, then implement pieces
+1. Add specific keywords: /sg:implement "React TypeScript component with security validation"
+2. Use explicit focus: /sg:implement "React component with TypeScript and accessibility"
+3. Break down complex tasks: /sg:analyze "complex task requirements" first, then implement pieces
 ```
 
 ### Error Interpretation Strategies
@@ -1060,7 +1060,7 @@ A: Use descriptive keywords related to your domain (e.g., "secure" for security-
 A: Yes, use server-specific flags like `--c7` (Context7), `--seq` (Sequential), `--magic` (Magic UI), or `--no-mcp` for none.
 
 **Q: How do I save and resume work sessions?**
-A: Use `/sc:save "session-name"` to save and `/sc:load "session-name"` to resume. See [Session Management](../User-Guide/session-management.md) for details.
+A: Use `/sg:save "session-name"` to save and `/sg:load "session-name"` to resume. See [Session Management](../User-Guide/session-management.md) for details.
 
 **Q: What's the difference between modes and agents?**
 A: Modes control behavior style (brainstorming, task management, etc.). Agents provide domain expertise (security, frontend, etc.). They work together automatically.
@@ -1104,7 +1104,7 @@ ls ~/.gemini/                           # Check installation
 cat ~/.gemini/GEMINI.md | grep "@"      # Check imports
 
 # Test core functionality in Gemini CLI
-# Try: /sc:analyze README.md
+# Try: /sg:analyze README.md
 ```
 
 **Component-Specific Diagnostics:**
@@ -1166,11 +1166,11 @@ free -h                    # Check available memory (1GB+ recommended)
 ```bash
 # Establish performance baselines
 time python3 -m SuperGemini --version    # Basic command speed
-time /sc:analyze README.md               # Simple analysis speed test  
+time /sg:analyze README.md               # Simple analysis speed test  
 
 # Test with different scopes
-time /sc:analyze . --scope file          # File-scoped analysis
-time /sc:analyze . --scope module        # Module-scoped analysis
+time /sg:analyze . --scope file          # File-scoped analysis
+time /sg:analyze . --scope module        # Module-scoped analysis
 ```
 
 ---
@@ -1236,4 +1236,4 @@ If SuperGemini is completely non-functional:
 After every solution, verify with these commands:
 - ✅ `python3 -m SuperGemini --version` - Should return version number
 - ✅ `cat ~/.gemini/GEMINI.md | grep SuperGemini` - Should show framework content
-- ✅ Try `/sc:analyze README.md` in Gemini CLI - Should work without errors
+- ✅ Try `/sg:analyze README.md` in Gemini CLI - Should work without errors

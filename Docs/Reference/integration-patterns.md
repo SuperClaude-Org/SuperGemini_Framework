@@ -24,7 +24,7 @@
 ### React Ecosystem Integration
 ```bash
 # Modern React development with full ecosystem
-/sc:implement "React 18 application with Next.js, TypeScript, and modern tooling" --c7 --orchestrate
+/sg:implement "React 18 application with Next.js, TypeScript, and modern tooling" --c7 --orchestrate
 
 # Comprehensive React setup:
 # - Next.js 14 with App Router and Server Components
@@ -41,11 +41,11 @@
 # ✅ Verified: SuperGemini v4.0
 
 # Advanced React patterns
-/sc:implement "React performance optimization with Suspense, lazy loading, and memoization" --focus performance --c7
+/sg:implement "React performance optimization with Suspense, lazy loading, and memoization" --focus performance --c7
 # Expected: Performance-optimized React with modern patterns
 
 # React testing integration
-/sc:test --focus react --type comprehensive --orchestrate
+/sg:test --focus react --type comprehensive --orchestrate
 # Expected: React Testing Library, Jest, Playwright E2E tests
 # ✅ Verified: SuperGemini v4.0
 ```
@@ -53,7 +53,7 @@
 ### Node.js Backend Integration
 ```bash
 # Enterprise Node.js backend with comprehensive tooling
-/sc:implement "Node.js TypeScript backend with Express, Prisma, and monitoring" --orchestrate --c7
+/sg:implement "Node.js TypeScript backend with Express, Prisma, and monitoring" --orchestrate --c7
 
 # Full backend integration:
 # - Express.js with TypeScript and middleware
@@ -65,11 +65,11 @@
 # - API documentation with OpenAPI/Swagger
 
 # Advanced backend patterns
-/sc:implement "microservices communication with message queues and service discovery" --focus architecture --orchestrate
+/sg:implement "microservices communication with message queues and service discovery" --focus architecture --orchestrate
 # Expected: RabbitMQ/Redis messaging, service registry, API gateway
 
 # Backend testing and validation
-/sc:test --focus api --type integration --security --orchestrate
+/sg:test --focus api --type integration --security --orchestrate
 # Expected: API testing, security validation, load testing
 # ✅ Verified: SuperGemini v4.0
 ```
@@ -77,7 +77,7 @@
 ### Python Ecosystem Integration
 ```bash
 # Modern Python web development
-/sc:implement "FastAPI application with async PostgreSQL, Redis, and background tasks" --c7 --orchestrate
+/sg:implement "FastAPI application with async PostgreSQL, Redis, and background tasks" --c7 --orchestrate
 
 # Python web integration:
 # - FastAPI with async/await patterns
@@ -89,11 +89,11 @@
 # - Pytest with async support
 
 # Data science integration
-/sc:implement "Python data pipeline with pandas, scikit-learn, and visualization" --focus performance
+/sg:implement "Python data pipeline with pandas, scikit-learn, and visualization" --focus performance
 # Expected: Optimized data processing with performance monitoring
 
 # Python testing and quality
-/sc:test --focus python --type comprehensive && /sc:analyze . --focus quality
+/sg:test --focus python --type comprehensive && /sg:analyze . --focus quality
 # Expected: Pytest, mypy, black, comprehensive quality assessment
 # ✅ Verified: SuperGemini v4.0
 ```
@@ -101,7 +101,7 @@
 ### DevOps and Infrastructure Integration
 ```bash
 # Comprehensive DevOps pipeline
-/sc:implement "DevOps pipeline with Docker, Kubernetes, and monitoring" --orchestrate --all-mcp
+/sg:implement "DevOps pipeline with Docker, Kubernetes, and monitoring" --orchestrate --all-mcp
 
 # DevOps integration:
 # - Docker multi-stage builds with optimization
@@ -113,11 +113,11 @@
 # - HashiCorp Vault for secrets management
 
 # Infrastructure as Code
-/sc:implement "Terraform infrastructure with AWS/GCP/Azure integration" --focus infrastructure
+/sg:implement "Terraform infrastructure with AWS/GCP/Azure integration" --focus infrastructure
 # Expected: Complete IaC with provider-specific optimizations
 
 # Security and compliance integration
-/sc:implement "DevSecOps pipeline with security scanning and compliance" --focus security --orchestrate
+/sg:implement "DevSecOps pipeline with security scanning and compliance" --focus security --orchestrate
 # Expected: Security scanning, compliance validation, automated remediation
 ```
 
@@ -126,7 +126,7 @@
 ### Full-Stack Development Coordination
 ```bash
 # Coordinated full-stack development with optimal tool selection
-/sc:spawn "full-stack e-commerce platform" --orchestrate --all-mcp
+/sg:spawn "full-stack e-commerce platform" --orchestrate --all-mcp
 
 # Tool coordination matrix:
 # Frontend: Magic MCP + Context7 (React patterns)
@@ -146,7 +146,7 @@
 ### API-First Development Pattern
 ```bash
 # API-first development with consumer-driven contracts
-/sc:implement "API-first development with OpenAPI specification and contract testing" --c7 --orchestrate
+/sg:implement "API-first development with OpenAPI specification and contract testing" --c7 --orchestrate
 
 # API-first coordination:
 # 1. OpenAPI specification design with stakeholder input
@@ -166,7 +166,7 @@
 ### Microservices Coordination Pattern
 ```bash
 # Microservices development with service mesh integration
-/sc:implement "microservices platform with service mesh and observability" --orchestrate --ultrathink
+/sg:implement "microservices platform with service mesh and observability" --orchestrate --ultrathink
 
 # Microservices coordination:
 # Service 1: User management (authentication, profiles)
@@ -194,7 +194,7 @@
 ### Frontend Performance Optimization
 ```bash
 # Comprehensive frontend performance optimization
-/sc:analyze frontend/ --focus performance --ultrathink --all-mcp
+/sg:analyze frontend/ --focus performance --ultrathink --all-mcp
 
 # Performance analysis areas:
 # - Bundle analysis and tree shaking optimization
@@ -204,7 +204,7 @@
 # - Core Web Vitals and performance metrics
 # - Memory leak detection and prevention
 
-/sc:implement "frontend performance optimizations" --focus performance --orchestrate
+/sg:implement "frontend performance optimizations" --focus performance --orchestrate
 # Expected optimizations:
 # - Webpack/Vite bundle optimization
 # - React performance patterns (memoization, lazy loading)
@@ -213,7 +213,7 @@
 # - Performance monitoring with Real User Monitoring (RUM)
 
 # Performance validation
-/sc:test --focus performance --type frontend --orchestrate
+/sg:test --focus performance --type frontend --orchestrate
 # Expected: Lighthouse audits, Core Web Vitals measurement, load testing
 # ✅ Verified: SuperGemini v4.0
 ```
@@ -221,7 +221,7 @@
 ### Backend Performance Optimization
 ```bash
 # Database and API performance optimization
-/sc:analyze backend/ --focus performance --think-hard --serena
+/sg:analyze backend/ --focus performance --think-hard --serena
 
 # Backend performance areas:
 # - Database query optimization and indexing
@@ -230,7 +230,7 @@
 # - Concurrency patterns and async optimization
 # - Connection pooling and resource management
 
-/sc:implement "backend performance optimizations" --focus performance --orchestrate
+/sg:implement "backend performance optimizations" --focus performance --orchestrate
 # Expected optimizations:
 # - Database query optimization with indexing
 # - Redis caching for frequently accessed data
@@ -239,14 +239,14 @@
 # - Background job processing with queues
 
 # Performance monitoring integration
-/sc:implement "APM integration with New Relic, DataDog, or similar" --focus performance
+/sg:implement "APM integration with New Relic, DataDog, or similar" --focus performance
 # Expected: Application Performance Monitoring with alerting and optimization insights
 ```
 
 ### Database Performance Optimization
 ```bash
 # Comprehensive database performance optimization
-/sc:analyze database/ --focus performance --ultrathink
+/sg:analyze database/ --focus performance --ultrathink
 
 # Database optimization areas:
 # - Query performance analysis and optimization
@@ -255,7 +255,7 @@
 # - Caching strategies (query cache, Redis, Memcached)
 # - Database scaling patterns (read replicas, sharding)
 
-/sc:implement "database performance optimizations" --focus performance --orchestrate
+/sg:implement "database performance optimizations" --focus performance --orchestrate
 # Expected optimizations:
 # - Query optimization with EXPLAIN analysis
 # - Strategic indexing for common query patterns
@@ -264,7 +264,7 @@
 # - Read replica setup for read-heavy workloads
 
 # Database monitoring and alerting
-/sc:implement "database monitoring with Prometheus and custom metrics"
+/sg:implement "database monitoring with Prometheus and custom metrics"
 # Expected: Database metrics collection, alerting, and optimization recommendations
 ```
 
@@ -273,7 +273,7 @@
 ### Distributed System Debugging
 ```bash
 # Complex distributed system troubleshooting
-/sc:troubleshoot "intermittent service failures in microservices architecture" --think-hard --all-mcp
+/sg:troubleshoot "intermittent service failures in microservices architecture" --think-hard --all-mcp
 
 # Systematic debugging approach:
 # 1. Service dependency mapping and health analysis
@@ -298,7 +298,7 @@
 ### Performance Regression Analysis
 ```bash
 # Performance regression troubleshooting and analysis
-/sc:troubleshoot "application performance degraded 50% after deployment" --focus performance --ultrathink
+/sg:troubleshoot "application performance degraded 50% after deployment" --focus performance --ultrathink
 
 # Performance regression analysis:
 # 1. Deployment change analysis and impact assessment
@@ -314,14 +314,14 @@
 # - Network latency and external service impact
 # - Caching effectiveness and hit rate analysis
 
-/sc:implement "performance regression fixes and prevention" --focus performance --orchestrate
+/sg:implement "performance regression fixes and prevention" --focus performance --orchestrate
 # Expected: Performance fixes, monitoring improvements, regression prevention
 ```
 
 ### Security Incident Response
 ```bash
 # Security incident analysis and response
-/sc:troubleshoot "suspected security breach with unauthorized access" --focus security --ultrathink --all-mcp
+/sg:troubleshoot "suspected security breach with unauthorized access" --focus security --ultrathink --all-mcp
 
 # Security incident response workflow:
 # 1. Immediate threat assessment and containment
@@ -349,7 +349,7 @@
 ### Comprehensive Observability Stack
 ```bash
 # Full observability implementation with best practices
-/sc:implement "comprehensive observability with metrics, logs, traces, and alerting" --orchestrate --all-mcp
+/sg:implement "comprehensive observability with metrics, logs, traces, and alerting" --orchestrate --all-mcp
 
 # Observability stack components:
 # Metrics: Prometheus + Grafana with custom dashboards
@@ -375,7 +375,7 @@
 ### Performance Monitoring and Optimization
 ```bash
 # Advanced performance monitoring with optimization automation
-/sc:implement "performance monitoring with automated optimization recommendations" --focus performance --orchestrate
+/sg:implement "performance monitoring with automated optimization recommendations" --focus performance --orchestrate
 
 # Performance monitoring components:
 # Real User Monitoring (RUM): Frontend performance metrics
@@ -395,7 +395,7 @@
 ### Business Intelligence and Analytics Integration
 ```bash
 # Business intelligence integration with development metrics
-/sc:implement "development metrics and business intelligence integration" --focus analytics --orchestrate
+/sg:implement "development metrics and business intelligence integration" --focus analytics --orchestrate
 
 # Development metrics integration:
 # - Code quality metrics (test coverage, code complexity)
@@ -417,7 +417,7 @@
 ### Mobile and Web Integration
 ```bash
 # Unified mobile and web development with shared components
-/sc:implement "cross-platform application with React Native and Next.js" --orchestrate --c7
+/sg:implement "cross-platform application with React Native and Next.js" --orchestrate --c7
 
 # Cross-platform integration:
 # Shared Components: React Native Web for component reuse
@@ -436,7 +436,7 @@
 ### Cloud Provider Integration
 ```bash
 # Multi-cloud strategy with provider-agnostic patterns
-/sc:implement "multi-cloud application with AWS, GCP, and Azure support" --focus infrastructure --orchestrate
+/sg:implement "multi-cloud application with AWS, GCP, and Azure support" --focus infrastructure --orchestrate
 
 # Multi-cloud integration patterns:
 # Container Orchestration: Kubernetes for consistent deployment
@@ -457,7 +457,7 @@
 ### Comprehensive Testing Strategy
 ```bash
 # Full testing pyramid with all testing types
-/sc:test --focus comprehensive --type all-layers --orchestrate
+/sg:test --focus comprehensive --type all-layers --orchestrate
 
 # Testing integration layers:
 # Unit Tests: Jest, Vitest, or pytest with high coverage
@@ -479,7 +479,7 @@
 ### Quality Gates and Automation
 ```bash
 # Automated quality gates with comprehensive validation
-/sc:implement "quality gates with automated validation and deployment blocking" --focus quality --orchestrate
+/sg:implement "quality gates with automated validation and deployment blocking" --focus quality --orchestrate
 
 # Quality gate components:
 # Code Quality: ESLint, SonarQube, CodeClimate integration
@@ -501,7 +501,7 @@
 ### Resource Optimization and Cost Management
 ```bash
 # Comprehensive resource optimization with cost analysis
-/sc:analyze . --focus performance --ultrathink --all-mcp && /sc:implement "resource optimization with cost analysis" --focus performance
+/sg:analyze . --focus performance --ultrathink --all-mcp && /sg:implement "resource optimization with cost analysis" --focus performance
 
 # Resource optimization areas:
 # Compute Resources: CPU and memory optimization
@@ -521,7 +521,7 @@
 ### Scalability and High Availability Patterns
 ```bash
 # Enterprise scalability and high availability implementation
-/sc:implement "scalability and high availability with disaster recovery" --focus architecture --orchestrate
+/sg:implement "scalability and high availability with disaster recovery" --focus architecture --orchestrate
 
 # Scalability patterns:
 # Horizontal Scaling: Load balancing and auto-scaling

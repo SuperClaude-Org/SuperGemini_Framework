@@ -12,15 +12,15 @@ Before using this guide, verify modes activate correctly:
 
 ```bash
 # Test Brainstorming mode
-/sc:brainstorm "vague project idea"
+/sg:brainstorm "vague project idea"
 # Expected: Should ask discovery questions, not give immediate solutions
 
 # Test Task Management mode  
-/sc:implement "complex multi-file feature"
+/sg:implement "complex multi-file feature"
 # Expected: Should break down into phases and coordinate steps
 
 # Test Token Efficiency mode
-/sc:analyze large-project/ --uc
+/sg:analyze large-project/ --uc
 # Expected: Should use symbols and compressed output format
 ```
 
@@ -46,8 +46,8 @@ Before using this guide, verify modes activate correctly:
 **Quick Examples:**
 ```bash
 # Automatic activation examples
-/sc:brainstorm "mobile app"        # → Socratic discovery questions
-/sc:implement "auth system"        # → Multi-phase coordination  
+/sg:brainstorm "mobile app"        # → Socratic discovery questions
+/sg:implement "auth system"        # → Multi-phase coordination  
 "--uc analyze large-codebase/"     # → Compressed symbol output
 ```
 
@@ -95,7 +95,7 @@ Brainstorming Approach:
 - [ ] Maintains collaborative tone throughout discovery process
 - [ ] Produces structured requirements or technical brief as outcome
 
-**Verify:** `/sc:brainstorm "web app"` should ask about users, features, technology  
+**Verify:** `/sg:brainstorm "web app"` should ask about users, features, technology  
 **Test:** Vague requests should trigger discovery questions, not assumptions  
 **Check:** Mode should persist across follow-up questions in same conversation
 
@@ -296,12 +296,12 @@ Standard Approach: Consistent, professional baseline for all tasks
 **Multi-Mode Workflows:**
 ```bash
 # Discovery → Planning → Implementation
-/sc:brainstorm "microservices architecture" --task-manage
+/sg:brainstorm "microservices architecture" --task-manage
 # → Brainstorming: requirement discovery
 # → Task Management: multi-phase coordination
 
 # Analysis with transparency and efficiency
-/sc:analyze legacy-system/ --introspect --uc
+/sg:analyze legacy-system/ --introspect --uc
 # → Introspection: transparent reasoning
 # → Token Efficiency: compressed output
 ```
@@ -318,13 +318,13 @@ Standard Approach: Consistent, professional baseline for all tasks
 **Override Examples:**
 ```bash
 # Force brainstorming on "clear" requirements
-/sc:implement "user login" --brainstorm
+/sg:implement "user login" --brainstorm
 
 # Add reasoning transparency to debugging
-/sc:fix auth-issue --introspect
+/sg:fix auth-issue --introspect
 
 # Enable task management for simple operations
-/sc:update styles.css --task-manage
+/sg:update styles.css --task-manage
 ```
 
 ### Mode Boundaries and Priority
@@ -356,12 +356,12 @@ Standard Approach: Consistent, professional baseline for all tasks
 → 📝 Structured requirements brief
 
 # Phase 2: Planning (Task Management Mode auto-activates)  
-/sc:implement "core productivity features"
+/sg:implement "core productivity features"
 → 📋 Multi-phase breakdown with dependencies
 → 🎯 Phase coordination with quality gates
 
 # Phase 3: Implementation (Orchestration Mode coordinates tools)
-/sc:develop frontend + backend
+/sg:develop frontend + backend
 → 🎯 Magic (UI) + Context7 (patterns) + Sequential (architecture)
 → ⚡ Parallel execution optimization
 ```
@@ -375,7 +375,7 @@ Standard Approach: Consistent, professional baseline for all tasks
 → 💡 Pattern recognition across similar issues
 
 # Systematic resolution (Task Management coordinates)
-/sc:fix auth-system --comprehensive
+/sg:fix auth-system --comprehensive
 → 📋 Phase 1: Root cause analysis
 → 📋 Phase 2: Solution implementation  
 → 📋 Phase 3: Testing and validation
@@ -386,7 +386,7 @@ Standard Approach: Consistent, professional baseline for all tasks
 **High-Complexity Scenarios:**
 ```bash
 # Large refactoring with multiple constraints
-/sc:modernize legacy-system/ --introspect --uc --orchestrate
+/sg:modernize legacy-system/ --introspect --uc --orchestrate
 → 🔍 Transparent reasoning (Introspection)
 → ⚡ Compressed communication (Token Efficiency)  
 → 🎯 Optimal tool coordination (Orchestration)
@@ -412,15 +412,15 @@ Standard Approach: Consistent, professional baseline for all tasks
 
 ```bash
 # Force specific mode behaviors
-/sc:command --brainstorm    # Collaborative discovery
-/sc:command --introspect    # Reasoning transparency
-/sc:command --task-manage   # Hierarchical coordination
-/sc:command --orchestrate   # Tool optimization
-/sc:command --uc           # Token compression
+/sg:command --brainstorm    # Collaborative discovery
+/sg:command --introspect    # Reasoning transparency
+/sg:command --task-manage   # Hierarchical coordination
+/sg:command --orchestrate   # Tool optimization
+/sg:command --uc           # Token compression
 
 # Combine multiple modes
-/sc:command --introspect --uc    # Transparent + efficient
-/sc:command --task-manage --orchestrate  # Coordinated + optimized
+/sg:command --introspect --uc    # Transparent + efficient
+/sg:command --task-manage --orchestrate  # Coordinated + optimized
 ```
 
 ---
@@ -446,7 +446,7 @@ Standard Approach: Consistent, professional baseline for all tasks
 ```bash
 # Problem: Mode gives solutions instead of asking questions
 # Quick Fix: Check request clarity and use explicit flag
-/sc:brainstorm "web app" --brainstorm         # Force discovery mode
+/sg:brainstorm "web app" --brainstorm         # Force discovery mode
 "I have a vague idea about..."                # Use uncertainty language
 "Maybe we could build..."                     # Trigger exploration
 ```
@@ -455,8 +455,8 @@ Standard Approach: Consistent, professional baseline for all tasks
 ```bash
 # Problem: Simple tasks getting complex coordination
 # Quick Fix: Reduce scope or use simpler commands
-/sc:implement "function" --no-task-manage     # Disable coordination
-/sc:simple-fix bug.js                         # Use basic commands
+/sg:implement "function" --no-task-manage     # Disable coordination
+/sg:simple-fix bug.js                         # Use basic commands
 # Check if task really is complex (>3 files, >2 directories)
 ```
 
@@ -464,8 +464,8 @@ Standard Approach: Consistent, professional baseline for all tasks
 ```bash
 # Problem: Output too compressed or unclear
 # Quick Fix: Disable compression for clarity
-/sc:command --no-uc                           # Disable compression
-/sc:command --verbose                         # Force detailed output
+/sg:command --no-uc                           # Disable compression
+/sg:command --verbose                         # Force detailed output
 # Use when clarity is more important than efficiency
 ```
 
@@ -473,7 +473,7 @@ Standard Approach: Consistent, professional baseline for all tasks
 ```bash
 # Problem: Too much meta-commentary, not enough action
 # Quick Fix: Disable introspection for direct work
-/sc:command --no-introspect                   # Direct execution
+/sg:command --no-introspect                   # Direct execution
 # Use introspection only for learning and debugging
 ```
 
@@ -481,8 +481,8 @@ Standard Approach: Consistent, professional baseline for all tasks
 ```bash
 # Problem: Tool coordination causing confusion
 # Quick Fix: Simplify tool usage
-/sc:command --no-mcp                          # Native tools only
-/sc:command --simple                          # Basic execution
+/sg:command --no-mcp                          # Native tools only
+/sg:command --simple                          # Basic execution
 # Check if task complexity justifies orchestration
 ```
 
@@ -509,8 +509,8 @@ Standard Approach: Consistent, professional baseline for all tasks
 **Level 2: Detailed Help (5-15 min)**
 ```bash
 # Mode-specific diagnostics
-/sc:help modes                            # List all available modes
-/sc:reflect --type mode-status            # Check current mode state
+/sg:help modes                            # List all available modes
+/sg:reflect --type mode-status            # Check current mode state
 # Review request complexity and triggers
 ```
 - See [Common Issues Guide](../Reference/common-issues.md) for mode installation problems
@@ -558,10 +558,10 @@ A: Look for these indicators in communication patterns:
 **Q: Can I force specific modes?**
 A: Yes, use manual flags to override automatic detection:
 ```bash
-/sc:command --brainstorm     # Force discovery
-/sc:command --introspect     # Add transparency
-/sc:command --task-manage    # Enable coordination
-/sc:command --uc            # Compress output
+/sg:command --brainstorm     # Force discovery
+/sg:command --introspect     # Add transparency
+/sg:command --task-manage    # Enable coordination
+/sg:command --uc            # Compress output
 ```
 
 **Q: Do modes affect performance?**

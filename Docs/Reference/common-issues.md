@@ -4,7 +4,7 @@
 
 **For Detailed Help**: If these quick fixes don't work, see the [Comprehensive Troubleshooting Guide](troubleshooting.md) for detailed solutions.
 
-> **Command Context**: **🖥️ Terminal Commands** (for installation) vs **💬 Gemini CLI Commands** (`/sc:` for development)
+> **Command Context**: **🖥️ Terminal Commands** (for installation) vs **💬 Gemini CLI Commands** (`/sg:` for development)
 
 ## Top 10 Quick Fixes
 
@@ -51,7 +51,7 @@ python3 -m SuperGemini install --components mcp --force
 ---
 
 ### 4. 💬 Commands Not Working in Gemini CLI
-**Error**: `/sc:help` command not recognized
+**Error**: `/sg:help` command not recognized
 
 **Quick Fix**:
 1. Restart Gemini CLI completely
@@ -95,7 +95,7 @@ python -m SuperGemini install --install-dir "%CLAUDE_CONFIG_DIR%"
 
 **Quick Fix**:
 1. Press Ctrl+C to cancel
-2. Try smaller scope: `/sc:analyze src/` instead of entire project
+2. Try smaller scope: `/sg:analyze src/` instead of entire project
 3. Restart Gemini CLI session
 
 [Detailed Help →](troubleshooting.md#command-timeout-or-hanging)
@@ -160,7 +160,7 @@ python3 -m SuperGemini --version && echo "✅ Installation OK"
 ```
 
 **Test Gemini CLI Integration**:
-Type `/sc:help` in Gemini CLI - should show available commands.
+Type `/sg:help` in Gemini CLI - should show available commands.
 
 ---
 

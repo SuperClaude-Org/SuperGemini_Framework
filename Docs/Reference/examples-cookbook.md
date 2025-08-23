@@ -75,14 +75,14 @@
 ## Verified Commands Reference
 
 **Core Commands** (all verified SuperGemini v4.0):
-- `/sc:brainstorm` - Interactive requirements discovery
-- `/sc:analyze` - Codebase analysis and assessment
-- `/sc:implement` - Feature implementation with best practices
-- `/sc:troubleshoot` - Systematic problem diagnosis
-- `/sc:test` - Comprehensive testing and validation
-- `/sc:spawn` - Complex multi-agent coordination
-- `/sc:load` / `/sc:save` - Session management
-- `/sc:reflect` - Context analysis and optimization
+- `/sg:brainstorm` - Interactive requirements discovery
+- `/sg:analyze` - Codebase analysis and assessment
+- `/sg:implement` - Feature implementation with best practices
+- `/sg:troubleshoot` - Systematic problem diagnosis
+- `/sg:test` - Comprehensive testing and validation
+- `/sg:spawn` - Complex multi-agent coordination
+- `/sg:load` / `/sg:save` - Session management
+- `/sg:reflect` - Context analysis and optimization
 
 **Verified Flags**:
 - `--think`, `--think-hard`, `--ultrathink` - Analysis depth control

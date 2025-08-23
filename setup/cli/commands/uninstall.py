@@ -73,7 +73,7 @@ class SuperGeminiFileDetector:
         
         # Directory patterns that contain SuperGemini files
         self.supergemini_directories = {
-            'commands/sc',
+            'commands/sg',
             'agents/supergemini',
             'logs/supergemini',
             'backups/supergemini',
@@ -660,7 +660,7 @@ def _custom_component_selection(installed_components: Dict[str, str], env_vars: 
     
     component_descriptions = {
         'core': 'Core Framework Files (GEMINI.md, FLAGS.md, PRINCIPLES.md, etc.)',
-        'commands': 'SuperGemini Commands (commands/sc/*.md)',
+        'commands': 'SuperGemini Commands (commands/sg/*.md)',
         'mcp': 'MCP Server Configurations',
         'mcp_docs': 'MCP Documentation',
         'modes': 'SuperGemini Modes'
@@ -749,7 +749,7 @@ def interactive_uninstall_selection(installed_components: Dict[str, str]) -> Opt
 def display_preservation_info() -> None:
     """Show what will NOT be removed (user's custom files)"""
     print(f"\n{Colors.GREEN}{Colors.BRIGHT}Files that will be preserved:{Colors.RESET}")
-    print(f"{Colors.GREEN}✓ User's custom commands (not in commands/sc/){Colors.RESET}")
+    print(f"{Colors.GREEN}✓ User's custom commands (not in commands/sg/){Colors.RESET}")
     print(f"{Colors.GREEN}✓ User's custom agents (not SuperGemini agents){Colors.RESET}")
     print(f"{Colors.GREEN}✓ User's custom .gemini.json configurations{Colors.RESET}")
     print(f"{Colors.GREEN}✓ User's custom files in shared directories{Colors.RESET}")
@@ -773,8 +773,8 @@ def display_component_details(component: str, info: Dict[str, Any]) -> Dict[str,
             'description': 'Core framework files in ~/.gemini/'
         },
         'commands': {
-            'files': 'commands/sc/*.md',
-            'description': 'SuperGemini commands in ~/.gemini/commands/sc/'
+            'files': 'commands/sg/*.md',
+            'description': 'SuperGemini commands in ~/.gemini/commands/sg/'
         },
         'mcp': {
             'files': 'MCP server configurations in .gemini.json',
@@ -834,7 +834,7 @@ def display_uninstall_plan(components: List[str], args: argparse.Namespace, info
     
     # Show detailed preservation information
     print(f"\n{Colors.GREEN}{Colors.BRIGHT}Enhanced Safety Guarantees - Will Preserve:{Colors.RESET}")
-    print(f"{Colors.GREEN}✓ User's custom commands (not in commands/sc/){Colors.RESET}")
+    print(f"{Colors.GREEN}✓ User's custom commands (not in commands/sg/){Colors.RESET}")
     print(f"{Colors.GREEN}✓ User's custom agents (not SuperGemini agents){Colors.RESET}")
     print(f"{Colors.GREEN}✓ User's .gemini.json customizations{Colors.RESET}")
     print(f"{Colors.GREEN}✓ Gemini CLI settings and other tools' configurations{Colors.RESET}")
@@ -936,22 +936,36 @@ def perform_enhanced_uninstall(components: List[str], args: argparse.Namespace, 
         removed_files = []
         failed_files = []
         
+        # Close log handlers first to prevent file lock issues
+        import logging
+        for handler in logger.handlers[:]:
+            if hasattr(handler, 'close'):
+                handler.close()
+            logger.removeHandler(handler)
+        
         for i, file_path in enumerate(supergemini_files):
             progress.update(i, f"Removing {file_path.name}")
             
             try:
                 if file_path.exists():
+                    # Special handling for log files - ensure they're not locked
+                    if '.log' in file_path.suffix or 'log' in file_path.name.lower():
+                        # Force close any file handles
+                        import gc
+                        gc.collect()
+                        time.sleep(0.1)  # Brief wait for file handles to release
+                    
                     if file_manager.remove_file(file_path):
                         removed_files.append(file_path)
-                        logger.debug(f"Successfully removed: {file_path}")
+                        print(f"✓ Successfully removed: {file_path}")
                     else:
                         failed_files.append(file_path)
-                        logger.warning(f"Failed to remove: {file_path}")
+                        print(f"✗ Failed to remove: {file_path}")
                 else:
-                    logger.debug(f"File already removed: {file_path}")
+                    print(f"- File already removed: {file_path}")
                     
             except Exception as e:
-                logger.error(f"Error removing {file_path}: {e}")
+                print(f"Error removing file {file_path}: {e}")
                 failed_files.append(file_path)
                 
             time.sleep(0.01)  # Brief pause

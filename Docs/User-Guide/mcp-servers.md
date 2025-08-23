@@ -13,14 +13,14 @@ Before using this guide, verify MCP servers are working:
 ```bash
 # Test server connectivity
 SuperGemini status --mcp
-# Expected: Shows connected servers (at minimum context7, sequential-thinking)
+# Expected: Shows connected servers (context7, sequential, magic, playwright, serena, morphllm)
 
 # Test Context7 server
-/sc:explain "React useEffect"
+/sg:explain "React useEffect"
 # Expected: Should fetch official React documentation
 
 # Test Sequential server  
-/sc:analyze complex-problem/ --think
+/sg:analyze complex-problem/ --think
 # Expected: Should show structured reasoning steps
 ```
 
@@ -37,11 +37,11 @@ echo "Test Context7 server" | gemini --test-mcp
 
 # 2. Quick success indicators you'll see:
 ✅ "context7: Connected" 
-✅ "sequential-thinking: Connected"
+✅ "sequential: Connected"
 ✅ "magic: Connected" (if API key configured)
 
 # 3. Try a simple command to see MCP in action
-/sc:explain "React useEffect" 
+/sg:explain "React useEffect" 
 # → You'll see Context7 automatically provide official React docs
 ```
 
@@ -54,16 +54,16 @@ echo "Test Context7 server" | gemini --test-mcp
 
 MCP (Model Context Protocol) servers are specialized tools that extend Gemini CLI's capabilities beyond native functionality. SuperGemini integrates 6 carefully selected MCP servers that automatically activate based on your tasks, providing enhanced documentation access, advanced reasoning, UI generation, browser automation, code transformation, and project memory.
 
-**Seamless Integration**: Type `/sc:implement "React dashboard"` → Magic MCP activates for UI generation. Type `/sc:analyze --think-hard` → Sequential MCP enables structured reasoning. The system intelligently selects the right tools for your context.
+**Seamless Integration**: Type `/sg:implement "React dashboard"` → Magic MCP activates for UI generation. Type `/sg:analyze --think-hard` → Sequential MCP enables structured reasoning. The system intelligently selects the right tools for your context.
 
 ## Overview
 
 **What MCP Servers Do:**
 - **context7**: Official library documentation and framework patterns  
-- **sequential-thinking**: Multi-step reasoning and hypothesis testing
+- **sequential**: Multi-step reasoning and hypothesis testing
 - **magic**: Modern UI component generation from 21st.dev patterns  
 - **playwright**: Real browser automation and E2E testing
-- **morphllm-fast-apply**: Efficient pattern-based code transformations
+- **morphllm**: Efficient pattern-based code transformations
 - **serena**: Semantic code understanding with project memory
 
 **How They Enhance SuperGemini:**
@@ -80,16 +80,16 @@ MCP (Model Context Protocol) servers are specialized tools that extend Gemini CL
 | Your Request Contains | Servers Activated | Priority Logic |
 |----------------------|-------------------|----------------|
 | `import`, `require`, API names | **context7** | Official docs always win |
-| `--think`, `--think-hard`, debugging | **sequential-thinking** | Structured analysis needed |
+| `--think`, `--think-hard`, debugging | **sequential** | Structured analysis needed |
 | `component`, `UI`, `/ui`, `form` | **magic** | UI generation required |
 | `test`, `e2e`, `browser`, `playwright` | **playwright** | Real browser automation |
-| Multi-file edits, `refactor` | **morphllm-fast-apply** | Pattern-based transformation |
+| Multi-file edits, `refactor` | **morphllm** | Pattern-based transformation |
 | `load`, `save`, large projects | **serena** | Project memory & navigation |
 
 **Decision Tree - What Happens When:**
 
 ```
-Your command: "/sc:implement user authentication"
+Your command: "/sg:implement user authentication"
     ↓
 1. Parse keywords: "implement", "user", "authentication"
     ↓
@@ -105,7 +105,7 @@ Your command: "/sc:implement user authentication"
 **Edge Cases & Conflicts:**
 - **Multiple triggers**: Higher priority server wins, others assist
 - **API keys missing**: Server skipped, fallback to native tools
-- **Performance limits**: Essential servers only (context7 + sequential-thinking)
+- **Performance limits**: Essential servers only (context7 + sequential)
 - **Manual override**: Your `--magic --no-serena` flags always respected
 
 ## Available MCP Servers
@@ -143,11 +143,11 @@ Your command: "/sc:implement user authentication"
 **Usage Examples:**
 ```bash
 # Automatic activation
-/sc:implement "React useEffect for data fetching"
+/sg:implement "React useEffect for data fetching"
 # → Context7 provides official React hooks documentation
 
 # Manual activation  
-/sc:analyze auth-system/ --c7
+/sg:analyze auth-system/ --c7
 # → Access authentication pattern libraries
 
 # What you'll see working:
@@ -156,7 +156,7 @@ Your command: "/sc:implement user authentication"
 ```
 
 **Verify:** Context7 should activate automatically for library imports  
-**Test:** `/sc:explain "Express middleware"` should fetch Express.js docs  
+**Test:** `/sg:explain "Express middleware"` should fetch Express.js docs  
 **Check:** Documentation should match current library versions
 
 **Best For:**
@@ -167,7 +167,7 @@ Your command: "/sc:implement user authentication"
 
 ---
 
-### sequential-thinking 🧠
+### sequential 🧠
 **NPM Package**: `@modelcontextprotocol/server-sequential-thinking` (v2025.7.1)
 
 **Purpose**: Structured multi-step reasoning and systematic analysis
@@ -195,11 +195,11 @@ Your command: "/sc:implement user authentication"
 **Usage Examples:**
 ```bash
 # Automatic activation
-/sc:troubleshoot "API performance degrading under load"
+/sg:troubleshoot "API performance degrading under load"
 # → Sequential enables systematic root cause analysis
 
 # Manual activation  
-/sc:analyze --think-hard microservices-architecture/
+/sg:analyze --think-hard microservices-architecture/
 # → Deep architectural analysis with structured reasoning
 
 # What you'll see working:
@@ -243,11 +243,11 @@ Your command: "/sc:implement user authentication"
 **Usage Examples:**
 ```bash
 # Automatic activation
-/sc:implement "responsive dashboard with data visualization" 
+/sg:implement "responsive dashboard with data visualization" 
 # → Magic generates modern UI components with accessibility
 
 # Manual activation
-/sc:design "e-commerce checkout flow" --magic
+/sg:design "e-commerce checkout flow" --magic
 # → UI-focused design with component generation
 
 # What you'll see working:
@@ -298,11 +298,11 @@ export TWENTYFIRST_API_KEY="your_key_here"
 **Usage Examples:**
 ```bash
 # Automatic activation
-/sc:test --type e2e "user registration flow"
+/sg:test --type e2e "user registration flow"
 # → Playwright automates browser testing
 
 # Manual activation
-/sc:validate "form accessibility compliance" --play
+/sg:validate "form accessibility compliance" --play
 # → Browser-based accessibility testing
 
 # What you'll see working:
@@ -319,7 +319,7 @@ export TWENTYFIRST_API_KEY="your_key_here"
 
 ---
 
-### morphllm-fast-apply 🔄
+### morphllm 🔄
 **NPM Package**: `@morph-llm/morph-fast-apply` (v0.6.8) - **Requires API Key**
 
 **Purpose**: Efficient pattern-based code transformations and bulk editing
@@ -346,11 +346,11 @@ export TWENTYFIRST_API_KEY="your_key_here"
 **Usage Examples:**
 ```bash
 # Automatic activation
-/sc:improve legacy-codebase/ --focus maintainability
+/sg:improve legacy-codebase/ --focus maintainability
 # → Morphllm applies consistent patterns across files
 
 # Manual activation
-/sc:cleanup src/ --morph
+/sg:cleanup src/ --morph
 # → Pattern-based code organization
 
 # What you'll see working:
@@ -396,17 +396,17 @@ export MORPH_API_KEY="your_key_here"
 **Auto-Activation Triggers:**
 - Symbol operations: rename, extract, move functions, find references
 - Project-wide code navigation: `navigate`, `find`, `search symbols`
-- Session management: `/sc:load`, `/sc:save`, project persistence
+- Session management: `/sg:load`, `/sg:save`, project persistence
 - Large codebase analysis requirements (>100 files)
 
 **Usage Examples:**
 ```bash
 # Automatic activation  
-/sc:load existing-project/
+/sg:load existing-project/
 # → Serena builds project understanding and memory
 
 # Manual activation
-/sc:refactor "extract UserService class" --serena
+/sg:refactor "extract UserService class" --serena
 # → Semantic-aware code restructuring
 
 # What you'll see working:
@@ -485,7 +485,7 @@ cat ~/.gemini.json | jq '.mcpServers'
       "command": "npx",
       "args": ["-y", "@upstash/context7-mcp@latest"]
     },
-    "sequential-thinking": {
+    "sequential": {
       "command": "npx", 
       "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"]
     },
@@ -530,19 +530,19 @@ SuperGemini analyzes your request and automatically selects optimal MCP servers:
 
 ```bash
 # Frontend development → Magic + Context7
-/sc:implement "responsive navigation component"
+/sg:implement "responsive navigation component"
 
 # Performance investigation → Sequential + Playwright  
-/sc:troubleshoot "page load time >3 seconds"
+/sg:troubleshoot "page load time >3 seconds"
 
 # Large refactoring → Serena + Morphllm + Sequential
-/sc:improve legacy-authentication-system/
+/sg:improve legacy-authentication-system/
 
 # Documentation lookup → Context7
-/sc:explain "React useCallback best practices"
+/sg:explain "React useCallback best practices"
 
 # Browser testing → Playwright + Sequential
-/sc:test --type e2e user-checkout-flow/
+/sg:test --type e2e user-checkout-flow/
 ```
 
 **Intelligence Behind Selection:**
@@ -557,35 +557,35 @@ SuperGemini analyzes your request and automatically selects optimal MCP servers:
 **Force Specific Servers:**
 ```bash
 # Enable specific servers
-/sc:analyze codebase/ --c7 --seq --serena
+/sg:analyze codebase/ --c7 --seq --serena
 
 # Disable all MCP servers
-/sc:implement "simple function" --no-mcp
+/sg:implement "simple function" --no-mcp
 
 # Enable all servers for maximum capability
-/sc:design "complex system architecture" --all-mcp
+/sg:design "complex system architecture" --all-mcp
 
 # Lightweight execution
-/sc:explain "function purpose" --no-mcp
+/sg:explain "function purpose" --no-mcp
 ```
 
 **Server Combination Strategies:**
 
 **Documentation + Analysis:**
 ```bash
-/sc:analyze security-patterns/ --c7 --seq
+/sg:analyze security-patterns/ --c7 --seq
 # → Context7 provides security patterns + Sequential analyzes implementation
 ```
 
 **UI Development:**
 ```bash
-/sc:implement "dashboard interface" --magic --c7 --play
+/sg:implement "dashboard interface" --magic --c7 --play
 # → Magic generates components + Context7 patterns + Playwright testing
 ```
 
 **Code Transformation:**
 ```bash
-/sc:improve legacy-code/ --serena --morph --seq
+/sg:improve legacy-code/ --serena --morph --seq
 # → Serena analyzes structure + Morphllm transforms + Sequential validates
 ```
 
@@ -593,7 +593,7 @@ SuperGemini analyzes your request and automatically selects optimal MCP servers:
 
 **Complex Workflow Example:**
 ```bash
-/sc:implement "e-commerce checkout system"
+/sg:implement "e-commerce checkout system"
 ```
 
 **Automatic Coordination:**
@@ -618,7 +618,7 @@ SuperGemini orchestrates multiple MCP servers for complex tasks:
 
 **Full-Stack Development Workflow:**
 ```bash
-/sc:implement "real-time chat application"
+/sg:implement "real-time chat application"
 ```
 1. **Sequential**: Analyzes requirements and architecture
 2. **Context7**: Provides WebSocket and React patterns  
@@ -629,7 +629,7 @@ SuperGemini orchestrates multiple MCP servers for complex tasks:
 
 **Performance Optimization Workflow:**
 ```bash
-/sc:analyze --focus performance --ultrathink
+/sg:analyze --focus performance --ultrathink
 ```
 1. **Sequential**: Systematic performance analysis methodology
 2. **Serena**: Code structure and bottleneck identification
@@ -649,20 +649,20 @@ SuperGemini orchestrates multiple MCP servers for complex tasks:
 **Server Priority Matrix:**
 | Priority | Servers | Use Case |
 |----------|---------|----------|
-| **Essential** | Context7, Sequential | Core functionality |
-| **High** | Magic, Serena | Development workflows |
-| **Standard** | Playwright, Morphllm | Testing and optimization |
+| **Essential** | context7, sequential | Core functionality |
+| **High** | magic, serena | Development workflows |
+| **Standard** | playwright, morphllm | Testing and optimization |
 
 **Concurrency Control:**
 ```bash
 # Limit concurrent server operations
-/sc:implement "complex feature" --concurrency 2
+/sg:implement "complex feature" --concurrency 2
 
 # Maximum performance mode
-/sc:analyze large-codebase/ --all-mcp --concurrency 6
+/sg:analyze large-codebase/ --all-mcp --concurrency 6
 
 # Resource-constrained mode  
-/sc:troubleshoot issue/ --c7 --seq --concurrency 1
+/sg:troubleshoot issue/ --c7 --seq --concurrency 1
 ```
 
 ### Advanced Configuration
@@ -768,15 +768,15 @@ chmod -R 755 ~/.gemini/
 **Step 3: Server-Specific Validation (2-3 minutes)**
 ```bash
 # Test context7 (should work without API key):
-/sc:explain "React useEffect"
+/sg:explain "React useEffect"
 # ✅ Should show: "Fetching React documentation..."
 
 # Test sequential-thinking:
-/sc:analyze complex-issue/ --think
+/sg:analyze complex-issue/ --think
 # ✅ Should show: "Hypothesis 1:..." or reasoning steps
 
 # Test playwright (should work without API key):
-/sc:test --type e2e simple-page
+/sg:test --type e2e simple-page
 # ✅ Should launch browser automation
 
 # Magic/Morphllm failures expected without API keys
@@ -808,15 +808,15 @@ SuperGemini install --components mcp
 # Quick Fix: NPM and dependency issues
 npm cache clean --force
 npx -y @upstash/context7-mcp@latest --version  # Test package
-/sc:explain "React" --c7                       # Test server directly
+/sg:explain "React" --c7                       # Test server directly
 ```
 
-**Sequential-Thinking Server Issues:**
+**Sequential Server Issues:**
 ```bash
 # Problem: "Sequential server not responding"
 # Quick Fix: Verify Anthropic MCP server
 npx -y @modelcontextprotocol/server-sequential-thinking --version
-/sc:analyze problem/ --seq --think             # Test reasoning
+/sg:analyze problem/ --seq --think             # Test reasoning
 ```
 
 **Magic/Morphllm API Key Issues:**
@@ -827,16 +827,73 @@ export TWENTYFIRST_API_KEY="your_key_here"
 export MORPH_API_KEY="your_key_here"
 
 # Solution 2: Skip paid services
-/sc:command --no-mcp                          # Use native tools only
-/sc:command --c7 --seq --play                 # Free servers only
+/sg:command --no-mcp                          # Use native tools only
+/sg:command --c7 --seq --play                 # Free servers only
 ```
+
+### 🔧 Activating Disabled MCP Servers
+
+Some MCP servers are installed but **disabled by default**. Here's how to activate them:
+
+**1. Magic Server** - Disabled (API key required)
+```bash
+# Get API key from 21st.dev
+# Visit https://21st.dev/api-keys to obtain your key
+
+# Activate magic server
+export TWENTYFIRST_API_KEY="your_key_here"
+echo 'export TWENTYFIRST_API_KEY="your_key_here"' >> ~/.bashrc  # Make persistent
+
+# Test activation
+/sg:implement "responsive form component" --magic
+# ✅ Should now generate UI components
+```
+
+**2. Serena Server** - Ready to activate (no API key needed)
+```bash
+# Serena is pre-installed and ready - just needs activation
+# Enable when you need project memory and semantic navigation
+
+# Activate serena for current session
+/sg:load large-project/ --serena
+# ✅ Should start project indexing and memory
+
+# Verify serena is working
+ls ~/.gemini/serena/
+uv run serena --help
+# ✅ Should show serena installation and commands
+```
+
+**3. Morphllm Server** - Disabled (API key required)  
+```bash
+# Get API key from Morph-LLM
+# Visit https://morph-llm.com/api-keys to obtain your key
+
+# Activate morphllm server
+export MORPH_API_KEY="your_key_here"  
+echo 'export MORPH_API_KEY="your_key_here"' >> ~/.bashrc  # Make persistent
+
+# Test activation
+/sg:improve legacy-code/ --morph
+# ✅ Should now perform pattern-based code transformations
+```
+
+**Why These Servers Are Disabled by Default:**
+- **Magic**: Requires paid API service from 21st.dev
+- **Serena**: Complex semantic operations - enable for large projects only
+- **Morphllm**: Requires paid API service from Morph-LLM
+
+**When to Enable Each:**
+- **Magic**: Building production UI components with 21st.dev API access
+- **Serena**: Large codebases (>100 files) needing project memory and semantic navigation
+- **Morphllm**: Bulk code transformations with Morph-LLM API access
 
 **Playwright Browser Issues:**
 ```bash
 # Problem: "Browser launch failed"
 # Quick Fix: Browser dependencies
 npx playwright install                        # Install browsers
-/sc:test --type e2e --browser chrome         # Test specific browser
+/sg:test --type e2e --browser chrome         # Test specific browser
 ```
 
 **Serena Local Server Issues:**
@@ -845,7 +902,7 @@ npx playwright install                        # Install browsers
 # Quick Fix: Python environment
 ls ~/.gemini/serena/                         # Verify installation
 uv run serena --help                         # Test serena command
-/sc:load project/ --serena                   # Test server directly
+/sg:load project/ --serena                   # Test server directly
 ```
 
 ### Error Code Reference
@@ -867,16 +924,16 @@ uv run serena --help                         # Test serena command
 ```bash
 # Problem: System slowing down with all MCP servers
 # Quick Fix: Selective server usage
-/sc:command --c7 --seq                       # Essential servers only
-/sc:command --concurrency 1                  # Limit parallel ops
-/sc:command --memory-limit 1024              # Limit memory to 1GB
+/sg:command --c7 --seq                       # Essential servers only
+/sg:command --concurrency 1                  # Limit parallel ops
+/sg:command --memory-limit 1024              # Limit memory to 1GB
 ```
 
 **Server Timeout Issues:**
 ```bash
 # Problem: Commands hanging with MCP servers
 # Quick Fix: Timeout and restart management
-/sc:command --timeout 30                     # Set explicit timeout
+/sg:command --timeout 30                     # Set explicit timeout
 killall node                                 # Reset all MCP servers
 SuperGemini restart --mcp                    # Restart MCP system
 ```
@@ -917,8 +974,8 @@ netstat -tulpn | grep node
 
 After applying MCP fixes, test with:
 - [ ] `SuperGemini status --mcp` (should show connected servers)
-- [ ] `/sc:explain "test" --c7` (context7 should fetch documentation)
-- [ ] `/sc:analyze test/ --seq` (sequential should show reasoning)
+- [ ] `/sg:explain "test" --c7` (context7 should fetch documentation)
+- [ ] `/sg:analyze test/ --seq` (sequential should show reasoning)
 - [ ] MCP flags work: `--magic`, `--play` (if configured)
 - [ ] Performance is acceptable for your system
 
@@ -1175,18 +1232,18 @@ Learning new technology?
 | Server | Purpose | Auto-Triggers | Manual Flags | API Key | Best For |
 |--------|---------|---------------|--------------|---------|----------|
 | **context7** | Documentation | Library imports, API questions | `--c7`, `--context7` | ❌ No | Official patterns, framework docs |
-| **sequential-thinking** | Reasoning | Complex debugging, analysis | `--seq`, `--sequential` | ❌ No | Systematic thinking, root cause |
+| **sequential** | Reasoning | Complex debugging, analysis | `--seq`, `--sequential` | ❌ No | Systematic thinking, root cause |
 | **magic** | UI Generation | Component requests, frontend | `--magic` | ✅ Yes | Modern UI, accessibility |
 | **playwright** | Browser Testing | E2E testing, visual validation | `--play`, `--playwright` | ❌ No | User workflows, cross-browser |
-| **morphllm-fast-apply** | Code Transform | Multi-file edits, refactoring | `--morph`, `--morphllm` | ✅ Yes | Pattern application, bulk changes |
+| **morphllm** | Code Transform | Multi-file edits, refactoring | `--morph`, `--morphllm` | ✅ Yes | Pattern application, bulk changes |
 | **serena** | Project Memory | Symbol operations, large codebases | `--serena` | ❌ No | Session persistence, navigation |
 
 **Common Server Combinations:**
-- **Beginner Web Development**: context7 + sequential-thinking + playwright (no API keys needed)
+- **Beginner Web Development**: context7 + sequential + playwright (no API keys needed)
 - **Professional UI Development**: magic + context7 + serena (1 API key required)
-- **Enterprise Refactoring**: serena + morphllm-fast-apply + sequential-thinking (1 API key required) 
+- **Enterprise Refactoring**: serena + morphllm + sequential (1 API key required) 
 - **Full-Stack Production**: All 6 servers (2 API keys required)
-- **Learning/Research**: context7 + sequential-thinking (lightweight, no API keys)
+- **Learning/Research**: context7 + sequential (lightweight, no API keys)
 
 **Performance Control:**
 - `--all-mcp`: Enable all servers (max capability, requires API keys)

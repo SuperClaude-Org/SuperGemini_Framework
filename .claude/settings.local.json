@@ -29,7 +29,8 @@
       "Read(/C:\\c\\Users\\hj92l/**)",
       "Bash(pip install:*)",
       "Bash(cat:*)",
-      "Bash(git reset:*)"
+      "Bash(git reset:*)",
+      "Bash(powershell:*)"
     ],
     "deny": [],
     "ask": [],

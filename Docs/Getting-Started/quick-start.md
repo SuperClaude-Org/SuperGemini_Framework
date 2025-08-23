@@ -1,12 +1,12 @@
 # SuperGemini Quick Start Guide
 
-> **Command Context**: This guide uses both **Terminal Commands** (for installation) and **Gemini CLI Commands** (`/sc:` for development). See sections below for where to run each type.
+> **Command Context**: This guide uses both **Terminal Commands** (for installation) and **Gemini CLI Commands** (`/sg:` for development). See sections below for where to run each type.
 
 ## The Simple Truth
 
 SuperGemini transforms Gemini CLI into a structured development framework with just one installation command. Behind the simple interface, intelligent routing automatically selects the right tools, activates domain experts, and coordinates complex workflows.
 
-**5-Minute Start**: Install → Try `/sc:brainstorm` → Watch the magic happen.
+**5-Minute Start**: Install → Try `/sg:brainstorm` → Watch the magic happen.
 
 ## Just Start Here
 
@@ -18,13 +18,13 @@ pip install SuperGemini && SuperGemini install
 ### 💬 First Commands (3 minutes) - Type in Gemini CLI
 ```
 # Interactive project discovery
-/sc:brainstorm "web app for task management"
+/sg:brainstorm "web app for task management"
 
 # Analyze existing code
-/sc:analyze src/
+/sg:analyze src/
 
 # Generate implementation plan
-/sc:workflow "add user authentication"
+/sg:workflow "add user authentication"
 ```
 
 **What Happens Automatically:**
@@ -39,7 +39,7 @@ pip install SuperGemini && SuperGemini install
 
 SuperGemini is a meta-programming framework that enhances Gemini CLI with:
 
-**21 Slash Commands** for workflow automation (/sc:brainstorm, /sc:implement, /sc:analyze)
+**21 Slash Commands** for workflow automation (/sg:brainstorm, /sg:implement, /sg:analyze)
 **13 AI Specialists** with domain expertise (architect, security, frontend, backend)
 **6 Behavioral Modes** for different contexts (brainstorming, introspection, orchestration)
 **6 MCP Servers** for enhanced capabilities (Context7, Sequential, Magic, Playwright)
@@ -49,7 +49,7 @@ SuperGemini is a meta-programming framework that enhances Gemini CLI with:
 ## How It Works
 
 **User Experience:**
-You type `/sc:implement "user login"` → SuperGemini analyzes requirements → activates security specialist → connects to Context7 for authentication patterns → generates complete implementation with tests.
+You type `/sg:implement "user login"` → SuperGemini analyzes requirements → activates security specialist → connects to Context7 for authentication patterns → generates complete implementation with tests.
 
 **Technical Workflow:**
 1. **Command Parser** analyzes intent and complexity
@@ -65,25 +65,25 @@ You type `/sc:implement "user login"` → SuperGemini analyzes requirements → 
 **First Session Pattern:**
 ```bash
 # 1. Project Discovery
-/sc:brainstorm "e-commerce mobile app"
+/sg:brainstorm "e-commerce mobile app"
 
 # 2. Load Context (existing projects)
-/sc:load src/
+/sg:load src/
 
 # 3. Analyze Current State
-/sc:analyze --focus architecture
+/sg:analyze --focus architecture
 
 # 4. Plan Implementation
-/sc:workflow "add payment integration"
+/sg:workflow "add payment integration"
 
 # 5. Implement Features
-/sc:implement "Stripe payment flow"
+/sg:implement "Stripe payment flow"
 
 # 6. Validate Quality
-/sc:test --coverage
+/sg:test --coverage
 
 # 7. Save Session
-/sc:save "payment-integration-complete"
+/sg:save "payment-integration-complete"
 ```
 
 **Domain-Specific Workflows:**
@@ -120,16 +120,16 @@ SuperGemini transforms Gemini CLI from a general-purpose AI assistant into a **s
 
 **Learning Path:**
 
-**Week 1**: Master core commands (`/sc:brainstorm`, `/sc:analyze`, `/sc:implement`)
+**Week 1**: Master core commands (`/sg:brainstorm`, `/sg:analyze`, `/sg:implement`)
 **Week 2**: Explore behavioral modes and flag combinations
 **Week 3**: Configure MCP servers for enhanced capabilities
 **Week 4**: Create custom workflows and session management patterns
 
 **Usage Recommendations:**
 - Start with simple commands and let complexity emerge naturally
-- Use `/sc:index` to discover relevant commands for your context
+- Use `/sg:index` to discover relevant commands for your context
 - Enable MCP servers gradually as you understand their benefits
-- Save successful patterns with `/sc:save` for reuse
+- Save successful patterns with `/sg:save` for reuse
 
 ### When to Use SuperGemini
 

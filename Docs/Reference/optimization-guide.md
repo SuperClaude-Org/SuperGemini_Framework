@@ -32,12 +32,12 @@
 **Scope Optimization for Large Projects:**
 ```bash
 # Problem: Slow analysis on large codebases
-/sc:analyze massive-project/  # Inefficient: analyzes everything
+/sg:analyze massive-project/  # Inefficient: analyzes everything
 
 # Solution: Strategic scope limitation
-/sc:analyze src/core/ --scope module --focus quality
-/sc:analyze api/ --scope directory --focus security  
-/sc:analyze frontend/ --scope component --focus performance
+/sg:analyze src/core/ --scope module --focus quality
+/sg:analyze api/ --scope directory --focus security  
+/sg:analyze frontend/ --scope component --focus performance
 
 # Performance gain: 70% faster execution, same actionable insights
 ```
@@ -45,32 +45,32 @@
 **Context and Token Optimization:**
 ```bash
 # Ultra-compressed mode for token efficiency
-/sc:analyze large-system/ --uc --symbol-enhanced
+/sg:analyze large-system/ --uc --symbol-enhanced
 # 30-50% token reduction while preserving information quality
 
 # Progressive analysis for context management
-/sc:analyze . --quick --overview              # Initial understanding
-/sc:analyze problematic-areas/ --deep        # Focused deep dive
-/sc:analyze . --comprehensive --final        # Complete analysis
+/sg:analyze . --quick --overview              # Initial understanding
+/sg:analyze problematic-areas/ --deep        # Focused deep dive
+/sg:analyze . --comprehensive --final        # Complete analysis
 
 # Streaming mode for continuous processing
-/sc:implement "large feature" --stream --checkpoint-every 100-lines
+/sg:implement "large feature" --stream --checkpoint-every 100-lines
 # Maintains progress, reduces memory pressure
 ```
 
 **Parallel Execution Optimization:**
 ```bash
 # Inefficient: Sequential operations
-/sc:analyze file1.js && /sc:analyze file2.js && /sc:analyze file3.js
+/sg:analyze file1.js && /sg:analyze file2.js && /sg:analyze file3.js
 
 # Optimized: Parallel execution
-/sc:analyze src/ --parallel --concurrency 3
+/sg:analyze src/ --parallel --concurrency 3
 # Multiple files analyzed simultaneously
 
 # Advanced parallel workflows
-/sc:implement "frontend components" --magic --parallel &
-/sc:implement "backend API" --c7 --parallel &
-/sc:implement "database schema" --performance-optimize &
+/sg:implement "frontend components" --magic --parallel &
+/sg:implement "backend API" --c7 --parallel &
+/sg:implement "database schema" --performance-optimize &
 wait
 
 # Performance gains: 60-80% time reduction for independent operations
@@ -81,13 +81,13 @@ wait
 **Large Codebase Analysis Optimization:**
 ```bash
 # Traditional approach (inefficient)
-/sc:analyze enterprise-monolith/  # Attempts to analyze 100K+ lines
+/sg:analyze enterprise-monolith/  # Attempts to analyze 100K+ lines
 
 # Optimized approach (efficient)
-/sc:analyze . --quick --architecture-overview               # 5 minutes: System understanding
-/sc:analyze core-modules/ --focus quality --depth moderate  # 10 minutes: Quality assessment  
-/sc:analyze security-critical/ --focus security --deep     # 15 minutes: Security audit
-/sc:analyze performance-bottlenecks/ --focus performance   # 10 minutes: Performance analysis
+/sg:analyze . --quick --architecture-overview               # 5 minutes: System understanding
+/sg:analyze core-modules/ --focus quality --depth moderate  # 10 minutes: Quality assessment  
+/sg:analyze security-critical/ --focus security --deep     # 15 minutes: Security audit
+/sg:analyze performance-bottlenecks/ --focus performance   # 10 minutes: Performance analysis
 
 # Results: 60% faster completion, better-focused insights, actionable recommendations
 ```
@@ -95,15 +95,15 @@ wait
 **Multi-Technology Stack Optimization:**
 ```bash
 # Parallel technology analysis
-/sc:analyze frontend/ --focus performance --react-specific & 
-/sc:analyze backend/ --focus security --nodejs-specific &
-/sc:analyze database/ --focus performance --postgresql-specific &
+/sg:analyze frontend/ --focus performance --react-specific & 
+/sg:analyze backend/ --focus security --nodejs-specific &
+/sg:analyze database/ --focus performance --postgresql-specific &
 wait
 
 # Technology-specific tool usage
-/sc:implement "React components" --magic --ui-focus
-/sc:implement "API endpoints" --c7 --backend-patterns  
-/sc:implement "database queries" --performance-optimize
+/sg:implement "React components" --magic --ui-focus
+/sg:implement "API endpoints" --c7 --backend-patterns  
+/sg:implement "database queries" --performance-optimize
 
 # Benefits: Parallel execution, technology-specific optimization, time savings
 ```
@@ -111,16 +111,16 @@ wait
 **Command Optimization Patterns:**
 ```bash
 # Efficient command chaining for workflows
-/sc:design "feature architecture" && \
-/sc:implement "core functionality" --validate && \
-/sc:test --coverage --performance && \
-/sc:document . --scope feature
+/sg:design "feature architecture" && \
+/sg:implement "core functionality" --validate && \
+/sg:test --coverage --performance && \
+/sg:document . --scope feature
 
 # Batch operations for related tasks
-/sc:improve src/components/ src/utils/ src/hooks/ --focus quality --batch
+/sg:improve src/components/ src/utils/ src/hooks/ --focus quality --batch
 
 # Conditional optimization
-/sc:test . --quick || /sc:analyze . --focus quality --debug
+/sg:test . --quick || /sg:analyze . --focus quality --debug
 # Run full analysis only if quick test fails
 ```
 
@@ -131,17 +131,17 @@ wait
 **Memory-Efficient Operations:**
 ```bash
 # Memory-efficient operations for resource-constrained environments
-/sc:analyze . --memory-efficient --stream --chunk-size 10MB
-/sc:implement "feature" --memory-optimize --incremental
+/sg:analyze . --memory-efficient --stream --chunk-size 10MB
+/sg:implement "feature" --memory-optimize --incremental
 
 # Context window optimization
-/sc:analyze large-project/ --context-optimize --essential-only
+/sg:analyze large-project/ --context-optimize --essential-only
 # Focus on essential information, reduce context bloat
 
 # Progressive context building
-/sc:load project/ --scope module                    # Start small
-/sc:expand-context core-features/ --essential       # Add needed context
-/sc:implement "feature" --context-aware             # Work with optimized context
+/sg:load project/ --scope module                    # Start small
+/sg:expand-context core-features/ --essential       # Add needed context
+/sg:implement "feature" --context-aware             # Work with optimized context
 
 # Results: 50% better resource utilization, 40% faster completion
 ```
@@ -149,31 +149,31 @@ wait
 **Concurrency and Resource Allocation:**
 ```bash
 # Concurrency optimization for parallel processing
-/sc:spawn "complex project" --concurrency 3 --parallel-optimize
-/sc:test . --parallel --worker-pool 4
+/sg:spawn "complex project" --concurrency 3 --parallel-optimize
+/sg:test . --parallel --worker-pool 4
 
 # Resource allocation strategies
-/sc:analyze . --cpu-optimize --max-memory 2GB       # CPU-bound optimization
-/sc:implement "feature" --io-optimize --cache-enable # I/O-bound optimization
+/sg:analyze . --cpu-optimize --max-memory 2GB       # CPU-bound optimization
+/sg:implement "feature" --io-optimize --cache-enable # I/O-bound optimization
 
 # Adaptive resource management
-/sc:implement "large feature" --adaptive-resources --scale-based-on-complexity
+/sg:implement "large feature" --adaptive-resources --scale-based-on-complexity
 # Automatically adjusts resource usage based on task complexity
 ```
 
 **Network and MCP Optimization:**
 ```bash
 # Network optimization for MCP server usage
-/sc:implement "feature" --c7 --seq --timeout 60  # Specific servers only
-/sc:analyze . --no-mcp --native-fallback        # Local processing when needed
+/sg:implement "feature" --c7 --seq --timeout 60  # Specific servers only
+/sg:analyze . --no-mcp --native-fallback        # Local processing when needed
 
 # MCP server selection optimization
-/sc:implement "UI components" --magic            # UI-specific server
-/sc:analyze "complex logic" --seq               # Analysis-specific server
-/sc:improve "code patterns" --morph              # Pattern-specific server
+/sg:implement "UI components" --magic            # UI-specific server
+/sg:analyze "complex logic" --seq               # Analysis-specific server
+/sg:improve "code patterns" --morph              # Pattern-specific server
 
 # Connection pooling and caching
-/sc:implement "feature" --mcp-cache-enable --connection-pool 5
+/sg:implement "feature" --mcp-cache-enable --connection-pool 5
 # Reuse connections and cache results for efficiency
 ```
 
@@ -182,34 +182,34 @@ wait
 **Context Preservation Strategies:**
 ```bash
 # Efficient context management for long sessions
-/sc:save "context-checkpoint" --essential-only --compress
+/sg:save "context-checkpoint" --essential-only --compress
 # Save only essential context, reduce storage overhead
 
 # Context partitioning for large projects
-/sc:save "frontend-context" --scope frontend/
-/sc:save "backend-context" --scope backend/
-/sc:save "database-context" --scope database/
+/sg:save "frontend-context" --scope frontend/
+/sg:save "backend-context" --scope backend/
+/sg:save "database-context" --scope database/
 # Separate contexts for different project areas
 
 # Context optimization and cleanup
-/sc:optimize-context --remove-stale --compress --deduplicate
+/sg:optimize-context --remove-stale --compress --deduplicate
 # Clean up unnecessary context data, improve performance
 ```
 
 **Session Lifecycle Optimization:**
 ```bash
 # Optimized session management for performance
-/sc:load "project-main" --lazy-load --essential-first
+/sg:load "project-main" --lazy-load --essential-first
 # Load only essential context initially, add more as needed
 
 # Progressive context expansion
-/sc:load "project-main"                          # Core context
-/sc:expand-context "current-feature" --targeted  # Add feature-specific context
-/sc:work-session "feature development"           # Optimized work session
-/sc:compress-context --save "optimized-session" # Clean and save
+/sg:load "project-main"                          # Core context
+/sg:expand-context "current-feature" --targeted  # Add feature-specific context
+/sg:work-session "feature development"           # Optimized work session
+/sg:compress-context --save "optimized-session" # Clean and save
 
 # Context sharing and reuse
-/sc:export-context "team-baseline" --shareable --optimized
+/sg:export-context "team-baseline" --shareable --optimized
 # Create optimized context for team sharing
 ```
 
@@ -220,44 +220,44 @@ wait
 **Intelligent Scope Selection:**
 ```bash
 # Problem: Over-broad scope causing performance issues
-/sc:analyze . --scope project                    # Analyzes entire project (slow)
+/sg:analyze . --scope project                    # Analyzes entire project (slow)
 
 # Solution: Strategic scope optimization
-/sc:analyze . --scope module --focus architecture    # Architecture overview
-/sc:analyze problematic-area/ --scope directory      # Focused problem analysis
-/sc:analyze critical-file.js --scope file           # Detailed file analysis
+/sg:analyze . --scope module --focus architecture    # Architecture overview
+/sg:analyze problematic-area/ --scope directory      # Focused problem analysis
+/sg:analyze critical-file.js --scope file           # Detailed file analysis
 
 # Advanced scope strategies
-/sc:analyze . --scope adaptive --complexity-based   # Automatic scope adjustment
-/sc:analyze . --scope smart --performance-target 30s # Target-based scope optimization
+/sg:analyze . --scope adaptive --complexity-based   # Automatic scope adjustment
+/sg:analyze . --scope smart --performance-target 30s # Target-based scope optimization
 ```
 
 **Context-Aware Scope Adaptation:**
 ```bash
 # Early development: Broad scope for understanding
-/sc:analyze new-project/ --scope project --discovery-mode
+/sg:analyze new-project/ --scope project --discovery-mode
 
 # Active development: Focused scope for efficiency
-/sc:implement "feature" --scope module --development-mode
+/sg:implement "feature" --scope module --development-mode
 
 # Debugging: Targeted scope for problem resolution
-/sc:troubleshoot "bug" --scope function --debug-mode
+/sg:troubleshoot "bug" --scope function --debug-mode
 
 # Optimization: Performance-focused scope
-/sc:improve . --scope bottleneck --performance-mode
+/sg:improve . --scope bottleneck --performance-mode
 ```
 
 **Scope Optimization Patterns:**
 ```bash
 # Hierarchical scope analysis
-/sc:analyze . --scope project --overview            # High-level understanding
-/sc:analyze src/ --scope directory --details        # Directory-level analysis
-/sc:analyze src/components/ --scope module --deep   # Module-level deep dive
-/sc:analyze component.js --scope file --complete    # Complete file analysis
+/sg:analyze . --scope project --overview            # High-level understanding
+/sg:analyze src/ --scope directory --details        # Directory-level analysis
+/sg:analyze src/components/ --scope module --deep   # Module-level deep dive
+/sg:analyze component.js --scope file --complete    # Complete file analysis
 
 # Progressive scope expansion
-/sc:analyze . --scope minimal --expand-as-needed    # Start minimal, expand based on findings
-/sc:analyze . --scope core --include-dependencies   # Core plus essential dependencies
+/sg:analyze . --scope minimal --expand-as-needed    # Start minimal, expand based on findings
+/sg:analyze . --scope core --include-dependencies   # Core plus essential dependencies
 ```
 
 ## Quality Assurance Patterns
@@ -267,35 +267,35 @@ wait
 **Quality-First Development Cycle:**
 ```bash
 # Quality-integrated development workflow
-/sc:implement "new feature" --test-driven --quality-gates
-/sc:test . --comprehensive --coverage-target 90
-/sc:analyze . --focus quality --production-readiness
-/sc:improve . --type maintainability --future-proof
+/sg:implement "new feature" --test-driven --quality-gates
+/sg:test . --comprehensive --coverage-target 90
+/sg:analyze . --focus quality --production-readiness
+/sg:improve . --type maintainability --future-proof
 
 # Security-integrated quality assurance
-/sc:implement "authentication" --security-first --audit-ready
-/sc:test . --security-scenarios --penetration-testing
-/sc:analyze . --focus security --compliance-validation
+/sg:implement "authentication" --security-first --audit-ready
+/sg:test . --security-scenarios --penetration-testing
+/sg:analyze . --focus security --compliance-validation
 
 # Performance-validated quality process
-/sc:implement "high-traffic feature" --performance-conscious
-/sc:test . --performance-benchmarks --load-testing
-/sc:analyze . --focus performance --scalability-assessment
+/sg:implement "high-traffic feature" --performance-conscious
+/sg:test . --performance-benchmarks --load-testing
+/sg:analyze . --focus performance --scalability-assessment
 ```
 
 **Multi-Layer Quality Validation:**
 ```bash
 # Comprehensive quality validation pipeline
-Layer 1: /sc:test . --unit --fast                  # Quick feedback
-Layer 2: /sc:test . --integration --comprehensive  # System integration
-Layer 3: /sc:test . --e2e --user-scenarios        # End-to-end validation
-Layer 4: /sc:test . --performance --load-testing  # Performance validation
-Layer 5: /sc:test . --security --vulnerability    # Security validation
+Layer 1: /sg:test . --unit --fast                  # Quick feedback
+Layer 2: /sg:test . --integration --comprehensive  # System integration
+Layer 3: /sg:test . --e2e --user-scenarios        # End-to-end validation
+Layer 4: /sg:test . --performance --load-testing  # Performance validation
+Layer 5: /sg:test . --security --vulnerability    # Security validation
 
 # Quality gates and checkpoints
-/sc:validate --pre-commit --quality-gate           # Pre-commit validation
-/sc:validate --pre-deploy --production-ready       # Pre-deployment validation
-/sc:validate --post-deploy --monitoring-enabled    # Post-deployment validation
+/sg:validate --pre-commit --quality-gate           # Pre-commit validation
+/sg:validate --pre-deploy --production-ready       # Pre-deployment validation
+/sg:validate --post-deploy --monitoring-enabled    # Post-deployment validation
 ```
 
 ### Testing Excellence Patterns
@@ -303,18 +303,18 @@ Layer 5: /sc:test . --security --vulnerability    # Security validation
 **Test-Driven Development with SuperGemini:**
 ```bash
 # Red Phase: Write failing tests first
-/sc:design "feature specification" --scope module
-/sc:implement "failing tests" --coverage
-/sc:test . --validate
+/sg:design "feature specification" --scope module
+/sg:implement "failing tests" --coverage
+/sg:test . --validate
 
 # Green Phase: Minimal implementation
-/sc:implement "minimal feature implementation" --validate
-/sc:test . --coverage
+/sg:implement "minimal feature implementation" --validate
+/sg:test . --coverage
 
 # Refactor Phase: Code improvement
-/sc:improve . --focus quality --safe-mode
-/sc:analyze . --focus quality --think
-/sc:test . --coverage --validate
+/sg:improve . --focus quality --safe-mode
+/sg:analyze . --focus quality --think
+/sg:test . --coverage --validate
 
 # Cycle benefits: Higher code quality, better test coverage, reduced bugs
 ```
@@ -322,19 +322,19 @@ Layer 5: /sc:test . --security --vulnerability    # Security validation
 **Advanced Testing Strategies:**
 ```bash
 # Property-based testing integration
-/sc:test . --property-based --generate-cases
+/sg:test . --property-based --generate-cases
 # Generate test cases automatically based on properties
 
 # Mutation testing for test quality
-/sc:test . --mutation-testing --validate-test-quality
+/sg:test . --mutation-testing --validate-test-quality
 # Verify test suite effectiveness through mutation testing
 
 # Performance regression testing
-/sc:test . --performance-regression --baseline-compare
+/sg:test . --performance-regression --baseline-compare
 # Ensure performance doesn't degrade over time
 
 # Contract testing for microservices
-/sc:test . --contract-testing --service-boundaries
+/sg:test . --contract-testing --service-boundaries
 # Validate service interfaces and contracts
 ```
 
@@ -345,7 +345,7 @@ Layer 5: /sc:test . --security --vulnerability    # Security validation
 **Quality Prediction and Prevention:**
 ```bash
 # Advanced quality management with comprehensive analysis
-/sc:analyze . --focus quality --think-hard --validate
+/sg:analyze . --focus quality --think-hard --validate
 
 # Predictive analysis capabilities:
 # - Quality degradation prediction based on code change patterns
@@ -355,9 +355,9 @@ Layer 5: /sc:test . --security --vulnerability    # Security validation
 # - Maintenance burden prediction and resource planning
 
 # Proactive optimization workflow:
-/sc:implement "new feature" --validate --safe-mode
-/sc:analyze . --focus quality --think  
-/sc:improve . --focus quality --validate
+/sg:implement "new feature" --validate --safe-mode
+/sg:analyze . --focus quality --think  
+/sg:improve . --focus quality --validate
 
 # Outcomes: Significant reduction in production issues and lower maintenance costs
 ```
@@ -365,7 +365,7 @@ Layer 5: /sc:test . --security --vulnerability    # Security validation
 **Risk Assessment and Mitigation:**
 ```bash
 # Comprehensive risk assessment
-/sc:analyze . --risk-assessment --predictive
+/sg:analyze . --risk-assessment --predictive
 # Identifies potential risks:
 # - Code complexity and maintainability risks
 # - Performance bottleneck predictions
@@ -373,7 +373,7 @@ Layer 5: /sc:test . --security --vulnerability    # Security validation
 # - Integration complexity and failure points
 
 # Risk mitigation strategies
-/sc:implement "feature" --risk-aware --mitigation-strategies
+/sg:implement "feature" --risk-aware --mitigation-strategies
 # Apply risk-appropriate development strategies:
 # - Higher test coverage for high-risk areas
 # - More thorough code review for complex changes
@@ -386,7 +386,7 @@ Layer 5: /sc:test . --security --vulnerability    # Security validation
 **Quality Metrics Collection:**
 ```bash
 # Comprehensive quality metrics
-/sc:analyze . --metrics-collection --quality-dashboard
+/sg:analyze . --metrics-collection --quality-dashboard
 # Collects metrics:
 # - Code complexity and maintainability scores
 # - Test coverage and quality indicators
@@ -395,7 +395,7 @@ Layer 5: /sc:test . --security --vulnerability    # Security validation
 # - Documentation completeness and quality
 
 # Quality trend analysis
-/sc:analyze project-history/ --quality-trends --prediction
+/sg:analyze project-history/ --quality-trends --prediction
 # Analyzes quality trends over time:
 # - Quality improvement or degradation patterns
 # - Most effective quality improvement strategies
@@ -410,35 +410,35 @@ Layer 5: /sc:test . --security --vulnerability    # Security validation
 **Multi-Stage Validation Pipeline:**
 ```bash
 # Pre-development validation
-/sc:validate requirements/ --completeness --feasibility
-/sc:validate design/ --architecture --performance-impact
+/sg:validate requirements/ --completeness --feasibility
+/sg:validate design/ --architecture --performance-impact
 
 # Development-time validation
-/sc:validate implementation/ --quality --security --performance
-/sc:validate tests/ --coverage --effectiveness --maintainability
+/sg:validate implementation/ --quality --security --performance
+/sg:validate tests/ --coverage --effectiveness --maintainability
 
 # Pre-deployment validation
-/sc:validate system/ --integration --scalability --security
-/sc:validate documentation/ --completeness --accuracy --usability
+/sg:validate system/ --integration --scalability --security
+/sg:validate documentation/ --completeness --accuracy --usability
 
 # Post-deployment validation
-/sc:validate production/ --performance --security --user-experience
-/sc:validate monitoring/ --coverage --alerting --response-procedures
+/sg:validate production/ --performance --security --user-experience
+/sg:validate monitoring/ --coverage --alerting --response-procedures
 ```
 
 **Context-Appropriate Validation:**
 ```bash
 # Startup/MVP validation (speed-focused)
-/sc:validate mvp/ --functional --user-value --time-to-market
+/sg:validate mvp/ --functional --user-value --time-to-market
 
 # Enterprise validation (compliance-focused)
-/sc:validate enterprise/ --security --compliance --scalability --maintainability
+/sg:validate enterprise/ --security --compliance --scalability --maintainability
 
 # Open source validation (community-focused)
-/sc:validate open-source/ --documentation --community-standards --accessibility
+/sg:validate open-source/ --documentation --community-standards --accessibility
 
 # Critical system validation (reliability-focused)
-/sc:validate critical-system/ --reliability --fault-tolerance --disaster-recovery
+/sg:validate critical-system/ --reliability --fault-tolerance --disaster-recovery
 ```
 
 ## Common Performance Issues
@@ -448,28 +448,28 @@ Layer 5: /sc:test . --security --vulnerability    # Security validation
 **Scope-Related Performance Issues:**
 ```bash
 # Problem: Analysis taking too long
-❌ /sc:analyze massive-project/
+❌ /sg:analyze massive-project/
 
 # Diagnosis: Scope too broad for efficient processing
-/sc:diagnose performance-issue --scope-analysis
+/sg:diagnose performance-issue --scope-analysis
 
 # Solution: Targeted scope optimization
-✅ /sc:analyze src/ --scope directory
-✅ /sc:analyze problematic-component/ --scope module
-✅ /sc:analyze critical-function --scope function
+✅ /sg:analyze src/ --scope directory
+✅ /sg:analyze problematic-component/ --scope module
+✅ /sg:analyze critical-function --scope function
 ```
 
 **Resource Utilization Issues:**
 ```bash
 # Problem: High memory usage and slow response
-❌ /sc:implement "complex feature" # Using all default settings
+❌ /sg:implement "complex feature" # Using all default settings
 
 # Diagnosis: Resource allocation optimization needed
-/sc:diagnose resource-usage --memory-analysis --cpu-analysis
+/sg:diagnose resource-usage --memory-analysis --cpu-analysis
 
 # Solution: Resource-optimized execution
-✅ /sc:implement "complex feature" --memory-efficient --cpu-optimize
-✅ /sc:implement "complex feature" --streaming --chunked-processing
+✅ /sg:implement "complex feature" --memory-efficient --cpu-optimize
+✅ /sg:implement "complex feature" --streaming --chunked-processing
 ```
 
 **Context Management Issues:**
@@ -478,12 +478,12 @@ Layer 5: /sc:test . --security --vulnerability    # Security validation
 ❌ Long session without context optimization
 
 # Diagnosis: Context bloat and inefficient session management
-/sc:diagnose context-issues --size-analysis --efficiency-check
+/sg:diagnose context-issues --size-analysis --efficiency-check
 
 # Solution: Context optimization strategies
-✅ /sc:optimize-context --compress --remove-stale
-✅ /sc:partition-context --by-domain --essential-only
-✅ /sc:save "optimized-session" --context-efficient
+✅ /sg:optimize-context --compress --remove-stale
+✅ /sg:partition-context --by-domain --essential-only
+✅ /sg:save "optimized-session" --context-efficient
 ```
 
 ### Performance Anti-Patterns
@@ -491,22 +491,22 @@ Layer 5: /sc:test . --security --vulnerability    # Security validation
 **Common Performance Mistakes:**
 ```bash
 # Anti-pattern: Sequential processing of independent tasks
-❌ /sc:analyze file1 → /sc:analyze file2 → /sc:analyze file3
+❌ /sg:analyze file1 → /sg:analyze file2 → /sg:analyze file3
 
 # Optimized pattern: Parallel processing
-✅ /sc:analyze file1 file2 file3 --parallel
+✅ /sg:analyze file1 file2 file3 --parallel
 
 # Anti-pattern: Using wrong tool for the task
-❌ /sc:improve large-codebase/ (single-agent, slow)
+❌ /sg:improve large-codebase/ (single-agent, slow)
 
 # Optimized pattern: Appropriate tool selection
-✅ /sc:spawn "improve codebase quality" --delegate (multi-agent, fast)
+✅ /sg:spawn "improve codebase quality" --delegate (multi-agent, fast)
 
 # Anti-pattern: Over-broad scope without focus
-❌ /sc:analyze . --comprehensive --everything
+❌ /sg:analyze . --comprehensive --everything
 
 # Optimized pattern: Focused, targeted analysis
-✅ /sc:analyze . --focus specific-concern --scope targeted-area
+✅ /sg:analyze . --focus specific-concern --scope targeted-area
 ```
 
 ## Debugging Patterns
@@ -516,39 +516,39 @@ Layer 5: /sc:test . --security --vulnerability    # Security validation
 **Performance Debugging Workflow:**
 ```bash
 # Step 1: Performance problem identification
-/sc:diagnose performance --baseline-comparison --bottleneck-analysis
+/sg:diagnose performance --baseline-comparison --bottleneck-analysis
 
 # Step 2: Root cause analysis
-/sc:analyze performance-issues/ --systematic --hypothesis-testing
+/sg:analyze performance-issues/ --systematic --hypothesis-testing
 
 # Step 3: Optimization strategy development
-/sc:design "performance optimization plan" --evidence-based --measurable
+/sg:design "performance optimization plan" --evidence-based --measurable
 
 # Step 4: Implementation and validation
-/sc:implement "performance improvements" --measure-impact --validate
-/sc:test . --performance-benchmarks --before-after-comparison
+/sg:implement "performance improvements" --measure-impact --validate
+/sg:test . --performance-benchmarks --before-after-comparison
 
 # Step 5: Continuous monitoring
-/sc:monitor performance/ --ongoing --alert-on-regression
+/sg:monitor performance/ --ongoing --alert-on-regression
 ```
 
 **Quality Issue Resolution:**
 ```bash
 # Systematic quality issue debugging
-/sc:diagnose quality-issues --comprehensive-scan --priority-ranking
-/sc:analyze root-causes/ --systematic --evidence-gathering
-/sc:implement "quality improvements" --targeted --validate-effectiveness
-/sc:test . --quality-validation --regression-prevention
-/sc:monitor quality-metrics/ --ongoing --trend-analysis
+/sg:diagnose quality-issues --comprehensive-scan --priority-ranking
+/sg:analyze root-causes/ --systematic --evidence-gathering
+/sg:implement "quality improvements" --targeted --validate-effectiveness
+/sg:test . --quality-validation --regression-prevention
+/sg:monitor quality-metrics/ --ongoing --trend-analysis
 ```
 
 **Integration and Coordination Issues:**
 ```bash
 # Multi-agent coordination debugging
-/sc:diagnose coordination-issues --agent-interaction-analysis
-/sc:analyze workflow-efficiency/ --bottleneck-identification --optimization-opportunities
-/sc:optimize agent-coordination/ --communication-patterns --efficiency-improvements
-/sc:validate coordination-improvements/ --effectiveness-measurement
+/sg:diagnose coordination-issues --agent-interaction-analysis
+/sg:analyze workflow-efficiency/ --bottleneck-identification --optimization-opportunities
+/sg:optimize agent-coordination/ --communication-patterns --efficiency-improvements
+/sg:validate coordination-improvements/ --effectiveness-measurement
 ```
 
 ### Advanced Debugging Techniques
@@ -556,7 +556,7 @@ Layer 5: /sc:test . --security --vulnerability    # Security validation
 **Context-Aware Debugging:**
 ```bash
 # Debug with full context awareness
-/sc:debug "complex issue" --full-context --historical-analysis
+/sg:debug "complex issue" --full-context --historical-analysis
 # Leverages:
 # - Historical session data and decision patterns
 # - Cross-file dependency analysis and impact assessment
@@ -564,14 +564,14 @@ Layer 5: /sc:test . --security --vulnerability    # Security validation
 # - Quality trend analysis and regression identification
 
 # Progressive debugging with scope expansion
-/sc:debug issue/ --scope minimal --expand-based-on-findings
+/sg:debug issue/ --scope minimal --expand-based-on-findings
 # Start with focused analysis, expand scope as needed based on discoveries
 ```
 
 **Predictive Debugging:**
 ```bash
 # Proactive issue identification
-/sc:predict potential-issues/ --based-on-patterns --risk-assessment
+/sg:predict potential-issues/ --based-on-patterns --risk-assessment
 # Identifies likely issues before they manifest:
 # - Performance degradation predictions
 # - Quality regression likelihood
@@ -579,7 +579,7 @@ Layer 5: /sc:test . --security --vulnerability    # Security validation
 # - Security vulnerability emergence
 
 # Preventive debugging actions
-/sc:implement preventive-measures/ --based-on-predictions --proactive-optimization
+/sg:implement preventive-measures/ --based-on-predictions --proactive-optimization
 # Apply preventive measures to avoid predicted issues
 ```
 
@@ -590,7 +590,7 @@ Layer 5: /sc:test . --security --vulnerability    # Security validation
 **Performance Recovery Patterns:**
 ```bash
 # Performance degradation recovery
-/sc:recover performance/ --baseline-restoration --optimization-application
+/sg:recover performance/ --baseline-restoration --optimization-application
 # Steps:
 # 1. Identify performance regression points
 # 2. Restore known good performance baseline
@@ -599,7 +599,7 @@ Layer 5: /sc:test . --security --vulnerability    # Security validation
 # 5. Implement monitoring to prevent recurrence
 
 # Quality recovery after issues
-/sc:recover quality/ --systematic-improvement --validation-enhanced
+/sg:recover quality/ --systematic-improvement --validation-enhanced
 # Steps:
 # 1. Comprehensive quality assessment
 # 2. Prioritized issue resolution plan
@@ -611,7 +611,7 @@ Layer 5: /sc:test . --security --vulnerability    # Security validation
 **Context and Session Recovery:**
 ```bash
 # Session state recovery after interruption
-/sc:recover session/ --context-reconstruction --progress-restoration
+/sg:recover session/ --context-reconstruction --progress-restoration
 # Reconstructs:
 # - Work context and progress state
 # - Decision history and rationale
@@ -619,7 +619,7 @@ Layer 5: /sc:test . --security --vulnerability    # Security validation
 # - Performance characteristics and optimizations
 
 # Project state recovery and optimization
-/sc:recover project/ --comprehensive-restoration --efficiency-improvements
+/sg:recover project/ --comprehensive-restoration --efficiency-improvements
 # Restores and improves:
 # - Project context and architectural understanding
 # - Quality standards and testing strategies
@@ -632,22 +632,22 @@ Layer 5: /sc:test . --security --vulnerability    # Security validation
 **Performance Optimization Lifecycle:**
 ```bash
 # Continuous performance improvement cycle
-Week 1: /sc:baseline performance/ --comprehensive-measurement
-Week 2: /sc:optimize performance/ --targeted-improvements --measure-impact
-Week 3: /sc:validate optimizations/ --effectiveness-assessment --regression-testing
-Week 4: /sc:refine optimizations/ --fine-tuning --continuous-monitoring
+Week 1: /sg:baseline performance/ --comprehensive-measurement
+Week 2: /sg:optimize performance/ --targeted-improvements --measure-impact
+Week 3: /sg:validate optimizations/ --effectiveness-assessment --regression-testing
+Week 4: /sg:refine optimizations/ --fine-tuning --continuous-monitoring
 
 # Quality improvement lifecycle
-Month 1: /sc:assess quality/ --comprehensive-audit --baseline-establishment
-Month 2: /sc:improve quality/ --systematic-enhancements --process-optimization
-Month 3: /sc:validate improvements/ --effectiveness-measurement --standard-compliance
-Month 4: /sc:evolve practices/ --continuous-improvement --best-practice-development
+Month 1: /sg:assess quality/ --comprehensive-audit --baseline-establishment
+Month 2: /sg:improve quality/ --systematic-enhancements --process-optimization
+Month 3: /sg:validate improvements/ --effectiveness-measurement --standard-compliance
+Month 4: /sg:evolve practices/ --continuous-improvement --best-practice-development
 ```
 
 **Learning-Based Optimization:**
 ```bash
 # Pattern-based optimization learning
-/sc:learn optimization-patterns/ --historical-analysis --effectiveness-correlation
+/sg:learn optimization-patterns/ --historical-analysis --effectiveness-correlation
 # Learns:
 # - Most effective optimization strategies for different contexts
 # - Performance improvement patterns and success predictors
@@ -655,7 +655,7 @@ Month 4: /sc:evolve practices/ --continuous-improvement --best-practice-developm
 # - Resource optimization techniques and efficiency gains
 
 # Adaptive optimization strategies
-/sc:adapt optimization-approach/ --context-aware --learning-informed
+/sg:adapt optimization-approach/ --context-aware --learning-informed
 # Adapts strategies based on:
 # - Project characteristics and requirements
 # - Team capabilities and preferences
@@ -670,7 +670,7 @@ Month 4: /sc:evolve practices/ --continuous-improvement --best-practice-developm
 **Comprehensive Performance Metrics:**
 ```bash
 # Performance baseline establishment
-/sc:measure performance/ --comprehensive-baseline --all-dimensions
+/sg:measure performance/ --comprehensive-baseline --all-dimensions
 # Measures:
 # - Execution time and throughput characteristics
 # - Resource utilization (CPU, memory, network)
@@ -678,7 +678,7 @@ Month 4: /sc:evolve practices/ --continuous-improvement --best-practice-developm
 # - Tool coordination effectiveness and overhead
 
 # Performance improvement tracking
-/sc:track performance-improvements/ --trend-analysis --impact-measurement
+/sg:track performance-improvements/ --trend-analysis --impact-measurement
 # Tracks:
 # - Optimization impact and effectiveness over time
 # - Resource efficiency improvements and cost reduction
@@ -689,7 +689,7 @@ Month 4: /sc:evolve practices/ --continuous-improvement --best-practice-developm
 **Quality and Efficiency Correlation:**
 ```bash
 # Quality-performance relationship analysis
-/sc:analyze quality-performance-relationship/ --correlation-study --optimization-opportunities
+/sg:analyze quality-performance-relationship/ --correlation-study --optimization-opportunities
 # Analyzes:
 # - Quality improvement impact on development efficiency
 # - Performance optimization effects on code quality
@@ -702,7 +702,7 @@ Month 4: /sc:evolve practices/ --continuous-improvement --best-practice-developm
 **Development Efficiency KPIs:**
 ```bash
 # Development speed and quality metrics
-/sc:measure development-efficiency/ --kpi-dashboard --trend-analysis
+/sg:measure development-efficiency/ --kpi-dashboard --trend-analysis
 # Key metrics:
 # - Feature development time reduction (target: 30-50% improvement)
 # - Code review cycle time (target: 60% reduction)
@@ -710,7 +710,7 @@ Month 4: /sc:evolve practices/ --continuous-improvement --best-practice-developm
 # - Documentation generation efficiency (target: 70% time savings)
 
 # Team productivity and satisfaction metrics
-/sc:measure team-productivity/ --satisfaction-correlation --adoption-success
+/sg:measure team-productivity/ --satisfaction-correlation --adoption-success
 # Key metrics:
 # - Developer productivity improvement (target: 25-40% increase)
 # - Code quality consistency across team members

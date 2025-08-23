@@ -24,7 +24,7 @@
 ### Full-Stack Development Team
 ```bash
 # E-commerce platform requiring multiple specialists
-/sc:implement "secure e-commerce platform with payment processing and admin dashboard"
+/sg:implement "secure e-commerce platform with payment processing and admin dashboard"
 
 # Automatic agent activation and coordination:
 # - frontend-architect: Dashboard UI components and user interface
@@ -44,7 +44,7 @@
 ### Performance Optimization Team
 ```bash
 # Complex performance problem requiring systematic analysis
-/sc:troubleshoot "microservices platform experiencing latency spikes under load"
+/sg:troubleshoot "microservices platform experiencing latency spikes under load"
 
 # Automatic agent activation:
 # - root-cause-analyst: Systematic problem investigation and hypothesis testing
@@ -62,7 +62,7 @@
 ### Security-Focused Development Team
 ```bash
 # Security agent leading with comprehensive support
-/sc:implement "OAuth 2.0 authentication with PKCE and security best practices"
+/sg:implement "OAuth 2.0 authentication with PKCE and security best practices"
 
 # Primary: security-engineer
 # - Threat modeling and security requirement specification
@@ -84,46 +84,46 @@
 ### Complete E-Commerce Platform Development
 ```bash
 # Phase 1: Discovery & Planning
-/sc:brainstorm "e-commerce platform for small businesses"
+/sg:brainstorm "e-commerce platform for small businesses"
 # Expected: Requirements discovery, feature prioritization, technical scope
 
-/sc:save "ecommerce-requirements-complete"
+/sg:save "ecommerce-requirements-complete"
 
-/sc:analyze "microservices architecture for e-commerce" --focus architecture --think-hard
+/sg:analyze "microservices architecture for e-commerce" --focus architecture --think-hard
 # Expected: Service boundaries, data flow diagrams, technology recommendations
 # ✅ Verified: SuperGemini v4.0
 
 # Phase 2: Core Implementation
-/sc:load "ecommerce-requirements-complete"
+/sg:load "ecommerce-requirements-complete"
 
-/sc:implement "user authentication and profile management with social login"
+/sg:implement "user authentication and profile management with social login"
 # Activates: security-engineer + backend-architect + frontend-architect + Context7
 # Expected: Complete auth system with OAuth integration
 
-/sc:implement "product catalog with search, filtering, and recommendation engine"
+/sg:implement "product catalog with search, filtering, and recommendation engine"
 # Activates: backend-architect + database specialist + search optimization
 # Expected: Scalable product system with intelligent recommendations
 
-/sc:implement "shopping cart and checkout with Stripe integration"
+/sg:implement "shopping cart and checkout with Stripe integration"
 # Activates: backend-architect + security-engineer + payment processing patterns
 # Expected: Secure payment flow with cart persistence
 
 # Phase 3: Advanced Features
-/sc:implement "admin dashboard with analytics and inventory management"
+/sg:implement "admin dashboard with analytics and inventory management"
 # Activates: frontend-architect + Magic MCP + data visualization + admin patterns
 # Expected: Comprehensive admin interface with real-time analytics
 
-/sc:implement "order management and fulfillment system"
+/sg:implement "order management and fulfillment system"
 # Activates: backend-architect + workflow automation + integration patterns
 # Expected: Complete order processing with status tracking
 
 # Phase 4: Integration & Testing
-/sc:test --focus quality --orchestrate
+/sg:test --focus quality --orchestrate
 # Activates: quality-engineer + Playwright MCP + comprehensive testing
 # Expected: Full test suite with E2E, integration, and unit coverage
 # ✅ Verified: SuperGemini v4.0
 
-/sc:analyze . --focus performance --think-hard && /sc:implement "performance optimizations" --focus performance --orchestrate
+/sg:analyze . --focus performance --think-hard && /sg:implement "performance optimizations" --focus performance --orchestrate
 # Expected: Performance bottleneck identification and optimization
 # ✅ Verified: SuperGemini v4.0
 ```
@@ -131,81 +131,81 @@
 ### Enterprise Legacy System Modernization
 ```bash
 # Phase 1: Legacy System Analysis
-/sc:load legacy-system/ && /sc:analyze . --focus architecture --ultrathink --all-mcp
+/sg:load legacy-system/ && /sg:analyze . --focus architecture --ultrathink --all-mcp
 # Activates: All analysis capabilities for comprehensive legacy assessment
 # Expected: Complete legacy architecture analysis, technical debt assessment
 # ✅ Verified: SuperGemini v4.0
 
-/sc:troubleshoot "performance bottlenecks and scalability issues"
+/sg:troubleshoot "performance bottlenecks and scalability issues"
 # Expected: Systematic performance analysis, bottleneck identification
 
-/sc:save "legacy-analysis-complete"
+/sg:save "legacy-analysis-complete"
 
 # Phase 2: Modernization Strategy
-/sc:load "legacy-analysis-complete"
+/sg:load "legacy-analysis-complete"
 
-/sc:analyze "microservices migration strategy" --focus architecture --think-hard --c7
+/sg:analyze "microservices migration strategy" --focus architecture --think-hard --c7
 # Activates: system-architect + enterprise patterns + migration strategies
 # Expected: Service decomposition plan, migration roadmap, risk assessment
 # ✅ Verified: SuperGemini v4.0
 
-/sc:save "modernization-strategy-complete"
+/sg:save "modernization-strategy-complete"
 
 # Phase 3: Incremental Migration
-/sc:load "modernization-strategy-complete"
+/sg:load "modernization-strategy-complete"
 
 # Extract user management microservice
-/sc:implement "user management microservice extraction with legacy integration"
+/sg:implement "user management microservice extraction with legacy integration"
 # Expected: Service extraction, API compatibility, data synchronization
 
-/sc:test --focus integration --type legacy-compatibility
+/sg:test --focus integration --type legacy-compatibility
 # Expected: Integration testing with legacy system validation
 
 # Extract payment processing microservice
-/sc:implement "payment processing microservice with secure data migration"
+/sg:implement "payment processing microservice with secure data migration"
 # Expected: Secure payment service extraction, transaction integrity
 
 # Continue with systematic extraction
-/sc:implement "product catalog microservice with data consistency"
+/sg:implement "product catalog microservice with data consistency"
 # Expected: Catalog service with eventual consistency patterns
 
 # Phase 4: Infrastructure Modernization
-/sc:implement "containerization and Kubernetes orchestration"
+/sg:implement "containerization and Kubernetes orchestration"
 # Activates: devops-architect + containerization + orchestration patterns
 # Expected: Docker containers, K8s deployment, service mesh
 
-/sc:implement "CI/CD pipeline for microservices with quality gates"
+/sg:implement "CI/CD pipeline for microservices with quality gates"
 # Expected: Automated pipeline, deployment automation, rollback capabilities
 
-/sc:implement "monitoring and observability stack with distributed tracing"
+/sg:implement "monitoring and observability stack with distributed tracing"
 # Expected: Comprehensive monitoring, distributed tracing, alerting
 ```
 
 ### Open Source Project Development
 ```bash
 # Understanding and Contributing to Large Projects
-/sc:load open-source-project/ && /sc:analyze . --focus architecture --think-hard --serena
+/sg:load open-source-project/ && /sg:analyze . --focus architecture --think-hard --serena
 # Expected: Architecture understanding, contribution patterns, codebase navigation
 # ✅ Verified: SuperGemini v4.0
 
-/sc:brainstorm "feature proposal for community benefit" --focus community
+/sg:brainstorm "feature proposal for community benefit" --focus community
 # Expected: Community-oriented feature planning, RFC preparation
 
 # Feature Implementation with Quality Focus
-/sc:implement "feature implementation following project standards" --focus quality --c7
+/sg:implement "feature implementation following project standards" --focus quality --c7
 # Activates: All quality agents + comprehensive validation + community standards
 # Expected: High-quality implementation with thorough testing
 
-/sc:test --focus quality --type comprehensive --orchestrate
+/sg:test --focus quality --type comprehensive --orchestrate
 # Expected: Complete test coverage, edge case handling, quality validation
 # ✅ Verified: SuperGemini v4.0
 
 # Community Integration and Documentation
-/sc:analyze . --focus architecture --think-hard --c7 --serena
+/sg:analyze . --focus architecture --think-hard --c7 --serena
 # Expected: Compatibility analysis, community impact assessment
 # ✅ Verified: SuperGemini v4.0
 
-/sc:implement "comprehensive documentation with community guidelines"
+/sg:implement "comprehensive documentation with community guidelines"
 # Expected: Documentation following community standards and contribution guidelines
 ```
 
@@ -214,7 +214,7 @@
 ### Parallel Development Coordination
 ```bash
 # Complex project requiring parallel development streams
-/sc:spawn "enterprise platform development" --orchestrate --all-mcp
+/sg:spawn "enterprise platform development" --orchestrate --all-mcp
 
 # Intelligent parallel coordination:
 # Stream 1: Frontend development (frontend-architect + Magic MCP)
@@ -234,7 +234,7 @@
 ### Expert-Level Multi-Tool Coordination
 ```bash
 # Complex system performance optimization requiring all capabilities
-/sc:analyze distributed-system/ --ultrathink --all-mcp --focus performance
+/sg:analyze distributed-system/ --ultrathink --all-mcp --focus performance
 
 # Activates comprehensive analysis:
 # - Sequential MCP: Multi-step reasoning for complex performance analysis
@@ -252,7 +252,7 @@
 # 5. Performance testing scenarios and validation
 # 6. UI performance improvements if frontend components exist
 
-/sc:implement "comprehensive performance optimizations" --focus performance --orchestrate --all-mcp
+/sg:implement "comprehensive performance optimizations" --focus performance --orchestrate --all-mcp
 # Expected: Coordinated optimization across all system layers with impact measurement
 # ✅ Verified: SuperGemini v4.0
 ```
@@ -260,7 +260,7 @@
 ### Enterprise-Scale Security Implementation
 ```bash
 # Comprehensive security analysis with all available intelligence
-/sc:analyze enterprise-app/ --focus security --ultrathink --all-mcp
+/sg:analyze enterprise-app/ --focus security --ultrathink --all-mcp
 
 # Multi-layer security analysis:
 # - Sequential: Systematic threat modeling and security analysis
@@ -283,7 +283,7 @@
 ### Task Management Mode for Complex Projects
 ```bash
 # Large scope triggering comprehensive task management
-/sc:implement "complete microservices platform with authentication, API gateway, service mesh, and monitoring"
+/sg:implement "complete microservices platform with authentication, API gateway, service mesh, and monitoring"
 
 # Mode activation: >3 steps, multiple domains, complex dependencies
 # Behavioral changes:
@@ -309,7 +309,7 @@
 ### Orchestration Mode for High-Complexity Systems
 ```bash
 # Complex task requiring multiple tools and parallel execution
-/sc:spawn "full-stack application with React frontend, Node.js API, PostgreSQL database, Redis caching, Docker deployment, and comprehensive testing"
+/sg:spawn "full-stack application with React frontend, Node.js API, PostgreSQL database, Redis caching, Docker deployment, and comprehensive testing"
 
 # Mode activation: Complexity score >0.8, multiple domains, parallel opportunities
 # Behavioral changes:
@@ -331,7 +331,7 @@
 ### Long-Term Project Development
 ```bash
 # Multi-session project with persistent context
-/sc:load "ecommerce-platform" && /sc:reflect "previous implementation decisions"
+/sg:load "ecommerce-platform" && /sg:reflect "previous implementation decisions"
 
 # Session context restoration:
 # - Architectural decisions and rationale
@@ -342,13 +342,13 @@
 
 # Phase-based development with context building:
 # Authentication phase
-/sc:implement "JWT authentication system" && /sc:save "auth-phase-complete"
+/sg:implement "JWT authentication system" && /sg:save "auth-phase-complete"
 
 # Product catalog phase  
-/sc:load "auth-phase-complete" && /sc:implement "product catalog API" && /sc:save "catalog-phase-complete"
+/sg:load "auth-phase-complete" && /sg:implement "product catalog API" && /sg:save "catalog-phase-complete"
 
 # Payment integration phase
-/sc:load "catalog-phase-complete" && /sc:implement "Stripe payment integration" && /sc:save "payment-phase-complete"
+/sg:load "catalog-phase-complete" && /sg:implement "Stripe payment integration" && /sg:save "payment-phase-complete"
 
 # Each phase builds on previous context while maintaining session continuity
 ```
@@ -356,7 +356,7 @@
 ### Cross-Session Learning and Adaptation
 ```bash
 # Session with decision tracking and learning
-/sc:load "microservices-project" && /sc:reflect "previous payment integration decisions"
+/sg:load "microservices-project" && /sg:reflect "previous payment integration decisions"
 
 # Expected adaptive behavior:
 # - Recall previous architectural decisions about payment processing
@@ -377,19 +377,19 @@
 ### Performance and Efficiency Optimization
 ```bash
 # Ultra-compressed mode for large operations
-/sc:analyze massive-codebase/ --uc --scope project --orchestrate
+/sg:analyze massive-codebase/ --uc --scope project --orchestrate
 # Activates: Token efficiency mode, intelligent coordination, compressed communication
 # Expected: Comprehensive analysis with 30-50% token reduction while preserving clarity
 # ✅ Verified: SuperGemini v4.0
 
 # Maximum depth analysis for critical systems
-/sc:analyze . --ultrathink --all-mcp --focus architecture
+/sg:analyze . --ultrathink --all-mcp --focus architecture
 # Activates: All MCP servers, maximum analysis depth (~32K tokens)
 # Expected: Comprehensive system analysis with all available intelligence
 # ✅ Verified: SuperGemini v4.0
 
 # Orchestrated implementation with all capabilities
-/sc:implement "enterprise application" --orchestrate --all-mcp --focus quality
+/sg:implement "enterprise application" --orchestrate --all-mcp --focus quality
 # Expected: Full-featured implementation with intelligent coordination
 # ✅ Verified: SuperGemini v4.0
 ```
@@ -397,13 +397,13 @@
 ### Safety and Validation for Production
 ```bash
 # Production-ready development with comprehensive validation
-/sc:implement "payment processing system" --focus security --think-hard --c7 --serena
+/sg:implement "payment processing system" --focus security --think-hard --c7 --serena
 # Activates: Security-focused implementation with official patterns and context
 # Expected: Production-ready implementation with security best practices
 # ✅ Verified: SuperGemini v4.0
 
 # Enterprise-scale system redesign
-/sc:spawn "system architecture redesign" --orchestrate --ultrathink --all-mcp
+/sg:spawn "system architecture redesign" --orchestrate --ultrathink --all-mcp
 # Activates: Maximum coordination and analysis for system-wide changes
 # Expected: Systematic redesign with comprehensive validation and risk assessment
 # ✅ Verified: SuperGemini v4.0
@@ -414,46 +414,46 @@
 ### Startup MVP to Enterprise Scale
 ```bash
 # Week 1-2: MVP Foundation
-/sc:brainstorm "scalable social platform for creators" && /sc:save "mvp-requirements"
+/sg:brainstorm "scalable social platform for creators" && /sg:save "mvp-requirements"
 
-/sc:load "mvp-requirements" && /sc:implement "MVP core features with scalability considerations"
+/sg:load "mvp-requirements" && /sg:implement "MVP core features with scalability considerations"
 # Expected: MVP implementation with enterprise-scale architecture planning
 
 # Month 2-3: Scale Preparation
-/sc:load "mvp-requirements" && /sc:analyze . --focus architecture --think-hard
+/sg:load "mvp-requirements" && /sg:analyze . --focus architecture --think-hard
 # Expected: Scalability assessment and optimization recommendations
 
-/sc:implement "microservices migration and containerization" --orchestrate
+/sg:implement "microservices migration and containerization" --orchestrate
 # Expected: Systematic migration to microservices architecture
 
 # Month 4-6: Enterprise Features
-/sc:implement "enterprise features: analytics, compliance, monitoring" --all-mcp
+/sg:implement "enterprise features: analytics, compliance, monitoring" --all-mcp
 # Expected: Enterprise-grade features with comprehensive validation
 
-/sc:test --focus quality --type enterprise-scale --orchestrate
+/sg:test --focus quality --type enterprise-scale --orchestrate
 # Expected: Enterprise-scale testing with performance and security validation
 ```
 
 ### Multi-Platform Application Development
 ```bash
 # Phase 1: Architecture Planning
-/sc:analyze "cross-platform architecture strategies" --focus architecture --think-hard --c7
+/sg:analyze "cross-platform architecture strategies" --focus architecture --think-hard --c7
 # Expected: Multi-platform architecture with shared business logic
 # ✅ Verified: SuperGemini v4.0
 
 # Phase 2: Parallel Development
-/sc:spawn "multi-platform development" --orchestrate --all-mcp
+/sg:spawn "multi-platform development" --orchestrate --all-mcp
 # Stream 1: Web application (React + TypeScript)
 # Stream 2: Mobile application (React Native)
 # Stream 3: Backend API (Node.js + PostgreSQL)
 # Stream 4: Desktop application (Electron)
 
 # Phase 3: Integration and Testing
-/sc:test --focus integration --type multi-platform --orchestrate
+/sg:test --focus integration --type multi-platform --orchestrate
 # Expected: Cross-platform integration testing and validation
 
 # Phase 4: Deployment and Monitoring
-/sc:implement "multi-platform deployment and monitoring" --orchestrate
+/sg:implement "multi-platform deployment and monitoring" --orchestrate
 # Expected: Coordinated deployment across all platforms with unified monitoring
 ```
 
@@ -462,16 +462,16 @@
 ### Systematic Performance Enhancement
 ```bash
 # Comprehensive performance analysis
-/sc:analyze . --focus performance --ultrathink --all-mcp
+/sg:analyze . --focus performance --ultrathink --all-mcp
 # Expected: Multi-layer performance analysis with optimization roadmap
 # ✅ Verified: SuperGemini v4.0
 
 # Coordinated optimization implementation
-/sc:implement "performance optimizations across all layers" --focus performance --orchestrate
+/sg:implement "performance optimizations across all layers" --focus performance --orchestrate
 # Expected: Frontend, backend, database, and infrastructure optimizations
 
 # Impact measurement and validation
-/sc:test --focus performance --type load-testing --orchestrate
+/sg:test --focus performance --type load-testing --orchestrate
 # Expected: Performance testing with before/after comparisons
 # ✅ Verified: SuperGemini v4.0
 ```
@@ -479,15 +479,15 @@
 ### Advanced Monitoring and Observability
 ```bash
 # Comprehensive monitoring implementation
-/sc:implement "enterprise monitoring stack with distributed tracing" --orchestrate --all-mcp
+/sg:implement "enterprise monitoring stack with distributed tracing" --orchestrate --all-mcp
 # Expected: Complete observability with metrics, logging, tracing, alerting
 
 # Advanced analytics and insights
-/sc:implement "performance analytics and predictive monitoring" --focus performance
+/sg:implement "performance analytics and predictive monitoring" --focus performance
 # Expected: Predictive performance monitoring with ML-based insights
 
 # Automated optimization based on monitoring
-/sc:implement "automated performance optimization based on monitoring data"
+/sg:implement "automated performance optimization based on monitoring data"
 # Expected: Self-optimizing system with automated performance tuning
 ```
 
@@ -496,30 +496,30 @@
 ### CI/CD and DevOps Automation
 ```bash
 # Enterprise CI/CD pipeline
-/sc:implement "comprehensive CI/CD pipeline with quality gates and security scanning" --orchestrate
+/sg:implement "comprehensive CI/CD pipeline with quality gates and security scanning" --orchestrate
 # Expected: Full pipeline with automated testing, security scanning, deployment
 
 # Infrastructure as Code
-/sc:implement "Infrastructure as Code with Terraform and Kubernetes" --focus infrastructure
+/sg:implement "Infrastructure as Code with Terraform and Kubernetes" --focus infrastructure
 # Expected: Complete IaC setup with automated provisioning and management
 
 # Advanced deployment strategies
-/sc:implement "blue-green deployment with automated rollback and monitoring"
+/sg:implement "blue-green deployment with automated rollback and monitoring"
 # Expected: Safe deployment strategies with automated risk management
 ```
 
 ### Security and Compliance Integration
 ```bash
 # Comprehensive security implementation
-/sc:implement "enterprise security framework with compliance automation" --focus security --orchestrate
+/sg:implement "enterprise security framework with compliance automation" --focus security --orchestrate
 # Expected: Complete security framework with automated compliance validation
 
 # Advanced threat detection
-/sc:implement "threat detection and incident response automation" --focus security
+/sg:implement "threat detection and incident response automation" --focus security
 # Expected: Automated security monitoring with incident response
 
 # Compliance automation
-/sc:implement "automated compliance reporting and audit trail" --focus security
+/sg:implement "automated compliance reporting and audit trail" --focus security
 # Expected: Continuous compliance monitoring with automated reporting
 ```
 

@@ -32,7 +32,7 @@
 **Frontend + Backend + Security Coordination:**
 ```bash
 # Optimal coordination for full-stack features
-/sc:implement "secure user dashboard with real-time updates"
+/sg:implement "secure user dashboard with real-time updates"
 
 # Automatic activation and coordination:
 # 1. security-engineer: Establishes security requirements and authentication patterns
@@ -52,7 +52,7 @@
 **Performance + Architecture + DevOps Coordination:**
 ```bash
 # System optimization requiring multiple specialists
-/sc:improve "microservices platform performance under load"
+/sg:improve "microservices platform performance under load"
 
 # Specialist coordination:
 # 1. performance-engineer: Identifies bottlenecks and optimization opportunities
@@ -66,7 +66,7 @@
 **Quality + Security + Documentation Coordination:**
 ```bash
 # Production readiness with comprehensive validation
-/sc:analyze . --focus security --comprehensive --export production-audit
+/sg:analyze . --focus security --comprehensive --export production-audit
 
 # Multi-agent validation:
 # 1. security-engineer: Security audit and vulnerability assessment
@@ -82,16 +82,16 @@
 **Keyword Strategy for Precise Agent Activation:**
 ```bash
 # Generic request (suboptimal agent selection)
-/sc:implement "user system"
+/sg:implement "user system"
 # May activate generic backend-architect only
 
 # Optimized request (precise agent selection)
-/sc:implement "secure user authentication with JWT, rate limiting, and audit logging"
+/sg:implement "secure user authentication with JWT, rate limiting, and audit logging"
 # Activates: security-engineer + backend-architect + quality-engineer
 # Keywords: "secure", "authentication", "rate limiting", "audit" trigger specialists
 
 # Domain-specific optimization
-/sc:implement "React TypeScript component library with Storybook and accessibility"
+/sg:implement "React TypeScript component library with Storybook and accessibility"
 # Activates: frontend-architect + technical-writer + quality-engineer
 # Keywords: "React", "TypeScript", "accessibility" ensure proper specialists
 ```
@@ -99,16 +99,16 @@
 **Agent Hierarchy and Leadership Patterns:**
 ```bash
 # Security-led development (security requirements drive implementation)
-/sc:implement "payment processing system" --lead-agent security-engineer
+/sg:implement "payment processing system" --lead-agent security-engineer
 # Security-engineer establishes requirements, others implement within constraints
 
 # Architecture-led development (design drives implementation)
-/sc:design "microservices architecture" --lead-agent system-architect
-/sc:implement "service implementation" --follow-architecture
+/sg:design "microservices architecture" --lead-agent system-architect
+/sg:implement "service implementation" --follow-architecture
 # Architecture decisions guide all implementation choices
 
 # Performance-led optimization (performance requirements drive decisions)
-/sc:improve "high-traffic API" --lead-agent performance-engineer
+/sg:improve "high-traffic API" --lead-agent performance-engineer
 # Performance considerations prioritized in all optimization decisions
 ```
 
@@ -117,19 +117,19 @@
 **E-commerce Platform Development:**
 ```bash
 # Phase 1: Architecture and Security Foundation
-/sc:design "e-commerce platform architecture" --lead-agent system-architect
+/sg:design "e-commerce platform architecture" --lead-agent system-architect
 # system-architect + security-engineer + devops-architect coordination
 
 # Phase 2: Core Service Implementation
-/sc:implement "user authentication and authorization service"
+/sg:implement "user authentication and authorization service"
 # security-engineer + backend-architect + database specialist
 
 # Phase 3: Frontend Development
-/sc:implement "responsive product catalog with search and filtering"
+/sg:implement "responsive product catalog with search and filtering"
 # frontend-architect + ux-designer + performance-engineer
 
 # Phase 4: Integration and Testing
-/sc:test "complete e-commerce workflow" --comprehensive
+/sg:test "complete e-commerce workflow" --comprehensive
 # quality-engineer + security-engineer + performance-engineer
 
 # Agent coordination benefits:
@@ -142,15 +142,15 @@
 **Legacy System Modernization:**
 ```bash
 # Discovery and Analysis Phase
-/sc:analyze legacy-system/ --comprehensive --modernization-assessment
+/sg:analyze legacy-system/ --comprehensive --modernization-assessment
 # system-architect + refactoring-expert + security-engineer + performance-engineer
 
 # Modernization Strategy
-/sc:workflow "legacy modernization roadmap" --risk-assessment
+/sg:workflow "legacy modernization roadmap" --risk-assessment
 # system-architect leads with support from all specialists
 
 # Incremental Implementation
-/sc:implement "microservice extraction" --backward-compatible --safe-mode
+/sg:implement "microservice extraction" --backward-compatible --safe-mode
 # refactoring-expert + system-architect + quality-engineer coordination
 
 # Results: Risk-managed modernization with quality and performance improvements
@@ -163,17 +163,17 @@
 **Technology-Specific Agent Patterns:**
 ```bash
 # React/Frontend Development
-/sc:implement "React component with TypeScript, testing, and Storybook documentation"
+/sg:implement "React component with TypeScript, testing, and Storybook documentation"
 # Triggers: frontend-architect + technical-writer + quality-engineer
 # Keywords: "React", "TypeScript", "testing", "Storybook" ensure comprehensive coverage
 
 # Node.js/Backend Development
-/sc:implement "Express API with authentication, rate limiting, and monitoring"
+/sg:implement "Express API with authentication, rate limiting, and monitoring"
 # Triggers: backend-architect + security-engineer + devops-architect
 # Keywords: "Express", "authentication", "rate limiting", "monitoring" activate specialists
 
 # Database/Performance Optimization
-/sc:improve "PostgreSQL query performance with indexing and connection pooling"
+/sg:improve "PostgreSQL query performance with indexing and connection pooling"
 # Triggers: database-specialist + performance-engineer + system-architect
 # Keywords: "PostgreSQL", "performance", "indexing", "connection pooling" ensure expertise
 ```
@@ -181,7 +181,7 @@
 **Cross-Functional Team Patterns:**
 ```bash
 # Full-Stack Feature Development
-/sc:implement "real-time chat system with React frontend, WebSocket backend, and Redis"
+/sg:implement "real-time chat system with React frontend, WebSocket backend, and Redis"
 # Auto-coordination between:
 # - frontend-architect (React UI components)
 # - backend-architect (WebSocket implementation)
@@ -189,7 +189,7 @@
 # - performance-engineer (real-time optimization)
 
 # DevOps and Security Integration
-/sc:implement "CI/CD pipeline with security scanning, automated testing, and deployment"
+/sg:implement "CI/CD pipeline with security scanning, automated testing, and deployment"
 # Auto-coordination between:
 # - devops-architect (CI/CD design)
 # - security-engineer (security scanning)
@@ -202,19 +202,19 @@
 **Domain-Driven Agent Selection:**
 ```bash
 # Financial Services (Security-First)
-/sc:implement "payment processing with PCI compliance, fraud detection, and audit logging"
+/sg:implement "payment processing with PCI compliance, fraud detection, and audit logging"
 # Primary: security-engineer
 # Supporting: backend-architect, quality-engineer, technical-writer
 # Focus: Security and compliance drive all decisions
 
 # High-Performance Systems (Performance-First)
-/sc:implement "real-time trading platform with microsecond latency requirements"
+/sg:implement "real-time trading platform with microsecond latency requirements"
 # Primary: performance-engineer
 # Supporting: system-architect, backend-architect, devops-architect
 # Focus: Performance requirements drive architecture
 
 # Developer Tools (UX-First)
-/sc:implement "developer CLI with intuitive commands, comprehensive help, and error handling"
+/sg:implement "developer CLI with intuitive commands, comprehensive help, and error handling"
 # Primary: ux-designer
 # Supporting: frontend-architect, technical-writer, quality-engineer
 # Focus: Developer experience drives design
@@ -227,7 +227,7 @@
 **Microservices Architecture Coordination:**
 ```bash
 # Service Mesh Implementation
-/sc:implement "microservices with Istio service mesh, monitoring, and security"
+/sg:implement "microservices with Istio service mesh, monitoring, and security"
 # Multi-domain coordination:
 # - system-architect: Service mesh design and communication patterns
 # - devops-architect: Kubernetes deployment and scaling
@@ -245,7 +245,7 @@
 **Cloud-Native Platform Development:**
 ```bash
 # Multi-Cloud Platform Strategy
-/sc:design "cloud-native platform with AWS, Azure, and GCP support"
+/sg:design "cloud-native platform with AWS, Azure, and GCP support"
 # Specialist coordination:
 # - system-architect: Multi-cloud architecture and abstraction layers
 # - devops-architect: Infrastructure as code and deployment automation
@@ -265,7 +265,7 @@
 **Legacy-to-Modern Integration:**
 ```bash
 # Strangler Fig Pattern Implementation
-/sc:implement "gradual legacy replacement with modern API gateway and event sourcing"
+/sg:implement "gradual legacy replacement with modern API gateway and event sourcing"
 # Coordinated approach:
 # - system-architect: Migration strategy and coexistence patterns
 # - refactoring-expert: Legacy code analysis and extraction
@@ -283,7 +283,7 @@
 **Multi-Team Coordination:**
 ```bash
 # Cross-Team Feature Development
-/sc:spawn "enterprise customer portal spanning authentication, billing, and support"
+/sg:spawn "enterprise customer portal spanning authentication, billing, and support"
 # Team coordination pattern:
 # - Team A (Auth): security-engineer + backend-architect
 # - Team B (Billing): backend-architect + database-specialist
@@ -304,7 +304,7 @@
 **Brainstorming Mode for Requirements Discovery:**
 ```bash
 # Activate for: Vague requirements, project planning, creative exploration
-/sc:brainstorm "productivity solution for remote teams"
+/sg:brainstorm "productivity solution for remote teams"
 # Triggers: uncertainty keywords ("maybe", "thinking about", "not sure")
 
 # Expected behavior:
@@ -325,7 +325,7 @@
 **Task Management Mode for Complex Projects:**
 ```bash
 # Activate for: Multi-step projects, complex coordination, long-term development
-/sc:implement "complete microservices platform with monitoring and security"
+/sg:implement "complete microservices platform with monitoring and security"
 # Triggers: >3 steps, complex scope, multiple domains
 
 # Expected behavior:
@@ -346,7 +346,7 @@
 **Orchestration Mode for High-Complexity Coordination:**
 ```bash
 # Activate for: Multi-tool operations, performance constraints, parallel execution
-/sc:spawn "full-stack platform with React, Node.js, PostgreSQL, Redis, Docker deployment"
+/sg:spawn "full-stack platform with React, Node.js, PostgreSQL, Redis, Docker deployment"
 # Triggers: complexity >0.8, multiple domains, resource optimization needs
 
 # Expected behavior:
@@ -369,19 +369,19 @@
 **Explicit Mode Activation:**
 ```bash
 # Force brainstorming mode for systematic exploration
-/sc:brainstorm "well-defined requirements" --mode brainstorming
+/sg:brainstorm "well-defined requirements" --mode brainstorming
 # Override automatic mode selection when exploration needed
 
 # Force task management mode for simple tasks requiring tracking
-/sc:implement "simple feature" --task-manage --breakdown
+/sg:implement "simple feature" --task-manage --breakdown
 # Useful for learning task breakdown patterns
 
 # Force introspection mode for learning and analysis
-/sc:analyze "working solution" --introspect --learning-focus
+/sg:analyze "working solution" --introspect --learning-focus
 # Enable meta-cognitive analysis for educational purposes
 
 # Force token efficiency mode for resource optimization
-/sc:analyze large-project/ --uc --token-efficient
+/sg:analyze large-project/ --uc --token-efficient
 # Manual activation when context pressure anticipated
 ```
 
@@ -392,19 +392,19 @@
 **Sequential Mode Progression for Complex Projects:**
 ```bash
 # Phase 1: Brainstorming mode for discovery
-Phase 1: /sc:brainstorm "project concept" --requirements-focus
+Phase 1: /sg:brainstorm "project concept" --requirements-focus
 # Mode: Collaborative discovery, requirements elicitation
 
 # Phase 2: Task management mode for structured development  
-Phase 2: /sc:workflow "project plan" --task-manage --breakdown  
+Phase 2: /sg:workflow "project plan" --task-manage --breakdown  
 # Mode: Hierarchical planning, progress tracking, quality gates
 
 # Phase 3: Orchestration mode for integration
-Phase 3: /sc:implement "core features" --orchestrate --parallel
+Phase 3: /sg:implement "core features" --orchestrate --parallel
 # Mode: Multi-tool coordination, parallel execution, efficiency focus
 
 # Phase 4: Introspection mode for optimization and learning
-Phase 4: /sc:reflect "project completion" --introspect --lessons-learned
+Phase 4: /sg:reflect "project completion" --introspect --lessons-learned
 # Mode: Meta-cognitive analysis, process improvement, knowledge capture
 
 # Each phase optimized for specific behavioral needs
@@ -413,17 +413,17 @@ Phase 4: /sc:reflect "project completion" --introspect --lessons-learned
 **Context-Sensitive Mode Selection:**
 ```bash
 # Startup MVP Development Context
-Week 1: /sc:brainstorm "SaaS platform for small businesses" # Discovery mode
-Week 2-3: /sc:workflow "MVP development plan" --6-week-timeline # Task management
-Week 4-5: /sc:spawn "frontend-backend integration" --orchestrate # Coordination mode
-Week 6: /sc:reflect "MVP development process" --lessons-learned # Introspection
+Week 1: /sg:brainstorm "SaaS platform for small businesses" # Discovery mode
+Week 2-3: /sg:workflow "MVP development plan" --6-week-timeline # Task management
+Week 4-5: /sg:spawn "frontend-backend integration" --orchestrate # Coordination mode
+Week 6: /sg:reflect "MVP development process" --lessons-learned # Introspection
 
 # Enterprise Application Modernization Context
-Discovery: /sc:analyze legacy-system/ --introspect --modernization-assessment
-Planning: /sc:brainstorm "modernization approaches for legacy monolith"  
-Implementation: /sc:workflow "microservices extraction roadmap" --enterprise-scale
-Integration: /sc:spawn "microservices deployment with monitoring" --orchestrate
-Optimization: /sc:analyze complete-system/ --uc --performance-focus
+Discovery: /sg:analyze legacy-system/ --introspect --modernization-assessment
+Planning: /sg:brainstorm "modernization approaches for legacy monolith"  
+Implementation: /sg:workflow "microservices extraction roadmap" --enterprise-scale
+Integration: /sg:spawn "microservices deployment with monitoring" --orchestrate
+Optimization: /sg:analyze complete-system/ --uc --performance-focus
 ```
 
 ### Advanced Mode Coordination
@@ -431,16 +431,16 @@ Optimization: /sc:analyze complete-system/ --uc --performance-focus
 **Multi-Mode Project Workflows:**
 ```bash
 # Open Source Contribution Workflow
-Understanding: /sc:load open-source-project/ --introspect --contributor-perspective
+Understanding: /sg:load open-source-project/ --introspect --contributor-perspective
 # Deep understanding with transparent reasoning about project patterns
 
-Planning: /sc:brainstorm "feature contribution that benefits community"
+Planning: /sg:brainstorm "feature contribution that benefits community"
 # Explore contribution opportunities with community value focus
 
-Implementation: /sc:implement "community feature" --orchestrate --comprehensive
+Implementation: /sg:implement "community feature" --orchestrate --comprehensive
 # High-quality implementation with community standards compliance
 
-Review: /sc:workflow "pull request preparation" --task-manage --community-standards
+Review: /sg:workflow "pull request preparation" --task-manage --community-standards
 # Structured approach to meet project contribution requirements
 
 # Results: High-quality contributions aligned with community needs
@@ -453,7 +453,7 @@ Review: /sc:workflow "pull request preparation" --task-manage --community-standa
 **Project Phase Adaptation:**
 ```bash
 # Early Development (Exploration Phase)
-/sc:brainstorm "new product concept" --exploration-focus
+/sg:brainstorm "new product concept" --exploration-focus
 # Mode automatically emphasizes:
 # - Creative problem solving
 # - Requirement discovery
@@ -461,7 +461,7 @@ Review: /sc:workflow "pull request preparation" --task-manage --community-standa
 # - Solution space exploration
 
 # Middle Development (Implementation Phase)
-/sc:implement "core product features" --production-focus
+/sg:implement "core product features" --production-focus
 # Mode automatically emphasizes:
 # - Quality gates and validation
 # - Performance considerations
@@ -469,7 +469,7 @@ Review: /sc:workflow "pull request preparation" --task-manage --community-standa
 # - Testing and documentation
 
 # Late Development (Optimization Phase)
-/sc:improve "production system" --efficiency-focus
+/sg:improve "production system" --efficiency-focus
 # Mode automatically emphasizes:
 # - Performance optimization
 # - Resource efficiency
@@ -480,7 +480,7 @@ Review: /sc:workflow "pull request preparation" --task-manage --community-standa
 **Team Context Adaptation:**
 ```bash
 # Solo Developer Context
-/sc:implement "personal project feature" --solo-optimization
+/sg:implement "personal project feature" --solo-optimization
 # Behavior adapts for:
 # - Rapid iteration cycles
 # - Minimal documentation needs
@@ -488,7 +488,7 @@ Review: /sc:workflow "pull request preparation" --task-manage --community-standa
 # - Learning-focused feedback
 
 # Team Development Context
-/sc:implement "team project feature" --collaboration-optimization
+/sg:implement "team project feature" --collaboration-optimization
 # Behavior adapts for:
 # - Code review preparation
 # - Documentation standards
@@ -496,7 +496,7 @@ Review: /sc:workflow "pull request preparation" --task-manage --community-standa
 # - Knowledge sharing
 
 # Enterprise Context
-/sc:implement "enterprise feature" --enterprise-optimization
+/sg:implement "enterprise feature" --enterprise-optimization
 # Behavior adapts for:
 # - Compliance requirements
 # - Security standards
@@ -511,7 +511,7 @@ Review: /sc:workflow "pull request preparation" --task-manage --community-standa
 **Comprehensive Analysis with Full Capability Stack:**
 ```bash
 # Complex system analysis with coordinated intelligence
-/sc:analyze distributed-system/ --ultrathink --all-mcp
+/sg:analyze distributed-system/ --ultrathink --all-mcp
 
 # Activates coordinated intelligence:
 # - Sequential MCP: Multi-step reasoning for complex system analysis
@@ -535,19 +535,19 @@ Review: /sc:workflow "pull request preparation" --task-manage --community-standa
 **Specialized Tool Combinations:**
 ```bash
 # Frontend Development Optimization
-/sc:implement "React component library" --magic --c7 --seq
+/sg:implement "React component library" --magic --c7 --seq
 # Magic: Modern UI component generation
 # Context7: Official React patterns and best practices
 # Sequential: Systematic component architecture analysis
 
 # Backend Performance Optimization
-/sc:improve "API performance" --seq --morph --play
+/sg:improve "API performance" --seq --morph --play
 # Sequential: Systematic performance analysis
 # Morphllm: Bulk optimization pattern application
 # Playwright: Performance validation and testing
 
 # Security Audit and Hardening
-/sc:analyze . --focus security --c7 --seq --serena
+/sg:analyze . --focus security --c7 --seq --serena
 # Context7: Official security patterns and compliance standards
 # Sequential: Systematic threat modeling and analysis
 # Serena: Historical security decision context and learning
@@ -558,19 +558,19 @@ Review: /sc:workflow "pull request preparation" --task-manage --community-standa
 **Context-Driven Tool Coordination:**
 ```bash
 # Large Codebase Modernization
-/sc:improve legacy-monolith/ --serena --morph --seq
+/sg:improve legacy-monolith/ --serena --morph --seq
 # Serena: Historical context and architectural understanding
 # Morphllm: Bulk modernization pattern application
 # Sequential: Systematic modernization planning and risk assessment
 
 # Performance-Critical System Development
-/sc:implement "high-frequency trading platform" --seq --c7 --play
+/sg:implement "high-frequency trading platform" --seq --c7 --play
 # Sequential: Systematic performance analysis and optimization
 # Context7: Industry performance patterns and best practices
 # Playwright: Performance validation and load testing
 
 # UI/UX Focused Development
-/sc:implement "design system components" --magic --c7 --play
+/sg:implement "design system components" --magic --c7 --play
 # Magic: Modern component generation with design patterns
 # Context7: Official design system patterns and accessibility
 # Playwright: Visual testing and accessibility validation
@@ -583,7 +583,7 @@ Review: /sc:workflow "pull request preparation" --task-manage --community-standa
 **Cross-Team Development Orchestration:**
 ```bash
 # Enterprise platform development coordination
-/sc:spawn "enterprise platform development" --orchestrate
+/sg:spawn "enterprise platform development" --orchestrate
 
 # Advanced coordination features:
 # - Cross-team dependency management and coordination
@@ -593,9 +593,9 @@ Review: /sc:workflow "pull request preparation" --task-manage --community-standa
 # - Documentation synchronization and knowledge sharing
 
 # Implementation pattern:
-Team A: /sc:implement "authentication service" --focus security --validate
-Team B: /sc:implement "user interface" --magic --validate  
-Team C: /sc:implement "data analytics" --focus performance --validate
+Team A: /sg:implement "authentication service" --focus security --validate
+Team B: /sg:implement "user interface" --magic --validate  
+Team C: /sg:implement "data analytics" --focus performance --validate
 
 # Coordination benefits:
 # - Reduced duplication across teams
@@ -608,7 +608,7 @@ Team C: /sc:implement "data analytics" --focus performance --validate
 **Shared Standards and Patterns:**
 ```bash
 # Organization-Wide Standards Implementation
-/sc:implement "company-wide design system with React, TypeScript, and testing"
+/sg:implement "company-wide design system with React, TypeScript, and testing"
 # Activates enterprise coordination:
 # - frontend-architect: Component architecture and patterns
 # - technical-writer: Documentation standards and guidelines
@@ -616,7 +616,7 @@ Team C: /sc:implement "data analytics" --focus performance --validate
 # - ux-designer: Design consistency and accessibility
 
 # Standards enforcement across projects:
-/sc:analyze multiple-projects/ --focus standards-compliance --enterprise-audit
+/sg:analyze multiple-projects/ --focus standards-compliance --enterprise-audit
 # Validates consistency across:
 # - Code style and patterns
 # - Security implementation
@@ -629,7 +629,7 @@ Team C: /sc:implement "data analytics" --focus performance --validate
 **Microservices Ecosystem Development:**
 ```bash
 # Complete microservices platform with enterprise features
-/sc:spawn "microservices platform with service mesh, monitoring, and governance"
+/sg:spawn "microservices platform with service mesh, monitoring, and governance"
 # Comprehensive coordination:
 # - system-architect: Service communication and data flow
 # - devops-architect: Infrastructure and deployment automation
@@ -652,7 +652,7 @@ Team C: /sc:implement "data analytics" --focus performance --validate
 **Learning-Oriented Development:**
 ```bash
 # Advanced session management with optimization learning
-/sc:load "long-term-project" --scope project
+/sg:load "long-term-project" --scope project
 
 # Intelligent adaptation capabilities:
 # - Development pattern analysis and efficiency optimization
@@ -662,10 +662,10 @@ Team C: /sc:implement "data analytics" --focus performance --validate
 # - Risk assessment and mitigation based on project patterns
 
 # Learning cycle implementation:
-Week 1: /sc:reflect "development patterns and efficiency opportunities"
-Week 2: /sc:implement "optimized workflow based on pattern analysis"
-Week 3: /sc:analyze "workflow optimization impact measurement"
-Week 4: /sc:workflow "refined development process for next iteration"
+Week 1: /sg:reflect "development patterns and efficiency opportunities"
+Week 2: /sg:implement "optimized workflow based on pattern analysis"
+Week 3: /sg:analyze "workflow optimization impact measurement"
+Week 4: /sg:workflow "refined development process for next iteration"
 
 # Results: Continuous improvement and personalized optimization through systematic analysis
 ```
@@ -673,7 +673,7 @@ Week 4: /sc:workflow "refined development process for next iteration"
 **Pattern Recognition and Optimization:**
 ```bash
 # Historical Analysis for Process Improvement
-/sc:analyze project-history/ --pattern-recognition --optimization-opportunities
+/sg:analyze project-history/ --pattern-recognition --optimization-opportunities
 # Identifies recurring patterns:
 # - Common development bottlenecks and solutions
 # - Most effective agent coordination patterns
@@ -681,7 +681,7 @@ Week 4: /sc:workflow "refined development process for next iteration"
 # - Quality improvement opportunities and prevention
 
 # Predictive Optimization
-/sc:implement "new feature" --predictive-optimization --learn-from-history
+/sg:implement "new feature" --predictive-optimization --learn-from-history
 # Applies learned patterns:
 # - Proactive quality gate implementation
 # - Optimal tool selection based on feature characteristics

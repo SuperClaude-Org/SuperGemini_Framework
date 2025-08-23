@@ -12,15 +12,15 @@ Before using this guide, verify agent selection works:
 
 ```bash
 # Test security agent activation
-/sc:implement "JWT authentication"
+/sg:implement "JWT authentication"
 # Expected: Security engineer should activate automatically
 
 # Test frontend agent activation
-/sc:implement "responsive navigation component"  
+/sg:implement "responsive navigation component"  
 # Expected: Frontend architect + Magic MCP should activate
 
 # Test systematic analysis
-/sc:troubleshoot "slow API performance"
+/sg:troubleshoot "slow API performance"
 # Expected: Root-cause analyst + performance engineer activation
 ```
 
@@ -66,16 +66,16 @@ Task Analysis →
 **Automatic Agent Coordination:**
 ```bash
 # Triggers: security-engineer + backend-architect + quality-engineer
-/sc:implement "JWT authentication with rate limiting"
+/sg:implement "JWT authentication with rate limiting"
 
 # Triggers: frontend-architect + learning-guide + technical-writer  
-/sc:design "accessible React dashboard with documentation"
+/sg:design "accessible React dashboard with documentation"
 
 # Triggers: devops-architect + performance-engineer + root-cause-analyst
-/sc:troubleshoot "slow deployment pipeline with intermittent failures"
+/sg:troubleshoot "slow deployment pipeline with intermittent failures"
 
 # Triggers: security-engineer + quality-engineer + refactoring-expert
-/sc:audit "payment processing security vulnerabilities"
+/sg:audit "payment processing security vulnerabilities"
 ```
 
 ---
@@ -110,7 +110,7 @@ Task Analysis →
 - [ ] Includes scalability and reliability considerations
 - [ ] Provides technology stack recommendations
 
-**Verify:** `/sc:design "microservices platform"` should activate system-architect  
+**Verify:** `/sg:design "microservices platform"` should activate system-architect  
 **Test:** Output should include service decomposition and integration patterns  
 **Check:** Should coordinate with devops-architect for infrastructure concerns
 
@@ -442,7 +442,7 @@ Task Analysis →
 ### Common Issues (< 2 minutes)
 - **No agent activation**: Use domain keywords: "security", "performance", "frontend"
 - **Wrong agents selected**: Check trigger keywords in agent documentation
-- **Too many agents**: Focus keywords on primary domain or use `/sc:focus [domain]`
+- **Too many agents**: Focus keywords on primary domain or use `/sg:focus [domain]`
 - **Agents not coordinating**: Increase task complexity or use multi-domain keywords
 - **Agent expertise mismatch**: Use more specific technical terminology
 
@@ -450,7 +450,7 @@ Task Analysis →
 - **Force agent activation**: Use explicit domain keywords in requests
 - **Reset agent selection**: Restart Gemini CLI session to reset agent state
 - **Check agent patterns**: Review trigger keywords in agent documentation
-- **Test basic activation**: Try `/sc:implement "security auth"` to test security-engineer
+- **Test basic activation**: Try `/sg:implement "security auth"` to test security-engineer
 
 ### Agent-Specific Troubleshooting
 
@@ -500,8 +500,8 @@ Task Analysis →
 **Level 2: Detailed Help (5-15 min)**
 ```bash
 # Agent-specific diagnostics
-/sc:help agents                        # List available agents
-/sc:explain "agent selection process"  # Understand routing
+/sg:help agents                        # List available agents
+/sg:explain "agent selection process"  # Understand routing
 # Review trigger keywords for target agents
 ```
 - See [Common Issues Guide](../Reference/common-issues.md) for agent installation problems
@@ -543,7 +543,7 @@ After applying agent fixes, test with:
 
 **Too Many Agents?**
 - Focus keywords on primary domain needs
-- Use `/sc:focus [domain]` to limit scope
+- Use `/sg:focus [domain]` to limit scope
 - Start with specific agents, expand as needed
 
 **Wrong Agents?**
@@ -575,14 +575,14 @@ After applying agent fixes, test with:
 
 | Command | Primary Agents | Supporting Agents |
 |---------|----------------|-------------------|
-| `/sc:implement` | Domain architects (frontend, backend) | security-engineer, quality-engineer |
-| `/sc:analyze` | quality-engineer, security-engineer | performance-engineer, root-cause-analyst |
-| `/sc:troubleshoot` | root-cause-analyst | Domain specialists, performance-engineer |
-| `/sc:improve` | refactoring-expert | quality-engineer, performance-engineer |
-| `/sc:document` | technical-writer | Domain specialists, learning-guide |
-| `/sc:design` | system-architect | Domain architects, requirements-analyst |
-| `/sc:test` | quality-engineer | security-engineer, performance-engineer |
-| `/sc:explain` | learning-guide | technical-writer, domain specialists |
+| `/sg:implement` | Domain architects (frontend, backend) | security-engineer, quality-engineer |
+| `/sg:analyze` | quality-engineer, security-engineer | performance-engineer, root-cause-analyst |
+| `/sg:troubleshoot` | root-cause-analyst | Domain specialists, performance-engineer |
+| `/sg:improve` | refactoring-expert | quality-engineer, performance-engineer |
+| `/sg:document` | technical-writer | Domain specialists, learning-guide |
+| `/sg:design` | system-architect | Domain architects, requirements-analyst |
+| `/sg:test` | quality-engineer | security-engineer, performance-engineer |
+| `/sg:explain` | learning-guide | technical-writer, domain specialists |
 
 ### Most Effective Agent Combinations
 
@@ -652,30 +652,30 @@ learning-guide + technical-writer + frontend-architect + quality-engineer
 **Development Workflows:**
 ```bash
 # Full-stack feature development
-/sc:implement "responsive user dashboard with real-time notifications"
+/sg:implement "responsive user dashboard with real-time notifications"
 # → frontend-architect + backend-architect + performance-engineer
 
 # API development with documentation
-/sc:create "REST API for payment processing with comprehensive docs"  
+/sg:create "REST API for payment processing with comprehensive docs"  
 # → backend-architect + security-engineer + technical-writer + quality-engineer
 
 # Performance optimization investigation
-/sc:troubleshoot "slow database queries affecting user experience"
+/sg:troubleshoot "slow database queries affecting user experience"
 # → performance-engineer + root-cause-analyst + backend-architect
 ```
 
 **Analysis Workflows:**
 ```bash
 # Security assessment
-/sc:analyze "authentication system for GDPR compliance vulnerabilities"
+/sg:analyze "authentication system for GDPR compliance vulnerabilities"
 # → security-engineer + quality-engineer + requirements-analyst
 
 # Code quality review  
-/sc:review "legacy codebase for modernization opportunities"
+/sg:review "legacy codebase for modernization opportunities"
 # → refactoring-expert + system-architect + quality-engineer + technical-writer
 
 # Learning and explanation
-/sc:explain "microservices patterns with hands-on examples"
+/sg:explain "microservices patterns with hands-on examples"
 # → system-architect + learning-guide + technical-writer
 ```
 
@@ -699,7 +699,7 @@ learning-guide + technical-writer + frontend-architect + quality-engineer
 
 **Problem: Too many agents**
 - Solution: Focus on primary domain with specific technical terms
-- Example: Use "/sc:focus backend" to limit scope
+- Example: Use "/sg:focus backend" to limit scope
 
 ### Quality-Driven Development
 
@@ -788,4 +788,4 @@ Master multi-domain requests that trigger optimal agent combinations. Leverage t
 **The SuperGemini Advantage:**
 Experience the power of 13 specialized AI experts working in perfect coordination, all through simple, natural language requests. No configuration, no management, just intelligent collaboration that scales with your needs.
 
-🎯 **Ready to experience intelligent agent coordination? Start with `/sc:implement` and discover the magic of specialized AI collaboration.**
+🎯 **Ready to experience intelligent agent coordination? Start with `/sg:implement` and discover the magic of specialized AI collaboration.**
