@@ -938,10 +938,12 @@ def perform_enhanced_uninstall(components: List[str], args: argparse.Namespace, 
         
         # Close log handlers first to prevent file lock issues
         import logging
-        for handler in logger.handlers[:]:
+        # Access the internal logging.Logger through the wrapper
+        internal_logger = logger.logger if hasattr(logger, 'logger') else logger
+        for handler in internal_logger.handlers[:]:
             if hasattr(handler, 'close'):
                 handler.close()
-            logger.removeHandler(handler)
+            internal_logger.removeHandler(handler)
         
         for i, file_path in enumerate(supergemini_files):
             progress.update(i, f"Removing {file_path.name}")

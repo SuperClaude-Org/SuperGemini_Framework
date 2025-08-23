@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [4.0.8] - 2025-08-24
+
+### Fixed
+- **Serena folder auto-creation**: Removed unnecessary directory creation during MCP installation
+- **Logger error during uninstall**: Fixed custom Logger wrapper attribute access issue preventing clean uninstall
+- **Uninstall completeness**: Enhanced file removal process with proper log handler cleanup
+
+### Technical Details
+- MCP component no longer creates serena directory unnecessarily (setup/components/mcp.py)
+- Uninstall command properly accesses internal logger handlers through wrapper (setup/cli/commands/uninstall.py)
+- Both issues identified and resolved through root cause analysis
+
 ## [4.0.7] - 2025-08-24
 
 ### Changed

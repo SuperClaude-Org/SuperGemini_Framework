@@ -367,10 +367,6 @@ class MCPComponent(Component):
         try:
             self.logger.info(f"Installing uv package: {uv_package}")
             
-            # Create serena directory in .gemini
-            serena_dir = self.install_dir / "serena"
-            serena_dir.mkdir(exist_ok=True)
-            
             # Install using uv tool install with correct package name (serena-agent)
             result = subprocess.run(
                 ["uv", "tool", "install", "--from", uv_package, "serena-agent"],
