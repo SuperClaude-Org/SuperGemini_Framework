@@ -23,7 +23,7 @@ try:
     from .version import __version__
 except ImportError:
     # Fallback if module structure is broken
-    __version__ = "4.0.8"
+    __version__ = "4.0.9"
 
 # Add the 'setup' directory to the Python import path (modern approach)
 

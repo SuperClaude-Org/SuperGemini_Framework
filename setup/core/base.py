@@ -317,7 +317,7 @@ class Component(ABC):
         return self._discover_files_in_directory(
             source_dir,
             extension='.md',
-            exclude_patterns=['README.md', 'CHANGELOG.md', 'LICENSE.md']
+            exclude_patterns=['README.md', 'CHANGELOG.md', 'LICENSE.md', 'AGENTS.md']
         )
 
     def _discover_files_in_directory(self, directory: Path, extension: str = '.md',

@@ -33,6 +33,6 @@ def get_version() -> str:
 
     # Fallback
     logger.warning("VERSION file not found in any expected location, using fallback")
-    return "4.0.8"
+    return "4.0.9"
 
 __version__ = get_version()

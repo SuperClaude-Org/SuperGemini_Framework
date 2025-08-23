@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [4.0.9] - 2025-08-24
+
+### Removed
+- **AGENTS.md reference-only file**: Removed from installation and git tracking per v4.0.8 architecture
+- **Agent file imports**: Removed @AGENTS.md from Core Framework imports in GEMINI.md
+
+### Technical Details
+- AGENTS.md excluded from component file discovery (setup/core/base.py)
+- Added AGENTS.md to .gitignore and removed from git tracking
+- Core component now installs 3 files instead of 4 (FLAGS.md, PRINCIPLES.md, RULES.md only)
+- Agent expertise remains integrated in TOML command prompts as designed
+
 ## [4.0.8] - 2025-08-24
 
 ### Fixed
