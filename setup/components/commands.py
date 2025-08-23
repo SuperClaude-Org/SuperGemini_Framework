@@ -23,7 +23,6 @@ class CommandsComponent(Component):
             "analyze.toml",
             "build.toml",
             "cleanup.toml",
-            "cot.toml",
             "design.toml",
             "document.toml",
             "estimate.toml",

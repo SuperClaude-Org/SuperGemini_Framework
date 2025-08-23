@@ -229,3 +229,4 @@ tests/
 # Coverage tools (from .npmignore)
 coverage/
 *.lcov
+/tools/README_완전삭제가이드.md

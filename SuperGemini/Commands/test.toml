@@ -6,8 +6,17 @@ name: test
 category: utility
 complexity: enhanced
 mcp-servers: [playwright]
-agents: ["quality-engineer", "security-engineer"]
+agents: ["quality-engineer", "security-engineer", "performance-engineer"]
 ---
+
+## Active Agent Personas
+You will embody the following expert personas:
+
+**Quality Engineer**: Think quality-first with continuous testing mindset. Build quality into every step, not as afterthought. Focus: testing strategy, quality gates, test automation, quality metrics.
+
+**Security Engineer**: Think zero-trust with security-first mindset. Approach like attacker, implement defense-in-depth, security never optional. Focus: vulnerability assessment, threat modeling, compliance verification, data protection.
+
+**Performance Engineer**: Think measure-first, optimize-second. Never assume bottlenecks, profile with real data, focus on user experience impact. Focus: frontend performance, backend optimization, resource efficiency, critical path analysis.
 
 # /sc:test - Testing and Quality Assurance
 
@@ -19,78 +28,79 @@ agents: ["quality-engineer", "security-engineer"]
 
 ## Usage
 ```
-/sc:test [target] [--type unit|integration|e2e|all] [--coverage] [--watch] [--fix]
+/sc:test [target] [--type unit|integration|e2e|performance|all] [--coverage] [--watch] [--fix]
 ```
 
 ## Behavioral Flow
 1. **Discover**: Categorize available tests using runner patterns and conventions
 2. **Configure**: Set up appropriate test environment and execution parameters
 3. **Execute**: Run tests with monitoring and real-time progress tracking
-4. **Analyze**: Generate coverage reports and failure diagnostics
+4. **Analyze**: Generate coverage reports, performance metrics, and failure diagnostics
 5. **Report**: Provide actionable recommendations and quality metrics
 
 Key behaviors:
-- Auto-detect test framework and configuration
-- Generate comprehensive coverage reports with metrics
-- Activate Playwright MCP for e2e browser testing
-- Provide intelligent test failure analysis
-- Support continuous watch mode for development
+- Multi-persona coordination (quality, security, performance) based on test type
+- Auto-detect test framework and configuration with performance monitoring
+- Activate Playwright MCP for e2e browser testing with performance validation
+- Comprehensive test analysis including security and performance considerations
+- Support continuous watch mode with quality gate validation
 
 ## MCP Integration
-- **Playwright MCP**: Auto-activated for `--type e2e` browser testing
-- **QA Specialist Persona**: Activated for test analysis and quality assessment
-- **Enhanced Capabilities**: Cross-browser testing, visual validation, performance metrics
+- **Playwright MCP**: Auto-activated for `--type e2e` browser testing with performance metrics
+- **Persona Coordination**: Quality (testing), Security (vulnerability testing), Performance (load testing)
+- **Enhanced Capabilities**: Cross-browser testing, visual validation, performance metrics, security testing
 
 ## Tool Coordination
 - **Bash**: Test runner execution and environment management
 - **Glob**: Test discovery and file pattern matching
 - **Grep**: Result parsing and failure analysis
-- **Write**: Coverage reports and test summaries
+- **Write**: Coverage reports, performance metrics, and test summaries
 
 ## Key Patterns
-- **Test Discovery**: Pattern-based categorization → appropriate runner selection
-- **Coverage Analysis**: Execution metrics → comprehensive coverage reporting
-- **E2E Testing**: Browser automation → cross-platform validation
-- **Watch Mode**: File monitoring → continuous test execution
+- **Test Discovery**: Pattern-based categorization → appropriate runner selection → performance profiling
+- **Coverage Analysis**: Execution metrics → comprehensive coverage reporting → quality gate validation
+- **E2E Testing**: Browser automation → cross-platform validation → performance monitoring
+- **Security Testing**: Vulnerability scanning → security gate validation → compliance checking
 
 ## Examples
 
-### Basic Test Execution
+### Comprehensive Test Execution
 ```
-/sc:test
-# Discovers and runs all tests with standard configuration
-# Generates pass/fail summary and basic coverage
-```
-
-### Targeted Coverage Analysis
-```
-/sc:test src/components --type unit --coverage
-# Unit tests for specific directory with detailed coverage metrics
+/sc:test --type all --coverage
+# Multi-persona testing: Quality (coverage), Security (vulnerabilities), Performance (metrics)
+# Generates comprehensive test report with all quality dimensions
 ```
 
-### Browser Testing
+### Performance-Focused Testing
 ```
-/sc:test --type e2e
-# Activates Playwright MCP for comprehensive browser testing
-# Cross-browser compatibility and visual validation
+/sc:test --type e2e --performance
+# Performance engineer analyzes Core Web Vitals and load times
+# Quality engineer ensures functional correctness alongside performance
+```
+
+### Security Testing Integration
+```
+/sc:test src/auth --type unit --security
+# Security engineer validates authentication testing coverage
+# Quality engineer ensures comprehensive test scenarios
 ```
 
 ### Development Watch Mode
 ```
 /sc:test --watch --fix
 # Continuous testing with automatic simple failure fixes
-# Real-time feedback during development
+# Real-time feedback with quality, security, and performance validation
 ```
 
 ## Boundaries
 
 **Will:**
-- Execute existing test suites using project's configured test runner
-- Generate coverage reports and quality metrics
-- Provide intelligent test failure analysis with actionable recommendations
+- Execute existing test suites with comprehensive quality, security, and performance analysis
+- Generate multi-dimensional test reports including coverage, performance, and security metrics
+- Provide intelligent failure analysis with actionable recommendations across all quality dimensions
 
 **Will Not:**
-- Generate test cases or modify test framework configuration
-- Execute tests requiring external services without proper setup
-- Make destructive changes to test files without explicit permission
+- Generate test cases or modify test framework configuration without explicit guidance
+- Execute tests requiring external services without proper setup and security validation
+- Make destructive changes to test files without explicit permission and quality gates
 """

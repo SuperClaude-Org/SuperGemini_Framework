@@ -99,7 +99,7 @@ def validate_components_directory(components_dir: Path) -> bool:
         return False
     
     # Check for expected component files
-    expected_components = ["core.py", "mcp.py", "agents.py", "commands.py", "modes.py"]
+    expected_components = ["core.py", "mcp.py", "commands.py", "modes.py"]
     found_components = [f.name for f in component_files]
     
     # At least core.py should exist

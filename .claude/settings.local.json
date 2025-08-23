@@ -1,0 +1,42 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(claude mcp:*)",
+      "Read(/C:\\Users\\hj92l/**)",
+      "Read(/C:\\Users\\hj92l/**)",
+      "Read(/C:\\Users\\hj92l/**)",
+      "mcp__serena__find_file",
+      "mcp__serena__activate_project",
+      "mcp__serena__list_dir",
+      "Bash(find:*)",
+      "Bash(git add:*)",
+      "Bash(git rm:*)",
+      "Bash(git commit:*)",
+      "Bash(grep:*)",
+      "Bash(python:*)",
+      "mcp__serena__think_about_collected_information",
+      "mcp__serena__search_for_pattern",
+      "Bash(SuperGemini:*)",
+      "Bash(pip show:*)",
+      "Bash(pip --version)",
+      "Bash(node:*)",
+      "Bash(npm:*)",
+      "Bash(pip uninstall:*)",
+      "Bash(pip search:*)",
+      "WebSearch",
+      "Read(/C:\\c\\Users\\hj92l/**)",
+      "Read(/C:\\c\\Users\\hj92l/**)",
+      "Read(/C:\\c\\Users\\hj92l/**)",
+      "Bash(pip install:*)",
+      "Bash(cat:*)",
+      "Bash(git reset:*)"
+    ],
+    "deny": [],
+    "ask": [],
+    "additionalDirectories": [
+      "C:\\Users\\hj92l\\.gemini",
+      "C:\\c\\Users\\hj92l\\dev\\01_Projects",
+      "C:\\c\\Users\\hj92l"
+    ]
+  }
+}

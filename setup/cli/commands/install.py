@@ -54,7 +54,7 @@ Examples:
     parser.add_argument(
         "--components", "-c",
         nargs="+",
-        choices=["core", "mcp", "modes", "commands", "agents", "mcp_docs"],
+        choices=["core", "mcp", "modes", "commands", "mcp_docs"],
         help="Specific components to install (default: interactive selection)"
     )
     
@@ -62,7 +62,7 @@ Examples:
     parser.add_argument(
         "--mcp-servers", "--mcp",
         nargs="+",
-        choices=["context7", "sequential", "magic", "playwright", "serena", "morphllm", "structured-thinking-mcp"],
+        choices=["context7", "sequential", "magic", "playwright", "serena", "morphllm"],
         help="MCP servers to configure (default: interactive selection)"
     )
     
@@ -260,7 +260,6 @@ def select_mcp_servers(registry: ComponentRegistry) -> List[str]:
         ("playwright", "Cross-browser E2E testing and automation"),
         ("serena", "Semantic code analysis and intelligent editing"),
         ("morphllm", "Fast Apply capability for context-aware code modifications (requires API key)"),
-        ("structured-thinking-mcp", "Intelligent prompt enhancement and chain-of-thought reasoning"),
         ("Skip MCP Server installation", "")
     ]
     
@@ -338,7 +337,7 @@ def select_framework_components(registry: ComponentRegistry, config_manager: Con
     
     # Prepare component options with descriptions
     component_options = []
-    for comp_name in ["core", "modes", "commands", "agents", "mcp_docs"]:
+    for comp_name in ["core", "modes", "commands", "mcp_docs"]:
         if comp_name in available_components:
             metadata = registry.get_component_metadata(comp_name)
             if metadata:
@@ -631,7 +630,7 @@ def install_with_profile(args: argparse.Namespace) -> bool:
     profile_components = {
         "minimal": ["core"],
         "standard": ["core", "modes", "commands"],
-        "full": ["core", "modes", "commands", "agents", "mcp"],
+        "full": ["core", "modes", "commands", "mcp"],
         "custom": None  # Will use interactive selection
     }
     
@@ -670,7 +669,7 @@ def install_with_profile(args: argparse.Namespace) -> bool:
             if not hasattr(args, 'mcp_servers') or not args.mcp_servers:
                 # Set default MCP servers for full installation (all servers)
                 # serena and morphllm will be automatically installed as disabled
-                args.mcp_servers = ["structured-thinking-mcp", "sequential", "context7", "magic", "serena", "morphllm", "playwright"]
+                args.mcp_servers = ["sequential", "context7", "magic", "serena", "morphllm", "playwright"]
                 logger.info(f"Full installation - automatically including all MCP servers: {args.mcp_servers}")
     
     # Run the actual installation

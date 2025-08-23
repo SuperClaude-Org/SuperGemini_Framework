@@ -85,13 +85,6 @@ class MCPComponent(Component):
                 "disabled_by_default": True,
                 "disabled_reason": "Gemini API compatibility issues - function naming conflicts with fast apply"
             },
-            "structured-thinking-mcp": {
-                "name": "structured-thinking-mcp",
-                "description": "Intelligent prompt enhancement and chain-of-thought reasoning",
-                "config_file": "structured-thinking-mcp.json",
-                "npm_package": "structured-thinking-mcp@latest",
-                "requires_api_key": False
-            }
         }
         
         # This will be set during installation - initialize as empty list
