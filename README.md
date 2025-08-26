@@ -1,12 +1,11 @@
 # SuperGemini v4.0.8 🚀
-[![Website Preview](https://img.shields.io/badge/Visit-Website-blue?logo=google-chrome)](https://superclaude-org.github.io/SuperGemini_Website/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![PyPI version](https://img.shields.io/pypi/v/SuperGemini.svg)](https://pypi.org/project/SuperGemini/)
 [![Version](https://img.shields.io/badge/version-4.0.8-blue.svg)](https://github.com/SuperClaude-Org/SuperGemini_Framework)
 [![GitHub issues](https://img.shields.io/github/issues/SuperClaude-Org/SuperGemini_Framework)](https://github.com/SuperClaude-Org/SuperGemini_Framework/issues)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/SuperClaude-Org/SuperGemini_Framework/blob/master/CONTRIBUTING.md)
 [![Contributors](https://img.shields.io/github/contributors/SuperClaude-Org/SuperGemini_Framework)](https://github.com/SuperClaude-Org/SuperGemini_Framework/graphs/contributors)
-[![Website](https://img.shields.io/website?url=https://superclaude-org.github.io/SuperGemini_Website/)](https://superclaude-org.github.io/SuperGemini_Website/)
+
 
 SuperGemini is a meta-programming configuration framework that enhances Gemini CLI with structured development capabilities. It provides 18 slash commands in TOML format, 13 specialized AI agents with Persona Mode, behavioral instructions, and workflow automation for systematic software development.
 
