@@ -340,7 +340,7 @@ class MCPComponent(Component):
                 capture_output=True,
                 text=True,
                 timeout=180,
-                shell=True
+                shell=(sys.platform == "win32")
             )
             
             if result.returncode == 0:
@@ -373,7 +373,7 @@ class MCPComponent(Component):
                 capture_output=True,
                 text=True,
                 timeout=300,
-                shell=True
+                shell=(sys.platform == "win32")
             )
             
             if result.returncode == 0:
@@ -411,7 +411,7 @@ class MCPComponent(Component):
                 capture_output=True,
                 text=True,
                 timeout=30,
-                shell=True
+                shell=(sys.platform == "win32")
             )
             
             if result.returncode == 0:
@@ -434,7 +434,7 @@ class MCPComponent(Component):
                 capture_output=True,
                 text=True,
                 timeout=30,
-                shell=True
+                shell=(sys.platform == "win32")
             )
             
             if result.returncode == 0 and ("serena" in result.stdout or "serena-agent" in result.stdout):
@@ -454,7 +454,7 @@ class MCPComponent(Component):
         
         # Check Node.js version (>=18 required for MCP)
         try:
-            result = subprocess.run(["node", "--version"], capture_output=True, text=True, timeout=10, shell=True)
+            result = subprocess.run(["node", "--version"], capture_output=True, text=True, timeout=10, shell=(sys.platform == "win32"))
             if result.returncode == 0:
                 version = result.stdout.strip().lstrip('v')
                 major_version = int(version.split('.')[0])
@@ -469,7 +469,7 @@ class MCPComponent(Component):
         
         # Check npm availability
         try:
-            result = subprocess.run(["npm", "--version"], capture_output=True, text=True, timeout=10, shell=True)
+            result = subprocess.run(["npm", "--version"], capture_output=True, text=True, timeout=10, shell=(sys.platform == "win32"))
             if result.returncode != 0:
                 errors.append("npm not working properly")
             else:
@@ -479,7 +479,7 @@ class MCPComponent(Component):
         
         # Check uv availability (for Python-based MCP servers like Serena)
         try:
-            result = subprocess.run(["uv", "--version"], capture_output=True, text=True, timeout=10, shell=True)
+            result = subprocess.run(["uv", "--version"], capture_output=True, text=True, timeout=10, shell=(sys.platform == "win32"))
             if result.returncode == 0:
                 self.logger.debug(f"uv {result.stdout.strip()} OK")
             else:
