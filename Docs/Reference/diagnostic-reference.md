@@ -580,7 +580,7 @@ def time_operation(command, description):
     """Time a shell command and return duration"""
     start_time = time.time()
     try:
-        result = subprocess.run(command, shell=True, capture_output=True, text=True, timeout=30)
+        result = subprocess.run(command, shell=(sys.platform == "win32"), capture_output=True, text=True, timeout=30)
         end_time = time.time()
         duration = end_time - start_time
         success = result.returncode == 0
