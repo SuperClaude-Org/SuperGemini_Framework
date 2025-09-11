@@ -22,15 +22,15 @@
 
 ### Core Development Commands
 
-#### Command: /sg:brainstorm
+#### Command: /sg:analyze
 **Purpose**: Interactive project discovery and requirements gathering
-**Syntax**: `/sg:brainstorm "project description"`
+**Syntax**: `/sg:analyze "project description"`
 **Example**:
 ```bash
-/sg:brainstorm "mobile app for fitness tracking"
+/sg:analyze "mobile app for fitness tracking"
 # Expected: Socratic dialogue, requirement elicitation, feasibility analysis
 ```
-**Verification**: Activates brainstorming mode + system-architect + requirements-analyst + Context7
+**Verification**: Activates analysis mode + system-architect + requirements-analyst + Context7
 
 #### Command: /sg:analyze
 **Purpose**: Analyze existing codebase for issues and improvements
@@ -115,7 +115,7 @@
 ### Discovery → Implementation Pattern
 ```bash
 # Step 1: Explore and understand requirements
-/sg:brainstorm "web dashboard for project management"
+/sg:analyze "web dashboard for project management"
 # Expected: Requirements discovery, feature prioritization, technical scope
 
 # Step 2: Analyze technical approach
@@ -183,7 +183,7 @@
 ### Interactive Requirements Discovery
 ```bash
 # Transform vague ideas into concrete requirements
-/sg:brainstorm "productivity app for remote teams"
+/sg:analyze "productivity app for remote teams"
 
 # Expected Interaction:
 # - Socratic questioning about user needs and pain points
@@ -191,7 +191,7 @@
 # - Technical feasibility assessment
 # - Structured requirements document generation
 
-# Activates: Brainstorming mode + system-architect + requirements-analyst
+# Activates: analysis mode + system-architect + requirements-analyst
 # Output: Product Requirements Document (PRD) with clear specifications
 
 # Follow-up commands for progression:
@@ -436,7 +436,7 @@
 /sg:analyze problem-area/ --focus relevant-domain
 
 # Day 5-7: Integration
-/sg:brainstorm "project idea"
+/sg:analyze "project idea"
 /sg:implement "core feature"
 /sg:test --focus quality
 ```
@@ -444,7 +444,7 @@
 ### Week 2: Patterns
 ```bash
 # Workflow patterns
-/sg:brainstorm → /sg:analyze → /sg:implement → /sg:test
+/sg:analyze → /sg:analyze → /sg:implement → /sg:test
 
 # Problem-solving patterns
 /sg:troubleshoot → /sg:analyze → /sg:implement
@@ -456,7 +456,7 @@
 ### Week 3-4: Integration
 ```bash
 # Multi-step projects
-/sg:brainstorm "larger project"
+/sg:analyze "larger project"
 /sg:implement "phase 1"
 /sg:test --focus quality
 /sg:implement "phase 2"

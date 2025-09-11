@@ -28,7 +28,7 @@
 **Start Simple, Scale Intelligently:**
 ```bash
 # Week 1: Master these essential commands
-/sg:brainstorm "vague project idea"      # Requirements discovery
+/sg:analyze "vague project idea"      # Requirements discovery
 /sg:analyze existing-code/               # Code understanding  
 /sg:implement "specific feature"         # Feature development
 /sg:test --coverage                      # Quality validation
@@ -48,7 +48,7 @@
 **Phase 1: Command Fundamentals (Days 1-7)**
 ```bash
 # Daily practice routine
-Day 1: /sg:brainstorm "daily coding challenge"
+Day 1: /sg:analyze "daily coding challenge"
 Day 2: /sg:analyze sample-project/ --focus quality
 Day 3: /sg:implement "simple CRUD API"
 Day 4: /sg:test --type unit --coverage
@@ -66,7 +66,7 @@ Day 7: /sg:workflow "week 2 learning plan"
 # Should activate: security-engineer + backend-architect + quality-engineer + technical-writer
 
 # Mode optimization practice
-/sg:brainstorm "complex project requirements"  # Brainstorming mode
+/sg:analyze "complex project requirements"  # analysis mode
 /sg:spawn "multi-service architecture"         # Task management mode
 /sg:analyze performance-issues/ --introspect   # Introspection mode
 
@@ -129,7 +129,7 @@ Day 7: /sg:workflow "week 2 learning plan"
 # Use when: Starting new projects, onboarding, architecture review
 /sg:load project/ --scope project         # Project understanding
 /sg:analyze . --focus architecture        # System design analysis
-/sg:brainstorm "project enhancement"       # Requirements discovery
+/sg:analyze "project enhancement"       # Requirements discovery
 /sg:explain "complex system behavior"     # Concept clarification
 
 # Best practice: Always start projects with discovery commands
@@ -190,7 +190,7 @@ Day 7: /sg:workflow "week 2 learning plan"
 **Context-Aware Command Selection:**
 ```bash
 # For new projects: Discovery-first approach
-/sg:brainstorm → /sg:design → /sg:workflow → /sg:implement
+/sg:analyze → /sg:design → /sg:workflow → /sg:implement
 
 # For existing projects: Analysis-first approach  
 /sg:load → /sg:analyze → /sg:improve → /sg:test
@@ -228,8 +228,8 @@ Day 7: /sg:workflow "week 2 learning plan"
 # --validate: Verify changes before applying
 
 # For learning and exploration
-/sg:explain "complex architecture" --brainstorm
-# --brainstorm: Interactive learning through dialogue
+/sg:explain "complex architecture"
+#: Interactive learning through dialogue
 
 # Development speed: Faster iteration cycles through focused scope
 ```
@@ -268,7 +268,7 @@ Day 7: /sg:workflow "week 2 learning plan"
 **Context-Adaptive Flag Selection:**
 ```bash
 # Early development phase
-/sg:brainstorm "new feature" --scope project
+/sg:analyze "new feature" --scope project
 # Focus on exploration and requirements discovery
 
 # Implementation phase

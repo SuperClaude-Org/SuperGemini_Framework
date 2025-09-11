@@ -338,25 +338,25 @@ grep "SuperGemini" ~/.gemini/GEMINI.md
 
 ### Behavioral Mode Problems
 
-**Issue: Brainstorming Mode Not Activating**
+**Issue: analysis mode Not Activating**
 ```bash
 # Expected: Interactive discovery for vague requests
-/sg:brainstorm "build something for productivity"
-# Should activate brainstorming mode but doesn't
+/sg:analyze "build something for productivity"
+# Should activate analysis mode but doesn't
 
 # Diagnosis
 # Check for explicit brainstorming keywords
 echo "Requirements: vague project, needs discovery"
 
 # Solution 1: Use uncertainty indicators
-/sg:brainstorm "maybe we could build some kind of productivity tool"
+/sg:analyze "maybe we could build some kind of productivity tool"
 # Keywords: "maybe", "some kind of" trigger exploration
 
 # Solution 2: Use brainstorming language patterns
-/sg:brainstorm "let's explore what kind of productivity tool might work best"
+/sg:analyze "let's explore what kind of productivity tool might work best"
 
 # Solution 3: Question-based approach
-/sg:brainstorm "not sure what kind of productivity solution we need"
+/sg:analyze "not sure what kind of productivity solution we need"
 
 # Verification
 # Mode should respond with Socratic questions

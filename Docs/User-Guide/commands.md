@@ -8,7 +8,7 @@
 - **Test Environment**: Linux/Windows/macOS
 - **Command Syntax**: ✅ All Verified
 
-> **Quick Start**: Try `/sg:brainstorm "your project idea"` → `/sg:implement "feature name"` → `/sg:test` to experience the core workflow.
+> **Quick Start**: Try `/sg:analyze "your project idea"` → `/sg:implement "feature name"` → `/sg:test` to experience the core workflow.
 
 ## 🧪 Testing Your Setup
 
@@ -26,7 +26,7 @@ SuperGemini status --mcp
 ### 💬 Gemini CLI Testing (Type in Gemini CLI Chat)
 ```
 # Test basic /sg: command
-/sg:brainstorm "test project"
+/sg:analyze "test project"
 # Expected: Interactive requirements discovery starts
 
 # Test command help
@@ -59,34 +59,9 @@ SuperGemini status --mcp
 
 ## Essential Commands
 
-**Start with these 8 commands for immediate productivity:**
+**Start with these 7 core commands for immediate productivity:**
 
-### `/sg:brainstorm` - Project Discovery
-**Purpose**: Interactive requirements discovery and project planning  
-**Syntax**: `/sg:brainstorm "your idea"` `[--strategy systematic|creative]`  
-**Auto-Activation**: Architect + Analyst + PM specialists, Sequential + Context7 MCP  
-
-#### Success Criteria
-- [ ] Command executes without errors
-- [ ] Generates 3-5 discovery questions relevant to your domain
-- [ ] Produces structured requirements document or PRD
-- [ ] Maintains discovery context for follow-up questions
-
-**Use Cases**: 
-- New project planning: `/sg:brainstorm "e-commerce platform"`
-- Feature exploration: `/sg:brainstorm "user authentication system"`  
-- Problem solving: `/sg:brainstorm "slow database queries"`
-- Architecture decisions: `/sg:brainstorm "microservices vs monolith"`
-
-**Examples**:
-```bash
-/sg:brainstorm "mobile todo app"        # → Requirements document + PRD
-/sg:brainstorm "API performance" --strategy systematic  # → Analysis + solutions
-```
-
-**Verify:** `/sg:brainstorm "test project"` should ask discovery questions about scope, users, and technology choices  
-**Test:** Follow-up questions should build on initial responses  
-**Check:** Output should include actionable requirements or next steps
+> **Note on brainstorming functionality has been removed. Use `/sg:analyze` for comprehensive analysis and exploration.
 
 ### `/sg:implement` - Feature Development  
 **Purpose**: Full-stack feature implementation with intelligent specialist routing  
@@ -219,7 +194,7 @@ SuperGemini status --mcp
 
 ### New Project Setup
 ```bash
-/sg:brainstorm "project concept"         # Define requirements
+/sg:analyze "project concept"  # Define requirements
 → /sg:design "system architecture"       # Create technical design  
 → /sg:workflow "implementation plan"     # Generate development roadmap
 → /sg:save "project-plan"               # Save session context
@@ -396,7 +371,7 @@ SuperGemini status --mcp
 ### By Category
 
 **🚀 Project Initiation**
-- `brainstorm` - Interactive discovery
+- Discovery mode - Activated through exploratory prompts
 - `design` - System architecture  
 - `workflow` - Implementation planning
 
@@ -433,7 +408,7 @@ SuperGemini status --mcp
 ### By Maturity Level
 
 **🔥 Production Ready** (Consistent, reliable results)
-- `brainstorm`, `analyze`, `implement`, `troubleshoot`
+- `analyze`, `implement`, `troubleshoot`, `workflow`
 
 **✅ Reliable** (Well-tested, stable features)  
 - `workflow`, `design`, `test`, `document`, `git`
@@ -587,7 +562,7 @@ After applying fixes, test with:
 - [ ] `/sg:analyze README.md` (should complete without errors)
 - [ ] Check MCP servers respond: `SuperGemini status --mcp`
 - [ ] Verify flags work: `/sg:help flags`
-- [ ] Test basic workflow: `/sg:brainstorm "test"` → should ask questions
+- [ ] Test basic workflow: `/sg:analyze "test"` → should provide analysis
 
 ## Quick Troubleshooting (Legacy)
 - **Command not found** → Check installation: `SuperGemini --version`
@@ -675,7 +650,7 @@ SuperGemini install --components mcp --force
 **In-Session Help**
 - `/sg:index --help` - Command discovery and help
 - `/sg:explain "command-name"` - Detailed command explanation  
-- `/sg:brainstorm --strategy systematic` - Systematic problem exploration
+- `/sg:analyze --strategy systematic` - Systematic problem exploration
 
 **Documentation**
 - [Quick Start Guide](../Getting-Started/quick-start.md) - Essential setup and first steps
@@ -695,7 +670,7 @@ Run these tests to ensure all essential commands work correctly:
 
 ```bash
 # Test 1: Discovery and Planning
-/sg:brainstorm "test mobile app"
+/sg:analyze "test mobile app"
 # Expected: 3-5 discovery questions about users, features, platform
 
 # Test 2: Implementation  

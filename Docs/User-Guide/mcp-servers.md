@@ -702,7 +702,7 @@ SuperGemini orchestrates multiple MCP servers for complex tasks:
 ### Integration Patterns
 
 **Mode Integration:**
-- **Brainstorming Mode**: Sequential for structured discovery
+- **analysis mode**: Sequential for structured discovery
 - **Task Management Mode**: Serena for session persistence
 - **Orchestration Mode**: All servers for optimal tool selection
 - **Token Efficiency Mode**: Selective activation for resource optimization

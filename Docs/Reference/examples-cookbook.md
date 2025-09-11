@@ -75,7 +75,7 @@
 ## Verified Commands Reference
 
 **Core Commands** (all verified SuperGemini v4.0):
-- `/sg:brainstorm` - Interactive requirements discovery
+- `/sg:analyze` - Interactive requirements discovery
 - `/sg:analyze` - Codebase analysis and assessment
 - `/sg:implement` - Feature implementation with best practices
 - `/sg:troubleshoot` - Systematic problem diagnosis

@@ -48,7 +48,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - security-engineer, performance-engineer, quality-engineer, refactoring-expert
   - requirements-analyst, root-cause-analyst, python-expert, technical-writer, learning-guide
 - **NEW BEHAVIORAL MODES**: 5 intelligent workflow adaptation modes
-  - Brainstorming Mode for collaborative discovery and requirements exploration
+  - analysis mode for collaborative discovery and requirements exploration
   - Introspection Mode for meta-cognitive analysis and reasoning optimization
   - Orchestration Mode for intelligent tool selection and resource efficiency
   - Task Management Mode for hierarchical organization with persistent memory

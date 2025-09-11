@@ -84,7 +84,7 @@
 ### Complete E-Commerce Platform Development
 ```bash
 # Phase 1: Discovery & Planning
-/sg:brainstorm "e-commerce platform for small businesses"
+/sg:analyze "e-commerce platform for small businesses"
 # Expected: Requirements discovery, feature prioritization, technical scope
 
 /sg:save "ecommerce-requirements-complete"
@@ -188,7 +188,7 @@
 # Expected: Architecture understanding, contribution patterns, codebase navigation
 # ✅ Verified: SuperGemini v4.0
 
-/sg:brainstorm "feature proposal for community benefit" --focus community
+/sg:analyze "feature proposal for community benefit" --focus community
 # Expected: Community-oriented feature planning, RFC preparation
 
 # Feature Implementation with Quality Focus
@@ -414,7 +414,7 @@
 ### Startup MVP to Enterprise Scale
 ```bash
 # Week 1-2: MVP Foundation
-/sg:brainstorm "scalable social platform for creators" && /sg:save "mvp-requirements"
+/sg:analyze "scalable social platform for creators" && /sg:save "mvp-requirements"
 
 /sg:load "mvp-requirements" && /sg:implement "MVP core features with scalability considerations"
 # Expected: MVP implementation with enterprise-scale architecture planning

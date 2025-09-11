@@ -7,6 +7,7 @@ import shutil
 import time
 import sys
 import subprocess
+import os
 from typing import Dict, List, Tuple, Optional, Any
 from pathlib import Path
 
@@ -448,44 +449,167 @@ class MCPComponent(Component):
             self.logger.error(f"Verification failed for {server_key}: {e}")
             return False
     
+    def _find_executable_with_fallbacks(self, executable: str) -> Optional[str]:
+        """Find executable with fallback locations for common version managers and pipx environments"""
+        # Standard PATH search first
+        if shutil.which(executable):
+            return shutil.which(executable)
+        
+        # Common fallback locations for different platforms and version managers
+        fallback_paths = [
+            # asdf version manager
+            Path.home() / ".asdf" / "shims" / executable,
+            # nvm (Node Version Manager)
+            Path.home() / ".nvm" / "current" / "bin" / executable,
+            # volta
+            Path.home() / ".volta" / "bin" / executable,
+            # fnm (Fast Node Manager)
+            Path.home() / ".fnm" / "current" / "bin" / executable,
+            # Standard locations
+            Path("/usr/local/bin") / executable,
+            Path("/usr/bin") / executable,
+            # macOS with Homebrew
+            Path("/opt/homebrew/bin") / executable,
+            # Windows specific paths
+            Path("C:/Program Files/nodejs") / executable,
+            Path("C:/Program Files (x86)/nodejs") / executable,
+            # User local installations
+            Path.home() / ".local" / "bin" / executable,
+            Path.home() / "bin" / executable,
+        ]
+        
+        # Windows specific: also check with .exe extension
+        if sys.platform == "win32" and not executable.endswith(".exe"):
+            fallback_paths.extend([
+                Path("C:/Program Files/nodejs") / f"{executable}.exe",
+                Path("C:/Program Files (x86)/nodejs") / f"{executable}.exe",
+            ])
+        
+        for path in fallback_paths:
+            if path.exists() and path.is_file():
+                self.logger.debug(f"Found {executable} at fallback location: {path}")
+                return str(path)
+        
+        return None
+    
+    def _get_expanded_env(self) -> Dict[str, str]:
+        """Get environment with expanded PATH including common tool locations"""
+        env = os.environ.copy()
+        
+        # Additional paths to check for tools
+        additional_paths = [
+            str(Path.home() / ".asdf" / "shims"),
+            str(Path.home() / ".nvm" / "current" / "bin"),
+            str(Path.home() / ".volta" / "bin"),
+            str(Path.home() / ".fnm" / "current" / "bin"),
+            str(Path.home() / ".local" / "bin"),
+            str(Path.home() / "bin"),
+            "/usr/local/bin",
+            "/usr/bin",
+        ]
+        
+        # macOS specific
+        if sys.platform == "darwin":
+            additional_paths.append("/opt/homebrew/bin")
+        
+        # Windows specific
+        if sys.platform == "win32":
+            additional_paths.extend([
+                "C:\\Program Files\\nodejs",
+                "C:\\Program Files (x86)\\nodejs",
+            ])
+        
+        # Only add paths that actually exist
+        existing_paths = [p for p in additional_paths if Path(p).exists()]
+        
+        # Expand PATH
+        current_path = env.get("PATH", "")
+        expanded_path = os.pathsep.join([current_path] + existing_paths)
+        env["PATH"] = expanded_path
+        
+        return env
+    
+    def _run_command_with_fallbacks(self, command: List[str], timeout: int = 10) -> Optional[subprocess.CompletedProcess]:
+        """Run command with fallback executable detection and expanded PATH"""
+        executable = command[0]
+        
+        # First try to find executable with fallbacks
+        executable_path = self._find_executable_with_fallbacks(executable)
+        
+        if executable_path:
+            # Replace the executable in command with full path
+            command_with_path = [executable_path] + command[1:]
+            try:
+                # Try with full path first
+                result = subprocess.run(command_with_path, capture_output=True, text=True, timeout=timeout)
+                if result.returncode == 0:
+                    return result
+            except Exception:
+                pass
+        
+        # Try with expanded environment
+        try:
+            env = self._get_expanded_env()
+            result = subprocess.run(command, capture_output=True, text=True, timeout=timeout, env=env)
+            if result.returncode == 0:
+                return result
+        except Exception:
+            pass
+        
+        # Final attempt with shell=True as fallback
+        try:
+            result = subprocess.run(" ".join(command), capture_output=True, text=True, timeout=timeout, shell=True)
+            return result
+        except Exception:
+            return None
+
     def _validate_prerequisites(self) -> Tuple[bool, List[str]]:
-        """Validate Gemini environment, npm and uv prerequisites"""
+        """Validate Gemini environment, npm and uv prerequisites with enhanced PATH detection"""
         errors = []
         
-        # Check Node.js version (>=18 required for MCP)
-        try:
-            result = subprocess.run(["node", "--version"], capture_output=True, text=True, timeout=10, shell=(sys.platform == "win32"))
-            if result.returncode == 0:
-                version = result.stdout.strip().lstrip('v')
+        # Check Node.js version (>=18 required for MCP) with enhanced detection
+        result = self._run_command_with_fallbacks(["node", "--version"])
+        if result and result.returncode == 0:
+            version = result.stdout.strip().lstrip('v')
+            try:
                 major_version = int(version.split('.')[0])
                 if major_version < 18:
                     errors.append(f"Node.js {version} found, but 18+ required for MCP")
                 else:
                     self.logger.debug(f"Node.js {version} OK")
+            except ValueError:
+                errors.append(f"Could not parse Node.js version: {version}")
+        else:
+            # Try to provide helpful message for pipx users
+            node_path = self._find_executable_with_fallbacks("node")
+            if node_path:
+                errors.append(f"Node.js found at {node_path} but couldn't execute properly")
             else:
-                errors.append("Node.js not working properly")
-        except Exception:
-            errors.append("Node.js not found - required for MCP server installation")
+                errors.append("Node.js not found - required for MCP server installation")
+                if "pipx" in sys.executable or "/.local/pipx/" in sys.executable:
+                    errors.append("Note: Running in pipx environment. Ensure Node.js is in system PATH")
         
-        # Check npm availability
-        try:
-            result = subprocess.run(["npm", "--version"], capture_output=True, text=True, timeout=10, shell=(sys.platform == "win32"))
-            if result.returncode != 0:
-                errors.append("npm not working properly")
+        # Check npm availability with enhanced detection
+        result = self._run_command_with_fallbacks(["npm", "--version"])
+        if result and result.returncode == 0:
+            self.logger.debug(f"npm {result.stdout.strip()} OK")
+        else:
+            npm_path = self._find_executable_with_fallbacks("npm")
+            if npm_path:
+                errors.append(f"npm found at {npm_path} but couldn't execute properly")
             else:
-                self.logger.debug(f"npm {result.stdout.strip()} OK")
-        except Exception:
-            errors.append("npm not found - required for MCP server installation")
+                errors.append("npm not found - required for MCP server installation")
         
-        # Check uv availability (for Python-based MCP servers like Serena)
-        try:
-            result = subprocess.run(["uv", "--version"], capture_output=True, text=True, timeout=10, shell=(sys.platform == "win32"))
-            if result.returncode == 0:
-                self.logger.debug(f"uv {result.stdout.strip()} OK")
+        # Check uv availability (for Python-based MCP servers like Serena) with enhanced detection
+        result = self._run_command_with_fallbacks(["uv", "--version"])
+        if result and result.returncode == 0:
+            self.logger.debug(f"uv {result.stdout.strip()} OK")
+        else:
+            uv_path = self._find_executable_with_fallbacks("uv")
+            if uv_path:
+                self.logger.warning(f"uv found at {uv_path} but couldn't execute - Python MCP servers (Serena) will be skipped")
             else:
                 self.logger.warning("uv not found - Python MCP servers (Serena) will be skipped")
-        except Exception:
-            self.logger.warning("uv not found - Python MCP servers (Serena) will be skipped")
         
         return len(errors) == 0, errors
     

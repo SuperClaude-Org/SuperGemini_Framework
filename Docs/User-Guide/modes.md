@@ -11,9 +11,9 @@
 Before using this guide, verify modes activate correctly:
 
 ```bash
-# Test Brainstorming mode
-/sg:brainstorm "vague project idea"
-# Expected: Should ask discovery questions, not give immediate solutions
+# Test analysis mode with creative exploration
+/sg:analyze "vague project idea"
+# Expected: Should analyze requirements and suggest implementation approaches
 
 # Test Task Management mode  
 /sg:implement "complex multi-file feature"
@@ -30,7 +30,7 @@ Before using this guide, verify modes activate correctly:
 
 | Mode | Purpose | Auto-Triggers | Key Behaviors | Best Used For |
 |------|---------|---------------|---------------|---------------|
-| **🧠 Brainstorming** | Interactive discovery | "brainstorm", "maybe", vague requests | Socratic questions, requirement elicitation | New project planning, unclear requirements |
+| **🧠 Creative Analysis** | Requirements exploration | "analyze", "explore", creative requests | Requirement analysis, solution exploration | New project planning, requirement clarification |
 | **🔍 Introspection** | Meta-cognitive analysis | Error recovery, "analyze reasoning" | Transparent thinking markers (🤔, 🎯, 💡) | Debugging, learning, optimization |
 | **📋 Task Management** | Complex coordination | >3 steps, >2 directories | Phase breakdown, memory persistence | Multi-step operations, project management |
 | **🎯 Orchestration** | Intelligent tool selection | Multi-tool ops, >75% resources | Optimal tool routing, parallel execution | Complex analysis, performance optimization |
@@ -46,13 +46,13 @@ Before using this guide, verify modes activate correctly:
 **Quick Examples:**
 ```bash
 # Automatic activation examples
-/sg:brainstorm "mobile app"        # → Socratic discovery questions
+/sg:analyze "mobile app" --analyze     # → Requirement analysis and suggestions
 /sg:implement "auth system"        # → Multi-phase coordination  
 "--uc analyze large-codebase/"     # → Compressed symbol output
 ```
 
 **When to use manual flags:**
-- Need specific behavior: `--brainstorm`, `--introspect`, `--uc`
+- Need specific behavior: `--analyze`, `--introspect`, `--uc`
 - Override automatic detection for learning/debugging
 - Optimize for specific constraints (memory, time, clarity)
 
@@ -60,33 +60,35 @@ Before using this guide, verify modes activate correctly:
 
 ## Mode Details
 
-### 🧠 Brainstorming Mode - Interactive Discovery
+### 🧠 Creative Analysis Mode - Requirements Exploration
 
-**Purpose**: Transform vague ideas into structured requirements through collaborative discovery.
+**Purpose**: Analyze vague ideas and provide structured implementation approaches.
 
 **Auto-Activation Triggers:**
 - Vague project requests: "I want to build...", "Thinking about creating..."
-- Exploration keywords: brainstorm, explore, discuss, figure out, not sure
+- Analysis keywords: analyze, explore, discuss, figure out, evaluate
 - Uncertainty indicators: "maybe", "possibly", "could we"
-- Manual flags: `--brainstorm`, `--bs`
+- Manual flags: `--analyze`, `--explore`
+
+**Note**: The previous flag has been removed. Use /sg:analyze for requirement analysis and exploration.
 
 **Behavioral Changes:**
-- **Socratic Questioning**: Asks probing questions to uncover hidden requirements
-- **Non-Presumptive Approach**: Avoids assumptions, lets you guide discovery direction
-- **Collaborative Partnership**: Works with you in exploration rather than directive consultation
-- **Requirement Synthesis**: Converts insights into structured technical briefs
-- **Cross-Session Memory**: Maintains discovery context for follow-up discussions
+- **Requirements Analysis**: Analyzes project requirements and suggests implementation approaches
+- **Solution Exploration**: Provides multiple viable solutions and architectural options
+- **Technical Guidance**: Offers structured technical recommendations
+- **Implementation Planning**: Converts analysis into actionable development plans
+- **Context-Aware Suggestions**: Adapts recommendations based on project scope and constraints
 
 **Example Experience:**
 ```
 Standard Approach: "I'll build a user authentication system with JWT tokens..."
-Brainstorming Approach: 
-"🤔 Let's explore this together:
- - What specific user problems does auth solve for your app?
- - Who are your users and what's their technical comfort level?  
- - Any existing systems or social logins to integrate with?
- - What security/compliance requirements do you have?
- 📝 Outcome: Detailed auth requirements brief ready for implementation"
+Analysis Approach: 
+"🔍 Authentication System Analysis:
+ - User auth requirements: session management, security levels
+ - Implementation options: JWT, OAuth, session-based auth
+ - Integration considerations: existing systems, third-party services
+ - Security requirements: encryption, compliance standards
+ 📝 Outcome: Detailed technical implementation plan with alternatives"
 ```
 
 #### Success Criteria  
@@ -95,14 +97,14 @@ Brainstorming Approach:
 - [ ] Maintains collaborative tone throughout discovery process
 - [ ] Produces structured requirements or technical brief as outcome
 
-**Verify:** `/sg:brainstorm "web app"` should ask about users, features, technology  
-**Test:** Vague requests should trigger discovery questions, not assumptions  
-**Check:** Mode should persist across follow-up questions in same conversation
+**Verify:** `/sg:analyze "web app"` should analyze requirements and suggest implementation approaches  
+**Test:** Vague requests should trigger analysis and provide structured recommendations  
+**Check:** Analysis should provide clear next steps for implementation
 
 **Works Best With:**
 - **→ Task Management**: Requirements discovery → systematic implementation planning
 - **→ Orchestration**: Requirements clarity → optimal tool selection for implementation
-- **Manual Override**: Use `--brainstorm` to force discovery even for "clear" requirements
+- **Manual Override**: Use `/sg:analyze` for requirement analysis on any project
 
 ---
 
@@ -175,7 +177,7 @@ Task Management Approach:
 ```
 
 **Works Best With:**
-- **Brainstorming →**: Requirements discovery then systematic implementation
+- **Analysis →**: Requirements analysis then systematic implementation
 - **+ Orchestration**: Task coordination with optimal tool selection
 - **+ Introspection**: Transparent reasoning for complex phase decisions
 
@@ -296,8 +298,8 @@ Standard Approach: Consistent, professional baseline for all tasks
 **Multi-Mode Workflows:**
 ```bash
 # Discovery → Planning → Implementation
-/sg:brainstorm "microservices architecture" --task-manage
-# → Brainstorming: requirement discovery
+/sg:analyze "microservices architecture" --task-manage
+# → Analysis: requirement evaluation and architecture planning
 # → Task Management: multi-phase coordination
 
 # Analysis with transparency and efficiency
@@ -309,7 +311,7 @@ Standard Approach: Consistent, professional baseline for all tasks
 ### Manual Mode Control
 
 **Force Specific Behaviors:**
-- `--brainstorm`: Force collaborative discovery for any task
+- `--analyze`: Force requirement analysis for any task
 - `--introspect`: Add reasoning transparency to any mode
 - `--task-manage`: Enable hierarchical coordination
 - `--orchestrate`: Optimize tool selection and parallel execution
@@ -317,8 +319,8 @@ Standard Approach: Consistent, professional baseline for all tasks
 
 **Override Examples:**
 ```bash
-# Force brainstorming on "clear" requirements
-/sg:implement "user login" --brainstorm
+# Force analysis on "clear" requirements
+/sg:analyze "user login implementation"
 
 # Add reasoning transparency to debugging
 /sg:fix auth-issue --introspect
@@ -333,7 +335,7 @@ Standard Approach: Consistent, professional baseline for all tasks
 1. **Complexity Threshold**: >3 files → Task Management
 2. **Resource Pressure**: >75% usage → Token Efficiency  
 3. **Multi-Tool Need**: Complex analysis → Orchestration
-4. **Uncertainty**: Vague requirements → Brainstorming
+4. **Uncertainty**: Vague requirements → Analysis Mode
 5. **Error Recovery**: Problems → Introspection
 
 **Priority Rules:**
@@ -350,7 +352,7 @@ Standard Approach: Consistent, professional baseline for all tasks
 
 **New Project Development:**
 ```bash
-# Phase 1: Discovery (Brainstorming Mode auto-activates)
+# Phase 1: Analysis (Analysis Mode provides structured approach)
 "I want to build a productivity app"
 → 🤔 Socratic questions about users, features, platform choice
 → 📝 Structured requirements brief
@@ -401,7 +403,7 @@ Standard Approach: Consistent, professional baseline for all tasks
 
 | Trigger Type | Example Input | Mode Activated | Key Behavior |
 |--------------|---------------|----------------|--------------|
-| **Vague Request** | "I want to build an app" | 🧠 Brainstorming | Socratic discovery questions |
+| **Vague Request** | "I want to build an app" | 🧠 Analysis | Requirements analysis and suggestions |
 | **Complex Scope** | >3 files or >2 directories | 📋 Task Management | Phase coordination |
 | **Multi-Tool Need** | Analysis + Implementation | 🎯 Orchestration | Tool optimization |
 | **Error Recovery** | "This isn't working as expected" | 🔍 Introspection | Transparent reasoning |
@@ -412,7 +414,7 @@ Standard Approach: Consistent, professional baseline for all tasks
 
 ```bash
 # Force specific mode behaviors
-/sg:command --brainstorm    # Collaborative discovery
+/sg:analyze "project concept" # Requirements analysis
 /sg:command --introspect    # Reasoning transparency
 /sg:command --task-manage   # Hierarchical coordination
 /sg:command --orchestrate   # Tool optimization
@@ -428,27 +430,27 @@ Standard Approach: Consistent, professional baseline for all tasks
 ## 🚨 Quick Troubleshooting
 
 ### Common Issues (< 2 minutes)
-- **Mode not activating**: Use manual flags: `--brainstorm`, `--introspect`, `--uc`
+- **Mode not activating**: Use analysis commands: `/sg:analyze`, `--introspect`, `--uc`
 - **Wrong mode active**: Check complexity triggers and keywords in request
 - **Mode switching unexpectedly**: Normal behavior based on task evolution
 - **Performance impact**: Modes optimize performance, shouldn't slow execution
 - **Mode conflicts**: Check flag priority rules in [Flags Guide](flags.md)
 
 ### Immediate Fixes
-- **Force specific mode**: Use explicit flags like `--brainstorm` or `--task-manage`
+- **Force specific mode**: Use explicit commands like `/sg:analyze` or `--task-manage`
 - **Reset mode behavior**: Restart Gemini CLI session to reset mode state
 - **Check mode indicators**: Look for 🤔, 🎯, 📋 symbols in responses
 - **Verify complexity**: Simple tasks use Standard mode, complex tasks auto-switch
 
 ### Mode-Specific Troubleshooting
 
-**Brainstorming Mode Issues:**
+**Analysis Mode Issues:**
 ```bash
-# Problem: Mode gives solutions instead of asking questions
-# Quick Fix: Check request clarity and use explicit flag
-/sg:brainstorm "web app" --brainstorm         # Force discovery mode
-"I have a vague idea about..."                # Use uncertainty language
-"Maybe we could build..."                     # Trigger exploration
+# Problem: Need better requirement analysis
+# Solution: Use analysis commands explicitly
+/sg:analyze "web app"                          # Analyze requirements
+"I have a vague idea about..."                # Use for requirement analysis
+"Maybe we could build..."                     # Triggers analysis mode
 ```
 
 **Task Management Mode Issues:**
@@ -490,7 +492,7 @@ Standard Approach: Consistent, professional baseline for all tasks
 
 | Mode Error | Meaning | Quick Fix |
 |------------|---------|-----------|
-| **B001** | Brainstorming failed to activate | Use explicit `--brainstorm` flag |
+| **A001** | Analysis mode needed | Use `/sg:analyze` command for requirement analysis |
 | **T001** | Task management overhead | Use `--no-task-manage` for simple tasks |
 | **U001** | Token efficiency too aggressive | Use `--verbose` or `--no-uc` |
 | **I001** | Introspection mode stuck | Use `--no-introspect` for direct action |
@@ -539,7 +541,7 @@ After applying mode fixes, test with:
 - [ ] Performance remains good across different modes
 
 ## Quick Troubleshooting (Legacy)
-- **Mode not activating** → Use manual flags: `--brainstorm`, `--introspect`, `--uc`
+- **Mode not activating** → Use analysis commands: `/sg:analyze`, `--introspect`, `--uc`
 - **Wrong mode active** → Check complexity triggers and keywords in request
 - **Mode switching unexpectedly** → Normal behavior based on task evolution  
 - **Performance impact** → Modes optimize performance, shouldn't slow execution
@@ -549,7 +551,7 @@ After applying mode fixes, test with:
 
 **Q: How do I know which mode is active?**
 A: Look for these indicators in communication patterns:
-- 🤔 Discovery questions → Brainstorming
+- 🤔 Requirements analysis → Analysis Mode
 - 🎯 Reasoning transparency → Introspection  
 - Phase breakdowns → Task Management
 - Tool coordination → Orchestration
@@ -558,7 +560,7 @@ A: Look for these indicators in communication patterns:
 **Q: Can I force specific modes?**
 A: Yes, use manual flags to override automatic detection:
 ```bash
-/sg:command --brainstorm     # Force discovery
+/sg:analyze "project concept" # Requirements analysis
 /sg:command --introspect     # Add transparency
 /sg:command --task-manage    # Enable coordination
 /sg:command --uc            # Compress output
@@ -582,7 +584,7 @@ A: Yes, modes are designed to complement each other:
 
 SuperGemini's 6 behavioral modes create an **intelligent adaptation system** that matches your needs automatically:
 
-- **🧠 Brainstorming**: Transforms vague ideas into clear requirements
+- **🧠 Analysis**: Transforms vague ideas into clear implementation plans
 - **🔍 Introspection**: Provides transparent reasoning for learning and debugging
 - **📋 Task Management**: Coordinates complex multi-step operations
 - **🎯 Orchestration**: Optimizes tool selection and parallel execution
@@ -617,7 +619,7 @@ SuperGemini's 6 behavioral modes create an **intelligent adaptation system** tha
 - [Contributing Code](../Developer-Guide/contributing-code.md) - Extend mode capabilities
 
 **Mode-Specific Guides:**
-- **Brainstorming**: [Requirements Discovery Patterns](../Reference/examples-cookbook.md#requirements)
+- **Analysis**: [Requirements Analysis Patterns](../Reference/examples-cookbook.md#requirements)
 - **Task Management**: [Session Management Guide](session-management.md)
 - **Orchestration**: [MCP Servers Guide](mcp-servers.md)
 - **Token Efficiency**: [Performance Optimization](../Reference/quick-start-practices.md#efficiency)

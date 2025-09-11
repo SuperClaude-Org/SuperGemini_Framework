@@ -8,8 +8,16 @@ SuperGemini installs in under 2 minutes with an interactive installer. The proce
 
 ## Quick Start 🚀
 
-**Method 1: Python (Recommended)**
+**Method 1: pipx (Recommended for CLI tools)**
 ```bash
+# Install with pipx for isolated environment
+pipx install SuperGemini
+SuperGemini install
+```
+
+**Method 1b: pip (Traditional Python)**
+```bash
+# Install with pip (may cause dependency conflicts)
 pip install SuperGemini
 SuperGemini install
 ```
@@ -34,7 +42,7 @@ SuperGemini install --dry-run
 |-------------|--------------|--------|----------|
 | **🖥️ Installation** | Terminal/CMD | `SuperGemini [command]` | `SuperGemini install` |
 | **🔧 Configuration** | Terminal/CMD | `python3 -m SuperGemini` | `python3 -m SuperGemini --version` |
-| **💬 Development** | Gemini CLI | `/sg:[command]` | `/sg:brainstorm "idea"` |
+| **💬 Development** | Gemini CLI | `/sg:[command]` | `/sg:analyze "idea"` |
 | **⚡ Workflow** | Gemini CLI | `/sg:[command] --flags` | `/sg:test --coverage` |
 
 > **Important**: Installation commands run in your terminal. Once installed, you'll use `/sg:` commands inside Gemini CLI for development tasks.
@@ -113,8 +121,12 @@ winget install OpenJS.NodeJS
 
 **Choose Your Preferred Method:**
 
-**Python Users:**
+**Python Users (Recommended: pipx):**
 ```bash
+# For CLI tools - isolated environment (recommended)
+pipx install SuperGemini
+
+# Traditional installation
 pip install SuperGemini
 ```
 
@@ -251,7 +263,7 @@ ls ~/.gemini/.gemini.json
 **Try These Commands:**
 ```bash
 # Interactive requirements discovery
-/sg:brainstorm "mobile app idea"
+/sg:analyze "mobile app idea"
 
 # Analyze existing code
 /sg:analyze src/
@@ -264,7 +276,7 @@ ls ~/.gemini/.gemini.json
 ```
 
 **Learning Path:**
-1. Start with `/sg:brainstorm` for project discovery
+1. Start with `/sg:analyze` for project discovery
 2. Use `/sg:analyze` to understand existing code
 3. Try `/sg:implement` for feature development
 4. Explore `/sg:index` for command discovery
@@ -474,7 +486,7 @@ python scripts/validate_pypi_ready.py
 - **Platform**: Linux, macOS, Windows supported
 - **Usage**: Immediate access to 21 commands and 6 behavioral modes
 
-**What's Next**: Your Gemini CLI now has enhanced capabilities. Try `/sg:brainstorm` for your first SuperGemini experience!
+**What's Next**: Your Gemini CLI now has enhanced capabilities. Try `/sg:analyze` for your first SuperGemini experience!
 
 ---
 

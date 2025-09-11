@@ -301,10 +301,10 @@
 
 ### Strategic Mode Usage Patterns
 
-**Brainstorming Mode for Requirements Discovery:**
+**analysis mode for Requirements Discovery:**
 ```bash
 # Activate for: Vague requirements, project planning, creative exploration
-/sg:brainstorm "productivity solution for remote teams"
+/sg:analyze "productivity solution for remote teams"
 # Triggers: uncertainty keywords ("maybe", "thinking about", "not sure")
 
 # Expected behavior:
@@ -368,8 +368,8 @@
 
 **Explicit Mode Activation:**
 ```bash
-# Force brainstorming mode for systematic exploration
-/sg:brainstorm "well-defined requirements" --mode brainstorming
+# Force analysis mode for systematic exploration
+/sg:analyze "well-defined requirements" --mode brainstorming
 # Override automatic mode selection when exploration needed
 
 # Force task management mode for simple tasks requiring tracking
@@ -391,8 +391,8 @@
 
 **Sequential Mode Progression for Complex Projects:**
 ```bash
-# Phase 1: Brainstorming mode for discovery
-Phase 1: /sg:brainstorm "project concept" --requirements-focus
+# Phase 1: analysis mode for discovery
+Phase 1: /sg:analyze "project concept" --requirements-focus
 # Mode: Collaborative discovery, requirements elicitation
 
 # Phase 2: Task management mode for structured development  
@@ -413,14 +413,14 @@ Phase 4: /sg:reflect "project completion" --introspect --lessons-learned
 **Context-Sensitive Mode Selection:**
 ```bash
 # Startup MVP Development Context
-Week 1: /sg:brainstorm "SaaS platform for small businesses" # Discovery mode
+Week 1: /sg:analyze "SaaS platform for small businesses" # Discovery mode
 Week 2-3: /sg:workflow "MVP development plan" --6-week-timeline # Task management
 Week 4-5: /sg:spawn "frontend-backend integration" --orchestrate # Coordination mode
 Week 6: /sg:reflect "MVP development process" --lessons-learned # Introspection
 
 # Enterprise Application Modernization Context
 Discovery: /sg:analyze legacy-system/ --introspect --modernization-assessment
-Planning: /sg:brainstorm "modernization approaches for legacy monolith"  
+Planning: /sg:analyze "modernization approaches for legacy monolith"  
 Implementation: /sg:workflow "microservices extraction roadmap" --enterprise-scale
 Integration: /sg:spawn "microservices deployment with monitoring" --orchestrate
 Optimization: /sg:analyze complete-system/ --uc --performance-focus
@@ -434,7 +434,7 @@ Optimization: /sg:analyze complete-system/ --uc --performance-focus
 Understanding: /sg:load open-source-project/ --introspect --contributor-perspective
 # Deep understanding with transparent reasoning about project patterns
 
-Planning: /sg:brainstorm "feature contribution that benefits community"
+Planning: /sg:analyze "feature contribution that benefits community"
 # Explore contribution opportunities with community value focus
 
 Implementation: /sg:implement "community feature" --orchestrate --comprehensive
@@ -453,7 +453,7 @@ Review: /sg:workflow "pull request preparation" --task-manage --community-standa
 **Project Phase Adaptation:**
 ```bash
 # Early Development (Exploration Phase)
-/sg:brainstorm "new product concept" --exploration-focus
+/sg:analyze "new product concept" --exploration-focus
 # Mode automatically emphasizes:
 # - Creative problem solving
 # - Requirement discovery

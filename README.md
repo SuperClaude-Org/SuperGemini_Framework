@@ -11,19 +11,45 @@ SuperGemini is a meta-programming configuration framework that enhances Gemini C
 
 ## Quick Start
 
+### Installation Methods
+
+**Recommended: pipx (Isolated CLI Tool)**
 ```bash
-# Install SuperGemini Framework
-pip install SuperGemini
+# Install with pipx for clean, isolated environment
+pipx install SuperGemini
 
 # Setup SuperGemini for Gemini CLI (Choose one)
 SuperGemini install --yes                    # Express setup (recommended)
 SuperGemini install --profile minimal --yes  # Fastest (core only)
 SuperGemini install --profile full --yes     # All features
-
-# Use with Gemini CLI
-# Example: /sg:analyze src/
-# Example: /sg:implement user authentication
 ```
+
+**Alternative: pip (Traditional Installation)**
+```bash
+# Install with pip (may cause dependency conflicts)
+pip install SuperGemini
+
+# Or in a virtual environment (recommended if using pip)
+python -m venv supergemini-env
+source supergemini-env/bin/activate  # Linux/Mac
+# or: supergemini-env\Scripts\activate  # Windows
+pip install SuperGemini
+```
+
+### Usage with Gemini CLI
+```bash
+# Example commands after installation:
+/sg:analyze src/
+/sg:implement user authentication
+```
+
+**Why pipx?** SuperGemini is a standalone CLI tool. Using pipx:
+- Prevents dependency conflicts with your projects
+- Provides clean uninstallation
+- Automatically manages virtual environments
+- Keeps your system Python clean
+
+**Note for pipx users:** If you encounter Node.js/npm detection issues during MCP setup, ensure these tools are available in your system PATH.
 
 ## What is SuperGemini? 💎
 

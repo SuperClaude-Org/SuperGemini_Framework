@@ -41,8 +41,8 @@ SuperGemini's intelligent flag system automatically detects task complexity and 
 **Commands Work Great Without Flags:**
 ```bash
 # These automatically get optimal flags
-/sg:brainstorm "mobile fitness app"
-# → Auto-activates: --brainstorm, --think, --context7
+/sg:analyze "mobile fitness app"
+# → Auto-activates: --think, --context7
 
 /sg:analyze src/ --focus security  
 # → Auto-activates: --think-hard, --serena, --orchestrate
@@ -82,7 +82,7 @@ SuperGemini's intelligent flag system automatically detects task complexity and 
 
 # Examples
 /sg:analyze src/ --focus security --depth deep
-/sg:implement "auth" --brainstorm --task-manage --validate
+/sg:implement "auth" --task-manage --validate
 /sg:troubleshoot issue/ --think-hard --uc --concurrency 3
 ```
 
@@ -91,7 +91,7 @@ SuperGemini's intelligent flag system automatically detects task complexity and 
 2. **Manual** (10% of use): You override or specify exact behavior needed
 
 **Flag Functions:**
-- **Behavioral Modes**: `--brainstorm`, `--introspect`, `--task-manage`
+- **Behavioral Modes**: ``, `--introspect`, `--task-manage`
 - **Tool Selection**: `--c7`, `--seq`, `--magic`, `--morph`, `--serena`, `--play`
 - **Analysis Depth**: `--think`, `--think-hard`, `--ultrathink`
 - **Efficiency Control**: `--uc`, `--concurrency`, `--scope`
@@ -147,11 +147,11 @@ SuperGemini's intelligent flag system automatically detects task complexity and 
 
 **Mode Activation Flags:**
 
-**`--brainstorm`** / **`--bs`** - Interactive Discovery
+**``** / **`--bs`** - Interactive Discovery
 - **Auto-Triggers**: Vague requests, exploration keywords
 - **Manual Use**: Force collaborative requirement discovery
 ```bash
-/sg:implement "better user experience" --brainstorm
+/sg:implement "better user experience"
 # → Socratic questions to clarify requirements before implementation
 ```
 
@@ -446,7 +446,7 @@ SuperGemini's intelligent flag system automatically detects task complexity and 
 
 **Learning & Understanding:**
 ```bash
-/sg:analyze new-codebase/ --introspect --brainstorm --c7 --think
+/sg:analyze new-codebase/ --introspect --c7 --think
 # → Transparent reasoning + discovery + documentation + analysis
 ```
 
@@ -470,7 +470,7 @@ SuperGemini's intelligent flag system automatically detects task complexity and 
 
 **Complex Architecture Design:**
 ```bash
-/sg:design "microservices-platform" --ultrathink --brainstorm --all-mcp --orchestrate
+/sg:design "microservices-platform" --ultrathink --all-mcp --orchestrate
 # → Maximum analysis + discovery + all tools + optimal coordination
 ```
 
@@ -482,7 +482,7 @@ SuperGemini's intelligent flag system automatically detects task complexity and 
 | `--think` | Standard analysis | Multi-component tasks | ~4K tokens |
 | `--think-hard` | Deep analysis | Architectural tasks | ~10K tokens |
 | `--ultrathink` | Maximum analysis | Critical system work | ~32K tokens |
-| `--brainstorm` | Interactive discovery | Vague requirements | Variable |
+| `` | Interactive discovery | Vague requirements | Variable |
 | `--introspect` | Reasoning transparency | Learning contexts | +10% detail |
 
 ### ⚡ Efficiency & Performance Flags  
@@ -639,7 +639,7 @@ SuperGemini's intelligent flag system automatically detects task complexity and 
 **Learning & Discovery Patterns:**
 ```bash
 # Understanding complex systems
-/sg:load new-codebase/ --introspect --brainstorm --serena
+/sg:load new-codebase/ --introspect --serena
 /sg:analyze architecture/ --introspect --think-hard --c7 --all-mcp
 /sg:explain concepts/ --introspect --c7 --focus accessibility
 ```
@@ -669,7 +669,7 @@ SuperGemini's intelligent flag system automatically detects task complexity and 
 # Quick Fix: Check flag spelling and availability
 /sg:help flags                         # List all valid flags
 python3 -m SuperGemini --help flags    # System-level flag help
-# Common typos: --brainstrom → --brainstorm, --seq → --sequential
+# Common typos: --brainstrom →, --seq → --sequential
 ```
 
 **MCP Flag Issues:**
@@ -697,7 +697,7 @@ npm cache clean --force               # Clear package cache
 # Quick Fix: Manual override with explicit flags
 /sg:analyze simple-file.js --no-mcp   # Override complex auto-detection
 /sg:implement "basic function" --think # Force thinking mode
-/sg:brainstorm clear-requirement       # Force discovery mode
+/sg:analyze clear-requirement       # Force discovery mode
 ```
 
 ### Performance-Related Flag Issues

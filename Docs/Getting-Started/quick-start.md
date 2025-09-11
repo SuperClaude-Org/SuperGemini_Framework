@@ -6,19 +6,23 @@
 
 SuperGemini transforms Gemini CLI into a structured development framework with just one installation command. Behind the simple interface, intelligent routing automatically selects the right tools, activates domain experts, and coordinates complex workflows.
 
-**5-Minute Start**: Install → Try `/sg:brainstorm` → Watch the magic happen.
+**5-Minute Start**: Install → Try `/sg:analyze` → Watch the magic happen.
 
 ## Just Start Here
 
 ### 🖥️ Installation (2 minutes) - Run in Terminal
 ```bash
+# Recommended: pipx (isolated environment)
+pipx install SuperGemini && SuperGemini install
+
+# Alternative: pip (traditional)
 pip install SuperGemini && SuperGemini install
 ```
 
 ### 💬 First Commands (3 minutes) - Type in Gemini CLI
 ```
-# Interactive project discovery
-/sg:brainstorm "web app for task management"
+# Interactive project discovery (brainstorm mode)
+/sg:analyze "web app for task management"
 
 # Analyze existing code
 /sg:analyze src/
@@ -39,7 +43,7 @@ pip install SuperGemini && SuperGemini install
 
 SuperGemini is a meta-programming framework that enhances Gemini CLI with:
 
-**21 Slash Commands** for workflow automation (/sg:brainstorm, /sg:implement, /sg:analyze)
+**18 Slash Commands** for workflow automation (/sg:analyze, /sg:implement, /sg:workflow)
 **13 AI Specialists** with domain expertise (architect, security, frontend, backend)
 **6 Behavioral Modes** for different contexts (brainstorming, introspection, orchestration)
 **6 MCP Servers** for enhanced capabilities (Context7, Sequential, Magic, Playwright)
@@ -64,8 +68,8 @@ You type `/sg:implement "user login"` → SuperGemini analyzes requirements → 
 
 **First Session Pattern:**
 ```bash
-# 1. Project Discovery
-/sg:brainstorm "e-commerce mobile app"
+# 1. Project Discovery (brainstorm mode)
+/sg:analyze "e-commerce mobile app"
 
 # 2. Load Context (existing projects)
 /sg:load src/
@@ -120,7 +124,7 @@ SuperGemini transforms Gemini CLI from a general-purpose AI assistant into a **s
 
 **Learning Path:**
 
-**Week 1**: Master core commands (`/sg:brainstorm`, `/sg:analyze`, `/sg:implement`)
+**Week 1**: Master core commands (`/sg:analyze`, `/sg:implement`, `/sg:workflow`)
 **Week 2**: Explore behavioral modes and flag combinations
 **Week 3**: Configure MCP servers for enhanced capabilities
 **Week 4**: Create custom workflows and session management patterns

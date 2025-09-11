@@ -100,7 +100,7 @@ Advanced Analysis: diagnostic-reference.md
 | `/sg:load` | Restore session context | `/sg:load project_name` |
 | `/sg:save` | Preserve session state | `/sg:save "milestone checkpoint"` |
 | `--think` | Enable structured analysis | `--think analyze performance bottlenecks` |
-| `--brainstorm` | Collaborative requirement discovery | `--brainstorm new authentication system` |
+| `` | Collaborative requirement discovery | ` new authentication system` |
 | `--task-manage` | Multi-step operation orchestration | `--task-manage refactor user module` |
 
 ### Performance & Efficiency Flags

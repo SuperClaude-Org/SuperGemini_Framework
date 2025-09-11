@@ -3352,7 +3352,7 @@ class TestEndToEndWorkflows:
         session_manager = SessionManager()
         session = session_manager.create_session('test-project')
         
-        # 2. Requirements discovery (brainstorming mode)
+        # 2. Requirements discovery (analysis mode)
         brainstorm_task = TaskContext(
             input_text="build e-commerce platform",
             session_id=session.id

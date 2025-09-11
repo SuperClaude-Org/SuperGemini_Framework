@@ -55,8 +55,9 @@ class SuperGeminiValidator:
         self.start_time = datetime.now()
         
         # Documented commands from commands.md
+        # Note: brainstorm has been integrated as a behavioral mode
         self.essential_commands = [
-            "brainstorm", "implement", "analyze", "troubleshoot", 
+            "implement", "analyze", "troubleshoot", 
             "test", "improve", "document", "workflow"
         ]
         
@@ -77,7 +78,7 @@ class SuperGeminiValidator:
         
         # Documented flags from flags.md
         self.analysis_flags = ["--think", "--think-hard", "--ultrathink"]
-        self.mode_flags = ["--brainstorm", "--introspect", "--task-manage"]
+        self.mode_flags = ["--introspect", "--task-manage"]
         self.efficiency_flags = ["--uc", "--token-efficient", "--orchestrate"]
         self.mcp_flags = [
             "--c7", "--context7", "--seq", "--sequential", "--magic",
@@ -159,7 +160,7 @@ class SuperGeminiValidator:
             # Analysis flags
             "--think", "--think-hard", "--ultrathink",
             # Mode flags  
-            "--brainstorm", "--introspect", "--task-manage", "--delegate",
+            "--introspect", "--task-manage", "--delegate",
             # Efficiency flags
             "--uc", "--ultracompressed", "--token-efficient", "--orchestrate",
             # MCP flags
