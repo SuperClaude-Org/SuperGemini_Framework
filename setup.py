@@ -25,10 +25,10 @@ def get_long_description():
             return fh.read()
     except FileNotFoundError:
         logger.warning("README.md not found")
-        return "SuperGemini Framework Management Hub"
+        return "Qwen Framework Management Hub"
     except Exception as e:
         logger.error(f"Error reading README.md: {e}")
-        return "SuperGemini Framework Management Hub"
+        return "Qwen Framework Management Hub"
 
 def get_install_requires():
     """Get install requirements with proper dependency management."""
@@ -49,28 +49,28 @@ def get_install_requires():
 
 # Main setup configuration
 setuptools.setup(
-    name="SuperGemini",
+    name="Qwen",
     version=get_version(),
     author="hyunjae lim, NomenAK, Mithun Gowda B",
     author_email="thecurrent.lim@gmail.com",
-    description="SuperGemini Framework Management Hub",
+    description="Qwen Framework Management Hub",
     long_description=get_long_description(),
     long_description_content_type="text/markdown",
-    url="https://github.com/SuperClaude-Org/SuperGemini_Framework",
+    url="https://github.com/SuperClaude-Org/Qwen_Framework",
     packages=setuptools.find_packages() + setuptools.find_packages(where=".", include=["setup*"]),
     include_package_data=True,
     install_requires=get_install_requires(),
     entry_points={
         "console_scripts": [
-            "SuperGemini=SuperGemini.__main__:main",
-            "supergemini=SuperGemini.__main__:main",
-            "sg=SuperGemini.__main__:main",
+            "Qwen=Qwen.__main__:main",
+            "Qwen=Qwen.__main__:main",
+            "sg=Qwen.__main__:main",
         ],
     },
     python_requires=">=3.8",
     project_urls={
-        "GitHub": "https://github.com/SuperClaude-Org/SuperGemini_Framework",
-        "Bug Tracker": "https://github.com/SuperClaude-Org/SuperGemini_Framework/issues",
+        "GitHub": "https://github.com/SuperClaude-Org/Qwen_Framework",
+        "Bug Tracker": "https://github.com/SuperClaude-Org/Qwen_Framework/issues",
     },
     classifiers=[
         "Programming Language :: Python :: 3",

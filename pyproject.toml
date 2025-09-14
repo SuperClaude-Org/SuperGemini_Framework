@@ -3,14 +3,14 @@ requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "SuperGemini"
+name = "Qwen"
 dynamic = ["version"]
 authors = [
     {name = "hyunjae lim", email = "thecurrent.lim@gmail.com"},
     {name = "NomenAK", email = "anton.knoery@gmail.com"},
     {name = "Mithun Gowda B", email = "mithungowda.b7411@gmail.com"}
 ]
-description = "SuperGemini Framework Management Hub - AI-enhanced development framework for Gemini single-agent architecture"
+description = "Qwen Framework Management Hub - AI-enhanced development framework for Gemini single-agent architecture"
 readme = "README.md"
 license = {text = "MIT"}
 requires-python = ">=3.8"
@@ -37,14 +37,14 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/SuperClaude-Org/SuperGemini_Framework"
-GitHub = "https://github.com/SuperClaude-Org/SuperGemini_Framework"
-"Bug Tracker" = "https://github.com/SuperClaude-Org/SuperGemini_Framework/issues"
+Homepage = "https://github.com/SuperClaude-Org/Qwen_Framework"
+GitHub = "https://github.com/SuperClaude-Org/Qwen_Framework"
+"Bug Tracker" = "https://github.com/SuperClaude-Org/Qwen_Framework/issues"
 
 [project.scripts]
-SuperGemini = "SuperGemini.__main__:main"
-supergemini = "SuperGemini.__main__:main"
-sg = "SuperGemini.__main__:main"
+Qwen = "Qwen.__main__:main"
+Qwen = "Qwen.__main__:main"
+sg = "Qwen.__main__:main"
 
 [project.optional-dependencies]
 dev = [
@@ -67,12 +67,12 @@ version = {file = "VERSION"}
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["SuperGemini*", "setup*"]
+include = ["Qwen*", "setup*"]
 exclude = ["tests*", "*.tests*", "*.tests", ".git*", ".venv*", "*.egg-info*"]
 
 [tool.setuptools.package-data]
 "setup" = ["data/*.json", "data/*.yaml", "data/*.yml", "components/*.py", "**/*.py"]
-"SuperGemini" = ["*.md", "*.txt", "**/*.md", "**/*.txt", "**/*.json", "**/*.yaml", "**/*.yml"]
+"Qwen" = ["*.md", "*.txt", "**/*.md", "**/*.txt", "**/*.json", "**/*.yaml", "**/*.yml"]
 
 [tool.black]
 line-length = 88
@@ -118,7 +118,7 @@ markers = [
 ]
 
 [tool.coverage.run]
-source = ["SuperGemini", "setup"]
+source = ["Qwen", "setup"]
 omit = [
     "*/tests/*",
     "*/test_*",

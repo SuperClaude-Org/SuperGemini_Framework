@@ -1,7 +1,7 @@
 {
-  "name": "@superclaude-org/supergemini",
+  "name": "@superclaude-org/Qwen",
   "version": "4.0.9",
-  "description": "SuperGemini Framework NPM wrapper - Official Node.js wrapper for the Python Gemini package. Enhances Gemini CLI with specialized commands and AI development tools.",
+  "description": "Qwen Framework NPM wrapper - Official Node.js wrapper for the Python Gemini package. Enhances Gemini CLI with specialized commands and AI development tools.",
   "scripts": {
     "postinstall": "node ./bin/install.js",
     "update": "node ./bin/update.js",
@@ -14,20 +14,20 @@
     "LICENSE"
   ],
   "author": {
-    "name": "SuperGemini Org",
+    "name": "Qwen Org",
     "url": "https://github.com/SuperClaude-Org"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SuperClaude-Org/SuperGemini_Framework.git"
+    "url": "git+https://github.com/SuperClaude-Org/Qwen_Framework.git"
   },
   "bugs": {
-    "url": "https://github.com/SuperClaude-Org/SuperGemini_Framework/issues"
+    "url": "https://github.com/SuperClaude-Org/Qwen_Framework/issues"
   },
-  "homepage": "https://github.com/SuperClaude-Org/SuperGemini_Framework#readme",
+  "homepage": "https://github.com/SuperClaude-Org/Qwen_Framework#readme",
   "license": "MIT",
   "keywords": [
-    "supergemini",
+    "Qwen",
     "ai",
     "cli",
     "pypi",
