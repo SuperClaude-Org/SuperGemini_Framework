@@ -56,5 +56,5 @@ python uninstall_qwen.py
 
 This framework was originally forked from the **SuperGemini Framework**. I would like to sincerely thank the **SuperClaude Team** for their outstanding work, which served as the foundation and inspiration for this contribution.
 
-https://github.com/SuperClaude-Org/SuperGemini_Framework
+* https://github.com/SuperClaude-Org/SuperGemini_Framework
 ---
