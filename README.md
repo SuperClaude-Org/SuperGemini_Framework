@@ -4,7 +4,7 @@ Qwen Framework is an AI-enhanced development framework for Qwen CLI, adapted and
 
 ## Features
 
-* **18 Slash Commands**: TOML-based commands for systematic workflow automation (`/qwen:analyze`, `/qwen:implement`, etc.)
+* **18 Slash Commands**: TOML-based commands for systematic workflow automation (`/analyze`, `/implement`, etc.)
 * **Behavioral Modes**: Context-aware operation modes (Brainstorming, Introspection, Task Management, Token Efficiency)
 * **Specialized AI Agents**: 13 domain experts (System Architect, Security Engineer, etc.)
 * **MCP Server Integration**: Extended capabilities through MCP servers
@@ -27,10 +27,10 @@ Qwen Framework is an AI-enhanced development framework for Qwen CLI, adapted and
 
 After installation, you can use the following commands in Qwen CLI:
 
-* `/qwen:analyze` - Comprehensive code analysis
-* `/qwen:implement` - Implementation guidance
-* `/qwen:design` - System design assistance
-* `/qwen:test` - Test generation and validation
+* `/analyze` - Comprehensive code analysis
+* `/implement` - Implementation guidance
+* `/design` - System design assistance
+* `/test` - Test generation and validation
 * And 14 more commands...
 
 ## Modes
