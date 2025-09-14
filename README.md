@@ -1,6 +1,6 @@
-# Qwen Framework
+# SuperQwen Framework
 
-Qwen Framework is an AI-enhanced development framework for Qwen CLI, adapted and forked from the **SuperGemini Framework**. It provides structured development capabilities with slash commands, behavioral modes, and specialized AI agents.
+SuperQwen Framework is an AI-enhanced development framework for Qwen CLI, adapted and forked from the **SuperGemini Framework**. It provides structured development capabilities with slash commands, behavioral modes, and specialized AI agents.
 
 ## Features
 
