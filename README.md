@@ -1,7 +1,7 @@
-# SuperGemini v4.0.8 🚀
+# SuperGemini v4.0.9 🚀
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![PyPI version](https://img.shields.io/pypi/v/SuperGemini.svg)](https://pypi.org/project/SuperGemini/)
-[![Version](https://img.shields.io/badge/version-4.0.8-blue.svg)](https://github.com/SuperClaude-Org/SuperGemini_Framework)
+[![Version](https://img.shields.io/badge/version-4.0.9-blue.svg)](https://github.com/SuperClaude-Org/SuperGemini_Framework)
 [![GitHub issues](https://img.shields.io/github/issues/SuperClaude-Org/SuperGemini_Framework)](https://github.com/SuperClaude-Org/SuperGemini_Framework/issues)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/SuperClaude-Org/SuperGemini_Framework/blob/master/CONTRIBUTING.md)
 [![Contributors](https://img.shields.io/github/contributors/SuperClaude-Org/SuperGemini_Framework)](https://github.com/SuperClaude-Org/SuperGemini_Framework/graphs/contributors)
