@@ -1,4 +1,11 @@
 # SuperGemini v4.0.9 🚀
+<a href="https://github.com/SuperClaude-Org/SuperClaude_Framework" target="_blank">
+  <img src="https://img.shields.io/badge/Try-SuperClaude_Framework-brightgreen" alt="Try SuperClaude Framework"/>
+</a>
+<a href="https://github.com/SuperClaude-Org/SuperQwen_Framework" target="_blank">
+  <img src="https://img.shields.io/badge/Try-SuperQwen_Framework-orange" alt="Try SuperQwen Framework"/>
+</a>
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![PyPI version](https://img.shields.io/pypi/v/SuperGemini.svg)](https://pypi.org/project/SuperGemini/)
 [![Version](https://img.shields.io/badge/version-4.0.9-blue.svg)](https://github.com/SuperClaude-Org/SuperGemini_Framework)
