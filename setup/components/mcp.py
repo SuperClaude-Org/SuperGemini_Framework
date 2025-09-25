@@ -451,45 +451,56 @@ class MCPComponent(Component):
     
     def _find_executable_with_fallbacks(self, executable: str) -> Optional[str]:
         """Find executable with fallback locations for common version managers and pipx environments"""
-        # Standard PATH search first
-        if shutil.which(executable):
-            return shutil.which(executable)
-        
-        # Common fallback locations for different platforms and version managers
-        fallback_paths = [
-            # asdf version manager
-            Path.home() / ".asdf" / "shims" / executable,
-            # nvm (Node Version Manager)
-            Path.home() / ".nvm" / "current" / "bin" / executable,
-            # volta
-            Path.home() / ".volta" / "bin" / executable,
-            # fnm (Fast Node Manager)
-            Path.home() / ".fnm" / "current" / "bin" / executable,
-            # Standard locations
-            Path("/usr/local/bin") / executable,
-            Path("/usr/bin") / executable,
-            # macOS with Homebrew
-            Path("/opt/homebrew/bin") / executable,
-            # Windows specific paths
-            Path("C:/Program Files/nodejs") / executable,
-            Path("C:/Program Files (x86)/nodejs") / executable,
-            # User local installations
-            Path.home() / ".local" / "bin" / executable,
-            Path.home() / "bin" / executable,
+        which_path = shutil.which(executable)
+        if which_path:
+            return which_path
+
+        search_dirs: List[Path] = [
+            Path.home() / ".asdf" / "shims",
+            Path.home() / ".nvm" / "current" / "bin",
+            Path.home() / ".volta" / "bin",
+            Path.home() / ".fnm" / "current" / "bin",
+            Path.home() / ".local" / "bin",
+            Path.home() / "bin",
+            Path("/usr/local/bin"),
+            Path("/usr/bin"),
+            Path.home() / ".cargo" / "bin",
         ]
-        
-        # Windows specific: also check with .exe extension
-        if sys.platform == "win32" and not executable.endswith(".exe"):
-            fallback_paths.extend([
-                Path("C:/Program Files/nodejs") / f"{executable}.exe",
-                Path("C:/Program Files (x86)/nodejs") / f"{executable}.exe",
+
+        if sys.platform == "darwin":
+            search_dirs.append(Path("/opt/homebrew/bin"))
+
+        if sys.platform == "win32":
+            search_dirs.extend([
+                Path("C:/Program Files/nodejs"),
+                Path("C:/Program Files (x86)/nodejs"),
+                Path.home() / "AppData" / "Local" / "uv" / "bin",
             ])
-        
-        for path in fallback_paths:
-            if path.exists() and path.is_file():
-                self.logger.debug(f"Found {executable} at fallback location: {path}")
-                return str(path)
-        
+
+        nvm_versions_dir = Path.home() / ".nvm" / "versions" / "node"
+        if nvm_versions_dir.exists():
+            for version_dir in nvm_versions_dir.iterdir():
+                bin_dir = version_dir / "bin"
+                if bin_dir.is_dir():
+                    search_dirs.append(bin_dir)
+
+        unique_dirs: List[Path] = []
+        seen_dirs = set()
+        for directory in search_dirs:
+            if directory not in seen_dirs:
+                seen_dirs.add(directory)
+                unique_dirs.append(directory)
+
+        for directory in unique_dirs:
+            candidates = [directory / executable]
+            if sys.platform == "win32" and not executable.endswith(".exe"):
+                candidates.append(directory / f"{executable}.exe")
+
+            for path in candidates:
+                if path.exists() and path.is_file():
+                    self.logger.debug(f"Found {executable} at fallback location: {path}")
+                    return str(path)
+
         return None
     
     def _get_expanded_env(self) -> Dict[str, str]:
@@ -504,6 +515,7 @@ class MCPComponent(Component):
             str(Path.home() / ".fnm" / "current" / "bin"),
             str(Path.home() / ".local" / "bin"),
             str(Path.home() / "bin"),
+            str(Path.home() / ".cargo" / "bin"),
             "/usr/local/bin",
             "/usr/bin",
         ]
@@ -517,7 +529,15 @@ class MCPComponent(Component):
             additional_paths.extend([
                 "C:\\Program Files\\nodejs",
                 "C:\\Program Files (x86)\\nodejs",
+                str(Path.home() / "AppData" / "Local" / "uv" / "bin"),
             ])
+
+        nvm_versions_dir = Path.home() / ".nvm" / "versions" / "node"
+        if nvm_versions_dir.exists():
+            for version_dir in nvm_versions_dir.iterdir():
+                bin_dir = version_dir / "bin"
+                if bin_dir.is_dir():
+                    additional_paths.append(str(bin_dir))
         
         # Only add paths that actually exist
         existing_paths = [p for p in additional_paths if Path(p).exists()]

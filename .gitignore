@@ -208,6 +208,8 @@ tslint.json
 # Test files (from .npmignore)
 test/
 tests/
+!tests/
+!tests/test_mcp_prerequisites.py
 *.test.js
 *.test.ts
 
