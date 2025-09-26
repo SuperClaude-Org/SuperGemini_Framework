@@ -22,9 +22,9 @@ except ImportError:
         if version_file.exists():
             __version__ = version_file.read_text().strip()
         else:
-            __version__ = "4.0.9"  # Fallback
+            __version__ = "4.0.10"  # Fallback
     except Exception:
-        __version__ = "4.0.9"  # Final fallback
+        __version__ = "4.0.10"  # Final fallback
 __author__ = "NomenAK, Mithun Gowda B"
 __email__ = "anton.knoery@gmail.com"
 __license__ = "MIT"
