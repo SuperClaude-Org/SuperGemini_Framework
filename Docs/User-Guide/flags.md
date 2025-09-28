@@ -30,7 +30,7 @@ Before using flags, verify they work correctly:
 
 SuperGemini's intelligent flag system automatically detects task complexity and context, then activates appropriate flags behind the scenes. You get optimized performance without memorizing flag combinations.
 
-**Intelligent Auto-Activation**: Type `/sg:analyze large-codebase/` → `--think-hard` + `--serena` + `--orchestrate` activate automatically. Type complex multi-file operations → `--task-manage` + `--delegate` optimize execution. Work under resource pressure → `--uc` compresses output.
+**Intelligent Auto-Activation**: Type `/sg:analyze large-codebase/` → `--introspect` + `--serena` + `--orchestrate` activate automatically. Type complex multi-file operations → `--task-manage` + `--delegate` optimize execution. Work under resource pressure → `--uc` compresses output.
 
 **Manual Override Available**: When you want specific behavior, flags provide precise control. But in most cases, SuperGemini's automatic selection delivers optimal results.
 
@@ -42,16 +42,16 @@ SuperGemini's intelligent flag system automatically detects task complexity and 
 ```bash
 # These automatically get optimal flags
 /sg:analyze "mobile fitness app"
-# → Auto-activates: --think, --context7
+# → Auto-activates: --introspect, --context7
 
 /sg:analyze src/ --focus security  
-# → Auto-activates: --think-hard, --serena, --orchestrate
+# → Auto-activates: --introspect, --serena, --orchestrate
 
 /sg:implement "user authentication system"
 # → Auto-activates: --task-manage, --c7, --magic, --validate
 
 /sg:troubleshoot "API performance issues"
-# → Auto-activates: --think-hard, --seq, --serena, --introspect
+# → Auto-activates: --introspect, --seq, --serena
 
 /sg:improve legacy-code/ --focus maintainability
 # → Auto-activates: --task-manage, --morph, --serena, --safe-mode
@@ -83,7 +83,7 @@ SuperGemini's intelligent flag system automatically detects task complexity and 
 # Examples
 /sg:analyze src/ --focus security --depth deep
 /sg:implement "auth" --task-manage --validate
-/sg:troubleshoot issue/ --think-hard --uc --concurrency 3
+/sg:troubleshoot issue/ --introspect --uc --concurrency 3
 ```
 
 **Two Types of Activation:**
@@ -91,9 +91,9 @@ SuperGemini's intelligent flag system automatically detects task complexity and 
 2. **Manual** (10% of use): You override or specify exact behavior needed
 
 **Flag Functions:**
-- **Behavioral Modes**: ``, `--introspect`, `--task-manage`
+- **Behavioral Modes**: `--brainstorm`, `--introspect`, `--task-manage`
 - **Tool Selection**: `--c7`, `--seq`, `--magic`, `--morph`, `--serena`, `--play`
-- **Analysis Depth**: `--think`, `--think-hard`, `--ultrathink`
+- **Analysis Modes**: `--introspect`, `--task-manage`, `--orchestrate`
 - **Efficiency Control**: `--uc`, `--concurrency`, `--scope`
 - **Safety & Quality**: `--safe-mode`, `--validate`, `--dry-run`
 
@@ -107,7 +107,7 @@ SuperGemini's intelligent flag system automatically detects task complexity and 
 
 **Thinking Depth Control:**
 
-**`--think`** - Standard Analysis (~4K tokens)
+**`--introspect`** - Standard Analysis (~4K tokens)
 - **Auto-Triggers**: Multi-component analysis, moderate complexity
 - **Manual Use**: Force structured thinking for simple tasks
 - **Enables**: Sequential MCP for systematic reasoning
@@ -119,7 +119,7 @@ SuperGemini's intelligent flag system automatically detects task complexity and 
 - [ ] Token usage approximately 4K or less
 
 ```bash
-/sg:analyze auth-system/ --think
+/sg:analyze auth-system/ --introspect
 # → Structured analysis with evidence-based reasoning
 ```
 
@@ -127,21 +127,21 @@ SuperGemini's intelligent flag system automatically detects task complexity and 
 **Test:** Output should have systematic structure with hypothesis testing  
 **Check:** Analysis quality should be notably higher than basic mode
 
-**`--think-hard`** - Deep Analysis (~10K tokens)  
+**`--introspect`** - Deep Analysis (~10K tokens)  
 - **Auto-Triggers**: Architectural analysis, system-wide dependencies
 - **Manual Use**: Force comprehensive analysis
 - **Enables**: Sequential + Context7 for deep understanding
 ```bash
-/sg:troubleshoot "performance degradation" --think-hard
+/sg:troubleshoot "performance degradation" --introspect
 # → Comprehensive root cause analysis with framework patterns
 ```
 
-**`--ultrathink`** - Maximum Analysis (~32K tokens)
+**`--orchestrate`** - Maximum Analysis (~32K tokens)
 - **Auto-Triggers**: Critical system redesign, legacy modernization
 - **Manual Use**: Force maximum analytical depth
 - **Enables**: All MCP servers for comprehensive capability
 ```bash
-/sg:analyze enterprise-architecture/ --ultrathink
+/sg:analyze enterprise-architecture/ --orchestrate
 # → Maximum depth with all tools and reasoning capacity
 ```
 
@@ -416,7 +416,7 @@ SuperGemini's intelligent flag system automatically detects task complexity and 
 
 **Full Analysis & Improvement:**
 ```bash
-/sg:analyze codebase/ --think-hard --all-mcp --orchestrate
+/sg:analyze codebase/ --introspect --all-mcp --orchestrate
 # → Deep analysis + all tools + optimal coordination
 ```
 
@@ -440,13 +440,13 @@ SuperGemini's intelligent flag system automatically detects task complexity and 
 
 **Performance Investigation:**
 ```bash
-/sg:troubleshoot "slow-performance" --think-hard --focus performance --seq --play
+/sg:troubleshoot "slow-performance" --introspect --focus performance --seq --play
 # → Deep analysis + performance focus + reasoning + browser testing
 ```
 
 **Learning & Understanding:**
 ```bash
-/sg:analyze new-codebase/ --introspect --c7 --think
+/sg:analyze new-codebase/ --introspect --c7 --introspect
 # → Transparent reasoning + discovery + documentation + analysis
 ```
 
@@ -458,7 +458,7 @@ SuperGemini's intelligent flag system automatically detects task complexity and 
 
 **Quality Assurance Workflow:**
 ```bash
-/sg:review code-changes/ --focus quality --validate --tests-required --think
+/sg:review code-changes/ --focus quality --validate --tests-required --introspect
 # → Quality analysis + validation + testing + structured reasoning
 ```
 
@@ -470,7 +470,7 @@ SuperGemini's intelligent flag system automatically detects task complexity and 
 
 **Complex Architecture Design:**
 ```bash
-/sg:design "microservices-platform" --ultrathink --all-mcp --orchestrate
+/sg:design "microservices-platform" --orchestrate --all-mcp --orchestrate
 # → Maximum analysis + discovery + all tools + optimal coordination
 ```
 
@@ -479,9 +479,9 @@ SuperGemini's intelligent flag system automatically detects task complexity and 
 ### 🧠 Analysis & Thinking Flags
 | Flag | Purpose | Auto-Trigger | Token Impact |
 |------|---------|--------------|--------------|
-| `--think` | Standard analysis | Multi-component tasks | ~4K tokens |
-| `--think-hard` | Deep analysis | Architectural tasks | ~10K tokens |
-| `--ultrathink` | Maximum analysis | Critical system work | ~32K tokens |
+| `--introspect` | Standard analysis | Multi-component tasks | ~4K tokens |
+| `--introspect` | Deep analysis | Architectural tasks | ~10K tokens |
+| `--orchestrate` | Maximum analysis | Critical system work | ~32K tokens |
 | `` | Interactive discovery | Vague requirements | Variable |
 | `--introspect` | Reasoning transparency | Learning contexts | +10% detail |
 
@@ -566,10 +566,10 @@ SuperGemini's intelligent flag system automatically detects task complexity and 
 ```bash
 # Complex legacy work gets automatic coordination
 /sg:improve legacy-monolith/
-# → Auto-flags: --task-manage --serena --morph --think-hard --backup
+# → Auto-flags: --task-manage --serena --morph --introspect --backup
 
 # Manual control for specific modernization strategy  
-/sg:improve legacy/ --ultrathink --task-manage --serena --morph --safe-mode
+/sg:improve legacy/ --orchestrate --task-manage --serena --morph --safe-mode
 # → Maximum analysis + coordination + transformation + safety
 ```
 
@@ -578,7 +578,7 @@ SuperGemini's intelligent flag system automatically detects task complexity and 
 **Priority Hierarchy:**
 1. **Safety First**: `--safe-mode` > `--validate` > optimization flags
 2. **Explicit Override**: User flags > auto-detection  
-3. **Depth Hierarchy**: `--ultrathink` > `--think-hard` > `--think`
+3. **Depth Hierarchy**: `--orchestrate` > `--introspect` > `--task-manage`
 4. **MCP Control**: `--no-mcp` overrides all individual MCP flags
 5. **Scope Precedence**: `system` > `project` > `module` > `file`
 
@@ -603,8 +603,8 @@ SuperGemini's intelligent flag system automatically detects task complexity and 
 ```bash
 # System automatically adapts based on available resources
 /sg:analyze enterprise-codebase/
-# → High resources: --all-mcp --parallel --think-hard
-# → Medium resources: --c7 --seq --serena --think  
+# → High resources: --all-mcp --parallel --introspect
+# → Medium resources: --c7 --seq --serena --introspect  
 # → Low resources: --no-mcp --uc --scope module
 ```
 
@@ -615,7 +615,7 @@ SuperGemini's intelligent flag system automatically detects task complexity and 
 # → Auto-flags: minimal, fast execution
 
 /sg:implement "microservices authentication"  
-# → Auto-flags: --ultrathink --all-mcp --task-manage --validate --orchestrate
+# → Auto-flags: --orchestrate --all-mcp --task-manage --validate --orchestrate
 ```
 
 ### Expert Flag Patterns
@@ -624,14 +624,14 @@ SuperGemini's intelligent flag system automatically detects task complexity and 
 ```bash
 # Progressive security validation
 /sg:implement "auth-system" --focus security --validate --tests-required
-/sg:review "payment-code" --focus security --think-hard --backup
+/sg:review "payment-code" --focus security --introspect --backup
 /sg:analyze "user-data" --focus security --all-mcp --safe-mode
 ```
 
 **Performance Optimization Workflow:**
 ```bash
 # Systematic performance improvement
-/sg:analyze --focus performance --think-hard --seq --play
+/sg:analyze --focus performance --introspect --seq --play
 /sg:improve --focus performance --morph --parallel --validate  
 /sg:test --focus performance --play --format json --export metrics.json
 ```
@@ -640,7 +640,7 @@ SuperGemini's intelligent flag system automatically detects task complexity and 
 ```bash
 # Understanding complex systems
 /sg:load new-codebase/ --introspect --serena
-/sg:analyze architecture/ --introspect --think-hard --c7 --all-mcp
+/sg:analyze architecture/ --introspect --c7 --all-mcp
 /sg:explain concepts/ --introspect --c7 --focus accessibility
 ```
 
@@ -687,7 +687,7 @@ npm cache clean --force               # Clear package cache
 # Problem: "Flag conflict: --all-mcp and --no-mcp"
 # Quick Fix: Use flag priority rules
 /sg:command --no-mcp                  # --no-mcp overrides --all-mcp
-/sg:command --ultrathink --think      # --ultrathink overrides --think
+/sg:command --orchestrate --introspect      # --orchestrate overrides --introspect
 /sg:command --safe-mode --uc          # --safe-mode auto-enables --uc
 ```
 
@@ -696,7 +696,7 @@ npm cache clean --force               # Clear package cache
 # Problem: Wrong flags auto-activated
 # Quick Fix: Manual override with explicit flags
 /sg:analyze simple-file.js --no-mcp   # Override complex auto-detection
-/sg:implement "basic function" --think # Force thinking mode
+/sg:implement "basic function" --introspect # Force thinking mode
 /sg:analyze clear-requirement       # Force discovery mode
 ```
 
@@ -704,7 +704,7 @@ npm cache clean --force               # Clear package cache
 
 **Resource Exhaustion:**
 ```bash
-# Problem: System slowing down with --all-mcp --ultrathink
+# Problem: System slowing down with --all-mcp --orchestrate
 # Quick Fix: Reduce resource usage
 /sg:command --c7 --seq                # Essential servers only
 /sg:command --concurrency 1           # Limit parallel operations
@@ -827,11 +827,11 @@ SuperGemini --help flags
 
 **Resource Issues:**
 ```bash
-# Problem: System overload with --all-mcp --ultrathink
-/sg:analyze large-project/ --all-mcp --ultrathink
+# Problem: System overload with --all-mcp --orchestrate
+/sg:analyze large-project/ --all-mcp --orchestrate
 
 # Solution: Reduce resource usage
-/sg:analyze large-project/ --c7 --seq --think --concurrency 2
+/sg:analyze large-project/ --c7 --seq --introspect --concurrency 2
 # Or let auto-detection handle it: /sg:analyze large-project/
 ```
 
@@ -855,11 +855,11 @@ SuperGemini install --components mcp --force
 **Performance Problems:**
 ```bash
 # Problem: Slow execution with complex flags
-/sg:analyze codebase/ --ultrathink --all-mcp --parallel
+/sg:analyze codebase/ --orchestrate --all-mcp --parallel
 
 # Solutions:
 # 1. Reduce complexity
-/sg:analyze codebase/ --think --c7 --seq
+/sg:analyze codebase/ --introspect --c7 --seq
 
 # 2. Use scope limiting
 /sg:analyze codebase/ --scope module --focus quality
@@ -874,7 +874,7 @@ SuperGemini install --components mcp --force
 ```bash
 # Add --verbose to see which flags were auto-activated
 /sg:analyze project/ --verbose
-# → Output shows: "Auto-activated: --think-hard, --serena, --orchestrate"
+# → Output shows: "Auto-activated: --introspect, --serena, --orchestrate"
 ```
 
 **Test Flag Combinations:**
@@ -887,7 +887,7 @@ SuperGemini install --components mcp --force
 **Validate Flag Usage:**
 ```bash
 # Check flag compatibility
-SuperGemini validate-flags --think-hard --no-mcp --magic
+SuperGemini validate-flags --introspect --no-mcp --magic
 # → Reports conflicts and suggests corrections
 ```
 
@@ -910,7 +910,7 @@ SuperGemini validate-flags --think-hard --no-mcp --magic
 /sg:implement "feature" --magic
 
 # Week 3: Combine for workflows  
-/sg:analyze src/ --focus security --think-hard
+/sg:analyze src/ --focus security --introspect
 /sg:implement "feature" --magic --c7 --validate
 
 # Month 2+: Advanced patterns
@@ -956,9 +956,9 @@ SuperGemini validate-flags --think-hard --no-mcp --magic
 
 **🧠 Analysis Depth Progression:**
 - **Basic**: No flags → automatic detection
-- **Structured**: `--think` → systematic analysis
-- **Deep**: `--think-hard` → comprehensive investigation  
-- **Maximum**: `--ultrathink` → complete analytical capability
+- **Structured**: `--introspect` → systematic analysis
+- **Deep**: `--introspect` → comprehensive investigation  
+- **Maximum**: `--orchestrate` → complete analytical capability
 
 **🛠️ Tool Integration Journey:**
 - **Single Tools**: `--c7`, `--magic` → specific capabilities

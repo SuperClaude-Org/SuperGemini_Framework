@@ -4,7 +4,7 @@ Behavioral flags for Gemini CLI to enable specific execution modes and tool sele
 
 ## Mode Activation Flags
 
-****
+**--brainstorm**
 - Trigger: Vague project requests, exploration keywords ("maybe", "thinking about", "not sure")
 - Behavior: Activate collaborative discovery mindset, ask probing questions, guide requirement elicitation
 
@@ -14,11 +14,11 @@ Behavioral flags for Gemini CLI to enable specific execution modes and tool sele
 
 **--task-manage**
 - Trigger: Multi-step operations (>3 steps), complex scope (>2 directories OR >3 files)
-- Behavior: Orchestrate through systematic organization and progressive enhancement
+- Behavior: Orchestrate through SuperAgent MCP delegation, progressive enhancement, systematic organization
 
 **--orchestrate**
-- Trigger: Multi-tool operations, performance constraints, optimization opportunities
-- Behavior: Optimize tool selection matrix, sequential execution planning, adapt to resource constraints
+- Trigger: Multi-tool operations, performance constraints, parallel execution opportunities
+- Behavior: Optimize tool selection matrix, enable parallel thinking, adapt to resource constraints
 
 **--token-efficient**
 - Trigger: Context usage >75%, large-scale operations, --uc flag
@@ -59,6 +59,14 @@ Behavioral flags for Gemini CLI to enable specific execution modes and tool sele
 - Behavior: Disable all MCP servers, use native tools with WebSearch fallback
 
 ## Execution Control Flags
+
+**--delegate [auto|files|folders]**
+- Trigger: >7 directories OR >50 files OR complexity >0.8
+- Behavior: Enable SuperAgent MCP (superagent:gemini) sub-agent parallel processing with intelligent routing
+
+**--concurrency [n]**
+- Trigger: Resource optimization needs, parallel operation control
+- Behavior: Control max concurrent operations (range: 1-15)
 
 **--loop**
 - Trigger: Improvement keywords (polish, refine, enhance, improve)

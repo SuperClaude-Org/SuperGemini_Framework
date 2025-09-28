@@ -7,13 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [4.0.10] - 2025-09-26
+## [4.2.0] - 2025-09-26
 
 ### Fixed
 - Enhanced MCP prerequisite detection to reliably locate `node`, `npm`, and `uv` across common version managers and PATH fallbacks, preventing false "not found" errors during installation (`setup/components/mcp.py`).
 
 ### Changed
-- Synchronized all published artifacts (PyPI + npm) and documentation with version `4.0.10`, ensuring installers and badges reference the corrected release.
+- Synchronized all published artifacts (PyPI + npm) and documentation with version `4.2.0`, ensuring installers and badges reference the corrected release.
 
 ## [4.0.9] - 2025-08-24
 

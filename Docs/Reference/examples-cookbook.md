@@ -85,7 +85,7 @@
 - `/sg:reflect` - Context analysis and optimization
 
 **Verified Flags**:
-- `--think`, `--think-hard`, `--ultrathink` - Analysis depth control
+- `--introspect`, `--task-manage`, `--orchestrate` - Analysis and coordination control
 - `--uc` - Ultra-compressed token-efficient mode
 - `--orchestrate` - Intelligent coordination mode
 - `--c7`, `--serena`, `--all-mcp` - MCP server integration

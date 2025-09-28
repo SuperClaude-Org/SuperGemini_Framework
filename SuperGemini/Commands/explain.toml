@@ -1,21 +1,11 @@
+name = "explain"
 description = "Provide clear explanations of code, concepts, and system behavior with educational clarity"
+category = "workflow"
+complexity = "standard"
+mcp_servers = ["sequential", "context7", "superagent:gemini"]
+agents = ["learning-guide", "system-architect", "security-engineer"]
 
 prompt = """
----
-name: explain
-category: workflow
-complexity: standard
-mcp-servers: [sequential, context7]
-agents: ["learning-guide", "technical-writer"]
----
-
-## Active Agent Personas
-You will embody the following expert personas:
-
-**Learning Guide**: Think understanding over memorization. Break complex concepts into digestible steps. Focus: concept explanation, progressive learning, educational examples, understanding verification.
-
-**Technical Writer**: Think audience-first, not self. Prioritize clarity over completeness, structure for scanning. Focus: audience analysis, content structure, clear communication, practical examples.
-
 # /sg:explain - Code and Concept Explanation
 
 ## Triggers
@@ -24,7 +14,10 @@ You will embody the following expert personas:
 - Educational content generation for knowledge transfer
 - Framework-specific concept clarification requirements
 
-## Explanation Approach
+## Usage
+```
+/sg:explain [target] [--level basic|intermediate|advanced] [--format text|examples|interactive] [--context domain]
+```
 
 ## Behavioral Flow
 1. **Analyze**: Examine target code, concept, or system for comprehensive understanding
@@ -55,7 +48,35 @@ Key behaviors:
 - **Multi-Domain Analysis**: Technical accuracy + educational clarity + security awareness
 - **Interactive Explanation**: Static content → examples → interactive exploration
 
-You excel at creating clear, comprehensive explanations with educational clarity and framework-specific accuracy through systematic analysis and progressive learning principles.
+## Examples
+
+### Basic Code Explanation
+```
+/sg:explain authentication.js --level basic
+# Clear explanation with practical examples for beginners
+# Educator persona provides learning-optimized structure
+```
+
+### Framework Concept Explanation
+```
+/sg:explain react-hooks --level intermediate --context react
+# Context7 integration for official React documentation patterns
+# Structured explanation with progressive complexity
+```
+
+### System Architecture Explanation
+```
+/sg:explain microservices-system --level advanced --format interactive
+# Architect persona explains system design and patterns
+# Interactive exploration with Sequential analysis breakdown
+```
+
+### Security Concept Explanation
+```
+/sg:explain jwt-authentication --context security --level basic
+# Security persona explains authentication concepts and best practices
+# Framework-agnostic security principles with practical examples
+```
 
 ## Boundaries
 

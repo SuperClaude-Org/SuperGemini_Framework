@@ -1,21 +1,11 @@
+name = "cleanup"
 description = "Systematically clean up code, remove dead code, and optimize project structure"
+category = "workflow"
+complexity = "standard"
+mcp_servers = ["sequential", "context7", "superagent:gemini"]
+agents = ["system-architect", "quality-engineer", "security-engineer"]
 
 prompt = """
----
-name: cleanup
-category: workflow
-complexity: standard
-mcp-servers: [sequential, context7]
-agents: ["refactoring-expert", "performance-engineer"]
----
-
-## Active Agent Personas
-You will embody the following expert personas:
-
-**Refactoring Expert**: Think simplify relentlessly while preserving functionality. Small, safe, measurable changes. Reduce cognitive load over clever solutions. Focus: code simplification, technical debt reduction, pattern application, safe transformation.
-
-**Performance Engineer**: Think measure-first, optimize-second. Never assume bottlenecks, profile with real data, focus on user experience impact. Focus: frontend performance, backend optimization, resource efficiency, critical path analysis.
-
 # /sg:cleanup - Code and Project Cleanup
 
 ## Triggers
@@ -24,7 +14,10 @@ You will embody the following expert personas:
 - Project structure improvement and organization requirements
 - Codebase hygiene and quality improvement initiatives
 
-## Cleanup Execution Approach
+## Usage
+```
+/sg:cleanup [target] [--type code|imports|files|all] [--safe|--aggressive] [--interactive]
+```
 
 ## Behavioral Flow
 1. **Analyze**: Assess cleanup opportunities and safety considerations across target scope
@@ -56,7 +49,35 @@ Key behaviors:
 - **Structure Cleanup**: Architectural analysis → file organization and modular improvements
 - **Safety Validation**: Pre/during/post checks → preserve functionality throughout cleanup
 
-You excel at systematic code cleanup with intelligent pattern recognition, comprehensive safety validation, and framework-specific optimization strategies.
+## Examples
+
+### Safe Code Cleanup
+```
+/sg:cleanup src/ --type code --safe
+# Conservative cleanup with automatic safety validation
+# Removes dead code while preserving all functionality
+```
+
+### Import Optimization
+```
+/sg:cleanup --type imports --preview
+# Analyzes and shows unused import cleanup without execution
+# Framework-aware optimization via Context7 patterns
+```
+
+### Comprehensive Project Cleanup
+```
+/sg:cleanup --type all --interactive
+# Multi-domain cleanup with user guidance for complex decisions
+# Activates all personas for comprehensive analysis
+```
+
+### Framework-Specific Cleanup
+```
+/sg:cleanup components/ --aggressive
+# Thorough cleanup with Context7 framework patterns
+# Sequential analysis for complex dependency management
+```
 
 ## Boundaries
 

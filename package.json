@@ -1,6 +1,6 @@
 {
   "name": "@superclaude-org/supergemini",
-  "version": "4.0.10",
+  "version": "4.2.0",
   "description": "SuperGemini Framework NPM wrapper - Official Node.js wrapper for the Python Gemini package. Enhances Gemini CLI with specialized commands and AI development tools.",
   "scripts": {
     "postinstall": "node ./bin/install.js",

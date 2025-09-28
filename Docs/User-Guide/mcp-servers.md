@@ -4,7 +4,7 @@
 - **SuperGemini Version**: v4.0+ Compatible
 - **Last Tested**: 2025-01-16
 - **Test Environment**: Linux/Windows/macOS
-- **MCP Servers**: ✅ All Verified (6 servers tested)
+- **MCP Servers**: ✅ All Verified (7 servers tested)
 
 ## 🧪 Testing MCP Server Connection
 
@@ -13,14 +13,14 @@ Before using this guide, verify MCP servers are working:
 ```bash
 # Test server connectivity
 SuperGemini status --mcp
-# Expected: Shows connected servers (context7, sequential, magic, playwright, serena, morphllm)
+# Expected: Shows connected servers (context7, sequential, magic, playwright, serena, morphllm, superagent)
 
 # Test Context7 server
 /sg:explain "React useEffect"
 # Expected: Should fetch official React documentation
 
 # Test Sequential server  
-/sg:analyze complex-problem/ --think
+/sg:analyze complex-problem/ --introspect
 # Expected: Should show structured reasoning steps
 ```
 
@@ -39,6 +39,7 @@ echo "Test Context7 server" | gemini --test-mcp
 ✅ "context7: Connected" 
 ✅ "sequential: Connected"
 ✅ "magic: Connected" (if API key configured)
+✅ "superagent: Connected"
 
 # 3. Try a simple command to see MCP in action
 /sg:explain "React useEffect" 
@@ -54,7 +55,7 @@ echo "Test Context7 server" | gemini --test-mcp
 
 MCP (Model Context Protocol) servers are specialized tools that extend Gemini CLI's capabilities beyond native functionality. SuperGemini integrates 6 carefully selected MCP servers that automatically activate based on your tasks, providing enhanced documentation access, advanced reasoning, UI generation, browser automation, code transformation, and project memory.
 
-**Seamless Integration**: Type `/sg:implement "React dashboard"` → Magic MCP activates for UI generation. Type `/sg:analyze --think-hard` → Sequential MCP enables structured reasoning. The system intelligently selects the right tools for your context.
+**Seamless Integration**: Type `/sg:implement "React dashboard"` → Magic MCP activates for UI generation. Type `/sg:analyze --introspect` → Sequential MCP enables structured reasoning. Need multi-agent coordination? SuperAgent MCP orchestrates specialized subagents automatically.
 
 ## Overview
 
@@ -65,6 +66,7 @@ MCP (Model Context Protocol) servers are specialized tools that extend Gemini CL
 - **playwright**: Real browser automation and E2E testing
 - **morphllm**: Efficient pattern-based code transformations
 - **serena**: Semantic code understanding with project memory
+- **superagent**: Specialized agent orchestration for Gemini and Codex workflows
 
 **How They Enhance SuperGemini:**
 - **Automatic Activation**: Intelligent context-based server selection
@@ -80,7 +82,8 @@ MCP (Model Context Protocol) servers are specialized tools that extend Gemini CL
 | Your Request Contains | Servers Activated | Priority Logic |
 |----------------------|-------------------|----------------|
 | `import`, `require`, API names | **context7** | Official docs always win |
-| `--think`, `--think-hard`, debugging | **sequential** | Structured analysis needed |
+| `--introspect`, debugging | **sequential** | Structured analysis needed |
+| `agents`, `panel`, multi-domain tasks | **superagent** | Subagent coordination |
 | `component`, `UI`, `/ui`, `form` | **magic** | UI generation required |
 | `test`, `e2e`, `browser`, `playwright` | **playwright** | Real browser automation |
 | Multi-file edits, `refactor` | **morphllm** | Pattern-based transformation |
@@ -188,7 +191,7 @@ Your command: "/sg:implement user authentication"
 **Auto-Activation Triggers:**
 - Complex debugging scenarios with multiple layers
 - Architectural analysis and system design questions
-- `--think`, `--think-hard`, `--ultrathink` flags
+- `--introspect`, `--introspect`, `--orchestrate` flags
 - Multi-component failure investigation  
 - Performance analysis requiring systematic approach
 
@@ -199,7 +202,7 @@ Your command: "/sg:implement user authentication"
 # → Sequential enables systematic root cause analysis
 
 # Manual activation  
-/sg:analyze --think-hard microservices-architecture/
+/sg:analyze --introspect microservices-architecture/
 # → Deep architectural analysis with structured reasoning
 
 # What you'll see working:
@@ -432,6 +435,59 @@ uv run serena --help
 - Semantic code refactoring that preserves relationships
 - Cross-session context preservation for ongoing work
 
+### superagent 🤝
+**Installation**: Global NPM package (auto-installed) - **No API Key Required**
+
+**Purpose**: Coordinate specialized subagents for Gemini/Codex workflows via SuperAgent MCP.
+
+**Technical Specs:**
+- **Command**: `npx -y @superclaude-org/superagent`
+- **Type**: External NPM package server
+- **Dependencies**: Node.js 18+
+- **API Key**: Not required
+- **Agents Directory**: `~/.superagent/agents`
+
+**Capabilities:**
+- Launches domain expert subagents (architecture, security, performance, etc.)
+- Supports SuperGemini commands requiring multi-agent collaboration (`/sg:business-panel`, `/sg:task`, `/sg:workflow`)
+- Provides shared agent catalog across sessions
+- Bridges Gemini CLI with Codex/Gemini specialized personas
+
+**Auto-Activation Triggers:**
+- Commands declaring `mcp_servers = ["superagent:gemini"]`
+- Flags that require delegation (`--task-manage`, `--delegate`, `/sg:business-panel`)
+- Any command referencing agent orchestration or panel reviews
+
+**Usage Examples:**
+```bash
+# Automatic activation
+/sg:task "deliver project milestone" --delegate auto
+# → SuperAgent routes work to specialized subagents
+
+# Business expert panels
+/sg:business-panel @strategy_doc.pdf
+# → SuperAgent coordinates business thought-leader personas
+
+# Manual activation
+gemini --mcp superagent "List available agents"
+# → Displays installed agent catalog
+```
+
+**Installation Verification:**
+```bash
+# Check package is available
+npx @superclaude-org/superagent --version
+
+# Confirm agent catalog copied to home directory
+ls ~/.superagent/agents
+```
+
+**Best For:**
+- Multi-domain analysis requiring specialized personas
+- Workflow orchestration (`/sg:task`, `/sg:workflow`, `/sg:business-panel`)
+- Migrating SuperClaude agent flows into Gemini CLI
+- Teams sharing common agent catalog across machines
+
 ## Installation & Configuration
 
 ### Automatic Installation (Recommended)
@@ -549,7 +605,7 @@ SuperGemini analyzes your request and automatically selects optimal MCP servers:
 - **Keywords**: "component", "UI" → Magic activation
 - **File types**: `.jsx`, `.vue` → Magic + Context7
 - **Complexity**: Multi-file operations → Serena + Morphllm
-- **Analysis depth**: `--think-hard` → Sequential + Context7
+- **Analysis depth**: `--introspect` → Sequential + Context7
 - **Testing scope**: E2E workflows → Playwright + Sequential
 
 ### Manual Server Control
@@ -629,7 +685,7 @@ SuperGemini orchestrates multiple MCP servers for complex tasks:
 
 **Performance Optimization Workflow:**
 ```bash
-/sg:analyze --focus performance --ultrathink
+/sg:analyze --focus performance --orchestrate
 ```
 1. **Sequential**: Systematic performance analysis methodology
 2. **Serena**: Code structure and bottleneck identification
@@ -772,7 +828,7 @@ chmod -R 755 ~/.gemini/
 # ✅ Should show: "Fetching React documentation..."
 
 # Test sequential-thinking:
-/sg:analyze complex-issue/ --think
+/sg:analyze complex-issue/ --introspect
 # ✅ Should show: "Hypothesis 1:..." or reasoning steps
 
 # Test playwright (should work without API key):
@@ -816,7 +872,7 @@ npx -y @upstash/context7-mcp@latest --version  # Test package
 # Problem: "Sequential server not responding"
 # Quick Fix: Verify Anthropic MCP server
 npx -y @modelcontextprotocol/server-sequential-thinking --version
-/sg:analyze problem/ --seq --think             # Test reasoning
+/sg:analyze problem/ --seq --introspect             # Test reasoning
 ```
 
 **Magic/Morphllm API Key Issues:**
@@ -831,37 +887,41 @@ export MORPH_API_KEY="your_key_here"
 /sg:command --c7 --seq --play                 # Free servers only
 ```
 
-### 🔧 Activating Disabled MCP Servers
+### 🔧 Configuring MCP Servers That Need Extra Setup
 
-Some MCP servers are installed but **disabled by default**. Here's how to activate them:
+All MCP servers install in an enabled state, but a few require extra configuration before they’re fully functional. Use the reminders below if you plan to rely on those services.
 
-**1. Magic Server** - Disabled (API key required)
+**1. Magic Server** *(API key required)*
 ```bash
-# Get API key from 21st.dev
-# Visit https://21st.dev/api-keys to obtain your key
-
-# Activate magic server
+# Create an API key at https://21st.dev/api-keys
 export TWENTYFIRST_API_KEY="your_key_here"
-echo 'export TWENTYFIRST_API_KEY="your_key_here"' >> ~/.bashrc  # Make persistent
+echo 'export TWENTYFIRST_API_KEY="your_key_here"' >> ~/.bashrc  # Persist the setting
 
-# Test activation
+# Smoke test
 /sg:implement "responsive form component" --magic
-# ✅ Should now generate UI components
+# ✅ Should generate UI components when the key is valid
 ```
 
-**2. Serena Server** - Ready to activate (no API key needed)
+**2. MorphLLM Server** *(API key required)*
 ```bash
-# Serena is pre-installed and ready - just needs activation
-# Enable when you need project memory and semantic navigation
+# Generate a key from the Morph-LLM console
+export MORPH_API_KEY="your_key_here"
+echo 'export MORPH_API_KEY="your_key_here"' >> ~/.bashrc
 
-# Activate serena for current session
+# Smoke test
+/sg:cleanup src/ --morph
+# ✅ Pattern-based refactor logs should appear
+```
+
+**3. Serena Server** *(local install, no key required)*
+```bash
+# Serena is ready immediately; enable it when you need project memory
 /sg:load large-project/ --serena
-# ✅ Should start project indexing and memory
+# ✅ First run should show indexing logs
 
-# Verify serena is working
+# Inspect the install
 ls ~/.gemini/serena/
 uv run serena --help
-# ✅ Should show serena installation and commands
 ```
 
 **3. Morphllm Server** - Disabled (API key required)  

@@ -1,84 +1,86 @@
-description = "Diagnose and resolve complex problems through systematic investigation and evidence-based analysis"
+name = "troubleshoot"
+description = "Diagnose and resolve issues in code, builds, deployments, and system behavior"
+category = "utility"
+complexity = "basic"
 
 prompt = """
-As a systematic investigation expert combining Root Cause Analyst and Performance Engineer perspectives, diagnose complex problems through evidence-based analysis and methodical hypothesis testing with comprehensive problem resolution.
+# /sg:troubleshoot - Issue Diagnosis and Resolution
 
-## Expert Mindset Integration
+## Triggers
+- Code defects and runtime error investigation requests
+- Build failure analysis and resolution needs
+- Performance issue diagnosis and optimization requirements
+- Deployment problem analysis and system behavior debugging
 
-**Root Cause Analyst Methodology:**
-- Follow evidence, not assumptions in systematic investigation
-- Look beyond symptoms to find underlying causes through methodical analysis
-- Test multiple hypotheses systematically and validate conclusions with data
-- Never jump to conclusions without supporting evidence and verification
+## Usage
+```
+/sg:troubleshoot [issue] [--type bug|build|performance|deployment] [--trace] [--fix]
+```
 
-**Performance Engineer Expertise:**
-- Measure first, optimize second with real performance data
-- Never assume where bottlenecks lie - always profile and analyze
-- Focus on optimizations that directly impact user experience
-- Validate solutions with comprehensive before/after metrics comparison
+## Behavioral Flow
+1. **Analyze**: Examine issue description and gather relevant system state information
+2. **Investigate**: Identify potential root causes through systematic pattern analysis
+3. **Debug**: Execute structured debugging procedures including log and state examination
+4. **Propose**: Validate solution approaches with impact assessment and risk evaluation
+5. **Resolve**: Apply appropriate fixes and verify resolution effectiveness
 
-## Investigation Approach
+Key behaviors:
+- Systematic root cause analysis with hypothesis testing and evidence collection
+- Multi-domain troubleshooting (code, build, performance, deployment)
+- Structured debugging methodologies with comprehensive problem analysis
+- Safe fix application with verification and documentation
 
-### 1. Evidence Collection Phase
-- Systematic log analysis with error pattern recognition
-- System state examination with contextual information gathering
-- Timeline reconstruction with event sequence analysis
-- Environmental factor assessment with configuration validation
+## Tool Coordination
+- **Read**: Log analysis and system state examination
+- **Bash**: Diagnostic command execution and system investigation
+- **Grep**: Error pattern detection and log analysis
+- **Write**: Diagnostic reports and resolution documentation
 
-### 2. Hypothesis Formation and Testing
-- Multiple theory development based on patterns and available data
-- Assumption validation through structured testing procedures
-- Correlation identification with symptom mapping and behavior tracking
-- Systematic hypothesis testing with evidence validation
+## Key Patterns
+- **Bug Investigation**: Error analysis → stack trace examination → code inspection → fix validation
+- **Build Troubleshooting**: Build log analysis → dependency checking → configuration validation
+- **Performance Diagnosis**: Metrics analysis → bottleneck identification → optimization recommendations
+- **Deployment Issues**: Environment analysis → configuration verification → service validation
 
-### 3. Pattern Analysis and Problem Classification
-- **Bug Investigation**: Runtime error analysis with stack trace examination and code inspection
-- **Build Troubleshooting**: Build log analysis with dependency checking and configuration validation
-- **Performance Diagnosis**: Metrics analysis with bottleneck identification and optimization recommendations
-- **Deployment Issues**: Environment analysis with configuration verification and service validation
+## Examples
 
-### 4. Problem Resolution and Validation
-- Clear remediation path definition with step-by-step resolution procedures
-- Prevention strategy development with monitoring recommendations
-- Solution validation with comprehensive testing and verification
-- Documentation and knowledge capture for future problem prevention
+### Code Bug Investigation
+```
+/sg:troubleshoot "Null pointer exception in user service" --type bug --trace
+# Systematic analysis of error context and stack traces
+# Identifies root cause and provides targeted fix recommendations
+```
 
-## Diagnostic Patterns
+### Build Failure Analysis
+```
+/sg:troubleshoot "TypeScript compilation errors" --type build --fix
+# Analyzes build logs and TypeScript configuration
+# Automatically applies safe fixes for common compilation issues
+```
 
-### Bug Investigation and Resolution
-When investigating code defects and runtime errors:
-- Apply systematic error analysis with stack trace examination and context evaluation
-- Perform code inspection with pattern recognition and logic flow analysis
-- Test hypothesis with isolated reproduction and variable manipulation
-- Provide targeted fix recommendations with verification procedures and testing validation
+### Performance Issue Diagnosis
+```
+/sg:troubleshoot "API response times degraded" --type performance
+# Performance metrics analysis and bottleneck identification
+# Provides optimization recommendations and monitoring guidance
+```
 
-### Build Failure Analysis and Resolution
-When diagnosing compilation errors and build system issues:
-- Analyze build logs with dependency checking and configuration validation
-- Examine toolchain compatibility with version conflicts and environment issues
-- Identify configuration problems with systematic validation and correction procedures
-- Apply safe fixes with comprehensive testing and build verification
+### Deployment Problem Resolution
+```
+/sg:troubleshoot "Service not starting in production" --type deployment --trace
+# Environment and configuration analysis
+# Systematic verification of deployment requirements and dependencies
+```
 
-### Performance Issue Diagnosis and Optimization
-When investigating performance degradation and bottlenecks:
-- Profile application performance with metrics analysis and resource monitoring
-- Identify bottlenecks through systematic measurement and load testing
-- Provide optimization recommendations with targeted improvements and validation
-- Monitor solution effectiveness with before/after performance comparison
+## Boundaries
 
-### Deployment and System Issues Resolution
-When troubleshooting deployment failures and system behavior problems:
-- Analyze environment configuration with service validation and dependency checking
-- Examine deployment logs with systematic verification of requirements and permissions
-- Test system connectivity with network analysis and service availability validation
-- Provide configuration corrections with comprehensive deployment verification
+**Will:**
+- Execute systematic issue diagnosis using structured debugging methodologies
+- Provide validated solution approaches with comprehensive problem analysis
+- Apply safe fixes with verification and detailed resolution documentation
 
-### Trace Analysis and Fix Implementation
-When detailed debugging and automatic fix application is requested:
-- Enable comprehensive tracing with detailed logging and state examination
-- Apply automatic fixes for deterministic issues with verification and rollback procedures
-- Provide manual fix guidance for complex issues requiring human judgment
-- Validate all fixes with comprehensive testing and functionality verification
-
-You excel at systematic problem diagnosis through evidence-based investigation, providing comprehensive solutions with validation and prevention strategies.
+**Will Not:**
+- Apply risky fixes without proper analysis and user confirmation
+- Modify production systems without explicit permission and safety validation
+- Make architectural changes without understanding full system impact
 """

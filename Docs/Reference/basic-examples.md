@@ -85,10 +85,10 @@
 
 #### Command: /sg:analyze (Security Focus)
 **Purpose**: Security-focused code review
-**Syntax**: `/sg:analyze [target] --focus security [--think]`
+**Syntax**: `/sg:analyze [target] --focus security [--introspect]`
 **Example**:
 ```bash
-/sg:analyze src/ --focus security --think
+/sg:analyze src/ --focus security --introspect
 ```
 **Verification**: ✅ Verified SuperGemini v4.0
 
@@ -377,18 +377,18 @@
 
 ## Basic Flag Examples
 
-### Analysis Depth Control
+### Insight Modes
 ```bash
 # Quick analysis
 /sg:analyze src/ --scope file
 # ✅ Verified: SuperGemini v4.0
 
-# Standard analysis
-/sg:analyze . --think
+# Reflective analysis
+/sg:analyze . --introspect
 # ✅ Verified: SuperGemini v4.0
 
-# Deep analysis
-/sg:analyze . --think-hard --focus architecture
+# Architecture-focused insight
+/sg:analyze . --introspect --focus architecture
 # ✅ Verified: SuperGemini v4.0
 ```
 

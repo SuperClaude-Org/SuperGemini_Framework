@@ -313,7 +313,7 @@ Layer 5: /sg:test . --security --vulnerability    # Security validation
 
 # Refactor Phase: Code improvement
 /sg:improve . --focus quality --safe-mode
-/sg:analyze . --focus quality --think
+/sg:analyze . --focus quality --introspect
 /sg:test . --coverage --validate
 
 # Cycle benefits: Higher code quality, better test coverage, reduced bugs
@@ -345,7 +345,7 @@ Layer 5: /sg:test . --security --vulnerability    # Security validation
 **Quality Prediction and Prevention:**
 ```bash
 # Advanced quality management with comprehensive analysis
-/sg:analyze . --focus quality --think-hard --validate
+/sg:analyze . --focus quality --introspect --validate
 
 # Predictive analysis capabilities:
 # - Quality degradation prediction based on code change patterns
@@ -356,7 +356,7 @@ Layer 5: /sg:test . --security --vulnerability    # Security validation
 
 # Proactive optimization workflow:
 /sg:implement "new feature" --validate --safe-mode
-/sg:analyze . --focus quality --think  
+/sg:analyze . --focus quality --introspect  
 /sg:improve . --focus quality --validate
 
 # Outcomes: Significant reduction in production issues and lower maintenance costs

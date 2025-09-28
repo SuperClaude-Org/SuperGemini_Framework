@@ -1,0 +1,9 @@
+{
+  "superagent": {
+    "command": "npx",
+    "args": [
+      "-y",
+      "@superclaude-org/superagent"
+    ]
+  }
+}

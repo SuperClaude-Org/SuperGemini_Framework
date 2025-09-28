@@ -221,7 +221,7 @@
 ### Backend Performance Optimization
 ```bash
 # Database and API performance optimization
-/sg:analyze backend/ --focus performance --think-hard --serena
+/sg:analyze backend/ --focus performance --introspect --serena
 
 # Backend performance areas:
 # - Database query optimization and indexing
@@ -273,7 +273,7 @@
 ### Distributed System Debugging
 ```bash
 # Complex distributed system troubleshooting
-/sg:troubleshoot "intermittent service failures in microservices architecture" --think-hard --all-mcp
+/sg:troubleshoot "intermittent service failures in microservices architecture" --introspect --all-mcp
 
 # Systematic debugging approach:
 # 1. Service dependency mapping and health analysis

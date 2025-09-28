@@ -1,14 +1,10 @@
+name = "select-tool"
 description = "Intelligent MCP tool selection based on complexity scoring and operation analysis"
+category = "special"
+complexity = "high"
+mcp_servers = ["serena", "morphllm"]
 
 prompt = """
----
-name: select-tool
-category: special
-complexity: high
-mcp-servers: [serena, morphllm]
-agents: []
----
-
 # /sg:select-tool - Intelligent MCP Tool Selection
 
 ## Triggers
@@ -86,6 +82,4 @@ Key behaviors:
 - Override explicit tool specifications when user has clear preference
 - Select tools without proper complexity analysis and capability matching
 - Compromise performance requirements for convenience or speed
-
-
 """

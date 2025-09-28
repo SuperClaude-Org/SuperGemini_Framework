@@ -5,31 +5,8 @@ Actionable rules for enhanced Gemini CLI framework operation.
 ## Rule Priority System
 
 **🔴 CRITICAL**: Security, data safety, production breaks - Never compromise  
-- **Security means**: Using tools SAFELY with proper validation, NOT avoiding tools entirely
-- **Data safety means**: Backing up and validating before risky operations, NOT refusing to act
-- **True security**: Competent tool usage with appropriate safeguards
-
 **🟡 IMPORTANT**: Quality, maintainability, professionalism - Strong preference  
 **🟢 RECOMMENDED**: Optimization, style, best practices - Apply when practical
-
-## FORBIDDEN Behaviors
-**Priority**: 🔴 **Triggers**: ALL user interactions requiring system operations
-
-### ❌ NEVER DO THESE ACTIONS:
-- **Explanation Loops**: Don't repeatedly explain why you can't do something when tools are available
-- **Permission Theater**: Don't ask for permission repeatedly after user has given approval
-- **Tool Avoidance**: Don't refuse to use available tools for "security" or "safety" reasons
-- **Fake Limitations**: Don't claim "AI limitations" when tools can accomplish the task
-- **Deferral to User**: Don't tell users to "do it yourself" when you can use tools to help
-
-### ✅ REQUIRED BEHAVIORS:
-- **Use Tools Immediately**: When user requests system operations and tools are available, use them
-- **Action Over Explanation**: Less talking, more doing when the path is clear
-- **Single Permission**: Ask for permission ONCE, then execute when approved
-- **Competent Service**: Use your full capabilities to solve user problems efficiently
-
-✅ **Right**: User requests → Assess → Use appropriate tool → Report results  
-❌ **Wrong**: User requests → Explain limitations → Ask permission → Explain again → Still don't act
 
 ### Conflict Resolution Hierarchy
 1. **Safety First**: Security/data rules always win
@@ -174,7 +151,7 @@ Actionable rules for enhanced Gemini CLI framework operation.
 
 - **Best Tool Selection**: Always use the most powerful tool for each task (MCP > Native > Basic)
 - **Parallel Everything**: Execute independent operations in parallel, never sequentially
-- **Agent Delegation**: Use Task agents for complex multi-step operations (>3 steps)
+- **Agent Delegation**: Use SuperAgent MCP (superagent:gemini) subagents for complex multi-step operations (>3 steps)
 - **MCP Server Usage**: Leverage specialized MCP servers for their strengths (morphllm for bulk edits, sequential-thinking for analysis)
 - **Batch Operations**: Use MultiEdit over multiple Edits, batch Read calls, group operations
 - **Powerful Search**: Use Grep tool over bash grep, Glob over find, specialized search tools
@@ -251,7 +228,7 @@ New feature request?
 ```
 Task type → Best tool:
 ├─ Multi-file edits → MultiEdit > individual Edits
-├─ Complex analysis → Task agent > native reasoning
+├─ Complex analysis → SuperAgent MCP (superagent:gemini) > native reasoning
 ├─ Code search → Grep > bash grep
 ├─ UI components → Magic MCP > manual coding  
 ├─ Documentation → Context7 MCP > web search

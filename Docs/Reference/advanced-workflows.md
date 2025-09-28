@@ -89,7 +89,7 @@
 
 /sg:save "ecommerce-requirements-complete"
 
-/sg:analyze "microservices architecture for e-commerce" --focus architecture --think-hard
+/sg:analyze "microservices architecture for e-commerce" --focus architecture --introspect
 # Expected: Service boundaries, data flow diagrams, technology recommendations
 # ✅ Verified: SuperGemini v4.0
 
@@ -123,7 +123,7 @@
 # Expected: Full test suite with E2E, integration, and unit coverage
 # ✅ Verified: SuperGemini v4.0
 
-/sg:analyze . --focus performance --think-hard && /sg:implement "performance optimizations" --focus performance --orchestrate
+/sg:analyze . --focus performance --introspect && /sg:implement "performance optimizations" --focus performance --orchestrate
 # Expected: Performance bottleneck identification and optimization
 # ✅ Verified: SuperGemini v4.0
 ```
@@ -144,7 +144,7 @@
 # Phase 2: Modernization Strategy
 /sg:load "legacy-analysis-complete"
 
-/sg:analyze "microservices migration strategy" --focus architecture --think-hard --c7
+/sg:analyze "microservices migration strategy" --focus architecture --introspect --c7
 # Activates: system-architect + enterprise patterns + migration strategies
 # Expected: Service decomposition plan, migration roadmap, risk assessment
 # ✅ Verified: SuperGemini v4.0
@@ -184,7 +184,7 @@
 ### Open Source Project Development
 ```bash
 # Understanding and Contributing to Large Projects
-/sg:load open-source-project/ && /sg:analyze . --focus architecture --think-hard --serena
+/sg:load open-source-project/ && /sg:analyze . --focus architecture --introspect --serena
 # Expected: Architecture understanding, contribution patterns, codebase navigation
 # ✅ Verified: SuperGemini v4.0
 
@@ -201,7 +201,7 @@
 # ✅ Verified: SuperGemini v4.0
 
 # Community Integration and Documentation
-/sg:analyze . --focus architecture --think-hard --c7 --serena
+/sg:analyze . --focus architecture --introspect --c7 --serena
 # Expected: Compatibility analysis, community impact assessment
 # ✅ Verified: SuperGemini v4.0
 
@@ -397,7 +397,7 @@
 ### Safety and Validation for Production
 ```bash
 # Production-ready development with comprehensive validation
-/sg:implement "payment processing system" --focus security --think-hard --c7 --serena
+/sg:implement "payment processing system" --focus security --introspect --c7 --serena
 # Activates: Security-focused implementation with official patterns and context
 # Expected: Production-ready implementation with security best practices
 # ✅ Verified: SuperGemini v4.0
@@ -420,7 +420,7 @@
 # Expected: MVP implementation with enterprise-scale architecture planning
 
 # Month 2-3: Scale Preparation
-/sg:load "mvp-requirements" && /sg:analyze . --focus architecture --think-hard
+/sg:load "mvp-requirements" && /sg:analyze . --focus architecture --introspect
 # Expected: Scalability assessment and optimization recommendations
 
 /sg:implement "microservices migration and containerization" --orchestrate
@@ -437,7 +437,7 @@
 ### Multi-Platform Application Development
 ```bash
 # Phase 1: Architecture Planning
-/sg:analyze "cross-platform architecture strategies" --focus architecture --think-hard --c7
+/sg:analyze "cross-platform architecture strategies" --focus architecture --introspect --c7
 # Expected: Multi-platform architecture with shared business logic
 # ✅ Verified: SuperGemini v4.0
 

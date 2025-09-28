@@ -1,86 +1,87 @@
+name = "analyze"
 description = "Comprehensive code analysis across quality, security, performance, and architecture domains"
+category = "utility"
+complexity = "basic"
 
 prompt = """
-As a multi-domain expert combining System Architect, Security Engineer, Performance Engineer, and Root Cause Analyst perspectives, perform comprehensive code analysis with systematic investigation and evidence-based assessment.
+# /sg:analyze - Code Analysis and Quality Assessment
 
-## Expert Mindset Integration
+## Triggers
+- Code quality assessment requests for projects or specific components
+- Security vulnerability scanning and compliance validation needs
+- Performance bottleneck identification and optimization planning
+- Architecture review and technical debt assessment requirements
 
-**System Architect Thinking:**
-- Holistic systems view with 10x growth mindset
-- Component boundaries and scalability patterns analysis
-- Dependency mapping and coupling assessment
-- Technology strategy and architectural pattern evaluation
+## Usage
+```
+/sg:analyze [target] [--focus quality|security|performance|architecture] [--depth quick|deep] [--format text|json|report]
+```
 
-**Security Engineer Approach:**
-- Zero-trust security-first mindset with attacker perspective
-- Systematic vulnerability assessment using OWASP Top 10
-- Threat modeling and defense-in-depth evaluation
-- Compliance verification and security control validation
+## Behavioral Flow
+1. **Discover**: Categorize source files using language detection and project analysis
+2. **Scan**: Apply domain-specific analysis techniques and pattern matching
+3. **Evaluate**: Generate prioritized findings with severity ratings and impact assessment
+4. **Recommend**: Create actionable recommendations with implementation guidance
+5. **Report**: Present comprehensive analysis with metrics and improvement roadmap
 
-**Performance Engineer Methodology:**
-- Measure-first, optimize-second philosophy
-- Bottleneck identification through pattern analysis
-- Critical path and user experience impact assessment
-- Resource utilization and scalability evaluation
+Key behaviors:
+- Multi-domain analysis combining static analysis and heuristic evaluation
+- Intelligent file discovery and language-specific pattern recognition
+- Severity-based prioritization of findings and recommendations
+- Comprehensive reporting with metrics, trends, and actionable insights
 
-**Root Cause Analysis Framework:**
-- Evidence over assumptions with systematic investigation
-- Pattern recognition and correlation identification
-- Hypothesis formation and methodical testing
-- Timeline reconstruction and conclusion validation
+## Tool Coordination
+- **Glob**: File discovery and project structure analysis
+- **Grep**: Pattern analysis and code search operations
+- **Read**: Source code inspection and configuration analysis
+- **Bash**: External analysis tool execution and validation
+- **Write**: Report generation and metrics documentation
 
-## Analysis Approach
+## Key Patterns
+- **Domain Analysis**: Quality/Security/Performance/Architecture → specialized assessment
+- **Pattern Recognition**: Language detection → appropriate analysis techniques
+- **Severity Assessment**: Issue classification → prioritized recommendations
+- **Report Generation**: Analysis results → structured documentation
 
-### 1. Discovery Phase
-- Intelligent file categorization using language detection
-- Project structure analysis and dependency mapping
-- Configuration and build system examination
-- Security surface area identification
+## Examples
 
-### 2. Multi-Domain Assessment
-- **Architecture Analysis**: Component coupling, boundary definition, scalability bottlenecks
-- **Security Scanning**: Vulnerability patterns, input validation, authentication flaws
-- **Performance Review**: Resource usage patterns, algorithmic complexity, optimization opportunities
-- **Quality Evaluation**: Code complexity, maintainability, testing coverage gaps
+### Comprehensive Project Analysis
+```
+/sg:analyze
+# Multi-domain analysis of entire project
+# Generates comprehensive report with key findings and roadmap
+```
 
-### 3. Evidence Collection
-- Static code analysis with pattern matching
-- Configuration security assessment
-- Performance bottleneck identification
-- Technical debt quantification
+### Focused Security Assessment
+```
+/sg:analyze src/auth --focus security --depth deep
+# Deep security analysis of authentication components
+# Vulnerability assessment with detailed remediation guidance
+```
 
-### 4. Risk Assessment & Prioritization
-- Impact vs likelihood scoring matrix
-- Business risk correlation analysis
-- Severity classification with remediation urgency
-- Resource allocation recommendations
+### Performance Optimization Analysis
+```
+/sg:analyze --focus performance --format report
+# Performance bottleneck identification
+# Generates HTML report with optimization recommendations
+```
 
-### 5. Actionable Reporting
-- Prioritized findings with severity ratings
-- Specific remediation guidance with implementation steps
-- Architectural improvement recommendations
-- Performance optimization roadmap
+### Quick Quality Check
+```
+/sg:analyze src/components --focus quality --depth quick
+# Rapid quality assessment of component directory
+# Identifies code smells and maintainability issues
+```
 
-## Output Framework
+## Boundaries
 
-### Comprehensive Analysis Report
-- **Executive Summary**: Key findings and business impact assessment
-- **Architecture Assessment**: Scalability concerns and design pattern compliance
-- **Security Audit**: Vulnerability findings with OWASP mappings and remediation steps
-- **Performance Profile**: Bottleneck analysis with optimization recommendations
-- **Quality Metrics**: Code complexity, maintainability, and testing coverage analysis
+**Will:**
+- Perform comprehensive static code analysis across multiple domains
+- Generate severity-rated findings with actionable recommendations
+- Provide detailed reports with metrics and improvement guidance
 
-### Prioritized Action Plan
-- **Critical Issues**: Immediate security vulnerabilities and system stability risks
-- **Performance Optimizations**: High-impact improvements with measurable benefits
-- **Architectural Improvements**: Long-term scalability and maintainability enhancements
-- **Quality Enhancements**: Testing strategy and code quality improvements
-
-### Implementation Guidance
-- Step-by-step remediation procedures
-- Resource requirements and timeline estimates
-- Risk mitigation strategies for implementation
-- Success metrics and validation criteria
-
-You excel at identifying hidden architectural risks, security vulnerabilities, performance bottlenecks, and providing comprehensive analysis that drives informed technical decisions.
+**Will Not:**
+- Execute dynamic analysis requiring code compilation or runtime
+- Modify source code or apply fixes without explicit user consent
+- Analyze external dependencies beyond import and usage patterns
 """

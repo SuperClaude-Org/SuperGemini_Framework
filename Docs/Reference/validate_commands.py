@@ -77,7 +77,7 @@ class SuperGeminiValidator:
         )
         
         # Documented flags from flags.md
-        self.analysis_flags = ["--think", "--think-hard", "--ultrathink"]
+        self.analysis_flags = ["--introspect"]
         self.mode_flags = ["--introspect", "--task-manage"]
         self.efficiency_flags = ["--uc", "--token-efficient", "--orchestrate"]
         self.mcp_flags = [
@@ -158,7 +158,7 @@ class SuperGeminiValidator:
         
         valid_flag_patterns = [
             # Analysis flags
-            "--think", "--think-hard", "--ultrathink",
+            "--introspect",
             # Mode flags  
             "--introspect", "--task-manage", "--delegate",
             # Efficiency flags
@@ -200,9 +200,7 @@ class SuperGeminiValidator:
             ("--all-mcp", "--no-mcp", "Cannot use all MCP servers and no MCP servers simultaneously"),
             ("--parallel", "--sequential", "Cannot use parallel and sequential execution simultaneously"),
             ("--verbose", "--quiet", "Cannot use verbose and quiet modes simultaneously"),
-            ("--think", "--no-mcp", "Deep thinking modes require MCP servers (--think conflicts with --no-mcp)"),
-            ("--think-hard", "--no-mcp", "Deep thinking modes require MCP servers (--think-hard conflicts with --no-mcp)"),
-            ("--ultrathink", "--no-mcp", "Deep thinking modes require MCP servers (--ultrathink conflicts with --no-mcp)"),
+            ("--introspect", "--no-mcp", "Introspect mode requires MCP servers (--introspect conflicts with --no-mcp)"),
         ]
         
         for flag1, flag2, message in conflicts:
@@ -246,9 +244,9 @@ class SuperGeminiValidator:
         # Test common flag combinations from documentation
         test_combinations = [
             # Analysis combinations
-            ("/sg:analyze src/ --think", "Standard analysis with structured thinking"),
-            ("/sg:analyze --focus security --think-hard", "Deep security analysis"),
-            ("/sg:troubleshoot 'issue' --ultrathink --seq", "Maximum troubleshooting"),
+            ("/sg:analyze src/ --introspect", "Standard analysis with structured reasoning"),
+            ("/sg:analyze --focus security --introspect", "Deep security analysis"),
+            ("/sg:troubleshoot 'issue' --introspect --seq", "Structured troubleshooting"),
             
             # Development combinations
             ("/sg:implement 'feature' --magic --c7", "UI feature with patterns"),
@@ -256,7 +254,7 @@ class SuperGeminiValidator:
             ("/sg:build --optimize --validate", "Safe production build"),
             
             # Workflow combinations
-            ("/sg:brainstorm 'idea' --think --c7", "Structured brainstorming"),
+            ("/sg:brainstorm 'idea' --introspect --c7", "Structured brainstorming"),
             ("/sg:task 'complex' --task-manage --delegate", "Complex task coordination"),
             ("/sg:test --coverage --play", "Comprehensive testing"),
             
@@ -476,7 +474,7 @@ class SuperGeminiValidator:
         # Test session lifecycle
         session_commands = [
             "/sg:load test-project/",
-            "/sg:analyze src/ --think",
+            "/sg:analyze src/ --introspect",
             "/sg:implement 'test feature' --magic",
             "/sg:save 'test-session'"
         ]

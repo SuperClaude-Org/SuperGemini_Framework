@@ -1,14 +1,10 @@
+name = "load"
 description = "Session lifecycle management with Serena MCP integration for project context loading"
+category = "session"
+complexity = "standard"
+mcp_servers = ["serena"]
 
 prompt = """
----
-name: load
-category: session
-complexity: standard
-mcp-servers: [serena]
-agents: []
----
-
 # /sg:load - Project Context Loading
 
 ## Triggers

@@ -152,7 +152,7 @@ Day 7: /sg:workflow "week 2 learning plan"
 ```bash
 # Use when: Code review, refactoring, optimization, testing
 /sg:test --coverage --validate
-/sg:analyze . --focus security --think-hard
+/sg:analyze . --focus security --introspect
 /sg:cleanup . --safe-mode
 /sg:document . --scope project
 
@@ -242,8 +242,8 @@ Day 7: /sg:workflow "week 2 learning plan"
 # --safe-mode: Maximum safety checks and rollback capability
 
 # For comprehensive analysis
-/sg:analyze . --think --focus security
-# --think: Standard structured analysis (~4K tokens)
+/sg:analyze . --focus security --introspect
+# --introspect: Deep reasoning with transparent analysis markers
 # --focus security: Domain-specific expertise
 
 # Quality improvements: Better validation through systematic checks

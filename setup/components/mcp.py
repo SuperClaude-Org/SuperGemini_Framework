@@ -55,9 +55,7 @@ class MCPComponent(Component):
                 "config_file": "magic.json",
                 "npm_package": "@21st-dev/magic",
                 "requires_api_key": True,
-                "api_key_env": "TWENTYFIRST_API_KEY",
-                "disabled_by_default": True,
-                "disabled_reason": "Gemini API compatibility issues - function naming conflicts"
+                "api_key_env": "TWENTYFIRST_API_KEY"
             },
             "playwright": {
                 "name": "playwright",
@@ -72,9 +70,7 @@ class MCPComponent(Component):
                 "config_file": "serena.json",
                 "install_method": "uv",
                 "uv_package": "git+https://github.com/oraios/serena",
-                "requires_api_key": False,
-                "disabled_by_default": True,
-                "disabled_reason": "Gemini API compatibility issues - complex semantic operations may conflict"
+                "requires_api_key": False
             },
             "morphllm": {
                 "name": "morphllm-fast-apply",
@@ -82,9 +78,14 @@ class MCPComponent(Component):
                 "config_file": "morphllm.json",
                 "npm_package": "@morph-llm/morph-fast-apply",
                 "requires_api_key": True,
-                "api_key_env": "MORPH_API_KEY",
-                "disabled_by_default": True,
-                "disabled_reason": "Gemini API compatibility issues - function naming conflicts with fast apply"
+                "api_key_env": "MORPH_API_KEY"
+            },
+            "superagent": {
+                "name": "superagent",
+                "description": "Agent orchestration server for Gemini and Codex workflows",
+                "config_file": "superagent.json",
+                "npm_package": "@superclaude-org/superagent",
+                "requires_api_key": False
             },
         }
         
@@ -726,23 +727,21 @@ class MCPComponent(Component):
                     display_info(f"Server '{server_key}' requires API key: {api_key_env}")
                     display_info("You can set this environment variable later")
             
-            # Determine target section based on disabled_by_default flag
-            is_disabled_by_default = server_info.get("disabled_by_default", False)
-            target_section = "_disabledMcpServers" if is_disabled_by_default else "mcpServers"
-            
-            # Add comments for disabled section
-            if is_disabled_by_default and "_comment" not in gemini_config["_disabledMcpServers"]:
-                gemini_config["_disabledMcpServers"]["_comment"] = f"{server_info['description']} - disabled due to compatibility issues"
-                gemini_config["_disabledMcpServers"]["_instructions"] = f"Reason: {server_info.get('disabled_reason', 'Compatibility issues')}. Move to mcpServers section to enable."
-            
-            # Merge server config into appropriate section
+            # Always enable newly managed servers by default
+            target_section = "mcpServers"
+
+            # If the server was previously disabled, remove the stale entry
+            if server_key in gemini_config.get("_disabledMcpServers", {}):
+                try:
+                    del gemini_config["_disabledMcpServers"][server_key]
+                except KeyError:
+                    pass
+
+            # Merge server config into active section
             self._merge_mcp_server_config(gemini_config[target_section], server_config, server_key)
             configured_count += 1
-            
-            if is_disabled_by_default:
-                self.logger.info(f"Server '{server_key}' installed as disabled by default: {server_info.get('disabled_reason', 'Compatibility issues')}")
-            else:
-                self.logger.debug(f"Server '{server_key}' installed as enabled")
+
+            self.logger.debug(f"Server '{server_key}' installed as enabled")
         
         # Save updated configuration
         if configured_count > 0:

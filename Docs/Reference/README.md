@@ -99,8 +99,8 @@ Advanced Analysis: diagnostic-reference.md
 |----------------|---------|---------|
 | `/sg:load` | Restore session context | `/sg:load project_name` |
 | `/sg:save` | Preserve session state | `/sg:save "milestone checkpoint"` |
-| `--think` | Enable structured analysis | `--think analyze performance bottlenecks` |
-| `` | Collaborative requirement discovery | ` new authentication system` |
+| `--introspect` | Expose structured reasoning | `--introspect analyze performance bottlenecks` |
+| `/sg:brainstorm` | Collaborative requirement discovery | `/sg:brainstorm "new authentication system"` |
 | `--task-manage` | Multi-step operation orchestration | `--task-manage refactor user module` |
 
 ### Performance & Efficiency Flags
@@ -133,7 +133,7 @@ Advanced Analysis: diagnostic-reference.md
 --c7 --magic "implement Next.js authentication with TypeScript"
 
 # Component development workflow  
---magic --think "create responsive dashboard component"
+--magic --introspect "create responsive dashboard component"
 ```
 
 ### Node.js/Express Backend
@@ -142,7 +142,7 @@ Advanced Analysis: diagnostic-reference.md
 --c7 --seq "design RESTful API with Express and MongoDB"
 
 # Performance optimization
---think --orchestrate "optimize database queries and caching"
+--introspect --orchestrate "optimize database queries and caching"
 ```
 
 ### Full-Stack Development
@@ -203,7 +203,7 @@ Found outdated information or broken examples?
 
 ### Daily Workflow Optimization
 1. **Session Management**: Always start with `/sg:load`, end with `/sg:save`
-2. **Flag Combinations**: Combine complementary flags: `--think --c7` for documented analysis
+2. **Flag Combinations**: Combine complementary flags: `--introspect --c7` for documented analysis
 3. **Progressive Complexity**: Start simple, add sophistication incrementally
 4. **Tool Specialization**: Match tools to tasks: Magic for UI, Sequential for analysis
 
@@ -215,7 +215,7 @@ Found outdated information or broken examples?
 
 ### Troubleshooting Mastery
 1. **Systematic Approach**: Always start with [common-issues.md](common-issues.md)
-2. **Evidence Gathering**: Use `--think` for complex problem analysis
+2. **Evidence Gathering**: Use `--introspect` for complex problem analysis
 3. **Root Cause Focus**: Address underlying issues, not just symptoms
 4. **Documentation First**: Check official docs before experimental solutions
 

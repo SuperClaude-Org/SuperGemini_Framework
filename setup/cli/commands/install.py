@@ -62,7 +62,7 @@ Examples:
     parser.add_argument(
         "--mcp-servers", "--mcp",
         nargs="+",
-        choices=["context7", "sequential", "magic", "playwright", "serena", "morphllm"],
+        choices=["context7", "sequential", "magic", "playwright", "serena", "morphllm", "superagent"],
         help="MCP servers to configure (default: interactive selection)"
     )
     
@@ -260,6 +260,7 @@ def select_mcp_servers(registry: ComponentRegistry) -> List[str]:
         ("playwright", "Cross-browser E2E testing and automation"),
         ("serena", "Semantic code analysis and intelligent editing"),
         ("morphllm", "Fast Apply capability for context-aware code modifications (requires API key)"),
+        ("superagent", "SuperAgent orchestration for multi-LLM agent workflows"),
         ("Skip MCP Server installation", "")
     ]
     
@@ -286,7 +287,9 @@ def select_mcp_servers(registry: ComponentRegistry) -> List[str]:
             return selected
         
         # Handle skip option
-        if user_input in ['8', 'skip']:
+        skip_option_number = str(len(mcp_options))
+
+        if user_input in [skip_option_number, 'skip']:
             logger.info("No MCP servers selected")
             return []
         
@@ -669,7 +672,7 @@ def install_with_profile(args: argparse.Namespace) -> bool:
             if not hasattr(args, 'mcp_servers') or not args.mcp_servers:
                 # Set default MCP servers for full installation (all servers)
                 # serena and morphllm will be automatically installed as disabled
-                args.mcp_servers = ["sequential", "context7", "magic", "serena", "morphllm", "playwright"]
+                args.mcp_servers = ["sequential", "context7", "magic", "serena", "morphllm", "playwright", "superagent"]
                 logger.info(f"Full installation - automatically including all MCP servers: {args.mcp_servers}")
     
     # Run the actual installation
