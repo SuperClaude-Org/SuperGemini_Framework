@@ -7,13 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [4.2.0] - 2025-09-26
+## [4.2.0] - 2025-09-28
 
-### Fixed
-- Enhanced MCP prerequisite detection to reliably locate `node`, `npm`, and `uv` across common version managers and PATH fallbacks, preventing false "not found" errors during installation (`setup/components/mcp.py`).
+### Added
+- **SuperAgent MCP Integration**: SuperGemini now installs and registers `superagent:gemini` alongside the core MCP suite, enabling SuperClaude-style subagent orchestration inside Gemini CLI (`setup/components/mcp.py`, new `SuperGemini/MCP/configs/superagent.json`).
+- **Command & Core Assets**: Imported the latest SuperClaude command prompts and business panel resources (BUSINESS_* docs, research config) into the Gemini-optimized TOML/markdown structure.
 
 ### Changed
-- Synchronized all published artifacts (PyPI + npm) and documentation with version `4.2.0`, ensuring installers and badges reference the corrected release.
+- **MCP Enablement Defaults**: Magic, Serena, and MorphLLM now land in the active `mcpServers` section by default; documentation highlights API key requirements instead of disabling servers out of the box (`setup/components/mcp.py`, `Docs/User-Guide/mcp-servers.md`).
+- **Documentation Refresh**: Updated README and user/reference guides to describe SuperAgent usage, the new MCP behavior, and the `--introspect` analysis flow.
+
+### Fixed
+- Improved MCP prerequisite detection across Node/npm/uv version managers to prevent false "not found" errors during installation.
+
+### Removed
+- Dropped the deprecated `SuperGemini/Core/AGENTS.md` placeholder file from the installation set.
 
 ## [4.0.9] - 2025-08-24
 

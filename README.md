@@ -64,6 +64,7 @@ SuperGemini transforms Gemini CLI into a structured development platform by prov
 
 - **18 Slash Commands**: TOML-based commands for systematic workflow automation (/sg:analyze, /sg:implement, etc.)
 - **Persona Mode**: 13 specialized AI agents that embody specific roles (system-architect, security-engineer, etc.)
+- **SuperAgent MCP Support**: Optional subagent orchestration via `superagent:gemini`, matching SuperClaude’s multi-agent workflows when desired
 - **Behavioral Instructions**: Core principles and rules for consistent development practices
 - **Workflow Automation**: Systematic approaches to analysis, implementation, and optimization
 
