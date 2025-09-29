@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [4.2.1] - 2025-09-29
+
+### Changed
+- Bumped all framework version metadata (Python, npm, docs, setup components) to v4.2.1 for coordinated release packaging.
+
+### Fixed
+- Refreshed publishing guide pre-release tags to 4.2.1 so alpha/beta/RC instructions match the current release line.
+
 ## [4.2.0] - 2025-09-28
 
 ### Added

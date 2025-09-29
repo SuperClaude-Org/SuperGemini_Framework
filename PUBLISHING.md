@@ -408,9 +408,9 @@ git push origin v4.0.1
 ```
 
 **Pre-release Versions:**
-- **Alpha**: 4.2.0a1 (early development, unstable)
-- **Beta**: 4.2.0b1 (feature complete, testing phase)
-- **Release Candidate**: 4.2.0rc1 (production candidate, final testing)
+- **Alpha**: 4.2.1a1 (early development, unstable)
+- **Beta**: 4.2.1b1 (feature complete, testing phase)
+- **Release Candidate**: 4.2.1rc1 (production candidate, final testing)
 **Version Validation Checklist:**
 
 **Pre-Release Validation:**

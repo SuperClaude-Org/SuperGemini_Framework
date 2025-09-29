@@ -26,6 +26,6 @@ def get_version() -> str:
             continue
     
     # Fallback version - no logging needed since this is expected behavior
-    return "4.2.0"
+    return "4.2.1"
 
 __version__ = get_version()
