@@ -254,7 +254,7 @@ def get_supergemini_environment_variables() -> Dict[str, str]:
     
     found_vars = {}
     for env_var, metadata in tracking_data.items():
-        if metadata.get("set_by") in ["supergemini", "supergemini"]:  # Support both for migration
+        if metadata.get("set_by") == "supergemini":
             value = os.environ.get(env_var)
             if value:
                 found_vars[env_var] = value
