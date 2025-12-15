@@ -14,7 +14,7 @@ def _get_version():
             return version_file.read_text().strip()
     except Exception:
         pass
-    return "4.2.1"  # Fallback only if VERSION file is missing
+    return "4.3.0"  # Fallback only if VERSION file is missing
 
 __version__ = _get_version()
 

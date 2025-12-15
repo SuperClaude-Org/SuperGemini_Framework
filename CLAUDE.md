@@ -375,7 +375,7 @@ SuperGemini --version
 ```
 
 **Version Update Process**:
-1. Update `VERSION` file (e.g., `4.2.1` → `4.2.2`)
+1. Update `VERSION` file (e.g., `4.3.0` → `4.2.2`)
 2. Version automatically propagates to:
    - `pyproject.toml` (dynamic = {file = "VERSION"})
    - `setup.py` (`get_version()` reads VERSION file)
