@@ -2,6 +2,18 @@
 
 **Purpose**: Modern UI component generation from 21st.dev patterns with design system integration
 
+## Gemini CLI Compatibility Warning
+
+**Status**: NOT COMPATIBLE with Gemini CLI (as of December 2025)
+
+**Issue**: The `@21st-dev/magic` package exports tool names that start with `21st_` (e.g., `21st_magic_component_builder`). Gemini's API requires function names to start with a letter or underscore, not a number.
+
+**Error**: `[FIELD_INVALID] Invalid function name. Must start with a letter or an underscore.`
+
+**Workaround**: SuperGemini automatically installs this server as DISABLED. You can enable it once the `@21st-dev/magic` package is updated to use compliant tool names.
+
+**Tracking**: This issue affects Gemini CLI only. The magic server works fine with Claude Code and other MCP clients.
+
 ## Triggers
 - UI component requests: button, form, modal, card, table, nav
 - Design system implementation needs
