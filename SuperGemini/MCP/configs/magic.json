@@ -7,6 +7,7 @@
     ],
     "env": {
       "TWENTYFIRST_API_KEY": ""
-    }
+    },
+    "_geminiCompatibility": "NOT_COMPATIBLE - Tool names start with '21st_' which violates Gemini function naming rules"
   }
 }

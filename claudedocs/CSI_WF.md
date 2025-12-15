@@ -1,7 +1,7 @@
 # Command Syntax Inconsistency Workflow (CSI_WF)
 
 **Generated**: 2025-11-05
-**Project**: SuperGemini v4.2.1
+**Project**: SuperGemini v4.3.0
 **Scope**: Documentation standardization for command syntax consistency
 
 ---
@@ -53,7 +53,7 @@ super().__init__(install_dir, Path("commands/sg"))  # /sg: namespace
 ```
 "SuperGemini is a meta-programming framework..."
 "Install SuperGemini with pipx"
-"SuperGemini Framework v4.2.1"
+"SuperGemini Framework v4.3.0"
 ```
 
 ❌ **Incorrect**:

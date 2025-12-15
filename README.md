@@ -1,4 +1,4 @@
-# SuperGemini v4.2.1 🚀
+# SuperGemini v4.3.0 🚀
 <a href="https://github.com/SuperClaude-Org/SuperClaude_Framework" target="_blank">
   <img src="https://img.shields.io/badge/Try-SuperClaude_Framework-brightgreen" alt="Try SuperClaude Framework"/>
 </a>
@@ -8,7 +8,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![PyPI version](https://img.shields.io/pypi/v/SuperGemini.svg)](https://pypi.org/project/SuperGemini/)
-[![Version](https://img.shields.io/badge/version-4.2.1-blue.svg)](https://github.com/SuperClaude-Org/SuperGemini_Framework)
+[![Version](https://img.shields.io/badge/version-4.3.0-blue.svg)](https://github.com/SuperClaude-Org/SuperGemini_Framework)
 [![GitHub issues](https://img.shields.io/github/issues/SuperClaude-Org/SuperGemini_Framework)](https://github.com/SuperClaude-Org/SuperGemini_Framework/issues)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/SuperClaude-Org/SuperGemini_Framework/blob/master/CONTRIBUTING.md)
 [![Contributors](https://img.shields.io/github/contributors/SuperClaude-Org/SuperGemini_Framework)](https://github.com/SuperClaude-Org/SuperGemini_Framework/graphs/contributors)

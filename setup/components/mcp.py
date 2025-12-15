@@ -55,7 +55,9 @@ class MCPComponent(Component):
                 "config_file": "magic.json",
                 "npm_package": "@21st-dev/magic",
                 "requires_api_key": True,
-                "api_key_env": "TWENTYFIRST_API_KEY"
+                "api_key_env": "TWENTYFIRST_API_KEY",
+                "gemini_compatible": False,
+                "incompatibility_reason": "Tool names start with '21st_' which violates Gemini's function naming rules (must start with letter/underscore, not number)"
             },
             "playwright": {
                 "name": "playwright",
@@ -727,21 +729,40 @@ class MCPComponent(Component):
                     display_info(f"Server '{server_key}' requires API key: {api_key_env}")
                     display_info("You can set this environment variable later")
             
-            # Always enable newly managed servers by default
-            target_section = "mcpServers"
+            # Check Gemini compatibility - install incompatible servers as disabled
+            is_gemini_compatible = server_info.get("gemini_compatible", True)
 
-            # If the server was previously disabled, remove the stale entry
-            if server_key in gemini_config.get("_disabledMcpServers", {}):
-                try:
-                    del gemini_config["_disabledMcpServers"][server_key]
-                except KeyError:
-                    pass
+            if is_gemini_compatible:
+                # Enable compatible servers by default
+                target_section = "mcpServers"
 
-            # Merge server config into active section
+                # If the server was previously disabled, remove the stale entry
+                if server_key in gemini_config.get("_disabledMcpServers", {}):
+                    try:
+                        del gemini_config["_disabledMcpServers"][server_key]
+                    except KeyError:
+                        pass
+
+                self.logger.debug(f"Server '{server_key}' installed as enabled")
+            else:
+                # Install incompatible servers as disabled with explanation
+                target_section = "_disabledMcpServers"
+                incompatibility_reason = server_info.get("incompatibility_reason", "Not compatible with Gemini CLI")
+
+                # Add disabled reason to the config
+                for server_name in server_config:
+                    server_config[server_name]["_disabledReason"] = incompatibility_reason
+
+                # Warn user about incompatibility
+                display_warning(f"Server '{server_key}' is NOT compatible with Gemini CLI!")
+                display_warning(f"Reason: {incompatibility_reason}")
+                display_info(f"Installing '{server_key}' as DISABLED. You can enable it when the package is updated.")
+
+                self.logger.warning(f"Server '{server_key}' installed as DISABLED due to Gemini incompatibility")
+
+            # Merge server config into appropriate section
             self._merge_mcp_server_config(gemini_config[target_section], server_config, server_key)
             configured_count += 1
-
-            self.logger.debug(f"Server '{server_key}' installed as enabled")
         
         # Save updated configuration
         if configured_count > 0:
